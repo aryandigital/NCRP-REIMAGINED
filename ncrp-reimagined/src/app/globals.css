@@ -1,26 +1,516 @@
 @import "tailwindcss";
 
+/* ============================================================
+   NCRP Reimagined — Design System
+   Deep slate dark mode with high-contrast accessible cards.
+   ============================================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Background hierarchy */
+  --bg-base:    #0B0F19;
+  --bg-card:    #161E2E;
+  --bg-elevated:#1E2A3E;
+  --bg-input:   #1A2233;
+
+  /* Trust / Primary — India Blue */
+  --blue-primary:  #1E40AF;
+  --blue-light:    #3B82F6;
+  --blue-subtle:   rgba(59,130,246,0.12);
+
+  /* Emergency / High Risk — Crimson */
+  --red-primary:   #DC2626;
+  --red-light:     #EF4444;
+  --red-subtle:    rgba(239,68,68,0.12);
+
+  /* Warning / Clock Active — Amber */
+  --amber-primary: #D97706;
+  --amber-light:   #F59E0B;
+  --amber-subtle:  rgba(245,158,11,0.12);
+
+  /* Success / Contained — Emerald */
+  --green-primary: #059669;
+  --green-light:   #10B981;
+  --green-subtle:  rgba(16,185,129,0.12);
+
+  /* Unclear / Neutral — Slate */
+  --slate-primary: #475569;
+  --slate-light:   #94A3B8;
+  --slate-subtle:  rgba(148,163,184,0.10);
+
+  /* Text */
+  --text-primary:   #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted:     #475569;
+  --text-inverse:   #0B0F19;
+
+  /* Borders */
+  --border-subtle: rgba(255,255,255,0.07);
+  --border-card:   rgba(255,255,255,0.10);
+  --border-focus:  #3B82F6;
+
+  /* Font */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Geist Mono', ui-monospace, monospace;
+
+  /* Radius */
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  14px;
+  --radius-xl:  20px;
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.5), 0 0 0 1px var(--border-card);
+  --shadow-elevated: 0 4px 24px rgba(0,0,0,0.5), 0 0 0 1px var(--border-card);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* Light mode overrides */
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-base:      #F8FAFC;
+    --bg-card:      #FFFFFF;
+    --bg-elevated:  #F1F5F9;
+    --bg-input:     #F8FAFC;
+    --text-primary:   #0F172A;
+    --text-secondary: #475569;
+    --text-muted:     #94A3B8;
+    --border-subtle:  rgba(0,0,0,0.06);
+    --border-card:    rgba(0,0,0,0.09);
+    --shadow-card:    0 1px 3px rgba(0,0,0,0.10), 0 0 0 1px var(--border-card);
+    --shadow-elevated: 0 4px 24px rgba(0,0,0,0.12), 0 0 0 1px var(--border-card);
   }
 }
 
+/* ============================================================
+   Base Reset
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  background: var(--bg-base);
+  color: var(--text-primary);
+}
+
+/* ============================================================
+   Typography
+   ============================================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+h2 { font-size: clamp(1.375rem, 3vw, 1.875rem); }
+h3 { font-size: clamp(1.125rem, 2.5vw, 1.375rem); }
+
+p { color: var(--text-secondary); line-height: 1.7; }
+
+a {
+  color: var(--blue-light);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+code, kbd, samp, pre {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+/* ============================================================
+   Layout Utilities
+   ============================================================ */
+.container-page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.container-narrow {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ============================================================
+   Card Component
+   ============================================================ */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 1.5rem;
+}
+
+.card-elevated {
+  background: var(--bg-elevated);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-elevated);
+  padding: 1.5rem;
+}
+
+/* ============================================================
+   Risk Badge Variants
+   ============================================================ */
+.badge-high {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: var(--red-subtle);
+  color: var(--red-light);
+  border: 1px solid rgba(239,68,68,0.3);
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.badge-medium {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: var(--amber-subtle);
+  color: var(--amber-light);
+  border: 1px solid rgba(245,158,11,0.3);
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.badge-unclear {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: var(--slate-subtle);
+  color: var(--slate-light);
+  border: 1px solid rgba(148,163,184,0.2);
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.badge-sim {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(234,179,8,0.12);
+  color: #EAB308;
+  border: 1px solid rgba(234,179,8,0.3);
+  border-radius: var(--radius-sm);
+  padding: 0.125rem 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+  min-height: 48px;
+  padding: 0 1.5rem;
+  white-space: nowrap;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--blue-primary);
+  color: #fff;
+}
+.btn-primary:hover { background: #1d4ed8; }
+
+.btn-danger {
+  background: var(--red-primary);
+  color: #fff;
+}
+.btn-danger:hover { background: #b91c1c; }
+
+.btn-secondary {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border-card);
+}
+.btn-secondary:hover { background: var(--bg-input); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+.btn-ghost:hover { background: var(--bg-elevated); color: var(--text-primary); }
+
+.btn-sm {
+  min-height: 36px;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  min-height: 56px;
+  padding: 0 2rem;
+  font-size: 1.0625rem;
+}
+
+/* ============================================================
+   Form Elements
+   ============================================================ */
+.input {
+  width: 100%;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-family: var(--font-sans);
+  transition: border-color 0.15s;
+  min-height: 48px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+}
+
+.input::placeholder { color: var(--text-muted); }
+
+textarea.input {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   Stage Progress Stepper
+   ============================================================ */
+.stage-stepper {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  padding: 0.75rem 0;
+  scrollbar-width: none;
+}
+.stage-stepper::-webkit-scrollbar { display: none; }
+
+.stage-step {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.stage-step.active { color: var(--blue-light); }
+.stage-step.completed { color: var(--green-light); }
+
+.stage-step-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.stage-step.active .stage-step-dot {
+  background: var(--blue-primary);
+  border-color: var(--blue-primary);
+  color: #fff;
+}
+.stage-step.completed .stage-step-dot {
+  background: var(--green-primary);
+  border-color: var(--green-primary);
+  color: #fff;
+}
+
+.stage-connector {
+  width: 2rem;
+  height: 2px;
+  background: var(--border-subtle);
+  flex-shrink: 0;
+  margin: 0 0.25rem;
+}
+
+/* ============================================================
+   Quick Exit Button
+   ============================================================ */
+.quick-exit-btn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  background: var(--red-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  letter-spacing: 0.03em;
+  transition: background 0.15s, transform 0.1s;
+  box-shadow: 0 2px 12px rgba(220,38,38,0.4);
+}
+.quick-exit-btn:hover { background: #b91c1c; transform: scale(1.04); }
+.quick-exit-btn:active { transform: scale(0.97); }
+
+/* ============================================================
+   Disclaimer Footer
+   ============================================================ */
+.disclaimer-footer {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-subtle);
+  padding: 1.25rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   Evidence Drop Zone
+   ============================================================ */
+.drop-zone {
+  border: 2px dashed var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  background: var(--bg-input);
+}
+.drop-zone:hover, .drop-zone.drag-over {
+  border-color: var(--blue-light);
+  background: var(--blue-subtle);
+}
+
+/* ============================================================
+   Confidence Bar
+   ============================================================ */
+.confidence-bar-track {
+  height: 6px;
+  background: var(--border-subtle);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.confidence-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue-primary), var(--blue-light));
+  transition: width 0.6s ease;
+}
+
+/* ============================================================
+   Door Cards (Homepage)
+   ============================================================ */
+.door-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+  box-shadow: var(--shadow-card);
+  min-height: 160px;
+}
+.door-card:hover {
+  border-color: var(--blue-light);
+  box-shadow: var(--shadow-elevated), 0 0 0 1px var(--blue-subtle);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.door-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================================
+   Monospace identifiers
+   ============================================================ */
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  letter-spacing: 0.02em;
+}
+
+/* ============================================================
+   Scroll-linked fade-in
+   ============================================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fadeUp 0.45s ease both;
+}
+
+/* ============================================================
+   Print CSS — Legal Documents
+   ============================================================ */
+@media print {
+  body { background: #fff; color: #000; font-size: 12pt; }
+  .quick-exit-btn, .disclaimer-footer, nav, header { display: none !important; }
+  .print-doc { max-width: 100%; padding: 0; }
+  a { color: #000 !important; text-decoration: none; }
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 640px) {
+  .container-page { padding: 0 1rem; }
+  .card { padding: 1.125rem; }
+  .door-card { padding: 1.25rem; min-height: auto; }
 }
