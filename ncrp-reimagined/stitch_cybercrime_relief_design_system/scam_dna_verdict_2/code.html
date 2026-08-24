@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Match Result - NCRP</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=Lexend:wght@400;600&amp;family=Source+Serif+4:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#faf9f6",
+                    "inverse-on-surface": "#f2f1ee",
+                    "accent-tint": "#E7F0EE",
+                    "primary-container": "#1b211f",
+                    "surface-container-low": "#f4f3f1",
+                    "outline": "#747876",
+                    "tertiary-container": "#400e00",
+                    "deadline-tint": "#F7EFE0",
+                    "on-secondary-fixed": "#00201c",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#434846",
+                    "outline-variant": "#c3c7c5",
+                    "surface-container-high": "#e9e8e5",
+                    "secondary": "#21695f",
+                    "ink-muted": "#8A928D",
+                    "surface-container-highest": "#e3e2e0",
+                    "secondary-fixed": "#aaf0e2",
+                    "on-tertiary-fixed-variant": "#822803",
+                    "primary-fixed-dim": "#c2c8c4",
+                    "ink-secondary": "#55605B",
+                    "primary-fixed": "#dee4e0",
+                    "error-container": "#ffdad6",
+                    "on-tertiary": "#ffffff",
+                    "sunken": "#F2F0EC",
+                    "on-primary": "#ffffff",
+                    "accent-hover": "#084B43",
+                    "hairline": "#E6E3DD",
+                    "primary": "#040907",
+                    "on-tertiary-fixed": "#390c00",
+                    "surface-dim": "#dbdad7",
+                    "surface-container": "#efeeeb",
+                    "inverse-surface": "#2f312f",
+                    "surface-variant": "#e3e2e0",
+                    "error": "#ba1a1a",
+                    "on-background": "#1a1c1a",
+                    "on-secondary-container": "#286f65",
+                    "surface-tint": "#59605d",
+                    "on-secondary-fixed-variant": "#005047",
+                    "inverse-primary": "#c2c8c4",
+                    "on-secondary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#aaf0e2",
+                    "surface": "#FFFFFF",
+                    "on-surface": "#1a1c1a",
+                    "signal-tint": "#FAEDE7",
+                    "canvas": "#FAF9F6",
+                    "on-primary-fixed": "#171d1b",
+                    "deadline": "#A8762A",
+                    "tertiary-fixed": "#ffdbd0",
+                    "secondary-fixed-dim": "#8fd3c6",
+                    "tertiary-fixed-dim": "#ffb59d",
+                    "on-tertiary-container": "#d7663e",
+                    "surface-bright": "#faf9f6",
+                    "tertiary": "#160200",
+                    "on-primary-container": "#828986",
+                    "on-primary-fixed-variant": "#424846",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "touch-target": "48px",
+                    "gutter": "24px",
+                    "max-width": "720px"
+            },
+            "fontFamily": {
+                    "display-lg": [
+                            "\"Source Serif 4\""
+                    ],
+                    "body-lg": [
+                            "Lexend"
+                    ],
+                    "headline-lg-mobile": [
+                            "\"Source Serif 4\""
+                    ],
+                    "number-display": [
+                            "IBM Plex Mono"
+                    ],
+                    "question-bold": [
+                            "Lexend"
+                    ],
+                    "headline-lg": [
+                            "\"Source Serif 4\""
+                    ],
+                    "label-mono": [
+                            "IBM Plex Mono"
+                    ],
+                    "body-md": [
+                            "Lexend"
+                    ]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "400"}],
+                    "number-display": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "question-bold": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                    "label-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .stage-node-active {
+            box-shadow: 0 0 0 4px theme('colors.accent-tint');
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center">
+<!-- TopAppBar (Shell Border Ban enforced: shadow instead of border) -->
+<header class="docked full-width top-0 h-[72px] bg-canvas dark:bg-canvas shadow-sm fixed z-50 flex justify-center w-full">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop w-full max-w-720 mx-auto">
+<div class="flex items-center gap-2 font-question-bold text-body-lg text-primary dark:text-primary-fixed">
+<span class="material-symbols-outlined text-[24px]">shield</span>
+<span>NCRP Reimagined</span>
+</div>
+<div class="hidden md:flex gap-6 items-center flex-1 justify-center px-8">
+<button class="text-primary dark:text-primary-fixed font-bold border-b-2 border-secondary font-label-mono text-label-mono pb-1 hover:text-secondary transition-colors">CHECK</button>
+<button class="text-ink-muted dark:text-ink-muted font-label-mono text-label-mono hover:text-secondary transition-colors pb-1">ACT</button>
+<button class="text-ink-muted dark:text-ink-muted font-label-mono text-label-mono hover:text-secondary transition-colors pb-1">REPORT</button>
+<button class="text-ink-muted dark:text-ink-muted font-label-mono text-label-mono hover:text-secondary transition-colors pb-1">RECOVER</button>
+</div>
+<button class="font-label-mono text-label-mono text-secondary hover:text-secondary dark:hover:text-secondary-fixed transition-colors">QUICK EXIT</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-720 px-margin-mobile md:px-margin-desktop pt-[104px] pb-[120px] md:pb-[80px] flex-1">
+<!-- Header Section -->
+<section class="mb-12">
+<div class="inline-flex items-center gap-2 px-3 py-1.5 bg-signal-tint rounded text-error font-label-mono text-label-mono mb-4 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+                MATCHES A KNOWN SCAM
+            </div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary mb-6">Part-time task scam</h1>
+<div class="flex flex-col gap-2 w-full max-w-sm">
+<span class="font-label-mono text-label-mono text-ink-secondary">94% match to this script</span>
+<div class="w-full h-[3px] bg-hairline rounded-full overflow-hidden">
+<div class="h-full bg-error w-[94%] rounded-full"></div>
+</div>
+</div>
+</section>
+<!-- C11 Stage Rail -->
+<section class="mb-14">
+<div class="relative w-full h-8 flex items-center mb-4 px-2">
+<!-- Background Rail -->
+<div class="absolute left-0 right-0 h-[1px] bg-hairline z-0"></div>
+<!-- Active Progress Rail -->
+<div class="absolute left-0 w-[66%] h-[1px] bg-secondary z-0"></div>
+<!-- Nodes -->
+<div class="w-full flex justify-between z-10">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-secondary stage-node-active"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-surface border border-hairline"></div>
+</div>
+</div>
+<div class="pl-2">
+<p class="font-label-mono text-label-mono text-secondary mb-1">STAGE: WITHDRAWAL BLOCKED</p>
+<p class="font-body-md text-body-md text-on-surface">The balance shown in the app is not real money.</p>
+</div>
+</section>
+<!-- C8 Quotes Stack -->
+<section class="mb-14">
+<h2 class="font-label-mono text-label-mono text-ink-muted mb-4 tracking-wider">IN WHAT YOU SENT</h2>
+<div class="flex flex-col gap-3">
+<div class="border-l-2 border-secondary bg-sunken px-4 py-4 rounded-r-lg shadow-sm">
+<p class="font-body-md text-body-md text-ink-secondary italic">"I completed all 40 tasks but the platform says my merchant score is too low to process the withdrawal."</p>
+</div>
+<div class="border-l-2 border-secondary bg-sunken px-4 py-4 rounded-r-lg shadow-sm">
+<p class="font-body-md text-body-md text-ink-secondary italic">"They told me I need to deposit $500 as a guarantee to unlock the funds."</p>
+</div>
+<div class="border-l-2 border-secondary bg-sunken px-4 py-4 rounded-r-lg shadow-sm">
+<p class="font-body-md text-body-md text-ink-secondary italic">"The mentor is pressuring me saying the task window closes in 30 minutes."</p>
+</div>
+</div>
+</section>
+<!-- C7 Notes Section -->
+<section class="flex flex-col gap-4 mb-14">
+<!-- Deadline Note -->
+<div class="border-l-2 border-deadline bg-deadline-tint px-4 py-5 rounded-r-lg shadow-sm">
+<div class="flex items-center gap-2 text-deadline font-label-mono text-label-mono mb-2">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+                    NEXT SCRIPTED MOVE
+                </div>
+<p class="font-body-md text-body-md text-on-surface">Next they will ask for a GST or unlocking fee to release the balance. There is no final payment that unlocks it.</p>
+</div>
+<!-- Signal Note -->
+<div class="border-l-2 border-error bg-signal-tint px-4 py-5 rounded-r-lg shadow-sm">
+<div class="flex items-center gap-2 text-error font-label-mono text-label-mono mb-3">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">block</span>
+                    DO NOT
+                </div>
+<ul class="list-disc pl-5 font-body-md text-body-md text-on-surface space-y-2 marker:text-error">
+<li>Pay any tax, GST, or unlocking fee.</li>
+<li>Delete the chat — it is your evidence.</li>
+<li>Share an OTP or your screen with anyone who called you.</li>
+</ul>
+</div>
+<!-- Accent Note -->
+<div class="border-l-2 border-secondary bg-accent-tint px-4 py-5 rounded-r-lg shadow-sm">
+<p class="font-body-md text-body-md text-on-surface">Real employers never ask for a deposit before paying you. Look the company up yourself, not through their link.</p>
+</div>
+</section>
+<!-- Actions -->
+<section class="flex flex-col gap-4 mb-16">
+<button class="w-full h-touch-target bg-secondary text-canvas font-label-mono text-label-mono rounded-full flex items-center justify-center hover:bg-accent-hover transition-colors shadow-sm">
+                I HAVE ALREADY PAID
+            </button>
+<button class="w-full h-touch-target bg-transparent border border-ink-muted text-ink-muted font-label-mono text-label-mono rounded-full flex items-center justify-center hover:bg-surface-container-low transition-colors">
+                I HAVE NOT PAID — FILE THIS
+            </button>
+<button class="w-full h-touch-target text-ink-muted font-label-mono text-label-mono flex items-center justify-center hover:text-primary underline transition-colors mt-2">
+                CHECK SOMETHING ELSE
+            </button>
+</section>
+<!-- Footer Caption -->
+<div class="w-full text-center">
+<p class="font-label-mono text-label-mono text-ink-muted">Incident NC-2026-0842-A</p>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only, Border Ban enforced) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-[80px] pb-2 bg-surface dark:bg-surface-container shadow-[0_-2px_10px_rgba(27,33,31,0.05)]">
+<button class="flex flex-col items-center justify-center bg-accent-tint dark:bg-primary-container text-secondary dark:text-secondary-fixed rounded-xl px-5 py-2 scale-95 transition-all duration-200">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+<span class="font-label-mono text-label-mono text-[11px] mt-1">CHECK</span>
+</button>
+<button class="flex flex-col items-center justify-center text-ink-muted dark:text-ink-secondary px-4 py-2 hover:bg-surface-container-low dark:hover:bg-surface-container-highest rounded-xl transition-colors">
+<span class="material-symbols-outlined text-[24px]">security</span>
+<span class="font-label-mono text-label-mono text-[11px] mt-1">ACT</span>
+</button>
+<button class="flex flex-col items-center justify-center text-ink-muted dark:text-ink-secondary px-4 py-2 hover:bg-surface-container-low dark:hover:bg-surface-container-highest rounded-xl transition-colors">
+<span class="material-symbols-outlined text-[24px]">report_problem</span>
+<span class="font-label-mono text-label-mono text-[11px] mt-1">REPORT</span>
+</button>
+<button class="flex flex-col items-center justify-center text-ink-muted dark:text-ink-secondary px-4 py-2 hover:bg-surface-container-low dark:hover:bg-surface-container-highest rounded-xl transition-colors">
+<span class="material-symbols-outlined text-[24px]">rebase_edit</span>
+<span class="font-label-mono text-label-mono text-[11px] mt-1">RECOVER</span>
+</button>
+</nav>
+</body></html>

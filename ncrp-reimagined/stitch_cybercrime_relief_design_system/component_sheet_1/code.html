@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NCRP Reimagined - Component Sheet</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,400;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#c2d8fe",
+                        "on-tertiary-container": "#ffcfbb",
+                        "ink-text": "#0F2744",
+                        "inverse-surface": "#2c3134",
+                        "outline-variant": "#bec9c8",
+                        "primary-container": "#0f6a6a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#351000",
+                        "surface-bright": "#f6fafe",
+                        "paper-bg": "#EEF2F6",
+                        "surface-variant": "#dfe3e7",
+                        "background": "#f6fafe",
+                        "outline": "#6f7979",
+                        "ink-secondary": "#3D5166",
+                        "on-secondary-container": "#495e7e",
+                        "surface-container-highest": "#dfe3e7",
+                        "on-tertiary-fixed-variant": "#6f381c",
+                        "on-surface": "#171c1f",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f0f4f8",
+                        "inverse-on-surface": "#edf1f5",
+                        "on-primary-fixed-variant": "#004f50",
+                        "tertiary-container": "#8c4f31",
+                        "surface-container-high": "#e5e9ed",
+                        "trust-teal": "#0F6A6A",
+                        "postal-vermilion": "#C2410C",
+                        "secondary-fixed-dim": "#b2c8ed",
+                        "tertiary-fixed-dim": "#ffb694",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#002020",
+                        "secondary-fixed": "#d4e3ff",
+                        "surface": "#F7F9FC",
+                        "clock-amber": "#B45309",
+                        "surface-container": "#eaeef2",
+                        "secondary": "#4a5f7f",
+                        "primary-fixed": "#a3f0ef",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#9be7e6",
+                        "on-secondary-fixed-variant": "#324866",
+                        "on-secondary-fixed": "#021c39",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#87d3d3",
+                        "rule-border": "#C5D0DC",
+                        "surface-tint": "#0d6969",
+                        "surface-dim": "#d6dade",
+                        "on-background": "#171c1f",
+                        "on-error": "#ffffff",
+                        "tertiary": "#6f381c",
+                        "inverse-primary": "#87d3d3",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#3f4948",
+                        "tertiary-fixed": "#ffdbcc",
+                        "primary": "#005050"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "unit": "8px",
+                        "max-width": "1120px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Lexend"],
+                        "headline-md": ["\"Source Serif 4\""],
+                        "button": ["Lexend"],
+                        "headline-lg-mobile": ["\"Source Serif 4\""],
+                        "headline-lg": ["\"Source Serif 4\""],
+                        "label-mono": ["IBM Plex Mono"],
+                        "body-md": ["Lexend"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "button": ["16px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "700" }],
+                        "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-mono": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Utility for 1px sharp rules */
+        .ink-rule {
+            border: 1px solid theme('colors.rule-border');
+        }
+        
+        .ink-rule-b {
+            border-bottom: 1px solid theme('colors.rule-border');
+        }
+    </style>
+</head>
+<body class="bg-paper-bg text-ink-text font-body-md min-h-screen antialiased flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop bg-paper-bg border-b border-rule-border h-[64px] w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-trust-teal">security</span>
+<span class="font-headline-md text-headline-md font-bold text-ink-text">NCRP Reimagined</span>
+</div>
+<!-- Navigation - Desktop -->
+<nav class="hidden md:flex items-center gap-8 h-full">
+<a class="h-full flex items-center text-trust-teal border-b-2 border-trust-teal font-button text-button" href="#">Component Sheet</a>
+</nav>
+<!-- Quick Exit -->
+<button class="bg-postal-vermilion text-on-error px-4 py-2 rounded font-button text-button hover:bg-opacity-90 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined">exit_to_app</span>
+            LEAVE NOW
+        </button>
+</header>
+<main class="flex-grow pt-[100px] pb-16 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto w-full flex flex-col gap-12">
+<div class="mb-8">
+<h1 class="font-headline-lg text-headline-lg mb-4 text-ink-text">Component Sheet</h1>
+<p class="font-body-lg text-body-lg text-ink-secondary">Atomic elements of The Citizen's Desk.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 items-start">
+<!-- BUTTONS -->
+<section class="flex flex-col gap-6">
+<div class="ink-rule-b pb-2 mb-2">
+<h2 class="font-headline-md text-headline-md text-ink-text">Buttons</h2>
+</div>
+<div class="flex flex-col gap-4 items-start">
+<button class="bg-trust-teal text-on-primary font-button text-button py-3 px-6 rounded hover:bg-opacity-90 transition-colors text-left min-w-[200px]">Primary Action</button>
+<button class="ink-rule bg-surface text-ink-text font-button text-button py-3 px-6 rounded hover:bg-surface-variant transition-colors text-left min-w-[200px]">Secondary Action</button>
+<button class="bg-postal-vermilion text-on-error font-button text-button py-3 px-6 rounded hover:bg-opacity-90 transition-colors text-left min-w-[200px]">Danger Action</button>
+<button class="text-trust-teal font-button text-button py-3 px-6 hover:bg-trust-teal/10 rounded transition-colors text-left min-w-[200px]">Ghost Action</button>
+</div>
+</section>
+<!-- FORM ELEMENTS -->
+<section class="flex flex-col gap-6">
+<div class="ink-rule-b pb-2 mb-2">
+<h2 class="font-headline-md text-headline-md text-ink-text">Form Elements</h2>
+</div>
+<div class="flex flex-col gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-body-lg text-body-lg font-semibold text-ink-text">Incident Location</label>
+<input class="ink-rule bg-surface w-full p-3 rounded font-label-mono text-label-mono text-ink-text focus:outline-none focus:border-trust-teal focus:ring-1 focus:ring-trust-teal placeholder-ink-secondary" placeholder="Enter full address" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-body-lg text-body-lg font-semibold text-ink-text">Description</label>
+<textarea class="ink-rule bg-surface w-full p-3 rounded font-label-mono text-label-mono text-ink-text focus:outline-none focus:border-trust-teal focus:ring-1 focus:ring-trust-teal placeholder-ink-secondary" placeholder="Provide details..." rows="3"></textarea>
+</div>
+<div class="flex flex-col gap-3">
+<label class="font-body-lg text-body-lg font-semibold text-ink-text">Incident Type</label>
+<label class="flex items-center gap-3 cursor-pointer">
+<input class="text-trust-teal focus:ring-trust-teal w-5 h-5 border-rule-border" name="incident_type" type="radio"/>
+<span class="font-body-md text-body-md">Financial Fraud</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer">
+<input class="text-trust-teal focus:ring-trust-teal w-5 h-5 border-rule-border" name="incident_type" type="radio"/>
+<span class="font-body-md text-body-md">Identity Theft</span>
+</label>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-body-lg text-body-lg font-semibold text-ink-text">District</label>
+<select class="ink-rule bg-surface w-full p-3 rounded font-label-mono text-label-mono text-ink-text focus:outline-none focus:border-trust-teal focus:ring-1 focus:ring-trust-teal">
+<option>Select District</option>
+<option>North District</option>
+<option>South District</option>
+</select>
+</div>
+</div>
+</section>
+<!-- NOTIFICATIONS -->
+<section class="flex flex-col gap-6">
+<div class="ink-rule-b pb-2 mb-2">
+<h2 class="font-headline-md text-headline-md text-ink-text">Notifications</h2>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Error Summary -->
+<div class="ink-rule bg-error-container text-on-error-container p-4 rounded border-l-4 border-l-error">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined fill-icon mt-0.5">error</span>
+<div>
+<h3 class="font-button text-button mb-1">There is a problem</h3>
+<p class="font-body-md text-body-md">Please correct the errors in the highlighted fields.</p>
+</div>
+</div>
+</div>
+<!-- Warning Inset -->
+<div class="ink-rule bg-surface-container-high p-4 rounded border-l-4 border-l-clock-amber">
+<div class="flex items-start gap-3 text-ink-text">
+<span class="material-symbols-outlined text-clock-amber mt-0.5">warning</span>
+<p class="font-body-md text-body-md">Do not share your OTP with anyone claiming to be from support.</p>
+</div>
+</div>
+<!-- Info Inset -->
+<div class="ink-rule bg-surface p-4 rounded border-l-4 border-l-trust-teal">
+<div class="flex items-start gap-3 text-ink-text">
+<span class="material-symbols-outlined text-trust-teal mt-0.5">info</span>
+<p class="font-body-md text-body-md">Your report reference number will be generated on the next step.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CHIPS & STATUS -->
+<section class="flex flex-col gap-6">
+<div class="ink-rule-b pb-2 mb-2">
+<h2 class="font-headline-md text-headline-md text-ink-text">Chips &amp; Status</h2>
+</div>
+<div class="flex flex-wrap gap-3">
+<div class="bg-trust-teal/10 text-trust-teal border border-trust-teal px-3 py-1 rounded font-label-mono text-label-mono flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+                        Verified
+                    </div>
+<div class="bg-clock-amber/10 text-clock-amber border border-clock-amber px-3 py-1 rounded font-label-mono text-label-mono flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">pending</span>
+                        Pending Review
+                    </div>
+<div class="ink-rule bg-surface text-ink-text px-3 py-1 rounded font-label-mono text-label-mono">
+                        #SCAM-PHISH-09
+                    </div>
+</div>
+</section>
+<!-- UNIQUE ASSETS -->
+<section class="flex flex-col gap-6">
+<div class="ink-rule-b pb-2 mb-2">
+<h2 class="font-headline-md text-headline-md text-ink-text">Unique Assets</h2>
+</div>
+<div class="flex flex-col gap-6">
+<!-- IBM Plex Mono ACK block -->
+<div class="ink-rule bg-inverse-surface text-inverse-on-surface p-4 rounded font-label-mono text-label-mono">
+<div class="flex justify-between mb-2 text-outline-variant">
+<span>SYS_ACK</span>
+<span>TS: 2024-05-20 14:32Z</span>
+</div>
+<div class="text-primary-fixed">RECEIPT VERIFIED</div>
+<div class="break-all mt-1">HASH: 8f4e2a1b9c8d7e6f5a4b3c2d1e0f9a8b</div>
+</div>
+<!-- Simulated Stamp -->
+<div class="inline-block border-2 border-postal-vermilion text-postal-vermilion p-2 rounded transform -rotate-2 opacity-80 font-button text-button uppercase tracking-widest self-start">
+                        OFFICIAL RECORD
+                    </div>
+</div>
+</section>
+<!-- CARDS -->
+<section class="flex flex-col gap-6">
+<div class="ink-rule-b pb-2 mb-2">
+<h2 class="font-headline-md text-headline-md text-ink-text">Cards</h2>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Situation Door Panel -->
+<div class="ink-rule bg-surface p-6 rounded flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-trust-teal text-3xl">gavel</span>
+<h3 class="font-headline-md text-headline-md">Report an Incident</h3>
+</div>
+<p class="font-body-md text-body-md text-ink-secondary">Begin the formal process of lodging a complaint regarding cyber fraud or harassment.</p>
+<button class="text-trust-teal font-button text-button flex items-center gap-1 self-start hover:underline mt-2">
+                            START REPORT <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-8 bg-surface-container-highest border-t-2 border-rule-border mt-auto">
+<div class="w-full px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-center gap-gutter">
+<div class="font-body-md text-body-md text-ink-secondary">
+                © 2024 National Cyber Crime Reporting Portal. Government of India.
+            </div>
+<div class="flex gap-6">
+<a class="font-button text-button uppercase tracking-widest text-ink-secondary hover:text-trust-teal transition-colors focus:ring-2 focus:ring-trust-teal" href="#">1930 (Cyber Helpline)</a>
+<a class="font-button text-button uppercase tracking-widest text-ink-secondary hover:text-trust-teal transition-colors focus:ring-2 focus:ring-trust-teal" href="#">Tele-MANAS</a>
+</div>
+</div>
+</footer>
+</body></html>

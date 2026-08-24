@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>NCRP REIMAGINED - ACT</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config injected from Design System -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffdad2",
+                    "inverse-primary": "#a3d0c3",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#ffb4a3",
+                    "on-error": "#ffffff",
+                    "primary-container": "#0d3b32",
+                    "on-primary-container": "#7aa599",
+                    "on-tertiary-container": "#da8b27",
+                    "surface": "#f3fcf5",
+                    "surface-container-low": "#edf6ef",
+                    "secondary-container": "#fd6442",
+                    "secondary": "#b02e10",
+                    "inverse-on-surface": "#eaf3ec",
+                    "on-primary-fixed-variant": "#234e44",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#683d00",
+                    "surface-dim": "#d3dcd6",
+                    "outline": "#717976",
+                    "primary-fixed": "#beecdf",
+                    "on-primary-fixed": "#00201a",
+                    "background": "#f3fcf5",
+                    "on-background": "#151d19",
+                    "on-surface-variant": "#404846",
+                    "primary-fixed-dim": "#a3d0c3",
+                    "on-tertiary-fixed": "#2c1700",
+                    "surface-bright": "#f3fcf5",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#2a322e",
+                    "surface-tint": "#3c665c",
+                    "surface-variant": "#dce5de",
+                    "tertiary-fixed": "#ffdcbc",
+                    "surface-container-highest": "#dce5de",
+                    "on-secondary-fixed": "#3d0600",
+                    "tertiary": "#301900",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#e7f0e9",
+                    "tertiary-container": "#4e2c00",
+                    "on-secondary-container": "#5f0e00",
+                    "on-secondary-fixed-variant": "#8b1900",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#151d19",
+                    "surface-container-high": "#e2eae4",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#c0c8c4",
+                    "tertiary-fixed-dim": "#ffb86b",
+                    "primary": "#00241d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "sheet-padding": "32px",
+                    "unit": "4px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": [
+                            "Fraunces"
+                    ],
+                    "body-md": [
+                            "Lexend"
+                    ],
+                    "label-mono": [
+                            "IBM Plex Mono"
+                    ],
+                    "display-lg-mobile": [
+                            "Fraunces"
+                    ],
+                    "serial-number": [
+                            "IBM Plex Mono"
+                    ],
+                    "display-lg": [
+                            "Fraunces"
+                    ],
+                    "body-lg": [
+                            "Lexend"
+                    ]
+            },
+            "fontSize": {
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-mono": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "serial-number": [
+                            "16px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+        }
+        }
+      }
+    </script>
+<!-- Google Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Lexend:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { background-color: theme('colors.background'); }
+        .ink-border { border-color: rgba(28, 36, 32, 0.15); }
+        .flat-shadow { box-shadow: 2px 2px 0px rgba(28, 36, 32, 1); }
+        .perforated-border { border-top: 1px dashed rgba(28, 36, 32, 0.3); }
+        .speed-post { background: repeating-linear-gradient(45deg, theme('colors.secondary'), theme('colors.secondary') 10px, transparent 10px, transparent 20px); height: 4px; w-full; }
+        
+        /* Govt specific details */
+        .well { background-color: #EFE8D8; } /* Using raw hex as it's not in the config but required by instructions */
+        
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            .mobile-canvas { padding: theme('spacing.margin-mobile'); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopAppBar (from JSON) -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin-mobile md:px-margin-desktop max-w-[1024px] mx-auto h-[72px] border-b border-on-surface/15 bg-surface dark:bg-inverse-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-on-background dark:text-inverse-on-surface">NCRP REIMAGINED</h1>
+</div>
+<button class="font-label-mono text-label-mono uppercase text-secondary dark:text-secondary-fixed border border-secondary px-3 py-1 hover:bg-surface-container-high transition-colors opacity-80">QUICK EXIT</button>
+</header>
+<!-- Main Canvas -->
+<main class="mt-[72px] flex-grow flex flex-col w-full max-w-[1024px] mx-auto md:px-margin-desktop pb-24 md:pb-sheet-padding">
+<!-- Track Tabs (Photos active) -->
+<nav class="flex border-b border-on-surface/15 bg-surface-container-low px-margin-mobile overflow-x-auto whitespace-nowrap hide-scrollbar">
+<button class="font-label-mono text-label-mono uppercase py-4 px-4 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors">REPORT</button>
+<button class="font-label-mono text-label-mono uppercase py-4 px-4 text-secondary font-bold border-b-2 border-secondary bg-surface-container-high/50">ACT</button>
+<button class="font-label-mono text-label-mono uppercase py-4 px-4 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors">TRACK</button>
+</nav>
+<!-- Main Panel (Sage-tinted, D5 EDGE metaphor) -->
+<article class="flex-grow bg-surface-container border-x border-b ink-border mobile-canvas md:p-sheet-padding flex flex-col gap-6 relative">
+<div class="absolute top-0 right-0 w-8 h-8 flex items-start justify-end p-2 pointer-events-none">
+<div class="w-1 h-1 rounded-full bg-on-surface/20"></div>
+<div class="w-1 h-1 rounded-full bg-on-surface/20 ml-1 mt-1"></div>
+<div class="w-1 h-1 rounded-full bg-on-surface/20 ml-1 mt-2"></div>
+</div>
+<!-- Header Section -->
+<div class="flex flex-col gap-2">
+<span class="font-label-mono text-label-mono text-outline-variant uppercase">STEP 1 OF 3 · PHOTOS</span>
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-on-background">The photo stays on your phone.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    We make a fingerprint of the file here on your device. The file is never uploaded. That fingerprint starts a 24-hour takedown clock...
+                </p>
+</div>
+<!-- Visual Moment Panel -->
+<div class="bg-surface border ink-border p-4 flex flex-col gap-4 relative overflow-hidden">
+<!-- Watermark -->
+<div class="absolute -right-4 -bottom-4 opacity-5 pointer-events-none transform rotate-12">
+<span class="material-symbols-outlined text-9xl">fingerprint</span>
+</div>
+<div class="flex items-center justify-between gap-4">
+<!-- Left: Blurred Tile -->
+<div class="flex-1 border border-outline-variant/30 bg-surface-container-low p-2 aspect-square flex flex-col items-center justify-center gap-2 relative group overflow-hidden">
+<div class="absolute inset-0 backdrop-blur-md bg-white/20 z-10 border border-white/50"></div>
+<span class="material-symbols-outlined text-outline z-20 text-4xl" style="font-variation-settings: 'FILL' 0;">image</span>
+<span class="font-label-mono text-xs text-outline z-20 bg-surface px-1">SAMPLE.JPG</span>
+</div>
+<!-- Middle: Arrow -->
+<div class="flex flex-col items-center justify-center px-2 flex-shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+<span class="font-label-mono text-[10px] text-error line-through mt-1">NO UPLOAD</span>
+</div>
+<!-- Right: Fingerprint Seal -->
+<div class="flex-1 border border-on-surface/10 bg-surface p-3 flex flex-col items-center justify-center gap-2 relative">
+<div class="w-12 h-12 rounded-full border-2 border-secondary flex items-center justify-center text-secondary mb-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">fingerprint</span>
+</div>
+<span class="font-label-mono text-xs text-on-surface break-all text-center">9f2c…a41b</span>
+<!-- Indigo Stamp -->
+<div class="absolute -bottom-2 -right-2 border-2 border-primary text-primary font-label-mono text-[10px] font-bold px-2 py-0.5 transform -rotate-12 bg-surface">
+                            FINGERPRINTED
+                        </div>
+</div>
+</div>
+</div>
+<!-- Actions Section -->
+<div class="mt-4 flex flex-col gap-4">
+<button class="w-full bg-secondary text-on-secondary font-label-mono text-label-mono uppercase py-4 border border-on-background flat-shadow hover:bg-secondary-container transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">timer</span>
+                    Start the 24-hour clock
+                </button>
+<!-- Warning Notes -->
+<div class="border border-error/30 bg-error-container/30 p-4 flex flex-col gap-2">
+<div class="flex items-start gap-2 text-error">
+<span class="material-symbols-outlined text-sm mt-0.5">warning</span>
+<p class="font-label-mono text-xs uppercase font-bold leading-tight">Do not pay the blackmailer.</p>
+</div>
+<div class="flex items-start gap-2 text-error">
+<span class="material-symbols-outlined text-sm mt-0.5">delete_forever</span>
+<p class="font-label-mono text-xs uppercase font-bold leading-tight">Do not delete the original app or messages.</p>
+</div>
+<div class="flex items-start gap-2 text-error">
+<span class="material-symbols-outlined text-sm mt-0.5">send</span>
+<p class="font-label-mono text-xs uppercase font-bold leading-tight">Do not send more photos.</p>
+</div>
+</div>
+<!-- Help Note -->
+<div class="border border-primary-container/30 bg-primary-container/10 p-3 flex items-center justify-between">
+<span class="font-label-mono text-xs text-on-surface-variant">MENTAL HEALTH SUPPORT</span>
+<a class="font-serial-number text-serial-number text-primary-container flex items-center gap-1 border-b border-primary-container" href="tel:14416">
+<span class="material-symbols-outlined text-sm">phone</span>
+                        Tele-MANAS 14416
+                    </a>
+</div>
+</div>
+</article>
+</main>
+<!-- Bottom Actions (Mobile fixed) -->
+<div class="fixed bottom-0 left-0 w-full bg-surface border-t ink-border p-margin-mobile flex flex-col gap-3 md:hidden z-40">
+<button class="w-full border border-on-background bg-surface-container-high py-3 font-label-mono text-label-mono uppercase text-on-background hover:bg-surface-variant transition-colors flex items-center justify-center gap-2">
+            Build the complaint from this
+        </button>
+<button class="w-full py-2 font-label-mono text-label-mono uppercase text-outline underline text-center">
+            Leave this site
+        </button>
+</div>
+</body></html>

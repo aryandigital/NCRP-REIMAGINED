@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cybercrime Help - Home</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@500&amp;family=Lexend:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#004299",
+                      "surface-bright": "#fbf8ff",
+                      "tertiary-fixed": "#d9e2ff",
+                      "on-tertiary-fixed": "#001944",
+                      "on-primary-fixed-variant": "#763300",
+                      "secondary": "#415d99",
+                      "error": "#ba1a1a",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed-dim": "#afc6ff",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed": "#001944",
+                      "tertiary": "#0056c3",
+                      "tertiary-container": "#2f70e1",
+                      "primary-fixed-dim": "#ffb68d",
+                      "on-tertiary-container": "#fefcff",
+                      "inverse-primary": "#ffb68d",
+                      "error-container": "#ffdad6",
+                      "background": "#fbf8ff",
+                      "outline": "#887368",
+                      "inverse-on-surface": "#efefff",
+                      "on-error-container": "#93000a",
+                      "surface": "#fbf8ff",
+                      "primary-container": "#b35e25",
+                      "on-primary-container": "#fffbff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface-variant": "#55433a",
+                      "surface-dim": "#d2d8ff",
+                      "on-secondary-fixed-variant": "#274580",
+                      "primary": "#94460d",
+                      "surface-container-highest": "#dde1ff",
+                      "surface-tint": "#974810",
+                      "outline-variant": "#dbc1b5",
+                      "secondary-fixed": "#d9e2ff",
+                      "surface-container": "#ececff",
+                      "secondary-fixed-dim": "#afc6ff",
+                      "on-surface": "#111939",
+                      "secondary-container": "#9fbbfd",
+                      "inverse-surface": "#272e4f",
+                      "surface-container-low": "#f3f2ff",
+                      "on-background": "#111939",
+                      "primary-fixed": "#ffdbc9",
+                      "on-primary-fixed": "#331200",
+                      "on-error": "#ffffff",
+                      "surface-variant": "#dde1ff",
+                      "on-secondary-container": "#2c4984",
+                      "on-primary": "#ffffff",
+                      "surface-container-high": "#e4e7ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "margin-desktop": "64px",
+                      "margin-mobile": "20px",
+                      "container-max": "1280px",
+                      "unit": "8px"
+              },
+              "fontFamily": {
+                      "body-main": ["Lexend", "sans-serif"],
+                      "label-mono": ["IBM Plex Mono", "monospace"],
+                      "body-sm": ["Lexend", "sans-serif"],
+                      "display-lg-mobile": ["Bricolage Grotesque", "sans-serif"],
+                      "display-lg": ["Bricolage Grotesque", "sans-serif"],
+                      "headline-md": ["Bricolage Grotesque", "sans-serif"]
+              },
+              "fontSize": {
+                      "body-main": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "body-sm": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display-lg-mobile": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "800"}],
+                      "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+              },
+              boxShadow: {
+                  'copper': '0 12px 40px rgba(196,107,50,0.12)',
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-main antialiased pb-20 md:pb-0 pt-16">
+<!-- TopAppBar -->
+<header class="bg-surface-container-lowest dark:bg-surface-dim text-primary dark:text-primary-fixed-dim font-headline-sm text-headline-sm font-bold uppercase tracking-tight docked full-width top-0 border-b-2 border-outline dark:border-outline-variant flat no shadows fixed top-0 left-0 w-full z-50 flex justify-between items-center px-mobile-margin h-16 max-w-desktop-max-width mx-auto">
+<!-- 6px Deep Jodhpur top bar simulated with a pseudo element or fixed div if needed, here adding a border-t for visual effect on body or header -->
+<div class="absolute top-0 left-0 w-full h-[6px] bg-secondary"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-headline-sm font-headline-sm font-bold text-primary dark:text-primary-fixed-dim" data-icon="language">language</span>
+<span class="text-headline-sm font-headline-sm font-bold text-primary dark:text-primary-fixed-dim">Cybercrime Help</span>
+</div>
+<button class="bg-error text-white font-label-mono px-4 py-2 rounded-DEFAULT hover:bg-error-container hover:text-white transition-colors duration-150 scale-95 active:scale-90 flex items-center gap-2">
+<span>Quick Exit</span>
+</button>
+</header>
+<!-- Enamel Rail -->
+<div class="bg-surface-container-highest px-mobile-margin py-2 border-b-2 border-outline flex items-center gap-2 font-label-mono text-label-mono text-on-surface-variant overflow-x-auto whitespace-nowrap scrollbar-hide">
+<span class="text-primary font-bold">Your path:</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+<span class="text-on-surface opacity-50">Triage</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+<span class="text-on-surface opacity-50">Action</span>
+</div>
+<!-- Main Content -->
+<main class="max-w-desktop-max-width mx-auto pb-gutter pt-unit">
+<!-- Banner Illustration -->
+<div class="px-mobile-margin mb-gutter relative h-[220px] rounded-lg border-2 border-secondary overflow-hidden bg-surface-container shadow-copper">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A vintage Indian railway station clock viewed against a beautiful Jodhpur dusk sky. The scene is rendered in flat planes of color reminiscent of vintage travel posters, with crisp 2px indigo outlines and vibrant warm hues of copper, marigold, and plaster white. Modern Indian Editorial aesthetic with a calm, expert, and authoritative tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrpJf7UvYDu2lp664EKwKAMeRYVVqrQTJV82xHymQNc-vVn3PdexehFKNv8rD4a9oaN-xXW7NvvXhLNzFgntpxyorz7wKB407tOfOfDxFod8jpgt9tqXOb6tXIydRZqVNoKnBZOrvyW845OOeX_FbS4RydYrL2q__G2TKRDNDfadXEXmwS4FXmJb7jvXSjXDKq_LvdSgXpsdEaoEVJULbsLbj0YWhYiGld30sBwvkI_fTBMXkt_ZZvDw"/>
+</div>
+<!-- Headline -->
+<div class="px-mobile-margin mb-gutter">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-on-surface">Show us the message.<br/>We stop the damage.</h1>
+</div>
+<!-- Copper-edged instrument check bar -->
+<div class="px-mobile-margin mb-gutter">
+<div class="bg-primary-container text-on-primary-container rounded-lg p-4 flex items-center justify-between shadow-copper border-2 border-primary">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined filled-icon text-marigold" data-icon="security" data-weight="fill">security</span>
+<span class="font-label-mono text-label-mono uppercase">System Active</span>
+</div>
+<span class="font-body-sm text-body-sm">Ready to assist</span>
+</div>
+</div>
+<!-- Stacking situation doors -->
+<div class="px-mobile-margin flex flex-col gap-unit mb-gutter">
+<!-- They are still on the line -->
+<button class="w-full bg-error text-on-error rounded-lg p-6 flex items-center justify-between border-2 border-error hover:bg-error-container hover:text-on-error-container transition-colors shadow-sm group">
+<div class="flex flex-col items-start gap-1">
+<span class="font-headline-md text-headline-md text-left">They are still on the line</span>
+<span class="font-body-sm text-body-sm opacity-90">Get immediate tactics</span>
+</div>
+<span class="material-symbols-outlined text-[32px] group-hover:translate-x-1 transition-transform" data-icon="call_end">call_end</span>
+</button>
+<!-- Bento Doors -->
+<div class="grid grid-cols-2 gap-unit">
+<button class="bg-surface text-on-surface border-2 border-secondary rounded-lg p-4 flex flex-col items-center justify-center gap-2 hover:bg-surface-variant transition-colors group">
+<span class="material-symbols-outlined text-[32px] text-secondary group-hover:scale-110 transition-transform" data-icon="help_center">help_center</span>
+<span class="font-label-mono text-label-mono text-center">I am not sure</span>
+</button>
+<button class="bg-surface text-on-surface border-2 border-secondary rounded-lg p-4 flex flex-col items-center justify-center gap-2 hover:bg-surface-variant transition-colors group">
+<span class="material-symbols-outlined text-[32px] text-secondary group-hover:scale-110 transition-transform" data-icon="payments">payments</span>
+<span class="font-label-mono text-label-mono text-center">Already gone</span>
+</button>
+</div>
+<!-- Already filed? -->
+<a class="w-full bg-surface-container text-on-surface border-2 border-outline-variant rounded-lg p-4 flex items-center justify-between hover:border-secondary transition-colors mt-2" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-mono text-label-mono">Already filed a report?</span>
+</div>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Journey stations horizontal poster strip -->
+<div class="px-mobile-margin mb-gutter overflow-x-auto pb-4 scrollbar-hide">
+<div class="flex gap-4 w-max">
+<!-- Check -->
+<div class="w-[140px] flex flex-col gap-2">
+<div class="h-[180px] bg-surface rounded-lg border-2 border-secondary relative overflow-hidden group shadow-copper">
+<div class="absolute inset-0 bg-surface-container-low flex items-center justify-center group-hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[48px] text-secondary group-hover:-translate-y-1 transition-transform" data-icon="fact_check">fact_check</span>
+</div>
+</div>
+<span class="font-label-mono text-label-mono text-center">Check</span>
+</div>
+<!-- Act -->
+<div class="w-[140px] flex flex-col gap-2">
+<div class="h-[180px] bg-surface rounded-lg border-2 border-secondary relative overflow-hidden group shadow-copper">
+<div class="absolute inset-0 bg-surface-container-low flex items-center justify-center group-hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[48px] text-secondary group-hover:-translate-y-1 transition-transform" data-icon="security">security</span>
+</div>
+</div>
+<span class="font-label-mono text-label-mono text-center">Act</span>
+</div>
+<!-- Report -->
+<div class="w-[140px] flex flex-col gap-2">
+<div class="h-[180px] bg-surface rounded-lg border-2 border-secondary relative overflow-hidden group shadow-copper">
+<div class="absolute inset-0 bg-surface-container-low flex items-center justify-center group-hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[48px] text-secondary group-hover:-translate-y-1 transition-transform" data-icon="report_problem">report_problem</span>
+</div>
+</div>
+<span class="font-label-mono text-label-mono text-center">Report</span>
+</div>
+<!-- Recover -->
+<div class="w-[140px] flex flex-col gap-2">
+<div class="h-[180px] bg-surface rounded-lg border-2 border-secondary relative overflow-hidden group shadow-copper">
+<div class="absolute inset-0 bg-surface-container-low flex items-center justify-center group-hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[48px] text-secondary group-hover:-translate-y-1 transition-transform" data-icon="settings_backup_restore">settings_backup_restore</span>
+</div>
+</div>
+<span class="font-label-mono text-label-mono text-center">Recover</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-highest text-primary dark:text-on-primary-fixed-variant font-body-sm text-body-sm full-width border-t-2 border-outline flat no shadows w-full px-mobile-margin py-stack-lg flex flex-col gap-stack-md max-w-desktop-max-width mx-auto pb-32">
+<div class="flex flex-col gap-4">
+<h4 class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Help Lines</h4>
+<div class="flex flex-wrap gap-3">
+<a class="bg-surface text-secondary border-2 border-secondary rounded-full px-6 py-2 font-label-mono text-label-mono flex items-center gap-2 hover:bg-secondary hover:text-white transition-colors" href="tel:1930">
+<span class="material-symbols-outlined text-sm" data-icon="call">call</span>
+                    Emergency 1930
+                </a>
+<a class="bg-surface text-secondary border-2 border-secondary rounded-full px-6 py-2 font-label-mono text-label-mono flex items-center gap-2 hover:bg-secondary hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="chat">chat</span>
+                    Live Chat
+                </a>
+</div>
+</div>
+<div class="mt-8 flex flex-col gap-2 border-t border-outline-variant pt-4">
+<a class="text-secondary hover:text-primary transition-colors underline" href="#">Privacy Policy</a>
+<a class="text-secondary hover:text-primary transition-colors underline" href="#">Legal Disclaimer</a>
+<a class="text-secondary hover:text-primary transition-colors underline" href="#">Contact</a>
+</div>
+<p class="mt-4 font-label-caps text-label-caps text-secondary text-xs opacity-75">© 2024 Cybercrime Help India. Institutional Minimalist Utility.</p>
+</footer>
+<!-- BottomNavBar -->
+<nav class="bg-surface-container-highest dark:bg-surface-container text-on-primary-container dark:text-primary-fixed font-label-caps text-label-caps docked full-width bottom-0 border-t-2 border-outline dark:border-outline-variant flat no shadows fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 max-w-desktop-max-width mx-auto md:hidden">
+<!-- Help (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-none px-4 py-2 border-t-4 border-primary active:opacity-80 transition-opacity w-1/4 h-full" href="#">
+<span class="material-symbols-outlined filled-icon" data-icon="help_outline" data-weight="fill">help_outline</span>
+<span class="mt-1 text-[10px] uppercase tracking-wider font-bold">Help</span>
+</a>
+<!-- History -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-container px-4 py-2 hover:bg-surface-variant active:opacity-80 transition-opacity w-1/4 h-full" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="mt-1 text-[10px] uppercase tracking-wider">History</span>
+</a>
+<!-- Safety -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-container px-4 py-2 hover:bg-surface-variant active:opacity-80 transition-opacity w-1/4 h-full" href="#">
+<span class="material-symbols-outlined" data-icon="gpp_maybe">gpp_maybe</span>
+<span class="mt-1 text-[10px] uppercase tracking-wider">Safety</span>
+</a>
+<!-- Exit -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-container px-4 py-2 hover:bg-surface-variant active:opacity-80 transition-opacity w-1/4 h-full" href="#">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+<span class="mt-1 text-[10px] uppercase tracking-wider">Exit</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Component Sheet - NCRP Reimagined</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "surface-container-highest": "#e0e2eb",
+                  "on-error-container": "#93000a",
+                  "surface-container-high": "#e6e8f1",
+                  "outline": "#717785",
+                  "on-tertiary-fixed-variant": "#1c28ce",
+                  "error": "#ba1a1a",
+                  "error-container": "#ffdad6",
+                  "on-surface-variant": "#414753",
+                  "primary": "#005ab4",
+                  "tertiary-container": "#5461fc",
+                  "on-primary": "#ffffff",
+                  "secondary": "#465f88",
+                  "on-secondary": "#ffffff",
+                  "surface-dim": "#d7dae3",
+                  "on-secondary-fixed": "#001b3d",
+                  "tertiary-fixed-dim": "#bec2ff",
+                  "on-surface": "#181c22",
+                  "inverse-surface": "#2d3037",
+                  "on-tertiary-fixed": "#00046a",
+                  "on-secondary-container": "#3f5881",
+                  "on-primary-container": "#fefcff",
+                  "on-error": "#ffffff",
+                  "primary-container": "#0a73e0",
+                  "on-tertiary-container": "#fffbff",
+                  "outline-variant": "#c1c6d5",
+                  "secondary-fixed": "#d6e3ff",
+                  "surface": "#f9f9ff",
+                  "primary-fixed-dim": "#aac7ff",
+                  "on-tertiary": "#ffffff",
+                  "on-primary-fixed-variant": "#00458d",
+                  "inverse-primary": "#aac7ff",
+                  "on-secondary-fixed-variant": "#2d476f",
+                  "inverse-on-surface": "#eef0fa",
+                  "on-background": "#181c22",
+                  "primary-fixed": "#d6e3ff",
+                  "surface-tint": "#005db8",
+                  "on-primary-fixed": "#001b3e",
+                  "tertiary": "#3945e3",
+                  "surface-container-lowest": "#ffffff",
+                  "background": "#f9f9ff",
+                  "secondary-fixed-dim": "#aec7f7",
+                  "secondary-container": "#b6d0ff",
+                  "surface-variant": "#e0e2eb",
+                  "tertiary-fixed": "#e0e0ff",
+                  "surface-bright": "#f9f9ff",
+                  "surface-container-low": "#f1f3fc",
+                  "surface-container": "#ebedf7",
+                  
+                  // Custom extensions based on prompt
+                  "accent": "#005ab4", // Primary
+                  "signal": "#ba1a1a", // Error
+                  "deadline": "#b35b00", // Warning tone
+                  "ink": "#181c22", // on-surface
+                  "ink-muted": "#717785", // outline
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px",
+                  "10": "10px"
+          },
+          "spacing": {
+                  "margin-desktop": "24px",
+                  "base": "8px",
+                  "gutter": "16px",
+                  "margin-mobile": "16px",
+                  "72": "72px",
+                  "52": "52px",
+                  "56": "56px",
+                  "64": "64px"
+          },
+          "fontFamily": {
+                  "headline-lg": ["Inter"],
+                  "headline-md": ["Inter"],
+                  "body-lg": ["Inter"],
+                  "label-md": ["Inter"],
+                  "lexend": ["Lexend", "sans-serif"],
+                  "mono": ["IBM Plex Mono", "monospace"]
+          },
+          "fontSize": {
+                  "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                  "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                  "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+          }
+        },
+      }
+    }
+  </script>
+<style>
+    body { background-color: theme('colors.background'); color: theme('colors.on-surface'); }
+    .component-section { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px dashed theme('colors.outline-variant'); }
+    .component-label { font-family: theme('fontFamily.mono'); font-size: 0.75rem; color: theme('colors.ink-muted'); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; display: block; }
+  </style>
+</head>
+<body class="p-8 max-w-7xl mx-auto">
+<h1 class="font-headline-lg text-headline-lg mb-12 border-b border-outline-variant/30 pb-4">Component Sheet</h1>
+<!-- 1. HEADER (Shared Component JSON logic applied) -->
+<section class="component-section">
+<span class="component-label">1. Header (TopNavBar)</span>
+<header class="bg-surface dark:bg-surface h-[72px] w-full flex items-center border-b border-outline-variant/30">
+<div class="flex justify-between items-center px-margin-desktop w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<!-- Abstract desk mark -->
+<div class="w-8 h-8 border-2 border-primary rounded-sm flex items-end justify-center pb-1">
+<div class="w-4 h-1 bg-primary rounded-sm"></div>
+</div>
+<span class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface">NCRP Reimagined</span>
+</div>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-colors duration-200" href="#">Scam playbooks</a>
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-colors duration-200" href="#">Track a report</a>
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-colors duration-200" href="#">Help someone</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="font-label-md text-label-md text-on-surface-variant hidden md:inline">Language</span>
+<button class="h-10 px-4 rounded-10 border border-error text-error font-label-md text-label-md font-bold hover:bg-error/5 transition-colors flex items-center gap-2">
+            Leave this site
+            <span class="material-symbols-outlined text-[18px]">logout</span>
+</button>
+</div>
+</div>
+</header>
+</section>
+<!-- 3. JOURNEY INDICATOR (SideNavBar logic mapped to horizontal) -->
+<section class="component-section">
+<span class="component-label">3. Journey Indicator (SideNavBar derived)</span>
+<div class="bg-transparent w-full py-4 border-b border-outline-variant flex flex-col items-center gap-4">
+<div class="text-center">
+<div class="font-label-md text-label-md text-on-surface">Current Stage</div>
+<div class="text-xs text-outline">Journey Progress</div>
+</div>
+<div class="flex justify-center items-center gap-gutter w-full">
+<!-- Inactive -->
+<div class="text-outline flex items-center gap-2 font-label-md text-label-md tracking-widest hover:text-on-surface transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">fact_check</span> CHECK
+        </div>
+<div class="text-outline mx-2">•</div>
+<!-- Active -->
+<div class="text-primary font-bold flex items-center gap-2 font-label-md text-label-md tracking-widest cursor-pointer opacity-80">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">bolt</span> ACT
+        </div>
+<div class="text-outline mx-2">•</div>
+<!-- Inactive -->
+<div class="text-outline flex items-center gap-2 font-label-md text-label-md tracking-widest hover:text-on-surface transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">description</span> REPORT
+        </div>
+<div class="text-outline mx-2">•</div>
+<!-- Inactive -->
+<div class="text-outline flex items-center gap-2 font-label-md text-label-md tracking-widest hover:text-on-surface transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">recycling</span> RECOVER
+        </div>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- 4 & 5. BUTTONS -->
+<section class="component-section md:border-b-0 md:pb-0">
+<span class="component-label">4 &amp; 5. Buttons</span>
+<div class="flex flex-col gap-4">
+<button class="h-52 bg-primary text-on-primary rounded-10 font-label-md text-label-md px-6 flex items-center justify-center hover:bg-primary/90 transition-colors">
+          Primary Action
+        </button>
+<button class="h-52 bg-transparent text-ink border border-ink-muted rounded-10 font-label-md text-label-md px-6 flex items-center justify-center hover:bg-surface-variant transition-colors">
+          Secondary Action
+        </button>
+<button class="h-52 bg-transparent text-ink border border-ink-muted rounded-10 font-label-md text-label-md px-6 flex items-center justify-center hover:bg-surface-variant transition-colors opacity-50 cursor-not-allowed">
+          Disabled State
+        </button>
+</div>
+</section>
+<!-- 7. INPUT -->
+<section class="component-section md:border-b-0 md:pb-0">
+<span class="component-label">7. Input Fields</span>
+<div class="flex flex-col gap-6">
+<!-- Default -->
+<div>
+<label class="font-lexend font-semibold text-sm text-ink mb-1 block">Phone Number</label>
+<input class="h-56 w-full bg-white border border-outline rounded-md px-4 font-body-lg text-body-lg text-ink placeholder:text-outline-variant focus:outline-none focus:border-outline focus:ring-0" placeholder="Enter 10 digits" type="text"/>
+<span class="text-xs text-ink-muted mt-1 block">Must be linked to your bank account</span>
+</div>
+<!-- Focus -->
+<div>
+<label class="font-lexend font-semibold text-sm text-ink mb-1 block">Account Number</label>
+<input class="h-56 w-full bg-white border-2 border-primary rounded-md px-4 font-body-lg text-body-lg text-ink focus:outline-none focus:ring-0" type="text" value="3829"/>
+<span class="text-xs text-primary mt-1 block">Looking up details...</span>
+</div>
+<!-- Error -->
+<div>
+<label class="font-lexend font-semibold text-sm text-ink mb-1 block">Transaction ID</label>
+<input class="h-56 w-full bg-error-container border-2 border-error rounded-md px-4 font-body-lg text-body-lg text-on-error-container focus:outline-none focus:ring-0" type="text" value="INVALID-892"/>
+<span class="text-xs text-error mt-1 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">error</span> ID not found in bank records</span>
+</div>
+</div>
+</section>
+</div>
+<!-- 2. FOOTER (Shared Component JSON logic applied) -->
+<section class="component-section mt-12">
+<span class="component-label">2. Footer</span>
+<footer class="bg-surface dark:bg-surface w-full py-base border-t border-outline-variant flex flex-col items-center gap-2 px-margin-desktop">
+<div class="font-label-md text-label-md text-on-surface">Independent Prototype Disclaimer</div>
+<div class="flex gap-4">
+<a class="text-on-surface-variant font-label-md text-label-md hover:underline transition-all bg-surface-container-high px-3 py-1 rounded-full flex items-center gap-1" href="tel:1930">
+<span class="material-symbols-outlined text-[16px]">call</span> 1930
+        </a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:underline transition-all bg-surface-container-high px-3 py-1 rounded-full flex items-center gap-1" href="tel:14416">
+<span class="material-symbols-outlined text-[16px]">call</span> 14416
+        </a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:underline transition-all bg-surface-container-high px-3 py-1 rounded-full flex items-center gap-1" href="tel:1098">
+<span class="material-symbols-outlined text-[16px]">call</span> 1098
+        </a>
+</div>
+</footer>
+</section>
+</body></html>

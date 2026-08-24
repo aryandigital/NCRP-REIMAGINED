@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NCRP REIMAGINED - The Citizen's Desk</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&amp;family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "secondary-fixed": "#ffdad2",
+                  "inverse-primary": "#a3d0c3",
+                  "error": "#ba1a1a",
+                  "secondary-fixed-dim": "#ffb4a3",
+                  "on-error": "#ffffff",
+                  "primary-container": "#0d3b32",
+                  "on-primary-container": "#7aa599",
+                  "on-tertiary-container": "#da8b27",
+                  "surface": "#f3fcf5",
+                  "surface-container-low": "#edf6ef",
+                  "secondary-container": "#fd6442",
+                  "secondary": "#b02e10",
+                  "inverse-on-surface": "#eaf3ec",
+                  "on-primary-fixed-variant": "#234e44",
+                  "error-container": "#ffdad6",
+                  "on-tertiary-fixed-variant": "#683d00",
+                  "surface-dim": "#d3dcd6",
+                  "outline": "#717976",
+                  "primary-fixed": "#beecdf",
+                  "on-primary-fixed": "#00201a",
+                  "background": "#f3fcf5",
+                  "on-background": "#151d19",
+                  "on-surface-variant": "#404846",
+                  "primary-fixed-dim": "#a3d0c3",
+                  "on-tertiary-fixed": "#2c1700",
+                  "surface-bright": "#f3fcf5",
+                  "surface-container-lowest": "#ffffff",
+                  "inverse-surface": "#2a322e",
+                  "surface-tint": "#3c665c",
+                  "surface-variant": "#dce5de",
+                  "tertiary-fixed": "#ffdcbc",
+                  "surface-container-highest": "#dce5de",
+                  "on-secondary-fixed": "#3d0600",
+                  "tertiary": "#301900",
+                  "on-secondary": "#ffffff",
+                  "surface-container": "#e7f0e9",
+                  "tertiary-container": "#4e2c00",
+                  "on-secondary-container": "#5f0e00",
+                  "on-secondary-fixed-variant": "#8b1900",
+                  "on-tertiary": "#ffffff",
+                  "on-error-container": "#93000a",
+                  "on-surface": "#151d19",
+                  "surface-container-high": "#e2eae4",
+                  "on-primary": "#ffffff",
+                  "outline-variant": "#c0c8c4",
+                  "tertiary-fixed-dim": "#ffb86b",
+                  "primary": "#00241d"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.125rem",
+                  "lg": "0.25rem",
+                  "xl": "0.5rem",
+                  "full": "0.75rem"
+          },
+          "spacing": {
+                  "margin-desktop": "64px",
+                  "sheet-padding": "32px",
+                  "unit": "4px",
+                  "margin-mobile": "16px",
+                  "gutter": "24px"
+          },
+          "fontFamily": {
+                  "headline-md": [
+                          "Fraunces"
+                  ],
+                  "body-md": [
+                          "Lexend"
+                  ],
+                  "label-mono": [
+                          "IBM Plex Mono"
+                  ],
+                  "display-lg-mobile": [
+                          "Fraunces"
+                  ],
+                  "serial-number": [
+                          "IBM Plex Mono"
+                  ],
+                  "display-lg": [
+                          "Fraunces"
+                  ],
+                  "body-lg": [
+                          "Lexend"
+                  ]
+          },
+          "fontSize": {
+                  "headline-md": [
+                          "24px",
+                          {
+                                  "lineHeight": "32px",
+                                  "fontWeight": "600"
+                          }
+                  ],
+                  "body-md": [
+                          "16px",
+                          {
+                                  "lineHeight": "24px",
+                                  "fontWeight": "400"
+                          }
+                  ],
+                  "label-mono": [
+                          "14px",
+                          {
+                                  "lineHeight": "20px",
+                                  "letterSpacing": "0.05em",
+                                  "fontWeight": "500"
+                          }
+                  ],
+                  "display-lg-mobile": [
+                          "32px",
+                          {
+                                  "lineHeight": "40px",
+                                  "fontWeight": "700"
+                          }
+                  ],
+                  "serial-number": [
+                          "16px",
+                          {
+                                  "lineHeight": "16px",
+                                  "fontWeight": "600"
+                          }
+                  ],
+                  "display-lg": [
+                          "48px",
+                          {
+                                  "lineHeight": "56px",
+                                  "letterSpacing": "-0.02em",
+                                  "fontWeight": "700"
+                          }
+                  ],
+                  "body-lg": [
+                          "18px",
+                          {
+                                  "lineHeight": "28px",
+                                  "fontWeight": "400"
+                          }
+                  }
+          }
+      },
+    }
+  </script>
+<style>
+    /* Custom Utility Classes for Government Aesthetic */
+    .ink-border { border-color: rgba(28, 36, 32, 0.15); }
+    .flat-shadow { box-shadow: 2px 2px 0px 0px #1C2420; }
+    .flat-shadow-hover:hover { box-shadow: 2px 2px 0px 0px #1C2420; transform: translate(-1px, -1px); transition: all 0.15s ease-in-out; }
+    .perforated-border { border-bottom: 2px dashed rgba(28, 36, 32, 0.3); padding-bottom: 2px;}
+    .speed-post-edge {
+        background-image: repeating-linear-gradient(-45deg, transparent, transparent 10px, #b02e10 10px, #b02e10 20px);
+        height: 4px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    .perforation-line {
+        background-image: linear-gradient(to right, transparent 50%, rgba(28, 36, 32, 0.15) 50%);
+        background-size: 8px 1px;
+        background-repeat: repeat-x;
+        height: 1px;
+        width: 100%;
+        margin: 2rem 0;
+    }
+
+    .ticket-divider {
+        border-right: 2px dashed rgba(28, 36, 32, 0.15);
+    }
+    
+    .punch-hole {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #f3fcf5; /* Background color */
+        border: 1px solid rgba(28, 36, 32, 0.15);
+        position: absolute;
+    }
+
+    .punch-hole-top { top: -6px; left: 50%; transform: translateX(-50%); }
+    .punch-hole-bottom { bottom: -6px; left: 50%; transform: translateX(-50%); }
+    .punch-hole-left { left: -6px; top: 50%; transform: translateY(-50%); }
+    .punch-hole-right { right: -6px; top: 50%; transform: translateY(-50%); }
+
+    /* Postmark Ring */
+    .postmark-ring {
+        position: absolute;
+        top: 20%;
+        right: 10%;
+        width: 200px;
+        height: 200px;
+        border: 4px solid rgba(176, 46, 16, 0.2);
+        border-radius: 50%;
+        pointer-events: none;
+        transform: rotate(-15deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+    }
+    .postmark-text {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 14px;
+        font-weight: bold;
+        color: rgba(176, 46, 16, 0.4);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    .station-clock {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 64px;
+        color: rgba(28, 36, 32, 0.1);
+        position: absolute;
+        bottom: -20px;
+        right: -40px;
+        z-index: 5;
+    }
+    
+    .pulse-dot {
+        animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+        0% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.5; transform: scale(1.2); }
+        100% { opacity: 1; transform: scale(1); }
+    }
+    
+    /* Scroll snap */
+    .scroll-snap-x {
+        scroll-snap-type: x mandatory;
+    }
+    .scroll-snap-center {
+        scroll-snap-align: center;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen pt-[72px]">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin-desktop max-w-[1024px] mx-auto h-[72px] border-b border-on-surface/15 bg-surface dark:bg-inverse-surface">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-on-background dark:text-inverse-on-surface uppercase">NCRP REIMAGINED</h1>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-colors px-2 py-1 flex flex-col items-center" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="fact_check">fact_check</span>
+<span class="font-label-mono text-label-mono uppercase">Check</span>
+</a>
+<a class="text-secondary font-bold border-b-2 border-secondary px-2 py-1 flex flex-col items-center" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="security">security</span>
+<span class="font-label-mono text-label-mono uppercase">Act</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-colors px-2 py-1 flex flex-col items-center" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="report_gmailerrorred">report_gmailerrorred</span>
+<span class="font-label-mono text-label-mono uppercase">Report</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-colors px-2 py-1 flex flex-col items-center" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="settings_backup_restore">settings_backup_restore</span>
+<span class="font-label-mono text-label-mono uppercase">Recover</span>
+</a>
+</nav>
+<button class="font-label-mono text-label-mono uppercase border border-on-surface/15 px-4 py-2 hover:bg-surface-container-high transition-colors flex items-center gap-2">
+      QUICK EXIT
+      <span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+</button>
+</header>
+<main class="max-w-[1024px] mx-auto w-full relative">
+<!-- BLOCK 1: HERO -->
+<section class="px-margin-desktop py-16 relative overflow-hidden">
+<div class="grid grid-cols-12 gap-gutter">
+<div class="col-span-12 md:col-span-7 relative z-20">
+<h1 class="font-display-lg text-display-lg font-bold mb-6">Something arrived that does not feel <em class="italic">right</em>.</h1>
+<p class="font-body-lg text-body-lg mb-10 text-on-surface-variant">Show us the message. We will tell you what it is — and what to do in the next ten minutes.</p>
+<div class="bg-surface border border-on-surface/15 p-6 relative">
+<label class="block font-label-mono text-label-mono uppercase text-on-surface-variant mb-2">Paste a message, link, phone number, or UPI ID</label>
+<div class="flex flex-col sm:flex-row gap-4">
+<div class="flex-grow relative">
+<input class="w-full bg-[#EFE8D8] border border-on-surface/15 h-12 px-4 focus:outline-none focus:ring-1 focus:ring-secondary font-body-md" placeholder="Enter details here..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary font-label-mono text-label-mono uppercase px-6 h-12 border border-on-surface/15 flat-shadow-hover whitespace-nowrap flex items-center gap-2">
+                            Check this message
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="lock">lock</span>
+<p class="font-label-mono text-xs uppercase opacity-80">No login. We hide Aadhaar, PAN, and account numbers before anyone reads it.</p>
+</div>
+</div>
+<div class="hidden md:block col-span-5 relative z-10">
+<!-- Decorative elements -->
+<div class="postmark-ring">
+<div class="postmark-text">
+                        RECEIVED<br/>
+<span class="text-xs">NCRP-DESK</span>
+</div>
+</div>
+<div class="station-clock">10:42</div>
+</div>
+</div>
+<div class="perforation-line mt-12 mb-0"></div>
+</section>
+<!-- BLOCK 2: THE TICKET STRIP -->
+<section class="px-margin-desktop py-8 bg-surface">
+<h2 class="font-label-mono text-label-mono uppercase text-secondary mb-6 tracking-widest border-b border-on-surface/15 pb-2 inline-block">OR TELL US WHAT IS HAPPENING</h2>
+<div class="flex flex-col lg:flex-row border border-on-surface/15 bg-[#FDFBF5] relative">
+<!-- Ticket 1 -->
+<div class="flex-1 p-6 relative ticket-divider flex flex-col justify-between group">
+<div class="speed-post-edge"></div>
+<div class="punch-hole punch-hole-left hidden lg:block"></div>
+<div class="punch-hole punch-hole-top lg:hidden"></div>
+<div class="mb-8 mt-2">
+<div class="flex items-center gap-2 mb-4">
+<span class="font-serial-number text-serial-number text-secondary">REF: NCRP-01</span>
+<div class="w-2 h-2 bg-secondary rounded-full pulse-dot"></div>
+<span class="font-label-mono text-xs text-secondary uppercase">Live</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2 group-hover:text-secondary transition-colors">It is happening right now</h3>
+<p class="font-body-md text-on-surface-variant">They are on the call. They can see your screen...</p>
+</div>
+<div class="flex flex-col gap-3">
+<button class="bg-secondary text-on-secondary font-label-mono text-label-mono uppercase px-4 py-3 border border-on-surface/15 flat-shadow-hover w-full flex justify-between items-center">
+                        Hang up and get steps
+                        <span class="material-symbols-outlined" data-icon="call_end">call_end</span>
+</button>
+<div class="text-center font-label-mono text-xs uppercase text-on-surface-variant">
+                        Call 1930 for immediate help
+                    </div>
+</div>
+</div>
+<!-- Ticket 2 -->
+<div class="flex-1 p-6 relative ticket-divider flex flex-col justify-between">
+<div class="punch-hole punch-hole-left hidden lg:block"></div>
+<div class="punch-hole punch-hole-top lg:hidden"></div>
+<div class="mb-8">
+<div class="mb-4">
+<span class="font-serial-number text-serial-number text-on-surface-variant opacity-70">REF: NCRP-02</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2 text-xl">Money or an account is already gone</h3>
+</div>
+<button class="border border-on-surface/15 text-on-surface font-label-mono text-label-mono uppercase px-4 py-3 hover:bg-surface-container-high transition-colors flex justify-between items-center w-full">
+                    Start containment
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Ticket 3 -->
+<div class="flex-1 p-6 relative flex flex-col justify-between">
+<div class="punch-hole punch-hole-left hidden lg:block"></div>
+<div class="punch-hole punch-hole-top lg:hidden"></div>
+<div class="mb-8">
+<div class="mb-4">
+<span class="font-serial-number text-serial-number text-on-surface-variant opacity-70">REF: NCRP-03</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2 text-xl">I am not sure yet</h3>
+</div>
+<button class="border border-on-surface/15 text-on-surface font-label-mono text-label-mono uppercase px-4 py-3 hover:bg-surface-container-high transition-colors flex justify-between items-center w-full">
+                    Check it
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Track Form -->
+<div class="mt-6 flex flex-col sm:flex-row items-center gap-4 bg-[#EFE8D8] p-4 border border-on-surface/15">
+<span class="font-label-mono text-label-mono uppercase text-on-surface-variant whitespace-nowrap">Already filed?</span>
+<div class="flex-grow flex w-full">
+<input class="w-full bg-surface border-y border-l border-on-surface/15 h-10 px-3 font-body-md text-sm focus:outline-none placeholder-on-surface-variant/50" placeholder="14-digit number" type="text"/>
+<button class="bg-surface-container-high border border-on-surface/15 px-4 h-10 font-label-mono text-sm uppercase hover:bg-surface-variant transition-colors">Track</button>
+</div>
+</div>
+<div class="perforation-line mt-12 mb-0"></div>
+</section>
+</main>
+<!-- Footer Component from JSON -->
+<footer class="w-full py-sheet-padding px-margin-desktop flex flex-col gap-unit items-center border-t border-on-surface/15 bg-surface-container-low dark:bg-surface-container-highest mt-12">
+<div class="text-secondary font-serial-number mb-4 text-center">
+        © 2024 NCRP REIMAGINED. INDIAN CIVIC BUREAUCRACY.
+    </div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-secondary transition-colors uppercase" href="#">1930 CYBER</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-secondary transition-colors uppercase" href="#">14416 VIGILANCE</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-secondary transition-colors uppercase" href="#">1098 CHILD</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-secondary transition-colors uppercase" href="#">DISCLAIMER</a>
+</div>
+</footer>
+</body></html>

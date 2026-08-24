@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Component Sheet - Blue City Containment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@500&amp;family=Lexend:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#004299",
+                        "surface-bright": "#fbf8ff",
+                        "tertiary-fixed": "#d9e2ff",
+                        "on-tertiary-fixed": "#001944",
+                        "on-primary-fixed-variant": "#763300",
+                        "secondary": "#415d99",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#afc6ff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#001944",
+                        "tertiary": "#0056c3",
+                        "tertiary-container": "#2f70e1",
+                        "primary-fixed-dim": "#ffb68d",
+                        "on-tertiary-container": "#fefcff",
+                        "inverse-primary": "#ffb68d",
+                        "error-container": "#ffdad6",
+                        "background": "#fbf8ff",
+                        "outline": "#887368",
+                        "inverse-on-surface": "#efefff",
+                        "on-error-container": "#93000a",
+                        "surface": "#fbf8ff",
+                        "primary-container": "#b35e25",
+                        "on-primary-container": "#fffbff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#55433a",
+                        "surface-dim": "#d2d8ff",
+                        "on-secondary-fixed-variant": "#274580",
+                        "primary": "#94460d",
+                        "surface-container-highest": "#dde1ff",
+                        "surface-tint": "#974810",
+                        "outline-variant": "#dbc1b5",
+                        "secondary-fixed": "#d9e2ff",
+                        "surface-container": "#ececff",
+                        "secondary-fixed-dim": "#afc6ff",
+                        "on-surface": "#111939",
+                        "secondary-container": "#9fbbfd",
+                        "inverse-surface": "#272e4f",
+                        "surface-container-low": "#f3f2ff",
+                        "on-background": "#111939",
+                        "primary-fixed": "#ffdbc9",
+                        "on-primary-fixed": "#331200",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#dde1ff",
+                        "on-secondary-container": "#2c4984",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e4e7ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "container-max": "1280px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "body-main": ["Lexend"],
+                        "label-mono": ["IBM Plex Mono"],
+                        "body-sm": ["Lexend"],
+                        "display-lg-mobile": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "body-main": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-mono": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-sm": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        .shadow-copper {
+            box-shadow: 0 12px 40px rgba(196,107,50,0.12);
+        }
+        
+        .border-indigo {
+            border-color: #0E1C3A;
+        }
+        
+        .bg-night-wash {
+            background-color: #0E1C3A;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- Header -->
+<header class="bg-surface-container-lowest border-b-2 border-outline sticky top-0 z-50">
+<div class="max-w-container-max mx-auto px-margin-desktop h-16 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">language</span>
+<span class="font-headline-md text-headline-md text-primary tracking-tight">Cybercrime Help</span>
+</div>
+<button class="bg-surface text-primary border-2 border-primary hover:bg-error hover:text-white hover:border-error transition-colors duration-150 rounded px-4 py-2 font-label-mono text-label-mono uppercase">
+                Quick Exit
+            </button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-desktop py-[120px] space-y-[120px]">
+<!-- Section Header -->
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-4">Component Sheet</h1>
+<p class="font-body-main text-body-main text-on-surface-variant max-w-2xl">Blue City Containment Design System. A tactile, high-stakes utility aesthetic blending Modern Indian Editorial with Industrial Precision.</p>
+</div>
+<!-- Buttons & Targets -->
+<section class="space-y-8">
+<h2 class="font-headline-md text-headline-md border-b-2 border-outline pb-4">Buttons &amp; Targets</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="p-6 bg-surface-container rounded-lg border-2 border-outline-variant space-y-6">
+<h3 class="font-label-mono text-label-mono text-on-surface-variant mb-2">Primary CTA (Copper)</h3>
+<button class="w-full h-12 bg-primary text-on-primary rounded-xl font-label-mono text-label-mono uppercase tracking-wider hover:bg-surface-tint transition-colors flex items-center justify-center gap-2 shadow-copper">
+<span class="material-symbols-outlined">security</span>
+                        Report Incident
+                    </button>
+</div>
+<div class="p-6 bg-surface-container rounded-lg border-2 border-outline-variant space-y-6">
+<h3 class="font-label-mono text-label-mono text-on-surface-variant mb-2">Secondary (Ghost)</h3>
+<button class="w-full h-12 bg-transparent text-secondary border-2 border-secondary rounded-xl font-label-mono text-label-mono uppercase tracking-wider hover:bg-secondary hover:text-on-secondary transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">info</span>
+                        Learn More
+                    </button>
+</div>
+<div class="p-6 bg-surface-container rounded-lg border-2 border-outline-variant space-y-6">
+<h3 class="font-label-mono text-label-mono text-on-surface-variant mb-2">Alert CTA (Vermilion)</h3>
+<button class="w-full h-12 bg-error text-on-error rounded-xl font-label-mono text-label-mono uppercase tracking-wider hover:bg-on-error-container transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined fill">warning</span>
+                        Emergency Stop
+                    </button>
+</div>
+</div>
+</section>
+<!-- Status Stamps & Badges -->
+<section class="space-y-8">
+<h2 class="font-headline-md text-headline-md border-b-2 border-outline pb-4">Status Stamps &amp; Badges</h2>
+<div class="flex flex-wrap gap-6">
+<div class="px-3 py-1 bg-[#F5B041] text-[#0E1C3A] rounded font-label-mono text-label-mono uppercase tracking-wide flex items-center gap-1 border border-[#0E1C3A]">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+                    Verified
+                </div>
+<div class="px-3 py-1 bg-secondary text-on-secondary rounded font-label-mono text-label-mono uppercase tracking-wide flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">sync</span>
+                    Processing
+                </div>
+<div class="px-3 py-1 bg-error text-on-error rounded font-label-mono text-label-mono uppercase tracking-wide flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">priority_high</span>
+                    Action Required
+                </div>
+</div>
+</section>
+<!-- Cards & Containers -->
+<section class="space-y-8">
+<h2 class="font-headline-md text-headline-md border-b-2 border-outline pb-4">Cards &amp; Containers</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Primary Journey Card -->
+<div class="bg-surface border-2 border-[#0E1C3A] rounded-xl p-8 shadow-copper relative overflow-hidden group hover:bg-surface-bright transition-colors">
+<div class="absolute top-0 right-0 w-24 h-24 bg-surface-container-highest rounded-bl-full -mr-4 -mt-4 opacity-50"></div>
+<div class="relative z-10 space-y-4">
+<div class="w-12 h-12 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-2xl">policy</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Financial Fraud Recovery</h3>
+<p class="font-body-main text-body-main text-on-surface-variant">Immediate steps to secure your accounts and initiate a trace on unauthorized transactions.</p>
+<div class="pt-4 flex items-center text-primary font-label-mono text-label-mono uppercase gap-2 group-hover:gap-4 transition-all">
+                            Start Protocol <span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Info Card -->
+<div class="bg-surface-container border-2 border-outline-variant rounded-xl p-8">
+<div class="space-y-4">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-headline-md text-on-surface">Data Breach Notice</h3>
+<span class="px-2 py-1 bg-surface-variant text-on-surface-variant text-xs rounded font-label-mono uppercase">Info</span>
+</div>
+<p class="font-body-main text-body-main text-on-surface-variant">Understanding exposure risks when a service provider is compromised.</p>
+<ul class="space-y-2 mt-4 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Password changes</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> MFA setup</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Input Fields -->
+<section class="space-y-8">
+<h2 class="font-headline-md text-headline-md border-b-2 border-outline pb-4">Input Fields</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter p-8 bg-surface-container-low rounded-xl border border-outline-variant">
+<div class="space-y-2">
+<label class="font-label-mono text-label-mono text-on-surface-variant block uppercase">Transaction ID</label>
+<input class="w-full bg-surface border-2 border-[#0E1C3A] rounded-lg px-4 py-3 font-body-main text-body-main text-on-surface focus:border-secondary focus:ring-0 transition-colors" placeholder="e.g. TXN-99482-A" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-mono text-label-mono text-error block uppercase">Disputed Amount</label>
+<input class="w-full bg-surface border-2 border-error rounded-lg px-4 py-3 font-body-main text-body-main text-error focus:ring-0" type="text" value="Rs. 50,000"/>
+<span class="font-body-sm text-body-sm text-error flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-sm">error</span> Amount must match bank statement
+                    </span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full px-margin-mobile py-8 flex flex-col gap-4 max-w-container-max mx-auto border-t-2 border-outline bg-surface-container-low">
+<p class="font-label-mono text-label-mono text-secondary uppercase">© 2024 Cybercrime Help India. Institutional Minimalist Utility.</p>
+<div class="flex flex-wrap gap-6 font-body-sm text-body-sm text-secondary">
+<a class="hover:text-primary transition-colors underline" href="#">Emergency 1930</a>
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Legal Disclaimer</a>
+<a class="hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Component Sheet - The Citizen's Desk</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Lexend:wght@400;500;600;700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-surface": "#2c3134",
+                        "on-tertiary": "#ffffff",
+                        "postal-vermilion": "#C2410C",
+                        "on-primary-container": "#9be7e6",
+                        "inverse-on-surface": "#edf1f5",
+                        "ink-secondary": "#3D5166",
+                        "paper-bg": "#EEF2F6",
+                        "surface": "#F7F9FC",
+                        "surface-tint": "#0d6969",
+                        "surface-container-lowest": "#ffffff",
+                        "ink-text": "#0F2744",
+                        "outline": "#6f7979",
+                        "surface-variant": "#dfe3e7",
+                        "surface-container-high": "#e5e9ed",
+                        "on-primary-fixed": "#002020",
+                        "primary-fixed-dim": "#87d3d3",
+                        "primary": "#005050",
+                        "surface-bright": "#f6fafe",
+                        "tertiary-fixed": "#ffdbcc",
+                        "on-secondary-container": "#495e7e",
+                        "on-secondary-fixed": "#021c39",
+                        "background": "#f6fafe",
+                        "secondary-container": "#c2d8fe",
+                        "on-error": "#ffffff",
+                        "tertiary": "#6f381c",
+                        "surface-container": "#eaeef2",
+                        "secondary-fixed": "#d4e3ff",
+                        "on-secondary-fixed-variant": "#324866",
+                        "outline-variant": "#bec9c8",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#0f6a6a",
+                        "on-tertiary-fixed-variant": "#6f381c",
+                        "on-tertiary-container": "#ffcfbb",
+                        "rule-border": "#C5D0DC",
+                        "on-background": "#171c1f",
+                        "on-tertiary-fixed": "#351000",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#8c4f31",
+                        "secondary": "#4a5f7f",
+                        "inverse-primary": "#87d3d3",
+                        "primary-fixed": "#a3f0ef",
+                        "tertiary-fixed-dim": "#ffb694",
+                        "surface-container-low": "#f0f4f8",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#171c1f",
+                        "surface-container-highest": "#dfe3e7",
+                        "on-surface-variant": "#3f4948",
+                        "on-primary-fixed-variant": "#004f50",
+                        "trust-teal": "#0F6A6A",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#b2c8ed",
+                        "error": "#ba1a1a",
+                        "clock-amber": "#B45309",
+                        "surface-dim": "#d6dade",
+                        "accent-tint": "#DBEAEA",
+                        "sunken-well": "#E6ECF3"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem",
+                        "10": "10px",
+                        "12": "12px",
+                        "6": "6px"
+                    },
+                    spacing: {
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "max-width": "1120px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Lexend", "sans-serif"],
+                        "headline-lg": ["\"Source Serif 4\"", "serif"],
+                        "body-lg": ["Lexend", "sans-serif"],
+                        "label-mono": ["IBM Plex Mono", "monospace"],
+                        "headline-md": ["\"Source Serif 4\"", "serif"],
+                        "headline-lg-mobile": ["\"Source Serif 4\"", "serif"],
+                        "button": ["Lexend", "sans-serif"]
+                    },
+                    fontSize: {
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "headline-lg": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "label-mono": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "500" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "34px", fontWeight: "700" }],
+                        "button": ["16px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .fade-border-bottom {
+            position: relative;
+        }
+        .fade-border-bottom::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #C5D0DC 15%, #C5D0DC 85%, transparent);
+        }
+        .text-underline-offset-3 {
+            text-underline-offset: 3px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-ink-text font-body-md antialiased min-h-screen flex flex-col">
+<!-- HEADER -->
+<header class="h-[72px] w-full top-0 sticky bg-surface z-50 fade-border-bottom">
+<div class="flex justify-between items-center h-full max-w-max-width mx-auto px-margin-desktop">
+<div class="flex items-center gap-3">
+<div aria-hidden="true" class="w-[22px] h-[22px] bg-trust-teal relative overflow-hidden flex-shrink-0">
+<div class="absolute top-0 right-0 w-[4px] h-[4px] bg-surface -mr-[2px] -mt-[2px] rotate-45"></div>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="font-button text-headline-md font-semibold text-ink-text">NCRP</span>
+<span class="text-ink-secondary text-sm font-medium">Reimagined</span>
+</div>
+</div>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="font-button text-button text-ink-secondary hover:text-trust-teal transition-colors flex items-center h-full" href="#">Scam playbooks</a>
+<a class="font-button text-button text-ink-secondary hover:text-trust-teal transition-colors flex items-center h-full" href="#">Track a report</a>
+<a class="font-button text-button text-ink-secondary hover:text-trust-teal transition-colors flex items-center h-full" href="#">Help someone</a>
+</nav>
+<div class="flex items-center gap-6">
+<div class="font-button text-sm font-medium text-ink-secondary flex items-center gap-1 cursor-pointer hover:text-ink-text">
+<span class="text-ink-text font-semibold">EN</span> <span class="text-rule-border">|</span> <span>हिंदी</span>
+</div>
+<button class="h-10 px-4 flex items-center gap-2 border border-postal-vermilion rounded text-postal-vermilion font-button text-sm hover:bg-red-50 transition-colors">
+                    Leave this site
+                    <span class="material-symbols-outlined" data-icon="logout" style="font-size: 18px;">logout</span>
+</button>
+</div>
+</div>
+</header>
+<!-- MAIN COMPONENT SHEET -->
+<main class="flex-grow max-w-max-width mx-auto px-margin-desktop py-12 w-full">
+<h1 class="font-headline-lg text-headline-lg mb-12">Component Library</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+<!-- 1. PRIMARY BUTTON -->
+<div class="flex flex-col gap-4">
+<h3 class="font-label-mono text-label-mono text-ink-secondary">1. PRIMARY BUTTON</h3>
+<button class="h-[52px] bg-trust-teal text-surface font-button text-button rounded-10 px-6 w-full text-left flex items-center justify-between hover:bg-primary transition-colors focus:ring-2 focus:ring-offset-2 focus:ring-trust-teal focus:outline-none">
+                    Submit Report
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- 2. SECONDARY BUTTON -->
+<div class="flex flex-col gap-4">
+<h3 class="font-label-mono text-label-mono text-ink-secondary">2. SECONDARY BUTTON</h3>
+<button class="h-[52px] bg-transparent border border-rule-border text-ink-text font-button text-button rounded-10 px-6 w-full text-left flex items-center justify-between hover:bg-surface-container-low transition-colors focus:ring-2 focus:ring-offset-2 focus:ring-rule-border focus:outline-none">
+                    Save Draft
+                    <span class="material-symbols-outlined text-ink-secondary" data-icon="save">save</span>
+</button>
+</div>
+<!-- 3. TEXT LINK -->
+<div class="flex flex-col gap-4">
+<h3 class="font-label-mono text-label-mono text-ink-secondary">3. TEXT LINK</h3>
+<div class="h-[52px] flex items-center">
+<a class="text-ink-text font-button text-button underline decoration-1 text-underline-offset-3 hover:text-trust-teal hover:decoration-trust-teal transition-colors" href="#">
+                        View documentation
+                    </a>
+</div>
+</div>
+<!-- 4. INPUT -->
+<div class="flex flex-col gap-4">
+<h3 class="font-label-mono text-label-mono text-ink-secondary">4. INPUT</h3>
+<div class="w-full">
+<label class="block font-button text-button text-ink-text mb-1">Incident Date</label>
+<span class="block text-sm text-ink-secondary mb-2">When did you first notice the transaction?</span>
+<input class="w-full h-[56px] bg-white border border-rule-border rounded-10 px-4 font-label-mono text-label-mono text-ink-text placeholder-ink-secondary focus:border-trust-teal focus:ring-1 focus:ring-trust-teal outline-none transition-all" placeholder="DD/MM/YYYY" type="text"/>
+</div>
+</div>
+<!-- 5. CHOICE ROW -->
+<div class="flex flex-col gap-4 lg:col-span-2">
+<h3 class="font-label-mono text-label-mono text-ink-secondary">5. CHOICE ROW (Selected State)</h3>
+<div class="w-full h-[64px] border-y border-rule-border bg-accent-tint relative flex items-center px-6 cursor-pointer">
+<div class="absolute left-0 top-0 bottom-0 w-[2px] bg-trust-teal"></div>
+<div class="flex justify-between items-center w-full">
+<span class="font-button text-button text-ink-text">UPI Fraud</span>
+<span class="material-symbols-outlined text-trust-teal" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+</div>
+<!-- 6. CALL CONTROL -->
+<div class="flex flex-col gap-4">
+<h3 class="font-label-mono text-label-mono text-ink-secondary">6. CALL CONTROL</h3>
+<button class="bg-white border border-rule-border rounded-lg p-4 flex flex-col items-start gap-2 hover:bg-surface-container-low transition-colors w-full group">
+<div class="flex items-center gap-2 text-ink-secondary group-hover:text-ink-text">
+<span class="material-symbols-outlined" data-icon="call" style="font-size: 20px;">call</span>
+<span class="font-body-md text-sm font-medium">Cybercrime Helpline</span>
+</div>
+<span class="font-label-mono text-[22px] leading-tight text-trust-teal font-semibold">1930</span>
+</button>
+</div>
+<!-- 7. NOTE (3 Variants) -->
+<div class="flex flex-col gap-4 lg:col-span-2">
+<h3 class="font-label-mono text-label-mono text-ink-secondary">7. NOTE</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="pl-4 border-l-2 border-trust-teal py-1">
+<p class="font-body-md text-sm text-ink-secondary">Info: Your report is secure.</p>
+</div>
+<div class="pl-4 border-l-2 border-clock-amber py-1">
+<p class="font-body-md text-sm text-ink-secondary">Deadline: 24h to submit.</p>
+</div>
+<div class="pl-4 border-l-2 border-postal-vermilion py-1">
+<p class="font-body-md text-sm text-ink-secondary">Alert: High priority.</p>
+</div>
+</div>
+</div>
+<!-- 8. QUOTE -->
+<div class="flex flex-col gap-4 lg:col-span-2">
+<h3 class="font-label-mono text-label-mono text-ink-secondary">8. QUOTE</h3>
+<div class="bg-sunken-well rounded-r-12 border-l-2 border-trust-teal p-4">
+<p class="font-label-mono text-[15px] leading-relaxed text-ink-text">
+                        "The fraudulent transaction occurred at approximately 14:30 IST on a fake banking portal mimicking HDFC."
+                    </p>
+</div>
+</div>
+<!-- 9. CLOCK -->
+<div class="flex flex-col gap-4 items-start">
+<h3 class="font-label-mono text-label-mono text-ink-secondary">9. CLOCK</h3>
+<div class="w-[72px] h-[72px] rounded-full border-2 border-rule-border relative flex items-center justify-center">
+<!-- Fake SVG Arc for design -->
+<svg class="absolute inset-0 w-full h-full -rotate-90" viewbox="0 0 72 72">
+<circle class="transition-all duration-1000" cx="36" cy="36" fill="none" r="35" stroke="#0F6A6A" stroke-dasharray="220" stroke-dashoffset="165" stroke-width="2"></circle>
+</svg>
+<span class="font-label-mono text-[15px] text-ink-text font-semibold z-10">48h</span>
+</div>
+</div>
+<!-- 10. FINGERPRINT -->
+<div class="flex flex-col gap-4 items-start">
+<h3 class="font-label-mono text-label-mono text-ink-secondary">10. FINGERPRINT</h3>
+<div class="flex items-center gap-4">
+<div class="grid grid-cols-5 gap-1">
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-100"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-50"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-100"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-20"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-50"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-20"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-100"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-50"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-100"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-20"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-100"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-20"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-100"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-50"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-100"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-50"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-100"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-20"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-100"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-50"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-100"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-50"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-100"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-20"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal opacity-100"></div>
+</div>
+<span class="font-label-mono text-xs text-ink-secondary">0x7F9A</span>
+</div>
+</div>
+<!-- 11. STAGE RAIL -->
+<div class="flex flex-col gap-4 lg:col-span-3">
+<h3 class="font-label-mono text-label-mono text-ink-secondary">11. STAGE RAIL</h3>
+<div class="w-full relative flex items-center h-[24px]">
+<div class="absolute left-0 right-0 h-[1px] bg-rule-border z-0"></div>
+<div class="absolute left-0 w-1/2 h-[1px] bg-trust-teal z-0"></div>
+<div class="flex justify-between w-full z-10 px-2">
+<div class="w-[6px] h-[6px] bg-trust-teal rounded-full ring-4 ring-surface"></div>
+<div class="w-[6px] h-[6px] bg-trust-teal rounded-full ring-4 ring-surface"></div>
+<div class="w-[10px] h-[10px] border-2 border-trust-teal bg-surface rounded-full ring-4 ring-surface"></div>
+<div class="w-[6px] h-[6px] bg-rule-border rounded-full ring-4 ring-surface"></div>
+<div class="w-[6px] h-[6px] bg-rule-border rounded-full ring-4 ring-surface"></div>
+</div>
+</div>
+</div>
+<!-- 12. SUMMARY ROW -->
+<div class="flex flex-col gap-4 lg:col-span-2">
+<h3 class="font-label-mono text-label-mono text-ink-secondary">12. SUMMARY ROW</h3>
+<div class="w-full border-b border-rule-border py-4 flex justify-between items-baseline">
+<span class="font-body-md text-ink-secondary">Account Number</span>
+<div class="flex items-baseline gap-4">
+<span class="font-label-mono text-ink-text font-medium">XXXX-XXXX-9021</span>
+<button class="font-button text-sm text-trust-teal hover:underline text-underline-offset-3">Change</button>
+</div>
+</div>
+</div>
+<!-- 13. TAG -->
+<div class="flex flex-col gap-4">
+<h3 class="font-label-mono text-label-mono text-ink-secondary">13. TAG</h3>
+<div class="flex gap-2 flex-wrap">
+<span class="inline-flex items-center px-2 py-1 bg-accent-tint text-trust-teal font-label-mono text-xs rounded-6">To do</span>
+<span class="inline-flex items-center px-2 py-1 bg-surface-container-high text-ink-secondary font-label-mono text-xs rounded-6">Done</span>
+<span class="inline-flex items-center px-2 py-1 bg-error-container text-postal-vermilion font-label-mono text-xs rounded-6">Simulated</span>
+</div>
+</div>
+<!-- 14. REDACTION CHIP -->
+<div class="flex flex-col gap-4">
+<h3 class="font-label-mono text-label-mono text-ink-secondary">14. REDACTION CHIP</h3>
+<div>
+<span class="inline-flex items-center px-2 py-1 bg-sunken-well text-ink-secondary font-label-mono text-sm line-through decoration-ink-secondary">
+                        [AADHAAR]
+                    </span>
+</div>
+</div>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="w-full py-unit border-t border-rule-border bg-surface mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-max-width mx-auto px-margin-desktop gap-gutter min-h-[64px]">
+<p class="font-body-md text-sm text-ink-secondary">Independent hackathon prototype. Not for official use.</p>
+<div class="flex items-center gap-4 text-sm font-label-mono text-ink-text">
+<a class="hover:text-trust-teal transition-colors" href="#">Cybercrime 1930</a>
+<span class="text-rule-border">|</span>
+<a class="hover:text-trust-teal transition-colors" href="#">Tele-MANAS 14416</a>
+<span class="text-rule-border">|</span>
+<a class="hover:text-trust-teal transition-colors" href="#">Childline 1098</a>
+</div>
+</div>
+</footer>
+</body></html>

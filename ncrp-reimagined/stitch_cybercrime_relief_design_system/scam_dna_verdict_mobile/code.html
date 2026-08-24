@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cybercrime Help - Verdict</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@500&amp;family=Lexend:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#004299",
+                      "surface-bright": "#fbf8ff",
+                      "tertiary-fixed": "#d9e2ff",
+                      "on-tertiary-fixed": "#001944",
+                      "on-primary-fixed-variant": "#763300",
+                      "secondary": "#415d99",
+                      "error": "#ba1a1a",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed-dim": "#afc6ff",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed": "#001944",
+                      "tertiary": "#0056c3",
+                      "tertiary-container": "#2f70e1",
+                      "primary-fixed-dim": "#ffb68d",
+                      "on-tertiary-container": "#fefcff",
+                      "inverse-primary": "#ffb68d",
+                      "error-container": "#ffdad6",
+                      "background": "#fbf8ff",
+                      "outline": "#887368",
+                      "inverse-on-surface": "#efefff",
+                      "on-error-container": "#93000a",
+                      "surface": "#fbf8ff",
+                      "primary-container": "#b35e25",
+                      "on-primary-container": "#fffbff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface-variant": "#55433a",
+                      "surface-dim": "#d2d8ff",
+                      "on-secondary-fixed-variant": "#274580",
+                      "primary": "#94460d",
+                      "surface-container-highest": "#dde1ff",
+                      "surface-tint": "#974810",
+                      "outline-variant": "#dbc1b5",
+                      "secondary-fixed": "#d9e2ff",
+                      "surface-container": "#ececff",
+                      "secondary-fixed-dim": "#afc6ff",
+                      "on-surface": "#111939",
+                      "secondary-container": "#9fbbfd",
+                      "inverse-surface": "#272e4f",
+                      "surface-container-low": "#f3f2ff",
+                      "on-background": "#111939",
+                      "primary-fixed": "#ffdbc9",
+                      "on-primary-fixed": "#331200",
+                      "on-error": "#ffffff",
+                      "surface-variant": "#dde1ff",
+                      "on-secondary-container": "#2c4984",
+                      "on-primary": "#ffffff",
+                      "surface-container-high": "#e4e7ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "margin-desktop": "64px",
+                      "margin-mobile": "20px",
+                      "container-max": "1280px",
+                      "unit": "8px"
+              },
+              "fontFamily": {
+                      "body-main": [
+                              "Lexend"
+                      ],
+                      "label-mono": [
+                              "IBM Plex Mono"
+                      ],
+                      "body-sm": [
+                              "Lexend"
+                      ],
+                      "display-lg-mobile": [
+                              "Bricolage Grotesque"
+                      ],
+                      "display-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "headline-md": [
+                              "Bricolage Grotesque"
+                      ]
+              },
+              "fontSize": {
+                      "body-main": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-mono": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-sm": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "display-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+        body {
+            background-color: #fbf8ff; /* surface */
+        }
+        .copper-shadow {
+            box-shadow: 0 12px 40px rgba(196,107,50,0.12);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-main text-body-main text-on-surface antialiased bg-surface pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 max-w-container-max mx-auto bg-surface-container-lowest border-b-2 border-outline">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">language</span>
+<span class="font-headline-md text-headline-md font-bold uppercase tracking-tight text-primary">Cybercrime Help</span>
+</div>
+<button class="font-label-mono text-label-mono font-bold uppercase tracking-tight text-primary hover:bg-error hover:text-on-error transition-colors duration-150 px-4 py-2 rounded scale-95 active:scale-90 border-2 border-primary">
+            Quick Exit
+        </button>
+</header>
+<main class="pt-24 px-margin-mobile max-w-container-max mx-auto flex flex-col gap-8 pb-32">
+<!-- Top Assertion ROOM: Vermilion ceiling bar with Indigo body -->
+<section class="rounded-xl overflow-hidden border-2 border-on-surface bg-surface-container shadow-[0_12px_40px_rgba(186,26,26,0.12)]">
+<div class="bg-error h-3 w-full"></div>
+<div class="p-6 bg-[#0E1C3A] text-on-primary relative">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-error text-on-error px-3 py-1 rounded font-label-mono text-label-mono uppercase">High Risk Detected</span>
+<div class="relative w-16 h-16 flex items-center justify-center rounded-full border-4 border-primary">
+<span class="font-display-lg-mobile text-headline-md text-primary">94%</span>
+</div>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-on-primary mb-2">Part-time Task Scam</h1>
+<p class="font-body-main text-body-main text-surface-container-high opacity-90">Based on your inputs, there is a very high probability this is a known scam pattern.</p>
+</div>
+</section>
+<!-- Scam Anatomy Illustration -->
+<section class="bg-surface-bright rounded-xl border-2 border-outline p-6 relative">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6 border-b-2 border-outline pb-2">Scam Anatomy</h3>
+<div class="flex flex-col gap-4 relative pl-6 border-l-2 border-outline-variant">
+<div class="relative">
+<div class="absolute -left-[35px] top-1 w-4 h-4 rounded-full bg-outline"></div>
+<h4 class="font-label-mono text-label-mono text-on-surface-variant uppercase mb-1">Stage 1: Contact</h4>
+<p class="font-body-sm text-body-sm text-on-surface">Unsolicited message on WhatsApp or Telegram offering part-time work.</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[35px] top-1 w-4 h-4 rounded-full bg-primary ring-4 ring-primary-container ring-opacity-50"></div>
+<h4 class="font-label-mono text-label-mono text-primary uppercase mb-1">Stage 2: The Hook (You are here)</h4>
+<p class="font-body-sm text-body-sm text-on-surface font-bold">Small initial payout to build trust after liking videos or writing reviews.</p>
+</div>
+<div class="relative opacity-60">
+<div class="absolute -left-[35px] top-1 w-4 h-4 rounded-full bg-outline-variant"></div>
+<h4 class="font-label-mono text-label-mono text-on-surface-variant uppercase mb-1">Stage 3: Escalation</h4>
+<p class="font-body-sm text-body-sm text-on-surface">Demand for "pre-paid tasks" or "vip upgrades" requiring your own money.</p>
+</div>
+<div class="relative opacity-60">
+<div class="absolute -left-[35px] top-1 w-4 h-4 rounded-full bg-outline-variant"></div>
+<h4 class="font-label-mono text-label-mono text-on-surface-variant uppercase mb-1">Stage 4: Lockout</h4>
+<p class="font-body-sm text-body-sm text-on-surface">Account frozen, demanding more money to withdraw "earnings".</p>
+</div>
+</div>
+</section>
+<!-- Two Column Board -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Left: Chat Bubbles -->
+<section class="bg-surface-container-low rounded-xl border-2 border-outline p-6">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Recognize the Signals</h3>
+<div class="flex flex-col gap-4">
+<div class="bg-surface-bright p-4 rounded-lg rounded-tl-none border-2 border-outline-variant shadow-sm w-[85%] self-start">
+<p class="font-body-sm text-body-sm text-on-surface">"Hello! We are hiring part-time employees. You can earn 2000-5000 INR daily just by liking YouTube videos."</p>
+<span class="block text-right text-xs mt-2 text-on-surface-variant">Signal: Unrealistic Returns</span>
+</div>
+<div class="bg-primary-container text-on-primary-container p-4 rounded-lg rounded-tr-none border-2 border-primary w-[85%] self-end">
+<p class="font-body-sm text-body-sm">"How do I start?"</p>
+</div>
+<div class="bg-surface-bright p-4 rounded-lg rounded-tl-none border-2 border-error shadow-sm w-[85%] self-start">
+<p class="font-body-sm text-body-sm text-on-surface">"Great! Please register on this VIP merchant portal and deposit 500 INR to unlock your first task bundle."</p>
+<span class="block text-right text-xs mt-2 text-error font-bold">Signal: Pay to Work</span>
+</div>
+</div>
+</section>
+<!-- Right: Next Move -->
+<section class="flex flex-col gap-4">
+<div class="bg-primary-container p-6 rounded-xl border-2 border-primary copper-shadow">
+<h3 class="font-headline-md text-headline-md text-on-primary-container mb-2">Next Move</h3>
+<p class="font-body-main text-body-main text-on-primary-container mb-4">Cease all communication immediately. Do not attempt to explain or negotiate.</p>
+<button class="w-full bg-surface-bright text-primary font-label-mono text-label-mono py-3 rounded-lg border-2 border-primary hover:bg-surface-variant transition-colors">
+                        Block &amp; Report Number
+                    </button>
+</div>
+<div class="bg-error-container p-4 rounded-xl border-2 border-error flex items-center gap-4">
+<span class="material-symbols-outlined text-error" data-weight="fill">block</span>
+<div>
+<h4 class="font-label-mono text-label-mono text-on-error-container uppercase">Do Not</h4>
+<p class="font-body-sm text-body-sm text-on-error-container">Send any more money under any circumstances.</p>
+</div>
+</div>
+<div class="bg-[#1a4a4a] p-4 rounded-xl border-2 border-[#2a7a7a] flex items-center gap-4 text-white">
+<span class="material-symbols-outlined text-[#66cccc]" data-weight="fill">verified_user</span>
+<div>
+<h4 class="font-label-mono text-label-mono uppercase text-[#66cccc]">Safe Check</h4>
+<p class="font-body-sm text-body-sm">Legitimate companies never ask you to pay to work.</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Bottom Doors -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+<button class="bg-error hover:bg-on-error-container transition-colors p-8 rounded-xl border-2 border-on-error-container flex flex-col items-center justify-center gap-4 group">
+<span class="material-symbols-outlined text-white text-4xl group-hover:-translate-y-1 transition-transform">money_off</span>
+<span class="font-display-lg-mobile text-headline-md text-white">I already paid</span>
+</button>
+<button class="bg-primary hover:bg-surface-tint transition-colors p-8 rounded-xl border-2 border-primary-container flex flex-col items-center justify-center gap-4 copper-shadow group">
+<span class="material-symbols-outlined text-white text-4xl group-hover:-translate-y-1 transition-transform">shield</span>
+<span class="font-display-lg-mobile text-headline-md text-white">I have not paid</span>
+</button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 max-w-container-max mx-auto bg-surface-container-highest">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-none px-4 py-2 border-t-4 border-primary w-1/4 h-full" href="#">
+<span class="material-symbols-outlined" data-weight="fill">fact_check</span>
+<span class="font-label-mono text-label-mono mt-1">Check</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant active:opacity-80 transition-opacity px-4 py-2 w-1/4 h-full" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="font-label-mono text-label-mono mt-1">Help</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant active:opacity-80 transition-opacity px-4 py-2 w-1/4 h-full" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-mono text-label-mono mt-1">History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant active:opacity-80 transition-opacity px-4 py-2 w-1/4 h-full" href="#">
+<span class="material-symbols-outlined">gpp_maybe</span>
+<span class="font-label-mono text-label-mono mt-1">Safety</span>
+</a>
+</nav>
+</body></html>

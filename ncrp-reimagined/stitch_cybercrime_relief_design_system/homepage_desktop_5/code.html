@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NCRP Reimagined - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&amp;family=IBM+Plex+Mono:ital,wght@0,100..700;1,100..700&amp;family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb4a3",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#6a1100",
+                        "surface-container": "#e7f0e9",
+                        "primary-fixed-dim": "#a3d0c3",
+                        "surface": "#f3fcf5",
+                        "on-surface-variant": "#404846",
+                        "on-surface": "#151d19",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e2eae4",
+                        "secondary": "#4b57aa",
+                        "on-background": "#151d19",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#0d3b32",
+                        "on-secondary-fixed-variant": "#333f91",
+                        "tertiary": "#440700",
+                        "inverse-primary": "#a3d0c3",
+                        "inverse-surface": "#2a322e",
+                        "primary-fixed": "#beecdf",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#00241d",
+                        "on-secondary-fixed": "#000d60",
+                        "secondary-fixed-dim": "#bcc3ff",
+                        "surface-tint": "#3c665c",
+                        "background": "#f3fcf5",
+                        "secondary-container": "#99a5fe",
+                        "on-primary-container": "#7aa599",
+                        "outline": "#717976",
+                        "on-secondary-container": "#2b3789",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#234e44",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#ffdad2",
+                        "on-primary-fixed": "#00201a",
+                        "secondary-fixed": "#dfe0ff",
+                        "surface-container-low": "#edf6ef",
+                        "on-tertiary-container": "#ff7151",
+                        "outline-variant": "#c0c8c4",
+                        "surface-dim": "#d3dcd6",
+                        "surface-bright": "#f3fcf5",
+                        "on-tertiary-fixed": "#3d0600",
+                        "inverse-on-surface": "#eaf3ec",
+                        "surface-variant": "#dce5de",
+                        "surface-container-highest": "#dce5de",
+                        "on-tertiary-fixed-variant": "#8b1900"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "ledger-line": "32px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Lexend"],
+                        "serial-number": ["IBM Plex Mono"],
+                        "headline-md": ["Fraunces"],
+                        "display-lg-mobile": ["Fraunces"],
+                        "headline-sm": ["Fraunces"],
+                        "body-md": ["Lexend"],
+                        "display-lg": ["Fraunces"],
+                        "label-mono": ["IBM Plex Mono"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "serial-number": ["16px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "label-mono": ["14px", { "lineHeight": "20px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #F7F3EA; }
+        .hairline-border { border-color: #E2DAC6; border-width: 1px; border-style: solid; }
+        .hairline-border-b { border-bottom-color: #E2DAC6; border-bottom-width: 1px; border-bottom-style: solid; }
+        .hairline-border-double { border-bottom: 3px double #E2DAC6; }
+        .perforation { border-bottom: 2px dashed #E2DAC6; }
+        .well-sand { background-color: #F0EBE0; }
+        .post-vermilion { color: #D3432F; }
+        .rubber-stamp { transform: rotate(-3deg); transform-origin: center; padding: 4px 8px; border: 2px solid; display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; text-transform: uppercase; }
+        .stamp-success { border-color: #718F7B; color: #718F7B; }
+        .stamp-urgent { border-color: #E19B3E; color: #E19B3E; }
+        .stamp-processed { border-color: #4C5687; color: #4C5687; }
+        
+        /* Analog Clock Minimal */
+        .analog-clock { width: 64px; height: 64px; border-radius: 50%; border: 2px solid #151d19; position: relative; background: #fff; }
+        .clock-hand { position: absolute; background: #151d19; transform-origin: bottom center; bottom: 50%; left: 50%; transform: translateX(-50%); }
+        .hour-hand { width: 4px; height: 16px; transform: translateX(-50%) rotate(45deg); }
+        .minute-hand { width: 2px; height: 24px; transform: translateX(-50%) rotate(180deg); }
+        
+        .speed-post-edge { background: repeating-linear-gradient(135deg, #F7F3EA, #F7F3EA 10px, #E2DAC6 10px, #E2DAC6 12px); }
+        
+        /* Fixed Nav Shell Styles */
+        .top-app-bar-bg { background-color: #f3fcf5; }
+        
+        /* Minimalist Input */
+        .line-input {
+            border: none;
+            border-bottom: 1px solid #717976;
+            background: transparent;
+            border-radius: 0;
+            padding: 8px 0;
+        }
+        .line-input:focus {
+            outline: none;
+            border-bottom-color: #00241d;
+            box-shadow: 0 1px 0 #00241d;
+            background-color: #F0EBE0;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface antialiased pt-[72px] pb-[100px] md:pb-0 min-h-screen flex flex-col relative">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex items-center justify-between px-margin-desktop top-app-bar-bg h-[72px] border-b-2 border-double border-outline-variant transition-colors hover:bg-surface-container-low">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-[24px]">square</span>
+<span class="font-headline-sm text-headline-sm text-primary uppercase tracking-tight font-bold">NCRP Reimagined</span>
+</div>
+<div class="hidden md:flex gap-8 items-center font-label-mono text-label-mono text-on-surface-variant">
+<a class="text-primary font-bold hover:bg-surface-container-low transition-colors px-2 py-1" href="#">CHECK</a>
+<a class="hover:text-primary transition-colors px-2 py-1" href="#">ACT</a>
+<a class="hover:text-primary transition-colors px-2 py-1" href="#">REPORT</a>
+<a class="hover:text-primary transition-colors px-2 py-1" href="#">RECOVER</a>
+</div>
+<button class="font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors border border-outline-variant px-4 py-2 hover:bg-surface-container-low">
+            QUICK EXIT
+        </button>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-margin-desktop flex flex-col gap-16 relative">
+<!-- BLOCK 1: Hero Form Area -->
+<section class="grid grid-cols-12 gap-gutter relative min-h-[409px]">
+<div class="col-span-12 md:col-span-7 flex flex-col gap-8 justify-center">
+<h1 class="font-display-lg text-display-lg text-on-surface">Something arrived that does not feel <em>right</em>.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[80%]">Verify the authenticity of digital communications before taking action. Enter the sender details or suspicious link below.</p>
+<div class="flex flex-col gap-2 mt-4 max-w-xl">
+<label class="font-label-mono text-label-mono text-on-surface-variant">Suspicious Number, ID or Link</label>
+<div class="flex items-end gap-4">
+<div class="flex-grow">
+<input class="w-full line-input font-serial-number text-serial-number text-on-surface transition-colors" placeholder="e.g. +91 98765 43210 or bit.ly/abc" type="text"/>
+</div>
+<button class="bg-primary text-on-primary font-label-mono text-label-mono px-8 py-3 shrink-0 hover:opacity-90 transition-opacity flex items-center justify-center">
+                            VERIFY
+                        </button>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">lock</span>
+<span class="font-label-mono text-[12px] text-on-surface-variant uppercase tracking-wider">End-to-End Secure Processing</span>
+</div>
+</div>
+</div>
+<div class="hidden md:block col-span-5 relative">
+<!-- Floating off-grid elements -->
+<div class="absolute right-12 top-12 opacity-80 pointer-events-none" style="transform: rotate(15deg);">
+<div class="w-32 h-32 rounded-full border-2 border-dashed border-[#D3432F] flex items-center justify-center p-2">
+<div class="w-full h-full rounded-full border border-[#D3432F] flex flex-col items-center justify-center text-center">
+<span class="font-serial-number text-[10px] text-[#D3432F] uppercase">Cyber Cell</span>
+<span class="font-headline-sm text-headline-sm text-[#D3432F]">GOI</span>
+<span class="font-serial-number text-[10px] text-[#D3432F]">New Delhi</span>
+</div>
+</div>
+</div>
+<div class="absolute bottom-12 right-24 pointer-events-none">
+<div class="analog-clock">
+<div class="clock-hand hour-hand"></div>
+<div class="clock-hand minute-hand"></div>
+</div>
+<div class="text-center mt-2 font-label-mono text-[10px] text-on-surface-variant uppercase tracking-widest">Server Time</div>
+</div>
+</div>
+</section>
+<div class="w-full perforation my-8"></div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-margin-mobile pb-4 bg-surface-container-lowest border-t border-outline-variant h-[72px]">
+<a class="flex flex-col items-center justify-center text-on-tertiary-container border-t-2 border-on-tertiary-container pt-2 w-1/4 opacity-80" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+<span class="font-label-mono text-[10px] mt-1">CHECK</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant pt-2 w-1/4 hover:text-primary" href="#">
+<span class="material-symbols-outlined">security</span>
+<span class="font-label-mono text-[10px] mt-1">ACT</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant pt-2 w-1/4 hover:text-primary" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span class="font-label-mono text-[10px] mt-1">REPORT</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant pt-2 w-1/4 hover:text-primary" href="#">
+<span class="material-symbols-outlined">restore</span>
+<span class="font-label-mono text-[10px] mt-1">RECOVER</span>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="w-full px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-4 py-8 bg-surface-container-high border-t-2 border-double border-outline-variant font-label-mono text-label-mono text-on-surface mt-auto z-40 relative">
+<div class="font-bold">
+            Independent Prototype • Not affiliated with MHA
+        </div>
+<div class="flex gap-6 items-center">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Cybercrime 1930</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Tele-MANAS</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Childline</a>
+</div>
+</footer>
+</body></html>

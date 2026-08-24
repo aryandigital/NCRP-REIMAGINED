@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Immediate Action - Citizen's Desk</title>
+<!-- Google Fonts: Inter as mandated by System Prompt -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config injected from Style Guidance -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error-container": "#93000a",
+                      "on-secondary": "#ffffff",
+                      "tertiary": "#3945e3",
+                      "on-tertiary-fixed": "#00046a",
+                      "on-tertiary-container": "#fffbff",
+                      "surface-tint": "#005db8",
+                      "on-secondary-container": "#3f5881",
+                      "surface-container-low": "#f1f3fc",
+                      "tertiary-fixed": "#e0e0ff",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-high": "#e6e8f1",
+                      "surface-dim": "#d7dae3",
+                      "surface-variant": "#e0e2eb",
+                      "tertiary-fixed-dim": "#bec2ff",
+                      "on-surface-variant": "#414753",
+                      "on-primary-fixed-variant": "#00458d",
+                      "on-secondary-fixed-variant": "#2d476f",
+                      "on-surface": "#181c22",
+                      "on-tertiary-fixed-variant": "#1c28ce",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#eef0fa",
+                      "error": "#ba1a1a",
+                      "outline-variant": "#c1c6d5",
+                      "on-secondary-fixed": "#001b3d",
+                      "on-primary": "#ffffff",
+                      "on-primary-fixed": "#001b3e",
+                      "secondary": "#465f88",
+                      "outline": "#717785",
+                      "secondary-fixed-dim": "#aec7f7",
+                      "surface-container-highest": "#e0e2eb",
+                      "surface": "#f9f9ff",
+                      "primary-fixed-dim": "#aac7ff",
+                      "primary": "#005ab4",
+                      "primary-fixed": "#d6e3ff",
+                      "surface-container": "#ebedf7",
+                      "on-background": "#181c22",
+                      "primary-container": "#0a73e0",
+                      "secondary-fixed": "#d6e3ff",
+                      "secondary-container": "#b6d0ff",
+                      "on-primary-container": "#fefcff",
+                      "error-container": "#ffdad6",
+                      "surface-bright": "#f9f9ff",
+                      "background": "#f9f9ff",
+                      "inverse-surface": "#2d3037",
+                      "tertiary-container": "#5461fc",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-primary": "#aac7ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "24px",
+                      "base": "8px",
+                      "gutter": "16px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "label-md": ["Inter"],
+                      "headline-md": ["Inter"]
+              },
+              "fontSize": {
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+          font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg antialiased min-h-screen flex flex-col pt-[56px] pb-[80px]">
+<!-- TopAppBar (From JSON Anchors) -->
+<header class="fixed top-0 w-full h-[56px] z-40 bg-surface border-b border-outline-variant flex justify-between items-center px-margin-mobile md:px-margin-desktop">
+<div class="flex items-center gap-gutter text-primary cursor-pointer hover:bg-surface-container-low transition-colors p-1 rounded">
+<span class="material-symbols-outlined icon-fill" data-icon="call" data-weight="fill">call</span>
+</div>
+<div class="text-label-md font-label-md font-bold tracking-tight text-on-surface">
+            CITIZEN'S DESK
+        </div>
+<div class="text-primary font-bold text-label-md font-label-md cursor-pointer hover:bg-surface-container-low transition-colors px-2 py-1 rounded">
+            Quick Exit
+        </div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop py-gutter md:py-margin-desktop">
+<!-- Header Section -->
+<div class="mb-margin-desktop">
+<div class="text-label-md font-label-md text-secondary tracking-widest uppercase mb-base">STEP 1 OF 4</div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface mb-gutter leading-tight">
+                Call your bank, then call 1930.
+            </h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-prose">
+                Do this before any form. After a few hours the money is much harder to stop.
+            </p>
+</div>
+<!-- Call Controls (Modern Cards) -->
+<div class="flex flex-col gap-gutter mb-margin-desktop">
+<!-- 1930 Card -->
+<button class="w-full bg-surface-container-low border border-outline-variant rounded-xl p-gutter flex items-center justify-between hover:bg-surface-container-high transition-colors text-left group">
+<div class="flex items-center gap-gutter">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+</div>
+<div>
+<div class="text-headline-md font-headline-md text-on-surface mb-1 group-hover:text-primary transition-colors">1930</div>
+<div class="text-label-md font-label-md text-on-surface-variant">National cybercrime helpline</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</button>
+<!-- Bank Card -->
+<div class="relative w-full bg-surface-container-low border border-outline-variant rounded-xl p-gutter flex items-start sm:items-center justify-between flex-col sm:flex-row gap-base">
+<div class="absolute top-0 right-0 mt-3 mr-3 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide">
+                    Simulated
+                </div>
+<div class="flex items-start sm:items-center gap-gutter w-full">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 mt-1 sm:mt-0">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+</div>
+<div class="pr-16 sm:pr-0">
+<div class="text-headline-md font-headline-md text-on-surface mb-1">Your bank</div>
+<div class="text-label-md font-label-md text-on-surface-variant leading-relaxed">
+                            Use the number on your card, never a number from the message.
+                        </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Choices -->
+<div class="mb-margin-desktop">
+<label class="flex items-center gap-gutter cursor-pointer group mb-base p-2 -ml-2 rounded hover:bg-surface-container-low transition-colors">
+<div class="relative flex items-center justify-center w-6 h-6 rounded border-2 border-outline group-hover:border-primary">
+<input class="opacity-0 absolute inset-0 cursor-pointer" type="checkbox"/>
+</div>
+<span class="text-body-lg font-body-lg text-on-surface font-medium group-hover:text-primary transition-colors">I have made both calls</span>
+</label>
+<a class="inline-block text-label-md font-label-md text-primary hover:underline hover:text-primary-container transition-colors ml-[40px]" href="#">
+                I do not have my bank's number
+            </a>
+</div>
+<!-- Secondary Steps Divider & List -->
+<div class="mt-8 pt-8 border-t border-outline-variant/60">
+<div class="flex flex-col gap-4 opacity-80">
+<div class="flex items-center gap-gutter h-[48px] border-b border-outline-variant/30">
+<span class="material-symbols-outlined text-outline" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+<span class="text-body-lg font-body-lg text-on-surface-variant">Note the UTR from the debit SMS</span>
+</div>
+<div class="flex items-center gap-gutter h-[48px] border-b border-outline-variant/30">
+<span class="material-symbols-outlined text-outline" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+<span class="text-body-lg font-body-lg text-on-surface-variant">Screenshot your statement</span>
+</div>
+<div class="flex items-center gap-gutter h-[48px]">
+<span class="material-symbols-outlined text-outline" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+<span class="text-body-lg font-body-lg text-on-surface-variant">Ignore anyone offering to recover the money for a fee</span>
+</div>
+</div>
+</div>
+<!-- Bottom Actions -->
+<div class="mt-margin-desktop flex flex-col gap-gutter">
+<button class="w-full h-12 bg-primary text-on-primary rounded-lg text-label-md font-label-md font-bold shadow-sm hover:bg-primary-container hover:text-on-primary-container transition-all flex items-center justify-center">
+                Build the complaint from this
+            </button>
+<div class="text-center">
+<a class="text-label-md font-label-md text-outline hover:text-on-surface transition-colors" href="#">
+                    Leave this site
+                </a>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (From JSON Anchors) - Rendered as requested despite linear flow context to fulfill styling commands -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-base py-2 border-t border-outline-variant bg-surface md:hidden shadow-[0_-4px_16px_rgba(0,0,0,0.05)]">
+<!-- Active: Money -> payments -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-lg p-2 min-w-[64px] scale-95 duration-150">
+<span class="material-symbols-outlined icon-fill" data-icon="payments" data-weight="fill">payments</span>
+</button>
+<!-- Inactive items -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 min-w-[64px] hover:bg-surface-container transition-colors rounded-lg">
+<span class="material-symbols-outlined" data-icon="photo_library">photo_library</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 min-w-[64px] hover:bg-surface-container transition-colors rounded-lg">
+<span class="material-symbols-outlined" data-icon="key">key</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 min-w-[64px] hover:bg-surface-container transition-colors rounded-lg">
+<span class="material-symbols-outlined" data-icon="fingerprint">fingerprint</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 min-w-[64px] hover:bg-surface-container transition-colors rounded-lg">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+</button>
+</nav>
+</body></html>

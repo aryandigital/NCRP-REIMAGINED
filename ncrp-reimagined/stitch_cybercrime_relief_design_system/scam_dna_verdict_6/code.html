@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Scam DNA Verdict</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100..700;1,100..700&amp;family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-error-container": "#93000a",
+                  "inverse-surface": "#2d3037",
+                  "on-secondary-container": "#3f5881",
+                  "on-error": "#ffffff",
+                  "on-tertiary-container": "#fffbff",
+                  "secondary-fixed": "#d6e3ff",
+                  "on-primary-fixed": "#001b3e",
+                  "on-primary": "#ffffff",
+                  "tertiary-container": "#5461fc",
+                  "surface-container-high": "#e6e8f1",
+                  "on-surface": "#181c22",
+                  "primary": "#005ab4",
+                  "secondary": "#465f88",
+                  "secondary-fixed-dim": "#aec7f7",
+                  "background": "#f9f9ff",
+                  "on-tertiary-fixed": "#00046a",
+                  "tertiary-fixed-dim": "#bec2ff",
+                  "surface-container-lowest": "#ffffff",
+                  "surface-tint": "#005db8",
+                  "outline": "#717785",
+                  "outline-variant": "#c1c6d5",
+                  "on-tertiary": "#ffffff",
+                  "on-background": "#181c22",
+                  "surface-container-highest": "#e0e2eb",
+                  "inverse-primary": "#aac7ff",
+                  "primary-fixed": "#d6e3ff",
+                  "error-container": "#ffdad6",
+                  "inverse-on-surface": "#eef0fa",
+                  "surface-container": "#ebedf7",
+                  "tertiary": "#3945e3",
+                  "on-tertiary-fixed-variant": "#1c28ce",
+                  "secondary-container": "#b6d0ff",
+                  "tertiary-fixed": "#e0e0ff",
+                  "surface-dim": "#d7dae3",
+                  "surface-container-low": "#f1f3fc",
+                  "on-primary-fixed-variant": "#00458d",
+                  "surface-bright": "#f9f9ff",
+                  "surface": "#f9f9ff",
+                  "on-surface-variant": "#414753",
+                  "on-secondary-fixed": "#001b3d",
+                  "primary-container": "#0a73e0",
+                  "on-secondary": "#ffffff",
+                  "on-primary-container": "#fefcff",
+                  "surface-variant": "#e0e2eb",
+                  "primary-fixed-dim": "#aac7ff",
+                  "error": "#ba1a1a",
+                  "on-secondary-fixed-variant": "#2d476f"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "margin-desktop": "24px",
+                  "gutter": "16px",
+                  "base": "8px",
+                  "margin-mobile": "16px"
+          },
+          "fontFamily": {
+                  "headline-md": [
+                          "Lexend", "sans-serif"
+                  ],
+                  "label-md": [
+                          "IBM Plex Mono", "monospace"
+                  ],
+                  "body-lg": [
+                          "Inter", "sans-serif"
+                  ],
+                  "headline-lg": [
+                          "Lexend", "sans-serif"
+                  ],
+                  "serif": ["Lexend", "serif"],
+                  "mono": ["IBM Plex Mono", "monospace"],
+                  "sans": ["Inter", "sans-serif"]
+          },
+          "fontSize": {
+                  "headline-md": [
+                          "24px",
+                          {
+                                  "lineHeight": "32px",
+                                  "fontWeight": "600"
+                          }
+                  ],
+                  "label-md": [
+                          "14px",
+                          {
+                                  "lineHeight": "20px",
+                                  "fontWeight": "500"
+                          }
+                  ],
+                  "body-lg": [
+                          "18px",
+                          {
+                                  "lineHeight": "28px",
+                                  "fontWeight": "400"
+                          }
+                  ],
+                  "headline-lg": [
+                          "32px",
+                          {
+                                  "lineHeight": "40px",
+                                  "fontWeight": "700"
+                          }
+                  ]
+          }
+        },
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #f9f9ff;
+      color: #181c22;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    .hairline-bar {
+      width: 60px;
+      height: 1px;
+      background-color: #181c22;
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+
+    .section-spacing {
+      margin-bottom: 56px;
+    }
+
+    .node-active {
+      background-color: #005ab4;
+    }
+    
+    .node-inactive {
+      background-color: #c1c6d5;
+    }
+
+    .left-rule-note {
+      border-left: 2px solid;
+      padding-left: 16px;
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+    
+    .left-rule-note.error {
+      border-left-color: #ba1a1a;
+    }
+    
+    .left-rule-note.warning {
+      border-left-color: #005ab4; /* Using primary for warning to stick to minimal blue palette */
+    }
+
+    .left-rule-note.accent {
+      border-left-color: #5461fc;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-sans antialiased min-h-screen flex flex-col bg-background text-on-background">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky border-b border-outline-variant bg-surface flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-[1120px] mx-auto z-40 transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary font-headline-md text-headline-md font-bold" data-icon="security" data-weight="fill" style="font-variation-settings: 'FILL' 1;">security</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">NCRP Reimagined</h1>
+</div>
+<button class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors px-4 py-2 rounded uppercase tracking-wider active:opacity-80">
+      LEAVE THIS SITE NOW
+    </button>
+</header>
+<main class="flex-grow w-full max-w-[720px] mx-auto px-margin-mobile md:px-0 py-12">
+<!-- Navigation Context -->
+<div class="mb-8">
+<a class="inline-flex items-center text-sm font-medium text-secondary hover:text-primary transition-colors mb-6 font-mono" href="#">
+<span class="material-symbols-outlined text-sm mr-1">arrow_back</span>
+        Back to Check
+      </a>
+<div class="flex items-center gap-2 font-mono text-xs font-bold tracking-widest uppercase">
+<span class="text-primary">CHECK</span>
+<span class="text-outline-variant opacity-40">·</span>
+<span class="text-on-surface opacity-40">ACT</span>
+<span class="text-outline-variant opacity-40">·</span>
+<span class="text-on-surface opacity-40">REPORT</span>
+<span class="text-outline-variant opacity-40">·</span>
+<span class="text-on-surface opacity-40">RECOVER</span>
+</div>
+</div>
+<!-- 1. HEADER -->
+<section class="section-spacing">
+<span class="font-mono text-sm font-bold text-error tracking-wider uppercase block mb-3">MATCHES A KNOWN SCAM</span>
+<h1 class="font-serif text-5xl font-semibold leading-tight text-on-background mb-4">Part-time task scam</h1>
+<div class="hairline-bar"></div>
+<p class="font-mono text-sm text-secondary">94% match to this script</p>
+</section>
+<!-- 2. STAGE RAIL -->
+<section class="section-spacing">
+<div class="flex items-center gap-2 mb-3">
+<div class="w-8 h-1 node-inactive"></div>
+<div class="w-8 h-1 node-inactive"></div>
+<div class="w-8 h-1 node-active"></div>
+<div class="w-8 h-1 node-inactive"></div>
+<div class="w-8 h-1 node-inactive"></div>
+<div class="w-8 h-1 node-inactive"></div>
+</div>
+<h3 class="font-serif text-xl font-medium mb-2">Stage 3: Withdrawal blocked</h3>
+<p class="font-body-lg text-on-surface-variant">The balance shown in the app is not real money.</p>
+</section>
+<!-- 3. EVIDENCE -->
+<section class="section-spacing">
+<h4 class="font-mono text-xs font-bold text-secondary tracking-widest uppercase mb-4">IN WHAT YOU SENT</h4>
+<div class="flex flex-col gap-3">
+<div class="border-l border-outline-variant pl-4 py-1">
+<p class="font-mono text-sm text-on-surface">"Pay Rs 1500 to unlock your merchant task..."</p>
+</div>
+<div class="border-l border-outline-variant pl-4 py-1">
+<p class="font-mono text-sm text-on-surface">"Join our VIP Telegram group"</p>
+</div>
+<div class="border-l border-outline-variant pl-4 py-1">
+<p class="font-mono text-sm text-on-surface">"Sender ID: @HR_Recruitment_Official"</p>
+</div>
+</div>
+</section>
+<!-- 4. PREDICTION -->
+<section class="section-spacing">
+<div class="left-rule-note warning bg-surface-container-low p-4 rounded-r-lg">
+<p class="font-body-lg text-on-surface"><strong>Next they will ask for a GST or unlocking fee</strong> to release the balance. There is no final payment that unlocks it.</p>
+</div>
+</section>
+<!-- 5. WARNINGS -->
+<section class="section-spacing">
+<div class="left-rule-note error bg-error-container/20 p-4 rounded-r-lg">
+<h4 class="font-serif text-lg font-bold text-error mb-3">Do not</h4>
+<ul class="list-disc pl-5 font-body-lg text-on-surface space-y-2">
+<li>Pay any tax, GST, or unlocking fee.</li>
+<li>Delete the chat — it is your evidence.</li>
+<li>Share an OTP or your screen with anyone who called you.</li>
+</ul>
+</div>
+</section>
+<!-- 6. ADVICE -->
+<section class="section-spacing">
+<div class="left-rule-note accent bg-secondary-container/20 p-4 rounded-r-lg">
+<p class="font-body-lg text-on-surface">Real employers never ask for a deposit before paying you. Look the company up yourself, not through their link.</p>
+</div>
+</section>
+<!-- ACTIONS -->
+<section class="flex flex-col sm:flex-row items-start gap-4 pt-4">
+<button class="bg-primary text-on-primary font-medium text-base px-6 py-4 rounded-lg hover:bg-primary-container transition-colors min-h-[48px]">
+        I have already paid
+      </button>
+<button class="bg-surface text-primary border border-primary font-medium text-base px-6 py-4 rounded-lg hover:bg-surface-container-high transition-colors min-h-[48px]">
+        I have not paid — file this
+      </button>
+</section>
+<div class="mt-6">
+<a class="text-primary font-medium hover:underline inline-flex items-center min-h-[48px]" href="#">
+        Check something else
+        <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto border-t border-outline-variant bg-surface-inset grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-margin-desktop py-12 max-w-[1120px] mx-auto transition-colors">
+<div>
+<p class="font-body-md text-body-md text-primary font-bold">© NCRP Reimagined - Government of India</p>
+<p class="font-mono text-xs text-outline mt-2">Incident NC-2026-0842-A</p>
+</div>
+<div class="col-span-2 flex flex-col md:flex-row gap-6 md:justify-end">
+<a class="font-body-md text-body-md text-ink-secondary hover:text-primary transition-colors cursor-pointer" href="#">1930 Cybercrime Helpline</a>
+<a class="font-body-md text-body-md text-ink-secondary hover:text-primary transition-colors cursor-pointer" href="#">14416 Tele-Law</a>
+<a class="font-body-md text-body-md text-ink-secondary hover:text-primary transition-colors cursor-pointer" href="#">1098 Childline</a>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Check / Intake - NCRP Reimagined</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&amp;family=Lexend:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "paper-background": "#EEF2F6",
+                        "on-tertiary-fixed-variant": "#43474b",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#bec9c8",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#87d3d3",
+                        "on-tertiary-container": "#d6dade",
+                        "surface-tint": "#0d6969",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "postal-vermilion": "#C2410C",
+                        "surface": "#f9f9ff",
+                        "on-secondary-container": "#57657a",
+                        "on-primary-fixed-variant": "#004f50",
+                        "inverse-surface": "#263143",
+                        "on-primary-fixed": "#002020",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "on-tertiary-fixed": "#171c1f",
+                        "surface-container-high": "#dee8ff",
+                        "primary-container": "#0f6a6a",
+                        "on-primary": "#ffffff",
+                        "redaction-gray": "#334155",
+                        "on-background": "#111c2d",
+                        "tertiary-container": "#5b6063",
+                        "on-surface": "#111c2d",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#cfdaf2",
+                        "tertiary-fixed": "#dfe3e7",
+                        "secondary-fixed": "#d5e3fc",
+                        "surface-container": "#e7eeff",
+                        "background": "#f9f9ff",
+                        "trust-teal": "#0F6A6A",
+                        "tertiary-fixed-dim": "#c3c7cb",
+                        "inverse-on-surface": "#ecf1ff",
+                        "secondary-container": "#d5e3fc",
+                        "surface-container-highest": "#d8e3fb",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#87d3d3",
+                        "outline": "#6f7979",
+                        "surface-bright": "#f9f9ff",
+                        "primary-fixed": "#a3f0ef",
+                        "surface-variant": "#d8e3fb",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#9be7e6",
+                        "ink-black": "#0F172A",
+                        "secondary": "#515f74",
+                        "primary": "#005050",
+                        "tertiary": "#43484c",
+                        "surface-container-low": "#f0f3ff",
+                        "on-surface-variant": "#3f4948",
+                        "clock-amber": "#B45309"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "margin-desktop": "48px",
+                        "stack-lg": "32px",
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "stack-md": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["\"Source Serif 4\""],
+                        "label-technical": ["IBM Plex Mono"],
+                        "body-lg": ["Lexend"],
+                        "label-ack": ["IBM Plex Mono"],
+                        "headline-lg-mobile": ["\"Source Serif 4\""],
+                        "headline-md": ["\"Source Serif 4\""],
+                        "body-md": ["Lexend"],
+                        "body-sm": ["Lexend"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-technical": ["13px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-ack": ["12px", { "lineHeight": "14px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            background-color: theme('colors.paper-background');
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col text-on-background">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface text-primary dark:text-primary-fixed h-16 w-full sticky top-0 z-50 border-b-2 border-outline-variant dark:border-outline">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop w-full max-w-7xl mx-auto h-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-headline-md text-headline-md-mobile md:text-headline-md text-trust-teal dark:text-primary-fixed tracking-tight">NCRP Reimagined</span>
+</div>
+<button class="bg-postal-vermilion text-on-primary font-bold px-4 py-2 rounded font-label-technical text-label-technical hover:opacity-90 transition-opacity">Quick Exit</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex justify-center py-stack-lg px-margin-mobile md:px-margin-desktop">
+<div class="w-full max-w-[640px] flex flex-col gap-stack-lg">
+<!-- Journey Stepper -->
+<nav aria-label="Progress">
+<ol class="flex items-center" role="list">
+<li class="relative pr-8 sm:pr-20">
+<div aria-hidden="true" class="absolute inset-0 flex items-center">
+<div class="h-0.5 w-full bg-trust-teal"></div>
+</div>
+<a class="relative flex h-8 w-8 items-center justify-center rounded-full bg-trust-teal hover:bg-trust-teal" href="#">
+<span class="material-symbols-outlined text-on-primary text-sm">check</span>
+</a>
+</li>
+<li class="relative pr-8 sm:pr-20">
+<div aria-hidden="true" class="absolute inset-0 flex items-center">
+<div class="h-0.5 w-full bg-outline-variant"></div>
+</div>
+<a aria-current="step" class="relative flex h-8 w-8 items-center justify-center rounded-full border-2 border-clock-amber bg-surface-container-lowest" href="#">
+<span aria-hidden="true" class="text-clock-amber font-label-technical text-label-technical">2</span>
+</a>
+</li>
+<li class="relative">
+<a class="relative flex h-8 w-8 items-center justify-center rounded-full border-2 border-outline-variant bg-surface-container-lowest hover:border-outline" href="#">
+<span aria-hidden="true" class="text-outline font-label-technical text-label-technical">3</span>
+</a>
+</li>
+</ol>
+</nav>
+<!-- H1 -->
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-ink-black">What do you want us to look at?</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-stack-sm">Provide the evidence you have so we can verify its authenticity.</p>
+</div>
+<!-- Mode Switch -->
+<div class="border-b border-outline-variant">
+<nav aria-label="Tabs" class="-mb-px flex space-x-8 overflow-x-auto">
+<a aria-current="page" class="border-clock-amber text-trust-teal whitespace-nowrap border-b-3 py-4 px-1 font-label-technical text-label-technical font-bold flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-[18px]">image</span> Screenshot
+                    </a>
+<a class="border-transparent text-on-surface-variant hover:border-outline hover:text-on-surface whitespace-nowrap border-b-2 py-4 px-1 font-label-technical text-label-technical flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-[18px]">content_paste</span> Paste
+                    </a>
+<a class="border-transparent text-on-surface-variant hover:border-outline hover:text-on-surface whitespace-nowrap border-b-2 py-4 px-1 font-label-technical text-label-technical flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-[18px]">tag</span> Number
+                    </a>
+<a class="border-transparent text-on-surface-variant hover:border-outline hover:text-on-surface whitespace-nowrap border-b-2 py-4 px-1 font-label-technical text-label-technical flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-[18px]">mic</span> Speak
+                    </a>
+<a class="border-transparent text-on-surface-variant hover:border-outline hover:text-on-surface whitespace-nowrap border-b-2 py-4 px-1 font-label-technical text-label-technical flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-[18px]">help</span> Not sure
+                    </a>
+</nav>
+</div>
+<!-- Screenshot Panel -->
+<div class="bg-surface-container-lowest border-2 border-trust-teal rounded-lg p-stack-lg">
+<div class="border-2 border-dashed border-outline bg-paper-background rounded-lg p-stack-lg flex flex-col items-center justify-center text-center cursor-pointer hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[48px] text-trust-teal mb-stack-sm" style="font-variation-settings: 'FILL' 0;">upload_file</span>
+<h3 class="font-body-lg text-body-lg text-ink-black font-semibold">Drag and drop your screenshot here</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-unit">or click to browse from your device</p>
+<p class="font-label-ack text-label-ack text-outline mt-stack-md">Supported formats: JPG, PNG, PDF (Max 5MB)</p>
+</div>
+<div class="mt-stack-lg flex justify-end">
+<button class="bg-trust-teal text-on-primary font-label-technical text-label-technical px-6 py-3 rounded hover:bg-primary-container transition-colors focus:ring-2 focus:ring-offset-2 focus:ring-trust-teal border-2 border-ink-black flex items-center gap-2">
+                        Continue <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Below the Fold: Process -->
+<div class="mt-stack-lg border-t border-outline-variant pt-stack-lg">
+<h2 class="font-headline-md text-headline-md text-ink-black mb-stack-md">What happens next</h2>
+<ul class="space-y-stack-md">
+<li class="flex gap-stack-md">
+<div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-trust-teal flex items-center justify-center font-label-technical text-label-technical font-bold text-trust-teal bg-surface-container-lowest">1</div>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-ink-black">Analysis</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">We scan the provided evidence against known fraudulent patterns and databases.</p>
+</div>
+</li>
+<li class="flex gap-stack-md">
+<div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-trust-teal flex items-center justify-center font-label-technical text-label-technical font-bold text-trust-teal bg-surface-container-lowest">2</div>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-ink-black">Report Generation</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">A preliminary assessment report is generated indicating the risk level.</p>
+</div>
+</li>
+<li class="flex gap-stack-md">
+<div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-trust-teal flex items-center justify-center font-label-technical text-label-technical font-bold text-trust-teal bg-surface-container-lowest">3</div>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-ink-black">Actionable Advice</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">If deemed suspicious, we provide immediate steps to secure your assets and report officially.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-inverse-surface text-on-surface dark:text-inverse-on-surface w-full pt-stack-lg pb-stack-md border-t-2 border-outline dark:border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<div>
+<span class="font-label-technical text-label-technical font-bold text-redaction-gray">© NCRP. Official Government of India Portal.</span>
+</div>
+<div class="col-span-1 md:col-span-2">
+<ul class="flex flex-wrap gap-x-6 gap-y-2">
+<li><a class="font-label-technical text-label-technical text-on-surface-variant dark:text-on-tertiary-container hover:text-trust-teal dark:hover:text-primary-fixed transition-colors" href="#">1930 Cyber Fraud</a></li>
+<li><a class="font-label-technical text-label-technical text-on-surface-variant dark:text-on-tertiary-container hover:text-trust-teal dark:hover:text-primary-fixed transition-colors" href="#">14416 Women Helpline</a></li>
+<li><a class="font-label-technical text-label-technical text-on-surface-variant dark:text-on-tertiary-container hover:text-trust-teal dark:hover:text-primary-fixed transition-colors" href="#">1098 Childline</a></li>
+<li><a class="font-label-technical text-label-technical text-on-surface-variant dark:text-on-tertiary-container hover:text-trust-teal dark:hover:text-primary-fixed transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="font-label-technical text-label-technical text-on-surface-variant dark:text-on-tertiary-container hover:text-trust-teal dark:hover:text-primary-fixed transition-colors" href="#">Accessibility</a></li>
+</ul>
+</div>
+</div>
+</footer>
+</body></html>

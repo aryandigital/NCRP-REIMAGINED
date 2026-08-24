@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NCRP REIMAGINED - Verdict</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;family=Lexend:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdad2",
+                        "inverse-primary": "#a3d0c3",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#ffb4a3",
+                        "on-error": "#ffffff",
+                        "primary-container": "#0d3b32",
+                        "on-primary-container": "#7aa599",
+                        "on-tertiary-container": "#da8b27",
+                        "surface": "#f3fcf5",
+                        "surface-container-low": "#edf6ef",
+                        "secondary-container": "#fd6442",
+                        "secondary": "#b02e10",
+                        "inverse-on-surface": "#eaf3ec",
+                        "on-primary-fixed-variant": "#234e44",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#683d00",
+                        "surface-dim": "#d3dcd6",
+                        "outline": "#717976",
+                        "primary-fixed": "#beecdf",
+                        "on-primary-fixed": "#00201a",
+                        "background": "#f3fcf5",
+                        "on-background": "#151d19",
+                        "on-surface-variant": "#404846",
+                        "primary-fixed-dim": "#a3d0c3",
+                        "on-tertiary-fixed": "#2c1700",
+                        "surface-bright": "#f3fcf5",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2a322e",
+                        "surface-tint": "#3c665c",
+                        "surface-variant": "#dce5de",
+                        "tertiary-fixed": "#ffdcbc",
+                        "surface-container-highest": "#dce5de",
+                        "on-secondary-fixed": "#3d0600",
+                        "tertiary": "#301900",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#e7f0e9",
+                        "tertiary-container": "#4e2c00",
+                        "on-secondary-container": "#5f0e00",
+                        "on-secondary-fixed-variant": "#8b1900",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#151d19",
+                        "surface-container-high": "#e2eae4",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c0c8c4",
+                        "tertiary-fixed-dim": "#ffb86b",
+                        "primary": "#00241d",
+                        "ink": "#1C2420",
+                        "well": "#EFE8D8",
+                        "canvas": "#F7F3EA",
+                        "post-vermilion": "#b02e10"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "sheet-padding": "32px",
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Fraunces"],
+                        "body-md": ["Lexend"],
+                        "label-mono": ["IBM Plex Mono"],
+                        "display-lg-mobile": ["Fraunces"],
+                        "serial-number": ["IBM Plex Mono"],
+                        "display-lg": ["Fraunces"],
+                        "body-lg": ["Lexend"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-mono": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "serial-number": ["16px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .perforated-border {
+            border: 2px dashed rgba(28, 36, 32, 0.3);
+        }
+        .speed-post {
+            background: repeating-linear-gradient(
+                45deg,
+                #b02e10,
+                #b02e10 10px,
+                #F7F3EA 10px,
+                #F7F3EA 20px
+            );
+        }
+        .flat-shadow-primary {
+            box-shadow: 2px 2px 0px 0px #1C2420;
+        }
+        .flat-shadow-primary:hover {
+            box-shadow: 4px 4px 0px 0px #1C2420;
+            transform: translate(-2px, -2px);
+        }
+        .cutout {
+            clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 0 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#F7F3EA] text-on-surface min-h-screen font-body-md flex flex-col pt-[72px]">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin-mobile md:px-margin-desktop max-w-[1024px] mx-auto border-b border-on-surface/15 bg-surface dark:bg-inverse-surface h-[72px]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary dark:text-secondary-fixed">account_balance</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-on-background dark:text-inverse-on-surface">NCRP REIMAGINED</span>
+</div>
+<button class="font-label-mono text-label-mono text-secondary hover:bg-surface-container-high transition-colors px-2 py-1">QUICK EXIT</button>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow w-full max-w-[1024px] mx-auto px-margin-mobile md:px-margin-desktop py-gutter flex flex-col md:flex-row relative">
+<!-- NavigationDrawer (Hidden on Mobile) -->
+<nav class="hidden md:flex flex-col h-full w-64 border-r border-on-surface/15 bg-surface-container dark:bg-inverse-surface mr-gutter sticky top-[96px]">
+<div class="p-gutter">
+<h2 class="font-headline-md text-headline-md text-secondary">THE CITIZEN'S DESK</h2>
+</div>
+<ul class="flex flex-col w-full">
+<li class="flex items-center gap-3 p-4 bg-secondary text-on-secondary font-bold cursor-pointer opacity-80 translate-x-1 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+<span class="font-label-mono text-label-mono uppercase">CHECK</span>
+</li>
+<li class="flex items-center gap-3 p-4 text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors cursor-pointer">
+<span class="material-symbols-outlined">security</span>
+<span class="font-label-mono text-label-mono uppercase">ACT</span>
+</li>
+<li class="flex items-center gap-3 p-4 text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors cursor-pointer">
+<span class="material-symbols-outlined">report_gmailerrorred</span>
+<span class="font-label-mono text-label-mono uppercase">REPORT</span>
+</li>
+<li class="flex items-center gap-3 p-4 text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors cursor-pointer">
+<span class="material-symbols-outlined">settings_backup_restore</span>
+<span class="font-label-mono text-label-mono uppercase">RECOVER</span>
+</li>
+</ul>
+</nav>
+<!-- Content Area -->
+<div class="flex-grow flex flex-col gap-gutter">
+<!-- Back Link -->
+<button class="flex items-center gap-2 text-on-surface-variant font-label-mono text-label-mono w-fit hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+<span>BACK</span>
+</button>
+<!-- Verdict Header -->
+<div class="relative bg-surface border border-ink/15 p-6 cutout">
+<div class="absolute top-0 left-0 w-full h-1 speed-post"></div>
+<div class="absolute -top-4 -right-2 md:right-4 transform -rotate-[4deg] border-4 border-secondary text-secondary font-label-mono text-label-mono uppercase px-4 py-2 opacity-80 font-bold bg-surface z-10 shadow-sm">
+                    MATCHES A KNOWN SCRIPT — 94%
+                </div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-on-background mt-8 mb-4">Part-time task scam.</h1>
+<div class="inline-block bg-[#EFE8D8] px-3 py-1 border border-ink/15">
+<span class="font-serial-number text-serial-number text-secondary">No. NC-2026-0842-A</span>
+</div>
+</div>
+<!-- D9 Route Map Horizontal -->
+<div class="bg-surface border border-ink/15 p-6 relative">
+<div class="absolute inset-0 bg-well opacity-50 z-0"></div>
+<div class="relative z-10">
+<h3 class="font-label-mono text-label-mono uppercase text-on-surface-variant mb-6">SCAM PROGRESSION</h3>
+<!-- Horizontal Timeline (Simplified for Mobile) -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center relative gap-4 md:gap-0 mt-8 mb-4">
+<div class="hidden md:block absolute top-1/2 left-0 w-full h-[1px] bg-ink/15 -translate-y-1/2 z-[-1]"></div>
+<div class="md:hidden absolute top-0 left-3 w-[1px] h-full bg-ink/15 z-[-1]"></div>
+<!-- Step 1 -->
+<div class="flex md:flex-col items-center gap-3 md:gap-2 relative z-10 w-full md:w-auto">
+<div class="w-6 h-6 rounded-none bg-surface border border-ink flex items-center justify-center text-xs font-label-mono">1</div>
+<span class="font-label-mono text-xs uppercase text-on-surface-variant">Offer</span>
+</div>
+<!-- Step 2 -->
+<div class="flex md:flex-col items-center gap-3 md:gap-2 relative z-10 w-full md:w-auto">
+<div class="w-6 h-6 rounded-none bg-surface border border-ink flex items-center justify-center text-xs font-label-mono">2</div>
+<span class="font-label-mono text-xs uppercase text-on-surface-variant">Payout</span>
+</div>
+<!-- Step 3 -->
+<div class="flex md:flex-col items-center gap-3 md:gap-2 relative z-10 w-full md:w-auto">
+<div class="w-6 h-6 rounded-none bg-surface border border-ink flex items-center justify-center text-xs font-label-mono">3</div>
+<span class="font-label-mono text-xs uppercase text-on-surface-variant">Task</span>
+</div>
+<!-- Step 4 -->
+<div class="flex md:flex-col items-center gap-3 md:gap-2 relative z-10 w-full md:w-auto">
+<div class="w-6 h-6 rounded-none bg-surface border border-ink flex items-center justify-center text-xs font-label-mono">4</div>
+<span class="font-label-mono text-xs uppercase text-on-surface-variant">Balance</span>
+</div>
+<!-- Step 5 (Blocked - Vermilion Flag) -->
+<div class="flex md:flex-col items-center gap-3 md:gap-2 relative z-10 w-full md:w-auto">
+<div class="w-6 h-6 rounded-none bg-secondary border border-secondary flex items-center justify-center text-on-secondary text-xs font-label-mono">!</div>
+<span class="font-label-mono text-xs uppercase text-secondary font-bold">Withdrawal blocked</span>
+<div class="absolute left-10 md:left-1/2 md:-translate-x-1/2 top-full mt-2 w-48 bg-surface border border-secondary p-2 z-20 shadow-sm hidden md:block">
+<span class="font-body-md text-[12px] leading-tight text-on-background">The balance in the app is not real money.</span>
+</div>
+</div>
+<!-- Step 6 -->
+<div class="flex md:flex-col items-center gap-3 md:gap-2 relative z-10 w-full md:w-auto opacity-50">
+<div class="w-6 h-6 rounded-none bg-surface border border-ink border-dashed flex items-center justify-center text-xs font-label-mono">6</div>
+<span class="font-label-mono text-xs uppercase text-on-surface-variant">Fee</span>
+</div>
+</div>
+<div class="md:hidden mt-2 p-3 bg-surface border border-secondary">
+<span class="font-body-md text-sm text-on-background">The balance in the app is not real money.</span>
+</div>
+</div>
+</div>
+<!-- Evidence Strips -->
+<div class="flex flex-col gap-4 mt-4">
+<h3 class="font-label-mono text-label-mono uppercase text-on-surface-variant border-b border-ink/15 pb-2">IN WHAT YOU SENT</h3>
+<div class="flex flex-col gap-3 relative pl-4 md:pl-8">
+<!-- Strip 1 -->
+<div class="bg-[#FDFBF5] border border-ink/15 p-3 w-11/12 md:w-3/4 transform rotate-[2deg] shadow-sm relative overflow-hidden">
+<div class="absolute -left-2 top-0 bottom-0 w-4 border-r-2 border-dashed border-ink/20 bg-[#F7F3EA]"></div>
+<p class="font-label-mono text-sm ml-4 text-on-surface-variant">"Pay Rs 1500 to unlock next task..."</p>
+</div>
+<!-- Strip 2 -->
+<div class="bg-[#FDFBF5] border border-ink/15 p-3 w-11/12 md:w-3/4 transform -rotate-[1deg] shadow-sm ml-2 md:ml-8 relative overflow-hidden">
+<div class="absolute -left-2 top-0 bottom-0 w-4 border-r-2 border-dashed border-ink/20 bg-[#F7F3EA]"></div>
+<p class="font-label-mono text-sm ml-4 text-on-surface-variant">"GST payment required for withdrawal..."</p>
+</div>
+<!-- Strip 3 -->
+<div class="bg-[#FDFBF5] border border-ink/15 p-3 w-11/12 md:w-3/4 transform rotate-[3deg] shadow-sm relative overflow-hidden">
+<div class="absolute -left-2 top-0 bottom-0 w-4 border-r-2 border-dashed border-ink/20 bg-[#F7F3EA]"></div>
+<p class="font-label-mono text-sm ml-4 text-on-surface-variant">"Last chance to claim your balance..."</p>
+</div>
+</div>
+</div>
+<!-- Notes Cards (C7 Variants) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+<!-- Marigold Note -->
+<div class="bg-[#FFF8E1] border border-[#FFC107]/50 p-5 relative flat-shadow-primary transition-transform">
+<div class="absolute top-2 left-2 w-2 h-2 rounded-full bg-[#FFC107]/50"></div>
+<p class="font-body-md text-on-surface mt-2">Next they will ask for a GST or unlocking fee to release your funds.</p>
+</div>
+<!-- Vermilion Note -->
+<div class="bg-[#FFEBEE] border border-secondary/30 p-5 relative flat-shadow-primary transition-transform">
+<div class="absolute top-2 left-2 w-2 h-2 rounded-full bg-secondary/50"></div>
+<h4 class="font-label-mono text-label-mono text-secondary uppercase mb-2 font-bold">Do not</h4>
+<ul class="list-none space-y-2">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-sm mt-1">close</span>
+<span class="font-body-md text-on-surface">Pay any tax or fee</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-sm mt-1">close</span>
+<span class="font-body-md text-on-surface">Delete chat history</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-sm mt-1">close</span>
+<span class="font-body-md text-on-surface">Share OTPs</span>
+</li>
+</ul>
+</div>
+<!-- Green Note -->
+<div class="bg-[#E8F5E9] border border-[#4CAF50]/30 p-5 relative flat-shadow-primary transition-transform md:col-span-2">
+<div class="absolute top-2 left-2 w-2 h-2 rounded-full bg-[#4CAF50]/50"></div>
+<p class="font-body-md text-on-surface mt-2">Real employers never ask for a deposit to give you work or pay your salary.</p>
+</div>
+</div>
+<!-- Action Buttons (C1, C2, C3) -->
+<div class="flex flex-col gap-4 mt-12 mb-8 p-6 bg-well border border-ink/15">
+<h3 class="font-label-mono text-label-mono uppercase text-on-surface-variant mb-2">NEXT STEPS</h3>
+<!-- C1 Vermilion Primary Action -->
+<button class="w-full md:w-auto bg-secondary text-on-secondary font-label-mono text-label-mono uppercase px-6 py-4 border border-ink flat-shadow-primary transition-all text-left md:text-center flex items-center justify-between md:justify-center gap-2">
+<span>I HAVE ALREADY PAID</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<div class="flex flex-col md:flex-row gap-4 mt-2">
+<!-- C2 Secondary Action -->
+<button class="flex-1 bg-surface text-on-surface font-label-mono text-label-mono uppercase px-6 py-4 border border-ink flat-shadow-primary transition-all text-left md:text-center flex items-center justify-between md:justify-center gap-2">
+<span>I HAVE NOT PAID — FILE THIS</span>
+<span class="material-symbols-outlined">description</span>
+</button>
+<!-- C3 Tertiary Action -->
+<button class="flex-1 bg-transparent text-on-surface-variant font-label-mono text-label-mono uppercase px-6 py-4 border border-ink/50 hover:bg-surface hover:border-ink transition-colors text-left md:text-center flex items-center justify-between md:justify-center gap-2">
+<span>CHECK SOMETHING ELSE</span>
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Shell -->
+<footer class="w-full py-sheet-padding px-margin-mobile md:px-margin-desktop flex flex-col gap-unit items-center border-t-4 border-secondary bg-surface-container-low dark:bg-surface-container-highest mt-auto">
+<p class="text-secondary font-serial-number text-center mb-4">© 2024 NCRP REIMAGINED. INDIAN CIVIC BUREAUCRACY.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-secondary transition-colors duration-75 active:scale-95" href="#">1930 CYBER</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-secondary transition-colors duration-75 active:scale-95" href="#">14416 VIGILANCE</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-secondary transition-colors duration-75 active:scale-95" href="#">1098 CHILD</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-secondary transition-colors duration-75 active:scale-95" href="#">DISCLAIMER</a>
+</div>
+</footer>
+</body></html>

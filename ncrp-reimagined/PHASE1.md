@@ -45,8 +45,16 @@ Get the most critical citizen journey working end-to-end: a citizen uploads/past
 - [x] `PATCH /api/incident/[id]` — Update incident (triage answers, active tracks)
 - [x] `POST /api/auth/login` — Demo judge authentication with seeded credentials
 
-#### 4. Design System
-- [x] `src/app/globals.css` — Full design token system: colors (dark/light mode), typography, radius, shadows, badge variants, buttons, inputs, stage stepper, drop zone, Quick Exit, disclaimer footer, print CSS
+#### 4. Design System (Blue City Containment Theme)
+- [x] `src/app/globals.css` — Full design token system: Blue City colors (light mode primary), typography (Lexend, Bricolage Grotesque, IBM Plex Mono), radius, shadows, badge variants, buttons, inputs, stage stepper, drop zone, Quick Exit, disclaimer footer, print CSS
+- [x] `src/components/ui/Button.tsx` — Primary, secondary, alert, ghost variants with Material Symbol icons
+- [x] `src/components/ui/Badge.tsx` — Status stamps (verified, processing, action-required, high/medium/unclear risk)
+- [x] `src/components/ui/Card.tsx` — Journey cards with header, title, description, footer subcomponents
+- [x] `src/components/ui/Input.tsx` — Text fields with labels, error states, hints
+- [x] `src/components/ui/Header.tsx` — Sticky header with Quick Exit button
+- [x] `src/components/ui/PageContainer.tsx` — Max-width container with responsive padding
+- [x] `src/components/ui/Section.tsx` — Labeled sections with dividers
+- [x] `src/components/ui/index.ts` — Barrel export for all UI components
 
 #### 5. Core Components
 - [x] `src/components/QuickExit.tsx` — Floating exit button (double-ESC + click), clears session storage, replaces history, navigates to Google
@@ -252,4 +260,18 @@ src/
 
 ---
 
-*Last updated: Phase 1 COMPLETE — all infrastructure, core intelligence, Check stage, Atlas, and stub routes built. Build: ✅ clean (17 routes). Ready to start Phase 2.*
+---
+
+## Design Integration (Phase 1 Polish — In Progress)
+
+See `DESIGN_INTEGRATION.md` for the full plan to integrate Blue City Containment theme mockups. This document tracks visual design work separate from tech deliverables.
+
+**Status**: 
+- ✅ Reusable component library (`src/components/ui/`) built
+- ✅ Blue City color tokens added to `globals.css`
+- ✅ Font imports (Bricolage Grotesque, IBM Plex Mono, Lexend)
+- ⏳ Homepage visual update (next priority)
+- ⏳ Check/Evidence Intake styling (next priority)
+- ⏳ Scam DNA Verdict styling (next priority)
+
+*Last updated: Phase 1 tech COMPLETE + UI integration framework in place. Build: ✅ clean (17 routes). Ready for design polish and Phase 2 work.*

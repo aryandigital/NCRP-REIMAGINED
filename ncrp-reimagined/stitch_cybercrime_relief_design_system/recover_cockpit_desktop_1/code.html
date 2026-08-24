@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cybercrime Help - Recover</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@500&amp;family=Lexend:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#004299",
+                      "surface-bright": "#fbf8ff",
+                      "tertiary-fixed": "#d9e2ff",
+                      "on-tertiary-fixed": "#001944",
+                      "on-primary-fixed-variant": "#763300",
+                      "secondary": "#415d99",
+                      "error": "#ba1a1a",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed-dim": "#afc6ff",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed": "#001944",
+                      "tertiary": "#0056c3",
+                      "tertiary-container": "#2f70e1",
+                      "primary-fixed-dim": "#ffb68d",
+                      "on-tertiary-container": "#fefcff",
+                      "inverse-primary": "#ffb68d",
+                      "error-container": "#ffdad6",
+                      "background": "#fbf8ff",
+                      "outline": "#887368",
+                      "inverse-on-surface": "#efefff",
+                      "on-error-container": "#93000a",
+                      "surface": "#fbf8ff",
+                      "primary-container": "#b35e25",
+                      "on-primary-container": "#fffbff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface-variant": "#55433a",
+                      "surface-dim": "#d2d8ff",
+                      "on-secondary-fixed-variant": "#274580",
+                      "primary": "#94460d",
+                      "surface-container-highest": "#dde1ff",
+                      "surface-tint": "#974810",
+                      "outline-variant": "#dbc1b5",
+                      "secondary-fixed": "#d9e2ff",
+                      "surface-container": "#ececff",
+                      "secondary-fixed-dim": "#afc6ff",
+                      "on-surface": "#111939",
+                      "secondary-container": "#9fbbfd",
+                      "inverse-surface": "#272e4f",
+                      "surface-container-low": "#f3f2ff",
+                      "on-background": "#111939",
+                      "primary-fixed": "#ffdbc9",
+                      "on-primary-fixed": "#331200",
+                      "on-error": "#ffffff",
+                      "surface-variant": "#dde1ff",
+                      "on-secondary-container": "#2c4984",
+                      "on-primary": "#ffffff",
+                      "surface-container-high": "#e4e7ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "margin-desktop": "64px",
+                      "margin-mobile": "20px",
+                      "container-max": "1280px",
+                      "unit": "8px"
+              },
+              "fontFamily": {
+                      "body-main": [
+                              "Lexend"
+                      ],
+                      "label-mono": [
+                              "IBM Plex Mono"
+                      ],
+                      "body-sm": [
+                              "Lexend"
+                      ],
+                      "display-lg-mobile": [
+                              "Bricolage Grotesque"
+                      ],
+                      "display-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "headline-md": [
+                              "Bricolage Grotesque"
+                      ]
+              },
+              "fontSize": {
+                      "body-main": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-mono": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-sm": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "display-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              },
+              "boxShadow": {
+                  "copper-glow": "0 12px 40px rgba(196,107,50,0.12)"
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .blueprint-bg {
+            background-color: #fbf8ff; /* background */
+            background-image: 
+                linear-gradient(rgba(136, 115, 104, 0.1) 1px, transparent 1px), /* outline faintly */
+                linear-gradient(90deg, rgba(136, 115, 104, 0.1) 1px, transparent 1px);
+            background-size: 24px 24px; /* matching gutter/grid feel */
+        }
+        .indigo-stroke { stroke: #111939; stroke-width: 2px; } /* on-surface */
+        .copper-shadow { box-shadow: 0 12px 40px rgba(196,107,50,0.12); }
+    </style>
+</head>
+<body class="blueprint-bg text-on-surface font-body-main antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop h-16 max-w-container-max mx-auto bg-surface-container-lowest border-b-2 border-outline hidden md:flex">
+<div class="flex items-center gap-2 text-primary font-headline-md text-headline-md font-bold uppercase tracking-tight">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">language</span>
+<span>Cybercrime Help</span>
+</div>
+<button class="font-label-mono text-label-mono text-secondary hover:bg-error hover:text-white transition-colors duration-150 px-4 py-2 border-2 border-secondary rounded hover:border-error scale-95 active:scale-90">
+            Quick Exit
+        </button>
+</header>
+<div class="flex flex-1 pt-16">
+<!-- NavigationDrawer -->
+<nav class="fixed left-0 top-16 bottom-0 w-24 flex flex-col items-center py-8 z-40 bg-surface border-r-2 border-outline hidden md:flex gap-8">
+<div class="font-headline-md text-headline-md font-bold text-primary mb-4 text-center transform -rotate-90 whitespace-nowrap mt-12 opacity-0">Recovery Path</div>
+<!-- Tab: Check -->
+<a class="flex flex-col items-center gap-1 text-secondary border-l-4 border-outline-variant hover:text-primary transition-all w-full py-2" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-label-mono text-label-mono text-[10px]">Check</span>
+</a>
+<!-- Tab: Triage -->
+<a class="flex flex-col items-center gap-1 text-secondary border-l-4 border-outline-variant hover:text-primary transition-all w-full py-2" href="#">
+<span class="material-symbols-outlined">assignment_late</span>
+<span class="font-label-mono text-label-mono text-[10px]">Triage</span>
+</a>
+<!-- Tab: Act -->
+<a class="flex flex-col items-center gap-1 text-secondary border-l-4 border-outline-variant hover:text-primary transition-all w-full py-2" href="#">
+<span class="material-symbols-outlined">security</span>
+<span class="font-label-mono text-label-mono text-[10px]">Act</span>
+</a>
+<!-- Tab: Report -->
+<a class="flex flex-col items-center gap-1 text-secondary border-l-4 border-outline-variant hover:text-primary transition-all w-full py-2" href="#">
+<span class="material-symbols-outlined">report_problem</span>
+<span class="font-label-mono text-label-mono text-[10px]">Report</span>
+</a>
+<!-- Tab: Recover (Active) -->
+<a class="flex flex-col items-center gap-1 text-primary border-l-4 border-primary hover:text-primary transition-all w-full py-2 bg-surface-container-highest" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings_backup_restore</span>
+<span class="font-label-mono text-label-mono text-[10px]">Recover</span>
+</a>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-0 md:ml-24 max-w-container-max mx-auto w-full px-margin-mobile md:px-margin-desktop py-[120px]">
+<!-- H1 & Warning Ticket -->
+<div class="mb-16">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6">
+                    Two clocks need you today.
+                </h1>
+<div class="bg-primary-container text-on-primary-container p-6 rounded-lg border-2 border-primary shadow-copper-glow flex items-start gap-4 max-w-3xl">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">warning</span>
+<div>
+<p class="font-body-main text-body-main font-bold">Anyone offering to get money back is another scam.</p>
+<p class="font-body-sm text-body-sm mt-2 opacity-90">Only your bank and the official cyber police can process real recoveries. Do not pay 'recovery agents'.</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Main Area: Enamel Clocks (Left 8 cols) -->
+<div class="lg:col-span-8 bg-surface border-2 border-outline p-8 relative copper-shadow">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-8">Pending Bank Responses</h2>
+<div class="flex flex-wrap gap-8 items-center justify-center">
+<!-- Clock 1 (Vermilion/Error tone) -->
+<div class="flex flex-col items-center group relative">
+<div class="w-40 h-40 rounded-full border-8 border-primary bg-error-container relative flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-105">
+<!-- Marigold Hands (CSS representation) -->
+<div class="absolute w-1 h-16 bg-[#F5B041] origin-bottom top-4 transform rotate-45 rounded-full"></div>
+<div class="absolute w-1.5 h-10 bg-[#F5B041] origin-bottom top-10 transform -rotate-12 rounded-full"></div>
+<div class="absolute w-3 h-3 bg-[#F5B041] rounded-full"></div>
+<!-- Face details -->
+<div class="absolute inset-0 border-4 border-dashed border-error opacity-20 rounded-full"></div>
+<span class="font-label-mono text-label-mono text-on-error-container absolute top-6">48h</span>
+</div>
+<button class="mt-4 bg-surface border-2 border-secondary text-secondary px-4 py-2 font-label-mono text-label-mono flex items-center gap-2 hover:bg-secondary hover:text-white transition-colors group-hover:border-primary group-hover:text-primary">
+<span class="material-symbols-outlined text-sm">download</span>
+                                Download letter
+                            </button>
+</div>
+<!-- Clock 2 (Teal/Secondary tone) -->
+<div class="flex flex-col items-center group relative">
+<div class="w-32 h-32 rounded-full border-8 border-primary bg-secondary-container relative flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-105">
+<div class="absolute w-1 h-12 bg-[#F5B041] origin-bottom top-4 transform rotate-90 rounded-full"></div>
+<div class="absolute w-1.5 h-8 bg-[#F5B041] origin-bottom top-8 transform rotate-180 rounded-full"></div>
+<div class="absolute w-3 h-3 bg-[#F5B041] rounded-full"></div>
+<div class="absolute inset-0 border-4 border-dashed border-secondary opacity-20 rounded-full"></div>
+<span class="font-label-mono text-label-mono text-on-secondary-container absolute top-4">72h</span>
+</div>
+<button class="mt-4 bg-surface border-2 border-secondary text-secondary px-4 py-2 font-label-mono text-label-mono flex items-center gap-2 hover:bg-secondary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">download</span>
+                                Download letter
+                            </button>
+</div>
+</div>
+</div>
+<!-- Right Side: Vertical Comic Strip & Evidence Locker (Right 4 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-8">
+<!-- Comic Strip "Who has the ball" -->
+<div class="bg-surface-container-lowest border-2 border-outline p-6 h-full flex flex-col">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6 border-b-2 border-outline pb-2">Who has the ball?</h3>
+<div class="flex-1 flex flex-col gap-6 relative before:content-[''] before:absolute before:left-4 before:top-2 before:bottom-2 before:w-0.5 before:bg-outline-variant">
+<!-- Scene 1 -->
+<div class="flex gap-4 relative z-10">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center shrink-0 border-2 border-primary">
+<span class="material-symbols-outlined text-on-primary-container text-sm">check</span>
+</div>
+<div class="bg-surface border-2 border-outline p-3 rounded">
+<div class="font-label-mono text-label-mono text-secondary mb-1">Oct 12, 10:00 AM</div>
+<div class="font-body-sm text-body-sm text-on-surface">Report filed with 1930.</div>
+</div>
+</div>
+<!-- Scene 2 -->
+<div class="flex gap-4 relative z-10">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center shrink-0 border-2 border-primary">
+<span class="material-symbols-outlined text-on-primary-container text-sm">check</span>
+</div>
+<div class="bg-surface border-2 border-outline p-3 rounded">
+<div class="font-label-mono text-label-mono text-secondary mb-1">Oct 12, 11:45 AM</div>
+<div class="font-body-sm text-body-sm text-on-surface">Bank A notified. Funds frozen.</div>
+</div>
+</div>
+<!-- Scene 3 (Current) -->
+<div class="flex gap-4 relative z-10">
+<div class="w-8 h-8 rounded-full bg-[#F5B041] flex items-center justify-center shrink-0 border-2 border-on-surface animate-pulse">
+<span class="material-symbols-outlined text-on-surface text-sm">hourglass_top</span>
+</div>
+<div class="bg-surface border-2 border-primary p-3 rounded copper-shadow">
+<div class="font-label-mono text-label-mono text-primary mb-1">Waiting (Since Oct 13)</div>
+<div class="font-body-sm text-body-sm text-on-surface font-bold">Bank B processing return request.</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Evidence Locker Illustration (Placeholder for SVG line art) -->
+<div class="bg-[#0E1C3A] p-6 text-white border-2 border-outline min-h-[200px] flex flex-col justify-between group overflow-hidden relative">
+<div class="font-label-mono text-label-mono text-secondary-container z-10 relative">EVIDENCE LOCKER</div>
+<!-- Abstract representation of a copper trunk using CSS -->
+<div class="absolute -bottom-10 -right-10 w-48 h-48 border-4 border-[#C46B32] opacity-50 transform rotate-12 group-hover:rotate-0 transition-transform duration-500 z-0">
+<div class="absolute inset-4 border-2 border-[#C46B32]"></div>
+<div class="absolute inset-10 border-2 border-[#C46B32] bg-surface-tint opacity-20"></div>
+<div class="absolute top-1/2 left-1/2 w-8 h-12 border-2 border-[#F5B041] -translate-x-1/2 -translate-y-1/2 bg-[#0E1C3A]"></div>
+</div>
+<div class="z-10 relative mt-auto pt-8">
+<button class="font-label-mono text-label-mono text-white border-b-2 border-primary-fixed-dim pb-1 hover:text-primary-fixed-dim transition-colors">
+                                 View submitted docs -&gt;
+                             </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="w-full px-margin-mobile md:px-margin-desktop py-8 flex flex-col gap-4 max-w-container-max mx-auto bg-surface-container-low border-t-2 border-outline mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div class="font-label-caps text-label-caps text-secondary text-sm">
+                © 2024 Cybercrime Help India. Institutional Minimalist Utility.
+            </div>
+<div class="flex flex-wrap gap-4 font-body-sm text-body-sm text-secondary">
+<a class="hover:text-primary transition-colors hover:underline decoration-2 underline-offset-4" href="#">Emergency 1930</a>
+<a class="hover:text-primary transition-colors hover:underline decoration-2 underline-offset-4" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors hover:underline decoration-2 underline-offset-4" href="#">Legal Disclaimer</a>
+<a class="hover:text-primary transition-colors hover:underline decoration-2 underline-offset-4" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>

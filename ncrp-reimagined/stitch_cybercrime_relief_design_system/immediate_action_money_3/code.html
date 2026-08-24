@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>NCRP - ACT: MONEY</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Lexend:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdad2",
+                        "inverse-primary": "#a3d0c3",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#ffb4a3",
+                        "on-error": "#ffffff",
+                        "primary-container": "#0d3b32",
+                        "on-primary-container": "#7aa599",
+                        "on-tertiary-container": "#da8b27",
+                        "surface": "#f3fcf5",
+                        "surface-container-low": "#edf6ef",
+                        "secondary-container": "#fd6442",
+                        "secondary": "#b02e10",
+                        "inverse-on-surface": "#eaf3ec",
+                        "on-primary-fixed-variant": "#234e44",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#683d00",
+                        "surface-dim": "#d3dcd6",
+                        "outline": "#717976",
+                        "primary-fixed": "#beecdf",
+                        "on-primary-fixed": "#00201a",
+                        "background": "#f3fcf5",
+                        "on-background": "#151d19",
+                        "on-surface-variant": "#404846",
+                        "primary-fixed-dim": "#a3d0c3",
+                        "on-tertiary-fixed": "#2c1700",
+                        "surface-bright": "#f3fcf5",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2a322e",
+                        "surface-tint": "#3c665c",
+                        "surface-variant": "#dce5de",
+                        "tertiary-fixed": "#ffdcbc",
+                        "surface-container-highest": "#dce5de",
+                        "on-secondary-fixed": "#3d0600",
+                        "tertiary": "#301900",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#e7f0e9",
+                        "tertiary-container": "#4e2c00",
+                        "on-secondary-container": "#5f0e00",
+                        "on-secondary-fixed-variant": "#8b1900",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#151d19",
+                        "surface-container-high": "#e2eae4",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c0c8c4",
+                        "tertiary-fixed-dim": "#ffb86b",
+                        "primary": "#00241d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "sheet-padding": "32px",
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Fraunces"],
+                        "body-md": ["Lexend"],
+                        "label-mono": ["IBM Plex Mono"],
+                        "display-lg-mobile": ["Fraunces"],
+                        "serial-number": ["IBM Plex Mono"],
+                        "display-lg": ["Fraunces"],
+                        "body-lg": ["Lexend"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-mono": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "serial-number": ["16px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Hide scrollbar for track tabs */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background w-full min-h-screen flex flex-col relative font-body-md antialiased overflow-x-hidden selection:bg-secondary-fixed selection:text-on-background">
+<!-- SLIM STRIP header -->
+<header class="fixed top-0 left-0 w-full h-[48px] bg-surface border-b border-on-surface/15 flex items-center justify-between px-margin-mobile z-[60] shadow-sm">
+<a class="font-label-mono text-label-mono font-bold text-secondary flex items-center gap-1 uppercase tracking-wider" href="tel:1930">
+<span class="material-symbols-outlined text-[18px]">call</span>
+            Call 1930
+        </a>
+<button class="font-label-mono text-label-mono font-bold text-on-surface-variant flex items-center gap-1 uppercase tracking-wider hover:text-on-surface transition-colors">
+            Quick Exit
+            <span class="material-symbols-outlined text-[18px]">logout</span>
+</button>
+</header>
+<!-- Main Canvas -->
+<main class="w-full max-w-[390px] mx-auto pt-[72px] pb-[100px] px-margin-mobile flex-grow flex flex-col relative">
+<!-- Main Panel (Sage-tinted, Surface-container acts as sage in this palette) -->
+<article class="w-full bg-surface-container relative border border-on-surface/15 shadow-[2px_2px_0px_theme(colors.on-surface)] flex flex-col mb-8">
+<!-- D5 SPEED-POST EDGE -->
+<div class="h-[4px] w-full bg-[repeating-linear-gradient(45deg,theme(colors.secondary),theme(colors.secondary)_10px,theme(colors.background)_10px,theme(colors.background)_20px)] border-b border-on-surface/15"></div>
+<div class="p-gutter flex flex-col">
+<!-- Micro-label -->
+<div class="font-label-mono text-[12px] leading-[16px] text-on-surface-variant tracking-widest uppercase mb-4">
+                    STEP 1 OF 4 · MONEY
+                </div>
+<!-- Hero -->
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-on-surface mb-3 tracking-tight">
+                    Call your bank, then call <span class="font-serial-number text-secondary">1930</span>.
+                </h1>
+<!-- Lead -->
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                    Do this before any form. After a few hours the money is much harder to stop.
+                </p>
+<!-- Call Controls styled as TAGS (ticket notches) -->
+<div class="flex flex-col gap-unit mb-8">
+<!-- Tag 1: 1930 -->
+<button class="relative w-full bg-surface border border-on-surface/15 p-4 flex items-center justify-between text-left group active:bg-surface-container-low transition-colors shadow-[1px_1px_0px_theme(colors.on-surface)]">
+<!-- Left Notch -->
+<div class="absolute left-[-6px] top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-surface-container border-r border-on-surface/15"></div>
+<!-- Right Notch -->
+<div class="absolute right-[-6px] top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-surface-container border-l border-on-surface/15"></div>
+<div class="flex flex-col ml-4">
+<span class="font-serial-number text-serial-number text-secondary mb-1">1930</span>
+<span class="font-label-mono text-[12px] text-on-surface-variant uppercase tracking-wide">national cybercrime helpline</span>
+</div>
+<span class="material-symbols-outlined text-secondary mr-2 group-active:scale-90 transition-transform">call</span>
+</button>
+<!-- Tag 2: Bank -->
+<button class="relative w-full bg-surface border border-on-surface/15 p-4 flex items-center justify-between text-left group active:bg-surface-container-low transition-colors shadow-[1px_1px_0px_theme(colors.on-surface)]">
+<!-- Left Notch -->
+<div class="absolute left-[-6px] top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-surface-container border-r border-on-surface/15"></div>
+<!-- Right Notch -->
+<div class="absolute right-[-6px] top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-surface-container border-l border-on-surface/15"></div>
+<div class="flex flex-col ml-4">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-serial-number text-serial-number text-on-surface">Your bank</span>
+<span class="font-label-mono text-[10px] bg-surface-variant text-on-surface px-1.5 py-0.5 border border-on-surface/15 uppercase tracking-wider">Simulated</span>
+</div>
+<span class="font-label-mono text-[12px] text-on-surface-variant uppercase tracking-wide">the number on your card...</span>
+</div>
+<span class="material-symbols-outlined text-on-surface mr-2 group-active:scale-90 transition-transform">call</span>
+</button>
+</div>
+<!-- Action Controls -->
+<div class="flex flex-col gap-3 mb-10">
+<button class="w-full bg-secondary text-on-secondary font-label-mono text-label-mono uppercase py-4 border border-on-surface shadow-[2px_2px_0px_theme(colors.on-surface)] active:translate-y-[2px] active:translate-x-[2px] active:shadow-none transition-all flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+                        I have made both calls
+                    </button>
+<button class="w-full bg-transparent text-on-surface font-label-mono text-[12px] uppercase py-3 border border-transparent underline hover:bg-surface-container-low transition-colors text-center opacity-80">
+                        I do not have my bank's number
+                    </button>
+</div>
+<!-- Instructions (40% opacity simulation) -->
+<div class="flex flex-col border-t border-on-surface/15 pt-2 opacity-60">
+<div class="flex items-start gap-3 py-3 border-b border-on-surface/15 border-dashed">
+<span class="material-symbols-outlined text-[18px] mt-0.5">radio_button_unchecked</span>
+<span class="font-body-md text-[14px] leading-tight">Note the <span class="font-serial-number text-[14px]">UTR</span> from the debit SMS</span>
+</div>
+<div class="flex items-start gap-3 py-3 border-b border-on-surface/15 border-dashed">
+<span class="material-symbols-outlined text-[18px] mt-0.5">radio_button_unchecked</span>
+<span class="font-body-md text-[14px] leading-tight">Screenshot your statement</span>
+</div>
+<div class="flex items-start gap-3 py-3 border-b border-on-surface/15 border-dashed text-secondary">
+<span class="material-symbols-outlined text-[18px] mt-0.5">radio_button_unchecked</span>
+<span class="font-body-md text-[14px] leading-tight">Ignore anyone offering to recover money for a fee</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Bottom Actions (Outside panel) -->
+<div class="w-full flex flex-col gap-4">
+<button class="w-full text-center font-label-mono text-label-mono text-on-surface border border-on-surface/15 py-4 bg-surface shadow-[1px_1px_0px_theme(colors.on-surface)] uppercase active:bg-surface-container-low transition-colors">
+                Build the complaint from this
+            </button>
+<button class="w-full text-center font-label-mono text-[12px] text-on-surface-variant underline py-2 uppercase opacity-80">
+                Leave this site
+            </button>
+</div>
+</main>
+<!-- Track tabs (fixed bottom) -->
+<nav class="fixed bottom-0 left-0 w-full h-[56px] bg-surface border-t border-on-surface/15 z-[60] overflow-x-auto no-scrollbar shadow-[0_-1px_3px_rgba(0,0,0,0.05)]">
+<div class="flex h-full min-w-max px-2 max-w-[390px] mx-auto">
+<!-- Active Tab -->
+<a class="h-full flex items-center justify-center px-4 font-label-mono text-label-mono text-primary border-b-2 border-primary font-bold uppercase shrink-0" href="#">
+                Money
+            </a>
+<!-- Inactive Tabs -->
+<a class="h-full flex items-center justify-center px-4 font-label-mono text-label-mono text-on-surface-variant uppercase shrink-0 opacity-60 hover:opacity-100 transition-opacity" href="#">
+                Photos
+            </a>
+<a class="h-full flex items-center justify-center px-4 font-label-mono text-label-mono text-on-surface-variant uppercase shrink-0 opacity-60 hover:opacity-100 transition-opacity" href="#">
+                Access
+            </a>
+<a class="h-full flex items-center justify-center px-4 font-label-mono text-label-mono text-on-surface-variant uppercase shrink-0 opacity-60 hover:opacity-100 transition-opacity" href="#">
+                Identity
+            </a>
+<a class="h-full flex items-center justify-center px-4 font-label-mono text-label-mono text-on-surface-variant uppercase shrink-0 opacity-60 hover:opacity-100 transition-opacity" href="#">
+                Safety
+            </a>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NCRP Reimagined - Triage</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;family=Lexend:wght@100..900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "paper-background": "#EEF2F6",
+                        "on-tertiary-fixed-variant": "#43474b",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#bec9c8",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#87d3d3",
+                        "on-tertiary-container": "#d6dade",
+                        "surface-tint": "#0d6969",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "postal-vermilion": "#C2410C",
+                        "surface": "#f9f9ff",
+                        "on-secondary-container": "#57657a",
+                        "on-primary-fixed-variant": "#004f50",
+                        "inverse-surface": "#263143",
+                        "on-primary-fixed": "#002020",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "on-tertiary-fixed": "#171c1f",
+                        "surface-container-high": "#dee8ff",
+                        "primary-container": "#0f6a6a",
+                        "on-primary": "#ffffff",
+                        "redaction-gray": "#334155",
+                        "on-background": "#111c2d",
+                        "tertiary-container": "#5b6063",
+                        "on-surface": "#111c2d",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#cfdaf2",
+                        "tertiary-fixed": "#dfe3e7",
+                        "secondary-fixed": "#d5e3fc",
+                        "surface-container": "#e7eeff",
+                        "background": "#f9f9ff",
+                        "trust-teal": "#0F6A6A",
+                        "tertiary-fixed-dim": "#c3c7cb",
+                        "inverse-on-surface": "#ecf1ff",
+                        "secondary-container": "#d5e3fc",
+                        "surface-container-highest": "#d8e3fb",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#87d3d3",
+                        "outline": "#6f7979",
+                        "surface-bright": "#f9f9ff",
+                        "primary-fixed": "#a3f0ef",
+                        "surface-variant": "#d8e3fb",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#9be7e6",
+                        "ink-black": "#0F172A",
+                        "secondary": "#515f74",
+                        "primary": "#005050",
+                        "tertiary": "#43484c",
+                        "surface-container-low": "#f0f3ff",
+                        "on-surface-variant": "#3f4948",
+                        "clock-amber": "#B45309"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "margin-desktop": "48px",
+                        "stack-lg": "32px",
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "stack-md": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["\"Source Serif 4\""],
+                        "label-technical": ["IBM Plex Mono"],
+                        "body-lg": ["Lexend"],
+                        "label-ack": ["IBM Plex Mono"],
+                        "headline-lg-mobile": ["\"Source Serif 4\""],
+                        "headline-md": ["\"Source Serif 4\""],
+                        "body-md": ["Lexend"],
+                        "body-sm": ["Lexend"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-technical": ["13px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-ack": ["12px", { "lineHeight": "14px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.paper-background');
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            color: theme('colors.on-background');
+        }
+        
+        .checkbox-custom:checked + div {
+            border-color: theme('colors.trust-teal');
+            background-color: theme('colors.surface-container-low');
+        }
+        
+        .checkbox-custom:checked + div .check-icon {
+            opacity: 1;
+        }
+
+        .checkbox-custom:focus-visible + div {
+            outline: 3px solid theme('colors.clock-amber');
+            outline-offset: 2px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col font-body-md">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface h-16 w-full sticky top-0 z-50 border-b-2 border-outline-variant dark:border-outline">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop w-full max-w-7xl mx-auto h-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-headline-md text-headline-md-mobile md:text-headline-md text-trust-teal dark:text-primary-fixed tracking-tight">NCRP Reimagined</span>
+</div>
+<button class="bg-postal-vermilion text-on-primary font-bold px-4 py-2 rounded flex items-center gap-2 hover:bg-opacity-90 transition-colors">
+<span class="font-label-technical text-label-technical uppercase">Quick Exit</span>
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col items-center py-8 md:py-12 px-margin-mobile md:px-margin-desktop w-full max-w-4xl mx-auto">
+<!-- Progress Indicator -->
+<div class="w-full mb-8">
+<div class="flex items-center gap-2 mb-2">
+<span class="font-label-technical text-label-technical text-trust-teal uppercase tracking-widest">Step 4 of 6</span>
+<div class="h-[2px] flex-grow bg-outline-variant">
+<div class="h-full bg-trust-teal w-2/3"></div>
+</div>
+</div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-ink-black mb-2">What has already happened?</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Select all that apply to your situation. This helps us direct your report correctly.</p>
+</div>
+<!-- Triage Form -->
+<form class="w-full flex flex-col gap-stack-lg" onsubmit="event.preventDefault(); window.location.href='#';">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<!-- Option 1 -->
+<label class="relative cursor-pointer group">
+<input class="checkbox-custom sr-only" name="triage" type="checkbox" value="money_left"/>
+<div class="bg-surface-container-lowest border-2 border-outline-variant rounded p-4 flex gap-4 items-start transition-all duration-200 hover:border-trust-teal">
+<div class="w-6 h-6 border-2 border-ink-black rounded-sm flex items-center justify-center shrink-0 mt-1 bg-white">
+<span class="material-symbols-outlined text-trust-teal opacity-0 check-icon transition-opacity duration-200 text-lg" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h3 class="font-headline-md text-body-lg font-bold text-ink-black mb-1">Money has left my account</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Transactions occurred that I did not authorize.</p>
+</div>
+</div>
+</label>
+<!-- Option 2 -->
+<label class="relative cursor-pointer group">
+<input class="checkbox-custom sr-only" name="triage" type="checkbox" value="photos_stolen"/>
+<div class="bg-surface-container-lowest border-2 border-outline-variant rounded p-4 flex gap-4 items-start transition-all duration-200 hover:border-trust-teal">
+<div class="w-6 h-6 border-2 border-ink-black rounded-sm flex items-center justify-center shrink-0 mt-1 bg-white">
+<span class="material-symbols-outlined text-trust-teal opacity-0 check-icon transition-opacity duration-200 text-lg" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h3 class="font-headline-md text-body-lg font-bold text-ink-black mb-1">Photos or media stolen</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Someone has accessed personal images without consent.</p>
+</div>
+</div>
+</label>
+<!-- Option 3 -->
+<label class="relative cursor-pointer group">
+<input class="checkbox-custom sr-only" name="triage" type="checkbox" value="account_hacked"/>
+<div class="bg-surface-container-lowest border-2 border-outline-variant rounded p-4 flex gap-4 items-start transition-all duration-200 hover:border-trust-teal">
+<div class="w-6 h-6 border-2 border-ink-black rounded-sm flex items-center justify-center shrink-0 mt-1 bg-white">
+<span class="material-symbols-outlined text-trust-teal opacity-0 check-icon transition-opacity duration-200 text-lg" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h3 class="font-headline-md text-body-lg font-bold text-ink-black mb-1">Account was hacked</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Loss of access to social media, email, or banking apps.</p>
+</div>
+</div>
+</label>
+<!-- Option 4 -->
+<label class="relative cursor-pointer group">
+<input class="checkbox-custom sr-only" name="triage" type="checkbox" value="aadhaar_leaked"/>
+<div class="bg-surface-container-lowest border-2 border-outline-variant rounded p-4 flex gap-4 items-start transition-all duration-200 hover:border-trust-teal">
+<div class="w-6 h-6 border-2 border-ink-black rounded-sm flex items-center justify-center shrink-0 mt-1 bg-white">
+<span class="material-symbols-outlined text-trust-teal opacity-0 check-icon transition-opacity duration-200 text-lg" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h3 class="font-headline-md text-body-lg font-bold text-ink-black mb-1">Aadhaar or ID leaked</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Official identification documents shared online.</p>
+</div>
+</div>
+</label>
+<!-- Option 5 -->
+<label class="relative cursor-pointer group">
+<input class="checkbox-custom sr-only" name="triage" type="checkbox" value="threats_made"/>
+<div class="bg-surface-container-lowest border-2 border-outline-variant rounded p-4 flex gap-4 items-start transition-all duration-200 hover:border-trust-teal">
+<div class="w-6 h-6 border-2 border-ink-black rounded-sm flex items-center justify-center shrink-0 mt-1 bg-white">
+<span class="material-symbols-outlined text-trust-teal opacity-0 check-icon transition-opacity duration-200 text-lg" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h3 class="font-headline-md text-body-lg font-bold text-ink-black mb-1">Threats were made</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Blackmail, extortion, or physical threats received.</p>
+</div>
+</div>
+</label>
+<!-- Option 6 -->
+<label class="relative cursor-pointer group">
+<input class="checkbox-custom sr-only" name="triage" type="checkbox" value="caught_in_time"/>
+<div class="bg-surface-container-lowest border-2 border-outline-variant rounded p-4 flex gap-4 items-start transition-all duration-200 hover:border-trust-teal">
+<div class="w-6 h-6 border-2 border-ink-black rounded-sm flex items-center justify-center shrink-0 mt-1 bg-white">
+<span class="material-symbols-outlined text-trust-teal opacity-0 check-icon transition-opacity duration-200 text-lg" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h3 class="font-headline-md text-body-lg font-bold text-ink-black mb-1">Caught it in time</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Blocked the attempt before any loss occurred.</p>
+</div>
+</div>
+</label>
+</div>
+<!-- Action Area -->
+<div class="mt-8 pt-8 border-t-2 border-outline-variant flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-2 text-on-surface-variant bg-surface-container py-2 px-4 rounded border border-outline-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="cloud_done">cloud_done</span>
+<span class="font-label-technical text-label-technical">Saved on this phone</span>
+</div>
+<button class="w-full sm:w-auto bg-trust-teal hover:bg-primary text-white font-body-lg text-body-lg font-bold py-3 px-8 rounded transition-colors focus-visible:outline focus-visible:outline-3 focus-visible:outline-clock-amber focus-visible:outline-offset-2 flex items-center justify-center gap-2" type="submit">
+<span>Continue</span>
+<span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</form>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-inverse-surface w-full pt-stack-lg pb-stack-md border-t-2 border-outline dark:border-outline-variant mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<div class="flex flex-col gap-2">
+<span class="font-label-technical text-label-technical font-bold text-redaction-gray">© NCRP. Official Government of India Portal.</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">For immediate police assistance, dial 112.</p>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="font-label-technical text-label-technical font-bold text-ink-black uppercase tracking-wider mb-2">Emergency Helplines</h4>
+<a class="font-body-sm text-body-sm text-on-surface dark:text-inverse-on-surface hover:text-trust-teal dark:hover:text-primary-fixed transition-colors border-2 border-ink-black dark:border-outline-variant p-4 text-center block" href="#">1930 Cyber Fraud</a>
+<a class="font-body-sm text-body-sm text-on-surface dark:text-inverse-on-surface hover:text-trust-teal dark:hover:text-primary-fixed transition-colors border-2 border-ink-black dark:border-outline-variant p-4 text-center block" href="#">14416 Women Helpline</a>
+<a class="font-body-sm text-body-sm text-on-surface dark:text-inverse-on-surface hover:text-trust-teal dark:hover:text-primary-fixed transition-colors border-2 border-ink-black dark:border-outline-variant p-4 text-center block" href="#">1098 Childline</a>
+</div>
+<div class="flex flex-col gap-2 md:items-end">
+<h4 class="font-label-technical text-label-technical font-bold text-ink-black uppercase tracking-wider mb-2">Legal</h4>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-tertiary-container hover:text-trust-teal dark:hover:text-primary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-tertiary-container hover:text-trust-teal dark:hover:text-primary-fixed transition-colors" href="#">Accessibility</a>
+</div>
+</div>
+</footer>
+</body></html>

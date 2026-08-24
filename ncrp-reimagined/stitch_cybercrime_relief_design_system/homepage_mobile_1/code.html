@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NCRP Reimagined</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Lexend:wght@400;500;600;700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-primary": "#ffffff",
+                "primary-fixed": "#a3f0ef",
+                "outline": "#6f7979",
+                "on-background": "#181c1c",
+                "on-primary-fixed-variant": "#004f50",
+                "surface-container-high": "#e6e9e8",
+                "on-secondary-container": "#636467",
+                "on-error-container": "#93000a",
+                "on-error": "#ffffff",
+                "error": "#ba1a1a",
+                "surface-container-low": "#f1f4f3",
+                "background": "#f7faf9",
+                "tertiary-container": "#8c4f31",
+                "primary-fixed-dim": "#87d3d3",
+                "surface-container-lowest": "#ffffff",
+                "inverse-surface": "#2d3131",
+                "ink-muted": "rgba(93, 94, 97, 0.4)",
+                "outline-variant": "#bec9c8",
+                "on-tertiary-container": "#ffcfbb",
+                "tertiary-fixed": "#ffdbcc",
+                "secondary-container": "#e2e2e5",
+                "secondary-fixed-dim": "#c6c6c9",
+                "surface-bright": "#f7faf9",
+                "on-tertiary": "#ffffff",
+                "surface": "#f7faf9",
+                "on-primary-fixed": "#002020",
+                "surface-container": "#eceeee",
+                "error-container": "#ffdad6",
+                "on-tertiary-fixed-variant": "#6f381c",
+                "secondary": "#5d5e61",
+                "inverse-primary": "#87d3d3",
+                "primary": "#005050",
+                "on-surface": "#181c1c",
+                "signal-vermilion": "#C2410C",
+                "paper-white": "#FFFFFF",
+                "inverse-on-surface": "#eef1f0",
+                "on-secondary-fixed-variant": "#454749",
+                "surface-tint": "#0d6969",
+                "primary-container": "#0f6a6a",
+                "canvas-surface": "#F7F9FC",
+                "on-surface-variant": "#3f4948",
+                "surface-dim": "#d8dbda",
+                "surface-variant": "#e0e3e2",
+                "on-secondary": "#ffffff",
+                "secondary-fixed": "#e2e2e5",
+                "on-primary-container": "#9be7e6",
+                "surface-container-highest": "#e0e3e2",
+                "on-tertiary-fixed": "#351000",
+                "tertiary": "#6f381c",
+                "tertiary-fixed-dim": "#ffb694",
+                "on-secondary-fixed": "#1a1c1e"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "unit": "8px",
+                "gutter": "24px",
+                "margin-mobile": "16px",
+                "margin-desktop": "64px",
+                "content-max-width": "1120px"
+        },
+        "fontFamily": {
+                "body-md": [
+                        "\"Source Serif 4\""
+                ],
+                "headline-lg": [
+                        "\"Source Serif 4\""
+                ],
+                "headline-md": [
+                        "\"Source Serif 4\""
+                ],
+                "mono-data": [
+                        "IBM Plex Mono"
+                ],
+                "body-lg": [
+                        "\"Source Serif 4\""
+                ],
+                "headline-lg-mobile": [
+                        "\"Source Serif 4\""
+                ],
+                "label-technical": [
+                        "Lexend"
+                ]
+        },
+        "fontSize": {
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg": [
+                        "36px",
+                        {
+                                "lineHeight": "44px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "mono-data": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "34px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-technical": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+    /* Focus styles */
+    input:focus, textarea:focus {
+        outline: none;
+        border-color: #005050; /* Trust Teal */
+        border-width: 2px;
+        padding-left: 15px; /* Adjust for border width change to avoid jumping */
+        padding-top: 11px;
+        padding-bottom: 11px;
+    }
+</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex flex-col items-center">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-[72px] bg-canvas-surface border-b border-ink-muted/20">
+<div class="flex items-center gap-2 text-headline-md font-label-technical font-semibold text-on-surface">
+<span>NCRP Reimagined</span>
+</div>
+<div class="flex items-center gap-4">
+<!-- Hide desktop nav on mobile -->
+<span class="hidden">Scam playbooks</span>
+<button class="flex items-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</div>
+</header>
+<main class="w-full max-w-content-max-width px-margin-mobile pt-[120px] pb-gutter flex-grow">
+<!-- BLOCK 1 — HERO -->
+<section class="mb-[96px]">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-6">
+            Something arrived that does not feel right.
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-[600px]">
+            Show us the message. We will tell you what it is, and what to do in the next ten minutes.
+        </p>
+<div class="mb-4">
+<label class="block font-label-technical text-label-technical text-on-surface-variant mb-2 uppercase tracking-wide" for="check-message">Paste SMS, email, or URL</label>
+<textarea class="w-full bg-paper-white border border-ink-muted rounded px-4 py-3 font-body-md text-on-surface mb-4 resize-none" id="check-message" placeholder="e.g. Your electricity connection will be disconnected tonight..." rows="3"></textarea>
+<button class="w-full h-[52px] bg-primary text-paper-white font-label-technical font-semibold rounded-[10px] flex items-center justify-center transition-colors hover:bg-primary-container">
+                Check this message
+            </button>
+</div>
+<div class="flex items-start gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] mt-1" style="font-variation-settings: 'FILL' 0;">lock</span>
+<p class="font-mono-data text-mono-data">No login. We hide Aadhaar, PAN, and account numbers before anyone reads it.</p>
+</div>
+</section>
+<!-- BLOCK 2 — THREE DOORS -->
+<section class="mb-gutter">
+<p class="font-label-technical text-label-technical text-on-surface-variant uppercase tracking-wide mb-6">OR TELL US WHAT IS HAPPENING</p>
+<!-- Door 1 -->
+<div class="bg-paper-white border border-ink-muted p-6 mb-6 relative">
+<div class="absolute left-0 top-0 bottom-0 w-[4px] bg-signal-vermilion rounded-l"></div>
+<div class="flex justify-between items-start mb-4">
+<h2 class="font-headline-md text-headline-md text-on-surface">It is happening right now</h2>
+<div class="bg-surface-container-high px-3 py-1 rounded border border-ink-muted flex items-center gap-2">
+<span class="material-symbols-outlined text-signal-vermilion text-[18px]">call</span>
+<span class="font-mono-data font-bold text-signal-vermilion">1930</span>
+</div>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6">They are on the call, or someone is actively controlling your device.</p>
+<button class="w-full h-[52px] bg-signal-vermilion text-paper-white font-label-technical font-semibold rounded-[10px] flex items-center justify-center transition-colors hover:bg-tertiary-container">
+                Hang up and get steps
+            </button>
+</div>
+<!-- Doors 2 & 3 -->
+<div class="grid grid-cols-1 gap-6 mb-8">
+<!-- Door 2 -->
+<div class="bg-paper-white border border-ink-muted p-6">
+<h3 class="font-headline-md text-[20px] leading-[28px] font-semibold text-on-surface mb-2">Money or an account is already gone</h3>
+<p class="font-body-md text-on-surface-variant mb-6">A debit you did not make, or you cannot access your social media.</p>
+<a class="inline-flex items-center font-label-technical font-semibold text-primary hover:underline" href="#">
+                    Start containment <span class="material-symbols-outlined ml-1 text-[18px]">arrow_forward</span>
+</a>
+</div>
+<!-- Door 3 -->
+<div class="bg-paper-white border border-ink-muted p-6">
+<h3 class="font-headline-md text-[20px] leading-[28px] font-semibold text-on-surface mb-2">I am not sure yet</h3>
+<p class="font-body-md text-on-surface-variant mb-6">A job offer, investment group, or someone claiming to be police.</p>
+<a class="inline-flex items-center font-label-technical font-semibold text-primary hover:underline" href="#">
+                    Check it first <span class="material-symbols-outlined ml-1 text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Track -->
+<div class="bg-surface-container-low border border-ink-muted p-6 flex flex-col gap-4">
+<label class="font-label-technical font-semibold text-on-surface" for="track-id">Already filed? Track a report</label>
+<div class="flex gap-2">
+<input class="flex-grow bg-paper-white border border-ink-muted rounded px-4 py-3 font-mono-data text-on-surface" id="track-id" placeholder="Report ID" type="text"/>
+<button class="px-6 bg-surface-variant text-on-surface font-label-technical font-semibold rounded border border-ink-muted hover:bg-surface-dim transition-colors">
+                    Track
+                </button>
+</div>
+</div>
+</section>
+<!-- BLOCK 3 — HOW IT WORKS -->
+<section class="mb-gutter">
+<h2 class="font-label-technical text-label-technical text-on-surface-variant uppercase tracking-wide mb-6">HOW IT WORKS</h2>
+<div class="border-t border-ink-muted">
+<div class="py-6 border-b border-ink-muted flex gap-6">
+<span class="font-mono-data text-on-surface-variant w-8">01</span>
+<div>
+<h4 class="font-body-lg font-semibold text-on-surface mb-1">Triage</h4>
+<p class="font-body-md text-on-surface-variant">We assess the urgency before asking for details.</p>
+</div>
+</div>
+<div class="py-6 border-b border-ink-muted flex gap-6">
+<span class="font-mono-data text-on-surface-variant w-8">02</span>
+<div>
+<h4 class="font-body-lg font-semibold text-on-surface mb-1">Containment</h4>
+<p class="font-body-md text-on-surface-variant">Immediate steps to secure your remaining assets.</p>
+</div>
+</div>
+<div class="py-6 border-b border-ink-muted flex gap-6">
+<span class="font-mono-data text-on-surface-variant w-8">03</span>
+<div>
+<h4 class="font-body-lg font-semibold text-on-surface mb-1">Documentation</h4>
+<p class="font-body-md text-on-surface-variant">Guided evidence collection, structured for investigators.</p>
+</div>
+</div>
+<div class="py-6 border-b border-ink-muted flex gap-6">
+<span class="font-mono-data text-on-surface-variant w-8">04</span>
+<div>
+<h4 class="font-body-lg font-semibold text-on-surface mb-1">Routing</h4>
+<p class="font-body-md text-on-surface-variant">Sent to the right bank and local jurisdiction.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- BLOCK 4 — CLOSING -->
+<section class="mb-gutter text-center">
+<p class="font-body-lg text-on-surface mb-4">
+            In 2025, 28.15 lakh complaints were filed and under two percent became an FIR.
+        </p>
+<p class="font-mono-data text-on-surface-variant max-w-[300px] mx-auto">
+            The old portal asked people to classify complex crimes. This one starts with what arrived on your phone.
+        </p>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full flex flex-col items-center gap-4 text-center px-margin-mobile py-8 bg-canvas-surface border-t border-ink-muted">
+<div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-4">
+<a class="font-label-technical text-label-technical text-on-surface-variant hover:text-primary underline transition-opacity duration-200" href="#">Cybercrime 1930</a>
+<a class="font-label-technical text-label-technical text-on-surface-variant hover:text-primary underline transition-opacity duration-200" href="#">Tele-MANAS 14416</a>
+<a class="font-label-technical text-label-technical text-on-surface-variant hover:text-primary underline transition-opacity duration-200" href="#">Childline 1098</a>
+</div>
+<p class="font-label-technical text-label-technical text-on-surface-variant max-w-[400px]">
+        Independent hackathon prototype. Not affiliated with MHA, I4C, or the Government of India. Synthetic data only.
+    </p>
+</footer>
+</body></html>

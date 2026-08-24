@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NCRP Reimagined</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Source+Serif+4:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "secondary-container": "#c2d8fe",
+                            "on-tertiary-container": "#ffcfbb",
+                            "ink-text": "#0F2744",
+                            "inverse-surface": "#2c3134",
+                            "outline-variant": "#bec9c8",
+                            "primary-container": "#0f6a6a",
+                            "surface-container-lowest": "#ffffff",
+                            "on-tertiary-fixed": "#351000",
+                            "surface-bright": "#f6fafe",
+                            "paper-bg": "#EEF2F6",
+                            "surface-variant": "#dfe3e7",
+                            "background": "#f6fafe",
+                            "outline": "#6f7979",
+                            "ink-secondary": "#3D5166",
+                            "on-secondary-container": "#495e7e",
+                            "surface-container-highest": "#dfe3e7",
+                            "on-tertiary-fixed-variant": "#6f381c",
+                            "on-surface": "#171c1f",
+                            "on-primary": "#ffffff",
+                            "surface-container-low": "#f0f4f8",
+                            "inverse-on-surface": "#edf1f5",
+                            "on-primary-fixed-variant": "#004f50",
+                            "tertiary-container": "#8c4f31",
+                            "surface-container-high": "#e5e9ed",
+                            "trust-teal": "#0F6A6A",
+                            "postal-vermilion": "#C2410C",
+                            "secondary-fixed-dim": "#b2c8ed",
+                            "tertiary-fixed-dim": "#ffb694",
+                            "on-secondary": "#ffffff",
+                            "on-primary-fixed": "#002020",
+                            "secondary-fixed": "#d4e3ff",
+                            "surface": "#F7F9FC",
+                            "clock-amber": "#B45309",
+                            "surface-container": "#eaeef2",
+                            "secondary": "#4a5f7f",
+                            "primary-fixed": "#a3f0ef",
+                            "error-container": "#ffdad6",
+                            "on-primary-container": "#9be7e6",
+                            "on-secondary-fixed-variant": "#324866",
+                            "on-secondary-fixed": "#021c39",
+                            "on-tertiary": "#ffffff",
+                            "primary-fixed-dim": "#87d3d3",
+                            "rule-border": "#C5D0DC",
+                            "surface-tint": "#0d6969",
+                            "surface-dim": "#d6dade",
+                            "on-background": "#171c1f",
+                            "on-error": "#ffffff",
+                            "tertiary": "#6f381c",
+                            "inverse-primary": "#87d3d3",
+                            "on-error-container": "#93000a",
+                            "error": "#ba1a1a",
+                            "on-surface-variant": "#3f4948",
+                            "tertiary-fixed": "#ffdbcc",
+                            "primary": "#005050"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.125rem",
+                            "lg": "0.25rem",
+                            "xl": "0.5rem",
+                            "full": "0.75rem"
+                    },
+                    "spacing": {
+                            "margin-desktop": "64px",
+                            "gutter": "24px",
+                            "margin-mobile": "16px",
+                            "unit": "8px",
+                            "max-width": "1120px"
+                    },
+                    "fontFamily": {
+                            "body-lg": ["Lexend"],
+                            "headline-md": ["\"Source Serif 4\""],
+                            "button": ["Lexend"],
+                            "headline-lg-mobile": ["\"Source Serif 4\""],
+                            "headline-lg": ["\"Source Serif 4\""],
+                            "label-mono": ["IBM Plex Mono"],
+                            "body-md": ["Lexend"]
+                    },
+                    "fontSize": {
+                            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                            "button": ["16px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                            "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                            "headline-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                            "label-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Lexend', sans-serif; background-color: #EEF2F6; color: #0F2744; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .filled-icon { font-variation-settings: 'FILL' 1; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-paper-bg text-ink-text antialiased flex flex-col min-h-screen pt-[64px]">
+<!-- 1) TopAppBar (Shared Component) -->
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop bg-paper-bg border-b border-rule-border h-[64px] w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-trust-teal">security</span>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md font-bold text-ink-text leading-tight">NCRP Reimagined</span>
+<span class="font-label-mono text-label-mono text-ink-secondary text-[10px] uppercase">Independent prototype</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:flex font-button text-button text-ink-secondary hover:bg-surface-variant/50 px-2 py-1 rounded transition-colors">EN | हिंदी</button>
+<button class="hidden md:flex font-button text-button text-trust-teal hover:bg-surface-variant/50 px-2 py-1 rounded transition-colors border border-transparent hover:border-rule-border">Check a message</button>
+<button class="bg-postal-vermilion text-on-primary font-button text-button px-4 py-2 rounded hover:scale-95 duration-150 transition-transform">LEAVE NOW</button>
+</div>
+</header>
+<main class="flex-grow w-full max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop py-8 flex flex-col gap-12">
+<!-- 2) HERO -->
+<section class="flex flex-col gap-4 max-w-2xl">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-ink-text">
+                Something arrived that does not feel right.
+            </h1>
+<p class="font-body-lg text-body-lg text-ink-secondary">
+                Show us the message. We will tell you what to do, then help you stop the damage.
+            </p>
+</section>
+<!-- 3) UNIVERSAL CHECK BAR -->
+<section class="bg-surface border border-rule-border rounded p-6 flex flex-col gap-4 shadow-none">
+<label class="font-button text-button text-ink-text" for="check-input">Paste a message, link, phone, or UPI ID</label>
+<div class="flex flex-col md:flex-row gap-4">
+<input class="flex-grow bg-surface-container-lowest border-rule-border focus:border-trust-teal focus:ring-0 rounded p-4 font-label-mono text-label-mono text-ink-text placeholder-ink-secondary/50" id="check-input" placeholder="Pay Rs 1500 to unlock your merchant task..." type="text"/>
+<button class="bg-trust-teal text-on-primary font-button text-button px-6 py-4 rounded hover:bg-primary-container transition-colors whitespace-nowrap">Check this message</button>
+</div>
+<div class="flex items-center gap-2 text-ink-secondary">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span class="font-label-mono text-label-mono text-xs">No login. We hide Aadhaar, PAN, and account numbers.</span>
+</div>
+</section>
+<!-- 4) SITUATION DOORS (Bento Grid Style) -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- DOOR 2 (Top Priority) -->
+<div class="md:col-span-2 bg-error-container/20 border border-postal-vermilion border-l-4 rounded p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-postal-vermilion">
+<span class="material-symbols-outlined filled-icon">warning</span>
+<span class="font-button text-button uppercase tracking-widest text-xs">This is happening right now</span>
+</div>
+<p class="font-body-lg text-body-lg text-ink-text">They are on the call or asking for money now.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+<button class="bg-surface text-ink-text border border-rule-border font-button text-button px-6 py-3 rounded hover:bg-surface-variant transition-colors">Hang up and get steps</button>
+<a class="bg-postal-vermilion text-on-primary font-label-mono text-label-mono text-center px-6 py-3 rounded hover:bg-tertiary-container transition-colors flex items-center justify-center gap-2" href="tel:1930">
+<span class="material-symbols-outlined text-[18px]">call</span> Call 1930
+                    </a>
+</div>
+</div>
+<!-- DOOR 1 -->
+<div class="bg-surface border border-rule-border rounded p-6 flex flex-col justify-between h-full hover:border-trust-teal transition-colors cursor-pointer group">
+<div class="flex flex-col gap-2 mb-6">
+<span class="material-symbols-outlined text-trust-teal text-3xl mb-2">help_outline</span>
+<h3 class="font-headline-md text-headline-md text-ink-text">I am not sure if this is a scam</h3>
+<p class="font-body-md text-body-md text-ink-secondary">Verify a suspicious link, message, or profile.</p>
+</div>
+<button class="text-trust-teal font-button text-button flex items-center gap-2 group-hover:underline">
+                    Check it <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- DOOR 3 -->
+<div class="bg-surface border border-rule-border rounded p-6 flex flex-col justify-between h-full hover:border-trust-teal transition-colors cursor-pointer group">
+<div class="flex flex-col gap-2 mb-6">
+<span class="material-symbols-outlined text-trust-teal text-3xl mb-2">account_balance_wallet</span>
+<h3 class="font-headline-md text-headline-md text-ink-text">Money, an account, or a photo is already gone</h3>
+<p class="font-body-md text-body-md text-ink-secondary">Immediate steps to limit the damage.</p>
+</div>
+<button class="text-trust-teal font-button text-button flex items-center gap-2 group-hover:underline">
+                    Start containment <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- DOOR 4 (Track) -->
+<div class="md:col-span-2 bg-surface-container-low border border-rule-border rounded p-4 flex flex-col sm:flex-row items-center gap-4">
+<span class="font-button text-button text-ink-secondary whitespace-nowrap">Already filed?</span>
+<div class="flex w-full gap-2">
+<input class="flex-grow bg-surface-container-lowest border-rule-border rounded px-3 py-2 font-label-mono text-label-mono text-sm focus:border-trust-teal focus:ring-0" placeholder="Track with your 14-digit number" type="text"/>
+<button class="bg-surface border border-rule-border text-ink-text font-button text-button px-4 py-2 rounded hover:bg-surface-variant transition-colors">Track</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container-highest w-full py-8 border-t-2 border-rule-border mt-auto">
+<div class="w-full px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto flex flex-col gap-gutter">
+<div class="flex flex-col md:flex-row justify-between gap-6">
+<div class="flex flex-col gap-2">
+<span class="font-button text-button uppercase tracking-widest text-ink-secondary">NCRP Reimagined</span>
+<p class="font-body-md text-body-md text-ink-text max-w-sm">
+                        A concept for a simpler, more effective cyber crime reporting experience.
+                    </p>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="font-label-mono text-label-mono text-postal-vermilion">CRITICAL CONTACTS</h4>
+<ul class="flex flex-col gap-2">
+<li><a class="font-body-md text-body-md text-ink-secondary hover:text-trust-teal underline transition-colors focus:ring-2 focus:ring-trust-teal" href="#">1930 (Cyber Helpline)</a></li>
+<li><a class="font-body-md text-body-md text-ink-secondary hover:text-trust-teal underline transition-colors focus:ring-2 focus:ring-trust-teal" href="#">Tele-MANAS</a></li>
+<li><a class="font-body-md text-body-md text-ink-secondary hover:text-trust-teal underline transition-colors focus:ring-2 focus:ring-trust-teal" href="#">Childline 1098</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-rule-border pt-4">
+<p class="font-label-mono text-label-mono text-ink-secondary text-xs">
+                    © 2024 National Cyber Crime Reporting Portal. Government of India.
+                </p>
+</div>
+</div>
+</footer>
+</body></html>

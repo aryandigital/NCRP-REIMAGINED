@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cybercrime Help - India</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Noto+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#ffb68c",
+                        "on-tertiary-fixed": "#321200",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#91bdff",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#f9f9ff",
+                        "on-secondary-container": "#606366",
+                        "on-background": "#191c20",
+                        "tertiary-container": "#7b3700",
+                        "on-primary-fixed": "#001c3a",
+                        "primary": "#003465",
+                        "surface-container": "#ededf4",
+                        "surface-container-highest": "#e1e2e8",
+                        "inverse-primary": "#a6c8ff",
+                        "secondary-fixed": "#e1e2e6",
+                        "on-tertiary-fixed-variant": "#753400",
+                        "inverse-surface": "#2e3035",
+                        "primary-fixed-dim": "#a6c8ff",
+                        "primary-container": "#004b8d",
+                        "outline-variant": "#c2c6d2",
+                        "on-primary-fixed-variant": "#004786",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#191c1f",
+                        "surface-container-low": "#f3f3f9",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "outline": "#727782",
+                        "on-tertiary-container": "#ffa56f",
+                        "tertiary": "#582500",
+                        "on-surface": "#191c20",
+                        "on-secondary-fixed-variant": "#44474a",
+                        "secondary": "#5c5f62",
+                        "surface-dim": "#d9dae0",
+                        "surface-container-high": "#e7e8ee",
+                        "on-surface-variant": "#424750",
+                        "on-primary": "#ffffff",
+                        "surface": "#f9f9ff",
+                        "primary-fixed": "#d4e3ff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#c5c6ca",
+                        "tertiary-fixed": "#ffdbc9",
+                        "surface-variant": "#e1e2e8",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#265fa2",
+                        "inverse-on-surface": "#f0f0f7",
+                        "background": "#f9f9ff",
+                        "secondary-container": "#dee0e4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "stack-md": "16px",
+                        "desktop-max-width": "600px",
+                        "spine-width": "4px",
+                        "stack-sm": "8px",
+                        "mobile-margin": "16px",
+                        "stack-lg": "32px"
+                    },
+                    "fontFamily": {
+                        "mono-quote": ["JetBrains Mono"],
+                        "body-lg": ["Noto Sans"],
+                        "headline-lg": ["Noto Sans"],
+                        "headline-sm": ["Noto Sans"],
+                        "headline-md": ["Noto Sans"],
+                        "body-sm": ["Noto Sans"],
+                        "emergency-phone": ["Noto Sans"],
+                        "mono-numeral": ["JetBrains Mono"],
+                        "label-caps": ["Noto Sans"]
+                    },
+                    "fontSize": {
+                        "mono-quote": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "38px", "fontWeight": "700" }],
+                        "headline-sm": ["22px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-md": ["26px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-sm": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+                        "emergency-phone": ["34px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "mono-numeral": ["24px", { "lineHeight": "24px", "fontWeight": "500" }],
+                        "label-caps": ["13px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            font-family: 'Noto Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Focus styles for accessibility */
+        *:focus-visible {
+            outline: 3px solid #FFCC00;
+            outline-offset: 2px;
+        }
+
+        .spine-rail {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: theme('spacing.spine-width');
+            background-color: theme('colors.outline-variant');
+        }
+        
+        .spine-active {
+            background-color: theme('colors.primary');
+        }
+        
+        .spine-error {
+            background-color: theme('colors.error');
+        }
+        
+        .content-with-spine {
+            position: relative;
+            padding-left: theme('spacing.stack-lg');
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen pb-24 md:pb-0">
+<!-- Honesty Strip -->
+<div class="bg-surface-container-high py-2 px-mobile-margin text-center border-b border-outline-variant">
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-desktop-max-width mx-auto">
+            An independent prototype. Not a government website. We cannot register an FIR or freeze money ourselves. We show you who can, and we write the letters for you.
+        </p>
+</div>
+<!-- TopAppBar -->
+<header class="bg-surface-container-lowest border-b border-outline-variant h-16 w-full z-50 px-mobile-margin sticky top-0">
+<div class="max-w-desktop-max-width mx-auto h-full flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary font-bold text-2xl">language</span>
+<span class="font-headline-sm text-headline-sm font-bold uppercase tracking-tight text-primary">Cybercrime Help</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex gap-4 text-sm font-medium text-secondary">
+<button class="hover:text-primary transition-colors">English / हिन्दी</button>
+<button class="hover:text-primary transition-colors">A- A A+</button>
+</div>
+<button class="bg-surface-container hover:bg-error hover:text-white transition-colors duration-150 px-4 py-1.5 rounded-sm font-label-caps text-label-caps text-on-surface border border-outline-variant flex items-center gap-1 scale-95 active:scale-90">
+                    Quick Exit
+                    <span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="max-w-desktop-max-width mx-auto px-mobile-margin pt-stack-lg flex flex-col gap-stack-lg">
+<!-- Signal Callout: 1930 -->
+<section class="bg-error-container border-l-4 border-error p-4 md:p-6 rounded-r">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-error text-3xl shrink-0" style="font-variation-settings: 'FILL' 1;">warning</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-error-container mb-2">Has money left your account in the last few hours?</h2>
+<p class="font-body-lg text-body-lg text-on-error-container mb-4">
+                        Call <a class="font-emergency-phone text-emergency-phone text-error underline decoration-2 underline-offset-4 hover:opacity-80 transition-opacity" href="tel:1930">1930</a> now, before you do anything else.
+                    </p>
+<p class="font-body-sm text-body-sm text-on-error-container mb-4">
+                        The police can ask the receiving bank to hold the money before it is moved on again. This is the single step that most often gets money back.
+                    </p>
+<p class="font-label-caps text-label-caps text-error mb-4">Free. 24 hours. Hindi and English.</p>
+<hr class="border-error/20 my-4"/>
+<p class="font-body-sm text-body-sm text-on-error-container/70">
+                        If it has been longer than a few hours, still report it. Money has been recovered weeks later. Keep reading.
+                    </p>
+</div>
+</div>
+</section>
+<!-- H1 -->
+<h1 class="font-headline-lg text-headline-lg text-on-background mt-4">What has happened to you?</h1>
+<!-- The Doors (Bento/Asymmetric Layout) -->
+<div class="flex flex-col gap-4">
+<!-- Door A: Urgent -->
+<div class="bg-error-container border-l-4 border-error p-6 flex flex-col gap-4 rounded-r shadow-sm">
+<div class="flex justify-between items-start">
+<h2 class="font-headline-md text-headline-md text-on-error-container">Something is happening right now</h2>
+<span class="material-symbols-outlined text-error text-2xl">sensors</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-error-container/80">A call is going on. Someone is on my screen. I am being threatened or told not to hang up.</p>
+<button class="bg-error hover:bg-on-error-container text-white font-label-caps text-label-caps py-4 px-6 self-start flex items-center gap-2 transition-colors">
+                    Get help now
+                    <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+<!-- Door B: Damage Done -->
+<div class="bg-surface border border-outline p-6 flex flex-col gap-4 rounded-sm shadow-sm relative overflow-hidden">
+<!-- Spine detail -->
+<div class="absolute left-0 top-0 bottom-0 w-[4px] bg-primary"></div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Money, an account, or private photos are already gone</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">We will help you stop the damage first, then file one report that goes everywhere it needs to.</p>
+<button class="bg-primary hover:bg-primary-container text-white font-label-caps text-label-caps py-4 px-6 self-start flex items-center gap-2 rounded-sm rounded-l-none transition-colors">
+                    Start now
+                    <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+<!-- Doors C & D Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Door C: Check -->
+<div class="bg-surface-container-lowest border-y border-outline-variant p-6 flex flex-col gap-3">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">I want to check whether something is a scam</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex-grow">Paste a message, a link, or a number. About thirty seconds. No login, no personal details.</p>
+<button class="border-2 border-primary text-primary hover:bg-primary/5 font-label-caps text-label-caps py-3 px-4 self-start rounded-sm transition-colors">
+                        Check it
+                    </button>
+</div>
+<!-- Door D: Track -->
+<div class="bg-surface-container-lowest border-y md:border-l md:border-y-0 border-outline-variant p-6 flex items-center justify-between group cursor-pointer hover:bg-surface-container-low transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Track a report I already filed</span>
+<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- How this works (Step Rows) -->
+<section class="mt-stack-lg">
+<h2 class="font-headline-md text-headline-md text-on-background mb-6">How this works</h2>
+<div class="flex flex-col gap-2">
+<!-- Step 1 -->
+<div class="flex items-stretch border-t border-outline-variant pt-4 pb-2">
+<div class="w-12 flex-shrink-0 flex items-start justify-center">
+<span class="font-mono-numeral text-mono-numeral text-secondary">01</span>
+</div>
+<div class="flex-grow pb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Check</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Identify the scam and immediate threats.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex items-stretch border-t border-outline-variant pt-4 pb-2">
+<div class="w-12 flex-shrink-0 flex items-start justify-center">
+<span class="font-mono-numeral text-mono-numeral text-secondary">02</span>
+</div>
+<div class="flex-grow pb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Act</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Stop further damage (block cards, secure accounts).</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex items-stretch border-t border-outline-variant pt-4 pb-2">
+<div class="w-12 flex-shrink-0 flex items-start justify-center">
+<span class="font-mono-numeral text-mono-numeral text-secondary">03</span>
+</div>
+<div class="flex-grow pb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Report</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Generate standardized letters for banks and police.</p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="flex items-stretch border-t border-outline-variant pt-4 pb-2">
+<div class="w-12 flex-shrink-0 flex items-start justify-center">
+<span class="font-mono-numeral text-mono-numeral text-secondary">04</span>
+</div>
+<div class="flex-grow pb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Recover</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Track deadlines and follow up on actions.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Honesty Block (Capabilities) -->
+<section class="bg-surface-container p-6 rounded-sm border border-outline-variant mt-4">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">What this does, and what it cannot do</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- What we do -->
+<div>
+<h3 class="font-label-caps text-label-caps text-primary mb-4 flex items-center gap-2 border-b border-outline-variant pb-2">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+                        WHAT WE DO
+                    </h3>
+<ul class="flex flex-col gap-3 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">done</span>
+<span>Scam identification &amp; risk assessment</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">done</span>
+<span>Clear steps to stop immediate damage</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">done</span>
+<span>Writing formal letters for authorities</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">done</span>
+<span>Tracking reporting deadlines</span>
+</li>
+</ul>
+</div>
+<!-- What we cannot do -->
+<div>
+<h3 class="font-label-caps text-label-caps text-secondary mb-4 flex items-center gap-2 border-b border-outline-variant pb-2">
+<span class="material-symbols-outlined text-sm">cancel</span>
+                        WHAT WE CANNOT DO
+                    </h3>
+<ul class="flex flex-col gap-3 font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">close</span>
+<span>Register an official FIR (Police must do this)</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">close</span>
+<span>Freeze bank accounts directly</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">close</span>
+<span>Provide legal representation</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">close</span>
+<span>Guarantee recovery of lost funds</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Scam Scripts -->
+<section class="mt-stack-lg border-t-4 border-outline-variant pt-6">
+<h2 class="font-headline-md text-headline-md text-on-background mb-4">Fifteen scam scripts we recognise</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 font-body-sm text-body-sm">
+<a class="text-primary underline decoration-2 underline-offset-4 hover:text-primary-container py-1" href="#">Customs/FedEx Parcel Scam</a>
+<a class="text-primary underline decoration-2 underline-offset-4 hover:text-primary-container py-1" href="#">Digital Arrest / Fake CBI</a>
+<a class="text-primary underline decoration-2 underline-offset-4 hover:text-primary-container py-1" href="#">Part-time Job / YouTube Liking</a>
+<a class="text-primary underline decoration-2 underline-offset-4 hover:text-primary-container py-1" href="#">Investment / Trading App Scam</a>
+<a class="text-primary underline decoration-2 underline-offset-4 hover:text-primary-container py-1" href="#">Sextortion / Video Call Blackmail</a>
+<a class="text-primary underline decoration-2 underline-offset-4 hover:text-primary-container py-1" href="#">Electricity Bill Disconnection</a>
+</div>
+<a class="inline-flex items-center gap-1 text-secondary hover:text-primary font-label-caps text-label-caps mt-6 uppercase tracking-wider transition-colors" href="#">
+                See all fifteen scripts
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</section>
+<!-- Scale / Reassurance -->
+<section class="mt-stack-lg bg-surface-container-low p-6 border-l-4 border-secondary text-center">
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-2">Across India, 28.15 lakh cybercrime complaints were reported last year.</p>
+<p class="font-headline-sm text-headline-sm text-on-surface font-semibold">You are not the first person this has happened to, and this was not your fault.</p>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Mobile Only) -->
+<nav class="md:hidden bg-surface-container-highest border-t-2 border-outline h-20 w-full fixed bottom-0 left-0 z-50 flex justify-around items-center px-2">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-none px-4 py-2 border-t-4 border-primary h-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">help_outline</span>
+<span class="font-label-caps text-[11px] font-bold tracking-wider uppercase">Help</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-opacity px-4 py-2 h-full active:opacity-80" href="#">
+<span class="material-symbols-outlined mb-1">history</span>
+<span class="font-label-caps text-[11px] font-bold tracking-wider uppercase">History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-opacity px-4 py-2 h-full active:opacity-80" href="#">
+<span class="material-symbols-outlined mb-1">gpp_maybe</span>
+<span class="font-label-caps text-[11px] font-bold tracking-wider uppercase">Safety</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-opacity px-4 py-2 h-full active:opacity-80" href="#">
+<span class="material-symbols-outlined mb-1">close</span>
+<span class="font-label-caps text-[11px] font-bold tracking-wider uppercase">Exit</span>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t-2 border-outline mt-stack-lg pb-24 md:pb-8">
+<div class="w-full px-mobile-margin py-stack-lg flex flex-col gap-stack-md max-w-desktop-max-width mx-auto">
+<div class="grid grid-cols-2 gap-8 mb-6">
+<div>
+<h4 class="font-label-caps text-label-caps text-secondary mb-3">Helplines</h4>
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm">
+<li><a class="text-primary hover:text-primary-container font-semibold" href="tel:1930">1930 - Cybercrime</a></li>
+<li><a class="text-primary hover:text-primary-container" href="tel:112">112 - National Emergency</a></li>
+<li><a class="text-primary hover:text-primary-container" href="tel:14416">14416 - Tele-MANAS</a></li>
+<li><a class="text-primary hover:text-primary-container" href="tel:1098">1098 - Childline</a></li>
+<li><a class="text-primary hover:text-primary-container" href="tel:181">181 - Women Helpline</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-secondary mb-3">Links</h4>
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm">
+<li><a class="text-secondary hover:text-primary transition-colors underline decoration-2 underline-offset-4" href="#">Privacy Policy</a></li>
+<li><a class="text-secondary hover:text-primary transition-colors underline decoration-2 underline-offset-4" href="#">Legal Disclaimer</a></li>
+<li><a class="text-secondary hover:text-primary transition-colors underline decoration-2 underline-offset-4" href="#">Contact</a></li>
+<li class="mt-2"><a class="text-primary hover:text-primary-container font-semibold flex items-center gap-1" href="#">Sanchar Saathi <span class="material-symbols-outlined text-[14px]">open_in_new</span></a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-outline-variant pt-4 text-center">
+<p class="font-label-caps text-label-caps text-secondary">© 2024 Cybercrime Help India. Institutional Minimalist Utility.</p>
+</div>
+</div>
+</footer>
+</body></html>

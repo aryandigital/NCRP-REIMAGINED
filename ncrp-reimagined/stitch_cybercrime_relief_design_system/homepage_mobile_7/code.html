@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CyberSafe India - Mobile Homepage</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Lexend:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container": "#ececff",
+                      "error-container": "#ffdad6",
+                      "surface-container-low": "#f3f2ff",
+                      "on-secondary-fixed-variant": "#274580",
+                      "surface": "#fbf8ff",
+                      "on-tertiary-fixed": "#001944",
+                      "tertiary-fixed-dim": "#afc6ff",
+                      "secondary-container": "#9fbbfd",
+                      "on-surface-variant": "#55433a",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-dim": "#d2d8ff",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed-dim": "#afc6ff",
+                      "inverse-primary": "#ffb68d",
+                      "on-secondary": "#ffffff",
+                      "tertiary": "#0056c3",
+                      "on-tertiary-fixed-variant": "#004299",
+                      "outline-variant": "#dbc1b5",
+                      "primary-fixed": "#ffdbc9",
+                      "background": "#fbf8ff",
+                      "on-primary-fixed-variant": "#763300",
+                      "primary-fixed-dim": "#ffb68d",
+                      "inverse-on-surface": "#efefff",
+                      "surface-bright": "#fbf8ff",
+                      "on-tertiary-container": "#fefcff",
+                      "secondary": "#415d99",
+                      "primary": "#94460d",
+                      "on-secondary-container": "#2c4984",
+                      "error": "#ba1a1a",
+                      "inverse-surface": "#272e4f",
+                      "on-background": "#111939",
+                      "on-primary-container": "#fffbff",
+                      "surface-container-highest": "#dde1ff",
+                      "on-primary-fixed": "#331200",
+                      "surface-container-high": "#e4e7ff",
+                      "secondary-fixed": "#d9e2ff",
+                      "surface-variant": "#dde1ff",
+                      "on-primary": "#ffffff",
+                      "on-surface": "#111939",
+                      "tertiary-fixed": "#d9e2ff",
+                      "outline": "#887368",
+                      "on-error": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "surface-tint": "#974810",
+                      "primary-container": "#b35e25",
+                      "on-secondary-fixed": "#001944",
+                      "tertiary-container": "#2f70e1"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "unit": "8px",
+                      "margin-desktop": "64px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "body-sm": [
+                              "Lexend"
+                      ],
+                      "label-mono": [
+                              "IBM Plex Mono"
+                      ],
+                      "body-main": [
+                              "Lexend"
+                      ],
+                      "headline-md": [
+                              "Bricolage Grotesque"
+                      ],
+                      "display-lg-mobile": [
+                              "Bricolage Grotesque"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "body-sm": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-mono": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-main": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Copper Shadow Utility */
+        .shadow-copper {
+            box-shadow: 0 12px 40px rgba(196,107,50,0.12);
+        }
+
+        /* Enamel Rail - Journey Track */
+        .enamel-rail {
+            position: relative;
+        }
+        .enamel-rail::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            bottom: 24px;
+            left: 20px;
+            width: 4px;
+            background-color: theme('colors.outline-variant');
+            border-radius: 4px;
+            z-index: 0;
+        }
+        .enamel-rail .step-active::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            width: 4px;
+            background-color: theme('colors.primary');
+            border-radius: 4px;
+            z-index: 1;
+        }
+
+        /* Hide scrollbar for horizontal scroll */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="pb-24">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface w-full h-[72px] border-t-[6px] border-secondary border-b-2 border-outline-variant flat no shadows sticky top-0 z-40">
+<div class="flex justify-between items-center px-gutter w-full max-w-container-max mx-auto h-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">alarm</span>
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary font-bold tracking-tight">CyberSafe India</span>
+</div>
+<button class="font-label-mono text-label-mono uppercase text-primary border-b-2 border-primary hover:text-secondary transition-colors scale-95 active:scale-90 px-2 py-1">LEAVE NOW</button>
+</div>
+</header>
+<main class="md:hidden">
+<!-- Hero Section with Illustration Banner & H1 -->
+<section class="w-full relative bg-surface-container-low pt-4 pb-8 border-b-2 border-outline-variant">
+<!-- Illustration Banner Placeholder -->
+<div class="px-margin-mobile mb-6">
+<div class="w-full h-32 rounded-xl border-2 border-secondary overflow-hidden relative shadow-copper bg-surface flex items-center justify-center">
+<img class="absolute inset-0 w-full h-full object-cover opacity-80" data-alt="A modern Indian editorial style illustration of a well-lit control room in Jodhpur at dusk. The scene is depicted with flat planes of color, reminiscent of vintage travel posters but with industrial precision. The palette relies on indigo dye and crisp whites with subtle marigold accents. 2px indigo line art defines the shapes. The mood is competent, vivid, and forward-moving, conveying a sense of safety and expert containment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwKQYCIOBI9AqrNF1koELfWOqD_sU6XV1ZOJj002_Cxsj2mdQHxjUmDuERYaKNGAvKYAPkTcRQX5jI0IDVubqb0HHXsAg5twB8yyr-cSW0zEjQD1puw31n-iIHXIrdQM5-9C3dbRlaevLBEAgpAIvHO4jcD-m4z3QHU1saxKBLjJcM_dKRMQkW2Oqh1LUIdq7i4_zZTR0p4L7AqG9ClnRhlKyoRffOIgYkFuJfU5SZ8EH6VBSwP3FqAg"/>
+<div class="absolute inset-0 bg-secondary/10 mix-blend-multiply"></div>
+</div>
+</div>
+<div class="px-margin-mobile">
+<h1 class="font-headline-md text-headline-md text-on-surface font-extrabold mb-4 leading-tight">
+                    You are in a safe space.<br/>Let's contain the threat.
+                </h1>
+<!-- Copper-edged Check Bar -->
+<div class="bg-surface border-2 border-primary shadow-copper rounded-xl p-4 flex items-center justify-between">
+<div>
+<span class="font-label-mono text-label-mono uppercase text-primary-container block mb-1">Status Check</span>
+<span class="font-body-main text-body-main text-on-surface font-medium">Is your device currently secure?</span>
+</div>
+<button class="w-12 h-12 bg-primary text-on-primary rounded-xl flex items-center justify-center shadow-md active:bg-on-primary-fixed-variant transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- SITUATION DOORS -->
+<section class="bg-on-background py-10 px-margin-mobile">
+<h2 class="font-label-mono text-label-mono uppercase text-tertiary-fixed-dim mb-6 tracking-widest border-b border-surface-inverse/20 pb-2">Immediate Action</h2>
+<div class="grid grid-cols-1 gap-4">
+<!-- Door 2 (Primary Emergency - Vermilion Gradient style) -->
+<button class="w-full text-left bg-error text-on-error rounded-xl p-6 relative overflow-hidden shadow-lg active:scale-[0.98] transition-transform">
+<div class="absolute right-0 top-0 w-32 h-32 bg-error-container/20 rounded-bl-full"></div>
+<div class="relative z-10 flex flex-col h-full justify-between">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">phone_in_talk</span>
+<span class="bg-on-error text-error text-[10px] font-label-mono uppercase px-2 py-1 rounded">Critical</span>
+</div>
+<div>
+<h3 class="font-headline-md text-[24px] font-bold mb-1">They are still on the line</h3>
+<p class="font-body-sm text-body-sm text-error-container opacity-90">Cut contact immediately. Get help now.</p>
+</div>
+</div>
+</button>
+<!-- Doors 1 & 3 Stacked -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Door 1 -->
+<button class="bg-surface text-on-surface border-2 border-secondary rounded-xl p-5 flex flex-col justify-between h-40 active:bg-surface-container transition-colors relative group">
+<span class="material-symbols-outlined text-secondary text-3xl mb-2 group-hover:-translate-y-1 transition-transform">account_balance</span>
+<div>
+<h3 class="font-body-main text-body-main font-bold leading-tight mb-1">Money was deducted</h3>
+</div>
+<div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-sm">arrow_forward</span>
+</div>
+</button>
+<!-- Door 3 -->
+<button class="bg-surface text-on-surface border-2 border-secondary rounded-xl p-5 flex flex-col justify-between h-40 active:bg-surface-container transition-colors relative group">
+<span class="material-symbols-outlined text-secondary text-3xl mb-2 group-hover:-translate-y-1 transition-transform">lock_reset</span>
+<div>
+<h3 class="font-body-main text-body-main font-bold leading-tight mb-1">Account compromised</h3>
+</div>
+<div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-sm">arrow_forward</span>
+</div>
+</button>
+</div>
+<!-- Door 4 Utility Strip -->
+<button class="w-full bg-surface-container-highest text-on-surface border border-outline-variant rounded-xl p-4 flex items-center justify-between active:bg-surface-dim transition-colors mt-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">search</span>
+<span class="font-body-main text-body-main font-medium">Not sure what happened?</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Your Path Enamel Rail & Journey Section -->
+<section class="bg-surface py-10 px-margin-mobile border-t-2 border-outline-variant">
+<div class="flex items-center justify-between mb-8">
+<h2 class="font-headline-md text-[28px] font-bold text-on-surface">Recovery Track</h2>
+<span class="bg-secondary-container text-on-secondary-container font-label-mono text-[12px] uppercase px-3 py-1 rounded-full border border-secondary">In Progress</span>
+</div>
+<!-- Enamel Rail Component -->
+<div class="enamel-rail mb-10 pl-2">
+<!-- Step 1: Active/Current -->
+<div class="flex items-start mb-8 relative z-10 step-active">
+<div class="w-10 h-10 rounded-full border-2 border-primary bg-surface flex items-center justify-center mr-4 shrink-0 shadow-copper">
+<div class="w-4 h-4 bg-primary rounded-full"></div>
+</div>
+<div class="pt-2">
+<span class="font-label-mono text-label-mono uppercase text-primary font-bold block mb-1">Phase 1: Contain</span>
+<h3 class="font-body-main text-body-main font-bold text-on-surface">Secure your accounts</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Isolate the breach before reporting.</p>
+</div>
+</div>
+<!-- Step 2: Pending -->
+<div class="flex items-start mb-8 relative z-10">
+<div class="w-10 h-10 rounded-full border-2 border-outline-variant bg-surface flex items-center justify-center mr-4 shrink-0">
+<span class="font-label-mono text-label-mono text-outline-variant">2</span>
+</div>
+<div class="pt-2">
+<span class="font-label-mono text-label-mono uppercase text-on-surface-variant block mb-1">Phase 2: Act</span>
+<h3 class="font-body-main text-body-main font-medium text-on-surface-variant">File official report</h3>
+</div>
+</div>
+<!-- Step 3: Pending -->
+<div class="flex items-start relative z-10">
+<div class="w-10 h-10 rounded-full border-2 border-outline-variant bg-surface flex items-center justify-center mr-4 shrink-0">
+<span class="font-label-mono text-label-mono text-outline-variant">3</span>
+</div>
+<div class="pt-2">
+<span class="font-label-mono text-label-mono uppercase text-on-surface-variant block mb-1">Phase 3: Recover</span>
+<h3 class="font-body-main text-body-main font-medium text-on-surface-variant">Follow up investigation</h3>
+</div>
+</div>
+</div>
+<!-- Horizontal Scroll-Snap Poster Strip -->
+<h3 class="font-label-mono text-label-mono uppercase text-on-surface-variant mb-4">Required Reading</h3>
+<div class="flex overflow-x-auto snap-x snap-mandatory gap-4 hide-scrollbar pb-4 -mx-margin-mobile px-margin-mobile">
+<!-- Poster 1 -->
+<div class="snap-center shrink-0 w-64 h-80 bg-surface border-2 border-secondary rounded-xl p-5 flex flex-col justify-between shadow-sm">
+<div class="w-full h-32 bg-surface-container-highest rounded-lg mb-4 flex items-center justify-center border border-outline-variant relative overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-50" data-alt="A stylized 2px indigo line art illustration depicting a digital padlock securing a smartphone, set against a solid marigold background. The aesthetic is flat, modern Indian editorial style, conveying industrial precision and security without being overly technical. Crisp, clean lines in a high-key light mode environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW10vUa9izPxCGFD9hiKgUFz8UDfAWLgAnHyvU5Is-aYsJ_WJKsDMrmqK9J1WnIB2S7z81c8P4TrYRpcgy-pOK-3_L66ewHjgBnwfB0Wv0k6nkyorjekPCqhVW0vU-QRYATNxpgD48IGqKgmkQTnG4e2dNMTYMDDZyl2eBYQleOxJH7-qlZxzw7t63rRQsWF2MBiOVGG3cH8Mkt90zUlcLn_3Hl-7clRhMCnMBCEoV6Li28XqtCl7d1A"/>
+<span class="material-symbols-outlined text-secondary text-4xl relative z-10">password</span>
+</div>
+<div>
+<h4 class="font-body-main text-body-main font-bold mb-2">Password Reset Protocol</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">How to safely cycle your credentials after a breach.</p>
+</div>
+<button class="text-primary font-label-mono text-label-mono uppercase text-left mt-2 flex items-center gap-1 group">Read <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_right_alt</span></button>
+</div>
+<!-- Poster 2 -->
+<div class="snap-center shrink-0 w-64 h-80 bg-surface border-2 border-secondary rounded-xl p-5 flex flex-col justify-between shadow-sm">
+<div class="w-full h-32 bg-surface-container-highest rounded-lg mb-4 flex items-center justify-center border border-outline-variant relative overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-50" data-alt="A stylized 2px indigo line art illustration depicting a document with an official stamp, set against a solid pale blue background. The aesthetic is flat, modern Indian editorial style, conveying industrial precision and authority. Clean, geometric shapes represent paperwork in a well-lit, high-key light mode environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIOtPJ0faV332S_T6q8bC4RzoUqnt7BOzk-5LDoFfV9DbMWhWweXawat81LIXz7zRodrWhE8_6C47dJ_17i090P9x3iWdRiVctqIpnrSlF6lcO3G5g0kHt5NlBp4RdxfiE76wRs9-w1Q5WDnqk5nmNnheWEBarLDEtUH0YuLm5pQrQiIhjbcfG8qXaHRTDs8O14w2X49_UQ-QQ-QE5E3sbilhLnhTsbESOvh6fnQLcz8mDY1cOQPxAwQ"/>
+<span class="material-symbols-outlined text-secondary text-4xl relative z-10">description</span>
+</div>
+<div>
+<h4 class="font-body-main text-body-main font-bold mb-2">Gathering Evidence</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">What you need before filing the NCRP report.</p>
+</div>
+<button class="text-primary font-label-mono text-label-mono uppercase text-left mt-2 flex items-center gap-1 group">Read <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_right_alt</span></button>
+</div>
+</div>
+</section>
+<!-- ATLAS chips and STATS band -->
+<section class="bg-surface-container-lowest py-8 px-margin-mobile border-t-2 border-outline-variant">
+<h3 class="font-label-mono text-label-mono uppercase text-on-surface-variant mb-4">Quick Resources</h3>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-4 py-2 border border-secondary text-secondary rounded-full font-label-mono text-[12px] uppercase hover:bg-secondary-container hover:text-on-secondary-container transition-colors active:scale-95 cursor-pointer">Local Stations</span>
+<span class="px-4 py-2 border border-secondary text-secondary rounded-full font-label-mono text-[12px] uppercase hover:bg-secondary-container hover:text-on-secondary-container transition-colors active:scale-95 cursor-pointer">Bank Nodal Officers</span>
+<span class="px-4 py-2 border border-secondary text-secondary rounded-full font-label-mono text-[12px] uppercase hover:bg-secondary-container hover:text-on-secondary-container transition-colors active:scale-95 cursor-pointer">Legal Aid</span>
+</div>
+<div class="bg-on-background text-on-tertiary-fixed rounded-xl p-5 flex items-center justify-between shadow-lg">
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono uppercase text-tertiary-fixed-dim">National Helpline</span>
+<span class="font-headline-md text-headline-md font-bold text-inverse-primary tracking-wider">1930</span>
+</div>
+<div class="w-12 h-12 rounded-full border-2 border-inverse-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-inverse-primary" style="font-variation-settings: 'FILL' 1;">call</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden bg-surface-container dark:bg-surface-dim fixed bottom-0 w-full z-50 h-20 border-t-2 border-outline-variant shadow-[0_-4px_20px_rgba(196,107,50,0.08)]">
+<div class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-2 h-20">
+<!-- Scams (Inactive - Home context intent fallback doesn't exactly match 'Scams' as active, leaving all inactive to prioritize the canvas, or highlighting Scams if we consider it the 'Explore' equivalent. Let's make Scams active as a default entry point for 'Blue City Containment' browsing if no direct match, but actually 'Scams' is not Home. Wait, JSON Active State Logic: 'If designing a search page, Explore is active. Apply to matching item, inactive to rest'. Page intent is Homepage/Situation Containment. None perfectly match, but 'Scams' or 'Report' might. Let's leave Scams as active as it's the browsing entry.) -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 transition-all duration-200 ease-in-out">
+<span class="material-symbols-outlined text-2xl mb-1">menu_book</span>
+<span class="font-label-mono text-label-mono uppercase text-[10px]">Scams</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-all duration-200 ease-in-out px-4 py-1 rounded-xl">
+<span class="material-symbols-outlined text-2xl mb-1">query_stats</span>
+<span class="font-label-mono text-label-mono uppercase text-[10px]">Track</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-all duration-200 ease-in-out px-4 py-1 rounded-xl">
+<span class="material-symbols-outlined text-2xl mb-1">campaign</span>
+<span class="font-label-mono text-label-mono uppercase text-[10px]">Report</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-all duration-200 ease-in-out px-4 py-1 rounded-xl">
+<span class="material-symbols-outlined text-2xl mb-1">volunteer_activism</span>
+<span class="font-label-mono text-label-mono uppercase text-[10px]">Help</span>
+</button>
+</div>
+</nav>
+</body></html>
