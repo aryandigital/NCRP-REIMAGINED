@@ -1,0 +1,831 @@
+﻿Colour – GOV.UK Design System
+
+Cookies on GOV.UK Design System
+
+We’d like to use analytics cookies so we can understand how you use the Design System and make improvements.
+
+ We also use essential cookies to remember if you’ve accepted analytics cookies.
+
+Accept analytics cookies
+
+Reject analytics cookies
+ 
+ View cookies
+
+You’ve accepted analytics cookies. You can change your cookie settings at any time.
+
+Hide cookie message
+
+You’ve rejected analytics cookies. You can change your cookie settings at any time.
+
+Hide cookie message
+
+Skip to main content
+
+Design System
+
+Search Design system
+ Sitemap
+
+Menu
+
+Get started 
+
+Get started overview
+
+Setup guides
+
+Prototyping
+
+Production
+
+How to guides
+
+Making labels and legends headings
+
+Extending and modifying components in production
+
+Understanding focus state styles
+
+Using the updated type scale
+
+Styles 
+
+Styles overview
+
+Page structure
+
+Page template
+
+Layout
+
+Spacing
+
+Section break
+
+Typography
+
+Typeface
+
+Type scale
+
+Headings
+
+Paragraphs
+
+Links
+
+Lists
+
+Font override classes
+
+Visual elements
+
+Colour
+
+Images
+
+Components 
+
+Components overview
+
+Accordion
+
+Back link
+
+Breadcrumbs
+
+Button
+
+Character count
+
+Checkboxes
+
+Cookie banner
+
+Date input
+
+Details
+
+Error message
+
+Error summary
+
+Exit this page
+
+Fieldset
+
+File upload
+
+Generic header
+
+GOV.UK footer
+
+GOV.UK header
+
+Inset text
+
+Notification banner
+
+Pagination
+
+Panel
+
+Password input
+
+Phase banner
+
+Radios
+
+Select
+
+Service navigation
+
+Skip link
+
+Summary list
+
+Table
+
+Tabs
+
+Tag
+
+Task list
+
+Text input
+
+Textarea
+
+Warning text
+
+Patterns 
+
+Patterns overview
+
+Ask users for…
+
+Addresses
+
+Bank details
+
+Dates
+
+Email addresses
+
+Equality information
+
+Names
+
+National Insurance numbers
+
+Passwords
+
+Payment card details
+
+Phone numbers
+
+Help users to…
+
+Check a service is suitable
+
+Check answers
+
+Complete multiple tasks
+
+Confirm a phone number
+
+Confirm an email address
+
+Contact a department or service team
+
+Create a username
+
+Create accounts
+
+Exit a page quickly
+
+Navigate a service
+
+Recover from validation errors
+
+Start using a service
+
+Pages
+
+Confirmation pages
+
+Cookies page
+
+Interruption pages
+
+Page not found pages
+
+Question pages
+
+Service unavailable pages
+
+Step by step navigation
+
+There is a problem with the service pages
+
+Community 
+
+Community overview
+
+What we’re working on
+
+Upcoming components and patterns
+
+Roadmap
+
+What's new
+
+Ways to get involved
+
+Take part in our research
+
+Share findings about your users
+
+Propose a component or pattern
+
+Develop a component or pattern
+
+Propose a content change using GitHub
+
+How we work
+
+Community principles
+
+Contribution criteria
+
+Blog posts, videos and podcasts
+
+Resources
+
+Resources and tools
+
+Events and workshops
+
+Design System Day events
+
+Code of Conduct
+
+Accessibility 
+
+Accessibility overview
+
+Accessibility strategy
+
+Pages in this section
+
+ Page structure
+
+Page template
+
+Layout
+
+Spacing
+
+Section break
+
+Typography
+
+Typeface
+
+Type scale
+
+Headings
+
+Paragraphs
+
+Links
+
+Lists
+
+Font override classes
+
+Visual elements
+
+Colour
+
+Images
+
+Home
+
+Styles
+
+Colour
+
+Always use the GOV.UK colour palette.
+
+Colour contrast
+
+You must make sure that the contrast ratio of text and interactive elements in your service meets Web Content Accessibility Guidelines (WCAG 2.2) success criterion 1.4.3 Contrast (minimum) level AA.
+
+The WCAG 2.2 criterion for Contrast (minimum) is the same as WCAG 2.1.
+Functional colours
+
+The GOV.UK Design System has a set of functional colours for essential page elements. These help apply colours across the Design System in a way that makes interactions predictable and consistent to users.
+
+Assign colours using govuk-functional-colour
+
+To access these colours, use the govuk-functional-colour Sass function. The colours available using this function are based on specific purposes and contexts, so that function will automatically assign appropriate colours.
+
+Do not copy the specific hexadecimal (hex) colour values. For example, use govuk-functional-colour("brand") rather than #1d70b8.
+
+This means that your service will always use the most recent colour palette whenever you update.
+
+Only use the variables in the context they’re designed for. In all other cases, you should reference the GOV.UK web palette directly. For example, if you wanted to use red, you should use govuk-colour("red") rather than govuk-functional-colour("error").
+
+Text
+
+text
+
+#0b0c0c
+
+secondary-text
+
+#484949
+
+inverse-text
+
+#ffffff
+
+Use this colour for text on dark backgrounds
+
+Link
+
+link
+
+#1a65a6
+
+link-hover
+
+#0f385c
+
+link-visited
+
+#54319f
+
+link-active
+
+#0b0c0c
+
+Border
+
+border
+
+#cecece
+
+input-border
+
+#0b0c0c
+
+Background
+
+template-background
+
+#f4f8fb
+
+Use this colour if you need to match the colour of the <html> element
+
+body-background
+
+#ffffff
+
+Use this colour if you need to match the colour of the <body> element
+
+Focus state
+
+focus
+
+#ffdd00
+
+Only use this colour to indicate which element is focused on. For example, when a user tabs to an element with their keyboard.
+
+focus-text
+
+#0b0c0c
+
+Error state
+
+error
+
+#ca3535
+
+Use this colour for error messages
+
+Success state
+
+success
+
+#0f7a52
+
+Use this colour for success messages
+
+Hover state
+
+hover
+
+#cecece
+
+Use this colour for input hover states
+
+Brand colour
+
+brand
+
+#1d70b8
+
+Surface
+
+surface-background
+
+#f4f8fb
+
+surface-text
+
+#0b0c0c
+
+surface-border
+
+#8eb8dc
+
+GOV.UK web palette
+
+The GOV.UK web palette works as part of the GOV.UK brand guidelines. Use these colours for supporting elements in your service like illustrations, or in custom components where appropriate.
+
+The web palette is organised into colour groups. Each colour group includes:
+
+a ‘primary’ variant
+
+tints – lighter variants of each colour
+
+shades – darker variants of each colour
+
+Add colours using govuk-colour
+
+You can access the full web palette, and all its available colours, using the govuk-colour function.
+
+By default, the function will return the ‘primary’ variant of each colour. For example: govuk-colour("blue") will return ‘Primary blue’ #1d70b8.
+
+Access tints and shades of colour groups using the $variant option.
+
+For example:
+
+govuk-colour("red", $variant: "tint-25") will return ‘Red tint 25%’, which is a variant of red with a tint of 25%
+
+ govuk-colour("blue", $variant: "shade-50") will return ‘Blue shade 50%’, which is a variant of blue with a shade of 50%
+
+Most colours include these variants:
+
+tints at 25% (tint-25), 50% (tint-50), 80% (tint-80) and 95% (tint-95)
+
+shades at 25% (shade-25) and 50% (shade-50)
+
+Black includes a ‘primary’ black, with tints to show greys. White has no variants.
+
+Blue
+
+primary
+
+#1d70b8
+
+tint-25
+
+#5694ca
+
+tint-50
+
+#8eb8dc
+
+tint-80
+
+#d2e2f1
+
+tint-95
+
+#f4f8fb
+
+shade-25
+
+#16548a
+
+shade-50
+
+#0f385c
+
+Green
+
+primary
+
+#0f7a52
+
+tint-25
+
+#4b9b7d
+
+tint-50
+
+#87bca8
+
+tint-80
+
+#cfe4dc
+
+tint-95
+
+#f3f8f6
+
+shade-25
+
+#0b5c3e
+
+shade-50
+
+#083d29
+
+Teal
+
+primary
+
+#158187
+
+tint-25
+
+#50a1a5
+
+tint-50
+
+#8ac0c3
+
+tint-80
+
+#d0e6e7
+
+tint-95
+
+#f3f9f9
+
+shade-25
+
+#106165
+
+shade-50
+
+#0b4144
+
+accent
+
+#00ffe0
+
+Purple
+
+primary
+
+#54319f
+
+tint-25
+
+#7f65b7
+
+tint-50
+
+#aa98cf
+
+tint-80
+
+#ddd6ec
+
+tint-95
+
+#f6f5fa
+
+shade-25
+
+#3f2577
+
+shade-50
+
+#2a1950
+
+Magenta
+
+primary
+
+#ca357c
+
+tint-25
+
+#d7689d
+
+tint-50
+
+#e59abe
+
+tint-80
+
+#f4d7e5
+
+tint-95
+
+#fcf5f8
+
+shade-25
+
+#98285d
+
+shade-50
+
+#651b3e
+
+Red
+
+primary
+
+#ca3535
+
+tint-25
+
+#d76868
+
+tint-50
+
+#e59a9a
+
+tint-80
+
+#f4d7d7
+
+tint-95
+
+#fcf5f5
+
+shade-25
+
+#982828
+
+shade-50
+
+#651b1b
+
+Orange
+
+primary
+
+#f47738
+
+tint-25
+
+#f7996a
+
+tint-50
+
+#fabb9c
+
+tint-80
+
+#fde4d7
+
+tint-95
+
+#fef8f5
+
+shade-25
+
+#b7592a
+
+shade-50
+
+#7a3c1c
+
+Yellow
+
+primary
+
+#ffdd00
+
+tint-25
+
+#ffe640
+
+tint-50
+
+#ffee80
+
+tint-80
+
+#fff8cc
+
+tint-95
+
+#fffdf2
+
+shade-25
+
+#bfa600
+
+shade-50
+
+#806f00
+
+Brown
+
+primary
+
+#99704a
+
+tint-25
+
+#b39477
+
+tint-50
+
+#ccb8a5
+
+tint-95
+
+#faf8f6
+
+Black
+
+primary
+
+#0b0c0c
+
+tint-25
+
+#484949
+
+tint-50
+
+#858686
+
+tint-80
+
+#cecece
+
+tint-95
+
+#f3f3f3
+
+White
+
+primary
+
+#ffffff
+
+Organisation colours
+
+You can find brand colours for government departments and organisations in the _colours-organisations file in GOV.UK Frontend.
+
+This file is maintained on a best effort basis and is assembled from a number of sources, including:
+
+UK Government brand resource centre
+
+Cabinet Office branding team
+
+Design102, the government’s in-house design studio
+
+Communications teams from individual organisations
+
+Help improve this style
+
+To help make sure that this page is useful, relevant and up to date, you can:
+
+take part in the
+ 
+ ‘Colour’ discussion on GitHub
+ 
+ and share your research
+
+propose a change on GitHub
+ – read more about
+ 
+ how to propose changes in GitHub
+
+Need help?
+
+If you’ve got a question about the GOV.UK Design System, contact the team.
+
+Back to top
+
+Support links
+
+Accessibility statement
+
+Sitemap
+
+Cookies
+
+Privacy
+
+Contact the team
+
+Built by the GOV.UK Design System team
+
+All content is available under the
+ Open Government Licence v3.0, except where otherwise stated
+
+© Crown copyright
