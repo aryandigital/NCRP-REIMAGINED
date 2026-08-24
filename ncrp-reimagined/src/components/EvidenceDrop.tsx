@@ -42,9 +42,13 @@ export default function EvidenceDrop({ initialText = '' }: Props) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: value }),
       });
-      const data = await res.json() as { incidentId?: string; error?: string };
+      const data = await res.json() as { incidentId?: string | null; error?: string; risk?: string };
       if (data.incidentId) {
         router.push(`/check/${data.incidentId}`);
+      } else if (!data.error && data.risk) {
+        // DB unavailable but analysis succeeded — persist in sessionStorage and show result
+        sessionStorage.setItem('dna-pending', JSON.stringify(data));
+        router.push('/check/result');
       } else {
         setError(data.error ?? 'Analysis failed. Please try again.');
       }

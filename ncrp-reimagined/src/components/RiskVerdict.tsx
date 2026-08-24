@@ -5,7 +5,7 @@ import type { ScamVerdictContract } from '@/lib/scam-dna';
 
 interface Props {
   verdict: ScamVerdictContract;
-  incidentId: string;
+  incidentId: string | null;
 }
 
 const RISK_CONFIG = {
@@ -160,14 +160,14 @@ export default function RiskVerdict({ verdict, incidentId }: Props) {
       {/* CTA */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
         <Link
-          href={`/triage/${incidentId}`}
+          href={incidentId ? `/triage/${incidentId}` : '/triage'}
           className="btn btn-danger btn-lg"
           style={{ flex: 1, minWidth: 220 }}
         >
           I already took action / paid — Help me contain
         </Link>
         <Link
-          href={`/report/${incidentId}`}
+          href={incidentId ? `/report/${incidentId}` : '/report'}
           className="btn btn-secondary"
           style={{ flex: 1, minWidth: 180 }}
         >
@@ -175,9 +175,11 @@ export default function RiskVerdict({ verdict, incidentId }: Props) {
         </Link>
       </div>
 
-      <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', textAlign: 'center', margin: 0 }}>
-        Incident ID: <span className="mono">{incidentId}</span>
-      </p>
+      {incidentId && (
+        <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', textAlign: 'center', margin: 0 }}>
+          Incident ID: <span className="mono">{incidentId}</span>
+        </p>
+      )}
     </div>
   );
 }
