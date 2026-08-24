@@ -1,31 +1,51 @@
-# CODEX.md — AI Scaffolding & Code Provenance Log
+# Codex build log
 
-> **Submission Requirement**: This document maintains a transparent running record of AI-assisted scaffolding, architectural decisions, code generation, and manual developer refinements throughout the NCRP Reimagined build window.
+## August 24, 2026
 
----
+### Design and UI
 
-## 1. Provenance Summary Table
+- Replaced the generic marketing/card-grid homepage with a civic-response command-center layout.
+- Added a shared service masthead, emergency strip, stage rail, threat bulletin, response triage, and prototype boundary copy.
+- Reworked intake, analysis, action, packet preparation, recovery, tracking, and atlas screens around the same system.
+- Added mobile-visible intake labels, 44px controls, keyboard focus states, reduced-motion CSS, and local image fingerprinting UI.
+- Reframed the public experience with an India-first civic-tech visual direction: a multilingual language switcher, a custom "signal loom" illustration, warm civic gradients, and an expanded Raksha Samvaad agent surface.
+- Removed the Quick Exit control at the product owner's request.
+- Rebuilt the visual system around a continuous blue-to-orange spectrum, frosted rounded portal surfaces, and an original repeated-circle mandala asset at `public/illustrations/raksha-mandala-hero-v1.png`.
+- Added persistent accessibility tools: keyboard skip link, read-aloud, larger text, and high-contrast mode.
 
-| Date | Target Modules / Files | Generation Type | Description & Developer Interventions |
-|---|---|---|---|
-| **2026-08-23** | `CLAUDE.md`, `DESIGN.md`, `ARCHITECTURE.md`, `PLAN.md`, `SCHEMA.md`, `LEGAL_CLOCKS.md`, `SCAM_DNA.md` | Scaffolding & Architecture Docs | Synthesized complete 26-page NCRP Reimagined Build Plan into executable specifications. Established 4-Stage Journey, 5 Harm Tracks, Zero-Upload Hashing, and 8 Statutory Clocks. |
-| *Pending* | `src/lib/redact.ts`, `src/lib/clocks.ts`, `src/lib/dna.ts` | Code Scaffolding | Custom TypeScript PII redaction (with Luhn validator) and deterministic deadline calculator. |
-| *Pending* | `src/data/patterns.ts`, `src/data/seed.ts` | Data & Corpus | 15 canonical behavioral scam patterns, stage progression graphs, and 6 synthetic demo screenshot fixtures. |
-| *Pending* | `src/app/` Route Pages & Components | Full Stack UI | Four-Door home, Scam DNA Result, Immediate Action Mode emergency view, Recovery Cockpit, and Print-CSS legal notices. |
+### Product flow
 
----
+- Added confirmable extracted facts with source and confidence metadata.
+- Added editable fact values, browser voice transcription with English/Hindi language selection, and local intake draft autosave.
+- Added persistent completed-action updates.
+- Added stable acknowledgement numbers.
+- Added mock NCRP, bank, and police packet creation with routing events.
+- Added a redacted JSON case-bundle download and a synthetic operator console for provenance, packet minimisation, routing, and cluster review.
+- Added an incident API route for loading and updating the demo record.
+- Added `/api/agent` with a safe local multilingual fallback and configurable Sarvam API integration through `SARVAM_API_KEY` only.
+- Made Raksha Samvaad persistent across the site, with text, browser voice input, read-aloud, and six Indian conversation-language choices.
 
-## 2. Core Architectural Decisions Log
+### Persistence
 
-### Log Entry 01: Client-Side Perceptual Hashing
-- **Prompt / Intent**: Implement non-consensual intimate image abuse reporting without exposing user imagery to servers.
-- **Decision**: Use `blockhash-core` inside HTML5 canvas client-side. Transmit only the 64-bit hexadecimal hash.
-- **Safety**: Verified that the database schema contains zero media storage columns.
+- Replaced the single in-memory incident implementation with Drizzle/Neon persistence when `DATABASE_URL` is configured.
+- Kept a memory fallback so the demo works without credentials.
+- Added `drizzle.config.ts`, `src/lib/db/schema.ts`, and `.env.example`.
 
-### Log Entry 02: Deterministic Legal Clocks & Notice Templates
-- **Prompt / Intent**: Provide enforceable legal notices to banks, intermediaries, and regulatory bodies.
-- **Decision**: Avoid generative hallucinations for statutory timelines. Clocks are derived strictly from published RBI master circulars and IT Rules 2021. AI model formats user-provided values only.
+### Verification
 
-### Log Entry 03: PII Redaction Before Model Invocation
-- **Prompt / Intent**: Protect citizen sensitive credentials (Aadhaar, PAN, UPI, Card numbers).
-- **Decision**: Created lightweight client/server pure TypeScript regex & Luhn validator (`redact.ts`) to redact PII prior to calling external multimodal models (GPT-4o / Whisper).
+- `npm run lint` passes.
+- `npm run build` passes.
+- Browser QA passes for the homepage, intake, analysis, action, report, recovery, tracking, atlas, and operator routes.
+- Verified 390px mobile layout with no horizontal overflow and 44px minimum intake controls.
+- Verified stable `NCRPDEMO0001`, three mock packets, zero missing facts after submission, redacted bundle download, and clean browser console on repeated submission.
+- Verified language selection, multilingual emergency copy, agent interaction fallback, Quick Exit removal, and mobile no-overflow on the updated homepage.
+- Verified all application routes return `200`, English/Hindi public-route coverage, assistant controls, accessibility controls, generated hero asset rendering, and no console errors.
+- `npm audit --omit=dev` previously reported zero vulnerabilities.
+
+### Known limitations
+
+- The OpenAI key must be revoked and replaced by the user before configuring `.env.local` or Vercel.
+- Any Sarvam key pasted in chat must also be revoked and replaced before being added only to `.env.local`.
+- Neon migrations still need to be applied in the deployment environment.
+- The private-image fingerprint is a prototype perceptual hash and is not a StopNCII-compatible submission format.
+- Real institutional integrations remain mocked and clearly labelled.

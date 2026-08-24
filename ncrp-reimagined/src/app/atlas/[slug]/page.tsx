@@ -1,120 +1,12 @@
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import { PATTERN_MAP } from '@/lib/patterns';
+import Link from "next/link";
+import { ArrowLeft, ArrowRight, CircleAlert, FileSearch } from "lucide-react";
+import { PATTERNS } from "@/data/patterns";
+import { notFound } from "next/navigation";
+import SiteHeader from "@/components/SiteHeader";
 
-interface Props { params: Promise<{ slug: string }> }
-
-export default async function PatternDeepDivePage({ params }: Props) {
+export default async function AtlasPatternPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const pattern = PATTERN_MAP.get(slug);
+  const pattern = PATTERNS.find((item) => item.slug === slug);
   if (!pattern) notFound();
-
-  return (
-    <div style={{ padding: '2rem 1.25rem' }}>
-      <div className="container-narrow">
-        <Link href="/atlas" style={{ fontSize: '0.875rem', color: 'var(--text-muted)', display: 'inline-flex', alignItems: 'center', gap: '0.25rem', marginBottom: '1.5rem' }}>
-          ← Scam Atlas
-        </Link>
-
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.625rem', alignItems: 'center', marginBottom: '1rem' }}>
-          <span className={`badge-${pattern.baseRisk.toLowerCase() as 'high' | 'medium' | 'unclear'}`}>
-            {pattern.baseRisk} RISK
-          </span>
-          {pattern.tracks.map(t => (
-            <span
-              key={t}
-              style={{
-                background: 'var(--bg-elevated)',
-                border: '1px solid var(--border-subtle)',
-                borderRadius: '999px',
-                padding: '0.125rem 0.625rem',
-                fontSize: '0.75rem',
-                color: 'var(--text-muted)',
-                textTransform: 'capitalize',
-              }}
-            >
-              {t}
-            </span>
-          ))}
-        </div>
-
-        <h1 style={{ marginBottom: '0.5rem' }}>{pattern.name}</h1>
-        <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '2rem' }}>
-          Trigger: {pattern.primaryTrigger}
-        </p>
-
-        {/* Stage progression */}
-        <div className="card" style={{ marginBottom: '1.5rem' }}>
-          <h3 style={{ marginBottom: '1rem' }}>Stage Progression ({pattern.stages.length} stages)</h3>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
-            {pattern.stages.map((stage, idx) => (
-              <div key={stage.id} style={{ display: 'flex', gap: '1rem' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0 }}>
-                  <div
-                    style={{
-                      width: 32,
-                      height: 32,
-                      borderRadius: '50%',
-                      background: 'var(--blue-primary)',
-                      color: '#fff',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontWeight: 700,
-                      fontSize: '0.8125rem',
-                    }}
-                  >
-                    {idx + 1}
-                  </div>
-                  {idx < pattern.stages.length - 1 && (
-                    <div style={{ width: 2, flex: 1, background: 'var(--border-subtle)', margin: '4px 0' }} />
-                  )}
-                </div>
-                <div style={{ paddingBottom: idx < pattern.stages.length - 1 ? '1.25rem' : 0, flex: 1 }}>
-                  <div style={{ fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.25rem' }}>
-                    {stage.name}
-                  </div>
-                  <p style={{ margin: '0 0 0.375rem', fontSize: '0.875rem' }}>{stage.description}</p>
-                  <div
-                    style={{
-                      background: 'var(--amber-subtle)',
-                      borderRadius: 'var(--radius-sm)',
-                      padding: '0.5rem 0.75rem',
-                      fontSize: '0.8125rem',
-                      color: 'var(--amber-light)',
-                    }}
-                  >
-                    ⚡ Next: {stage.nextMove}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Do Not */}
-        <div className="card" style={{ marginBottom: '1.5rem' }}>
-          <h3 style={{ color: 'var(--red-light)', marginBottom: '0.875rem' }}>⛔ Do Not</h3>
-          <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            {pattern.doNot.map((d, i) => (
-              <li key={i} style={{ display: 'flex', gap: '0.5rem', color: 'var(--text-secondary)', fontSize: '0.9375rem' }}>
-                <span style={{ color: 'var(--red-light)', flexShrink: 0 }}>✕</span>
-                {d}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Safe verification */}
-        <div className="card" style={{ marginBottom: '1.5rem', background: 'var(--green-subtle)', borderLeft: '4px solid var(--green-primary)' }}>
-          <h3 style={{ color: 'var(--green-light)', marginBottom: '0.625rem' }}>✓ Safe Verification</h3>
-          <p style={{ margin: 0, color: 'var(--text-primary)' }}>{pattern.safeVerification}</p>
-        </div>
-
-        <Link href="/check" className="btn btn-primary">
-          Check if you&apos;ve been targeted →
-        </Link>
-      </div>
-    </div>
-  );
+  return <div className="min-h-[100dvh] bg-paper"><SiteHeader current="atlas" /><main id="main-content" className="public-shell py-8 sm:py-12"><div className="mx-auto max-w-3xl"><Link href="/atlas" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-ink-soft hover:text-service"><ArrowLeft size={16} aria-hidden="true" /> Back to threat bulletin</Link><div className="mt-7 border-b border-line pb-7"><div className="flex flex-wrap items-center gap-2"><span className="rounded-[5px] bg-danger-soft px-2 py-1 font-mono text-[10px] font-bold uppercase tracking-[.1em] text-danger">Active / high risk</span><span className="text-xs text-ink-faint">{pattern.channels.join(" / ")}</span></div><h1 className="mt-4 text-3xl font-bold tracking-[-.04em] text-ink sm:text-4xl">{pattern.name}</h1><p className="mt-3 text-sm text-ink-faint">Also known as: {pattern.aliases.join(", ")}</p></div><section className="panel mt-7 p-5 sm:p-6"><div className="flex gap-3"><FileSearch size={21} className="mt-0.5 shrink-0 text-service" aria-hidden="true" /><div><p className="kicker">Behavioural sequence</p><h2 className="mt-2 text-xl font-bold text-ink">How the script progresses</h2></div></div><div className="mt-6 space-y-5">{pattern.stages.map((stage, index) => <div key={stage.id} className="grid grid-cols-[34px_1fr] gap-4"><div className="flex flex-col items-center"><span className="flex h-8 w-8 items-center justify-center rounded-[7px] bg-service font-mono text-xs font-bold text-white">{index + 1}</span>{index < pattern.stages.length - 1 && <span className="mt-2 h-full w-px bg-line" aria-hidden="true" />}</div><div className="pb-4"><h3 className="text-base font-bold text-ink">{stage.label}</h3><ul className="mt-2 space-y-2">{stage.signals.map((signal) => <li key={signal} className="text-sm leading-6 text-ink-soft">{signal}</li>)}</ul></div></div>)}</div></section><section className="panel mt-4 border-warning/35 bg-warning-soft p-5 sm:p-6"><div className="flex gap-3"><CircleAlert size={21} className="mt-0.5 shrink-0 text-warning" aria-hidden="true" /><div><p className="kicker text-warning">Likely next move</p><div className="mt-4 space-y-3">{Object.entries(pattern.nextMove).map(([stageId, move]) => <div key={stageId} className="border-t border-warning/20 pt-3"><p className="text-[10px] font-bold uppercase tracking-[.1em] text-ink-faint">{pattern.stages.find((stage) => stage.id === stageId)?.label ?? stageId}</p><p className="mt-1 text-sm font-bold leading-6 text-ink">{move}</p></div>)}</div></div></div></section><section className="panel mt-4 border-danger/30 bg-danger-soft p-5"><p className="kicker text-danger">Do not do this</p><ul className="mt-3 space-y-2">{pattern.doNot.map((item) => <li key={item} className="text-sm leading-6 text-ink">{item}</li>)}</ul></section><section className="panel mt-4 p-5"><p className="kicker">Sources</p><div className="mt-3 space-y-2 text-xs leading-5 text-ink-soft">{pattern.sources.map((source) => <p key={source.url}>{source.label} · Retrieved {source.retrieved}</p>)}</div></section><Link href={`/check?pattern=${pattern.slug}`} className="mt-6 flex min-h-12 items-center justify-center gap-2 rounded-[10px] bg-service px-5 text-sm font-bold text-white hover:bg-command">Check my incident <ArrowRight size={17} aria-hidden="true" /></Link></div></main></div>;
 }

@@ -1,94 +1,30 @@
-import Link from 'next/link';
-import StageTimeline from '@/components/StageTimeline';
+import Link from "next/link";
+import { ArrowLeft, ArrowRight, CheckCircle2, Clock3, FileText, ShieldAlert, Timer } from "lucide-react";
+import { getIncident } from "@/lib/store";
+import { CLOCKS, computeDueAt, humanRemaining, statusOf } from "@/lib/clocks";
+import { notFound } from "next/navigation";
+import SiteHeader from "@/components/SiteHeader";
+import DownloadBundle from "@/components/DownloadBundle";
 
-interface Props { params: Promise<{ caseId: string }> }
+export const dynamic = "force-dynamic";
 
-const CLOCK_EXAMPLES = [
-  { name: 'RBI Zero-Liability Window', duration: '3 Working Days', track: 'Money', basis: 'RBI Circular DBR.No.Leg.BC.78/09.07.005/2017-18', doc: 'Bank Nodal Officer Letter' },
-  { name: 'Platform Content Takedown', duration: '24 Hours', track: 'Content', basis: 'IT Rules 2021, Rule 3(2)(b)', doc: 'Platform Takedown Notice' },
-  { name: 'GAC Appeal Window', duration: '30 Days', track: 'Content', basis: 'IT Rules 2021, Rule 3A', doc: 'GAC Appeal Petition' },
-  { name: 'Bank Shadow Reversal', duration: '10 Working Days', track: 'Money', basis: 'RBI Circular Para 9', doc: 'Shadow Reversal Follow-Up' },
-];
+function ClockRow({ kind, startAt }: { kind: keyof typeof CLOCKS; startAt: Date }) {
+  const definition = CLOCKS[kind];
+  const dueAt = computeDueAt(definition, startAt);
+  const status = statusOf(dueAt, false);
+  const tone = status === "expired" ? "border-danger/30 bg-danger-soft text-danger" : status === "due_soon" ? "border-warning/30 bg-warning-soft text-warning" : "border-success/25 bg-success-soft text-success";
+  return <div className={`panel-tight border p-4 ${tone}`}><div className="flex items-start justify-between gap-4"><div className="flex items-center gap-2"><Clock3 size={16} aria-hidden="true" /><span className="font-mono text-[10px] font-bold uppercase tracking-[.1em]">{status.replace("_", " ")}</span></div><span className="text-xs font-bold">{humanRemaining(dueAt)}</span></div><h3 className="mt-4 text-sm font-bold text-ink">{definition.label}</h3><p className="mt-2 text-xs leading-5 text-ink-soft">{definition.why}</p><p className="mt-3 border-t border-current/10 pt-3 text-[10px] leading-4 text-ink-faint">{definition.basis}</p></div>;
+}
 
-export default async function RecoverPage({ params }: Props) {
+export default async function RecoverPage({ params }: { params: Promise<{ caseId: string }> }) {
   const { caseId } = await params;
-  return (
-    <div style={{ padding: '2rem 1.25rem' }}>
-      <div className="container-page">
-        <StageTimeline current="recover" incidentId={caseId} />
+  const incident = await getIncident(caseId);
+  if (!incident) notFound();
+  const createdAt = new Date(incident.createdAt);
+  const patternName = incident.dna?.patternName ?? "Cyber fraud incident";
+  const ackNumber = incident.ackNumber ?? "Pending acknowledgement";
+  const clocks: Array<keyof typeof CLOCKS> = incident.tracks.includes("content") ? ["RBI_ZERO_LIABILITY", "PLATFORM_TAKEDOWN", "GAC_APPEAL"] : ["RBI_ZERO_LIABILITY", "BANK_SHADOW_REVERSAL", "BANKING_OMBUDSMAN"];
+  const events = incident.routingEvents.length > 0 ? incident.routingEvents : [{ type: "incident_compiled", message: "Incident record is ready for confirmation.", occurredAt: incident.createdAt, status: "pending" as const }];
 
-        <div style={{ marginTop: '2rem', marginBottom: '1.5rem' }}>
-          <span className="badge-sim">PHASE 3 — Planned</span>
-          <h2 style={{ marginTop: '0.75rem' }}>Recovery Cockpit</h2>
-          <p>Live statutory countdown clocks · Generated legal documents · Plain-language case status</p>
-        </div>
-
-        {/* Clock preview cards */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '1rem',
-            marginBottom: '2rem',
-          }}
-        >
-          {CLOCK_EXAMPLES.map((c, i) => (
-            <div
-              key={c.name}
-              className="card"
-              style={{ borderTop: '3px solid var(--amber-primary)', opacity: i === 0 ? 1 : 0.65 }}
-            >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
-                <span
-                  style={{
-                    fontSize: '0.75rem',
-                    fontWeight: 700,
-                    color: 'var(--amber-light)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                  }}
-                >
-                  {c.track} Track
-                </span>
-                <span
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '1.25rem',
-                    fontWeight: 800,
-                    color: i === 0 ? 'var(--amber-light)' : 'var(--text-muted)',
-                  }}
-                >
-                  {c.duration}
-                </span>
-              </div>
-              <div style={{ fontWeight: 700, fontSize: '1rem', color: 'var(--text-primary)', marginBottom: '0.375rem' }}>
-                {c.name}
-              </div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.75rem' }}>
-                {c.basis}
-              </div>
-              <button
-                className="btn btn-secondary btn-sm"
-                disabled
-                style={{ opacity: 0.5 }}
-              >
-                Download {c.doc} ↓
-              </button>
-            </div>
-          ))}
-        </div>
-
-        <div className="card" style={{ background: 'var(--amber-subtle)', borderLeft: '4px solid var(--amber-primary)' }}>
-          <p style={{ margin: 0 }}>
-            <strong style={{ color: 'var(--text-primary)' }}>Phase 3 will activate these clocks in real time</strong> from the moment you submit your complaint.
-            Each card will show a live countdown and generate the exact legal letter before the deadline expires.
-          </p>
-        </div>
-
-        <div style={{ marginTop: '1.5rem' }}>
-          <Link href="/" className="btn btn-secondary">← Back to home</Link>
-        </div>
-      </div>
-    </div>
-  );
+  return <div className="min-h-[100dvh] bg-paper"><SiteHeader current="track" /><main id="main-content" className="public-shell py-8 sm:py-12"><div className="mx-auto max-w-5xl"><Link href={`/act/${caseId}`} className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-ink-soft hover:text-service"><ArrowLeft size={16} aria-hidden="true" /> Back to action board</Link><div className="mt-7 flex flex-col gap-5 border-b border-line pb-6 sm:flex-row sm:items-end sm:justify-between"><div><p className="kicker">Recovery cockpit</p><h1 className="mt-3 text-3xl font-bold tracking-[-.04em] text-ink sm:text-4xl">{patternName}</h1><p className="mt-3 text-sm leading-6 text-ink-soft">Reported {createdAt.toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}</p></div><div className="sm:text-right"><p className="text-xs font-bold uppercase tracking-[.1em] text-ink-faint">Acknowledgement</p><p className="mono-ref mt-2 text-sm font-bold text-ink">{ackNumber}</p></div></div><div className="mt-7 grid gap-4 lg:grid-cols-[1.3fr_.7fr]"><section className="panel border-danger/30 bg-danger-soft p-5"><div className="flex gap-3"><ShieldAlert size={21} className="mt-0.5 shrink-0 text-danger" aria-hidden="true" /><div><p className="kicker text-danger">Recovery scam warning</p><h2 className="mt-2 text-lg font-bold text-ink">A filed report can attract a second scam.</h2><p className="mt-2 text-sm leading-6 text-ink-soft">No police officer, CBI official, bank representative, or I4C representative should ask for money to release your funds.</p></div></div></section><section className="panel bg-command p-5 text-white"><p className="kicker text-white/60">Case state</p><p className="mt-3 text-3xl font-bold">{incident.packets.length || 0}</p><p className="mt-1 text-sm text-white/65">packets prepared</p><p className="mt-4 border-t border-white/15 pt-4 text-xs text-white/55">{incident.missingFacts.length} facts still open</p></section></div><section className="mt-8"><div className="flex items-end justify-between gap-4"><div><p className="kicker">Deadlines</p><h2 className="mt-2 text-2xl font-bold tracking-tight text-ink">Keep the useful clocks visible.</h2></div><Timer size={22} className="text-service" aria-hidden="true" /></div><div className="mt-4 grid gap-3 md:grid-cols-3">{clocks.map((kind) => <ClockRow key={kind} kind={kind} startAt={createdAt} />)}</div></section><section className="mt-8 grid gap-6 lg:grid-cols-[1fr_1fr]"><div className="panel p-5"><div className="flex items-center gap-3"><FileText size={20} className="text-service" aria-hidden="true" /><h2 className="text-lg font-bold text-ink">Generated packets</h2></div><div className="mt-5 space-y-3">{["NCRP / 1930 incident packet", "Bank nodal desk packet", "Police queue packet"].map((label, index) => <div key={label} className="flex items-center justify-between gap-3 border-b border-line pb-3 last:border-b-0 last:pb-0"><div className="flex items-center gap-3"><CheckCircle2 size={17} className={incident.packets[index] ? "text-success" : "text-ink-faint"} aria-hidden="true" /><span className="text-sm font-semibold text-ink">{label}</span></div><span className="font-mono text-[10px] font-bold uppercase text-ink-faint">{incident.packets[index] ? incident.packets[index].status.replaceAll("_", " ") : "Draft"}</span></div>)}</div></div><div className="panel p-5"><div className="flex items-center gap-3"><ArrowRight size={20} className="text-service" aria-hidden="true" /><h2 className="text-lg font-bold text-ink">Routing timeline</h2></div><div className="mt-5 space-y-4">{events.map((event, index) => <div key={`${event.type}-${index}`} className="flex gap-3"><span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-service" aria-hidden="true" /><div><p className="text-sm font-bold text-ink">{event.message}</p><p className="mt-1 text-xs text-ink-faint">{new Date(event.occurredAt).toLocaleString("en-IN")} · {event.status}</p></div></div>)}</div></div></section><div className="mt-7 flex flex-wrap gap-3"><Link href={`/report/${caseId}`} className="inline-flex min-h-11 items-center gap-2 rounded-[8px] bg-service px-4 text-sm font-bold text-white hover:bg-command">Add evidence <ArrowRight size={16} aria-hidden="true" /></Link><DownloadBundle incidentId={caseId} /><Link href="/operator" className="inline-flex min-h-11 items-center gap-2 rounded-[8px] border border-line-strong px-4 text-sm font-bold text-ink hover:border-service hover:text-service">Open operator view</Link><Link href="/atlas" className="inline-flex min-h-11 items-center gap-2 rounded-[8px] border border-line-strong px-4 text-sm font-bold text-ink hover:border-service hover:text-service">Read threat bulletin</Link></div></div></main></div>;
 }

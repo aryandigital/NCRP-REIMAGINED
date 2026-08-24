@@ -1,69 +1,36 @@
-import Link from 'next/link';
-import StageTimeline from '@/components/StageTimeline';
+import Link from "next/link";
+import { ArrowLeft, ArrowRight, Banknote, FileCheck2, LockKeyhole, PhoneCall, ShieldAlert } from "lucide-react";
+import { getIncident } from "@/lib/store";
+import { BANK_PLAYBOOKS, CONTENT_PLAYBOOK, HELPLINE_1930 } from "@/lib/playbooks";
+import { notFound } from "next/navigation";
+import SiteHeader from "@/components/SiteHeader";
+import ActionChecklist from "@/components/ActionChecklist";
 
-interface Props { params: Promise<{ id: string }> }
+export const dynamic = "force-dynamic";
 
-export default async function ActPage({ params }: Props) {
+const TRIGGER_LABELS: Record<string, string> = { paid: "money was transferred", otp: "an OTP or PIN was shared", app: "an app was installed", screen: "screen access was granted", images: "private images are involved", id: "identity documents were shared", none: "no immediate harm has been reported" };
+
+export default async function ActPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ trigger?: string }> }) {
   const { id } = await params;
-  const isNew = id === 'new';
+  const { trigger = "none" } = await searchParams;
+  const incident = await getIncident(id);
+  if (!incident) notFound();
+  const isEmergency = ["paid", "otp", "app", "screen", "images"].includes(trigger);
+  const isContent = trigger === "images";
+  const isMoney = ["paid", "otp"].includes(trigger);
 
-  return (
-    <div style={{ padding: '2rem 1.25rem' }}>
-      <div className="container-narrow">
-        {!isNew && <StageTimeline current="act" incidentId={id} />}
-        <div style={{ marginTop: '2rem' }}>
-          <div className="card" style={{ borderLeft: '4px solid var(--red-primary)', background: 'var(--red-subtle)', marginBottom: '1.5rem' }}>
-            <span className="badge-sim">PHASE 2 — Coming Next</span>
-            <h2 style={{ marginTop: '0.75rem', marginBottom: '0.5rem' }}>⚡ Immediate Action Mode</h2>
-            <p>
-              In Phase 2, the site chrome will disappear entirely and this will become a distraction-free
-              fullscreen emergency interface with 5 parallel harm tracks:
-            </p>
-          </div>
+  return <div className="min-h-[100dvh] bg-paper"><SiteHeader /><main id="main-content" className="public-shell py-8 sm:py-12"><div className="stage-rail bg-surface" aria-label="Incident stages">{["Triage", "Tell the story", "Confirm facts", "Act and track"].map((label, index) => <div key={label} className={index === 3 ? "is-active" : ""}><span className="block font-mono text-[10px] font-bold">0{index + 1}</span><span className="mt-1 block text-xs font-bold">{label}</span></div>)}</div><div className="mx-auto mt-8 max-w-4xl"><Link href={`/check/${id}`} className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-ink-soft hover:text-service"><ArrowLeft size={16} aria-hidden="true" /> Back to analysis</Link><div className="mt-7 border-b border-line pb-6"><p className="kicker">Step 04 / immediate action board</p><h1 className="mt-3 text-3xl font-bold tracking-[-.04em] text-ink sm:text-4xl">Act in the right order.</h1><p className="mt-3 max-w-2xl text-base leading-7 text-ink-soft">You told us {TRIGGER_LABELS[trigger] ?? "something may have happened"}. The response sequence below keeps containment ahead of paperwork.</p></div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.875rem' }}>
-            {[
-              { icon: '💸', track: 'Money', desc: 'Direct bank freeze hotline, 1930 speed dial, transaction lock', color: 'var(--red-primary)' },
-              { icon: '🔒', track: 'Content', desc: 'On-device perceptual hashing, 24-hour statutory takedown notices', color: 'var(--blue-primary)' },
-              { icon: '🔑', track: 'Access', desc: 'Session revocation, email recovery, SIM swap audit (TAFCOP)', color: 'var(--amber-primary)' },
-              { icon: '🪪', track: 'Identity', desc: 'Aadhaar biometric lock, credit report alert', color: 'var(--green-primary)' },
-              { icon: '🛡️', track: 'Safety', desc: 'Anonymous mode, Tele-MANAS 14416 crisis line', color: 'var(--slate-primary)' },
-            ].map(t => (
-              <div key={t.track} className="card" style={{ borderTop: `3px solid ${t.color}` }}>
-                <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>{t.icon}</div>
-                <div style={{ fontWeight: 700, marginBottom: '0.375rem', color: 'var(--text-primary)' }}>{t.track} Track</div>
-                <p style={{ margin: 0, fontSize: '0.875rem' }}>{t.desc}</p>
-              </div>
-            ))}
-          </div>
+{isEmergency && <section className="panel mt-7 border-danger/40 bg-danger-soft p-5 sm:p-6"><div className="flex items-start gap-4"><ShieldAlert size={26} className="mt-0.5 shrink-0 text-danger" aria-hidden="true" /><div><p className="kicker text-danger">Containment first</p><h2 className="mt-3 text-2xl font-bold tracking-tight text-ink">Stop. Do exactly this.</h2><p className="mt-2 text-sm leading-6 text-ink-soft">Do not wait for this service to finish processing before calling the official helpline.</p></div></div></section>}
 
-          <div style={{ marginTop: '1.5rem', display: 'flex', gap: '0.875rem', flexWrap: 'wrap' }}>
-            {!isNew && (
-              <Link href={`/report/${id}`} className="btn btn-primary">
-                Skip to Report →
-              </Link>
-            )}
-            <Link href="/" className="btn btn-secondary">← Back to home</Link>
-          </div>
+{isMoney && <section className="panel mt-4 border-danger/40 p-5 sm:p-6"><div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"><div className="flex gap-3"><PhoneCall size={22} className="mt-0.5 shrink-0 text-danger" aria-hidden="true" /><div><p className="kicker text-danger">Action 01 / official helpline</p><h2 className="mt-2 text-xl font-bold text-ink">Call 1930 now</h2><p className="mt-2 text-sm leading-6 text-ink-soft">National Cybercrime Financial Helpline, available 24 × 7.</p></div></div><a href="tel:1930" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[8px] bg-danger px-5 text-sm font-bold text-white hover:bg-command"><PhoneCall size={16} aria-hidden="true" /> 1930</a></div><div className="mt-5 rounded-[8px] bg-paper p-4"><p className="font-mono text-xs leading-6 text-ink">{HELPLINE_1930.script}</p></div><p className="mt-4 text-xs leading-5 text-warning">Call first. Then use this checklist to organise evidence and prepare the response packets.</p></section>}
 
-          <div
-            style={{
-              marginTop: '2rem',
-              background: 'var(--bg-card)',
-              border: '1px solid var(--border-subtle)',
-              borderRadius: 'var(--radius-md)',
-              padding: '1rem',
-              fontSize: '0.8125rem',
-              color: 'var(--text-muted)',
-            }}
-          >
-            <strong style={{ color: 'var(--text-secondary)' }}>Emergency helplines:</strong>{' '}
-            Cyber Crime: <a href="tel:1930" style={{ color: 'var(--blue-light)' }}>1930</a> ·{' '}
-            Mental Health: <a href="tel:14416" style={{ color: 'var(--blue-light)' }}>Tele-MANAS 14416</a> ·{' '}
-            Childline: <a href="tel:1098" style={{ color: 'var(--blue-light)' }}>1098</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+{isMoney && <section className="panel mt-4 p-5 sm:p-6"><div className="flex gap-3"><Banknote size={21} className="mt-0.5 shrink-0 text-warning" aria-hidden="true" /><div><p className="kicker text-warning">Action 02 / bank containment</p><h2 className="mt-2 text-xl font-bold text-ink">Freeze through your bank</h2><p className="mt-2 text-sm leading-6 text-ink-soft">Choose the relevant institution for the containment playbook and call script.</p></div></div><div className="mt-5 grid gap-2 sm:grid-cols-3">{BANK_PLAYBOOKS.map((bank) => <details key={bank.id} className="panel-tight bg-paper"><summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-2 px-3 text-sm font-bold text-ink"><span>{bank.shortName}</span><span className="font-mono text-[10px] text-ink-faint">{bank.helpline}</span></summary><div className="border-t border-line px-3 pb-4 pt-3"><p className="text-xs leading-5 text-ink-soft">{bank.appSteps.join(" · ")}</p><a href={`tel:${bank.helpline.replace(/-/g, "")}`} className="mt-3 inline-flex min-h-10 items-center text-xs font-bold text-service">Call {bank.helpline}</a></div></details>)}</div></section>}
+
+{isContent && <section className="panel mt-4 border-service/30 p-5 sm:p-6"><div className="flex gap-3"><LockKeyhole size={21} className="mt-0.5 shrink-0 text-service" aria-hidden="true" /><div><p className="kicker">Content protection track</p><h2 className="mt-2 text-xl font-bold text-ink">Keep the original image on your device.</h2><p className="mt-2 text-sm leading-6 text-ink-soft">The local fingerprint path is now available from intake. Do not upload intimate images to this service.</p></div></div><div className="mt-5 space-y-4">{CONTENT_PLAYBOOK.steps.map((step, index) => <div key={step.id} className="flex gap-3 border-t border-line pt-4"><span className="font-mono text-xs font-bold text-service">0{index + 1}</span><div><h3 className="text-sm font-bold text-ink">{step.title}</h3><p className="mt-1 text-sm leading-6 text-ink-soft">{step.body}</p></div></div>)}</div></section>}
+
+<section className="panel mt-4 p-5 sm:p-6"><div className="flex gap-3"><FileCheck2 size={21} className="mt-0.5 shrink-0 text-success" aria-hidden="true" /><div><p className="kicker text-success">Action {isMoney || isContent ? "03" : "01"} / evidence</p><h2 className="mt-2 text-xl font-bold text-ink">Preserve evidence before deleting anything.</h2><p className="mt-2 text-sm leading-6 text-ink-soft">Mark each item complete. These checklist actions organise your evidence and do not contact an institution.</p></div></div><div className="mt-5"><ActionChecklist incidentId={id} initialCompleted={incident.completedActions} items={["Export the full conversation", "Save the suspect profile and number", "Record the transaction ID or UTR", "Keep incoming messages and call details", "Record the exact dates and times", "Save the screenshot or receipt"]} /></div></section>
+
+<section className="mt-6"><Link href={`/report/${id}`} className="flex min-h-14 items-center justify-center gap-2 rounded-[10px] bg-service px-5 text-sm font-bold text-white hover:bg-command">Continue to prepared incident packets <ArrowRight size={17} aria-hidden="true" /></Link><p className="mt-3 text-center text-xs text-ink-faint">The next screen uses only the facts you confirmed.</p></section>
+</div></main></div>;
 }

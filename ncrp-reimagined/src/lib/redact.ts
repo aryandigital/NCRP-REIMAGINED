@@ -1,118 +1,128 @@
-// PII Redaction module — runs BEFORE any LLM call or DB storage.
-// Covers Aadhaar, PAN, cards (Luhn-validated), Indian mobile numbers, UPI IDs, IFSC codes.
+/**
+ * On-ingest PII redaction.
+ *
+ * Round-1 implementation: deterministic regex + checksum validation, runs in-process.
+ * Production path: microsoft/presidio (Python) as a sidecar analyzer/anonymizer service.
+ *
+ * Rule: raw user text is NEVER persisted and NEVER sent to an LLM.
+ * We store `redacted` and the typed `entities` (values kept only where the
+ * identifier IS the evidence, e.g. a scammer's UPI ID — see `keepAsEvidence`).
+ */
 
-// ---------------------------------------------------------------------------
-// Luhn mod-10 check (credit/debit cards)
-// ---------------------------------------------------------------------------
-function luhn(digits: string): boolean {
+export type PiiType =
+  | "aadhaar"
+  | "pan"
+  | "phone"
+  | "upi"
+  | "card"
+  | "account"
+  | "ifsc"
+  | "email"
+  | "url";
+
+export interface PiiEntity {
+  type: PiiType;
+  value: string;
+  start: number;
+  end: number;
+  /** Identifiers belonging to the SCAMMER are evidence and are retained. */
+  keepAsEvidence: boolean;
+}
+
+export interface RedactionResult {
+  redacted: string;
+  entities: PiiEntity[];
+}
+
+/** Identifier classes that describe the attacker, not the victim. */
+const EVIDENCE_TYPES: ReadonlySet<PiiType> = new Set(["upi", "url", "phone", "account"]);
+
+const PATTERNS: ReadonlyArray<{ type: PiiType; re: RegExp }> = [
+  { type: "aadhaar", re: /\b[2-9]\d{3}\s?\d{4}\s?\d{4}\b/g },
+  { type: "pan", re: /\b[A-Z]{5}\d{4}[A-Z]\b/g },
+  { type: "ifsc", re: /\b[A-Z]{4}0[A-Z0-9]{6}\b/g },
+  { type: "upi", re: /\b[\w.\-]{2,256}@[a-zA-Z]{2,64}\b/g },
+  { type: "email", re: /\b[\w.\-+]+@[\w\-]+\.[a-zA-Z]{2,}\b/g },
+  { type: "url", re: /\bhttps?:\/\/[^\s<>"')]+/g },
+  { type: "card", re: /\b(?:\d[ -]?){13,19}\b/g },
+  { type: "phone", re: /(?:\+?91[\s-]?)?\b[6-9]\d{9}\b/g },
+  { type: "account", re: /\b\d{11,18}\b/g },
+];
+
+/** Luhn check so we don't flag every long number as a card. */
+function isLuhnValid(raw: string): boolean {
+  const digits = raw.replace(/\D/g, "");
+  if (digits.length < 13 || digits.length > 19) return false;
   let sum = 0;
-  let alternate = false;
+  let double = false;
   for (let i = digits.length - 1; i >= 0; i--) {
-    let n = parseInt(digits[i], 10);
-    if (alternate) {
-      n *= 2;
-      if (n > 9) n -= 9;
+    let d = digits.charCodeAt(i) - 48;
+    if (double) {
+      d *= 2;
+      if (d > 9) d -= 9;
     }
-    sum += n;
-    alternate = !alternate;
+    sum += d;
+    double = !double;
   }
   return sum % 10 === 0;
 }
 
-// ---------------------------------------------------------------------------
-// Extracted entities (pre-redaction)
-// ---------------------------------------------------------------------------
-export interface ExtractedEntities {
-  phoneNumbers: string[];
-  upiIds: string[];
-  urls: string[];
-  bankAccounts: string[];
-  ifscCodes: string[];
-  amounts: number[];
-  aadhaarNumbers: string[];
-  panNumbers: string[];
+/**
+ * A UPI VPA and an email are ambiguous (`name@bank` vs `name@bank.com`).
+ * Emails always contain a dot in the domain; VPAs conventionally do not.
+ */
+function isEmailShaped(value: string): boolean {
+  const domain = value.split("@")[1] ?? "";
+  return domain.includes(".");
 }
 
-// ---------------------------------------------------------------------------
-// Extract entities from raw text BEFORE redacting
-// ---------------------------------------------------------------------------
-export function extractEntities(text: string): ExtractedEntities {
-  const phoneNumbers = [
-    ...text.matchAll(/(?:\+91[\s-]?)?([6-9]\d{9})\b/g),
-  ].map(m => m[1]);
+export function redact(input: string): RedactionResult {
+  const found: PiiEntity[] = [];
 
-  const upiIds = [
-    ...text.matchAll(/\b([a-zA-Z0-9.\-_]{2,256}@[a-zA-Z]{2,64})\b/g),
-  ].map(m => m[1]);
+  for (const { type, re } of PATTERNS) {
+    for (const m of input.matchAll(re)) {
+      const value = m[0];
+      const start = m.index ?? 0;
 
-  const urls = [
-    ...text.matchAll(/https?:\/\/[^\s"'<>]+/g),
-  ].map(m => m[0]);
+      if (type === "card" && !isLuhnValid(value)) continue;
+      if (type === "upi" && isEmailShaped(value)) continue;
+      if (type === "email" && !isEmailShaped(value)) continue;
 
-  const ifscCodes = [
-    ...text.matchAll(/\b([A-Z]{4}0[A-Z0-9]{6})\b/g),
-  ].map(m => m[1]);
-
-  const amounts = [
-    ...text.matchAll(/(?:₹|Rs\.?|INR)\s*([\d,]+(?:\.\d{1,2})?)/gi),
-  ].map(m => parseFloat(m[1].replace(/,/g, '')));
-
-  const aadhaarNumbers = [
-    ...text.matchAll(/\b([2-9]\d{3}\s?\d{4}\s?\d{4})\b/g),
-  ].map(m => m[1].replace(/\s/g, ''));
-
-  const panNumbers = [
-    ...text.matchAll(/\b([A-Z]{5}[0-9]{4}[A-Z])\b/g),
-  ].map(m => m[1]);
-
-  // Bank account numbers: 9–18 digit sequences not matching phone/Aadhaar
-  const bankAccounts = [
-    ...text.matchAll(/\b(\d{9,18})\b/g),
-  ]
-    .map(m => m[1])
-    .filter(n => n.length >= 9 && n.length <= 18 && !phoneNumbers.includes(n.slice(-10)));
-
-  return {
-    phoneNumbers: [...new Set(phoneNumbers)],
-    upiIds: [...new Set(upiIds)],
-    urls: [...new Set(urls)],
-    bankAccounts: [...new Set(bankAccounts)],
-    ifscCodes: [...new Set(ifscCodes)],
-    amounts: [...new Set(amounts)],
-    aadhaarNumbers: [...new Set(aadhaarNumbers)],
-    panNumbers: [...new Set(panNumbers)],
-  };
-}
-
-// ---------------------------------------------------------------------------
-// Redact PII from text — returns sanitized string
-// ---------------------------------------------------------------------------
-export function redactPII(text: string): string {
-  let out = text;
-
-  // Aadhaar: 12 digits (spaces optional), starts with 2-9
-  out = out.replace(/\b([2-9]\d{3}\s?\d{4}\s?\d{4})\b/g, '[AADHAAR_REDACTED]');
-
-  // PAN: 5 letters + 4 digits + 1 letter
-  out = out.replace(/\b([A-Z]{5}[0-9]{4}[A-Z])\b/g, '[PAN_REDACTED]');
-
-  // Credit/Debit cards (Luhn-validated 13–19 digit groups)
-  out = out.replace(/\b(?:\d{4}[-\s]?){3}\d{1,7}\b/g, (match) => {
-    const digits = match.replace(/[\s-]/g, '');
-    if (digits.length >= 13 && digits.length <= 19 && luhn(digits)) {
-      return '[CARD_REDACTED]';
+      found.push({
+        type,
+        value,
+        start,
+        end: start + value.length,
+        keepAsEvidence: EVIDENCE_TYPES.has(type),
+      });
     }
-    return match;
-  });
+  }
 
-  // Indian mobile numbers (+91 optional)
-  out = out.replace(/(?:\+91[\s-]?)?[6-9]\d{9}\b/g, '[PHONE_REDACTED]');
+  // Longest match wins on overlap (an IFSC inside an account string, etc.)
+  found.sort((a, b) => a.start - b.start || b.end - b.start - (a.end - a.start));
+  const entities: PiiEntity[] = [];
+  let cursor = -1;
+  for (const e of found) {
+    if (e.start >= cursor) {
+      entities.push(e);
+      cursor = e.end;
+    }
+  }
 
-  // UPI IDs
-  out = out.replace(/\b[a-zA-Z0-9.\-_]{2,256}@[a-zA-Z]{2,64}\b/g, '[UPI_REDACTED]');
+  let redacted = "";
+  let last = 0;
+  for (const e of entities) {
+    redacted += input.slice(last, e.start) + `[${e.type.toUpperCase()}]`;
+    last = e.end;
+  }
+  redacted += input.slice(last);
 
-  // IFSC codes
-  out = out.replace(/\b[A-Z]{4}0[A-Z0-9]{6}\b/g, '[IFSC_REDACTED]');
+  return { redacted, entities };
+}
 
-  return out;
+/** Identifiers worth matching against the indicator repository. */
+export function evidenceIdentifiers(entities: PiiEntity[]) {
+  return entities
+    .filter((e) => e.keepAsEvidence)
+    .map((e) => ({ type: e.type, value: e.value.trim().toLowerCase() }));
 }

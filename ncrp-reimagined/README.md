@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Raksha
 
-## Getting Started
+Raksha is an independent cyber-fraud response prototype. It turns a synthetic incident story into an explainable action plan, mock response packets, and a recovery timeline.
 
-First, run the development server:
+## Setup
+
+Copy `.env.example` to `.env.local` and add replacement credentials only if you want real model analysis or Neon persistence. Never use the API key previously pasted into chat.
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The public demo works without credentials through the local pattern matcher and the `DEMO0001` synthetic incident.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+The complete demo path is: intake by message, voice, screenshot, identifier, or private local fingerprint; editable fact confirmation; ordered containment actions; recipient-specific mock packets; recovery tracking; redacted JSON export; and the synthetic operator console at `/operator`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+See [CAPABILITY_AUDIT.md](CAPABILITY_AUDIT.md) for the locally verified capability status and credential-gated items.
 
-## Learn More
+## Multilingual Raksha Samvaad agent
 
-To learn more about Next.js, take a look at the following resources:
+Raksha now includes a multilingual safety agent on the home page, with a language selector for English, Hindi, Tamil, Telugu, Bengali, and Marathi. It works in a local safety-guidance mode without credentials. To enable Sarvam-backed replies, create `.env.local` from `.env.example` and set a newly issued `SARVAM_API_KEY`; never paste a provider key into chat or commit it to the repository.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Useful checks:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run lint
+npm run build
+```
 
-## Deploy on Vercel
+## Prototype boundary
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+No real complaint, bank request, police queue, payment, or platform report is submitted. Use synthetic information only. The project is not affiliated with any government body.
