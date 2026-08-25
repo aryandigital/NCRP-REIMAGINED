@@ -310,38 +310,39 @@ button:active, a:active { transform: translateY(1px); }
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(90% 120% at 8% 0%, rgba(255, 145, 56, .9) 0%, transparent 55%),
-    radial-gradient(90% 120% at 92% 100%, rgba(111, 134, 245, .85) 0%, transparent 58%),
-    linear-gradient(100deg, #ff8b2e 0%, #f3b183 30%, #b9b9ee 62%, #7d8ef0 100%);
-  color: #171a30;
+    radial-gradient(90% 120% at 8% 0%, rgba(111, 134, 245, .18) 0%, transparent 55%),
+    radial-gradient(90% 120% at 92% 100%, rgba(142, 160, 255, .12) 0%, transparent 58%),
+    linear-gradient(135deg, #0d1126 0%, #131936 55%, #0f1430 100%);
+  color: var(--color-ink);
 }
 
-.aurora-band .kicker { color: rgba(23, 26, 48, .6); }
+.aurora-band .kicker { color: var(--color-ink-faint); }
 
 .aurora-cta {
   background:
-    radial-gradient(80% 130% at 85% 10%, rgba(255, 145, 56, .8) 0%, transparent 55%),
-    radial-gradient(80% 130% at 10% 90%, rgba(111, 134, 245, .75) 0%, transparent 55%),
-    linear-gradient(115deg, #8494ef 0%, #b9b9ee 38%, #f3b183 68%, #ff8b2e 100%);
-  color: #171a30;
+    radial-gradient(ellipse 110% 70% at 50% 50%, rgba(111, 134, 245, .1) 0%, transparent 60%),
+    radial-gradient(80% 130% at 85% 10%, rgba(199, 154, 224, .08) 0%, transparent 55%),
+    radial-gradient(80% 130% at 10% 90%, rgba(142, 160, 255, .1) 0%, transparent 55%),
+    #080b16;
+  color: var(--color-ink);
 }
 
 .section-glow {
   background:
-    radial-gradient(36rem 20rem at 100% 0%, rgba(255, 157, 92, .07), transparent 60%),
-    radial-gradient(36rem 20rem at 0% 100%, rgba(111, 134, 245, .08), transparent 60%);
+    radial-gradient(36rem 20rem at 100% 0%, rgba(111, 134, 245, .07), transparent 60%),
+    radial-gradient(36rem 20rem at 0% 100%, rgba(142, 160, 255, .05), transparent 60%);
 }
 
 /* Gradient hairline card */
 .glow-card {
   border: 1px solid transparent;
   background: linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
-    linear-gradient(135deg, rgba(142, 160, 255, .35), rgba(255, 157, 92, .28)) border-box;
+    linear-gradient(135deg, rgba(142, 160, 255, .3), rgba(111, 134, 245, .18)) border-box;
 }
 
 .glow-card:hover {
   background: linear-gradient(#141a36, #141a36) padding-box,
-    linear-gradient(135deg, rgba(142, 160, 255, .6), rgba(255, 157, 92, .5)) border-box;
+    linear-gradient(135deg, rgba(142, 160, 255, .55), rgba(111, 134, 245, .4)) border-box;
   box-shadow: 0 20px 48px rgba(0, 0, 0, .35);
 }
 

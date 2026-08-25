@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Mic, ShieldCheck, Phone, Activity, Network, Volume2, Route } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import HeroParticles from "@/components/HeroParticles";
 import { PATTERNS } from "@/data/patterns";
@@ -15,18 +15,9 @@ const routeMeta = [
   { href: "/check", icon: "/illustrations/icons/icon-check.png" },
 ] as const;
 
-const journeyIcons = [
-  "/illustrations/icons/icon-speak.png",
-  "/illustrations/icons/icon-check.png",
-  "/illustrations/icons/icon-emergency.png",
-  "/illustrations/icons/icon-path.png",
-] as const;
+const journeyIcons = [Mic, ShieldCheck, Phone, Activity] as const;
 
-const capabilityIcons = [
-  "/illustrations/icons/icon-route.png",
-  "/illustrations/icons/icon-speak.png",
-  "/illustrations/icons/icon-path.png",
-] as const;
+const capabilityIcons = [Network, Volume2, Route] as const;
 
 const principleIcons = [IconEvidence, IconClock, IconAlert] as const;
 
@@ -71,16 +62,16 @@ export default function HomePage() {
               {copy.routes.items.map((route, index) => {
                 const { href, icon } = routeMeta[index];
                 return (
-                  <Link key={route.label} href={href} className="group glow-card flex items-start gap-4 rounded-2xl p-5 transition-shadow">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={icon} alt="" className="icon-art h-14 w-14 shrink-0" aria-hidden="true" />
-                    <span className="min-w-0 flex-1">
-                      <span className="flex items-center justify-between gap-3 pt-1">
-                        <span className="text-[15px] font-bold text-ink">{route.label}</span>
-                        <ArrowRight size={16} className="shrink-0 text-ink-faint transition-transform group-hover:translate-x-1 group-hover:text-ink" aria-hidden="true" />
+                  <Link key={route.label} href={href} className="group glow-card flex flex-col rounded-2xl p-6 transition-shadow">
+                    <span className="flex items-start justify-between gap-3">
+                      <span className="icon-well h-14 w-14 shrink-0 p-0">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={icon} alt="" className="icon-art h-9 w-9" aria-hidden="true" />
                       </span>
-                      <span className="mt-1.5 block text-[13px] leading-6 text-ink-soft">{route.detail}</span>
+                      <ArrowRight size={16} className="mt-1 shrink-0 text-ink-faint transition-transform group-hover:translate-x-1 group-hover:text-service" aria-hidden="true" />
                     </span>
+                    <span className="mt-5 block text-[15px] font-bold leading-snug text-ink">{route.label}</span>
+                    <span className="mt-2 block text-[13px] leading-6 text-ink-soft">{route.detail}</span>
                   </Link>
                 );
               })}
@@ -92,14 +83,13 @@ export default function HomePage() {
         <section className="aurora-band">
           <div className="public-shell grid gap-6 py-10 sm:grid-cols-[auto_1fr] sm:items-center sm:gap-12">
             <div>
-              <p className="kicker">{copy.stats.kicker}</p>
-              <p className="mt-2 max-w-[28ch] text-sm font-semibold leading-6 text-[#3a3f66]">{copy.stats.lead}</p>
+              <p className="mt-2 max-w-[28ch] text-sm font-semibold leading-6 text-ink-soft">{copy.stats.lead}</p>
             </div>
             <div className="grid grid-cols-2 gap-5 sm:grid-cols-4 sm:gap-7">
               {copy.stats.items.map((item) => (
-                <div key={item.label} className="border-l border-[#171a30]/20 pl-4">
-                  <p className="text-xl font-bold tracking-tight text-[#171a30] sm:text-2xl">{item.value}</p>
-                  <p className="mt-1 text-xs font-semibold leading-5 text-[#171a30]/60">{item.label}</p>
+                <div key={item.label} className="border-l border-line pl-4">
+                  <p className="text-xl font-bold tracking-tight text-ink sm:text-2xl">{item.value}</p>
+                  <p className="mt-1 text-xs font-semibold leading-5 text-ink-faint">{item.label}</p>
                 </div>
               ))}
             </div>
@@ -107,47 +97,78 @@ export default function HomePage() {
         </section>
 
         {/* Journey */}
-        <section className="border-b border-line bg-surface">
+        <section className="overflow-hidden border-b border-line bg-surface">
           <div className="public-shell py-14 sm:py-20">
-            <div className="max-w-2xl">
-              <p className="kicker">{copy.journey.kicker}</p>
-              <h2 className="display mt-3 text-3xl text-ink sm:text-[2.6rem]">{copy.journey.title}</h2>
+            <p className="kicker">{copy.journey.kicker}</p>
+            <div className="mt-3 max-w-2xl">
+              <h2 className="display text-3xl text-ink sm:text-[2.6rem]">{copy.journey.title}</h2>
               <p className="mt-4 text-base leading-7 text-ink-soft">{copy.journey.sub}</p>
             </div>
-            <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
-              {copy.journey.steps.map((step, index) => (
-                <div key={step.number} className="bg-surface p-6">
-                  <div className="flex items-start justify-between">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={journeyIcons[index]} alt="" className="icon-art h-12 w-12" aria-hidden="true" />
-                    <span className="font-mono text-[11px] font-bold text-ink-faint">{step.number}</span>
+
+            {/* Interactive timeline */}
+            <div className="relative mt-16">
+              {/* Solid connector — runs node-centre to node-centre on desktop */}
+              <div
+                className="pointer-events-none absolute top-10 hidden lg:block"
+                style={{ left: "12.5%", right: "12.5%", height: "1px", backgroundColor: "var(--color-line-strong)" }}
+              />
+
+              <div className="grid grid-cols-2 gap-y-12 lg:grid-cols-4">
+                {copy.journey.steps.map((step, index) => {
+                  const StepIcon = journeyIcons[index];
+                  return (
+                  <div key={step.number} className="group flex cursor-default flex-col items-center px-4 text-center">
+                    {/* Icon node — darker bg so icons pop; hover fills with brand blue */}
+                    <div className="relative z-10 flex h-20 w-20 shrink-0 items-center justify-center rounded-full border border-line-strong bg-paper transition-all duration-300 group-hover:border-service group-hover:bg-service-soft group-hover:shadow-[0_0_32px_rgba(111,134,245,0.25)]">
+                      <StepIcon
+                        className="h-8 w-8 text-ink-faint transition-all duration-300 group-hover:scale-110 group-hover:text-service"
+                        strokeWidth={1.5}
+                        aria-hidden="true"
+                      />
+                    </div>
+
+                    {/* Step number in brand blue */}
+                    <span className="mt-4 font-mono text-[10px] font-bold tracking-[0.16em] text-service opacity-70 transition-opacity duration-300 group-hover:opacity-100">
+                      {step.number}
+                    </span>
+
+                    <p className="mt-1.5 text-sm font-bold text-ink">{step.title}</p>
+
+                    {/* Detail — slides in on hover */}
+                    <div className="max-h-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-h-24 group-hover:opacity-100">
+                      <p className="mt-2 text-xs leading-5 text-ink-soft">{step.detail}</p>
+                    </div>
                   </div>
-                  <span className="mt-5 block text-sm font-bold text-ink">{step.title}</span>
-                  <span className="mt-1.5 block text-xs leading-5 text-ink-soft">{step.detail}</span>
-                </div>
-              ))}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Capabilities: custom contextual icon artwork leads each panel */}
+        {/* Capabilities */}
         <section className="section-glow bg-paper">
           <div className="public-shell py-14 sm:py-20">
-            <div className="max-w-2xl">
-              <p className="kicker">{copy.capabilities.kicker}</p>
-              <h2 className="display mt-3 text-3xl text-ink sm:text-[2.6rem]">{copy.capabilities.title}</h2>
+            <p className="kicker">{copy.capabilities.kicker}</p>
+            <div className="mt-3 max-w-2xl">
+              <h2 className="display text-3xl text-ink sm:text-[2.6rem]">{copy.capabilities.title}</h2>
               <p className="mt-4 text-base leading-7 text-ink-soft">{copy.capabilities.sub}</p>
             </div>
-            <div className="mt-10 grid gap-4 md:grid-cols-3">
-              {copy.capabilities.cards.map((card, index) => (
-                <div key={card.title} className="glow-card flex flex-col rounded-2xl p-6">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={capabilityIcons[index]} alt="" className="icon-art h-20 w-20" aria-hidden="true" />
-                  <p className="kicker mt-6">{card.label}</p>
-                  <h3 className="mt-2 text-lg font-bold tracking-[-0.01em] text-ink">{card.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-ink-soft">{card.detail}</p>
-                </div>
-              ))}
+            <div className="mt-10 grid gap-3 md:grid-cols-3">
+              {copy.capabilities.cards.map((card, index) => {
+                const CapIcon = capabilityIcons[index];
+                return (
+                  <div key={card.title} className="group glow-card flex items-start gap-4 rounded-2xl p-5">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-line-strong bg-paper transition-colors duration-200 group-hover:border-service/40 group-hover:bg-service-soft">
+                      <CapIcon size={18} className="text-ink-faint transition-colors duration-200 group-hover:text-service" aria-hidden="true" />
+                    </div>
+                    <div className="min-w-0 flex-1 pt-0.5">
+                      <h3 className="text-[15px] font-bold tracking-[-0.01em] text-ink">{card.title}</h3>
+                      <p className="mt-1.5 text-sm leading-6 text-ink-soft">{card.detail}</p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -157,7 +178,6 @@ export default function HomePage() {
           <div className="public-shell py-14 sm:py-20">
             <div className="flex flex-col justify-between gap-4 border-b border-line pb-6 sm:flex-row sm:items-end">
               <div>
-                <p className="kicker">{copy.bulletin.kicker}</p>
                 <h2 className="display mt-2 text-3xl text-ink sm:text-4xl">{copy.bulletin.title}</h2>
                 <p className="mt-2 max-w-xl text-sm leading-6 text-ink-soft">{copy.bulletin.sub}</p>
               </div>
@@ -186,7 +206,6 @@ export default function HomePage() {
         <section className="bg-command text-white">
           <div className="public-shell grid gap-10 py-14 sm:grid-cols-[1fr_1.4fr] sm:items-start sm:py-20">
             <div>
-              <p className="kicker text-white/60">{copy.principles.kicker}</p>
               <h2 className="display mt-3 text-3xl sm:text-4xl">{copy.principles.title}</h2>
             </div>
             <div className="grid gap-8 sm:grid-cols-3">
@@ -208,8 +227,8 @@ export default function HomePage() {
           <div className="public-shell flex flex-col items-center gap-6 py-16 text-center sm:py-20">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/illustrations/raksha-arch-emblem.png" alt="" className="h-16 w-auto opacity-90" aria-hidden="true" />
-            <h2 className="display max-w-[18ch] text-3xl text-[#171a30] sm:text-5xl">{copy.cta.title}</h2>
-            <p className="max-w-[52ch] text-sm font-semibold leading-6 text-[#3a3f66] sm:text-base">{copy.cta.sub}</p>
+            <h2 className="display max-w-[18ch] text-3xl text-ink sm:text-5xl">{copy.cta.title}</h2>
+            <p className="max-w-[52ch] text-sm font-semibold leading-6 text-ink-soft sm:text-base">{copy.cta.sub}</p>
             <Link href="/check" className="btn-night">{copy.hero.ctaStart} <ArrowRight size={17} aria-hidden="true" /></Link>
           </div>
         </section>
