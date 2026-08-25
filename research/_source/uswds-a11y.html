@@ -1,0 +1,3299 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+  <head>
+    <!-- ANALYTICS
+================================================== -->
+
+<!-- Google Analytics - GA4 -->
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-KH01P8TN5V"></script>
+	<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-KH01P8TN5V'); </script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+	<script async type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA&subagency=TTS"></script>
+
+
+<!-- Basic Page Needs
+================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+  
+
+  
+
+<!-- Mobile Specific Metas
+================================================== -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Title and meta description
+================================================== -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Accessibility | U.S. Web Design System (USWDS)</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Accessibility" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="USWDS makes it easier to build accessible, mobile-friendly government websites." />
+<meta property="og:description" content="USWDS makes it easier to build accessible, mobile-friendly government websites." />
+<link rel="canonical" href="https://designsystem.digital.gov/documentation/accessibility/" />
+<meta property="og:url" content="https://designsystem.digital.gov/documentation/accessibility/" />
+<meta property="og:site_name" content="U.S. Web Design System (USWDS)" />
+<meta property="og:image" content="https://designsystem.digital.gov/img/uswds-logo/lg-black.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://designsystem.digital.gov/img/uswds-logo/lg-black.png" />
+<meta property="twitter:title" content="Accessibility" />
+<meta name="twitter:site" content="@USWDS" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"USWDS makes it easier to build accessible, mobile-friendly government websites.","headline":"Accessibility","image":"https://designsystem.digital.gov/img/uswds-logo/lg-black.png","url":"https://designsystem.digital.gov/documentation/accessibility/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<!-- Favicons
+================================================== -->
+  <!-- 128x128 -->
+  <link rel="shortcut icon" type="image/ico" href="/assets/img/favicons/favicon.ico">
+  <link rel="icon" type="image/png" href="/assets/img/favicons/favicon.png">
+
+  <!-- 192x192, as recommended for Android
+  http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+  -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicons/favicon-192.png">
+
+  <!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicons/favicon-57.png">
+  <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/img/favicons/favicon-72.png">
+  <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/img/favicons/favicon-114.png">
+  <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/favicons/favicon-144.png">
+
+<!-- CSS
+================================================== -->
+<!-- env: production -->
+
+
+  
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  
+
+
+<!-- USWDS INIT
+================================================== -->
+<script>
+  /**
+   * This script block contains the contents of the uswds-init.js script.
+   * It's inlined because it's necessary for the first paint of the banner,
+   * and we want to avoid a round-trip to the server.
+   */
+  (function uswdsInit() {
+    "use strict";
+
+    const loadingClass = "usa-js-loading";
+    let fallback;
+
+    document.documentElement.classList.add(loadingClass);
+    function revertClass() {
+      document.documentElement.classList.remove(loadingClass);
+    }
+
+    fallback = setTimeout(revertClass, 8000);
+
+    function verifyLoaded() {
+      if (window.uswdsPresent) {
+        clearTimeout(fallback);
+        revertClass();
+        window.removeEventListener("load", verifyLoaded, true);
+      }
+    }
+
+    window.addEventListener("load", verifyLoaded, true);
+  })();
+</script>
+<script src="/assets/uswds/components/usa-banner.js.mjs" type="module"></script>
+<link rel="preload" href="/assets/js/vendor/uswds.min.js" as="script">
+  </head>
+  <body class="page-accessibility layout-styleguide ">
+    <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+<section
+  class="usa-banner site-banner"
+  aria-label="Official website of the United States government,,,,,,"
+>
+  <div class="usa-accordion">
+    <header class="usa-banner__header">
+      <div class="usa-banner__inner">
+        <div class="grid-col-auto">
+          <img
+            aria-hidden="true"
+            class="usa-banner__header-flag"
+            src="/assets/img/us_flag_small.png"
+            alt=""
+          />
+        </div>
+        <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+          <p class="usa-banner__header-text">
+            An official website of the United States government
+          </p>
+          <p class="usa-banner__header-action">Here’s how you know</p>
+        </div>
+        <button
+          type="button"
+          class="usa-accordion__button usa-banner__button"
+          aria-expanded="false"
+          aria-controls="gov-banner"
+        >
+          <span class="usa-banner__button-text">Here’s how you know</span>
+        </button>
+      </div>
+    </header>
+    <div
+      class="usa-banner__content usa-accordion__content"
+      id="gov-banner"
+    >
+      <div class="grid-row grid-gap-lg">
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img
+            class="usa-banner__icon usa-media-block__img"
+            src="/assets/img/icon-dot-gov.svg"
+            role="img"
+            alt=""
+            aria-hidden="true"
+          />
+          <div class="usa-media-block__body">
+            <p>
+              <strong>Official websites use .gov</strong><br />A
+              <strong>.gov</strong> website belongs to an official government
+              organization in the United States.
+            </p>
+          </div>
+        </div>
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img
+            class="usa-banner__icon usa-media-block__img"
+            src="/assets/img/icon-https.svg"
+            role="img"
+            alt=""
+            aria-hidden="true"
+          />
+          <div class="usa-media-block__body">
+            <p>
+              <strong>Secure .gov websites use HTTPS</strong><br />A
+              <strong>lock</strong> (
+              <span class="icon-lock"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="52"
+                  height="64"
+                  viewBox="0 0 52 64"
+                  class="usa-banner__lock-image"
+                  role="img"
+                  aria-labelledby="banner-lock-description"
+                  focusable="false"
+                >
+                  <title id="banner-lock-title">Lock</title>
+                  <desc id="banner-lock-description">Locked padlock icon</desc>
+                  <path
+                    fill="#000000"
+                    fill-rule="evenodd"
+                    d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"
+                  />
+                </svg> </span
+              >) or <strong>https://</strong> means you’ve safely connected to
+              the .gov website. Share sensitive information only on official,
+              secure websites.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<header class="usa-header usa-header--extended site-header site-header--dark" role="banner">
+  <div class="usa-navbar site-header__navbar">
+    <div class="usa-logo site-logo" id="logo">
+      <em class="usa-logo__text site-logo__text">
+        <a href="/" title="U.S. Web Design System (USWDS) Home">
+          <span aria-hidden="true" class="site-title--short">USWDS</span>
+          <span class="site-title--long">U.S. Web Design System (USWDS)</span>
+        </a>
+      </em>
+    </div>
+    <button type="button" class="usa-menu-btn">Menu</button>
+  </div>
+</header>
+<nav aria-label="Primary navigation" class="usa-nav site-nav sticky">
+  <div class="usa-nav__inner site-nav__inner">
+    <button type="button" class="usa-nav__close">
+      <img src="/assets/img/usa-icons/close.svg" role="img" alt="Close">
+    </button>
+    <!-- Mobile nav -->
+    <ul class="usa-nav__primary usa-nav__primary--mobile usa-accordion">
+      
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-how-to-use-uswds"
+  
+  class="usa-current"
+  aria-expanded="true"
+  >
+  <span>
+    How to use USWDS
+  </span>
+</button>
+<ul id="nav-how-to-use-uswds" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/how-to-use-uswds/">
+  <span>
+    How to use USWDS
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/getting-started-for-developers/">
+  <span>
+    Getting started for developers
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/getting-started-for-designers/">
+  <span>
+    Getting started for designers
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/developers/">
+  <span>
+    Documentation
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/settings/">
+  <span>
+    Settings
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/maturity-model/">
+  <span>
+    USWDS maturity model
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+<a href="/documentation/accessibility/"class="usa-current">
+  <span>
+    Accessibility
+  </span>
+</a>
+
+    
+    
+    
+    <ul class="usa-nav__submenu">
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+
+<a href="#we-follow-the-four-principles-of-accessibility">We follow the four principles of accessibility</a>
+
+    
+  </li>
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+
+<a href="#we-address-user-needs">We address user needs</a>
+
+    
+  </li>
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+
+<a href="#we-include-accessibility-in-all-phases-of-our-process">We include accessibility in all phases of our process</a>
+
+    
+  </li>
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+
+<a href="#what-project-teams-should-do">What project teams should do</a>
+
+    
+  </li>
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+
+<a href="#accessibility-resources">Accessibility resources</a>
+
+    
+  </li>
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+
+<a href="#changelog">Latest updates</a>
+
+    
+  </li>
+
+</ul>
+    
+  
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/performance/">
+  <span>
+    Performance guidelines
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/code-guidelines/">
+  <span>
+    Code guidelines
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/migration/">
+  <span>
+    Migrating to USWDS 3.0
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/migration-v2/">
+  <span>
+    Migrating to USWDS 2.0
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/implementations/">
+  <span>
+    Implementations
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/showcase/">
+  <span>
+    Showcase
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/sample-contract-language/">
+  <span>
+    Sample contract language for 21st Century IDEA
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/website-standards/">
+  <span>
+    Website standards
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<a href="/design-principles/">
+  <span>
+    Design principles
+  </span>
+</a>
+
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-components"
+  aria-expanded="false"
+  >
+  <span>
+    Components
+  </span>
+</button>
+<ul id="nav-components" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/">
+  <span>
+    Components
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/accordion/">
+  <span>
+    Accordion
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/alert/">
+  <span>
+    Alert
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/banner/">
+  <span>
+    Banner
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/breadcrumb/">
+  <span>
+    Breadcrumb
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/button/">
+  <span>
+    Button
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/button-group/">
+  <span>
+    Button group
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/card/">
+  <span>
+    Card
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/character-count/">
+  <span>
+    Character count
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/checkbox/">
+  <span>
+    Checkbox
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/collection/">
+  <span>
+    Collection
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/combo-box/">
+  <span>
+    Combo box
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/data-visualizations/">
+  <span>
+    Data visualizations
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/date-picker/">
+  <span>
+    Date picker
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/date-range-picker/">
+  <span>
+    Date range picker
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/file-input/">
+  <span>
+    File input
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/footer/">
+  <span>
+    Footer
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/form/">
+  <span>
+    Form
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/layout-grid/">
+  <span>
+    Grid
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/header/">
+  <span>
+    Header
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/icon/">
+  <span>
+    Icon
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/icon-list/">
+  <span>
+    Icon list
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/identifier/">
+  <span>
+    Identifier
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/in-page-navigation/">
+  <span>
+    In-page navigation
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/input-mask/">
+  <span>
+    Input mask
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/input-prefix-suffix/">
+  <span>
+    Input prefix/suffix
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/language-selector/">
+  <span>
+    Language selector
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/link/">
+  <span>
+    Link
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/list/">
+  <span>
+    List
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/memorable-date/">
+  <span>
+    Memorable date
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/modal/">
+  <span>
+    Modal
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/pagination/">
+  <span>
+    Pagination
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/process-list/">
+  <span>
+    Process list
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/prose/">
+  <span>
+    Prose
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/radio-buttons/">
+  <span>
+    Radio buttons
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/range-slider/">
+  <span>
+    Range slider
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/search/">
+  <span>
+    Search
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/select/">
+  <span>
+    Select
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/side-navigation/">
+  <span>
+    Side navigation
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/site-alert/">
+  <span>
+    Site alert
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/step-indicator/">
+  <span>
+    Step indicator
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/summary-box/">
+  <span>
+    Summary box
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/table/">
+  <span>
+    Table
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/tag/">
+  <span>
+    Tag
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/text-input/">
+  <span>
+    Text input
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/time-picker/">
+  <span>
+    Time picker
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/tooltip/">
+  <span>
+    Tooltip
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/typography/">
+  <span>
+    Typography
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/validation/">
+  <span>
+    Validation
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-patterns"
+  aria-expanded="false"
+  >
+  <span>
+    Patterns
+  </span>
+</button>
+<ul id="nav-patterns" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/">
+  <span>
+    Patterns
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/intro/">
+  <span>
+    Introducing patterns
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/create-a-user-profile/">
+  <span>
+    Create a user profile
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/complete-a-complex-form/">
+  <span>
+    Complete a complex form
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/select-a-language/">
+  <span>
+    Select a language
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-design-tokens"
+  aria-expanded="false"
+  >
+  <span>
+    Design tokens
+  </span>
+</button>
+<ul id="nav-design-tokens" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/">
+  <span>
+    Design tokens
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/color/">
+  <span>
+    Color
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/typesetting/">
+  <span>
+    Typesetting
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/flex/">
+  <span>
+    Flex
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/opacity/">
+  <span>
+    Opacity
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/order/">
+  <span>
+    Order
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/shadow/">
+  <span>
+    Shadow
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/spacing-units/">
+  <span>
+    Spacing units
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/z-index/">
+  <span>
+    Z-index
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-utilities"
+  aria-expanded="false"
+  >
+  <span>
+    Utilities
+  </span>
+</button>
+<ul id="nav-utilities" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/">
+  <span>
+    Utilities
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/layout-grid/">
+  <span>
+    Layout grid
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/color/">
+  <span>
+    Color
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/height-and-width/">
+  <span>
+    Height and width
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/margin-and-padding/">
+  <span>
+    Margin and padding
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/border/">
+  <span>
+    Border
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/outline/">
+  <span>
+    Outline
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/font-size-and-family/">
+  <span>
+    Font size and family
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/text-styles/">
+  <span>
+    Text styles
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/paragraph-styles/">
+  <span>
+    Paragraph styles
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/display/">
+  <span>
+    Display
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/flex/">
+  <span>
+    Flex
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/shadow/">
+  <span>
+    Shadow
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/float/">
+  <span>
+    Float
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/clearfix/">
+  <span>
+    Clearfix
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/list-reset/">
+  <span>
+    List reset
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-templates"
+  aria-expanded="false"
+  >
+  <span>
+    Templates
+  </span>
+</button>
+<ul id="nav-templates" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/">
+  <span>
+    Templates
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/404-page/">
+  <span>
+    404 page
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/documentation-page/">
+  <span>
+    Documentation page
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/landing-page/">
+  <span>
+    Landing page
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/authentication-pages/">
+  <span>
+    Authentication pages
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/form-templates/">
+  <span>
+    Form templates
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-about"
+  aria-expanded="false"
+  >
+  <span>
+    About
+  </span>
+</button>
+<ul id="nav-about" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/">
+  <span>
+    About
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/key-benefits/">
+  <span>
+    Key benefits
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/product-values/">
+  <span>
+    Product values
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/contribute/">
+  <span>
+    Contribute
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/community/">
+  <span>
+    Community
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/whats-new/">
+  <span>
+    What’s new
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/monthly-calls/">
+  <span>
+    Monthly calls
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/product-roadmap/">
+  <span>
+    Product roadmap
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/research/">
+  <span>
+    Research
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/security/">
+  <span>
+    Security
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/website-policies-notices/">
+  <span>
+    Website policies and notices
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+
+    </ul>
+    <!-- /Mobile nav -->
+    <!-- Desktop nav -->
+    <ul class="usa-nav__primary usa-nav__primary--desktop">
+      
+  
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+<a href="/how-to-use-uswds/"class="usa-current">
+  <span>
+    How to use USWDS
+  </span>
+</a>
+
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-principles/">
+  <span>
+    Design principles
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/">
+  <span>
+    Components
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/">
+  <span>
+    Patterns
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/">
+  <span>
+    Design tokens
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/">
+  <span>
+    Utilities
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/">
+  <span>
+    Templates
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/">
+  <span>
+    About
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+    </ul>
+    <!-- /Desktop nav -->
+    <div class="usa-nav__secondary">
+      <form id="search_form-mobile" class="site-search usa-search usa-search--small"
+  action="https://search.usa.gov/search" accept-charset="UTF-8" method="get">
+  <input name="utf8" type="hidden" value="&#x2713;" />
+  <input type="hidden" name="affiliate" id="affiliate-mobile" value="uswds" />
+  <div role="search">
+    <label class="usa-sr-only" for="query-mobile">Search</label>
+    <input
+      id="query-mobile"
+      class="usa-input usagov-search-autocomplete"
+      name="query"
+      type="search"
+      autocomplete="off" />
+    <button class="site-search__button usa-button margin-top-0" type="submit" name="commit">
+      <img
+        src="/assets/img/usa-icons-bg/search--white.svg"
+        class="usa-search__submit-icon"
+        alt="Search"
+      >
+    </button>
+  </div>
+</form>
+
+      <div class="site-cta-buttons buttons">
+  <a
+    class="usa-button site-button-outline-secondary site-button-standards margin-x-0 desktop:margin-right-1 padding-x-05 desktop:padding-left-1 desktop:padding-right-05 desktop-lg:padding-left-205 desktop-lg:padding-right-2 font-lang-sm"
+    href="/website-standards/"
+    onclick="ga('send', 'event', 'Read website standards', 'Clicked Read website standards from inside site');"
+  >
+    Read website standards
+  </a>
+  <a
+    class="usa-button site-button-outline-secondary site-button-download margin-x-0 desktop:margin-right-1 desktop:padding-left-1 desktop:padding-right-05 desktop-lg:padding-left-205 desktop-lg:padding-right-2 font-lang-sm"
+    href="/download/"
+    onclick="ga('send', 'event', 'Downloaded code and design files', 'Clicked Download code and design files from inside site');"
+  >
+    Download <span class="version desktop:display-none desktop-lg:display-inline">v3.14.0</span>
+  </a>
+  <a
+    class="usa-button site-button-github margin-x-0 font-lang-sm"
+    href="https://github.com/uswds/uswds"
+    onclick="ga('send', 'event', 'Viewed on Github', 'Clicked View on Github from inside site');"
+  >
+    <?xml version="1.0" encoding="UTF-8"?><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="33"
+  height="32"
+  viewBox="0 0 33 32"
+  class="logo"
+>
+  <title>Github logo</title>
+  <path
+    fill="#161514"
+    fill-rule="evenodd"
+    d="M16.288 0C7.294 0 0 7.293 0 16.29c0 7.197 4.667 13.302 11.14 15.456.815.15 1.112-.353 1.112-.785 0-.386-.014-1.411-.022-2.77-4.531.984-5.487-2.184-5.487-2.184-.741-1.882-1.809-2.383-1.809-2.383-1.479-1.01.112-.99.112-.99 1.635.115 2.495 1.679 2.495 1.679 1.453 2.489 3.813 1.77 4.741 1.353.148-1.052.569-1.77 1.034-2.177-3.617-.411-7.42-1.809-7.42-8.051 0-1.778.635-3.233 1.677-4.371-.168-.412-.727-2.069.16-4.311 0 0 1.367-.438 4.479 1.67a15.602 15.602 0 0 1 4.078-.549 15.62 15.62 0 0 1 4.078.549c3.11-2.108 4.475-1.67 4.475-1.67.889 2.242.33 3.899.163 4.311 1.044 1.138 1.674 2.593 1.674 4.371 0 6.258-3.809 7.635-7.437 8.038.584.503 1.105 1.497 1.105 3.017 0 2.177-.02 3.934-.02 4.468 0 .436.294.943 1.12.784 6.468-2.159 11.131-8.26 11.131-15.455C32.579 7.293 25.285 0 16.288 0"
+  />
+</svg>
+
+    <span class="text">View on GitHub</span>
+  </a>
+</div>
+
+    </div>
+  </div>
+</nav>
+<div class="usa-overlay"></div>
+
+
+<div class="default-container">
+  <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
+    
+    
+    <ul class="site-sidenav usa-sidenav">
+      
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/how-to-use-uswds/">
+  
+    How to use USWDS
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/documentation/getting-started-for-developers/">
+  
+    Getting started for developers
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/documentation/getting-started-for-designers/">
+  
+    Getting started for designers
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/documentation/developers/">
+  
+    Documentation
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/documentation/settings/">
+  
+    Settings
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/maturity-model/">
+  
+    USWDS maturity model
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+<a href="/documentation/accessibility/"class="usa-current">
+  
+    Accessibility
+  
+</a>
+
+    
+    
+    
+    <ul class="usa-sidenav__sublist">
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+
+<a href="#we-follow-the-four-principles-of-accessibility">We follow the four principles of accessibility</a>
+
+    
+  </li>
+
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+
+<a href="#we-address-user-needs">We address user needs</a>
+
+    
+  </li>
+
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+
+<a href="#we-include-accessibility-in-all-phases-of-our-process">We include accessibility in all phases of our process</a>
+
+    
+  </li>
+
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+
+<a href="#what-project-teams-should-do">What project teams should do</a>
+
+    
+  </li>
+
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+
+<a href="#accessibility-resources">Accessibility resources</a>
+
+    
+  </li>
+
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+
+<a href="#changelog">Latest updates</a>
+
+    
+  </li>
+
+</ul>
+    
+  
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/performance/">
+  
+    Performance guidelines
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/documentation/code-guidelines/">
+  
+    Code guidelines
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/documentation/migration/">
+  
+    Migrating to USWDS 3.0
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/documentation/migration-v2/">
+  
+    Migrating to USWDS 2.0
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/documentation/implementations/">
+  
+    Implementations
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/documentation/showcase/">
+  
+    Showcase
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/documentation/sample-contract-language/">
+  
+    Sample contract language for 21st Century IDEA
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/website-standards/">
+  
+    Website standards
+  
+</a>
+
+
+    
+  </li>
+
+
+    </ul>
+    
+  </aside>
+
+  
+  <div class="usa-in-page-nav-container">
+    <aside class="usa-in-page-nav"
+      aria-label="On this page"
+      data-scroll-offset="48"
+      data-root-margin="48px 0px -90% 0px"
+      data-threshold="1"
+      data-heading-elements=h2
+    ></aside>
+  
+    <main id="main-content" class="main-content">
+      <div class="styleguide-content usa-prose site-prose">
+        <header>
+          
+            
+              <p class="site-subheading">How to use USWDS</p>
+            
+          
+          <h1 id="accessibility" class="site-page-title">Accessibility</h1>
+        </header>
+
+        <p class="site-text-intro">Usability for every ability</p>
+
+
+
+
+        <!-- Add wcag compliance status tag -->
+        <!-- Add compliance tag -->
+
+
+
+
+
+
+
+
+
+        <p>The U.S. Web Design System is built on a foundation of accessibility. Our foundation was created with and for our colleagues who develop digital services for all Americans.</p>
+
+<p>While we strive for excellence, we realize nothing can or will ever be 100% accessible. Therefore, we’ll continuously be adapting and revisiting this accessibility strategy and seeking community input to continue improving.</p>
+
+<h2 id="we-follow-the-four-principles-of-accessibility">We follow the four principles of accessibility</h2>
+
+<ul>
+  <li><strong>Perceivable</strong>: Users must be able to perceive the information presented.</li>
+  <li><strong>Operable</strong>: Users must be able to operate the interface.</li>
+  <li><strong>Understandable</strong>: Users must be able to understand both how the user interface operates and the meaning of information presented.</li>
+  <li><strong>Robust</strong>: Users must be able to access the content as technologies advance. As technologies like browsers and other assistive technology evolve, the content should remain accessible.</li>
+</ul>
+
+<p>These four principles are the foundation of <a href="https://www.access-board.gov/ict/">Section 508 of the Rehabilitation Act of 1973</a> requirements, amended in 1998 to require federal agencies to make their electronic and information technology accessible to people with disabilities. In 2018, Section 508 incorporated the Web Content Accessibility Guidelines (WCAG) 2.0 Level AA success criteria.</p>
+
+<p>Even though 2.0 Level AA is the baseline of conformance for legal compliance, USWDS works to achieve the higher standard of WCAG 2.1 AA, which also meets legal requirements, to better serve everyone. In October, 2023 <a href="https://www.w3.org/WAI/standards-guidelines/wcag/new-in-22/">WCAG 2.2</a> was released. WCAG 2.2 is not required for legal compliance right now, but we strive to achieve as many of the latest success criteria as we can, and intend to incrementally work toward AAA compliance.</p>
+
+<p>To demonstrate how U.S. Web Design System components meet these requirements, we’ve used the <a href="https://www.itic.org/policy/accessibility/vpat">Voluntary Product Accessibility Template (VPAT®) 2.5</a> (revised in November 2023) to create an accessibility conformance report (ACR): <a href="https://designsystem.digital.gov/files/USWDS_v3.114_2025-05-30.ACR.docx">USWDS accessibility conformance report (ACR) in .docx format</a>. For this report, we assessed 44 components of USWDS 3.11.0 in March 2025 and published the report in May 2025.</p>
+
+<h2 id="we-test-our-work-you-need-to-test-yours">We test our work. You need to test yours.</h2>
+
+<p>The work we do acts as a foundation for you to implement on your own projects. However, to ensure full WCAG compliance, you need to conduct your own research and testing.</p>
+
+<h2 id="we-address-user-needs">We address user needs</h2>
+
+<p>Accessibility guidelines help us address specific, ability-based patterns of user experience (UX). USWDS builds these baseline UX needs into its design language, components, guidance, and layouts. We’ve listed some examples below.</p>
+
+<p>Real-life users may cross categories. For example, depending on their task, limited-vision users may use either screen readers or screen magnifiers. People with cognitive differences and neurodiverse individuals benefit from many of the guidelines listed below.</p>
+
+<h3 class="border-top-1px padding-top-2 measure-2" id="visually-impaired-and-blind-users">Visually impaired and blind users</h3>
+
+<ul>
+  <li>Support screen readers and other assistive technology like braille displays</li>
+  <li>Outline semantic landmarks and regions</li>
+  <li>Ensure all content has clear context and labeling</li>
+  <li>Provide text equivalents for visual resources</li>
+  <li>Announce updates of page state changes</li>
+  <li>Ensure keyboard focus follows a logical and predictable pattern</li>
+  <li>Never use visual elements alone to convey meaning</li>
+  <li>Include descriptions of videos</li>
+</ul>
+
+<h3 class="border-top-1px padding-top-2 measure-2" id="limited-vision-users">Limited-vision users</h3>
+
+<ul>
+  <li>Design for readability</li>
+  <li>Design large, easy-to-select interaction targets</li>
+  <li>Allow layouts to respond to user zoom settings and screen magnifiers</li>
+  <li>Design with linear layouts</li>
+  <li>Don’t rely on hover to communicate critical information</li>
+  <li>Use legible visual contrast</li>
+  <li>Don’t use color alone to convey meaning</li>
+  <li>Allow for customization of fonts and contrast styles</li>
+</ul>
+
+<h3 class="border-top-1px padding-top-2 measure-2" id="deaf-users">Deaf users</h3>
+
+<ul>
+  <li>Provide an accurate text equivalent for audio resources</li>
+  <li>Don’t convey meaning through audio alone</li>
+</ul>
+
+<h3 class="border-top-1px padding-top-2 measure-2" id="limited-mobility-users">Limited-mobility users</h3>
+
+<ul>
+  <li>Support keyboard-only (linear) functionality</li>
+  <li>Support touchscreen (direct input) functionality</li>
+  <li>Design large, easy-to-select readability and interaction targets</li>
+  <li>Prefer linear layouts</li>
+  <li>Don’t rely on hover for critical information</li>
+</ul>
+
+<h3 class="border-top-1px padding-top-2 measure-2" id="sensory-sensitive-users">Sensory-sensitive users</h3>
+
+<ul>
+  <li>Keep layouts simple</li>
+  <li>Avoid flashing and repetitive animation</li>
+  <li>Avoid very high color contrast</li>
+  <li>Avoid alarming colors and images</li>
+  <li>Avoid audio and video that start automatically</li>
+  <li>Allow a user to pause or stop content on their own</li>
+</ul>
+
+<h2 id="we-include-accessibility-in-all-phases-of-our-process">We include accessibility in all phases of our process</h2>
+
+<p>USWDS provides accessible components, the guidance to implement these components, and the tools to customize and extend the design system’s accessibility.</p>
+
+<p>As we grow our user research practice to include testing with more people with disabilities we will include user-specific recommendations.</p>
+
+<p>Accessibility requirements may be relatively static, but accessibility itself is as dynamic and open-ended as any human-centered design process.</p>
+
+<h3 class="border-top-1px padding-top-2 measure-2" id="we-deliver-accessible-components">We deliver accessible components</h3>
+
+<ul>
+  <li>Test with screen readers (VoiceOver, JAWS)</li>
+  <li>Test with keyboard-only navigation</li>
+  <li>Test with browser zoom magnification</li>
+  <li>Test with touch-only interaction</li>
+  <li>Test across browsers and operating systems</li>
+  <li>Collect community feedback</li>
+  <li>Scan with automated tools, like pa11y and aXe, on every code change. If it doesn’t pass, we don’t merge the code</li>
+  <li>Review regular reports from site-scanning tools such as SiteImprove or AMP to quickly remediate accessibility issues</li>
+  <li>Manually test components and functionality with experienced accessibility specialists</li>
+  <li>Provide conformance status on each component (in progress)</li>
+  <li>Conduct ongoing accessibility audits</li>
+</ul>
+
+<h3 class="border-top-1px padding-top-2 measure-2" id="we-provide-guidance-on-how-to-implement-our-components-accessibly">We provide guidance on how to implement our components accessibly</h3>
+
+<ul>
+  <li>Include accessibility guidance on our website’s <a href="https://designsystem.digital.gov/components/overview/">component pages</a></li>
+  <li>Provide custom accessibility checks and plain language guides to test in your own environment (in progress)</li>
+</ul>
+
+<h3 class="border-top-1px padding-top-2 measure-2" id="we-include-accessibility-focused-tools-to-build-new-functionality">We include accessibility-focused tools to build new functionality</h3>
+
+<ul>
+  <li>Colors with <a href="https://designsystem.digital.gov/design-tokens/color/overview/#magic-number">magic number contrast</a></li>
+  <li>Rem-based size <a href="https://designsystem.digital.gov/design-tokens/">tokens</a> and an em-based media query mixin that respond to user scale settings</li>
+  <li>Normalized <a href="https://designsystem.digital.gov/design-tokens/typesetting/overview/">typography tokens</a> that provide reliable, readable results regardless of the typeface</li>
+</ul>
+
+<h3 class="border-top-1px padding-top-2 measure-2" id="we-feature-context-aware-settings-that-allow-accessible-customization-with-minimal-custom-code">We feature context-aware settings that allow accessible customization with minimal custom code</h3>
+
+<ul>
+  <li>Adding more smart components that change their color based on background</li>
+  <li>Smart settings for links to automatically choose accessible link and hover states</li>
+</ul>
+
+<h3 class="border-top-1px padding-top-2 measure-2" id="we-make-accessibility-one-of-our-core-design-principles">We make accessibility one of our core design principles</h3>
+
+<ul>
+  <li>We strive not only to embrace accessibility but also to inspire all federal web teams to embrace it, too.</li>
+  <li><strong>We prioritize accessibility issues.</strong> We work hard to fix accessibility-related issues quickly, and to get them into the next available release. Our developers work with our accessibility specialists to review fixes with automated and manual testing.</li>
+</ul>
+
+<p>While we conduct research during the design and development of components, it is impossible to predict every use case for accessibility and usability. That is why we encourage you to contribute to the community by providing feedback on how a component is working on your site. We also expect you to perform your own user testing at the page level to gauge the usability of a component within context. We welcome any and all findings and feedback.</p>
+
+<h2 id="what-project-teams-should-do">What project teams should do</h2>
+
+<p>Building with accessible USWDS components does not guarantee an accessible service. You need to keep testing to stay accessible.</p>
+
+<p>We recommend a mix of automated, semi-automated, and manual testing in addition to actual tests with real people who need assistive accommodations to interact with services effectively.</p>
+
+<h3 class="border-top-1px padding-top-2 measure-2" id="government-usability-testing-resources">Government usability testing resources</h3>
+<ul>
+  <li><a href="https://digital.gov/topics/usability-testing/">Usability testing on Digital.gov</a> [digital.gov]</li>
+  <li><a href="https://digital.gov/2015/03/19/getting-started-with-usability-testing/">Getting started with usability testing</a> [digital.gov]</li>
+  <li><a href="https://www.plainlanguage.gov/guidelines/test/usability-testing/">Testing for plain-language usability</a> [plainlanguage.gov]</li>
+  <li><a href="https://guides.18f.gov/methods/">18F’s collection of human-centered design tools</a> [guides.18f.gov]</li>
+</ul>
+
+<h2 id="accessibility-resources">Accessibility resources</h2>
+
+<h3 class="border-top-1px padding-top-2 measure-2" id="government-accessibility-resources">Government accessibility resources</h3>
+
+<ul>
+  <li><a href="https://www.section508.gov/">The Section 508 accessibility program</a> [section508.gov]</li>
+  <li><a href="https://digital.gov/guides/accessibility-for-teams/">Accessibility for Teams guide</a> [digital.gov]</li>
+  <li><a href="https://www.section508.gov/tools/coordinator-listing">Find your Section 508 Coordinator</a> [section508.gov]</li>
+  <li><a href="https://section508coordinators.github.io/ICTTestingBaseline/">Section 508 ICT Testing Baseline</a> [section508coordinators.github.com ]</li>
+  <li><a href="https://www.plainlanguage.gov/">Learn about writing in plain language</a> [plainlanguage.gov]</li>
+  <li><a href="https://www.plainlanguage.gov/resources/">Plain language resources</a> [plainlanguage.gov]</li>
+  <li><a href="https://accessibility.18f.gov/">18F’s accessibility guide</a> [accessibility.18f.gov]</li>
+  <li><a href="https://www.section508.gov/buy/accessibility-requirements-tool">Accessibility Requirements Tool (ART) for contracting</a> [section508.gov]</li>
+  <li><a href="https://www.section508.gov/blog/Universal-Design-What-is-it">Understanding universal design</a> [section508.gov]</li>
+</ul>
+
+<h3 class="border-top-1px padding-top-2 measure-2" id="non-government-accessibility-resources">Non-government accessibility resources</h3>
+
+<ul>
+  <li><a href="https://www.w3.org/WAI/perspective-videos/">Web Accessibility Perspectives Videos</a> [w3.org]</li>
+  <li><a href="https://inclusivedesignprinciples.info/">Inclusive design principles</a> [inclusivedesignprinciples.info]</li>
+  <li><a href="https://www.youtube.com/watch?v=z8xUCzToff8">Accessibility fundamentals with Rob Dodson</a> [youtube.com]</li>
+  <li><a href="https://www.microsoft.com/design/inclusive/">Microsoft’s inclusive design manual</a> [microsoft.com]</li>
+  <li><a href="https://inclusive-components.design/">Inclusive components by Heydon Pickering</a> [inclusive-components.design]</li>
+  <li><a href="https://humanebydesign.com/">Humane by design</a> [humanebydesign.com]</li>
+</ul>
+
+<h3 class="border-top-1px padding-top-2 measure-2" id="practical-actions">Practical actions</h3>
+
+<ul>
+  <li><strong>Humanize accessibility.</strong> Seek out examples of the real-life impact of accessible products and services. Try to make accessibility less abstract and more personal.</li>
+  <li><strong>Use agency resources.</strong> Reach out to <a href="https://www.section508.gov/tools/coordinator-listing">your agency’s accessibility team</a> and build a relationship with them.</li>
+  <li><strong>Learn about assistive technology.</strong> Get familiar with the basic ways people use assistive technology and <a href="https://www.w3.org/WAI/people-use-web/">how people with disabilities use the web</a>.</li>
+  <li><strong>Follow existing standards.</strong> Conform to the <a href="https://www.access-board.gov/guidelines-and-standards/communications-and-it/about-the-ict-refresh">Revised 508 Standards</a> and <a href="https://www.w3.org/TR/WCAG20/">WCAG 2.0</a>.</li>
+  <li><strong>Work from existing resources.</strong> Consult <a href="https://www.section508.gov/">Section508.gov</a>, <a href="https://digital.gov/guides/accessibility-for-teams">Accessibility for Teams</a>, and the <a href="https://accessibility.18f.gov/">18F Accessibility Guide</a>.</li>
+  <li><strong>Design generously.</strong> Adopt an <a href="http://inclusivedesignprinciples.info/">inclusive design</a> mentality.</li>
+  <li><strong>Develop accessible code.</strong> Ensure front-end code is written accessibly and conducts manual and automated testing.</li>
+  <li><strong>Write accessible content.</strong> Ensure content is written in <a href="https://www.plainlanguage.gov/">plain language</a> and <a href="https://accessibility.18f.gov/headings/">headings</a>, <a href="https://accessibility.18f.gov/images/">images</a>, and <a href="https://accessibility.18f.gov/links/">links</a> are accurately labeled.</li>
+  <li><strong>Build accessible designs.</strong> Ensure that designs are accessible, pages are laid out in a logical order, and content meets color contrast requirements.</li>
+  <li><strong>Test broadly.</strong> Test with a broad range of users and abilities throughout the design and development process, including manual accessibility testing against the <a href="https://www.section508.gov/test/trusted-tester">Trusted Tester and ICT Testing Baseline</a>.</li>
+  <li><strong>Be responsive.</strong> Remediate accessibility issues when you discover them.</li>
+  <li><strong>Contract for accessibility.</strong> Use the <a href="https://www.section508.gov/buy/accessibility-requirements-tool">Accessibility Requirements Tool</a> (ART) to incorporate accessibility requirements into your contracts.</li>
+</ul>
+
+<h3 class="border-top-1px padding-top-2 measure-2" id="key-accessibility-considerations">Key accessibility considerations</h3>
+
+<ul>
+  <li>Can users easily interpret content associated with graphic elements?</li>
+  <li>Can users easily understand and complete key tasks?</li>
+  <li>Are you testing your service with a broad range of users?</li>
+  <li>Do you know your agency accessibility team?</li>
+  <li>Is your site organized such that everyone can navigate it easily?</li>
+  <li>Are you using accessibility testing tools?</li>
+  <li>Did your accessibility testing tools provide accurate results?</li>
+  <li>Are you providing content in <a href="https://digital.gov/resources/improving-access-to-services-for-people-with-limited-english-proficiency-e-o-13166/">languages other than English</a>, as appropriate for the audience?</li>
+</ul>
+
+
+        
+
+
+
+<h2 id="changelog" class="site-component-section-title">Latest updates</h2><p>Meaningful code and guidance updates are listed in the following table:</p>
+  
+    
+
+
+
+<table class="usa-table--borderless site-table-responsive site-table-simple">
+  <thead>
+    <tr>
+      <th scope="col" class="tablet:grid-col-3 desktop:grid-col-2">
+        Date
+      </th>
+      <th scope="col" class="">
+        Description
+      </th>
+    </tr>
+  </thead>
+  <tbody class="font-lang-3xs">
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col-3 desktop:grid-col-2">
+        
+          <span class="font-mono-3xs">2025-06-02</span>
+        
+      </td>
+      <td data-title="Description" class="">
+        
+          <p class="measure-6">
+            <strong>
+              Published our new USWDS component Accessibility Conformance Report (ACR) / Voluntary Product Accessibility Template (VPAT®).
+
+            </strong>
+            
+            
+              More information:
+              <a href="https://github.com/uswds/uswds-site/pull/3162">
+                uswds-site#3162
+              </a>
+            
+          </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col-3 desktop:grid-col-2">
+        
+          <span class="font-mono-3xs">2024-03-29</span>
+        
+      </td>
+      <td data-title="Description" class="">
+        
+          <p class="measure-6">
+            <strong>
+              Updated all page content.
+
+            </strong>
+            
+            
+              More information:
+              <a href="https://github.com/uswds/uswds-site/pull/2561">
+                uswds-site#2561
+              </a>
+            
+          </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col-3 desktop:grid-col-2">
+        
+          <span class="font-mono-3xs">2021-05-20</span>
+        
+      </td>
+      <td data-title="Description" class="">
+        
+          <p class="measure-6">
+            <strong>
+              Added new accessibility guidance and resources.
+
+            </strong>
+            
+            
+              More information:
+              <a href="https://github.com/uswds/uswds-site/pull/1230">
+                uswds-site#1230
+              </a>
+            
+          </p>
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+  
+
+      </div>
+    </main>
+  
+  </div>
+  
+</div>
+
+
+
+
+
+  
+  <script src="https://touchpoints.app.cloud.gov/touchpoints/5c2410e4.js" async></script>
+
+
+
+
+
+
+<section class="touchpoints__container" role="complementary" aria-label="Page feedback">
+  
+    <button type="button" class="usa-button site-button usa-button--outline" id="touchpoints-modal-button" aria-label="Provide feedback about this page" tabindex="0">Was this page helpful?</button>
+  
+</section>
+
+
+
+<footer class="usa-footer site-footer">
+  <div class="usa-footer__secondary-section">
+    <div class="grid-container footer-content">
+      <h2>Become part of the community</h2>
+      <p>
+        USWDS is an active open source community of government engineers, content specialists, and designers. Our contributors both in and out of government support dozens of agencies and nearly 200 sites.
+      </p>
+      <div class="grid-row footer-contact-links">
+        
+          <div class="tablet:grid-col">
+            <div class="usa-media-block">
+              <div class="usa-media-block__img circle-5 bg-accent-cool display-flex flex-row flex-align-center flex-justify-center text-white">
+                <svg class="usa-icon usa-icon--size-3" aria-hidden="true" role="img" focusable="false">
+                  <use href="/assets/img/sprite.svg#help"></use>
+                </svg>
+              </div>
+              <div class="usa-media-block__body">
+                <h3>Have an idea or an issue?</h3>
+                <a href="https://github.com/uswds/uswds/issues/new/choose">Reach out in GitHub</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="tablet:grid-col">
+            <div class="usa-media-block">
+              <div class="usa-media-block__img circle-5 bg-accent-cool display-flex flex-row flex-align-center flex-justify-center text-white">
+                <svg class="usa-icon usa-icon--size-3" aria-hidden="true" role="img" focusable="false">
+                  <use href="/assets/img/sprite.svg#people"></use>
+                </svg>
+              </div>
+              <div class="usa-media-block__body">
+                <h3>Engage with the community</h3>
+                <a href="https://designsystem.digital.gov/about/community/">Find a channel that works for you</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="tablet:grid-col">
+            <div class="usa-media-block">
+              <div class="usa-media-block__img circle-5 bg-accent-cool display-flex flex-row flex-align-center flex-justify-center text-white">
+                <svg class="usa-icon usa-icon--size-3" aria-hidden="true" role="img" focusable="false">
+                  <use href="/assets/img/sprite.svg#mail"></use>
+                </svg>
+              </div>
+              <div class="usa-media-block__body">
+                <h3>Subscribe to our newsletter</h3>
+                <a href="https://public.govdelivery.com/accounts/USGSATTS/subscriber/new?qsp=GSA_TTS">Sign up for USWDS updates</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="tablet:grid-col">
+            <div class="usa-media-block">
+              <div class="usa-media-block__img circle-5 bg-accent-cool display-flex flex-row flex-align-center flex-justify-center text-white">
+                <svg class="usa-icon usa-icon--size-3" aria-hidden="true" role="img" focusable="false">
+                  <use href="/assets/img/sprite.svg#support"></use>
+                </svg>
+              </div>
+              <div class="usa-media-block__body">
+                <h3>Get support</h3>
+                <a href="mailto:uswds@gsa.gov">Email the USWDS team</a>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+
+    <div class="bg-base-light padding-y-1 line-height-sans-3 font-lang-4">
+      <div class="grid-container">
+        Looking for USWDS v1 documentation?
+        <a
+          href="https://v1.designsystem.digital.gov"
+          class="text-ink text-bold hover:text-no-underline"
+          >Visit v1.designsystem.digital.gov</a
+        >
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<div class="usa-identifier site-identifier">
+  <section
+    class="usa-identifier__section usa-identifier__section--masthead"
+    aria-label="Agency identifier,,,,,,"
+  >
+    <div class="usa-identifier__container">
+      <div class="usa-identifier__logos"><a href="javascript:void(0);" class="usa-identifier__logo">
+          <img
+            class="usa-identifier__logo-img"
+            src="/img/gsa-logo.svg"
+            alt="GSA Logo"
+            role="img"
+            width="48"
+            height="48"
+          >
+        </a></div>
+      <section class="usa-identifier__identity" aria-label="Agency description">
+        <p class="usa-identifier__identity-domain">designsystem.digital.gov</p>
+        <p class="usa-identifier__identity-disclaimer"><span aria-hidden="true">An </span>official website of the <a href=https://gsa.gov>General Services Administration</a></p>
+      </section>
+    </div>
+  </section>
+  <nav class="usa-identifier__section usa-identifier__section--required-links" aria-label="Important links">
+      <div class="usa-identifier__container">
+        <ul class="usa-identifier__required-links-list"><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/about-us" class="usa-identifier__required-link">About GSA</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/website-information/accessibility-statement" class="usa-identifier__required-link">Accessibility statement</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/reference/freedom-of-information-act-foia" class="usa-identifier__required-link">FOIA requests</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002" class="usa-identifier__required-link">No FEAR Act data</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsaig.gov/" class="usa-identifier__required-link">Office of the Inspector General</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/reference/reports/budget-performance" class="usa-identifier__required-link">Performance reports</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/website-information/website-policies" class="usa-identifier__required-link">Privacy policy</a>
+          </li></ul>
+      </div>
+  </nav>
+  <section class="usa-identifier__section usa-identifier__section--usagov" aria-label="Government information and services">
+    <div class="usa-identifier__container">
+      <div class="usa-identifier__usagov-description">
+        Looking for U.S. government information and services?
+      </div>
+      <a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a>
+    </div>
+  </section>
+</div>
+
+
+
+    <script src="/assets/js/styleguide.js"></script>
+
+<script src="/assets/js/vendor/uswds.min.js"></script>
+<!--<script>
+//<![CDATA[
+      var usasearch_config = { siteHandle:"uswds" };
+
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "//search.usa.gov/javascripts/remote.loader.js";
+      document.getElementsByTagName("head")[0].appendChild(script);
+
+//]]>
+</script>
+-->
+
+  </body>
+</html>

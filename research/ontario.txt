@@ -1,0 +1,24 @@
+﻿Ontario Design System
+
+Ontario Design System
+
+Design and coding standards for building Government of Ontario products.
+
+Using the design system
+
+Components
+
+Every element and style available in the design system.
+
+View all components
+
+Release notes
+
+Current and past versions, bug fixes and platform improvements.
+
+Explore documentation
+
+July 9, 2026","Distribution package version 2.9.0"]}]},"column2":{"title":"Help us improve the design system","content":[{"type":"list","list":["Send us an email
+","Check our help and feedback page if you don’t see the component you need.
+"]}]},"column3":{"title":"Stay up to date","content":[{"type":"text","text":"Sign up for our mailing list to learn about changes to the design system as they are released."}],"button":{"text":"Sign up for email updates","link":"https://ontario.us13.list-manage.com/subscribe?u=1dc44df2bdf883dfb0f0d1d3f&id=1bc9664ba0"}}}'
+>

@@ -1,0 +1,829 @@
+﻿Theme color tokens | U.S. Web Design System (USWDS)
+
+Skip to main content
+
+An official website of the United States government
+
+Here’s how you know
+
+Here’s how you know
+
+Official websites use .gov
+A
+ .gov website belongs to an official government
+ organization in the United States.
+
+Secure .gov websites use HTTPS
+A
+ lock (
+ ) or https:// means you’ve safely connected to
+ the .gov website. Share sensitive information only on official,
+ secure websites.
+
+USWDS
+ U.S. Web Design System (USWDS)
+
+Menu
+
+How to use USWDS
+
+How to use USWDS
+
+Getting started for developers
+
+Getting started for designers
+
+Documentation
+
+Settings
+
+USWDS maturity model
+
+Accessibility
+
+Performance guidelines
+
+Code guidelines
+
+Migrating to USWDS 3.0
+
+Migrating to USWDS 2.0
+
+Implementations
+
+Showcase
+
+Sample contract language for 21st Century IDEA
+
+Website standards
+
+Design principles
+
+Components
+
+Components
+
+Accordion
+
+Alert
+
+Banner
+
+Breadcrumb
+
+Button
+
+Button group
+
+Card
+
+Character count
+
+Checkbox
+
+Collection
+
+Combo box
+
+Data visualizations
+
+Date picker
+
+Date range picker
+
+File input
+
+Footer
+
+Form
+
+Grid
+
+Header
+
+Icon
+
+Icon list
+
+Identifier
+
+In-page navigation
+
+Input mask
+
+Input prefix/suffix
+
+Language selector
+
+Link
+
+List
+
+Memorable date
+
+Modal
+
+Pagination
+
+Process list
+
+Prose
+
+Radio buttons
+
+Range slider
+
+Search
+
+Select
+
+Side navigation
+
+Site alert
+
+Step indicator
+
+Summary box
+
+Table
+
+Tag
+
+Text input
+
+Time picker
+
+Tooltip
+
+Typography
+
+Validation
+
+Patterns
+
+Patterns
+
+Introducing patterns
+
+Create a user profile
+
+Complete a complex form
+
+Select a language
+
+Design tokens
+
+Design tokens
+
+Color
+
+Using color
+
+Theme color tokens
+
+About theme color tokens
+
+Customizing theme color tokens
+
+Theme color tokens table
+
+Using theme color tokens
+
+Latest updates
+
+State color tokens
+
+System color tokens
+
+Typesetting
+
+Flex
+
+Opacity
+
+Order
+
+Shadow
+
+Spacing units
+
+Z-index
+
+Utilities
+
+Utilities
+
+Layout grid
+
+Color
+
+Height and width
+
+Margin and padding
+
+Border
+
+Outline
+
+Font size and family
+
+Text styles
+
+Paragraph styles
+
+Display
+
+Flex
+
+Shadow
+
+Float
+
+Clearfix
+
+List reset
+
+Templates
+
+Templates
+
+404 page
+
+Documentation page
+
+Landing page
+
+Authentication pages
+
+Form templates
+
+About
+
+About
+
+Key benefits
+
+Product values
+
+Contribute
+
+Community
+
+What’s new
+
+Monthly calls
+
+Product roadmap
+
+Research
+
+Security
+
+Website policies and notices
+
+How to use USWDS
+
+Design principles
+
+Components
+
+Patterns
+
+Design tokens
+
+Utilities
+
+Templates
+
+About
+
+Search
+
+Read website standards
+
+Download v3.14.0
+
+View on GitHub
+
+Design tokens
+
+Color
+
+Using color
+
+Theme color tokens
+
+About theme color tokens
+
+Customizing theme color tokens
+
+Theme color tokens table
+
+Using theme color tokens
+
+Latest updates
+
+State color tokens
+
+System color tokens
+
+Typesetting
+
+Flex
+
+Opacity
+
+Order
+
+Shadow
+
+Spacing units
+
+Z-index
+
+Design tokens
+
+Theme color tokens
+
+USWDS theme color tokens provide flexible, accessible, customizable color choices for your project.
+
+USWDS theme color tokens are designed to be useful and effective for small and large projects. Each theme token is drawn from a system color token and we only use token-based colors in official components.
+
+About theme color tokens
+
+USWDS theme color tokens are divided into five high-level role-based color families: base, primary, secondary, accent-warm, and accent-cool.
+
+Base is a project’s neutral color, typically some tint of gray, and usually used as the text color throughout.
+
+Primary, secondary, and accent colors can be thought of as falling into a proportional 60/30/10 relationship: about 60% of your site’s color would be the primary color family, about 30% would be the secondary color family, and about 10% would be the accent color families (accent-warm and accent-cool). Note that these proportions are for non-base colors. In many cases, the neutral base text color will be the predominant tone on your site.
+
+Each color family has seven possible lightness grades, from lightest to darkest, though not every family needs to include a color at each grade. Some grades may be set to false in your project’s theme settings. The default USWDS theme palette does not use every grade for every family. The primary and secondary families also have a vivid grade available.
+
+Customizing theme color tokens
+
+Customize theme color tokens in your USWDS settings configuration using the variables listed in the theme color
+tokens table below. Define theme variables with
+system color tokens.
+Set any unused theme color to false.
+
+For example, if you wanted to set the value of the primary-vivid token to blue-warm-50v, your settings
+configuration would look like this:
+
+@use "uswds-core" with (
+ $theme-color-primary-vivid: "blue-warm-50v",
+);
+
+Theme color tokens table
+
+Color
+ Token
+ Default
+ Settings variable
+ Value
+
+'base-lightest'
+
+'gray-5'
+
+$theme-color-base-lightest
+
+#f0f0f0
+
+'base-lighter'
+
+'gray-cool-10'
+
+$theme-color-base-lighter
+
+#dfe1e2
+
+'base-light'
+
+'gray-cool-30'
+
+$theme-color-base-light
+
+#a9aeb1
+
+'base'
+
+'gray-cool-50'
+
+$theme-color-base
+
+#71767a
+
+'base-dark'
+
+'gray-cool-60'
+
+$theme-color-base-dark
+
+#565c65
+
+'base-darker'
+
+'gray-cool-70'
+
+$theme-color-base-darker
+
+#3d4551
+
+'base-darkest'
+
+'gray-90'
+
+$theme-color-base-darkest
+
+#1b1b1b
+
+'ink'
+
+'gray-90'
+
+$theme-color-base-ink
+
+#1b1b1b
+
+'primary-lighter'
+
+'blue-10'
+
+$theme-color-primary-lighter
+
+#d9e8f6
+
+'primary-light'
+
+'blue-30'
+
+$theme-color-primary-light
+
+#73b3e7
+
+'primary'
+
+'blue-60v'
+
+$theme-color-primary
+
+#005ea2
+
+'primary-vivid'
+
+'blue-warm-60v'
+
+$theme-color-primary-vivid
+
+#0050d8
+
+'primary-dark'
+
+'blue-warm-70v'
+
+$theme-color-primary-dark
+
+#1a4480
+
+'primary-darker'
+
+'blue-warm-80v'
+
+$theme-color-primary-darker
+
+#162e51
+
+'secondary-lighter'
+
+'red-cool-10'
+
+$theme-color-secondary-lighter
+
+#f3e1e4
+
+'secondary-light'
+
+'red-30'
+
+$theme-color-secondary-light
+
+#f2938c
+
+'secondary'
+
+'red-50'
+
+$theme-color-secondary
+
+#d83933
+
+'secondary-vivid'
+
+'red-cool-50v'
+
+$theme-color-secondary-vivid
+
+#e41d3d
+
+'secondary-dark'
+
+'red-60v'
+
+$theme-color-secondary-dark
+
+#b50909
+
+'secondary-darker'
+
+'red-70v'
+
+$theme-color-secondary-darker
+
+#8b0a03
+
+'accent-cool-lighter'
+
+'blue-cool-5v'
+
+$theme-color-accent-cool-lighter
+
+#e1f3f8
+
+'accent-cool-light'
+
+'blue-cool-20v'
+
+$theme-color-accent-cool-light
+
+#97d4ea
+
+'accent-cool'
+
+'cyan-30v'
+
+$theme-color-accent-cool
+
+#00bde3
+
+'accent-cool-dark'
+
+'blue-cool-40v'
+
+$theme-color-accent-cool-dark
+
+#28a0cb
+
+'accent-cool-darker'
+
+'blue-cool-60v'
+
+$theme-color-accent-cool-darker
+
+#07648d
+
+'accent-warm-lighter'
+
+'orange-10'
+
+$theme-color-accent-warm-lighter
+
+#f2e4d4
+
+'accent-warm-light'
+
+'orange-20v'
+
+$theme-color-accent-warm-light
+
+#ffbc78
+
+'accent-warm'
+
+'orange-30v'
+
+$theme-color-accent-warm
+
+#fa9441
+
+'accent-warm-dark'
+
+'orange-50v'
+
+$theme-color-accent-warm-dark
+
+#c05600
+
+'accent-warm-darker'
+
+'orange-60'
+
+$theme-color-accent-warm-darker
+
+#775540
+
+Using theme color tokens
+
+Your context and coding style determine how you access USWDS theme color tokens in code.
+
+For example, all three of the following examples result in the same output:
+
+// function
+div {
+ background-color: color("primary");
+}
+
+// mixin
+div {
+ @include u-bg("primary");
+}
+
+// utility
+<div class="bg-primary">...</div>
+
+Context
+ Usage
+ Example
+
+function
+
+color(color)
+
+color: color('primary-vivid')
+
+mixin
+
+ background-color
+
+u-bg(color)
+
+@include u-bg('primary-vivid')
+
+mixin
+
+ color
+
+u-text(color)
+
+@include u-text('primary-vivid')
+
+mixin
+
+ border-color
+
+u-border(color)
+
+@include u-border('primary-vivid')
+
+mixin
+
+ text-decoration-color
+
+u-underline(color)
+
+@include u-underline('primary-vivid')
+
+setting
+
+color
+
+$theme-link-color: 'primary-vivid'
+
+utility
+
+ background-color
+
+.bg-color
+
+.bg-base-lighter
+
+utility
+
+ border-color
+
+.border-color
+
+.border-primary
+
+utility
+
+ color
+
+.text-color
+
+.text-primary
+
+utility
+
+ outline-color
+
+.outline-color
+
+.outline-primary
+
+utility
+
+ text-decoration-color
+
+.underline-color
+
+.underline-primary-vivid
+
+Latest updates
+Meaningful code and guidance updates are listed in the following table:
+
+Date
+ USWDS version
+ Affects
+ Breaking
+ Description
+
+2024-05-15
+
+N/A
+
+Guidance
+
+No
+
+Updated guidance for configuring color settings.
+
+More information:
+ 
+ uswds-site#2377
+
+2024-05-15
+
+N/A
+
+Guidance
+
+No
+
+Updated the documented value of the secondary-lighter token.
+
+More information:
+ 
+ uswds-site#2377
+
+2024-05-15
+
+N/A
+
+Guidance
+
+No
+
+Removed emergency color examples.
+
+These colors are instead documented on the state color page.
+
+More information:
+ 
+ uswds-site#2377
+
+Was this page helpful?
+
+Become part of the community
+
+USWDS is an active open source community of government engineers, content specialists, and designers. Our contributors both in and out of government support dozens of agencies and nearly 200 sites.
+
+Have an idea or an issue?
+
+ Reach out in GitHub
+
+Engage with the community
+
+ Find a channel that works for you
+
+Subscribe to our newsletter
+
+ Sign up for USWDS updates
+
+Get support
+
+ Email the USWDS team
+
+Looking for USWDS v1 documentation?
+ Visit v1.designsystem.digital.gov
+
+designsystem.digital.gov
+
+ An official website of the General Services Administration
+
+About GSA
+
+Accessibility statement
+
+FOIA requests
+
+No FEAR Act data
+
+Office of the Inspector General
+
+Performance reports
+
+Privacy policy
+
+Looking for U.S. government information and services?
+
+Visit USA.gov

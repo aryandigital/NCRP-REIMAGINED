@@ -1,0 +1,87 @@
+﻿NL Design System - homepage
+
+Ga naar hoofdinhoud
+
+HandboekRichtlijnenComponentenVoorbeeldenCommunityProject
+
+Meedoen met code? In het Handboek vind je alle informatie die je nodig hebt om aan de slag te gaan met de componenten, Storybook en design tokens.
+
+Als je designs maakt
+
+Meedoen met Figma? In het Handboek vind je alle informatie die je nodig hebt om aan de slag te gaan met de componenten, Figma en design tokens.
+
+Als je content beheert
+
+Meedoen als contentmaker? Gebruik vandaag nog onze content richtlijnen bij het maken van toegankelijke webcontent.
+
+Als je projecten leidt
+
+Meedoen als manager? Herbruikbare oplossingen die tijd en budget besparen, met business cases en implementatiestrategieën
+
+Bekijk de laatste updates
+
+Heartbeat van 
+ 18 augustus 2026
+
+Nieuwe kernteamleden Ali en Eelco stellen zich voor.
+
+ Bram van het Expertteam Digitale Toegankelijkheid laat zien hoe je toegankelijk iconen, labels en interactieve elementen toevoegt aan een text input met de Customizable Text Input.
+
+ Jeffrey neemt jullie mee in de wereld van Card as Link: hoe het begon, waarom we ermee bezig zijn, welke keuzes we hebben gemaakt en hoe de uitwerking er nu in Figma uitziet.
+
+ Watch " Heartbeat van 18 augustus 2026. " on YouTube
+ 
+ Bekijk
+
+Meld je aan voor de Heartbeat Bekijk andere Heartbeats 
+
+Gebruik NL Design System
+
+Richtlijnen
+
+Fundamentele richtlijnen voor het toepassen van stijl elementen zoals typografie, kleuren en iconen.
+
+Componenten
+
+Een overzicht van herbruikbare, toegankelijke componenten voor formulieren, navigatie, tabellen en meer.
+
+Voorbeelden
+
+Een overzicht van patronen en templates om vaak voorkomende scenario's op een consistente, weloverwogen manier op te lossen.
+
+Gebruikersonderzoek
+
+NL Design System verzamelt en publiceert gebruikersonderzoeken en faciliteert de community om samen te werken aan nieuwe onderzoeken.
+
+Wie doen er al mee?
+
+Naast de organisaties die componenten bijdragen doen 
+ diverse andere organisaties mee in de community van NL Design System.
+
+Blijf op de hoogte
+
+Heartbeat
+
+Sluit aan bij de 2-wekelijkse online bijeenkomst waarbij ontwikkelingen rondom het NL Design System worden besproken.
+
+Nieuwsbrief
+
+Meld je aan voor de nieuwsbrief en ontvang elke maand een update van de ontwikkelingen rondom het NL Design System.
+
+Design Open Hour
+
+Wees welkom bij de 2-wekelijkse online bijeenkomst waar designers informatie, inzichten en tips uit te wisselen.
+
+Developer Open Hour
+
+Wees welkom bij de 2-wekelijkse online bijeenkomst waar developers vragen stellen, inzichten delen en tips uit te wisselen.
+
+Rijkshuisstijl Community Open Hour
+
+Tijdens de Rijkshuisstijl Community Open Hour gaan organisaties informatie, inzichten en tips uitwisselen.
+
+LinkedIn
+
+Volg NL Design System op LinkedIn voor het laatste nieuws, updates en om in contact te blijven met de community.
+
+Blog·Contact·Toegankelijkheid·Privacyverklaring·Colofon·GitHub·Slack·Figma·LinkedIn

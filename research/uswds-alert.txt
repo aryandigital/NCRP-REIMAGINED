@@ -1,0 +1,1074 @@
+﻿Alert | U.S. Web Design System (USWDS)
+
+Skip to main content
+
+An official website of the United States government
+
+Here’s how you know
+
+Here’s how you know
+
+Official websites use .gov
+A
+ .gov website belongs to an official government
+ organization in the United States.
+
+Secure .gov websites use HTTPS
+A
+ lock (
+ ) or https:// means you’ve safely connected to
+ the .gov website. Share sensitive information only on official,
+ secure websites.
+
+USWDS
+ U.S. Web Design System (USWDS)
+
+Menu
+
+How to use USWDS
+
+How to use USWDS
+
+Getting started for developers
+
+Getting started for designers
+
+Documentation
+
+Settings
+
+USWDS maturity model
+
+Accessibility
+
+Performance guidelines
+
+Code guidelines
+
+Migrating to USWDS 3.0
+
+Migrating to USWDS 2.0
+
+Implementations
+
+Showcase
+
+Sample contract language for 21st Century IDEA
+
+Website standards
+
+Design principles
+
+Components
+
+Components
+
+Accordion
+
+Alert
+
+Alert accessibility tests
+
+Banner
+
+Breadcrumb
+
+Button
+
+Button group
+
+Card
+
+Character count
+
+Checkbox
+
+Collection
+
+Combo box
+
+Data visualizations
+
+Date picker
+
+Date range picker
+
+File input
+
+Footer
+
+Form
+
+Grid
+
+Header
+
+Icon
+
+Icon list
+
+Identifier
+
+In-page navigation
+
+Input mask
+
+Input prefix/suffix
+
+Language selector
+
+Link
+
+List
+
+Memorable date
+
+Modal
+
+Pagination
+
+Process list
+
+Prose
+
+Radio buttons
+
+Range slider
+
+Search
+
+Select
+
+Side navigation
+
+Site alert
+
+Step indicator
+
+Summary box
+
+Table
+
+Tag
+
+Text input
+
+Time picker
+
+Tooltip
+
+Typography
+
+Validation
+
+Patterns
+
+Patterns
+
+Introducing patterns
+
+Create a user profile
+
+Complete a complex form
+
+Select a language
+
+Design tokens
+
+Design tokens
+
+Color
+
+Typesetting
+
+Flex
+
+Opacity
+
+Order
+
+Shadow
+
+Spacing units
+
+Z-index
+
+Utilities
+
+Utilities
+
+Layout grid
+
+Color
+
+Height and width
+
+Margin and padding
+
+Border
+
+Outline
+
+Font size and family
+
+Text styles
+
+Paragraph styles
+
+Display
+
+Flex
+
+Shadow
+
+Float
+
+Clearfix
+
+List reset
+
+Templates
+
+Templates
+
+404 page
+
+Documentation page
+
+Landing page
+
+Authentication pages
+
+Form templates
+
+About
+
+About
+
+Key benefits
+
+Product values
+
+Contribute
+
+Community
+
+What’s new
+
+Monthly calls
+
+Product roadmap
+
+Research
+
+Security
+
+Website policies and notices
+
+How to use USWDS
+
+Design principles
+
+Components
+
+Patterns
+
+Design tokens
+
+Utilities
+
+Templates
+
+About
+
+Search
+
+Read website standards
+
+Download v3.14.0
+
+View on GitHub
+
+Components
+
+Accordion
+
+Alert
+
+Alert accessibility tests
+
+Banner
+
+Breadcrumb
+
+Button
+
+Button group
+
+Card
+
+Character count
+
+Checkbox
+
+Collection
+
+Combo box
+
+Data visualizations
+
+Date picker
+
+Date range picker
+
+File input
+
+Footer
+
+Form
+
+Grid
+
+Header
+
+Icon
+
+Icon list
+
+Identifier
+
+In-page navigation
+
+Input mask
+
+Input prefix/suffix
+
+Language selector
+
+Link
+
+List
+
+Memorable date
+
+Modal
+
+Pagination
+
+Process list
+
+Prose
+
+Radio buttons
+
+Range slider
+
+Search
+
+Select
+
+Side navigation
+
+Site alert
+
+Step indicator
+
+Summary box
+
+Table
+
+Tag
+
+Text input
+
+Time picker
+
+Tooltip
+
+Typography
+
+Validation
+
+Components
+
+Alert
+
+An alert keeps users informed of important and sometimes time-sensitive changes.
+
+Passed WCAG 2.1 AA
+
+Component preview
+
+Standard alerts
+
+Informative status
+
+Lorem ipsum dolor sit amet,
+ consectetur adipiscing
+ elit, sed do eiusmod.
+
+Warning status
+
+Lorem ipsum dolor sit amet,
+ consectetur adipiscing
+ elit, sed do eiusmod.
+
+Success status
+
+Lorem ipsum dolor sit amet,
+ consectetur adipiscing
+ elit, sed do eiusmod.
+
+Error status
+
+Lorem ipsum dolor sit amet,
+ consectetur adipiscing
+ elit, sed do eiusmod.
+
+Emergency status
+
+Lorem ipsum dolor sit amet,
+ consectetur adipiscing
+ elit, sed do eiusmod.
+
+Slim alert
+
+Lorem ipsum dolor sit amet,
+ consectetur adipiscing
+ elit, sed do eiusmod.
+
+Alert with no icon
+
+Lorem ipsum dolor sit amet,
+ consectetur adipiscing
+ elit, sed do eiusmod.
+
+Component code
+
+<h3 class="site-preview-heading">Standard alerts</h3>
+
+<div class="usa-alert usa-alert--info">
+ <div class="usa-alert__body">
+ <h4 class="usa-alert__heading">Informative status</h4>
+ <p class="usa-alert__text">
+ Lorem ipsum dolor sit amet,
+ <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+ elit, sed do eiusmod.
+ </p>
+ </div>
+</div>
+
+<div class="usa-alert usa-alert--warning">
+ <div class="usa-alert__body">
+ <h4 class="usa-alert__heading">Warning status</h4>
+ <p class="usa-alert__text">
+ Lorem ipsum dolor sit amet,
+ <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+ elit, sed do eiusmod.
+ </p>
+ </div>
+</div>
+
+<div class="usa-alert usa-alert--success">
+ <div class="usa-alert__body">
+ <h4 class="usa-alert__heading">Success status</h4>
+ <p class="usa-alert__text">
+ Lorem ipsum dolor sit amet,
+ <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+ elit, sed do eiusmod.
+ </p>
+ </div>
+</div>
+
+<div class="usa-alert usa-alert--error" role="alert">
+ <div class="usa-alert__body">
+ <h4 class="usa-alert__heading">Error status</h4>
+ <p class="usa-alert__text">
+ Lorem ipsum dolor sit amet,
+ <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+ elit, sed do eiusmod.
+ </p>
+ </div>
+</div>
+
+<div class="usa-alert usa-alert--emergency" role="alert">
+ <div class="usa-alert__body">
+ <h4 class="usa-alert__heading">Emergency status</h4>
+ <p class="usa-alert__text">
+ Lorem ipsum dolor sit amet,
+ <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+ elit, sed do eiusmod.
+ </p>
+ </div>
+</div>
+
+<h3 class="site-preview-heading">Slim alert</h3>
+
+<div class="usa-alert usa-alert--info usa-alert--slim">
+ <div class="usa-alert__body">
+ <p class="usa-alert__text">
+ Lorem ipsum dolor sit amet,
+ <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+ elit, sed do eiusmod.
+ </p>
+ </div>
+</div>
+
+<h3 class="site-preview-heading">Alert with no icon</h3>
+
+<div class="usa-alert usa-alert--info usa-alert--no-icon">
+ <div class="usa-alert__body">
+ <p class="usa-alert__text">
+ Lorem ipsum dolor sit amet,
+ <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+ elit, sed do eiusmod.
+ </p>
+ </div>
+</div>
+
+<h3 class="site-preview-heading">Standard alerts</h3>
+
+<div class="usa-alert usa-alert--info">
+ <div class="usa-alert__body">
+ <h4 class="usa-alert__heading">Informative status</h4>
+ <p class="usa-alert__text">
+ Lorem ipsum dolor sit amet,
+ <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+ elit, sed do eiusmod.
+ </p>
+ </div>
+</div>
+
+<div class="usa-alert usa-alert--warning">
+ <div class="usa-alert__body">
+ <h4 class="usa-alert__heading">Warning status</h4>
+ <p class="usa-alert__text">
+ Lorem ipsum dolor sit amet,
+ <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+ elit, sed do eiusmod.
+ </p>
+ </div>
+</div>
+
+<div class="usa-alert usa-alert--success">
+ <div class="usa-alert__body">
+ <h4 class="usa-alert__heading">Success status</h4>
+ <p class="usa-alert__text">
+ Lorem ipsum dolor sit amet,
+ <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+ elit, sed do eiusmod.
+ </p>
+ </div>
+</div>
+
+<div class="usa-alert usa-alert--error" role="alert">
+ <div class="usa-alert__body">
+ <h4 class="usa-alert__heading">Error status</h4>
+ <p class="usa-alert__text">
+ Lorem ipsum dolor sit amet,
+ <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+ elit, sed do eiusmod.
+ </p>
+ </div>
+</div>
+
+<div class="usa-alert usa-alert--emergency" role="alert">
+ <div class="usa-alert__body">
+ <h4 class="usa-alert__heading">Emergency status</h4>
+ <p class="usa-alert__text">
+ Lorem ipsum dolor sit amet,
+ <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+ elit, sed do eiusmod.
+ </p>
+ </div>
+</div>
+
+<h3 class="site-preview-heading">Slim alert</h3>
+
+<div class="usa-alert usa-alert--info usa-alert--slim">
+ <div class="usa-alert__body">
+ <p class="usa-alert__text">
+ Lorem ipsum dolor sit amet,
+ <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+ elit, sed do eiusmod.
+ </p>
+ </div>
+</div>
+
+<h3 class="site-preview-heading">Alert with no icon</h3>
+
+<div class="usa-alert usa-alert--info usa-alert--no-icon">
+ <div class="usa-alert__body">
+ <p class="usa-alert__text">
+ Lorem ipsum dolor sit amet,
+ <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+ elit, sed do eiusmod.
+ </p>
+ </div>
+</div>
+
+Guidance
+
+When to use the alert component
+
+System status messages. An alert may be a notification that keeps people informed of the status of the system and may or may not require the user to respond. Such notifications may be errors, warnings, and general updates.
+
+ Validation messages. An alert may be a validation message that informs a user they just took an action that needs to be corrected or a confirmation that a task was completed successfully.
+
+When to consider something else
+
+Long forms. On long forms, always include in-line validation in addition to any error messages that appear at the top of the form.
+
+ Destructive actions. If an action will result in destroying a user’s work (for example, deleting an application) use a more intrusive pattern, such as a confirmation modal dialogue, to allow the user to confirm that this action is what they want.
+
+Usability guidance
+
+Create short and clear alert titles. The alert heading should include the alert type and can provide more about the alert, but shouldn’t include more than one line of text. Add any additional alert details in the body text of the alert.
+
+ Consider next steps. When the user is required to do something in response to an alert, let them know what they need to do, and make that task as easy as possible. Think about how much context to provide with your message. For example, a system status message may require more contextual information than a validation message. Write the message in concise, human-readable language; avoid jargon and computer code.
+
+ Be polite. Be polite in error messages — don’t blame the user.
+
+ Alerts are an opportunity. Users will read a message that helps them resolve an error even if they generally won’t read documentation; include some educational material in your error message.
+
+ Don’t overdo it. Too many notifications will either overwhelm or annoy the user and are likely to be ignored.
+
+ Allow a user to dismiss a notification whenever appropriate. USWDS is working on a way to help developers implement a dismissible alert. You can follow our progress on GitHub.
+
+ Understand the user’s context. Don’t include notifications that aren’t related to the user’s current goal.
+
+Accessibility guidance
+
+Test the alert component in your own project.
+
+USWDS tested the alert component for accessibility. You should test your implementation, too.
+
+Use alert accessibility tests
+
+Start the alert’s text with a word describing the alert type. Specify the type of alert in the first word of its text. Depending on the type of alert component (informative, warning, etc.), that text may be set as heading or body copy. Users should be able to understand the purpose of the alert without relying solely on its color or the shape of its icon. If leading with the alert type makes the alert itself unclear, consider including it in the body text.
+
+ Use the appropriate alert type.
+ 
+ Informative: Non-critical information, such as status. For informative alert types, consider using “Announcement” or a more precise term as the first word.
+
+ Warning: Potentially critical information that might impact the experience or require action.
+
+ Success: Information that indicates an action was successful.
+
+ Error: Information that indicates an action failed.
+
+ Emergency: Critical, high-priority information that will impact the experience and might require immediate action.
+
+Don’t visually hide alert messages and then make them visible when they are needed. Users of older assistive technologies may still be able to perceive the alert messages even if they are not currently applicable.
+
+ Use the proper ARIA role. The ARIA role attribute can notify assistive technologies of time-sensitive and important messages. To elevate the importance of the alert, choose the appropriate role from the ARIA roles table and add it to the .usa-alert element.
+
+Alert ARIA roles
+
+Attribute
+ Use Case
+
+role="alert"
+
+Important messages that demand the user's immediate attention.
+ 
+Example: Error or emergency alert
+
+role="status"
+
+Messages that provide advisory information but do not have the same urgency as alerts.
+ 
+Example: Success alert
+
+role="region"
+
+Messages that provide information the user would want to be able to easily find, but are not important enough to interrupt user workflow.
+ 
+Example: Informative or warning alert
+
+ Note: you must add an appropriate aria-label or aria-labelledby attribute when using this role.
+
+Reference: WAI-ARIA
+
+Using the alert component
+
+Alert settings
+
+Variable
+ Description
+
+$theme-alert-bar-width
+
+Width of the colored bar to the left of the alert.
+
+$theme-alert-font-family
+
+Font family of the alert.
+
+$theme-alert-icon-size
+
+Size of the alert icon.
+
+$theme-alert-padding-x
+
+Padding on the left and right of the alert.
+
+$theme-alert-padding-y
+
+Padding on the top and bottom of the alert.
+
+$theme-alert-text-color
+
+Text color on light backgrounds. Default uses text color set in $theme-text-color.
+
+$theme-alert-link-color
+
+Link color on light backgrounds. Default uses text color set in $theme-text-color.
+
+$theme-alert-text-reverse-color
+
+Text color on dark backgrounds. Default uses reverse text color set in $theme-text-reverse-color.
+
+$theme-alert-link-reverse-color
+
+Link color on dark backgrounds. Default uses reverse link color set in $theme-link-reverse-color.
+
+Alert variants
+
+Variant
+
+ Description
+
+.usa-alert--emergency
+
+Display an emergency status alert.
+
+.usa-alert--error
+
+Display an error status alert.
+
+.usa-alert--info
+
+Display an informational status alert.
+
+.usa-alert--no-icon
+
+Display an alert without an icon.
+
+.usa-alert--slim
+
+Display a slimmer version of the alert.
+
+.usa-alert--success
+
+Display an success status alert.
+
+.usa-alert--warning
+
+Display an warning status alert.
+
+Accessibility test status
+
+The USWDS team did 9 tests based on WCAG 2.1 AA success criteria.
+
+Overview of recent accessibility test results:
+
+Total tests
+
+Passed
+
+Passed with exceptions
+
+Conditional
+
+Failed
+
+9
+
+3
+
+0
+
+6
+
+0
+
+Overview of recent accessibility test results:
+
+Passed: 3
+
+Passed with exceptions: 0
+
+Conditional: 6
+
+Failed: 0
+
+Learn more on the alert accessibility tests page.
+
+Package
+
+Package usage: @forward "usa-alert";
+
+Dependencies: uswds-fonts, 
+usa-icon
+
+Latest updates
+Meaningful code and guidance updates are listed in the following table:
+
+Date
+ USWDS version
+ Affects
+ Breaking
+ Description
+
+2026-08-18
+
+N/A
+
+Accessibility
+
+Guidance
+
+No
+
+Added recommendations to start the alert’s text with the alert type, along with additional clarity on titles and alert type usage.
+
+More information:
+ 
+ uswds-site#3288
+
+2025-01-14
+
+N/A
+
+Guidance
+
+No
+
+Added WCAG compliance tag and accessibility test status section.
+
+More information:
+ 
+ uswds-site#3048
+
+2024-10-04
+
+3.9.0
+
+Styles
+
+Breaking
+
+Breaking
+
+Fixed a bug that caused $theme-site-margins-width to unexpectedly change the alignment inside alert and site alert components.
+
+Alignment of alert and site alert components will likely shift from this change.
+Confirm that your implementation of the component aligns as expected.
+
+More information:
+ 
+ uswds#5636
+
+2024-03-27
+
+N/A
+
+Guidance
+
+No
+
+Added a note about USWDS developing dismissible alerts.
+
+More information:
+ 
+ uswds-site#2563
+
+2023-11-20
+
+N/A
+
+Guidance
+
+No
+
+Added documentation for the usa-alert--emergency variant.
+
+More information:
+ 
+ uswds-site#2149
+
+2023-06-09
+
+3.5.0
+
+Styles
+
+No
+
+Removed redundant and invalid height declaration.
+
+More information:
+ 
+ uswds#5187
+
+2023-03-09
+
+3.4.0
+
+Styles
+
+No
+
+Updated padding settings to accept any valid spacing token.
+
+More information:
+ 
+ uswds#5076
+
+2022-10-19
+
+3.2.0
+
+Styles
+
+No
+
+Updated the alignment of alert content to visually match banner content.
+
+The site alert component was also updated.
+
+More information:
+ 
+ uswds#4922
+
+2022-09-26
+
+N/A
+
+Accessibility
+
+Guidance
+
+No
+
+Updated instructions for using the ARIA role attribute.
+
+More information:
+ 
+ uswds-site#1770
+
+2022-04-28
+
+3.0.0
+
+Assets
+
+JavaScript
+
+Styles
+
+Breaking
+
+Breaking
+
+Updated to Sass module syntax and new package structure.
+
+More information:
+ 
+ uswds#4656
+
+2021-03-17
+
+2.11.1
+
+Assets
+
+No
+
+Restored missing white icons.
+
+Restored error--white, info--white, and warning--white icons.
+
+More information:
+ 
+ uswds#4106
+
+2021-03-17
+
+2.11.0
+
+Assets
+
+Styles
+
+No
+
+Provided better support for color icons that adapt to theme settings.
+
+Now the color of the alert icon will update automatically to adapt to the alert background, or to the color of the alert text.
+
+More information:
+ 
+ uswds#4079
+
+2021-03-17
+
+2.11.0
+
+Styles
+
+No
+
+Added the $theme-alert-padding-y setting.
+
+More information:
+ 
+ uswds#4079
+
+Was this page helpful?
+
+Become part of the community
+
+USWDS is an active open source community of government engineers, content specialists, and designers. Our contributors both in and out of government support dozens of agencies and nearly 200 sites.
+
+Have an idea or an issue?
+
+ Reach out in GitHub
+
+Engage with the community
+
+ Find a channel that works for you
+
+Subscribe to our newsletter
+
+ Sign up for USWDS updates
+
+Get support
+
+ Email the USWDS team
+
+Looking for USWDS v1 documentation?
+ Visit v1.designsystem.digital.gov
+
+designsystem.digital.gov
+
+ An official website of the General Services Administration
+
+About GSA
+
+Accessibility statement
+
+FOIA requests
+
+No FEAR Act data
+
+Office of the Inspector General
+
+Performance reports
+
+Privacy policy
+
+Looking for U.S. government information and services?
+
+Visit USA.gov

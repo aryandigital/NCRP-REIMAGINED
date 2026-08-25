@@ -1,0 +1,45 @@
+﻿=== user TEXT ===
+<timestamp>Monday, Aug 24, 2026, 2:25 PM (UTC+5:30)</timestamp>
+<user_query>
+Research the world's best government digital design systems, from a UI/UX perspective. Use WebSearch and WebFetch. Today is August 2026.
+
+Produce a detail-dense markdown brief with EXACT specifics: hex codes, font names, pixel/rem values, pattern names, verbatim copy examples, and URLs. Do not be vague.
+
+Cover:
+
+1. GOV.UK Design System / GDS (design-system.service.gov.uk)
+   - The "one thing per page" pattern: what it is, why it works, the cognitive-load reasoning, and when GDS says NOT to use it.
+   - "Check your answers" pattern: exact structure (summary list, Change links, where the submit button goes, the declaration wording).
+   - Task list pattern: structure, status tags ("Completed", "In progress", "Cannot start yet"), and the counter ("You have completed 2 of 5 sections").
+   - Error summary pattern: placement, focus behaviour, exact wording rules for error messages (GDS has explicit rules like "say what went wrong and how to fix it", "There is a problem" heading). Give verbatim examples.
+   - Typography: the GDS Transport font, the type scale (exact px/rem values for headings and body at desktop and mobile), line-height values, line-length/measure guidance.
+   - Colour palette: exact hex values for the full GOV.UK palette (blue #1d70b8, black, dark grey, mid grey, light grey, red #d4351c, green #00703c, yellow focus #ffdd00, link colours, visited link, focus text colour #0b0c0c, etc). Get the real values.
+   - Focus state: the exact yellow focus ring spec (colour, box-shadow values, underline).
+   - Spacing scale (the govuk-spacing points and their px values), grid system, page width.
+   - Content design rules: reading-age target, plain-English substitutions GDS mandates (their A-Z of words to avoid), sentence case rules, active voice, use of "you" and "we", how they write headings and button labels, contractions policy.
+   - What GOV.UK deliberately AVOIDS and why: carousels, hero images, accordions in some cases, animation, icons, "Read more" links, PDFs, etc.
+   - Their "start page" pattern, breadcrumbs, phase banners (Alpha/Beta), notification banner, warning text, inset text, details/summary components.
+
+2. U.S. Web Design System (USWDS, designsystem.digital.gov) and Login.gov / IRS Direct File
+   - Colour system and tokens, typography (Public Sans, Source Sans Pro), the "magic number" spacing units.
+   - Key patterns USWDS has that GOV.UK doesn't (e.g. step indicator, process list, summary box, site alert, banner "An official website of the United States government", identity verification patterns, complex form patterns).
+   - Accessibility approach and anything they do better than GOV.UK.
+   - IRS Direct File: what was praised about its UX in 2024-2026.
+
+3. Other highly-regarded government design systems and services. For each, say what is specifically good, what visual/interaction patterns they use, and describe the aesthetic:
+   - Singapore: GovTech, Singpass, the Singapore Government Design System / "Designing for Singapore Government" (SGDS), and gov.sg. Also ScamShield.
+   - Estonia: e-Estonia, eesti.ee
+   - Netherlands: NL Design System, Rijkshuisstijl (the Dutch government house style is notable: RO Sans, the ribbon)
+   - Canada: Canada.ca Content and Information Architecture Specification, GC Design System, their task-based approach and their famous user-testing-driven content model
+   - Australia: Australian Government Design System, myGov, Scamwatch, and the "Digital Service Standard"
+   - New Zealand: NZ Government Design System
+   - Denmark / Norway: Det FÃ¦lles Designsystem, Digdir "Designsystemet"
+   - Ontario Design System, Nova Scotia, and the US State of California design system
+   - Germany: KERN / Bundesregierung, and the "Digitalservice" work
+   Focus on what makes each distinctive visually and interactionally, not just that it exists.
+
+4. Anti-patterns in government UI: what specifically makes citizens abandon a government form or distrust a government site. Cite research (NNGroup, GDS blog posts, Code for America, etc.). Include specific findings about form abandonment rates, session timeouts, CAPTCHA, mandatory login, self-categorisation of one's own problem.
+
+Return a long, well-organized brief. Specifics only.
+</user_query>
+

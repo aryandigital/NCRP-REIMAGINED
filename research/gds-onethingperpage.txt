@@ -1,0 +1,296 @@
+﻿One thing per page – Design in government
+
+Skip to main content
+
+Blog:
+ Design in government
+
+Organisations:
+ Civil Service
+
+Search blog
+
+https://designnotes.blog.gov.uk/2015/07/03/one-thing-per-page/
+
+One thing per page
+
+Posted by: 
+ Tim Paul, Posted on:
+ 3 July 2015
+ -
+ Categories:
+ Tried & tested 
+
+Yesterday we updated our guidance on how to design form content for services on GOV.UK. In the previous version we’d discussed the relative merits of three approaches:
+
+one question per page
+
+all questions on a single page
+
+single page, but previous questions are collapsed
+
+Since then we’ve had a lot more experience designing services for the general public. We’re now confident that you should start with the first approach and split all your questions out on to separate pages.
+
+The new guide goes into more detail about why we think forms work better like this, but to summarise:
+
+low-confidence users find them easier to use
+
+they work well on mobile devices
+
+they’re better at handling things like errors, branches, loops and saving progress
+
+Read the new guide
+
+ 
+
+Good services are verbs, bad services are nouns 
+
+How good is your service? How many users give up? 
+
+Sharing and comments
+
+Share this page
+
+X (formerly Twitter)
+
+Facebook
+
+LinkedIn
+
+Email
+
+9 comments
+
+Comment by
+ Tim Blackwell
+ posted on 
+ 03 July 2015
+
+I've always liked one question per page:-
+
+- because it lets you be more conversational 
+
+- because it gives the best opportunities for filtering
+
+- because it makes it easier to include contextual support from previous
+
+answers
+
+I maintain an application with a very large number of potential questions, of which several dozen might be asked in a typical consulation. Some years back we moved from strictly one-question-at-a-time to a hybrid approach with limited grouping. We did this because:
+
+- navigating around very long question sequences was overwhelming for users
+
+- it was sometimes easier for users to have subsidiary parts of a question on screen at the same time
+
+To illustrate the second point, suppose we need to know whether someone is in work, but also whether they're on sick leave, maternity leave etc.
+
+Users found (not sure how code will format, apologies)
+
+Q1 Are you in work [ 1a]
+
+ :if pregnant_or_recent_birth: and on maternity leave [ 1b] /if
+
+ :if has_sickness_or_disability: and off sick [1c ] /if.
+
+-
+
+easier to answer than :
+
+Q1) Are you in work?
+
+Q2) :if in_work and is_pregnant_or_recent_birth: Are you on maternity leave? /if
+
+Q3) :if in_work and has_sickness_or_disability: Are you on sick leave? /if
+
+and was less cumbersome than explicitly reminding users that they might be in work and off work
+
+because of sickness or disability etc, then duplicating text by asking the specific leave questions independently.
+
+Q1 Are you in work?
+
+ :if has_sickness_or_disability: answer yes if you are in work but off work due to sickness /if
+
+ :if pregnant_or_new_mother: answer yes if you are on maternity leave /if
+
+Q2..
+
+Q3..
+
+Procedural branching does not scale well for us as a filtering mechanism - especially when information is potentially required in multiple contexts. Declarative statements work much better - so that as far as possible questions are only asked at the point of use (ie the point where we fail to deduce something *without* asking a question). The trade-off is loss of narrative control over the dialogue - we use some procedural nudges in an effort to make the question sequence more natural. But it's far from perfect.
+
+Link to this comment
+
+Replies to Tim Blackwell>
+
+Comment by
+ Tim Paul
+ posted on 
+ 03 July 2015
+
+Thanks Tim. We agree - whilst it's good to start with everything on it's own page, user research can help you identify opportunities for merging questions. Also - this technique shouldn't be used to mask the fact that you've got too many questions - which is why a question protocol is so important.
+
+Link to this comment
+
+Comment by
+ Joanne Schofield
+ posted on 
+ 06 July 2015
+
+Hi Tim
+
+There's a counter-argument that one question per page is frustrating for a user because it takes time waiting for each page to load, the links between pages are often hard to thumb on mobile, it breaks the readers flow etc.
+
+Now people are more use to scrolling, have any of these points come out at user research?
+
+Thanks
+
+Link to this comment
+
+Replies to Joanne Schofield>
+
+Comment by
+ Joe Lanman
+ posted on 
+ 21 July 2015
+
+Hi Joanne, thanks for your comment.
+
+I'm a designer at GDS, I worked on Register to vote, and now GOV.UK Verify, and we've researched the 'one thing per page' pattern in great depth on both.
+
+You're right, it's key that page load times are very fast when using this pattern - we try and make sure that's the case.
+
+We always make sure that the interface on mobile is easy to use - for example buttons are often full width, and we make sure to test this with users in the lab.
+
+On balance, we see many benefits in lab to using one thing per page, as Tim detailed in the article, and the linked guidance, and we'd encourage projects to start with this approach and see how it goes with your users in research.
+
+Link to this comment
+
+Comment by
+ Tony Barron
+ posted on 
+ 13 April 2016
+
+The 'one thing at a time' approach probably works quite well in the example situation. Transfer it to dealings with, say, HMRC and it causes a problem for the respondent. Most people don't have a comprehensive summary of their finances immediately available, and each new question can lead to half a day rummaging through drawers and boxes to find mislaid (or probably put in a place that was too "safe") paperwork. (Remember how many days it took to fill in a paper tax return?) Maybe the best approach would be to provide a complete example form, or a list of questions, for viewing; so that necessary information can be gathered before the actual filling in stage?
+
+Link to this comment
+
+Replies to Tony Barron>
+
+Comment by
+ Tim Paul
+ posted on 
+ 15 April 2016
+
+Hi Tony, thanks for the response. You're right - the scenario you describe is a very common one, and not just for tax services. 
+
+We think that you can combine the approach described above with other design patterns that help people in that scenario though. 
+
+We already have a pattern for summarising the information a user has provided, and many services on GOV.UK allow users to save and return, or to enter information in an order that's convenient for them.
+
+We're discussing some of this work on our wiki. Please, feel free to contribute if you'd like to.
+
+Link to this comment
+
+Comment by
+ Tim Paul
+ posted on 
+ 18 July 2017
+
+Hi there Artyom. I wish we had some easy-to-share quant data on this as well, but I'm not aware of any. It would require a high-volume service building both versions and then A/B testing them - a lot of extra work for a service team. We're developing a prototype specifically for the purpose of testing different patterns - so we may have an opportunity for some quant research, but not with very high numbers.
+
+Link to this comment
+
+Comment by
+ Mike Higham
+ posted on 
+ 10 May 2018
+
+I'm really interested in exploring the 'One thing per page' approach for some long forms I'm creating. The forms contain a large amount of conditional fields and what I'm not sure about is how to signal to users their progress through the form.
+
+For example, users could end up with a form that is only 2-3 questions long or it could be up to 20 questions based on their first few answers.
+
+Do you have any guidance for showing progress to users in forms that use a 'One page per thing' approach and contain conditional fields?
+
+Link to this comment
+
+Replies to Mike Higham>
+
+Comment by
+ Tim Paul
+ posted on 
+ 11 May 2018
+
+Hi Mike, thanks for your question. Our guidance for showing progress is here: https://www.gov.uk/service-manual/design/progress-indicators
+
+We recommend a simple step indicator (eg. "Question 3 of 5"). Try to order and group questions to minimise the variance if you can, but obviously this isn't always possible. If you can't accurately report the total number of questions you could omit that number, or update it as the user works through the form. Research should tell you the effect that either of these approaches has on your users - we'd been keen to hear how it goes 🙂
+
+Link to this comment
+
+Related content and links
+
+ Design in government
+We believe working in the open makes things better. This blog is for people designing all aspects of public services, from local to central government, to share their projects, ideas and concepts, or just to think out loud.
+
+Find out more or submit an idea
+
+Subscribe to Open Notes
+
+Sign up to get updates direct to your inbox and stay informed about improvements to digital products and services in government.
+
+Categories
+Categories
+ Select Category
+ Community  (41)
+ Content Design  (17)
+ Design  (95)
+    Policy Design  (1)
+ Design profiles  (5)
+ Design System  (13)
+ Equity  (5)
+ Experimental  (26)
+ Frontend  (14)
+ Interaction Design  (6)
+ International  (16)
+ Journey Maps  (1)
+ Likely to change  (25)
+ Prototype kit  (1)
+ Service Design  (36)
+ Service Patterns  (8)
+ Training  (3)
+ Tried & tested  (35)
+ Uncategorized  (10)
+ User Research  (7)
+
+Other blogs and resources
+Inside GOV.UK
+
+Government Digital Service blog
+
+Govdesign Tumblr
+
+Gov Design YouTube channel
+
+Services in government blog
+
+Government Digital and Data blog
+
+Comments and moderation
+ Read our guidelines
+
+Useful links
+
+All GOV.UK blogs
+
+All GOV.UK blog posts
+
+GOV.UK
+
+All departments
+
+Accessibility statement
+
+Cookies
+
+All content is available under the Open Government Licence v3.0, except where otherwise stated 
+
+© Crown copyright

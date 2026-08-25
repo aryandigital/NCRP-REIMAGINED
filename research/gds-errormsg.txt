@@ -1,0 +1,989 @@
+﻿Error message – GOV.UK Design System
+
+Cookies on GOV.UK Design System
+
+We’d like to use analytics cookies so we can understand how you use the Design System and make improvements.
+
+ We also use essential cookies to remember if you’ve accepted analytics cookies.
+
+Accept analytics cookies
+
+Reject analytics cookies
+ 
+ View cookies
+
+You’ve accepted analytics cookies. You can change your cookie settings at any time.
+
+Hide cookie message
+
+You’ve rejected analytics cookies. You can change your cookie settings at any time.
+
+Hide cookie message
+
+Skip to main content
+
+Design System
+
+Search Design system
+ Sitemap
+
+Menu
+
+Get started 
+
+Get started overview
+
+Setup guides
+
+Prototyping
+
+Production
+
+How to guides
+
+Making labels and legends headings
+
+Extending and modifying components in production
+
+Understanding focus state styles
+
+Using the updated type scale
+
+Styles 
+
+Styles overview
+
+Page structure
+
+Page template
+
+Layout
+
+Spacing
+
+Section break
+
+Typography
+
+Typeface
+
+Type scale
+
+Headings
+
+Paragraphs
+
+Links
+
+Lists
+
+Font override classes
+
+Visual elements
+
+Colour
+
+Images
+
+Components 
+
+Components overview
+
+Accordion
+
+Back link
+
+Breadcrumbs
+
+Button
+
+Character count
+
+Checkboxes
+
+Cookie banner
+
+Date input
+
+Details
+
+Error message
+
+Error summary
+
+Exit this page
+
+Fieldset
+
+File upload
+
+Generic header
+
+GOV.UK footer
+
+GOV.UK header
+
+Inset text
+
+Notification banner
+
+Pagination
+
+Panel
+
+Password input
+
+Phase banner
+
+Radios
+
+Select
+
+Service navigation
+
+Skip link
+
+Summary list
+
+Table
+
+Tabs
+
+Tag
+
+Task list
+
+Text input
+
+Textarea
+
+Warning text
+
+Patterns 
+
+Patterns overview
+
+Ask users for…
+
+Addresses
+
+Bank details
+
+Dates
+
+Email addresses
+
+Equality information
+
+Names
+
+National Insurance numbers
+
+Passwords
+
+Payment card details
+
+Phone numbers
+
+Help users to…
+
+Check a service is suitable
+
+Check answers
+
+Complete multiple tasks
+
+Confirm a phone number
+
+Confirm an email address
+
+Contact a department or service team
+
+Create a username
+
+Create accounts
+
+Exit a page quickly
+
+Navigate a service
+
+Recover from validation errors
+
+Start using a service
+
+Pages
+
+Confirmation pages
+
+Cookies page
+
+Interruption pages
+
+Page not found pages
+
+Question pages
+
+Service unavailable pages
+
+Step by step navigation
+
+There is a problem with the service pages
+
+Community 
+
+Community overview
+
+What we’re working on
+
+Upcoming components and patterns
+
+Roadmap
+
+What's new
+
+Ways to get involved
+
+Take part in our research
+
+Share findings about your users
+
+Propose a component or pattern
+
+Develop a component or pattern
+
+Propose a content change using GitHub
+
+How we work
+
+Community principles
+
+Contribution criteria
+
+Blog posts, videos and podcasts
+
+Resources
+
+Resources and tools
+
+Events and workshops
+
+Design System Day events
+
+Code of Conduct
+
+Accessibility 
+
+Accessibility overview
+
+Accessibility strategy
+
+Pages in this section
+
+Accordion
+
+Back link
+
+Breadcrumbs
+
+Button
+
+Character count
+
+Checkboxes
+
+Cookie banner
+
+Date input
+
+Details
+
+Error message
+
+Error summary
+
+Exit this page
+
+Fieldset
+
+File upload
+
+Generic header
+
+GOV.UK footer
+
+GOV.UK header
+
+Inset text
+
+Notification banner
+
+Pagination
+
+Panel
+
+Password input
+
+Phase banner
+
+Radios
+
+Select
+
+Service navigation
+
+Skip link
+
+Summary list
+
+Table
+
+Tabs
+
+Tag
+
+Task list
+
+Text input
+
+Textarea
+
+Warning text
+
+Home
+
+Components
+
+Error message
+
+This guidance is for government teams that build online services. To find information and services for the public, go to GOV.UK.
+
+Follow the Validation pattern and show an error message when there is a validation error. In the error message explain what went wrong and how to fix it.
+
+Open this example in a new tab: error message
+
+HTML
+
+ Nunjucks
+
+HTML
+
+<div class="govuk-form-group govuk-form-group--error">
+ <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint passport-issued-error">
+ <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+ <h1 class="govuk-fieldset__heading">
+ When was your passport issued?
+ </h1>
+ </legend>
+ <div id="passport-issued-hint" class="govuk-hint">
+ For example, 27 3 2007
+ </div>
+ <p id="passport-issued-error" class="govuk-error-message">
+ <span class="govuk-visually-hidden">Error:</span> The date your passport was issued must be in the past
+ </p>
+ <div class="govuk-date-input" id="passport-issued">
+ <div class="govuk-date-input__item">
+ <div class="govuk-form-group">
+ <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+ Day
+ </label>
+ <input class="govuk-input govuk-date-input__input govuk-input--error govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+ </div>
+ </div>
+ <div class="govuk-date-input__item">
+ <div class="govuk-form-group">
+ <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+ Month
+ </label>
+ <input class="govuk-input govuk-date-input__input govuk-input--error govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+ </div>
+ </div>
+ <div class="govuk-date-input__item">
+ <div class="govuk-form-group">
+ <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+ Year
+ </label>
+ <input class="govuk-input govuk-date-input__input govuk-input--error govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+ </div>
+ </div>
+ </div>
+ </fieldset>
+</div>
+
+Nunjucks
+
+Nunjucks macro options
+
+Use options to customise the appearance, content and behaviour of a component when using a macro, for example, changing the text.
+
+Some options are required for the macro to work; these are marked as “Required” in the option description. Deprecated options are marked as “Deprecated”.
+
+If you’re using Nunjucks macros in production with “html” options, or ones ending with “html”, you must sanitise the HTML to protect against cross-site scripting exploits.
+
+Primary options
+
+Name
+ Type
+ Description
+
+text
+ string
+ 
+ Required.
+ If html is set, this is not required. Text to use within the error message. If html is provided, the text option will be ignored.
+
+html
+ string
+ 
+ Required.
+ If text is set, this is not required. HTML to use within the error message. If html is provided, the text option will be ignored.
+
+id
+ string
+ 
+ ID attribute to add to the error message <p> tag.
+
+classes
+ string
+ 
+ Classes to add to the error message <p> tag.
+
+attributes
+ object
+ 
+ HTML attributes (for example data attributes) to add to the error message <p> tag.
+
+visuallyHiddenText
+ string
+ 
+ A visually hidden prefix used before the error message. Defaults to "Error".
+
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+{{ govukDateInput({
+ fieldset: {
+ legend: {
+ text: "When was your passport issued?",
+ isPageHeading: true,
+ classes: "govuk-fieldset__legend--l"
+ }
+ },
+ hint: {
+ text: "For example, 27 3 2007"
+ },
+ errorMessage: {
+ text: "The date your passport was issued must be in the past"
+ },
+ id: "passport-issued",
+ namePrefix: "passport-issued"
+}) }}
+
+When to use this component
+
+Show an error message next to the field and in the Error summary component when there is a validation error.
+
+Use standard messages for different components.
+
+When not to use this component
+
+Do not use error messages to tell a user that they are not eligible or do not have permission to do something. Or to tell them about a lack of capacity or other problem the user cannot fix - because the problem is with the service rather than with the information the user has provided.
+
+Instead, take the user to a page that explains the problem (for example, telling them why they’re not eligible) and provides useful information about what to do next.
+
+There are separate patterns for:
+
+‘There is a problem with the service’ pages
+
+‘Page not found’ pages
+
+‘Service unavailable’ pages
+
+How it works
+
+For each error:
+
+put the message in red after the question text and hint text
+
+use a red border to visually connect the message and the question it belongs to
+
+if the error relates to a specific field within the question, give it a red border and refer to that field in the error message - for example: “you must enter a year”
+
+Do not clear any form fields when showing the Error message component. Keep both passing and failing answers.
+
+Keeping information that caused errors helps users to:
+
+see what went wrong
+
+edit their previous answer
+
+avoid re-entering information
+
+To help screen reader users, the error message component includes a hidden ‘Error:’ before the error message. These users will hear, for example, “Error: The date your passport was issued must be in the past”.
+
+If your error message is written in another language, you can change the prefix as needed, as shown in this example.
+
+HTML
+
+ Nunjucks
+
+HTML
+
+<p class="govuk-error-message">
+ <span class="govuk-visually-hidden">Gwall:</span> Rhowch eich enw llawn
+</p>
+
+Nunjucks
+
+Nunjucks macro options
+
+Use options to customise the appearance, content and behaviour of a component when using a macro, for example, changing the text.
+
+Some options are required for the macro to work; these are marked as “Required” in the option description. Deprecated options are marked as “Deprecated”.
+
+If you’re using Nunjucks macros in production with “html” options, or ones ending with “html”, you must sanitise the HTML to protect against cross-site scripting exploits.
+
+Primary options
+
+Name
+ Type
+ Description
+
+text
+ string
+ 
+ Required.
+ If html is set, this is not required. Text to use within the error message. If html is provided, the text option will be ignored.
+
+html
+ string
+ 
+ Required.
+ If text is set, this is not required. HTML to use within the error message. If html is provided, the text option will be ignored.
+
+id
+ string
+ 
+ ID attribute to add to the error message <p> tag.
+
+classes
+ string
+ 
+ Classes to add to the error message <p> tag.
+
+attributes
+ object
+ 
+ HTML attributes (for example data attributes) to add to the error message <p> tag.
+
+visuallyHiddenText
+ string
+ 
+ A visually hidden prefix used before the error message. Defaults to "Error".
+
+{% from "govuk/components/error-message/macro.njk" import govukErrorMessage %}
+
+{{ govukErrorMessage({
+ text: "Rhowch eich enw llawn",
+ visuallyHiddenText: "Gwall"
+}) }}
+
+Summarise all errors at the top of the page the user is on using an Error summary component.
+
+There are 2 ways to use the error message component. You can use HTML or, if you are using Nunjucks or the GOV.UK Prototype Kit, you can use the Nunjucks macro.
+
+Legend
+
+Open this example in a new tab: error message with legend – error message
+
+HTML
+
+ Nunjucks
+
+HTML
+
+<div class="govuk-form-group govuk-form-group--error">
+ <fieldset class="govuk-fieldset" aria-describedby="nationality-hint nationality-error">
+ <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+ <h1 class="govuk-fieldset__heading">
+ What is your nationality?
+ </h1>
+ </legend>
+ <div id="nationality-hint" class="govuk-hint">
+ If you have dual nationality, select all options that are relevant to you
+ </div>
+ <p id="nationality-error" class="govuk-error-message">
+ <span class="govuk-visually-hidden">Error:</span> Select if you are British, Irish or a citizen of a different country
+ </p>
+ <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+ <div class="govuk-checkboxes__item">
+ <input class="govuk-checkboxes__input" id="nationality" name="nationality" type="checkbox" value="british">
+ <label class="govuk-label govuk-checkboxes__label" for="nationality">
+ British
+ </label>
+ </div>
+ <div class="govuk-checkboxes__item">
+ <input class="govuk-checkboxes__input" id="nationality-2" name="nationality" type="checkbox" value="irish">
+ <label class="govuk-label govuk-checkboxes__label" for="nationality-2">
+ Irish
+ </label>
+ </div>
+ <div class="govuk-checkboxes__item">
+ <input class="govuk-checkboxes__input" id="nationality-3" name="nationality" type="checkbox" value="other">
+ <label class="govuk-label govuk-checkboxes__label" for="nationality-3">
+ Citizen of another country
+ </label>
+ </div>
+ </div>
+ </fieldset>
+</div>
+
+Nunjucks
+
+Nunjucks macro options
+
+Use options to customise the appearance, content and behaviour of a component when using a macro, for example, changing the text.
+
+Some options are required for the macro to work; these are marked as “Required” in the option description. Deprecated options are marked as “Deprecated”.
+
+If you’re using Nunjucks macros in production with “html” options, or ones ending with “html”, you must sanitise the HTML to protect against cross-site scripting exploits.
+
+Primary options
+
+Name
+ Type
+ Description
+
+text
+ string
+ 
+ Required.
+ If html is set, this is not required. Text to use within the error message. If html is provided, the text option will be ignored.
+
+html
+ string
+ 
+ Required.
+ If text is set, this is not required. HTML to use within the error message. If html is provided, the text option will be ignored.
+
+id
+ string
+ 
+ ID attribute to add to the error message <p> tag.
+
+classes
+ string
+ 
+ Classes to add to the error message <p> tag.
+
+attributes
+ object
+ 
+ HTML attributes (for example data attributes) to add to the error message <p> tag.
+
+visuallyHiddenText
+ string
+ 
+ A visually hidden prefix used before the error message. Defaults to "Error".
+
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+ name: "nationality",
+ fieldset: {
+ legend: {
+ text: "What is your nationality?",
+ isPageHeading: true,
+ classes: "govuk-fieldset__legend--l"
+ }
+ },
+ hint: {
+ text: "If you have dual nationality, select all options that are relevant to you"
+ },
+ errorMessage: {
+ text: "Select if you are British, Irish or a citizen of a different country"
+ },
+ items: [
+ {
+ value: "british",
+ text: "British"
+ },
+ {
+ value: "irish",
+ text: "Irish"
+ },
+ {
+ value: "other",
+ text: "Citizen of another country"
+ }
+ ]
+}) }}
+
+Label
+
+Open this example in a new tab: error message with label – error message
+
+HTML
+
+ Nunjucks
+
+HTML
+
+<div class="govuk-form-group govuk-form-group--error">
+ <label class="govuk-label" for="national-insurance-number">
+ National Insurance number
+ </label>
+ <div id="national-insurance-number-hint" class="govuk-hint">
+ It’s on your National Insurance card, benefit letter, payslip or P60 – for example, ‘QQ 12 34 56 C’
+ </div>
+ <p id="national-insurance-number-error" class="govuk-error-message">
+ <span class="govuk-visually-hidden">Error:</span> Enter a National Insurance number in the correct format
+ </p>
+ <input class="govuk-input govuk-input--error" id="national-insurance-number" name="nationalInsuranceNumber" type="text" aria-describedby="national-insurance-number-hint national-insurance-number-error">
+</div>
+
+Nunjucks
+
+Nunjucks macro options
+
+Use options to customise the appearance, content and behaviour of a component when using a macro, for example, changing the text.
+
+Some options are required for the macro to work; these are marked as “Required” in the option description. Deprecated options are marked as “Deprecated”.
+
+If you’re using Nunjucks macros in production with “html” options, or ones ending with “html”, you must sanitise the HTML to protect against cross-site scripting exploits.
+
+Primary options
+
+Name
+ Type
+ Description
+
+text
+ string
+ 
+ Required.
+ If html is set, this is not required. Text to use within the error message. If html is provided, the text option will be ignored.
+
+html
+ string
+ 
+ Required.
+ If text is set, this is not required. HTML to use within the error message. If html is provided, the text option will be ignored.
+
+id
+ string
+ 
+ ID attribute to add to the error message <p> tag.
+
+classes
+ string
+ 
+ Classes to add to the error message <p> tag.
+
+attributes
+ object
+ 
+ HTML attributes (for example data attributes) to add to the error message <p> tag.
+
+visuallyHiddenText
+ string
+ 
+ A visually hidden prefix used before the error message. Defaults to "Error".
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+ label: {
+ text: "National Insurance number"
+ },
+ hint: {
+ text: "It’s on your National Insurance card, benefit letter, payslip or P60 – for example, ‘QQ 12 34 56 C’"
+ },
+ id: "national-insurance-number",
+ name: "nationalInsuranceNumber",
+ errorMessage: {
+ text: "Enter a National Insurance number in the correct format"
+ }
+}) }}
+
+Match up error messages to labels
+
+Error messages should directly include language from the question or fieldset label. This helps match up the error message with the relevant form field.
+
+Here are some examples of label and error message pairs.
+
+Example 1:
+
+Label: ‘How many hours do you work a week?’
+
+Error message: ‘Enter how many hours you work a week’
+
+Example 2:
+
+Label: ‘Address line 1’
+
+Error message: ‘Enter address line 1, typically the building and street’
+
+Be clear and concise
+
+Describe what has happened and tell them how to fix it. The message must be in plain English, use positive language and get to the point.
+
+Do not use:
+
+technical jargon like ‘form post error’, ‘unspecified error’ and ‘error 0x0000000643’
+
+words like ‘forbidden’, ‘illegal’, ‘you forgot’ and ‘prohibited’
+
+‘please’ because it implies a choice
+
+‘sorry’ because it does not help fix the problem
+
+‘valid’ and ‘invalid’ because they do not add anything to the message
+
+humourous, informal language like ‘oops’
+
+Do not give an example in the error message if there is an example on the screen. For example, if you are asking for a National Insurance number and include ‘QQ 12 34 56 C’ as hint text, do not include an example in the error message.
+
+Above all, aim for clarity.
+
+Read the message out loud to see if it sounds like something you would say.
+
+Be consistent
+
+Use the same message next to the field and in the Error summary component so they:
+
+look, sound and mean the same
+
+make sense out of context
+
+reduce the cognitive effort needed to understand what has happened
+
+Be specific
+
+General errors are not helpful to everyone. They do not make sense out of context. Avoid messages like:
+
+‘An error occurred’
+
+‘Answer the question’
+
+‘Select an option’
+
+‘Fill in the field’
+
+‘This field is required’
+
+Different errors need different messages. For example, text fields may be:
+
+empty
+
+too long
+
+too short
+
+using characters that are not allowed
+
+in the wrong format
+
+An error for a specific situation is more helpful. It will tell someone what has happened and how to fix it.
+
+Use instructions and descriptions
+
+Some errors work better as instructions and some work better as descriptions. For example:
+
+‘Enter your first name’ is clearer, more direct and natural than ‘First name must have an entry’
+
+‘Enter a first name that is 35 characters or less’ is wordier, less direct and natural than ‘First name must be 35 characters or less’
+
+‘Enter a date after 31 August 2017 for when you started the course’ is wordier, less direct and natural than ‘Date you started the course must be after 31 August 2017’
+
+Use both instructions and descriptions, but use them consistently. For example, use an instruction for empty fields like ‘Enter your name’, but a description like ‘Name must be 35 characters or less’ for entries that are too long.
+
+Use error message templates
+
+Use template messages for common errors on:
+
+Addresses pattern
+
+Character count component
+
+Checkboxes component
+
+Date input component
+
+Email address pattern
+
+File upload component
+
+Names pattern
+
+National Insurance numbers pattern
+
+Radios component
+
+Phone numbers pattern
+
+Text input component
+
+Textarea component
+
+Track errors
+
+Find out how often people see them. This will let you:
+
+improve content
+
+A/B test variations
+
+redesign a journey
+
+Research on this component
+
+Error messages designed using this guidance have been tested with all types of users in live services, including tax credits.
+
+Research showed users:
+
+understood what went wrong
+
+knew how to fix the problem
+
+were able to recover from the error
+
+If you’ve used this component, get in touch to share your user research findings.
+
+Help improve this component
+
+To help make sure that this page is useful, relevant and up to date, you can:
+
+take part in the
+ 
+ ‘Error message’ discussion on GitHub
+ 
+ and share your research
+
+propose a change on GitHub
+ – read more about
+ 
+ how to propose changes in GitHub
+
+Need help?
+
+If you’ve got a question about the GOV.UK Design System, contact the team.
+
+Back to top
+
+Support links
+
+Accessibility statement
+
+Sitemap
+
+Cookies
+
+Privacy
+
+Contact the team
+
+Built by the GOV.UK Design System team
+
+All content is available under the
+ Open Government Licence v3.0, except where otherwise stated
+
+© Crown copyright

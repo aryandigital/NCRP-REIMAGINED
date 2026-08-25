@@ -1,0 +1,774 @@
+﻿Font family | U.S. Web Design System (USWDS)
+
+Skip to main content
+
+An official website of the United States government
+
+Here’s how you know
+
+Here’s how you know
+
+Official websites use .gov
+A
+ .gov website belongs to an official government
+ organization in the United States.
+
+Secure .gov websites use HTTPS
+A
+ lock (
+ ) or https:// means you’ve safely connected to
+ the .gov website. Share sensitive information only on official,
+ secure websites.
+
+USWDS
+ U.S. Web Design System (USWDS)
+
+Menu
+
+How to use USWDS
+
+How to use USWDS
+
+Getting started for developers
+
+Getting started for designers
+
+Documentation
+
+Settings
+
+USWDS maturity model
+
+Accessibility
+
+Performance guidelines
+
+Code guidelines
+
+Migrating to USWDS 3.0
+
+Migrating to USWDS 2.0
+
+Implementations
+
+Showcase
+
+Sample contract language for 21st Century IDEA
+
+Website standards
+
+Design principles
+
+Components
+
+Components
+
+Accordion
+
+Alert
+
+Banner
+
+Breadcrumb
+
+Button
+
+Button group
+
+Card
+
+Character count
+
+Checkbox
+
+Collection
+
+Combo box
+
+Data visualizations
+
+Date picker
+
+Date range picker
+
+File input
+
+Footer
+
+Form
+
+Grid
+
+Header
+
+Icon
+
+Icon list
+
+Identifier
+
+In-page navigation
+
+Input mask
+
+Input prefix/suffix
+
+Language selector
+
+Link
+
+List
+
+Memorable date
+
+Modal
+
+Pagination
+
+Process list
+
+Prose
+
+Radio buttons
+
+Range slider
+
+Search
+
+Select
+
+Side navigation
+
+Site alert
+
+Step indicator
+
+Summary box
+
+Table
+
+Tag
+
+Text input
+
+Time picker
+
+Tooltip
+
+Typography
+
+Validation
+
+Patterns
+
+Patterns
+
+Introducing patterns
+
+Create a user profile
+
+Complete a complex form
+
+Select a language
+
+Design tokens
+
+Design tokens
+
+Color
+
+Typesetting
+
+Using type
+
+Font family
+
+Available fonts
+
+Type-based tokens
+
+Role-based tokens
+
+Customizing family tokens
+
+Using family tokens
+
+Adding fonts to USWDS
+
+Latest updates
+
+Font size
+
+Font weight
+
+Letterspacing
+
+Line height
+
+Measure (line length)
+
+Flex
+
+Opacity
+
+Order
+
+Shadow
+
+Spacing units
+
+Z-index
+
+Utilities
+
+Utilities
+
+Layout grid
+
+Color
+
+Height and width
+
+Margin and padding
+
+Border
+
+Outline
+
+Font size and family
+
+Text styles
+
+Paragraph styles
+
+Display
+
+Flex
+
+Shadow
+
+Float
+
+Clearfix
+
+List reset
+
+Templates
+
+Templates
+
+404 page
+
+Documentation page
+
+Landing page
+
+Authentication pages
+
+Form templates
+
+About
+
+About
+
+Key benefits
+
+Product values
+
+Contribute
+
+Community
+
+What’s new
+
+Monthly calls
+
+Product roadmap
+
+Research
+
+Security
+
+Website policies and notices
+
+How to use USWDS
+
+Design principles
+
+Components
+
+Patterns
+
+Design tokens
+
+Utilities
+
+Templates
+
+About
+
+Search
+
+Read website standards
+
+Download v3.14.0
+
+View on GitHub
+
+Design tokens
+
+Color
+
+Typesetting
+
+Using type
+
+Font family
+
+Available fonts
+
+Type-based tokens
+
+Role-based tokens
+
+Customizing family tokens
+
+Using family tokens
+
+Adding fonts to USWDS
+
+Latest updates
+
+Font size
+
+Font weight
+
+Letterspacing
+
+Line height
+
+Measure (line length)
+
+Flex
+
+Opacity
+
+Order
+
+Shadow
+
+Spacing units
+
+Z-index
+
+Design tokens
+
+Font family
+
+USWDS font family tokens allow designers and developers to set font family either by the type of font or the role the font plays in the design.
+
+Please see the Typesetting section for more about font size normalization and how USWDS uses size and family tokens for typesetting.
+
+Available fonts
+
+The following fonts have normalization metadata in USWDS, and are available to settings variables as tokens:
+
+Token
+ Value
+
+'georgia'
+
+"Georgia", "Cambria", "Times New Roman", "Times", serif
+
+'helvetica'
+
+"Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif
+
+'merriweather'
+
+"Merriweather Web", "Georgia", "Cambria", "Times New Roman", "Times", serif
+
+'open-sans'
+
+"Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+
+'public-sans'
+
+"Public Sans Web", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+
+'roboto-mono'
+
+"Roboto Mono Web", "Roboto Mono Web", "Bitstream Vera Sans Mono", "Consolas", "Courier", monospace
+
+'source-sans-pro'
+
+"Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif
+
+'system'
+
+-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+
+'tahoma'
+
+"Tahoma", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+
+'verdana'
+
+"Verdana", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+
+Type-based tokens
+
+Type based tokens set the font family value based on the type of the requested font: icon, language, monospaced, sans-serif, serif, and condensed families.
+
+Token
+ Default
+ Settings variable
+
+'cond'
+
+false
+
+$theme-font-type-cond
+
+'icon'
+
+false
+
+$theme-font-type-icon
+
+'lang'
+
+false
+
+$theme-font-type-lang
+
+'mono'
+
+'roboto-mono'
+
+$theme-font-type-mono
+
+'sans'
+
+'source-sans-pro'
+
+$theme-font-type-sans
+
+'serif'
+
+'merriweather'
+
+$theme-font-type-serif
+
+Role-based tokens
+
+Role-based tokens set the font family value based on the role the face plays in the project: heading, body, ui, code, and alternate.
+
+Token
+ Default
+ Settings variable
+
+'alt'
+
+'serif'
+
+$theme-font-role-alt
+
+'body'
+
+'sans'
+
+$theme-font-role-body
+
+'code'
+
+'mono'
+
+$theme-font-role-code
+
+'heading'
+
+'serif'
+
+$theme-font-role-heading
+
+'ui'
+
+'sans'
+
+$theme-font-role-ui
+
+Customizing family tokens
+
+Customize the values of type and role family tokens with available font tokens in your project’s settings configuration.
+
+First, use font tokens to define the $theme-font-type- settings variables. These settings define the value of the type family tokens. Set any unused types to false.
+
+@use "uswds-core" with (
+ $theme-font-type-cond: false,
+ $theme-font-type-icon: false,
+ $theme-font-type-lang: false,
+ $theme-font-type-mono: 'roboto-mono',
+ $theme-font-type-sans: 'source-sans-pro',
+ $theme-font-type-serif: 'merriweather',
+);
+
+Then use the type tokens you just set to define the $theme-font-role- settings variables. These settings define the value of the role family tokens. Set any unused types to false.
+
+@use "uswds-core" with (
+ $theme-font-role-ui: 'sans',
+ $theme-font-role-heading: 'serif',
+ $theme-font-role-body: 'sans',
+ $theme-font-role-code: 'mono',
+ $theme-font-role-alt: 'serif',
+);
+
+Using family tokens
+
+Your context and coding style determine how you access USWDS family tokens in code.
+
+Context
+
+ Usage
+
+ Example
+
+function
+
+family(family)
+
+ font-family: family('body');
+
+mixin
+
+ font-family
+
+u-font-family(family)
+
+ @include u-font-family('sans')
+
+mixin
+
+ font-family
+
+ font-size
+
+u-font(family, size)
+
+ @include u-font('body', '2xl')
+
+setting
+
+ family
+
+ $theme-prose-font-family: 'body';
+
+utility
+
+ font-family
+
+.font-family-family
+
+ .font-family-body
+
+utility
+
+ font-family
+
+ font-size
+
+.font-family-size
+
+ .font-body-2xl
+
+Adding fonts to USWDS
+
+If you need to use a font that isn’t included in USWDS Available Fonts, you can add a new font to your USWDS project. There are two typical scenarios for this:
+
+Adding a font from a hosting service
+
+ Adding a self-hosted font
+
+Adding a font from a hosting service
+
+If you’re importing a font from an open source font web directory, the steps will generally look like this:
+
+In your HTML files, add a reference to the JavaScript and/or CSS files provided by the font hosting service.
+
+In your settings configuration, tell $theme-typeface-tokens to create a new typeface token. In the code example, we are creating a new typeface token for Lato:
+
+$theme-typeface-tokens: (
+ "lato": (
+ "display-name": "Lato Web", // or other font
+ "cap-height": 364px, // the default, leave it for now
+ "stack": "Helvetica, Arial, sans-serif", // or whatever stack you want
+ ),
+ ),
+
+Then tell $theme-font-type-[font type] to use the new typeface token in your theme. In this example, we are associating Lato with the sans font type.
+
+$theme-font-type-sans: "lato",
+
+It works! Now everything that uses the sans token will use the custom Lato font stack. The CSS will now include something like this:
+
+font-family: "Lato Web", Helvetica, Arial, sans-serif;
+
+Adding a self-hosted font
+
+If you want to add a font that will be hosted in your project, you’ll need to:
+
+Copy font files into your fonts directory
+
+ Configure $theme-font-[font type]-custom-src to:
+ 
+ Tell the system where to find your font files
+
+ Specify which font weights you want the system to use
+
+ Declare the file name for each font weight
+
+In the code example, we tell the Design System to look in the lato font directory to create @font-face rules for the following font files: Lato-Regular.ttf, Lato-Bold.ttf,Lato-Italic.ttf, and Lato-BoldItalic.ttf.
+
+$theme-font-serif-custom-src: (
+ dir: "lato", // the name of your font family directory
+ roman: (
+ 100: false,
+ 200: false,
+ 300: false,
+ 400: "Lato-Regular", // the font file name, without the extension
+ 500: false,
+ 600: false,
+ 700: "Lato-Bold",
+ 800: false,
+ 900: false,
+ ),
+ italic: (
+ 100: false,
+ 200: false,
+ 300: false,
+ 400: "Lato-Bold",
+ 500: false,
+ 600: false,
+ 700: "Lato-BoldItalic",
+ 800: false,
+ 900: false,
+ ),
+ ),
+
+In your settings configuration, tell $theme-typeface-tokens to create a new typeface token. In the code example, we are creating a new typeface token for Lato:
+
+$theme-typeface-tokens: (
+ "lato": (
+ "display-name": "Lato Web", // or other font
+ "cap-height": 364px, // the default, leave it for now
+ "stack": "Helvetica, Arial, sans-serif", // or whatever stack you want
+ ),
+ ),
+
+Then tell $theme-font-type-[font type] to use the new typeface token in your theme. In this example, we are associating Lato with the sans font type.
+
+$theme-font-type-sans: "lato",
+
+It works! Now everything that uses the sans token will use the custom Lato font stack. The CSS will now include something like this:
+
+font-family: "Lato Web", Helvetica, Arial, sans-serif;
+
+Note: It is possible to add custom font metadata in your USWDS settings. See the inline documentation in _settings-typography.scss for more details.
+
+Latest updates
+Meaningful code and guidance updates are listed in the following table:
+
+Date
+ USWDS version
+ Affects
+ Breaking
+ Description
+
+2024-05-15
+
+N/A
+
+Guidance
+
+No
+
+Updated settings configuration code example.
+
+More information:
+ 
+ uswds-site#2379
+
+2022-01-18
+
+N/A
+
+Guidance
+
+No
+
+Added instructions for adding custom fonts to USWDS.
+
+More information:
+ 
+ uswds-site#1905
+
+2021-03-17
+
+2.11.0
+
+Styles
+
+No
+
+Added default font stacks.
+
+More information:
+ 
+ uswds#4084
+
+Was this page helpful?
+
+Become part of the community
+
+USWDS is an active open source community of government engineers, content specialists, and designers. Our contributors both in and out of government support dozens of agencies and nearly 200 sites.
+
+Have an idea or an issue?
+
+ Reach out in GitHub
+
+Engage with the community
+
+ Find a channel that works for you
+
+Subscribe to our newsletter
+
+ Sign up for USWDS updates
+
+Get support
+
+ Email the USWDS team
+
+Looking for USWDS v1 documentation?
+ Visit v1.designsystem.digital.gov
+
+designsystem.digital.gov
+
+ An official website of the General Services Administration
+
+About GSA
+
+Accessibility statement
+
+FOIA requests
+
+No FEAR Act data
+
+Office of the Inspector General
+
+Performance reports
+
+Privacy policy
+
+Looking for U.S. government information and services?
+
+Visit USA.gov

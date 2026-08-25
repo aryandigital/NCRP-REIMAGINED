@@ -1,0 +1,290 @@
+﻿Forside | Det Fælles Designsystem
+
+Gå til sidens indhold
+
+Det Fælles Designsystem
+
+Menu
+
+Kom i gang
+
+Styleguide
+
+Komponenter
+
+Eksempler
+
+Fællesskab
+
+Søg
+
+Menu
+
+ Luk
+
+Kom i gang
+
+Kom i gang (overblik)
+
+Om Det Fælles Designsystem
+
+Implementering og kode
+
+Implementering og kode (overblik)
+
+Hent kodepakken
+
+Justering af tema og stylesheets
+
+Hjælpeklasser
+
+Browserunderstøttelse
+
+Plugins
+
+Print
+
+Frameworks
+
+Design og ressourcer
+
+Tjekliste
+
+Tilgængelighed
+
+Brugerinddragelse
+
+Ofte stillede spørgsmål
+
+Styleguide
+
+Styleguide (overblik)
+
+Farver
+
+Typografi
+
+Typografi (overblik)
+
+Fonte
+
+Overskrifter
+
+Felt- og tabeloverskrifter
+
+Tekst
+
+Links
+
+Lister
+
+Hjørner, streger, skygger
+
+Ikoner
+
+Logoer
+
+Datavisualisering og infografik
+
+Datavisualisering og infografik (overblik)
+
+Tilgængelig grafik
+
+Datavisualisering
+
+Infografik
+
+Layout
+
+Grid og baseline grid
+
+Komponenter
+
+Komponenter (overblik)
+
+Accordions
+
+Anchorlinks
+
+Badges
+
+Beskeder (Alerts)
+
+Brødkrumme
+
+Cards
+
+Cookiemeddelelse
+
+Datofelter
+
+Datovælger
+
+Detaljer
+
+Dropdown
+
+Faneblade (Tabs)
+
+Fejlmeddelelser
+
+Fejlopsummering
+
+Footer
+
+Funktionslink
+
+Gå til sidens indhold (Skip-link)
+
+Header
+
+Inputfelter
+
+Knapper (Buttons)
+
+Loading spinner
+
+Modal
+
+Overflow menu
+
+Paginering
+
+Radioknap (Radio button)
+
+Sprogvælger
+
+Søgefelt
+
+Tabeller
+
+Tags
+
+Tekstområde (Textarea)
+
+Tilbage-link
+
+Tilbage til toppen
+
+Tjekboks (Checkbox)
+
+Toastbesked
+
+Toggle switch
+
+Tooltip
+
+Trinindikator
+
+Vedhæft fil
+
+Venstremenu
+
+Eksempler
+
+Eksempler (overblik)
+
+Selvbetjeningsløsninger
+
+Patterns
+
+Patterns (overblik)
+
+Angivelse af telefonnummer
+
+Formular
+
+Inputfelter med hentet data
+
+Session udløber
+
+Templates
+
+Fællesskab
+
+Fællesskab (overblik)
+
+Samarbejdsforum
+
+Governance
+
+Nyhedsbrev
+
+Kontakt og support
+
+Release notes
+
+Vælg et tema
+ Luk
+ Vælger du ikke et tema, vælger vi et for dig. Du kan efterfølgende skifte tema i footeren.
+
+Borger.dk tema
+ Virk tema
+
+Lav brugervenlige og tilgængelige selvbetjenings­løsninger
+
+Brug Det Fælles Designsystem til at lave simple og effektive selvbetjeningsløsninger til borger.dk og Virk. Lad os om det grundlæggende, og sæt fokus på at inddrage dine brugere. Det er gratis (open source).
+
+Kom i gang: Udvikling 
+
+ Kom i gang: Design 
+
+Styleguide
+
+ Disse grundlæggende beslutninger udgør det visuelle fundament for designsystemets komponenter og retningslinjer.
+
+Komponenter
+
+ Komponenterne er byggeklodserne, som du kan bruge til at bygge den løsning, dine brugere har behov for.
+
+Eksempler
+
+ Få inspiration til, hvordan designsystemet kan anvendes til at bygge selvbetjenings­-løsninger.
+
+Følg med
+
+Seneste release
+
+ Version 11.2.0
+
+ 28-01-2026
+
+ Det Fælles Designsystem bliver løbende opdateret og vedligeholdt. Læs release notes for at følge med i udviklingen, og tilmeld nyhedsbrevet for at få besked, når der kommer nye versioner af designsystemet.
+
+Release notes
+
+ Tilmeld nyhedsbrevet
+
+Samarbejde og hjælp
+
+ For at sikre transparens er systemet åbent for alle. Alle myndigheder med en interesse i at præge udviklingen og få indflydelse på designsystemets indhold er velkomne til at dele deres erfaringer med teamet bag designsystemet.
+
+Deltag i samarbejdsforum
+
+ Ofte stillede spørgsmål
+
+ Kontakt os
+
+Til toppen af siden
+ Til toppen
+
+Ansvarlige myndigheder
+
+ Det Fælles Design­system udvikles i fællesskab af
+Digitaliserings­styrelsen & Erhvervs­styrelsen
+
+Webtilgængelig­hed og cookies
+
+Privatlivs­politik og cookies
+
+ Tilgængeligheds­erklæring 
+
+ Skift tema
+
+Mangler vi noget?
+
+ Hjælp os med at gøre Det Fælles Designsystem endnu bedre ved at gøre os opmærksom på dine udfordringer og ønsker.
+
+Opret et issue på GitHub 
+
+ Send en mail til FDS-teamet

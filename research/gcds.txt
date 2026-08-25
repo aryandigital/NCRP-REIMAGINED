@@ -1,0 +1,264 @@
+﻿Home - GC Design System
+
+GC Design System
+ Start to use
+
+Page templates overview
+
+Basic page
+
+Components overview
+
+Breadcrumbs
+
+Button
+
+Card
+
+Checkboxes
+
+Container
+
+Date input
+
+Date modified
+
+Details
+
+Error message
+
+Error summary
+
+Fieldset
+
+File uploader
+
+Footer
+
+Grid
+
+Header
+
+Heading
+
+Icon
+
+Input
+
+Language toggle
+
+Link
+
+Notice
+
+Pagination
+
+Radios
+
+Screenreader-only
+
+Search
+
+Select
+
+Side navigation
+
+Signature
+
+Stepper
+
+Table
+
+Text
+
+Textarea
+
+Theme and topic menu
+
+Top navigation
+
+CSS shortcuts overview
+
+Reset styles
+
+Responsive layout
+
+State
+
+Box sizing
+
+Container sizing
+
+Display
+
+Overflow
+
+Position
+
+Visibility
+
+Font
+
+Font family
+
+Font size
+
+Font style
+
+Font weight
+
+Line height
+
+Link colour
+
+Link size
+
+Link text decoration
+
+List style
+
+Text align
+
+Text colour
+
+Text overflow
+
+Text transform
+
+Word break
+
+Margin
+
+Padding
+
+Align content
+
+Align items
+
+Align self
+
+Flex
+
+Flex direction
+
+Flex grow
+
+Flex shrink
+
+Flex wrap
+
+Gap
+
+Grid columns
+
+Grid rows
+
+Justify content
+
+Justify items
+
+Justify self
+
+Order
+
+Place content
+
+Place items
+
+Place self
+
+Background colour
+
+Border colour
+
+Border radius
+
+Border style
+
+Border width
+
+Icon names
+
+Icon size
+
+Image
+
+Cursor
+
+Pointer events
+
+Transition
+
+Styles overview
+ Design tokens
+ Colour tokens
+ Spacing tokens
+ Typography tokens
+
+Contact us
+ Get involved
+ Find a demo
+
+GC Design System
+
+An official, production-ready design system for the Government of Canada. Build modern, accessible, human government services people can use.
+
+Start to use
+
+Attend a demo
+
+Choose GC Design System
+
+GC Design System helps public servants deliver Government of Canada websites and products. Build faster without compromising brand identity, accessibility, or bilingualism. Find production-ready code, design assets, and documentation in one place.
+
+Learn more
+
+Learn about us, the teams using GC Design System, our regular accessibility testing, and how you can improve accessibility in your products and websites.
+
+Get involved
+
+We’re continuously scaling our product to better meet your needs and offer you more options.
+
+Get involved
+
+A set of tools for common problems
+
+Apply or combine these tools to address common service scenarios. Design and build trusted, unified experiences faster.
+
+Components
+ 
+Meet common service interaction needs with the code, design, and guidance for user interface components.
+
+Page templates
+ 
+Start your project with pre-built page layouts that provide a consistent, recognizable Canada.ca experience.
+
+CSS Shortcuts (New)
+ 
+Apply pre-defined styles and layouts by adding our custom CSS utility classes to your HTML.
+
+Styles
+ 
+Explore coded brand and design decisions that shape a consistent visual experience.
+
+What's new
+
+Browse the latest code additions and features in the GitHub changelog.
+
+Recent releases:
+
+Components: New table component and new ISO date format for date input
+
+Documentation: New code examples for attributes and slots for all components, and new form validation guidance
+
+What's up next
+
+Explore our roadmap to follow our progress and check out what we’re working on next.
+
+Connect with us
+
+Reach out to us if you have questions, want to get involved, or want to join our mailing list.
+
+Contact us
+
+2026-07-31

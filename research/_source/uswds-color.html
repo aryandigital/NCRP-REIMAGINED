@@ -1,0 +1,3426 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+  <head>
+    <!-- ANALYTICS
+================================================== -->
+
+<!-- Google Analytics - GA4 -->
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-KH01P8TN5V"></script>
+	<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-KH01P8TN5V'); </script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+	<script async type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA&subagency=TTS"></script>
+
+
+<!-- Basic Page Needs
+================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+  
+
+  
+
+<!-- Mobile Specific Metas
+================================================== -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Title and meta description
+================================================== -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Using color | U.S. Web Design System (USWDS)</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Using color" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="USWDS makes it easier to build accessible, mobile-friendly government websites." />
+<meta property="og:description" content="USWDS makes it easier to build accessible, mobile-friendly government websites." />
+<link rel="canonical" href="https://designsystem.digital.gov/design-tokens/color/overview/" />
+<meta property="og:url" content="https://designsystem.digital.gov/design-tokens/color/overview/" />
+<meta property="og:site_name" content="U.S. Web Design System (USWDS)" />
+<meta property="og:image" content="https://designsystem.digital.gov/img/uswds-logo/lg-black.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://designsystem.digital.gov/img/uswds-logo/lg-black.png" />
+<meta property="twitter:title" content="Using color" />
+<meta name="twitter:site" content="@USWDS" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"USWDS makes it easier to build accessible, mobile-friendly government websites.","headline":"Using color","image":"https://designsystem.digital.gov/img/uswds-logo/lg-black.png","url":"https://designsystem.digital.gov/design-tokens/color/overview/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<!-- Favicons
+================================================== -->
+  <!-- 128x128 -->
+  <link rel="shortcut icon" type="image/ico" href="/assets/img/favicons/favicon.ico">
+  <link rel="icon" type="image/png" href="/assets/img/favicons/favicon.png">
+
+  <!-- 192x192, as recommended for Android
+  http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+  -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicons/favicon-192.png">
+
+  <!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicons/favicon-57.png">
+  <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/img/favicons/favicon-72.png">
+  <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/img/favicons/favicon-114.png">
+  <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/favicons/favicon-144.png">
+
+<!-- CSS
+================================================== -->
+<!-- env: production -->
+
+
+  
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  
+
+
+<!-- USWDS INIT
+================================================== -->
+<script>
+  /**
+   * This script block contains the contents of the uswds-init.js script.
+   * It's inlined because it's necessary for the first paint of the banner,
+   * and we want to avoid a round-trip to the server.
+   */
+  (function uswdsInit() {
+    "use strict";
+
+    const loadingClass = "usa-js-loading";
+    let fallback;
+
+    document.documentElement.classList.add(loadingClass);
+    function revertClass() {
+      document.documentElement.classList.remove(loadingClass);
+    }
+
+    fallback = setTimeout(revertClass, 8000);
+
+    function verifyLoaded() {
+      if (window.uswdsPresent) {
+        clearTimeout(fallback);
+        revertClass();
+        window.removeEventListener("load", verifyLoaded, true);
+      }
+    }
+
+    window.addEventListener("load", verifyLoaded, true);
+  })();
+</script>
+<script src="/assets/uswds/components/usa-banner.js.mjs" type="module"></script>
+<link rel="preload" href="/assets/js/vendor/uswds.min.js" as="script">
+  </head>
+  <body class="page-using-color layout-styleguide ">
+    <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+<section
+  class="usa-banner site-banner"
+  aria-label="Official website of the United States government,,,,,,"
+>
+  <div class="usa-accordion">
+    <header class="usa-banner__header">
+      <div class="usa-banner__inner">
+        <div class="grid-col-auto">
+          <img
+            aria-hidden="true"
+            class="usa-banner__header-flag"
+            src="/assets/img/us_flag_small.png"
+            alt=""
+          />
+        </div>
+        <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+          <p class="usa-banner__header-text">
+            An official website of the United States government
+          </p>
+          <p class="usa-banner__header-action">Here’s how you know</p>
+        </div>
+        <button
+          type="button"
+          class="usa-accordion__button usa-banner__button"
+          aria-expanded="false"
+          aria-controls="gov-banner"
+        >
+          <span class="usa-banner__button-text">Here’s how you know</span>
+        </button>
+      </div>
+    </header>
+    <div
+      class="usa-banner__content usa-accordion__content"
+      id="gov-banner"
+    >
+      <div class="grid-row grid-gap-lg">
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img
+            class="usa-banner__icon usa-media-block__img"
+            src="/assets/img/icon-dot-gov.svg"
+            role="img"
+            alt=""
+            aria-hidden="true"
+          />
+          <div class="usa-media-block__body">
+            <p>
+              <strong>Official websites use .gov</strong><br />A
+              <strong>.gov</strong> website belongs to an official government
+              organization in the United States.
+            </p>
+          </div>
+        </div>
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img
+            class="usa-banner__icon usa-media-block__img"
+            src="/assets/img/icon-https.svg"
+            role="img"
+            alt=""
+            aria-hidden="true"
+          />
+          <div class="usa-media-block__body">
+            <p>
+              <strong>Secure .gov websites use HTTPS</strong><br />A
+              <strong>lock</strong> (
+              <span class="icon-lock"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="52"
+                  height="64"
+                  viewBox="0 0 52 64"
+                  class="usa-banner__lock-image"
+                  role="img"
+                  aria-labelledby="banner-lock-description"
+                  focusable="false"
+                >
+                  <title id="banner-lock-title">Lock</title>
+                  <desc id="banner-lock-description">Locked padlock icon</desc>
+                  <path
+                    fill="#000000"
+                    fill-rule="evenodd"
+                    d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"
+                  />
+                </svg> </span
+              >) or <strong>https://</strong> means you’ve safely connected to
+              the .gov website. Share sensitive information only on official,
+              secure websites.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<header class="usa-header usa-header--extended site-header site-header--dark" role="banner">
+  <div class="usa-navbar site-header__navbar">
+    <div class="usa-logo site-logo" id="logo">
+      <em class="usa-logo__text site-logo__text">
+        <a href="/" title="U.S. Web Design System (USWDS) Home">
+          <span aria-hidden="true" class="site-title--short">USWDS</span>
+          <span class="site-title--long">U.S. Web Design System (USWDS)</span>
+        </a>
+      </em>
+    </div>
+    <button type="button" class="usa-menu-btn">Menu</button>
+  </div>
+</header>
+<nav aria-label="Primary navigation" class="usa-nav site-nav sticky">
+  <div class="usa-nav__inner site-nav__inner">
+    <button type="button" class="usa-nav__close">
+      <img src="/assets/img/usa-icons/close.svg" role="img" alt="Close">
+    </button>
+    <!-- Mobile nav -->
+    <ul class="usa-nav__primary usa-nav__primary--mobile usa-accordion">
+      
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-how-to-use-uswds"
+  aria-expanded="false"
+  >
+  <span>
+    How to use USWDS
+  </span>
+</button>
+<ul id="nav-how-to-use-uswds" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/how-to-use-uswds/">
+  <span>
+    How to use USWDS
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/getting-started-for-developers/">
+  <span>
+    Getting started for developers
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/getting-started-for-designers/">
+  <span>
+    Getting started for designers
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/developers/">
+  <span>
+    Documentation
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/settings/">
+  <span>
+    Settings
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/maturity-model/">
+  <span>
+    USWDS maturity model
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/accessibility/">
+  <span>
+    Accessibility
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/performance/">
+  <span>
+    Performance guidelines
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/code-guidelines/">
+  <span>
+    Code guidelines
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/migration/">
+  <span>
+    Migrating to USWDS 3.0
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/migration-v2/">
+  <span>
+    Migrating to USWDS 2.0
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/implementations/">
+  <span>
+    Implementations
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/showcase/">
+  <span>
+    Showcase
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/sample-contract-language/">
+  <span>
+    Sample contract language for 21st Century IDEA
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/website-standards/">
+  <span>
+    Website standards
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<a href="/design-principles/">
+  <span>
+    Design principles
+  </span>
+</a>
+
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-components"
+  aria-expanded="false"
+  >
+  <span>
+    Components
+  </span>
+</button>
+<ul id="nav-components" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/">
+  <span>
+    Components
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/accordion/">
+  <span>
+    Accordion
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/alert/">
+  <span>
+    Alert
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/banner/">
+  <span>
+    Banner
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/breadcrumb/">
+  <span>
+    Breadcrumb
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/button/">
+  <span>
+    Button
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/button-group/">
+  <span>
+    Button group
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/card/">
+  <span>
+    Card
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/character-count/">
+  <span>
+    Character count
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/checkbox/">
+  <span>
+    Checkbox
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/collection/">
+  <span>
+    Collection
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/combo-box/">
+  <span>
+    Combo box
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/data-visualizations/">
+  <span>
+    Data visualizations
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/date-picker/">
+  <span>
+    Date picker
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/date-range-picker/">
+  <span>
+    Date range picker
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/file-input/">
+  <span>
+    File input
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/footer/">
+  <span>
+    Footer
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/form/">
+  <span>
+    Form
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/layout-grid/">
+  <span>
+    Grid
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/header/">
+  <span>
+    Header
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/icon/">
+  <span>
+    Icon
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/icon-list/">
+  <span>
+    Icon list
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/identifier/">
+  <span>
+    Identifier
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/in-page-navigation/">
+  <span>
+    In-page navigation
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/input-mask/">
+  <span>
+    Input mask
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/input-prefix-suffix/">
+  <span>
+    Input prefix/suffix
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/language-selector/">
+  <span>
+    Language selector
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/link/">
+  <span>
+    Link
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/list/">
+  <span>
+    List
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/memorable-date/">
+  <span>
+    Memorable date
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/modal/">
+  <span>
+    Modal
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/pagination/">
+  <span>
+    Pagination
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/process-list/">
+  <span>
+    Process list
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/prose/">
+  <span>
+    Prose
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/radio-buttons/">
+  <span>
+    Radio buttons
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/range-slider/">
+  <span>
+    Range slider
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/search/">
+  <span>
+    Search
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/select/">
+  <span>
+    Select
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/side-navigation/">
+  <span>
+    Side navigation
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/site-alert/">
+  <span>
+    Site alert
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/step-indicator/">
+  <span>
+    Step indicator
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/summary-box/">
+  <span>
+    Summary box
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/table/">
+  <span>
+    Table
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/tag/">
+  <span>
+    Tag
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/text-input/">
+  <span>
+    Text input
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/time-picker/">
+  <span>
+    Time picker
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/tooltip/">
+  <span>
+    Tooltip
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/typography/">
+  <span>
+    Typography
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/validation/">
+  <span>
+    Validation
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-patterns"
+  aria-expanded="false"
+  >
+  <span>
+    Patterns
+  </span>
+</button>
+<ul id="nav-patterns" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/">
+  <span>
+    Patterns
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/intro/">
+  <span>
+    Introducing patterns
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/create-a-user-profile/">
+  <span>
+    Create a user profile
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/complete-a-complex-form/">
+  <span>
+    Complete a complex form
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/select-a-language/">
+  <span>
+    Select a language
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-design-tokens"
+  
+  class="usa-current"
+  aria-expanded="true"
+  >
+  <span>
+    Design tokens
+  </span>
+</button>
+<ul id="nav-design-tokens" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/">
+  <span>
+    Design tokens
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+<a href="/design-tokens/color/"class="usa-current">
+  <span>
+    Color
+  </span>
+</a>
+
+    
+    
+    
+    <ul class="usa-nav__submenu">
+  
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+<a href="/design-tokens/color/overview/"class="usa-current">
+  <span>
+    Using color
+  </span>
+</a>
+
+    
+    
+    
+    <ul class="usa-nav__submenu">
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+
+<a href="#introduction">Introduction</a>
+
+    
+  </li>
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+
+<a href="#color-and-accessibility">Accessibility</a>
+
+    
+  </li>
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+
+<a href="#uswds-color-wheels">USWDS color wheels</a>
+
+    
+  </li>
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+
+<a href="#general-color-guidance">Color guidance</a>
+
+    
+  </li>
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+
+<a href="#further-reading">Further reading</a>
+
+    
+  </li>
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+
+<a href="#tools">Tools</a>
+
+    
+  </li>
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+
+<a href="#changelog">Latest updates</a>
+
+    
+  </li>
+
+</ul>
+    
+  
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/color/theme-tokens/">
+  <span>
+    Theme color tokens
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/color/state-tokens/">
+  <span>
+    State color tokens
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/color/system-tokens/">
+  <span>
+    System color tokens
+  </span>
+</a>
+
+
+    
+  </li>
+
+</ul>
+    
+  
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/typesetting/">
+  <span>
+    Typesetting
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/flex/">
+  <span>
+    Flex
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/opacity/">
+  <span>
+    Opacity
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/order/">
+  <span>
+    Order
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/shadow/">
+  <span>
+    Shadow
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/spacing-units/">
+  <span>
+    Spacing units
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/z-index/">
+  <span>
+    Z-index
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-utilities"
+  aria-expanded="false"
+  >
+  <span>
+    Utilities
+  </span>
+</button>
+<ul id="nav-utilities" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/">
+  <span>
+    Utilities
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/layout-grid/">
+  <span>
+    Layout grid
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/color/">
+  <span>
+    Color
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/height-and-width/">
+  <span>
+    Height and width
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/margin-and-padding/">
+  <span>
+    Margin and padding
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/border/">
+  <span>
+    Border
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/outline/">
+  <span>
+    Outline
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/font-size-and-family/">
+  <span>
+    Font size and family
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/text-styles/">
+  <span>
+    Text styles
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/paragraph-styles/">
+  <span>
+    Paragraph styles
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/display/">
+  <span>
+    Display
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/flex/">
+  <span>
+    Flex
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/shadow/">
+  <span>
+    Shadow
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/float/">
+  <span>
+    Float
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/clearfix/">
+  <span>
+    Clearfix
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/list-reset/">
+  <span>
+    List reset
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-templates"
+  aria-expanded="false"
+  >
+  <span>
+    Templates
+  </span>
+</button>
+<ul id="nav-templates" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/">
+  <span>
+    Templates
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/404-page/">
+  <span>
+    404 page
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/documentation-page/">
+  <span>
+    Documentation page
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/landing-page/">
+  <span>
+    Landing page
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/authentication-pages/">
+  <span>
+    Authentication pages
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/form-templates/">
+  <span>
+    Form templates
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-about"
+  aria-expanded="false"
+  >
+  <span>
+    About
+  </span>
+</button>
+<ul id="nav-about" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/">
+  <span>
+    About
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/key-benefits/">
+  <span>
+    Key benefits
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/product-values/">
+  <span>
+    Product values
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/contribute/">
+  <span>
+    Contribute
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/community/">
+  <span>
+    Community
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/whats-new/">
+  <span>
+    What’s new
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/monthly-calls/">
+  <span>
+    Monthly calls
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/product-roadmap/">
+  <span>
+    Product roadmap
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/research/">
+  <span>
+    Research
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/security/">
+  <span>
+    Security
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/website-policies-notices/">
+  <span>
+    Website policies and notices
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+
+    </ul>
+    <!-- /Mobile nav -->
+    <!-- Desktop nav -->
+    <ul class="usa-nav__primary usa-nav__primary--desktop">
+      
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/how-to-use-uswds/">
+  <span>
+    How to use USWDS
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-principles/">
+  <span>
+    Design principles
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/">
+  <span>
+    Components
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/">
+  <span>
+    Patterns
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+<a href="/design-tokens/"class="usa-current">
+  <span>
+    Design tokens
+  </span>
+</a>
+
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/">
+  <span>
+    Utilities
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/">
+  <span>
+    Templates
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/">
+  <span>
+    About
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+    </ul>
+    <!-- /Desktop nav -->
+    <div class="usa-nav__secondary">
+      <form id="search_form-mobile" class="site-search usa-search usa-search--small"
+  action="https://search.usa.gov/search" accept-charset="UTF-8" method="get">
+  <input name="utf8" type="hidden" value="&#x2713;" />
+  <input type="hidden" name="affiliate" id="affiliate-mobile" value="uswds" />
+  <div role="search">
+    <label class="usa-sr-only" for="query-mobile">Search</label>
+    <input
+      id="query-mobile"
+      class="usa-input usagov-search-autocomplete"
+      name="query"
+      type="search"
+      autocomplete="off" />
+    <button class="site-search__button usa-button margin-top-0" type="submit" name="commit">
+      <img
+        src="/assets/img/usa-icons-bg/search--white.svg"
+        class="usa-search__submit-icon"
+        alt="Search"
+      >
+    </button>
+  </div>
+</form>
+
+      <div class="site-cta-buttons buttons">
+  <a
+    class="usa-button site-button-outline-secondary site-button-standards margin-x-0 desktop:margin-right-1 padding-x-05 desktop:padding-left-1 desktop:padding-right-05 desktop-lg:padding-left-205 desktop-lg:padding-right-2 font-lang-sm"
+    href="/website-standards/"
+    onclick="ga('send', 'event', 'Read website standards', 'Clicked Read website standards from inside site');"
+  >
+    Read website standards
+  </a>
+  <a
+    class="usa-button site-button-outline-secondary site-button-download margin-x-0 desktop:margin-right-1 desktop:padding-left-1 desktop:padding-right-05 desktop-lg:padding-left-205 desktop-lg:padding-right-2 font-lang-sm"
+    href="/download/"
+    onclick="ga('send', 'event', 'Downloaded code and design files', 'Clicked Download code and design files from inside site');"
+  >
+    Download <span class="version desktop:display-none desktop-lg:display-inline">v3.14.0</span>
+  </a>
+  <a
+    class="usa-button site-button-github margin-x-0 font-lang-sm"
+    href="https://github.com/uswds/uswds"
+    onclick="ga('send', 'event', 'Viewed on Github', 'Clicked View on Github from inside site');"
+  >
+    <?xml version="1.0" encoding="UTF-8"?><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="33"
+  height="32"
+  viewBox="0 0 33 32"
+  class="logo"
+>
+  <title>Github logo</title>
+  <path
+    fill="#161514"
+    fill-rule="evenodd"
+    d="M16.288 0C7.294 0 0 7.293 0 16.29c0 7.197 4.667 13.302 11.14 15.456.815.15 1.112-.353 1.112-.785 0-.386-.014-1.411-.022-2.77-4.531.984-5.487-2.184-5.487-2.184-.741-1.882-1.809-2.383-1.809-2.383-1.479-1.01.112-.99.112-.99 1.635.115 2.495 1.679 2.495 1.679 1.453 2.489 3.813 1.77 4.741 1.353.148-1.052.569-1.77 1.034-2.177-3.617-.411-7.42-1.809-7.42-8.051 0-1.778.635-3.233 1.677-4.371-.168-.412-.727-2.069.16-4.311 0 0 1.367-.438 4.479 1.67a15.602 15.602 0 0 1 4.078-.549 15.62 15.62 0 0 1 4.078.549c3.11-2.108 4.475-1.67 4.475-1.67.889 2.242.33 3.899.163 4.311 1.044 1.138 1.674 2.593 1.674 4.371 0 6.258-3.809 7.635-7.437 8.038.584.503 1.105 1.497 1.105 3.017 0 2.177-.02 3.934-.02 4.468 0 .436.294.943 1.12.784 6.468-2.159 11.131-8.26 11.131-15.455C32.579 7.293 25.285 0 16.288 0"
+  />
+</svg>
+
+    <span class="text">View on GitHub</span>
+  </a>
+</div>
+
+    </div>
+  </div>
+</nav>
+<div class="usa-overlay"></div>
+
+
+<div class="default-container">
+  <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
+    
+    
+    <ul class="site-sidenav usa-sidenav">
+      
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/">
+  
+    Design tokens
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+<a href="/design-tokens/color/"class="usa-current">
+  
+    Color
+  
+</a>
+
+    
+    
+    
+    <ul class="usa-sidenav__sublist">
+  
+
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+<a href="/design-tokens/color/overview/"class="usa-current">
+  
+    Using color
+  
+</a>
+
+    
+    
+    
+    <ul class="usa-sidenav__sublist">
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+
+<a href="#introduction">Introduction</a>
+
+    
+  </li>
+
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+
+<a href="#color-and-accessibility">Accessibility</a>
+
+    
+  </li>
+
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+
+<a href="#uswds-color-wheels">USWDS color wheels</a>
+
+    
+  </li>
+
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+
+<a href="#general-color-guidance">Color guidance</a>
+
+    
+  </li>
+
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+
+<a href="#further-reading">Further reading</a>
+
+    
+  </li>
+
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+
+<a href="#tools">Tools</a>
+
+    
+  </li>
+
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+
+<a href="#changelog">Latest updates</a>
+
+    
+  </li>
+
+</ul>
+    
+  
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/color/theme-tokens/">
+  
+    Theme color tokens
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/color/state-tokens/">
+  
+    State color tokens
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/color/system-tokens/">
+  
+    System color tokens
+  
+</a>
+
+
+    
+  </li>
+
+</ul>
+    
+  
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/typesetting/">
+  
+    Typesetting
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/flex/">
+  
+    Flex
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/opacity/">
+  
+    Opacity
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/order/">
+  
+    Order
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/shadow/">
+  
+    Shadow
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/spacing-units/">
+  
+    Spacing units
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/z-index/">
+  
+    Z-index
+  
+</a>
+
+
+    
+  </li>
+
+
+    </ul>
+    
+  </aside>
+
+  
+  <div class="usa-in-page-nav-container">
+    <aside class="usa-in-page-nav"
+      aria-label="On this page"
+      data-scroll-offset="48"
+      data-root-margin="48px 0px -90% 0px"
+      data-threshold="1"
+      data-heading-elements=
+    ></aside>
+  
+    <main id="main-content" class="main-content">
+      <div class="styleguide-content usa-prose site-prose">
+        <header>
+          
+            
+              <p class="site-subheading">Design tokens</p>
+            
+          
+          <h1 id="using-color" class="site-page-title">Using color</h1>
+        </header>
+
+        <p class="site-text-intro">Color is a practical and emotional tool. It conveys personality, sets a tone, attracts attention, and indicates importance.</p>
+
+
+
+
+        <!-- Add wcag compliance status tag -->
+        <!-- Add compliance tag -->
+
+
+
+
+
+
+
+
+
+        <h2 id="introduction">Introduction</h2>
+<p>USWDS organizes its color tokens into <a href="/design-tokens/color/theme-tokens/">theme tokens</a>, <a href="/design-tokens/color/state-tokens/">state tokens</a>, and <a href="/design-tokens/color/system-tokens/">System tokens</a>. System tokens are the complete set of colors available from USWDS. Project tokens are a smaller, role-based subset customized to your project’s individual identity, tone, and needs. This subset of tokens will use only a few color families from the 24 color families available in the set of System tokens.</p>
+
+<p><strong>Use USWDS color tokens, and avoid custom colors whenever possible.</strong>  Creating coherent government sites and services helps provide a good user experience to the public. Of course, your mission, project needs, and user needs always come first, but if you plan to contribute your work back into the system — which helps the system learn, adapt, and improve — that work will need to conform to system standards and use USWDS’s design tokens.</p>
+
+<div>
+<style>code {mix-blend-mode: multiply;}</style>
+<div class="bg-base-lighter measure-3 padding-3 usa-section">
+
+    <h3 class="font-lang-xs color-ink text-bold text-ls-2 margin-top-0 text-uppercase" id="color-color-family-and-grade">Color, color family, and grade</h3>
+
+    <p>Throughout our documentation and guidance, we’ll use the terms “color,” “color family,” and “grade” — but what do we mean when we use them?</p>
+
+    <p><strong>Color</strong> is any specific swatch in our <a href="/design-tokens/color/system-tokens/">system color token palette</a>, like <code class="language-plaintext highlighter-rouge">red-50</code>, <code class="language-plaintext highlighter-rouge">green-cool-10</code>, or <code class="language-plaintext highlighter-rouge">indigo-warm-60v</code>.</p>
+
+    <p><strong>Color family</strong> is a group of colors that all have the same hue on a color wheel (refer to <a href="#uswds-color-wheels">USWDS color wheels</a>). Each contains a number of individual colors, distinguished from each other by the brightness or saturation. A System token’s color family typically has a conventional color name, like <code class="language-plaintext highlighter-rouge">red</code> or <code class="language-plaintext highlighter-rouge">blue-warm</code>, and a theme token’s color family has a role-based name, like <code class="language-plaintext highlighter-rouge">primary</code>.</p>
+
+    <p><strong>Grade</strong> is a way to express how light or dark a color is. USWDS uses a 100-point scale to communicate a color token’s grade, where 0 is pure white and 100 is pure black. We’ve regularized these grades across color families; a color of grade <code class="language-plaintext highlighter-rouge">50</code> in one color family should be the same level of lightness as a color of grade <code class="language-plaintext highlighter-rouge">50</code> in another color family. This feature of USWDS has important color-contrast and accessibility implications, which we discuss in the subsequent sections on accessibility.</p>
+  </div>
+</div>
+
+<h2 id="color-and-accessibility">Color and accessibility</h2>
+<p>Color is a powerful tool with an unreliable impact — its effects are neither consistent nor predictable across a population. Per NIH, color insensitivity impacts <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3328350/">approximately 0.5% of adult women</a> and <a href="https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/color-blindness">8% of adult men</a> (4.5% of the total population). Color insensitivity can make it difficult to distinguish hues (red–green color blindness is the most common form), and some rare conditions prevent the perception of hue altogether. Commonplace vision problems like nearsightedness and astigmatism (among others) also affect how well folks perceive color and contrast.</p>
+
+<p>Accessibility is not a special case. In the second quarter of 2018, <a href="/about/whats-new/">sites using USWDS topped 1.4 billion pageviews</a>. 4.5% of 1.4 billion is around 60 million pageviews — when it comes to accessibility, thinking broadly and inclusively isn’t just a good idea, it’s our mission and responsibility.</p>
+
+<p><a href="https://section508.gov/">Section 508</a>, which aligns with <a href="https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0">WCAG 2.0 Level AA</a>, sets the legal standard for the needed contrast level between text and its background. The baseline AA contrast standard is 4.5:1 for most text and 3:1 for large text (19px+ bold or 24px+ normal text).</p>
+
+<h3 id="accessible-color-pairings">Accessible color pairings</h3>
+
+<p>USWDS helps teams choose accessible colors with a color-grade system. The following figure represents the <code class="language-plaintext highlighter-rouge">gray</code> color family in grades 5–90:</p>
+
+<div class="padding-2 bg-white radius-md measure-3">
+  <div class="grid-row font-mono-2 text-400">
+    <div class="grid-col-fill">
+      <div class="bg-gray-5 height-4"></div>
+      <div class="text-center margin-top-2px">5</div>
+    </div><!-- swatch -->
+    <div class="grid-col-fill">
+      <div class="bg-gray-10 height-4"></div>
+      <div class="text-center margin-top-2px">10</div>
+    </div><!-- swatch -->
+    <div class="grid-col-fill">
+      <div class="bg-gray-20 height-4"></div>
+      <div class="text-center margin-top-2px">20</div>
+    </div><!-- swatch -->
+    <div class="grid-col-fill">
+      <div class="bg-gray-30 height-4"></div>
+      <div class="text-center margin-top-2px">30</div>
+    </div><!-- swatch -->
+    <div class="grid-col-fill">
+      <div class="bg-gray-40 height-4"></div>
+      <div class="text-center margin-top-2px">40</div>
+    </div><!-- swatch -->
+    <div class="grid-col-fill">
+      <div class="bg-gray-50 height-4"></div>
+      <div class="text-center margin-top-2px">50</div>
+    </div><!-- swatch -->
+    <div class="grid-col-fill">
+      <div class="bg-gray-60 height-4"></div>
+      <div class="text-center margin-top-2px">60</div>
+    </div><!-- swatch -->
+    <div class="grid-col-fill">
+      <div class="bg-gray-70 height-4"></div>
+      <div class="text-center margin-top-2px">70</div>
+    </div><!-- swatch -->
+    <div class="grid-col-fill">
+      <div class="bg-gray-80 height-4"></div>
+      <div class="text-center margin-top-2px">80</div>
+    </div><!-- swatch -->
+    <div class="grid-col-fill">
+      <div class="bg-gray-90 height-4"></div>
+      <div class="text-center margin-top-2px">90</div>
+    </div><!-- swatch -->
+  </div>
+</div>
+
+<p>Each color family has 10 grades, which fall between 5 and 90. Pure <code class="language-plaintext highlighter-rouge">white</code> is the equivalent of grade 0, and pure <code class="language-plaintext highlighter-rouge">black</code> is the equivalent of grade 100.</p>
+
+<h3 id="magic-number">Magic number</h3>
+<p>We call the difference in grade between any two colors the <em>magic number</em>. Magic numbers have the following contrast implications:</p>
+<ul>
+  <li><strong>A magic number of 40+</strong> results in WCAG 2.0 AA Large Text contrast (example: <code class="language-plaintext highlighter-rouge">gray-90</code> and <code class="language-plaintext highlighter-rouge">indigo-warm-50v</code>).</li>
+  <li><strong>A magic number of 50+</strong> results in WCAG 2.0 AA contrast or AAA Large Text contrast (example: <code class="language-plaintext highlighter-rouge">gray-90</code> and <code class="language-plaintext highlighter-rouge">red-40</code>).</li>
+  <li><strong>A magic number of 70+</strong> results in WCAG 2.0 AAA contrast (example: <code class="language-plaintext highlighter-rouge">gray-10</code> and <code class="language-plaintext highlighter-rouge">red-80</code>).</li>
+  <li><strong>Colors of grade 50</strong> result in Section 508 AA contrast against both pure white (grade <code class="language-plaintext highlighter-rouge">0</code>) and pure black (grade <code class="language-plaintext highlighter-rouge">100</code>).</li>
+</ul>
+
+<p>Use magic numbers to choose accessible color combinations from any palette and color family.</p>
+
+<p>Magic numbers work because each grade conforms to a specific range of values for <a href="https://www.w3.org/WAI/GL/wiki/Relative_luminance">relative luminance</a>. WCAG and Section 508 color contrast is calculated as a ratio of the relative luminances of two colors, so as long as our colors fall between a specific luminance range for each grade, the ratio will conform to contrast requirements. The following table shows each grade and the corresponding luminance minimum and maximum.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>grade</th>
+      <th>minimum luminance</th>
+      <th>maximum luminance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0</code></td>
+      <td><code class="language-plaintext highlighter-rouge">1.000</code></td>
+      <td><code class="language-plaintext highlighter-rouge">1.000</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">5</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.850</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.930</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">10</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.750</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.820</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">20</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.500</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.650</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">30</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.350</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.450</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">40</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.225</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.300</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">50</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.175</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.183</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">60</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.100</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.125</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">70</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.050</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.070</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">80</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.020</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.040</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">90</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.005</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.015</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">100</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.000</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0.000</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="accessible-color-combination-examples">Accessible color combination examples</h4>
+<p>The following two images are examples of accessible color combinations. In this first image, the background color is <code class="language-plaintext highlighter-rouge">gray-90</code>. To get a magic number of at least 50 and, thus, ensure a Section 508 AA contrast level, the text color must be grade 40 or below. Grades of <code class="language-plaintext highlighter-rouge">50</code> and below would be acceptable for large text.</p>
+
+<p class="measure-6"><img src="/assets/img/design-tokens/gray-example.png" alt="gray color contrast example" /></p>
+
+<p>The color grade system works across color families as shown in this second image.</p>
+
+<p class="measure-6 margin-top-5"><img src="/assets/img/design-tokens/indigo-warm-example.png" alt="indigo color contrast example" /></p>
+
+<h3 id="color-contrast-and-readability">Color, contrast, and readability</h3>
+<p>Readability is the ease with which a reader can understand a written text. It’s a complicated phenomenon affected by many factors in addition to color and contrast, including (but not limited to) type size, typeface, line length, line height, whitespace, word choice, content design, and writing style. Readability issues can be especially important for sites that contain documentation or detailed text that requires concentration.</p>
+
+<p>When it comes to color, consider these general guidelines:</p>
+
+<ul>
+  <li>Section 508 AA+ color contrast helps colorblindness and color perception.</li>
+  <li>Avoiding pure black text on a white background helps dyslexia, <a href="https://irlen.com/what-is-irlen-syndrome/">Irlen Syndrome</a>, light sensitivity, and autism.</li>
+  <li>The best combination is the maximum color contrast of white or light text on black or dark background because it seems to visually work well for all.</li>
+  <li>The best option, when possible, is to provide a way for users to select their own text and background colors.</li>
+</ul>
+
+<h2 id="uswds-color-wheels">USWDS color wheels</h2>
+
+<p>The following color wheels are a way to visualize the entire <a href="/design-tokens/color/system-tokens/">System palette</a> and its color-family naming rubric. The color wheels are arranged around the 360 degrees of the <a href="https://en.wikipedia.org/wiki/HSL_and_HSV">HSL color model</a>. Each color family is labelled with its position (in degrees) on this model. In general, colors within color families stay close to the hue value listed, but it is a custom palette, not generated by an algorithm. Hue variation within color families is intentional — we are trying to find good colors, not just those that fit a function.</p>
+
+<p>The following image shows our standard System tokens wheel.</p>
+
+<p class="bg-white padding-2 radius-md"><img src="/assets/img/design-tokens/uswds-standard-color-wheel-2.6.0.jpg" alt="standard color wheel" /></p>
+
+<p>The following image shows our vivid System tokens wheel.</p>
+
+<p class="bg-white padding-2 radius-md margin-top-4"><img src="/assets/img/design-tokens/uswds-vivid-color-wheel-2.6.0.jpg" alt="vivid color wheel" /></p>
+
+<h2 id="general-color-guidance">General color guidance</h2>
+
+<p>If we use color intentionally, consistently, and sensitively, it can make a big difference in the way people understand and connect with our pages, our products and services, and our message. Color is an important component of visual and emotional cognition, and that’s precisely what makes it difficult to use well — what’s strong and confident to one person can be jarring or alarming to another.</p>
+
+<p><strong>Start in black and white.</strong> Start with your core message and use type scale and hierarchy to test and refine its effectiveness. Then, introduce color to support that message. Color can overwhelm interpretation, and since approximately 4.5% of the population has some kind of color insensitivity, it’s important to convey your message without relying on color.</p>
+
+<p><strong>Put the practical before the emotional.</strong> Because color can do so much, it’s helpful to keep focused. Limit the complexity of color by concentrating on functional requirements (like status states or directions) first. Then, use color as progressive enhancement to reinforce or balance the emotional needs of the content. Even so, bear in mind that the effects of color are often personal and cultural as much as, or more so than, physiological. Understand that using color to optimize for tone necessarily excludes some users in subtle and not-so-subtle ways.</p>
+
+<p><strong>Use mood boards for guidance.</strong> Deriving appropriate color palettes can be challenging, and letting existing colors and palettes be your guide makes sense. Collect images from other sources that evoke the desired tone to find commonalities. Then, find close matches in the system palette to help build your theme.</p>
+
+<p><strong>Ask visual designers.</strong> Your group or agency may have visual designers either on staff or available as contractors. They can be an invaluable resource for building palettes or getting feedback on existing ones. USWDS benefits from the collective experience of visual designers across agencies to build our System palette and provide a range of prebuilt project theme palettes. If you have visual design resources, use them.</p>
+
+<p><strong>Don’t use color exclusively to convey meaning.</strong> Even Section 508 conformant contrast doesn’t ensure that colors are distinguishable for a significant percentage of your audience. <a href="https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/color-blindness">Approximately 0.5% of adult women and 8% of adult men</a> have some kind of color insensitivity, especially between red and green. Color should only be used as progressive enhancement — if color is the only signal, that signal won’t get through as intended to everyone.</p>
+
+<h2 id="further-reading">Further reading</h2>
+<ul>
+  <li>Accessibility: Color and contrast
+<a href="https://digital.gov/guides/accessibility-for-teams/visual-design#color-and-contrast" class="display-block">https://digital.gov/guides/accessibility-for-teams/visual-design#color-and-contrast</a></li>
+  <li>Color and readability
+<a href="https://www.w3.org/WAI/RD/2012/text-customization/r11" class="display-block">https://www.w3.org/WAI/RD/2012/text-customization/r11</a></li>
+  <li>Improving accessibility for colorblind users
+<a href="https://www.smashingmagazine.com/2016/06/improving-color-accessibility-for-color-blind-users/" class="display-block">https://www.smashingmagazine.com/2016/06/improving-color-accessibility-for-color-blind-users/</a></li>
+  <li>Introduction to Irlen Syndrome
+<a href="https://irlen.com/what-is-irlen-syndrome/" class="display-block">https://irlen.com/what-is-irlen-syndrome/</a></li>
+  <li>Making content accessible for those with dyslexia
+<a href="https://www.dyslexic.com/blog/quick-guide-making-content-accessible/" class="display-block">https://www.dyslexic.com/blog/quick-guide-making-content-accessible/</a></li>
+  <li>W3C: Contrast levels for readability
+<a href="https://www.w3.org/WAI/test-evaluate/preliminary/#contrast" class="display-block">https://www.w3.org/WAI/test-evaluate/preliminary/#contrast</a></li>
+  <li>W3C: Gap analysis of the state of accessibility for people with learning disabilities and cognitive disabilities
+<a href="https://www.w3.org/TR/coga-gap-analysis/" class="display-block">https://www.w3.org/TR/coga-gap-analysis/</a></li>
+  <li>W3C: Low vision needs
+<a href="https://www.w3.org/TR/low-vision-needs/" class="display-block">https://www.w3.org/TR/low-vision-needs/</a></li>
+</ul>
+
+<h2 id="tools">Tools</h2>
+<ul>
+  <li>USWDS Color Tool from CivicActions: Convert any hex color into its closest USWDS equivalent
+<a href="https://civicactions.github.io/uswds-color-tool" class="display-block">https://civicactions.github.io/uswds-color-tool</a></li>
+</ul>
+
+
+        
+
+
+
+<h2 id="changelog" class="site-component-section-title">Latest updates</h2><p>Meaningful code and guidance updates are listed in the following table:</p>
+  
+    
+
+
+
+
+
+
+
+
+
+
+<table class="usa-table--borderless site-table-responsive site-table-simple">
+  <thead>
+    <tr>
+      <th scope="col" class="tablet:grid-col">Date</th>
+      <th scope="col" class="tablet:grid-col tablet:padding-left-0">USWDS version</th>
+      <th scope="col" class="tablet:grid-col">Affects</th>
+      <th scope="col" class="tablet:grid-col site-changelog--hide-tablet">Breaking</th>
+      <th scope="col" class="tablet:grid-col-6">Description</th>
+    </tr>
+  </thead>
+  <tbody class="font-lang-3xs">
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2022-06-03</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        N/A
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+          
+            <li><span class="output-neutral">Guidance</span></li>
+          
+          
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Updated the minimum luminance for color grade 40.
+
+          </strong>
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds-site/pull/1631">
+              uswds-site#1631
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2021-12-29</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        N/A
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+          
+            <li><span class="output-neutral">Guidance</span></li>
+          
+          
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Added tools section.
+
+          </strong>
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds-site/pull/1276">
+              uswds-site#1276
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+  
+
+      </div>
+    </main>
+  
+  </div>
+  
+</div>
+
+
+
+
+
+  
+  <script src="https://touchpoints.app.cloud.gov/touchpoints/5c2410e4.js" async></script>
+
+
+
+
+
+
+<section class="touchpoints__container" role="complementary" aria-label="Page feedback">
+  
+    <button type="button" class="usa-button site-button usa-button--outline" id="touchpoints-modal-button" aria-label="Provide feedback about this page" tabindex="0">Was this page helpful?</button>
+  
+</section>
+
+
+
+<footer class="usa-footer site-footer">
+  <div class="usa-footer__secondary-section">
+    <div class="grid-container footer-content">
+      <h2>Become part of the community</h2>
+      <p>
+        USWDS is an active open source community of government engineers, content specialists, and designers. Our contributors both in and out of government support dozens of agencies and nearly 200 sites.
+      </p>
+      <div class="grid-row footer-contact-links">
+        
+          <div class="tablet:grid-col">
+            <div class="usa-media-block">
+              <div class="usa-media-block__img circle-5 bg-accent-cool display-flex flex-row flex-align-center flex-justify-center text-white">
+                <svg class="usa-icon usa-icon--size-3" aria-hidden="true" role="img" focusable="false">
+                  <use href="/assets/img/sprite.svg#help"></use>
+                </svg>
+              </div>
+              <div class="usa-media-block__body">
+                <h3>Have an idea or an issue?</h3>
+                <a href="https://github.com/uswds/uswds/issues/new/choose">Reach out in GitHub</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="tablet:grid-col">
+            <div class="usa-media-block">
+              <div class="usa-media-block__img circle-5 bg-accent-cool display-flex flex-row flex-align-center flex-justify-center text-white">
+                <svg class="usa-icon usa-icon--size-3" aria-hidden="true" role="img" focusable="false">
+                  <use href="/assets/img/sprite.svg#people"></use>
+                </svg>
+              </div>
+              <div class="usa-media-block__body">
+                <h3>Engage with the community</h3>
+                <a href="https://designsystem.digital.gov/about/community/">Find a channel that works for you</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="tablet:grid-col">
+            <div class="usa-media-block">
+              <div class="usa-media-block__img circle-5 bg-accent-cool display-flex flex-row flex-align-center flex-justify-center text-white">
+                <svg class="usa-icon usa-icon--size-3" aria-hidden="true" role="img" focusable="false">
+                  <use href="/assets/img/sprite.svg#mail"></use>
+                </svg>
+              </div>
+              <div class="usa-media-block__body">
+                <h3>Subscribe to our newsletter</h3>
+                <a href="https://public.govdelivery.com/accounts/USGSATTS/subscriber/new?qsp=GSA_TTS">Sign up for USWDS updates</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="tablet:grid-col">
+            <div class="usa-media-block">
+              <div class="usa-media-block__img circle-5 bg-accent-cool display-flex flex-row flex-align-center flex-justify-center text-white">
+                <svg class="usa-icon usa-icon--size-3" aria-hidden="true" role="img" focusable="false">
+                  <use href="/assets/img/sprite.svg#support"></use>
+                </svg>
+              </div>
+              <div class="usa-media-block__body">
+                <h3>Get support</h3>
+                <a href="mailto:uswds@gsa.gov">Email the USWDS team</a>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+
+    <div class="bg-base-light padding-y-1 line-height-sans-3 font-lang-4">
+      <div class="grid-container">
+        Looking for USWDS v1 documentation?
+        <a
+          href="https://v1.designsystem.digital.gov"
+          class="text-ink text-bold hover:text-no-underline"
+          >Visit v1.designsystem.digital.gov</a
+        >
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<div class="usa-identifier site-identifier">
+  <section
+    class="usa-identifier__section usa-identifier__section--masthead"
+    aria-label="Agency identifier,,,,,,"
+  >
+    <div class="usa-identifier__container">
+      <div class="usa-identifier__logos"><a href="javascript:void(0);" class="usa-identifier__logo">
+          <img
+            class="usa-identifier__logo-img"
+            src="/img/gsa-logo.svg"
+            alt="GSA Logo"
+            role="img"
+            width="48"
+            height="48"
+          >
+        </a></div>
+      <section class="usa-identifier__identity" aria-label="Agency description">
+        <p class="usa-identifier__identity-domain">designsystem.digital.gov</p>
+        <p class="usa-identifier__identity-disclaimer"><span aria-hidden="true">An </span>official website of the <a href=https://gsa.gov>General Services Administration</a></p>
+      </section>
+    </div>
+  </section>
+  <nav class="usa-identifier__section usa-identifier__section--required-links" aria-label="Important links">
+      <div class="usa-identifier__container">
+        <ul class="usa-identifier__required-links-list"><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/about-us" class="usa-identifier__required-link">About GSA</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/website-information/accessibility-statement" class="usa-identifier__required-link">Accessibility statement</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/reference/freedom-of-information-act-foia" class="usa-identifier__required-link">FOIA requests</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002" class="usa-identifier__required-link">No FEAR Act data</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsaig.gov/" class="usa-identifier__required-link">Office of the Inspector General</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/reference/reports/budget-performance" class="usa-identifier__required-link">Performance reports</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/website-information/website-policies" class="usa-identifier__required-link">Privacy policy</a>
+          </li></ul>
+      </div>
+  </nav>
+  <section class="usa-identifier__section usa-identifier__section--usagov" aria-label="Government information and services">
+    <div class="usa-identifier__container">
+      <div class="usa-identifier__usagov-description">
+        Looking for U.S. government information and services?
+      </div>
+      <a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a>
+    </div>
+  </section>
+</div>
+
+
+
+    <script src="/assets/js/styleguide.js"></script>
+
+<script src="/assets/js/vendor/uswds.min.js"></script>
+<!--<script>
+//<![CDATA[
+      var usasearch_config = { siteHandle:"uswds" };
+
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "//search.usa.gov/javascripts/remote.loader.js";
+      document.getElementsByTagName("head")[0].appendChild(script);
+
+//]]>
+</script>
+-->
+
+  </body>
+</html>

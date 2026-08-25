@@ -1,0 +1,1302 @@
+﻿Step indicator | U.S. Web Design System (USWDS)
+
+Skip to main content
+
+An official website of the United States government
+
+Here’s how you know
+
+Here’s how you know
+
+Official websites use .gov
+A
+ .gov website belongs to an official government
+ organization in the United States.
+
+Secure .gov websites use HTTPS
+A
+ lock (
+ ) or https:// means you’ve safely connected to
+ the .gov website. Share sensitive information only on official,
+ secure websites.
+
+USWDS
+ U.S. Web Design System (USWDS)
+
+Menu
+
+How to use USWDS
+
+How to use USWDS
+
+Getting started for developers
+
+Getting started for designers
+
+Documentation
+
+Settings
+
+USWDS maturity model
+
+Accessibility
+
+Performance guidelines
+
+Code guidelines
+
+Migrating to USWDS 3.0
+
+Migrating to USWDS 2.0
+
+Implementations
+
+Showcase
+
+Sample contract language for 21st Century IDEA
+
+Website standards
+
+Design principles
+
+Components
+
+Components
+
+Accordion
+
+Alert
+
+Banner
+
+Breadcrumb
+
+Button
+
+Button group
+
+Card
+
+Character count
+
+Checkbox
+
+Collection
+
+Combo box
+
+Data visualizations
+
+Date picker
+
+Date range picker
+
+File input
+
+Footer
+
+Form
+
+Grid
+
+Header
+
+Icon
+
+Icon list
+
+Identifier
+
+In-page navigation
+
+Input mask
+
+Input prefix/suffix
+
+Language selector
+
+Link
+
+List
+
+Memorable date
+
+Modal
+
+Pagination
+
+Process list
+
+Prose
+
+Radio buttons
+
+Range slider
+
+Search
+
+Select
+
+Side navigation
+
+Site alert
+
+Step indicator
+
+Step indicator accessibility tests
+
+Summary box
+
+Table
+
+Tag
+
+Text input
+
+Time picker
+
+Tooltip
+
+Typography
+
+Validation
+
+Patterns
+
+Patterns
+
+Introducing patterns
+
+Create a user profile
+
+Complete a complex form
+
+Select a language
+
+Design tokens
+
+Design tokens
+
+Color
+
+Typesetting
+
+Flex
+
+Opacity
+
+Order
+
+Shadow
+
+Spacing units
+
+Z-index
+
+Utilities
+
+Utilities
+
+Layout grid
+
+Color
+
+Height and width
+
+Margin and padding
+
+Border
+
+Outline
+
+Font size and family
+
+Text styles
+
+Paragraph styles
+
+Display
+
+Flex
+
+Shadow
+
+Float
+
+Clearfix
+
+List reset
+
+Templates
+
+Templates
+
+404 page
+
+Documentation page
+
+Landing page
+
+Authentication pages
+
+Form templates
+
+About
+
+About
+
+Key benefits
+
+Product values
+
+Contribute
+
+Community
+
+What’s new
+
+Monthly calls
+
+Product roadmap
+
+Research
+
+Security
+
+Website policies and notices
+
+How to use USWDS
+
+Design principles
+
+Components
+
+Patterns
+
+Design tokens
+
+Utilities
+
+Templates
+
+About
+
+Search
+
+Read website standards
+
+Download v3.14.0
+
+View on GitHub
+
+Components
+
+Accordion
+
+Alert
+
+Banner
+
+Breadcrumb
+
+Button
+
+Button group
+
+Card
+
+Character count
+
+Checkbox
+
+Collection
+
+Combo box
+
+Data visualizations
+
+Date picker
+
+Date range picker
+
+File input
+
+Footer
+
+Form
+
+Grid
+
+Header
+
+Icon
+
+Icon list
+
+Identifier
+
+In-page navigation
+
+Input mask
+
+Input prefix/suffix
+
+Language selector
+
+Link
+
+List
+
+Memorable date
+
+Modal
+
+Pagination
+
+Process list
+
+Prose
+
+Radio buttons
+
+Range slider
+
+Search
+
+Select
+
+Side navigation
+
+Site alert
+
+Step indicator
+
+Step indicator accessibility tests
+
+Summary box
+
+Table
+
+Tag
+
+Text input
+
+Time picker
+
+Tooltip
+
+Typography
+
+Validation
+
+Components
+
+Step indicator
+
+A step indicator updates users on their progress through a multi-step process.
+
+Passed WCAG 2.1 AA
+
+Component preview
+
+Default
+
+Personal information completed
+
+Household status completed
+
+Supporting documents
+
+Signature not completed
+
+Review and submit not completed
+
+Step
+ 3
+ of 5 Supporting documents
+
+No labels
+
+Personal information completed
+
+Household status completed
+
+Supporting documents
+
+Signature not completed
+
+Review and submit not completed
+
+Step
+ 3
+ of 5 Supporting documents
+
+Centered
+
+Personal information completed
+
+Household status completed
+
+Supporting documents
+
+Signature not completed
+
+Review and submit not completed
+
+Step
+ 3
+ of 5 Supporting documents
+
+Counters
+
+Personal information completed
+
+Household status completed
+
+Supporting documents
+
+Signature not completed
+
+Review and submit not completed
+
+Step
+ 3
+ of 5 Supporting documents
+
+Small counters
+
+Personal information completed
+
+Household status completed
+
+Supporting documents
+
+Signature not completed
+
+Review and submit not completed
+
+Step
+ 3
+ of 5 Supporting documents
+
+Component code
+
+<h3 class="site-preview-heading">Default</h3>
+<div class="usa-step-indicator">
+ <ol class="usa-step-indicator__segments">
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--complete"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Personal information <span class="usa-sr-only">completed</span></span
+ >
+ </li>
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--complete"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Household status <span class="usa-sr-only">completed</span></span
+ >
+ </li>
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--current"
+ aria-current="true"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Supporting documents</span
+ >
+ </li>
+ <li class="usa-step-indicator__segment">
+ <span class="usa-step-indicator__segment-label"
+ >Signature <span class="usa-sr-only">not completed</span></span
+ >
+ </li>
+ <li class="usa-step-indicator__segment">
+ <span class="usa-step-indicator__segment-label"
+ >Review and submit <span class="usa-sr-only">not completed</span></span
+ >
+ </li>
+ </ol>
+ <div class="usa-step-indicator__header">
+ <h4 class="usa-step-indicator__heading">
+ <span class="usa-step-indicator__heading-counter"
+ ><span class="usa-sr-only">Step</span>
+ <span class="usa-step-indicator__current-step">3</span>
+ <span class="usa-step-indicator__total-steps">of 5</span> </span
+ ><span class="usa-step-indicator__heading-text"
+ >Supporting documents</span
+ >
+ </h4>
+ </div>
+</div>
+
+<h3 class="site-preview-heading">No labels</h3>
+<div class="usa-step-indicator usa-step-indicator--no-labels">
+ <ol class="usa-step-indicator__segments">
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--complete"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Personal information <span class="usa-sr-only">completed</span></span
+ >
+ </li>
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--complete"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Household status <span class="usa-sr-only">completed</span></span
+ >
+ </li>
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--current"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Supporting documents</span
+ >
+ </li>
+ <li class="usa-step-indicator__segment">
+ <span class="usa-step-indicator__segment-label"
+ >Signature <span class="usa-sr-only">not completed</span></span
+ >
+ </li>
+ <li class="usa-step-indicator__segment">
+ <span class="usa-step-indicator__segment-label"
+ >Review and submit <span class="usa-sr-only">not completed</span></span
+ >
+ </li>
+ </ol>
+ <div class="usa-step-indicator__header">
+ <h4 class="usa-step-indicator__heading">
+ <span class="usa-step-indicator__heading-counter"
+ ><span class="usa-sr-only">Step</span>
+ <span class="usa-step-indicator__current-step">3</span>
+ <span class="usa-step-indicator__total-steps">of 5</span> </span
+ ><span class="usa-step-indicator__heading-text"
+ >Supporting documents</span
+ >
+ </h4>
+ </div>
+</div>
+
+<h3 class="site-preview-heading">Centered</h3>
+<div class="usa-step-indicator usa-step-indicator--center">
+ <ol class="usa-step-indicator__segments">
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--complete"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Personal information <span class="usa-sr-only">completed</span></span
+ >
+ </li>
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--complete"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Household status <span class="usa-sr-only">completed</span></span
+ >
+ </li>
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--current"
+ aria-current="true"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Supporting documents</span
+ >
+ </li>
+ <li class="usa-step-indicator__segment">
+ <span class="usa-step-indicator__segment-label"
+ >Signature <span class="usa-sr-only">not completed</span></span
+ >
+ </li>
+ <li class="usa-step-indicator__segment">
+ <span class="usa-step-indicator__segment-label"
+ >Review and submit <span class="usa-sr-only">not completed</span></span
+ >
+ </li>
+ </ol>
+ <div class="usa-step-indicator__header">
+ <h4 class="usa-step-indicator__heading">
+ <span class="usa-step-indicator__heading-counter"
+ ><span class="usa-sr-only">Step</span>
+ <span class="usa-step-indicator__current-step">3</span>
+ <span class="usa-step-indicator__total-steps">of 5</span> </span
+ ><span class="usa-step-indicator__heading-text"
+ >Supporting documents</span
+ >
+ </h4>
+ </div>
+</div>
+
+<h3 class="site-preview-heading">Counters</h3>
+<div class="usa-step-indicator usa-step-indicator--counters">
+ <ol class="usa-step-indicator__segments">
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--complete"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Personal information <span class="usa-sr-only">completed</span></span
+ >
+ </li>
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--complete"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Household status <span class="usa-sr-only">completed</span></span
+ >
+ </li>
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--current"
+ aria-current="true"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Supporting documents</span
+ >
+ </li>
+ <li class="usa-step-indicator__segment">
+ <span class="usa-step-indicator__segment-label"
+ >Signature <span class="usa-sr-only">not completed</span></span
+ >
+ </li>
+ <li class="usa-step-indicator__segment">
+ <span class="usa-step-indicator__segment-label"
+ >Review and submit <span class="usa-sr-only">not completed</span></span
+ >
+ </li>
+ </ol>
+ <div class="usa-step-indicator__header">
+ <h4 class="usa-step-indicator__heading">
+ <span class="usa-step-indicator__heading-counter"
+ ><span class="usa-sr-only">Step</span>
+ <span class="usa-step-indicator__current-step">3</span>
+ <span class="usa-step-indicator__total-steps">of 5</span> </span
+ ><span class="usa-step-indicator__heading-text"
+ >Supporting documents</span
+ >
+ </h4>
+ </div>
+</div>
+
+<h3 class="site-preview-heading">Small counters</h3>
+<div class="usa-step-indicator usa-step-indicator--counters-sm">
+ <ol class="usa-step-indicator__segments">
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--complete"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Personal information <span class="usa-sr-only">completed</span></span
+ >
+ </li>
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--complete"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Household status <span class="usa-sr-only">completed</span></span
+ >
+ </li>
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--current"
+ aria-current="true"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Supporting documents</span
+ >
+ </li>
+ <li class="usa-step-indicator__segment">
+ <span class="usa-step-indicator__segment-label"
+ >Signature <span class="usa-sr-only">not completed</span></span
+ >
+ </li>
+ <li class="usa-step-indicator__segment">
+ <span class="usa-step-indicator__segment-label"
+ >Review and submit <span class="usa-sr-only">not completed</span></span
+ >
+ </li>
+ </ol>
+ <div class="usa-step-indicator__header">
+ <h4 class="usa-step-indicator__heading">
+ <span class="usa-step-indicator__heading-counter"
+ ><span class="usa-sr-only">Step</span>
+ <span class="usa-step-indicator__current-step">3</span>
+ <span class="usa-step-indicator__total-steps">of 5</span> </span
+ ><span class="usa-step-indicator__heading-text"
+ >Supporting documents</span
+ >
+ </h4>
+ </div>
+</div>
+
+<h3 class="site-preview-heading">Default</h3>
+<div class="usa-step-indicator">
+ <ol class="usa-step-indicator__segments">
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--complete"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Personal information <span class="usa-sr-only">completed</span></span
+ >
+ </li>
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--complete"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Household status <span class="usa-sr-only">completed</span></span
+ >
+ </li>
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--current"
+ aria-current="true"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Supporting documents</span
+ >
+ </li>
+ <li class="usa-step-indicator__segment">
+ <span class="usa-step-indicator__segment-label"
+ >Signature <span class="usa-sr-only">not completed</span></span
+ >
+ </li>
+ <li class="usa-step-indicator__segment">
+ <span class="usa-step-indicator__segment-label"
+ >Review and submit <span class="usa-sr-only">not completed</span></span
+ >
+ </li>
+ </ol>
+ <div class="usa-step-indicator__header">
+ <h4 class="usa-step-indicator__heading">
+ <span class="usa-step-indicator__heading-counter"
+ ><span class="usa-sr-only">Step</span>
+ <span class="usa-step-indicator__current-step">3</span>
+ <span class="usa-step-indicator__total-steps">of 5</span> </span
+ ><span class="usa-step-indicator__heading-text"
+ >Supporting documents</span
+ >
+ </h4>
+ </div>
+</div>
+
+<h3 class="site-preview-heading">No labels</h3>
+<div class="usa-step-indicator usa-step-indicator--no-labels">
+ <ol class="usa-step-indicator__segments">
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--complete"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Personal information <span class="usa-sr-only">completed</span></span
+ >
+ </li>
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--complete"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Household status <span class="usa-sr-only">completed</span></span
+ >
+ </li>
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--current"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Supporting documents</span
+ >
+ </li>
+ <li class="usa-step-indicator__segment">
+ <span class="usa-step-indicator__segment-label"
+ >Signature <span class="usa-sr-only">not completed</span></span
+ >
+ </li>
+ <li class="usa-step-indicator__segment">
+ <span class="usa-step-indicator__segment-label"
+ >Review and submit <span class="usa-sr-only">not completed</span></span
+ >
+ </li>
+ </ol>
+ <div class="usa-step-indicator__header">
+ <h4 class="usa-step-indicator__heading">
+ <span class="usa-step-indicator__heading-counter"
+ ><span class="usa-sr-only">Step</span>
+ <span class="usa-step-indicator__current-step">3</span>
+ <span class="usa-step-indicator__total-steps">of 5</span> </span
+ ><span class="usa-step-indicator__heading-text"
+ >Supporting documents</span
+ >
+ </h4>
+ </div>
+</div>
+
+<h3 class="site-preview-heading">Centered</h3>
+<div class="usa-step-indicator usa-step-indicator--center">
+ <ol class="usa-step-indicator__segments">
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--complete"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Personal information <span class="usa-sr-only">completed</span></span
+ >
+ </li>
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--complete"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Household status <span class="usa-sr-only">completed</span></span
+ >
+ </li>
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--current"
+ aria-current="true"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Supporting documents</span
+ >
+ </li>
+ <li class="usa-step-indicator__segment">
+ <span class="usa-step-indicator__segment-label"
+ >Signature <span class="usa-sr-only">not completed</span></span
+ >
+ </li>
+ <li class="usa-step-indicator__segment">
+ <span class="usa-step-indicator__segment-label"
+ >Review and submit <span class="usa-sr-only">not completed</span></span
+ >
+ </li>
+ </ol>
+ <div class="usa-step-indicator__header">
+ <h4 class="usa-step-indicator__heading">
+ <span class="usa-step-indicator__heading-counter"
+ ><span class="usa-sr-only">Step</span>
+ <span class="usa-step-indicator__current-step">3</span>
+ <span class="usa-step-indicator__total-steps">of 5</span> </span
+ ><span class="usa-step-indicator__heading-text"
+ >Supporting documents</span
+ >
+ </h4>
+ </div>
+</div>
+
+<h3 class="site-preview-heading">Counters</h3>
+<div class="usa-step-indicator usa-step-indicator--counters">
+ <ol class="usa-step-indicator__segments">
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--complete"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Personal information <span class="usa-sr-only">completed</span></span
+ >
+ </li>
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--complete"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Household status <span class="usa-sr-only">completed</span></span
+ >
+ </li>
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--current"
+ aria-current="true"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Supporting documents</span
+ >
+ </li>
+ <li class="usa-step-indicator__segment">
+ <span class="usa-step-indicator__segment-label"
+ >Signature <span class="usa-sr-only">not completed</span></span
+ >
+ </li>
+ <li class="usa-step-indicator__segment">
+ <span class="usa-step-indicator__segment-label"
+ >Review and submit <span class="usa-sr-only">not completed</span></span
+ >
+ </li>
+ </ol>
+ <div class="usa-step-indicator__header">
+ <h4 class="usa-step-indicator__heading">
+ <span class="usa-step-indicator__heading-counter"
+ ><span class="usa-sr-only">Step</span>
+ <span class="usa-step-indicator__current-step">3</span>
+ <span class="usa-step-indicator__total-steps">of 5</span> </span
+ ><span class="usa-step-indicator__heading-text"
+ >Supporting documents</span
+ >
+ </h4>
+ </div>
+</div>
+
+<h3 class="site-preview-heading">Small counters</h3>
+<div class="usa-step-indicator usa-step-indicator--counters-sm">
+ <ol class="usa-step-indicator__segments">
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--complete"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Personal information <span class="usa-sr-only">completed</span></span
+ >
+ </li>
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--complete"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Household status <span class="usa-sr-only">completed</span></span
+ >
+ </li>
+ <li
+ class="usa-step-indicator__segment usa-step-indicator__segment--current"
+ aria-current="true"
+ >
+ <span class="usa-step-indicator__segment-label"
+ >Supporting documents</span
+ >
+ </li>
+ <li class="usa-step-indicator__segment">
+ <span class="usa-step-indicator__segment-label"
+ >Signature <span class="usa-sr-only">not completed</span></span
+ >
+ </li>
+ <li class="usa-step-indicator__segment">
+ <span class="usa-step-indicator__segment-label"
+ >Review and submit <span class="usa-sr-only">not completed</span></span
+ >
+ </li>
+ </ol>
+ <div class="usa-step-indicator__header">
+ <h4 class="usa-step-indicator__heading">
+ <span class="usa-step-indicator__heading-counter"
+ ><span class="usa-sr-only">Step</span>
+ <span class="usa-step-indicator__current-step">3</span>
+ <span class="usa-step-indicator__total-steps">of 5</span> </span
+ ><span class="usa-step-indicator__heading-text"
+ >Supporting documents</span
+ >
+ </h4>
+ </div>
+</div>
+
+Guidance
+
+When to use the step indicator component
+
+Multiple steps and screens. Use the step indicator when the user is working through a form or process that will span several different pages that can be organized into three or more high-level steps or chapters. This helps users understand the progression of long forms and reduces uncertainty as they complete each screen.
+
+ Linear progression. The step indicator is designed to complement standard back/next navigation in a linear sequence, not to be navigation of its own.
+
+When to consider something else
+
+Long forms with conditional logic. Consider another approach if the number of steps might change due to user input.
+
+ Nonlinear progression. The step indicator isn’t appropriate for nonlinear forms or interactions that might be completed in any order.
+
+ Very short forms. Don’t use a step indicator for short forms without chapters or sections. If a form or process has fewer than three sections, don’t use a step indicator.
+
+Usability guidance
+
+Indicate where a user is in the process. Use a color and text treatment for the current step segment that is distinct from both the completed and pending step segments. The current segment should be the most visually prominent segment in the step indicator. Pending segments should be the least visually prominent of the segments, but should still maintain accessible contrast and not appear disabled.
+
+ Use short or single-word labels. If labelling the step indicators, stick to very short words.
+
+ Provide navigation separately. Use navigation like a button group to step forward and backward through a form.
+
+ Place a heading directly below the step indicator. Each step needs an explicit heading. The step indicator segments (even with labels and counters) are not sufficient as a heading for a page or screen.
+
+ Display step and total left of the heading. Using text like “[step] of [total]” next to the heading reinforces the number of total steps and helps users keep track of their location in the overall process.
+
+Accessibility guidance
+
+Test the step indicator component in your own project.
+
+USWDS tested the step indicator component for accessibility. You should test your implementation, too.
+
+Use step indicator accessibility tests
+
+Use semantic heading levels. Though our default code uses an <h4>, use the correct heading level in your own implementation.
+
+ Use visually hidden text on labels. Use visually hidden text make the completion status of each step explicit.
+
+ Indicate the current step. When using labeled segments, use aria-current="true" on the list item representing the current step.
+
+ Hide unlabeled segments. There is no content inside the segments when labels aren’t used, so it is safe to add aria-hidden="true" to the element with the class name usa-step-indicator__segments.
+
+Using the step indicator component
+
+Use counters to reinforce step progression. The counter pattern (step numbers in a circle) attracts more attention to the indicator bar, but more strongly communicates step-by-step progression. Use counters when you want to reinforce step progression. Omit them if testing proves that this reinforcement is unnecessary for your audience.
+
+ Omit labels with verbose content. Aim for clear and crisp labels. Omit labels to save space or if the step names are too long to comfortably fit in the step indicator.
+
+ Use the centered variant with centered content and headings. The centered variant is designed to complement centered content and headings. If you have left-aligned content and headings, use the default alignment.
+
+ Center the heading with utilities. Use the flex-justify-center utility on usa-step-indicator__header to center the heading.
+
+ Centered counters need narrower gaps and a thinner segment. If you use a centered variant with counters, you should use a narrower gap (2px is a good starting point) to increase the continuity between segments. A narrower counter gap (again, 2px is a good starting point) can also improve legibility. Centered counters can also benefit from a thinner segment, as the centered variant focusses emphasis on the counter instead of the segment.
+
+ Pending text should use gray. Pending text should use the gray family that complements the background and the pending segment colors. Use warm grays with warm backgrounds and segments, and cool grays with cool backgrounds and segments.
+
+ Pending segments can use gray or complete family. Pending segments can use gray, just as with pending text, but they can also use a light grade of the complete color family.
+
+ The current color can be a contrast color. The current color can be in the same family as the complete color or it can be a contrast color that distinguishes itself from the complete color.
+
+ Thicker segments use wider counter gaps. It can be distracting to use a thick segment with a narrow counter gap. Use a gap of at least 0.5 units on a 1 unit segment.
+
+ Avoid wide counter gaps. Counter gaps can improve legibility of the counters, but wide counter gaps hurt the overall continuity between the counters and the segments.
+
+Step indicator settings
+
+Variable
+ Description
+
+$step-indicator-background-color
+
+Background color of the component and the gaps around the counters.
+
+$theme-step-indicator-counter-gap
+
+Gap between the counter and the segment.
+
+$theme-step-indicator-counter-border-width
+
+Size of the border around the pending steps.
+
+$theme-step-indicator-font-family
+
+Font family of the labels and counter numbers.
+
+$theme-step-indicator-heading-font-family
+
+Font family of the heading.
+
+$theme-step-indicator-heading-color
+
+Color of the heading.
+
+$theme-step-indicator-heading-font-size
+
+Font size of the heading on screens of $theme-step-indicator-min-width and larger.
+
+$theme-step-indicator-heading-font-size-small
+
+Font size of the heading on screens smaller than $theme-step-indicator-min-width.
+
+$theme-step-indicator-label-font-size
+
+Font size of segment labels.
+
+$theme-step-indicator-min-width
+
+Width at which the component displays large-width features.
+
+$theme-step-indicator-segment-color-pending
+
+Color of pending step segments. Use a grade of 40 more than $step-indicator-background-color.
+
+$theme-step-indicator-segment-color-complete
+
+Color of complete step segments. Use a grade of at least 60.
+
+$theme-step-indicator-segment-color-current
+
+Color of the current step segments. Use a grade at least 20 less than $theme-step-indicator-segment-color-complete.
+
+$theme-step-indicator-segment-gap
+
+Gap between step segments.
+
+$theme-step-indicator-segment-height
+
+Height of the step segment. Note that the mobile segment height is always 1 unit.
+
+$theme-step-indicator-text-pending-color
+
+The text color of pending steps. Use a gray grade of 60 more than the $step-indicator-background-color.
+
+Step indicator variants
+
+Variant
+
+ Description
+
+.usa-step-indicator--no-labels
+
+Don’t show step labels.
+
+.usa-step-indicator--counters
+
+Show step counters.
+
+.usa-step-indicator--counters-sm
+
+Show small step counters
+
+.usa-step-indicator--center
+
+Center counters and labels in each step.
+
+Accessibility test status
+
+The USWDS team did 9 tests based on WCAG 2.1 AA success criteria.
+
+Overview of recent accessibility test results:
+
+Total tests
+
+Passed
+
+Passed with exceptions
+
+Conditional
+
+Failed
+
+9
+
+7
+
+0
+
+2
+
+0
+
+Overview of recent accessibility test results:
+
+Passed: 7
+
+Passed with exceptions: 0
+
+Conditional: 2
+
+Failed: 0
+
+Learn more on the step indicator accessibility tests page.
+
+Package
+
+Package usage: @forward "usa-step-indicator";
+
+Dependencies: uswds-fonts, 
+uswds-helpers
+
+Latest updates
+Meaningful code and guidance updates are listed in the following table:
+
+Date
+ USWDS version
+ Affects
+ Breaking
+ Description
+
+2025-02-14
+
+N/A
+
+Guidance
+
+No
+
+Added WCAG compliance tag and accessibility test status section.
+
+More information:
+ 
+ uswds-site#3098
+
+2024-11-13
+
+3.10.0
+
+Accessibility
+
+Guidance
+
+Markup
+
+No
+
+Removed the aria-label from the wrapper of the step indicator component.
+
+This resolves an error related to having an invalid attribute on a div element.
+
+More information:
+ 
+ uswds#6146
+
+2023-03-09
+
+3.4.0
+
+Accessibility
+
+Styles
+
+No
+
+Improved contrast on pending items.
+
+Graphical elements related to pending items now meet accessibility standards for contrast ratio.
+
+More information:
+ 
+ uswds#5048
+
+2022-04-28
+
+3.0.0
+
+Accessibility
+
+Assets
+
+JavaScript
+
+Styles
+
+Breaking
+
+Breaking
+
+Updated to Sass module syntax and new package structure.
+
+More information:
+ 
+ uswds#4656
+
+Was this page helpful?
+
+Become part of the community
+
+USWDS is an active open source community of government engineers, content specialists, and designers. Our contributors both in and out of government support dozens of agencies and nearly 200 sites.
+
+Have an idea or an issue?
+
+ Reach out in GitHub
+
+Engage with the community
+
+ Find a channel that works for you
+
+Subscribe to our newsletter
+
+ Sign up for USWDS updates
+
+Get support
+
+ Email the USWDS team
+
+Looking for USWDS v1 documentation?
+ Visit v1.designsystem.digital.gov
+
+designsystem.digital.gov
+
+ An official website of the General Services Administration
+
+About GSA
+
+Accessibility statement
+
+FOIA requests
+
+No FEAR Act data
+
+Office of the Inspector General
+
+Performance reports
+
+Privacy policy
+
+Looking for U.S. government information and services?
+
+Visit USA.gov

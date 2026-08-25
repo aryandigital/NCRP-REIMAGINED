@@ -1,0 +1,52 @@
+﻿=== user TEXT ===
+<timestamp>Monday, Aug 24, 2026, 2:25 PM (UTC+5:30)</timestamp>
+<user_query>
+Research trauma-informed and crisis-oriented digital service design. Use WebSearch and WebFetch. Today is August 2026.
+
+The application context: a reimagined India National Cyber Crime Reporting Portal for cybercrime victims. Users arrive in acute distress: they may have just lost their life savings to a fraud, be in the middle of a "digital arrest" scam call, be facing sextortion threats, or have had intimate images shared without consent. Some are minors. Some are elderly. The UI must work for someone whose hands are shaking.
+
+Produce a detail-dense markdown brief with EXACT specifics, verbatim copy examples, and URLs. Do not be vague.
+
+Cover:
+
+1. Trauma-informed design principles
+   - SAMHSA's six principles of a trauma-informed approach (safety; trustworthiness and transparency; peer support; collaboration and mutuality; empowerment, voice and choice; cultural, historical and gender issues) and how each translates to concrete digital/UI decisions.
+   - The trauma-informed design work from credible practitioners: Melissa Eggleston, Rachael Dietkus (Social Workers Who Design), the "Trauma-Informed Design" writing on UX Collective / Smashing Magazine, Chayn's "Design Like You Give a Damn", the UK Home Office trauma-informed guidance, Refuge's tech abuse work, and the Center for Care Innovations.
+   - Specific do's and don'ts: what wording, what pacing, what control mechanisms (save and return, skip, "I'd rather not say" options), what to avoid (forced disclosure, mandatory fields on sensitive questions, progress loss, unexpected content).
+
+2. Cognitive degradation under acute stress
+   - Specific research findings on how acute stress and panic reduce working memory capacity, narrow attention (cognitive tunneling / attentional narrowing / perceptual narrowing), reduce reading comprehension, and impair decision-making.
+   - Yerkes-Dodson law and its practical implications.
+   - Quantified findings where available (e.g. how many items a stressed person can hold, how much reading comprehension drops).
+   - Implications: how short must sentences be, how many choices per screen, how large must the primary action be, should you use text or icons, etc.
+
+3. Quick exit / safety exit button patterns
+   - How the best implementations work in detail: Refuge (UK), Women's Aid, the National Domestic Violence Hotline (US), Chayn, 1800RESPECT (Australia), Scotland's Safer Internet, and any government examples.
+   - Exact mechanics: what page they redirect to, whether they clear history, whether they use history.replaceState, keyboard shortcuts (double-ESC), whether they open a decoy tab, how they're labelled ("Quick exit", "Leave this site", "Safety exit", "Hide this page"), where they're positioned, size, colour.
+   - Known criticisms and failure modes of quick-exit buttons.
+   - "Cover your tracks" / browsing history guidance patterns.
+
+4. Real crisis and scam-reporting services: analyse the actual UX of each, with specifics
+   - ScamShield (Singapore) and scamalert.sg / the Singapore Police "I-Witness"
+   - Scamwatch (Australia, ACCC) and the National Anti-Scam Centre
+   - Action Fraud (UK) and the UK's "Stop! Think Fraud" campaign site
+   - IC3.gov (FBI Internet Crime Complaint Center)
+   - StopNCII.org (the hash-based, image-never-uploaded model) - describe its UX flow step by step, its copy, and how it explains hashing to a distressed user in plain language. This is DIRECTLY relevant.
+   - Take It Down (NCMEC) - same, step by step.
+   - Cyber Civil Rights Initiative
+   - The Revenge Porn Helpline (UK)
+   - 988 Suicide and Crisis Lifeline website, Crisis Text Line
+   For each: describe the layout, the tone, and quote the actual copy they use. Especially how they explain sensitive technical concepts (hashing, evidence, what happens to your data) in plain, reassuring language.
+
+5. Language and copy for distressed users
+   - Verbatim examples of good crisis copy from real services.
+   - How to write reassurance without being patronising.
+   - How to phrase "you are not to blame" / anti-shame messaging without sounding scripted. Research shows victims of fraud experience intense shame - find the specific guidance and examples.
+   - How to deliver bad news (e.g. "your money may not be recoverable") honestly but without destroying hope.
+   - How to write warnings that are heeded but do not induce panic freeze.
+   - Language around "victim" vs "survivor" vs neutral phrasing.
+   - Anti-scam-lookalike: since these users were just manipulated by urgency and fear, what tone must a legitimate service avoid?
+
+Return a long, well-organized, quote-heavy brief. Specifics and verbatim copy only.
+</user_query>
+

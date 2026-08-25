@@ -1,0 +1,75 @@
+﻿En felles digital verktøykasse - DesignsystemetYou need to enable JavaScript to run this app. If you are using a browser extension to block JavaScript, please disable it for this site.Hopp til hovedinnhold
+ 
+Intro
+Kom i gang
+Komponenter
+Mønstre
+God praksis
+Blogg
+Temabygger
+ Søk LanguageNorsk
+English
+
+Hva leter du etter?
+
+Prøv å søke etter…
+ButtonDesign tokensEksterne lenkerWebkomponenter
+
+Designsystemet hjelper deg å lage gode digitale tjenester
+
+Kom i gang
+Lær hvordan du kommer i gang med Designsystemet
+
+Komponenter
+Se oversikten over rammeverkuavhengige UI-komponenter.
+
+Mønstre
+Forstå hvordan felles mønstre bidrar til gjenkjennelige brukeropplevelser
+
+En felles digital verktøykasse
+Designsystemet er en felles verktøykasse med rammeverkuavhengige UI-komponenter og retningslinjer for utvikling av digitale tjenester. Du kan bruke hele verktøykassen, eller plukke ut de delene som gir verdi i din løsning. Det er gratis, brukes sammen med virksomhetens egen visuelle profil og bidrar til effektiv produktutvikling og helhetlige brukeropplevelser.
+ Les mer om Designsystemet
+
+Tilgjengelige og fleksible komponenter
+Når vi lager de mest grunnleggende komponentene bare én gang, sikrer vi god kvalitet. Komponenten blir godt testet og ivaretar krav til universell utforming. Komponentene finnes for Figma, CSS, en rammeverkuavhengig web-pakke og React. Bruk de komponentene som gir verdi i din løsning, og bygg videre på toppen av dem når du trenger det.
+ Les mer om universell utforming
+
+Bruk egne tema
+Designsystemet støtter ulike identiteter gjennom tema. Du kan bruke Temabyggeren for å komme i gang, og bygge videre på temaet slik at det passer din profil og løsning. På denne måten kan alle ta utgangspunkt i samme designsystem-fundament, men tilpasse det til ulike avsenderidentiteter.
+ Bygg ditt tema
+
+Siste nytt fra Designsystemet
+
+BloggenBruk tokens for å fargelegge grafikk
+Med Designsystemet kan du fargelegge grafikk.
+Designsystemet
+
+BloggenMigrering til forenklet fargestruktur
+Få hjelp til å migrere Designsystemet til den nye fargestrukturen
+Designsystemet
+
+BloggenDesignsystemet vant to priser på Visuelt 2026
+Designsystemet fikk gull i Digitalt design og Hedersprisen fra IxDA under Visuelt 2026.
+Designsystemet
+
+Lages på tvers av virksomheter
+Et felles løft for bedre brukeropplevelser på tvers. Sammen utvikler vi et felles fundament for gode, tilgjengelige og helhetlige digitale løsninger.
+
+Bli med å utvikle Designsystemet!
+Ved å samarbeide om Designsystemet kan vi lage mer gjenkjennelige brukeropplevelser på tvers av offentlig sektor. Samtidig sparer vi oss for å gjøre de samme oppgavene flere ganger. Designsystemet skal være et felles hjem for gjenbrukbare komponenter, god praksis, interaksjonsmønstre, brukerdialog, innsikt og mer. Vil du høre mer eller hjelpe? Ta kontakt med oss!
+ Bli med på Slack Bidra på GitHub Send en epost
+
+Designsystemet er en felles verktøykasse med grunnleggende UI-komponenter, retningslinjer og mønstre du kan bruke når du utvikler digitale løsninger. Det er åpent og gratis for alle.
+
+Om nettstedet
+Om designsystemet
+Personvernerklæring
+Tilgjengelighetserklæring
+Administrer informasjonskapsler
+Kom i kontakt med oss
+ designsystem@digdir.no
+ Bli med på Slack
+ Github
+ Figma
+
+© 2026 Designsystemet

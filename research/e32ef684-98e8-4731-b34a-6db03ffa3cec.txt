@@ -1,0 +1,686 @@
+﻿=== user TEXT ===
+<timestamp>Monday, Aug 24, 2026, 2:00 PM (UTC+5:30)</timestamp>
+<user_query>
+Research Google Stitch (the AI UI design tool at stitch.withgoogle.com, launched at Google I/O 2025) and how to write the most effective prompts for it. Today is August 2026 â€” search for the most current information and any 2026 updates.
+
+Use WebSearch and WebFetch. Check the official Stitch site, Google's documentation/blog, and high-quality community guides, tutorials, Reddit/HN discussions, and YouTube transcripts/summaries about Stitch prompting.
+
+Report specifically on:
+
+1. What Stitch is and how it works today (2026): modes (e.g. "Standard"/Flash vs "Experimental"/Pro), monthly generation limits, whether it generates one screen at a time or multi-screen flows, image input support, Figma export, HTML/CSS export.
+
+2. PROMPT STRUCTURE â€” the most important part. What prompt structure produces the best results?
+   - Does it prefer long detailed prompts or short focused ones? Is there a character/token limit per prompt?
+   - Should you describe one screen per prompt, or a whole app?
+   - How do you specify: app type/purpose, target user, platform (mobile vs desktop/web), color palette, typography, spacing, component-level detail, content/copy?
+   - How do you do iterative refinement (follow-up prompts, targeted edits to a single element, region-based editing)?
+   - Does it respect exact hex codes, font names, specific pixel values?
+   - How to control the vibe/aesthetic (adjectives that work, style references).
+   - How to get it to use real content/copy rather than lorem ipsum.
+   - Any known keywords or phrasings that reliably work or fail.
+   - Any known weaknesses/limitations (e.g. struggles with data tables, complex forms, dense layouts, charts, dark mode, non-Latin scripts).
+
+3. Concrete EXAMPLE prompts that are known to produce good results. Quote them verbatim, several of them, with commentary on why they work.
+
+4. Best practices for generating a MULTI-SCREEN product (like a 15-screen government service portal) in Stitch: how to keep visual consistency across screens, how to reuse a design system, whether there's a "theme" concept, and the recommended workflow.
+
+5. Anything about Stitch and non-English / bilingual content (e.g. Devanagari/Hindi), accessibility, and responsive/mobile-first output.
+
+Return a detailed markdown brief with verbatim example prompts and specific, actionable prompt-writing rules. Include URLs.
+</user_query>
+=== assistant TEXT ===
+I'll start by researching Google Stitch across official sources and community guides.
+=== assistant TEXT ===
+Good initial signal. Let me pull the primary sources in depth.
+
+I'm planning to pull key sources on this in parallel: the official Google prompt guide, the stitch-skills GitHub repo, and related community write-ups, to gather a fuller picture.
+=== assistant TEXT ===
+The official Google skills repo is the highest-value source. Let me pull it via raw URLs.
+
+That SKILL.md fetch came back empty, so I'll try the raw GitHub content URL instead and also grab the prompt-keywords reference file while exploring the repo structure. I still need details on multi-screen best practices, non-English/Devanagari support, accessibility, the DESIGN.md format, and character limits, so I'll batch several fetches together.
+=== assistant TEXT ===
+I'll try fetching the raw GitHub files directly instead of using a local shellâ€”pulling the SKILL.md, prompt-keywords.md, and README.md via WebFetch, plus checking the designsystemscollective file.
+=== assistant TEXT ===
+I still need the design-mappings and enhanced-prompt examples from the repo, the DESIGN.md spec, community discussions on Stitch's limitations, Hindi/Devanagari support details, prompt character limits, a multi-screen government portal workflow, and YouTube summaries. Let me gather these in a batch.
+=== assistant TEXT ===
+I still need to gather info on community feedback from Reddit and HN, character limits, non-English/Devanagari support, accessibility, multi-screen workflows for large apps, and common weaknesses like data tables, forms, charts, and dark mode. I'll run a few parallel searches to cover these.
+=== assistant TEXT ===
+This is rich material. I want to pull up the Cengiz DÃ¶nmez multi-screen article with its example prompts, plus the aitoolsay guide, uxplanet guide, and aireiter review, along with the designless limitations pageâ€”batching four fetches at once.
+=== assistant TEXT ===
+I still have some gaps to fill â€” accessibility audit specifics, non-Latin script handling, and character limits per prompt. I'm going to run a few more targeted searches covering Stitch's accessibility features, mobile-first/responsive design, and any community discussion on prompt constraints.
+=== assistant TEXT ===
+Found the official `llms.txt` prompt framework. Let me pull it in full.
+
+I found a great resource: the official Stitch 3-Layer Vibe Structure documentation. I'm going to fetch that in full along with the already-downloaded superdesign review, and also pull the Fiska Syela article covering four full apps.
+=== assistant TEXT ===
+I've gathered good data on character limits, copywriting quality, and taste-design skills. A few gaps remain worth checking: the official Stitch FAQ for definitive facts, multilingual/non-English generation quality, and government or public sector portal design capabilities.
+
+I should also revisit the Zoom-Out-Zoom-In article for its full example prompt, which I only have partially. Let me batch a few more searches to fill these in before writing.
+=== assistant TEXT ===
+Found the official Stitch prompting docs URL. Let me fetch it plus two more official skills.
+
+I found an official docs URL for the "Effective Prompting Guide" and want to fetch it, along with the taste-design and copywriting skills from the stitch-skills repo for generating real content instead of placeholder text. I'll batch these three fetches together.
+=== assistant TEXT ===
+The docs page didn't render since it's JS-based, so I'll try fetching the raw skill files for enhance-prompt and stitch-loop, since multi-page site generation from a single prompt seems very relevant to the 15-screen portal question, along with checking device-types docs.
+=== assistant TEXT ===
+I have enough material now to draft the brief, being upfront about the conflicting quota figures and thin evidence around Devanagari. I want to organize it covering all five requested areas with verbatim prompts and URLs, including Stitch's origin story from Galileo AI, its I/O 2025 launch, and the Stitch 2.0 "vibe design" update from March 2026.
+
+I'm noting the mode picker evolution (Flash/Thinking/Redesign/Ideate vs the older Standard/Experimental split), the contested usage limits across different sources, the multi-screen generation capability, image input support with Nano Banana Pro for Redesign, and the mixed reports on Figma export reliability across different modes and time periods.
+
+Now I'm cataloging the various prompt structure frameworks people have proposed â€” the official 3-Layer approach, forum guides emphasizing incremental UI-keyword changes, Google's own PLATFORM/PAGE STRUCTURE template, plus community formulas like Zoom-Out-Zoom-In, the 4-layer Context/Components/Style/Platform breakdown, and the Idea+Theme+Content formula â€” alongside notes on prompt length ceilings and the difference between long structured generation prompts versus short single-change edit prompts.
+
+Hex codes are respected but Google's own skill guidance says not to embed them directly in generation prompts when a design system exists â€” they belong in the design system file, though they're fine in edit prompts; one review also flags that color accuracy is a weak point. Pixel and rem values are well-supported for spacing and radius, though there's no way to drag or manually nudge them, and font names like Inter and Space Grotesk are recognized inputs.
+
+Vibe descriptors, aesthetic movement names, and physical anchoring metaphors all seem to shape output, and real verbatim copy should be specified upfront rather than relying on fabricated placeholder text. I'm also cataloging known failure modes: full-screen rebuilds on edit, character limits, skipped screens, missing manual controls, silent hangs, API bugs, and generic purple-gradient defaults with inconsistent navigation across pages.
+
+For multi-screen projects, I'm outlining a workflow of external planning, a design doc, small batches, multi-select theming passes, and prototype export. I'm also weighing language support â€” Spanish works well, Japanese needs explicit instruction to avoid English bleed-through, RTL requires explicit specification, and Devanagari support is unverified so I should recommend testing with a named font and verbatim strings â€” plus noting that accessibility auditing exists as a built-in action.
+
+Contrast-ratio linting and WCAG-compliance prompts help, but outputs may still fall short, so third-party accessibility tools are worth mentioning too. On responsiveness, I'll note that device type selection matters upfront and that breakpoints are often skipped without explicit design rules. Given this is likely a hackathon government portal possibly needing Hindi support, I want to tailor my recommended workflow and prompts specifically for that 15-screen scenario before writing the final answer.
+
+Since this was requested as a detailed markdown brief, I can afford to be thorough while staying organized and clearly attributing confidence levels throughout.
+=== assistant TEXT ===
+# Google Stitch â€” Research Brief (August 2026)
+
+## 0. Source quality note
+
+Google's own material is thin and scattered: one forum post (the "Stitch Prompt Guide," still the canonical text), an `llms.txt` file, product blog posts, and â€” most valuable â€” two open-source repos where Google encoded its own prompting rules as agent skills. The docs site (`stitch.withgoogle.com/docs/learn/prompting/`) is client-rendered and returns nothing to fetchers, so the repos are the best proxy for official guidance. Where community sources contradict each other (especially on quotas), I flag it rather than pick a winner.
+
+**Primary sources**
+- [Stitch Prompt Guide â€” Google AI Developers Forum](https://discuss.ai.google.dev/t/stitch-prompt-guide/83844/1) (May 2025, still the canonical prompt doc)
+- [stitch.withgoogle.com/llms.txt](https://stitch.withgoogle.com/llms.txt) â€” Google's own machine-readable prompt framework
+- [google-labs-code/stitch-skills](https://github.com/google-labs-code/stitch-skills) â€” Google's official agent skills; contains the strongest prompt rules anywhere
+- [google-labs-code/design.md](https://github.com/google-labs-code/design.md) â€” the open-sourced DESIGN.md spec
+- [Introducing "vibe design" with Stitch](https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-ai-ui-design/) (Mar 18, 2026)
+- [DESIGN.md is now open-source](https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-design-md/) (Apr 21, 2026)
+
+---
+
+## 1. What Stitch is and how it works today
+
+Stitch is Google Labs' AI design canvas at [stitch.withgoogle.com](https://stitch.withgoogle.com). It began as Galileo AI, which Google acquired and relaunched at I/O in May 2025 as a single-screen generator. The March 18â€“19, 2026 "Stitch 2.0 / vibe design" release rebuilt it into a project-aware infinite canvas with a design agent. Free, Google account only, still carrying a BETA badge with no SLA.
+
+**Timeline that matters**
+
+| Date | What shipped |
+|---|---|
+| May 2025 | Launch at I/O; single-screen generation, Gemini 2.5 Pro |
+| Mar 18, 2026 | Stitch 2.0 â€” infinite canvas, multi-screen generation, design agent, Agent Manager, DESIGN.md, clickable prototypes, voice |
+| Apr 9, 2026 | Fix pass â€” agent now respects an existing design system, DESIGN.md edits sync back, fewer layout overlaps |
+| Apr 21, 2026 | DESIGN.md spec open-sourced |
+| May 19, 2026 | I/O â€” real-time voice steering, shareable links via AI Studio, export to Antigravity, publish to Netlify |
+| Jul 2026 | Generate menu adds Missing States, Animate, Accessibility Audit, App Store kit, Marketing kit |
+
+**Modes / model picker.** The old "Standard vs Experimental" framing is outdated. As of July 2026 the live picker offers four modes ([aireiter review](https://aireiter.com/blog/google-stitch-review)): **3 Flash** (Gemini 3 Flash, default, fast drafts built to export to coding agents), **Thinking with 3.1 Pro** (Gemini 3.1 Pro, for multi-screen flows that must stay coherent), **Redesign** (Nano Banana Pro, rebuild a screen from a screenshot), and **Ideate** (explore directions). Nick Babich recommends the Pro model specifically because it does research during generation.
+
+**Generation limits â€” genuinely unresolved.** Google's FAQ says only: free, **daily** credit limit, resets midnight UTC, no way to buy more. Third-party numbers conflict badly â€” 350 standard + 200 experimental/month, 350 + 50, 350 + 100, 150/day (stated by a Google staffer on the forum in Dec 2025), and 400 daily design credits + 15 redesign credits. Treat every published figure as unreliable and read the in-app counter. What is consistent: multi-screen flows drain credits fast, and the top user request on Google's forum is a paid tier that doesn't exist.
+
+**One screen or many.** Both. A single prompt generates **up to five interconnected screens** sharing one design language. You can also select a screen and ask for the next logical screen in the journey, "Stitch" screens together, and hit **Play** for a clickable prototype with automatic user-journey mapping. Practical ceiling is lower than five â€” see Â§4.
+
+**Image input.** Yes: sketches, screenshots, wireframes, annotated screenshots, pasted code, and URLs (Stitch can extract a design system from any public URL). Redesign mode runs Nano Banana Pro specifically for screenshot rebuilds. Google's own skill warns that image quality drove complaints in the older Experimental mode, and advises describing *intent* rather than "make it look like this."
+
+**Figma export.** Yes â€” Google's FAQ commits to "properly structured Auto Layouts, named component layers, and editable text fields." Caveats worth knowing: it has a history of breakage, and at least one March 2026 walkthrough reports Figma export not working in Experimental/Pro mode (generate in Pro, switch to Standard for the export pass), while a December 2025 walkthrough found no direct Figma export in-session at all. Verify before you depend on it.
+
+**Code export.** Google's own framing is **semantic HTML + CSS with Tailwind support** â€” React is explicitly *not* in Google's description. Several third-party articles claim seven frameworks (Vue, Angular, Flutter, SwiftUI). Trust Google's version. Also exports to AI Studio, Antigravity, and Netlify publish, plus an MCP server and SDK for programmatic access.
+
+---
+
+## 2. Prompt structure â€” the important part
+
+### 2.1 The mechanic that explains everything
+
+> "Stitch reads each prompt as a fresh description of the whole screen rather than as an edit to the previous one, so loose wording leaves it room to reinterpret everything." â€” [AIToolsay](https://aitoolsay.com/blog/google-stitch-prompt-guide/)
+
+Every prompt-writing rule below follows from this. Stitch is not applying a diff; it is re-deriving the screen. Anything you leave unstated is up for reinvention, and anything you bundle into one request increases the surface area it will rebuild.
+
+### 2.2 The three official frameworks (they agree)
+
+**Google's `llms.txt` â€” the 3-Layer Vibe Structure:**
+
+1. **Anatomy (Structure)** â€” the physical layout ("split-screen dashboard," "bento grid")
+2. **Vibe (Aesthetic)** â€” the emotional language ("glassmorphism," "neo-brutalism," "clean SaaS")
+3. **Content (Context)** â€” the data payload ("real estate listings," "crypto tickers")
+
+**Google's `generate-design` skill â€” the generation template.** This is the highest-signal artifact I found; it is literally the format Google tells its own agents to emit:
+
+```markdown
+[Overall purpose and user intent of the page]
+
+**PLATFORM:** [Web/Mobile], [Desktop/Mobile]-first
+
+**PAGE STRUCTURE:**
+1. **Header:** [Description of navigation and branding]
+2. **Hero Section:** [Headline, subtext, and primary CTA]
+3. **Primary Content Area:** [Detailed component breakdown]
+4. **Footer:** [Links and copyright information]
+```
+
+**Google's `enhance-prompt` skill â€” the variant used when no project design system exists.** Same skeleton, with the tokens inlined as an explicit block:
+
+```markdown
+[One-line description of the page purpose and vibe]
+
+**DESIGN SYSTEM (REQUIRED):**
+- Platform: [Web/Mobile], [Desktop/Mobile]-first
+- Theme: [Light/Dark], [style descriptors]
+- Background: [Color description] (#hex)
+- Primary Accent: [Color description] (#hex) for [role]
+- Text Primary: [Color description] (#hex)
+
+**Page Structure:**
+1. **[Section]:** [Description]
+2. **[Section]:** [Description]
+```
+
+### 2.3 Long or short? Both â€” but for different jobs
+
+There is a clean split that most guides muddle:
+
+- **Generation prompts should be long and structured.** Google's own examples run 150â€“250 words with numbered sections. The Zoom-Out-Zoom-In example below is ~200 words and produces markedly better output than a one-liner.
+- **Edit prompts should be short and singular.** One change, one named component. Google's tip list says it outright: "Keep edits focused: one edit at a time is often better than a long list of changes."
+
+**Hard ceiling: roughly 5,000 characters.** Fiska Syela, who shipped four apps entirely in Stitch, reports that "for prompts over ~5,000 characters, the AI consistently starts omitting components or ignoring specific requirements." No official number exists; treat 5k as the practical wall and stay well under it.
+
+**One screen or a whole app per prompt?** Google's guide says start high-level for brainstorming, then "drill down on details screen by screen." In practice: **2â€“4 screens per generation prompt**, then one screen per refinement prompt. Feeding 15 screens at once causes Stitch to drop quality or silently skip screens.
+
+### 2.4 Where to put colors, fonts, and pixel values â€” the rule everyone gets wrong
+
+Google's `generate-design` skill carries an explicit caution:
+
+> **Do NOT include hex codes, font names, color palettes, roundness values, or any design system tokens in a generation prompt.** These are applied at the project level by the manage-design-system skill and will conflict if duplicated. (For **edit** prompts, hex codes are acceptable for precise color adjustments.)
+
+So the correct division of labor is:
+
+| Concern | Where it goes |
+|---|---|
+| Colors, fonts, radii, spacing scale | DESIGN.md / project design system â€” **once** |
+| Layout, sections, components, copy | Generation prompt â€” **per screen** |
+| Exact hex for a targeted fix | Edit prompt â€” **allowed and encouraged** |
+
+This directly contradicts a lot of community advice (Cengiz DÃ¶nmez puts hex codes in every prompt and it works for him â€” because he has no project design system configured). Both work; mixing them is what breaks. If you have a design system, keep styling out of generation prompts. If you don't, inline it consistently in every single prompt.
+
+**Does it respect exact values?** Mostly yes, with caveats. Hex codes are the single highest-leverage specificity gain â€” "Say 'coral' and you'll get a different shade every time. Say `#E8725A` and you'll get the exact same one." Font names work (`Public Sans`, `Space Grotesk`, `Source Serif 4`, `Fraunces`). Pixel values work in DESIGN.md tokens and in edit prompts (`16px border radius`, `reduce horizontal padding by 8px`). But one deep-dive review lists "color accuracy: struggles to implement specific color requests accurately" as a known weakness, and Stitch's internal `designTheme` object stores font and roundness as coarse enums (`INTER`, `ROUND_EIGHT`) plus a single `customColor` â€” which suggests the project-level theme is lower-resolution than your prompt.
+
+### 2.5 Iterative refinement
+
+Stitch maintains conversational context, so follow-ups build on the previous result. The discipline:
+
+- **Name the location, then the change.** Google's three-part edit anatomy: *Location* ("Change the primary button in the hero section...") â†’ *Visuals* ("...to a darker blue (#004080) and add a subtle shadow.") â†’ *Structure* ("Add a secondary button next to the primary one with the text 'Learn More'.")
+- **One major change per prompt.** Bundling is the #1 documented cause of Stitch rebuilding a screen you liked.
+- **Multi-select for global changes.** Shift+Click screens on the canvas, then issue one prompt. This is the workhorse move for consistency.
+- **Prefer editing over regenerating.** Google's skill: "Do NOT re-generate from scratch unless the fundamental layout is wrong."
+- **Variants for exploration.** The Variants feature generates 1â€“5 alternatives with a `creativeRange` of `REFINE` / `EXPLORE` / `REIMAGINE`, scoped to `LAYOUT`, `COLOR_SCHEME`, `IMAGES`, `TEXT_FONT`, or `TEXT_CONTENT`. Prajwal Tomar's framing: "You're curating, not just accepting."
+
+There is **no region-based or direct-manipulation editing**. You cannot drag, nudge, or align. Text, colors, font family, and corner radius are editable through the Design System panel; everything else requires re-prompting.
+
+### 2.6 Controlling the vibe
+
+Adjectives drive colors, fonts, imagery, and layout personality. Google's own keyword palettes from `prompt-keywords.md`:
+
+- **Minimal:** minimal, clean, uncluttered, generous whitespace, breathing room, subtle, understated, refined, distraction-free
+- **Professional:** sophisticated, polished, trustworthy, corporate, formal, subtle shadows, clean lines, structured, hierarchical
+- **Playful:** vibrant, colorful, energetic, rounded corners, soft edges, bold, expressive, friendly, approachable, warm
+- **Premium:** elegant, luxurious, high-end, dramatic, bold contrasts, sleek, exclusive, boutique, curated
+- **Dark mode:** dark theme, night mode, high-contrast accents, soft glows, deep backgrounds, muted surfaces
+- **Organic:** earthy tones, natural colors, warm, inviting, cozy, textured, tactile, handcrafted, flowing
+
+And the vagueâ†’precise translation table from `design-mappings.md`:
+
+| You'd say | Say instead |
+|---|---|
+| "menu at the top" | "sticky navigation bar with logo and list items" |
+| "big photo" | "high-impact hero section with full-width imagery" |
+| "list of things" | "responsive card grid with hover states and subtle elevations" |
+| "button" | "primary call-to-action button with micro-interactions" |
+| "form" | "clean form with labeled input fields, validation states, and submit button" |
+| "sidebar" | "collapsible side navigation with icon-label pairings" |
+| "popup" | "modal dialog with overlay and smooth entry animation" |
+
+Shape language: `rounded-full` â†’ "pill-shaped"; `rounded-xl` â†’ "generously rounded corners"; `rounded-none` â†’ "sharp, squared-off edges". Depth: flat / whisper-soft / floating / inset.
+
+**The strongest single vibe tip** comes from Fiska Syela: anchor to something *physical and specific*, not an adjective. "Neoclassical" gives Stitch clean columns, open space, structured hierarchy. "Premium" and "elegant" mean nothing. "A luxury travel magazine layout gets me somewhere. Clean and modern gets me noise." Named aesthetic movements that demonstrably work: **Japandi, Neoclassical, Neo-Brutalism, Glassmorphism, Japanese workwear, Scandinavian, retro-futurist, industrial, clean SaaS.** Named product references also work â€” "feels closer to Things 3 or Linear than to Duolingo."
+
+### 2.7 Getting real copy instead of lorem ipsum
+
+Stitch does not produce lorem ipsum by default â€” it produces something worse: confident AI filler. Fabricated metrics ("99.98% UPTIME SLA", "124ms AVG. RESPONSE"), generic names ("John Doe", "Acme", "Nexus"), and clichÃ©s ("Elevate", "Seamless", "Unleash", "Next-Gen").
+
+Three fixes, in order of effectiveness:
+
+1. **Write the copy in the prompt, verbatim and quoted.** Google's own gold-standard example does exactly this: `Headline: "Elevate Every Beat." Sub-headline: "Track, analyze, and crush your fitness goals with Pulse." Primary CTA button: "Get Started".`
+2. **Ban the filler explicitly in DESIGN.md.** The `taste-design` skill encodes: "Never generate metrics, performance numbers, uptime percentages, response times, or any data the user did not explicitly provide... If real data is not available, use clear placeholder labels like `[metric]` instead of making up numbers."
+3. **Use the `copywriting` skill** from the stitch-skills repo, which replaces placeholder copy with marketing-quality writing fitted to the product.
+
+### 2.8 Phrasings that reliably work
+
+- Numbered `**Page Structure:**` sections â€” the single highest-yield formatting choice
+- Named components from the keyword list: navigation bar, hero section, card grid, bottom sheet, segmented control, horizontal scrolling chips, floating action button, skeleton loader, toast notification
+- `"On the [screen], add a [component] to the [region]."`
+- `"Change the [named element] in the [named section] to [specific value]."`
+- `"Switch all product copy and button text to [language]."` â€” Google's documented localization phrasing
+- `"Standardize the headers and tabs across all these to match Screen 1."` â€” recommended by a Google staffer on the forum for multi-select
+- `"You only generated 1 screen. Please generate all 3 screens I described."` â€” recovery for skipped screens; usually works on the second attempt
+- `"Review this DESIGN.md for inconsistencies, accessibility issues, and missing edge cases."` â€” free design review
+- Interaction language ("hover states, animations, click behavior") rather than visual styling, per Google's tips
+
+### 2.9 Phrasings and patterns that fail
+
+- **"Do not change X" rules.** Widely reported as unreliable. A forum thread titled ["Stitch is becoming almost unusable for real design work"](https://discuss.ai.google.dev/t/stitch-is-becoming-almost-unusable-for-real-design-work/170296) leads with exactly this: detailed instructions with clear do-not-change rules get ignored, unrelated areas change.
+- **Bundled changes.** "Redesign the homepage, add search, improve colors, change navigation, move buttons, add icons, and update the layout" â€” guaranteed rebuild.
+- **Unnamed targets.** "Change the button" instead of "the primary button on the sign-up form."
+- **Abstract adjectives alone.** "Make it look high-end."
+- **Prompts over ~5,000 characters.** Components start disappearing.
+
+### 2.10 Known weaknesses
+
+| Weakness | Evidence |
+|---|---|
+| **Dense data tables** | The most consistent complaint. "Stitch is still weakest on dense data screens. If you are building a table with many columns, expect to correct spacing by hand however carefully you prompt." |
+| **Complex forms** | Exported forms with non-functional submit buttons; Google's own guidance says check "working forms, loading/error states, routing" before trusting exports |
+| **Component-level editing** | Unreliable. A [DEV writeup](https://dev.to/vikas_sahani_3a7e2706846c/google-stitch-20-senior-level-ui-in-seconds-but-editing-still-breaks-41j) documents an edit that collapsed a button *and* silently deleted an unrelated scan icon, then the pipeline went unresponsive with no error |
+| **Screen-to-screen drift** | Nav bars differing between pages is the single most-reported consistency failure |
+| **Generic "AI aesthetic"** | Oversaturated purple gradients, no visual hierarchy. One same-prompt test ranked Stitch last against Claude Design, Claude Code, and Figma Make |
+| **No manual manipulation** | Cannot move, align, or rearrange anything by hand |
+| **No robust undo** | Community wisdom: screenshot after every step that works |
+| **Silent hangs** | No progress indication; recovery is a page refresh |
+| **Canvas sprawl** | Generates new screens rather than modifying existing ones; easy to lose work visually |
+| **Web weaker than mobile** | "Google Stitch works best for mobile app design, and is less effective for web" |
+| **Programmatic edits broken** | [stitch-sdk#361](https://github.com/google-labs-code/stitch-sdk/issues/361) â€” `edit_screens` returns success but never persists. Web UI works; API is a no-op. Affects Google's own generate-design Edit flow. |
+
+Dark mode itself is well supported (it's a first-class vibe category and a documented multi-select use case). The weaknesses are density, precision, and persistence â€” not aesthetics per se.
+
+---
+
+## 3. Verbatim example prompts
+
+### 3.1 Google's own gold standard (from `stitch-skills/examples/enhanced-prompt.md`)
+
+> **Overall Purpose**: A high-energy, modern landing page for 'Pulse', a fitness tracking application. The page should feel powerful, motivating, and high-performance.
+>
+> **PLATFORM:** Web, Desktop-first
+>
+> **PAGE STRUCTURE:**
+> 1. **Header**: Minimalist navigation with Pulse logo (left) and "Start Training" primary call-to-action button (right).
+> 2. **Hero Section**: Large, emotive fitness photography background. Headline: "Elevate Every Beat." Sub-headline: "Track, analyze, and crush your fitness goals with Pulse." Primary CTA button: "Get Started".
+> 3. **Feature Grid**: Three-column responsive card grid highlighting:
+>    - **Real-time Tracking**: Live stats from your wearable.
+>    - **AI Coaching**: Personalized workouts based on your performance.
+>    - **Community Challenges**: Compete with friends and stay motivated.
+> 4. **Social Proof Section**: Horizontal slider showing "Trusted by 500,000+ athletes" with partner logos.
+> 5. **Footer**: Quick links (Training, Pricing, Support), social icons, and legal text.
+
+**Why it works:** every section is named and numbered; every headline is quoted verbatim so Stitch has nothing to invent; component nouns are professional ("responsive card grid," "horizontal slider"); platform is explicit; and there is **not one hex code or font name** â€” those live in the project design system. This is the template to copy.
+
+### 3.2 Zoom-Out-Zoom-In (Nick Babich, [UX Planet](https://uxplanet.org/google-stitch-for-ui-design-544cf8b42d52))
+
+> ```
+> Context: Design a mobile app screen for a personal finance app that helps users track daily spending.
+> User: Young professionals who check expenses multiple times per day, often on the go.
+> Goal of the screen: Help users quickly understand
+> - Today's total spending
+> - Top spending categories
+> - Whether they are over or under budget
+> Screen type: Home / Dashboard (iOS-style mobile UI)
+> Layout & hierarchy:
+> - Sticky header with app name and current month
+> - Primary focus: large total spending number for today
+> - Secondary section: horizontal category cards (Food, Transport, Shopping, Other)
+> - Tertiary section: simple list of recent transactions (last 3â€“5 items)
+> Components:
+> - Header with subtle divider
+> - Large numeric value with supporting label
+> - Card-based category summaries with icons
+> - List items with merchant name, category tag, and amount
+> Visual direction:
+> - Clean, minimal, calm
+> - Neutral background with soft accent colors for categories
+> - Emphasis on readability and glanceability
+> - No heavy gradients or decorative elements
+> Constraints:
+> - One-hand usage
+> - Prioritize clarity over density
+> - Accessible text sizes and spacing
+> Output expectation:
+> Generate a structured mobile UI layout that clearly communicates hierarchy and component placement, suitable for handoff to Figma for visual refinement.
+> ```
+
+**Why it works:** explicit **primary / secondary / tertiary** hierarchy tells Stitch what to make visually loudest â€” most prompts omit this entirely. The negative constraints ("no heavy gradients or decorative elements") suppress default AI slop. And stating the output expectation frames the fidelity level.
+
+His follow-up, which is a model of a good edit prompt â€” short, two related changes, one of them a standard:
+
+> ```
+> Change background to dark gray, ensure you follow WCAG 2.1
+> ```
+
+### 3.3 Multi-screen opener (Abhi Chatterjee, [Design Systems Collective](https://www.designsystemscollective.com/the-design-md-workflow-how-google-stitch-claude-code-quietly-changed-the-design-to-code-handoff-c4213f97ed8f))
+
+> ```
+> Design a mobile app called Cadence - a calm, minimal habit tracker.
+> Target audience: people who find Streaks and Habitica overwhelming and want something quiet.
+> Generate 3 screens:
+> 1. Home - list of today's routines, time of day, calm tick-off interaction
+> 2. Routine detail - single habit with a 7-day history, streak count subtle, no flames
+> 3. Settings - profile, notification preferences, dark mode toggle
+> Tone: warm minimal, off-white with a single sage accent, generous whitespace,
+> soft serif headings + clean sans-serif body, no gradients, no celebrations, no confetti.
+> Reference aesthetic: feels closer to Things 3 or Linear than to Duolingo.
+> ```
+
+Generated all three screens in ~40 seconds. **Why it works:** positions the product *against* named competitors, which gives Gemini a concrete latent-space anchor; bans specific failure modes by name ("no flames," "no confetti," "no celebrations"); and the reference aesthetic line does more work than any adjective list could.
+
+### 3.4 The multi-select consistency pass (Cengiz DÃ¶nmez, [Medium](https://medium.com/@cengizdonmez/i-designed-a-multi-screen-app-in-google-stitch-heres-my-entire-process-7e73c20aaf83))
+
+Shift+Click all screens on the canvas, then:
+
+> ```
+> Apply a consistent visual theme across all selected screens:
+> - Background: #FBF8F4 (warm off-white)
+> - Cards: white, subtle shadow, 16px border radius
+> - Primary: #E8725A for buttons, FAB, active states
+> - Text: #1E2A3A for headings and body
+> - Accent: #A8C5B0 for highlights
+> - Font: Inter throughout
+> - Bottom nav: consistent 4 tabs, thin icons, active in primary
+> - Buttons: 12px radius, primary bg, white text
+> - Spacing: 16px padding, 12px between cards
+> ```
+
+**Why it works:** this is the single highest-ROI prompt in this brief. It replaced 48 individual correction prompts across 16 screens with one. Every value is a hex code or a pixel number, and crucially it assigns colors to *roles* ("`#E8725A` for buttons, FAB, active states") rather than just listing a palette.
+
+The same technique for exploration:
+
+> ```
+> switch to dark theme, background #1A1A2E, cards #16213E, keep coral buttons
+> ```
+
+### 3.5 The incremental dashboard sequence (AIToolsay case study)
+
+This is the best documented example of *sequencing*. A factory operator dashboard, built in three prompts after a single bundled prompt destroyed the layout.
+
+Prompt 1:
+
+> ```
+> Create a web dashboard to display a task list for factory operators.
+> Each task should appear as two rows.
+> First row: Task title, Operator name, Sector, Machine, Deadline, and Status.
+> Second row: Task description that spans the full width below the first row.
+> Use a clean, modern style suitable for fullscreen display in an industrial setting.
+> ```
+
+Prompt 2:
+
+> ```
+> Above the task table, add a horizontal row of filter dropdowns for:
+> Task title, Operator name, Sector, Machine, Deadline, Status.
+> The filters should be evenly spaced and styled minimally.
+> ```
+
+Prompt 3:
+
+> ```
+> Move the page title to the left side of the screen, aligned with the task table.
+> Add a small gear icon to the top-right corner of the screen for admin settings access.
+> ```
+
+**Why it works:** each prompt has exactly one objective and specifies position relative to an existing named element ("above the task table," "aligned with the task table"). The author's failed attempts all combined filters + title alignment, or filters + icons, in a single request.
+
+### 3.6 Google's own single-line examples (from the official Prompt Guide)
+
+These are worth quoting because they show how much a short prompt can carry when the words are chosen well:
+
+> `"Product detail page for a Japandi-styled tea store. Sells herbal teas, ceramics. Neutral, minimal colors, black buttons. Soft, elegant font."`
+
+> `"Product detail page for Japanese workwear-inspired men's athletic apparel. Dark, minimal design, dark blue primary color. Minimal clothing pictures, natural fabrics, not gaudy."`
+
+> `"Music player page for 'Suburban Legends.' Album art is a macro, zoomed-in photo of ocean water. Page background/imagery should reflect this."`
+
+> `"An app for marathon runners to engage with a community, find partners, get training advice, and find races near them."`
+
+**Why they work:** each names a concrete aesthetic movement or cultural reference (Japandi, Japanese workwear), states the product category, and includes one or two negative constraints ("not gaudy," "minimal clothing pictures"). The music player example is the clearest demonstration of directing imagery â€” it describes a specific photograph and tells Stitch to propagate it into the background.
+
+### 3.7 Targeted edits (Google's documented patterns)
+
+> `"On the homepage, add a search bar to the header."`
+
+> `"Change the primary call-to-action button on the login screen to be larger and use the brand's primary blue color."`
+
+> `"On 'Team' page, image of 'Dr. Carter (Lead Dentist)': update her lab coat to black."`
+
+> `"Update theme to light orange. Ensure all images and illustrative icons match this new color scheme."`
+
+> `"Make all buttons have fully rounded corners."` / `"Give input fields a 2px solid black border."`
+
+That fourth one is a pattern most people miss: when you change a theme, **explicitly tell Stitch to propagate it into generated imagery and icons**, or they'll stay on the old palette.
+
+### 3.8 A worked example for a bilingual government service portal
+
+Nothing published covers government portals specifically, so this composes the rules above into the shape your use case needs. Design system first, then screens.
+
+**Step 1 â€” establish the system (once, project-level):**
+
+> ```
+> Create a design system for a state government citizen services portal.
+>
+> Atmosphere: Institutional and trustworthy without feeling bureaucratic. Calm,
+> high-clarity, generous whitespace. Reference aesthetic: GOV.UK Design System
+> and India's Digital India portal â€” plain, legible, authoritative. Not startup-y,
+> no gradients, no glassmorphism, no purple.
+>
+> Colors:
+> - Canvas (#FFFFFF) â€” page background
+> - Surface (#F4F6F8) â€” cards, form sections
+> - Ink (#1B1B1B) â€” headings and body text
+> - Muted (#5A5F66) â€” labels, helper text, metadata
+> - Primary (#0B4F9E) â€” links, primary buttons, active states, focus rings
+> - Success (#137333), Warning (#B06000), Error (#C5221F) â€” status pills only
+> - Border (#D3D8DE) â€” 1px structural dividers
+>
+> Typography:
+> - Headings: Public Sans, semibold, track-tight
+> - Body: Public Sans, regular, 16px minimum, relaxed leading
+> - Devanagari: Noto Sans Devanagari for all Hindi text, matched optical size
+>
+> Shapes: subtly rounded corners (4px) on inputs and buttons, sharp edges on
+> tables and section dividers. Flat â€” no shadows except a whisper-soft lift on modals.
+>
+> Rules:
+> - Every form field has a visible label above the input, helper text below,
+>   error text below that in Error red with an icon
+> - All interactive elements minimum 44px tap target
+> - All text meets WCAG 2.1 AA contrast (4.5:1 body, 3:1 large text)
+> - Status is never communicated by color alone â€” always pair with a text label
+> - Never invent statistics, application numbers, names, or dates
+> ```
+
+**Step 2 â€” generate screens in batches of three:**
+
+> ```
+> Three screens for a state government citizen services portal where residents
+> apply for and track welfare scheme benefits.
+>
+> User: first-time or infrequent digital users, often on a low-end Android phone,
+> frequently reading in Hindi. Prioritize legibility and unambiguous next steps
+> over density or visual flourish.
+>
+> **PLATFORM:** Web, mobile-first responsive
+>
+> **SCREEN 1 â€” Scheme Directory**
+> 1. **Header:** Government emblem (left), portal name, language toggle showing
+>    "English | à¤¹à¤¿à¤¨à¥à¤¦à¥€" (right), and a "Sign in" secondary button.
+> 2. **Search bar:** Full-width, pill-shaped, placeholder "Search schemes by name
+>    or category".
+> 3. **Filter chips:** Horizontal scrolling chips â€” Agriculture, Education, Health,
+>    Housing, Pension, Employment.
+> 4. **Results:** Vertical card list. Each card: scheme name in semibold, one-line
+>    eligibility summary in muted text, a status pill reading "Open" or "Closed",
+>    and a right chevron.
+> 5. **Footer:** Links (Accessibility, Grievance Redressal, Contact, Privacy),
+>    last-updated date, and a helpline number.
+>
+> **SCREEN 2 â€” Scheme Detail**
+> 1. **Header:** Back button, scheme name, share icon.
+> 2. **Summary block:** Scheme name as H1, issuing department as metadata,
+>    application deadline as a warning-colored pill.
+> 3. **Accordion sections:** Eligibility, Benefits, Documents Required,
+>    How to Apply. First section expanded by default.
+> 4. **Sticky bottom bar:** Full-width primary button "Apply Now".
+>
+> **SCREEN 3 â€” Application Form, Step 2 of 4**
+> 1. **Header:** Back button, "Personal Details", step indicator showing 4 steps
+>    with step 2 active.
+> 2. **Form:** Labeled inputs for Full Name, Aadhaar Number, Date of Birth
+>    (date picker), Gender (segmented control), Mobile Number, District (dropdown).
+>    Show the Aadhaar field in an inline error state with the message
+>    "Enter a valid 12-digit Aadhaar number".
+> 3. **Helper panel:** Muted-background callout â€” "Your details are used only to
+>    verify eligibility."
+> 4. **Sticky bottom bar:** Ghost "Save as draft" button and primary "Continue" button.
+> ```
+
+**Why this shape works for your case:** the platform line handles mobile-first; the user description drives density down; every screen is numbered so nothing is invented; the error state is specified explicitly (Stitch will otherwise only show happy-path forms); the language toggle is written in both scripts verbatim; and the styling lives entirely in the design system from step 1, per Google's rule.
+
+---
+
+## 4. Multi-screen products â€” a 15-screen portal
+
+### 4.1 Is there a "theme" concept? Yes, three overlapping ones
+
+1. **`designTheme`** â€” the project-level object, visible in the Design System panel. Fields: `colorMode` (LIGHT/DARK), `font`, `roundness`, `customColor`, `saturation`. Coarse but global.
+2. **DESIGN.md** â€” the real design system. YAML front matter with machine-readable tokens (`colors`, `typography`, `rounded`, `spacing`, `components`) plus a markdown body of human-readable rationale organized into fixed-order sections: Overview â†’ Colors â†’ Typography â†’ Layout â†’ Elevation & Depth â†’ Shapes â†’ Components â†’ Do's and Don'ts. Stitch auto-generates one from your canvas and keeps it in sync bidirectionally. It's portable across Claude Code, Cursor, v0 â€” anything that reads a file.
+3. **`apply_design_system`** â€” applies a saved design system to existing screens, available via MCP.
+
+The DESIGN.md token schema, condensed:
+
+```yaml
+---
+name: Heritage
+colors:
+  primary: "#1A1C1E"
+  tertiary: "#B8422E"
+typography:
+  h1: { fontFamily: Public Sans, fontSize: 3rem }
+  body-md: { fontFamily: Public Sans, fontSize: 1rem }
+rounded: { sm: 4px, md: 8px }
+spacing: { sm: 8px, md: 16px }
+components:
+  button-primary:
+    backgroundColor: "{colors.tertiary}"
+    textColor: "{colors.on-tertiary}"
+    rounded: "{rounded.sm}"
+---
+```
+
+Validate it with `npx @google/design.md lint DESIGN.md` â€” it checks broken token references, WCAG AA contrast on every component color pair, orphaned tokens, and section ordering. On Windows use the `designmd` alias (`npx -p @google/design.md designmd lint DESIGN.md`) because the `.md` suffix collides with the Markdown file association.
+
+### 4.2 The recommended workflow for ~15 screens
+
+This synthesizes the two best-documented multi-screen runs (Cengiz's 16 screens in 2 hours; Abhi's Cadence project) plus the forum answer from a Google staffer.
+
+**Phase 0 â€” plan outside Stitch.** Use a chat model to produce the screen inventory, the components on each screen, and copy-paste-ready Stitch prompts grouped into batches. Cengiz's three questions verbatim: *"What screens does this app need? Give me a complete list."* â†’ *"What components go on each screen? Be detailed."* â†’ *"Break these into groups of 3â€“4 and write a copy-paste-ready Stitch prompt for each group."* This step triples throughput and stops you from burning credits on exploration.
+
+**Phase 1 â€” lock the design system before screen two.** Generate one hero screen, read the auto-generated DESIGN.md carefully, edit it directly (top-down editing is recommended for beginners â€” change `Accent (sage): #8AA890` to `Accent (clay): #B5715F`, save, and Stitch re-renders every screen). MindStudio's warning: *"Making sweeping changes mid-project on a per-screen basis breaks the visual coherence that makes Stitch's multi-page output valuable."*
+
+**Phase 2 â€” generate in batches of 2â€“4.** Never more. Five is the technical ceiling; 2â€“4 is the quality ceiling. If Stitch skips one, say so explicitly and it usually complies on retry.
+
+**Phase 3 â€” the multi-select normalization pass.** Shift+Click every screen, then run the theme prompt from Â§3.4. The Google staffer's alternative phrasing is even simpler and worth trying first: *"Standardize the headers and tabs across all these to match Screen 1."*
+
+**Phase 4 â€” targeted per-screen fixes.** One change per prompt, always naming the component.
+
+**Phase 5 â€” prototype and export.** Link screens, hit Play, walk the flow. Then export â€” and if the Experimental/Pro Figma-export limitation still holds, do the final theme pass in Standard mode before exporting.
+
+### 4.3 Consistency rules
+
+- **Edit the system, not the screens.** "If the change applies to more than one screen, edit the file, not the canvas."
+- **Think in color *roles*, not hex values.** Define a Primary role for ink and a Neutral role for canvas. Swap the role definition once and it ripples everywhere. (Fiska Syela)
+- **Screenshot every working state.** There is no reliable undo.
+- **Keep scope contained.** "It's not the right tool for a sprawling product with hundreds of different page types â€” but for a clean, single-purpose app, it absolutely does the job." A 15-screen government portal is comfortably inside that envelope.
+- **Ask Stitch to audit its own system:** *"Review this DESIGN.md for inconsistencies, accessibility issues, and missing edge cases."*
+- **Watch the nav bar specifically.** It's the most commonly reported drift point, even in five-star reviews.
+
+### 4.4 The `stitch-loop` pattern (for programmatic runs)
+
+Google ships a skill for exactly the 15-screen problem. It uses a "baton" file, `.stitch/next-prompt.md`, holding one page's prompt with YAML frontmatter. Each iteration reads the baton, consults `.stitch/SITE.md` (vision, sitemap, roadmap) and `.stitch/DESIGN.md`, generates one page, integrates it, updates the sitemap, and writes the next baton. Its listed pitfalls are the same failure modes by another name: forgetting to include the design system block in the prompt, recreating an existing page, leaving `href="#"` placeholders. Note that this path currently depends on `edit_screens`, which has the persistence bug â€” generation works, programmatic editing does not.
+
+---
+
+## 5. Non-English content, accessibility, responsive output
+
+### 5.1 Bilingual and non-Latin scripts
+
+**What's documented.** Google's only official localization guidance is one line: `"Switch all product copy and button text to Spanish."` The `authoring-stitch-prompts` community skill lists language conversion as a supported revision directive ("switch to Spanish", "German version", "convert to French").
+
+**What the evidence actually says about non-Latin scripts.** Thinner and less encouraging:
+
+- A [detailed Japanese-support analysis](https://book.st-hakky.com/en/data-science/google-stitch-japanese-support-2025-ui-prompt) found that prompt input accepts Japanese, but **generated UI text still contains a lot of English** unless language is specified explicitly and repeatedly. Partial language switching is possible but limited. It also flags a design consequence people forget: **character count and line-height change with script**, and your layout must absorb it.
+- The Stitch UI itself is only partially localized. A [forum thread from a Hebrew speaker](https://discuss.ai.google.dev/t/deep-feedback-on-google-stitch-ui-ai-trust-issues-advanced-canvas-management-and-full-functional-preview-requests/172927) reports some elements translating and others staying English, "creating a confusing and inconsistent user experience."
+- An Indian-language walkthrough of Stitch lists **"English only: it currently supports only English prompts; Hindi and other language support may come later"** as a limitation.
+- **RTL works but must be requested explicitly.** A worked Urdu example shows adding `"right-to-left (RTL) layout for Urdu script"` to the prompt, after which the generated JSX correctly used `text-right rtl` and rendered Urdu strings. The same writeup suggests declaring `direction: "rtl"` as a constraint.
+
+**Practical recommendation for Devanagari/Hindi.** I found no first-party statement either way, so treat this as unverified and test early. Specifically:
+
+1. Name the font: **Noto Sans Devanagari** (or another Devanagari-capable family). Stitch respects font names, and the default stacks will not render Devanagari well.
+2. Supply the Hindi strings **verbatim in the prompt**, in Devanagari. Do not ask Stitch to translate â€” machine-translated government terminology is exactly where it will embarrass you, and it demonstrably leaves English fragments behind.
+3. Design the layout for **~20â€“30% more vertical space** in Hindi. Devanagari's above- and below-baseline marks need more leading than Latin at the same size.
+4. If you need a language toggle, write it into the prompt literally: `language toggle showing "English | à¤¹à¤¿à¤¨à¥à¤¦à¥€"`.
+5. Generate the English screens first, get the layout right, *then* run a bilingual pass on the multi-select â€” layout debugging in a script Stitch is weak at is the hard way round.
+
+### 5.2 Accessibility
+
+**What's built in.** As of July 2026 there's an **Accessibility Audit** action: select a screen â†’ Generate â†’ Accessibility Audit, and Stitch produces a report. The DESIGN.md linter enforces a `contrast-ratio` rule flagging any component `backgroundColor`/`textColor` pair below WCAG AA 4.5:1, and Google's DESIGN.md announcement frames this as a headline benefit: agents "can validate their choices against WCAG accessibility rules."
+
+**What's not.** Multiple sources are blunt that AI-generated output does not reliably meet WCAG. One analysis: "Color contrast ratios, screen reader compatibility, keyboard navigation patterns, and other accessibility requirements are not consistently addressed... For organizations with legal accessibility obligations, this creates a significant gap that requires manual review and remediation." Another notes accessibility attributes as one of the things that "need a developer's attention before anything goes to production."
+
+**What to do.** Put WCAG in the prompt (`"ensure you follow WCAG 2.1"` demonstrably changes output), encode contrast and 44px tap targets as rules in DESIGN.md, lint the file, run the built-in audit, and then verify independently. Third-party MCP servers ([stitch-pro-mcp](https://github.com/luciferdono/stitch-pro-mcp), auto-stitch-mcp) add axe-core-backed WCAG 2.1 AA audits with auto-fix for contrast, ARIA, semantics, touch targets, and the `lang` attribute â€” relevant if you're going through an agent anyway. For a government portal with statutory accessibility obligations, treat Stitch output as a visual draft and audit the real implementation.
+
+### 5.3 Responsive and mobile-first
+
+Pick **App or Web at project creation** â€” this is not a cosmetic setting. The canvas takes the right aspect ratio and components are sized accordingly. Programmatically, `deviceType` accepts `MOBILE`, `DESKTOP`, or `TABLET`. Google's own prompt template puts `**PLATFORM:** [Web/Mobile], [Desktop/Mobile]-first` on its own line, above the page structure.
+
+Two things to know: Stitch is **noticeably stronger at mobile than web**, and responsive breakpoints are on the documented list of things exported code tends to skip. The `taste-design` skill encodes the responsive rules worth stealing into your own DESIGN.md verbatim â€” all multi-column layouts collapse to single column below 768px with no exceptions; horizontal overflow on mobile is a critical failure; headlines scale via `clamp()`; body text minimum 16px; all interactive elements minimum 44px; `min-h-[100dvh]` never `h-screen` because of the iOS Safari jump.
+
+---
+
+## 6. The rules, condensed
+
+1. Stitch re-derives the whole screen on every prompt. Structure and specificity are load-bearing, and omission is an invitation to reinvent.
+2. Generation prompts: long and structured, numbered `**Page Structure:**` sections, under ~5,000 characters. Edit prompts: short, one change, name the component and its parent section.
+3. Put colors, fonts, radii, and spacing in DESIGN.md â€” not in generation prompts. Hex codes in edit prompts are fine and encouraged.
+4. Establish the design system before the second screen. Edit the system, not the screens.
+5. 2â€“4 screens per generation prompt. Five is the ceiling; quality degrades before you reach it.
+6. Shift+Click all screens and run one theme-normalization prompt. This is the highest-leverage action available.
+7. Use professional component nouns from Google's keyword list. "Card grid," not "list of things."
+8. Anchor the aesthetic to something physical and named â€” Japandi, Neoclassical, "closer to Linear than Duolingo" â€” not to adjectives like "premium."
+9. Write your real copy verbatim in the prompt. Ban invented statistics and names explicitly in DESIGN.md.
+10. State negative constraints. "No gradients, no confetti, no purple" works better than hoping.
+11. "Do not change X" is unreliable. Design your workflow so nothing you care about is in scope for the current prompt.
+12. Screenshot every state you like. There is no reliable undo.
+13. Expect to hand-fix dense tables, complex forms, responsive breakpoints, and accessibility. Stitch is a first draft for a coding agent, not a finisher.
+
+---
+
+## Sources
+
+**Official**
+- https://stitch.withgoogle.com/llms.txt
+- https://discuss.ai.google.dev/t/stitch-prompt-guide/83844/1
+- https://github.com/google-labs-code/stitch-skills â€” especially [`generate-design/SKILL.md`](https://github.com/google-labs-code/stitch-skills/blob/main/plugins/stitch-design/skills/generate-design/SKILL.md), [`prompt-keywords.md`](https://github.com/google-labs-code/stitch-skills/blob/main/plugins/stitch-design/skills/generate-design/references/prompt-keywords.md), [`design-mappings.md`](https://github.com/google-labs-code/stitch-skills/blob/main/plugins/stitch-design/skills/generate-design/references/design-mappings.md), [`enhanced-prompt.md`](https://github.com/google-labs-code/stitch-skills/blob/main/plugins/stitch-design/skills/generate-design/examples/enhanced-prompt.md), [`taste-design`](https://github.com/google-labs-code/stitch-skills/blob/main/plugins/stitch-utilities/skills/taste-design/SKILL.md), [`enhance-prompt`](https://github.com/google-labs-code/stitch-skills/blob/main/plugins/stitch-utilities/skills/enhance-prompt/SKILL.md), [`stitch-loop`](https://github.com/google-labs-code/stitch-skills/blob/main/plugins/stitch-utilities/skills/stitch-loop/SKILL.md)
+- https://github.com/google-labs-code/design.md
+- https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-ai-ui-design/
+- https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-design-md/
+- https://developers.googleblog.com/stitch-a-new-way-to-design-uis/
+- https://github.com/google-labs-code/stitch-sdk/issues/361
+
+**Community**
+- https://uxplanet.org/google-stitch-for-ui-design-544cf8b42d52 (Zoom-Out-Zoom-In)
+- https://medium.com/@cengizdonmez/i-designed-a-multi-screen-app-in-google-stitch-heres-my-entire-process-7e73c20aaf83 (16 screens, multi-select)
+- https://www.designsystemscollective.com/the-design-md-workflow-how-google-stitch-claude-code-quietly-changed-the-design-to-code-handoff-c4213f97ed8f (DESIGN.md workflow)
+- https://medium.com/@fiskasyela/i-built-4-full-apps-in-google-stitch-heres-what-nobody-tells-you-4d31e6704d81 (5,000-char limit, creative direction)
+- https://aitoolsay.com/blog/google-stitch-prompt-guide/ (incremental sequencing case study)
+- https://aireiter.com/blog/google-stitch-review (2026 model modes, quota honesty)
+- https://superdesign.dev/blog/google-stitch-review (sourced user sentiment)
+- https://dev.to/vikas_sahani_3a7e2706846c/google-stitch-20-senior-level-ui-in-seconds-but-editing-still-breaks-41j
+- https://discuss.ai.google.dev/t/stitch-is-becoming-almost-unusable-for-real-design-work/170296
+- https://discuss.ai.google.dev/t/support-project-level-component-extraction-and-reuse-in-stitch-to-improve-ui-consistency-across-generated-screens/138485 (Google staff consistency advice)
+- https://book.st-hakky.com/en/data-science/google-stitch-japanese-support-2025-ui-prompt (non-Latin script behavior)
+- https://blog.openreplay.com/prompt-ui-google-stitch/
+- https://www.mindstudio.ai/blog/how-to-use-google-stitch-website-design-system
+- https://designless.io/google-stitch-limitations
+

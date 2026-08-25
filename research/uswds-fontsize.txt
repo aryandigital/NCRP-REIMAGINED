@@ -1,0 +1,676 @@
+﻿Font size | U.S. Web Design System (USWDS)
+
+Skip to main content
+
+An official website of the United States government
+
+Here’s how you know
+
+Here’s how you know
+
+Official websites use .gov
+A
+ .gov website belongs to an official government
+ organization in the United States.
+
+Secure .gov websites use HTTPS
+A
+ lock (
+ ) or https:// means you’ve safely connected to
+ the .gov website. Share sensitive information only on official,
+ secure websites.
+
+USWDS
+ U.S. Web Design System (USWDS)
+
+Menu
+
+How to use USWDS
+
+How to use USWDS
+
+Getting started for developers
+
+Getting started for designers
+
+Documentation
+
+Settings
+
+USWDS maturity model
+
+Accessibility
+
+Performance guidelines
+
+Code guidelines
+
+Migrating to USWDS 3.0
+
+Migrating to USWDS 2.0
+
+Implementations
+
+Showcase
+
+Sample contract language for 21st Century IDEA
+
+Website standards
+
+Design principles
+
+Components
+
+Components
+
+Accordion
+
+Alert
+
+Banner
+
+Breadcrumb
+
+Button
+
+Button group
+
+Card
+
+Character count
+
+Checkbox
+
+Collection
+
+Combo box
+
+Data visualizations
+
+Date picker
+
+Date range picker
+
+File input
+
+Footer
+
+Form
+
+Grid
+
+Header
+
+Icon
+
+Icon list
+
+Identifier
+
+In-page navigation
+
+Input mask
+
+Input prefix/suffix
+
+Language selector
+
+Link
+
+List
+
+Memorable date
+
+Modal
+
+Pagination
+
+Process list
+
+Prose
+
+Radio buttons
+
+Range slider
+
+Search
+
+Select
+
+Side navigation
+
+Site alert
+
+Step indicator
+
+Summary box
+
+Table
+
+Tag
+
+Text input
+
+Time picker
+
+Tooltip
+
+Typography
+
+Validation
+
+Patterns
+
+Patterns
+
+Introducing patterns
+
+Create a user profile
+
+Complete a complex form
+
+Select a language
+
+Design tokens
+
+Design tokens
+
+Color
+
+Typesetting
+
+Using type
+
+Font family
+
+Font size
+
+Theme tokens
+
+System tokens
+
+Using size tokens
+
+Font weight
+
+Letterspacing
+
+Line height
+
+Measure (line length)
+
+Flex
+
+Opacity
+
+Order
+
+Shadow
+
+Spacing units
+
+Z-index
+
+Utilities
+
+Utilities
+
+Layout grid
+
+Color
+
+Height and width
+
+Margin and padding
+
+Border
+
+Outline
+
+Font size and family
+
+Text styles
+
+Paragraph styles
+
+Display
+
+Flex
+
+Shadow
+
+Float
+
+Clearfix
+
+List reset
+
+Templates
+
+Templates
+
+404 page
+
+Documentation page
+
+Landing page
+
+Authentication pages
+
+Form templates
+
+About
+
+About
+
+Key benefits
+
+Product values
+
+Contribute
+
+Community
+
+What’s new
+
+Monthly calls
+
+Product roadmap
+
+Research
+
+Security
+
+Website policies and notices
+
+How to use USWDS
+
+Design principles
+
+Components
+
+Patterns
+
+Design tokens
+
+Utilities
+
+Templates
+
+About
+
+Search
+
+Read website standards
+
+Download v3.14.0
+
+View on GitHub
+
+Design tokens
+
+Color
+
+Typesetting
+
+Using type
+
+Font family
+
+Font size
+
+Theme tokens
+
+System tokens
+
+Using size tokens
+
+Font weight
+
+Letterspacing
+
+Line height
+
+Measure (line length)
+
+Flex
+
+Opacity
+
+Order
+
+Shadow
+
+Spacing units
+
+Z-index
+
+Design tokens
+
+Font size
+
+Font size tokens determine how big or small the referenced text will appear on the screen. The USWDS typescale includes nine regularized theme tokens drawn from 21 system tokens.
+
+Please see the Typesetting section for more about font size normalization and how USWDS uses tokens for typesetting. The documentation below displays a value in pixels, rather than the actual final output, which will be normalized depending on the typeface and output in rem customized to your project settings.
+
+Theme tokens
+
+The following chart shows the USWDS default settings for the nine theme size tokens. Customize the output to your project needs in USWDS settings configuration by setting the variables listed in the default settings chart. If your project requires more than nine sizes, use system size tokens as needed.
+
+Token
+ Default
+ Example
+ Value
+ Settings variable
+
+'3xs'
+
+2
+
+Tallahassee
+
+13px
+
+$theme-type-scale-3xs
+
+'2xs'
+
+3
+
+Tallahassee
+
+14px
+
+$theme-type-scale-2xs
+
+'xs'
+
+4
+
+Tallahassee
+
+15px
+
+$theme-type-scale-xs
+
+'sm'
+
+5
+
+Tallahassee
+
+16px
+
+$theme-type-scale-sm
+
+'md'
+
+6
+
+Tallahassee
+
+17px
+
+$theme-type-scale-md
+
+'lg'
+
+9
+
+Tallahassee
+
+22px
+
+$theme-type-scale-lg
+
+'xl'
+
+12
+
+Tallahassee
+
+32px
+
+$theme-type-scale-xl
+
+'2xl'
+
+14
+
+Tallahassee
+
+40px
+
+$theme-type-scale-2xl
+
+'3xl'
+
+15
+
+Tallahassee
+
+48px
+
+$theme-type-scale-3xl
+
+System tokens
+
+Token
+ Value
+ Example
+
+'micro'
+
+10px
+
+Tallahassee
+
+1
+
+12px
+
+Tallahassee
+
+2
+
+13px
+
+Tallahassee
+
+3
+
+14px
+
+Tallahassee
+
+4
+
+15px
+
+Tallahassee
+
+5
+
+16px
+
+Tallahassee
+
+6
+
+17px
+
+Tallahassee
+
+7
+
+18px
+
+Tallahassee
+
+8
+
+20px
+
+Tallahassee
+
+9
+
+22px
+
+Tallahassee
+
+10
+
+24px
+
+Tallahassee
+
+11
+
+28px
+
+Tallahassee
+
+12
+
+32px
+
+Tallahassee
+
+13
+
+36px
+
+Tallahassee
+
+14
+
+40px
+
+Tallahassee
+
+15
+
+48px
+
+Tallahassee
+
+16
+
+56px
+
+Tallahassee
+
+17
+
+64px
+
+Tallahassee
+
+18
+
+80px
+
+Tallahassee
+
+19
+
+120px
+
+Tallahassee
+
+20
+
+140px
+
+Tallahassee
+
+Using size tokens
+
+Your context and coding style determine how you access USWDS font size tokens in code. Because of font size normalization, font size functions, utilities, and mixins also require a family token.
+
+Context
+ Usage
+ Example
+
+function
+
+size(family, size)
+
+font-size: size('body', '2xl')
+
+mixin
+ font-size
+
+u-font-size(family, size)
+
+@include u-font-size('body', '2xl')
+
+mixin
+ font-family
+ font-size
+
+u-font(family, size)
+
+@include u-font('body', '2xl')
+
+setting
+
+size
+
+$theme-h1-font-size: '2xl'
+
+utility
+ font-family
+ font-size
+
+.font-family-size
+
+.font-body-2xl
+
+Was this page helpful?
+
+Become part of the community
+
+USWDS is an active open source community of government engineers, content specialists, and designers. Our contributors both in and out of government support dozens of agencies and nearly 200 sites.
+
+Have an idea or an issue?
+
+ Reach out in GitHub
+
+Engage with the community
+
+ Find a channel that works for you
+
+Subscribe to our newsletter
+
+ Sign up for USWDS updates
+
+Get support
+
+ Email the USWDS team
+
+Looking for USWDS v1 documentation?
+ Visit v1.designsystem.digital.gov
+
+designsystem.digital.gov
+
+ An official website of the General Services Administration
+
+About GSA
+
+Accessibility statement
+
+FOIA requests
+
+No FEAR Act data
+
+Office of the Inspector General
+
+Performance reports
+
+Privacy policy
+
+Looking for U.S. government information and services?
+
+Visit USA.gov

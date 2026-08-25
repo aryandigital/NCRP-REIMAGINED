@@ -1,0 +1,2096 @@
+﻿Banner | U.S. Web Design System (USWDS)
+
+Skip to main content
+
+An official website of the United States government
+
+Here’s how you know
+
+Here’s how you know
+
+Official websites use .gov
+A
+ .gov website belongs to an official government
+ organization in the United States.
+
+Secure .gov websites use HTTPS
+A
+ lock (
+ ) or https:// means you’ve safely connected to
+ the .gov website. Share sensitive information only on official,
+ secure websites.
+
+USWDS
+ U.S. Web Design System (USWDS)
+
+Menu
+
+How to use USWDS
+
+How to use USWDS
+
+Getting started for developers
+
+Getting started for designers
+
+Documentation
+
+Settings
+
+USWDS maturity model
+
+Accessibility
+
+Performance guidelines
+
+Code guidelines
+
+Migrating to USWDS 3.0
+
+Migrating to USWDS 2.0
+
+Implementations
+
+Showcase
+
+Sample contract language for 21st Century IDEA
+
+Website standards
+
+Design principles
+
+Components
+
+Components
+
+Accordion
+
+Alert
+
+Banner
+
+Banner accessibility tests
+
+Breadcrumb
+
+Button
+
+Button group
+
+Card
+
+Character count
+
+Checkbox
+
+Collection
+
+Combo box
+
+Data visualizations
+
+Date picker
+
+Date range picker
+
+File input
+
+Footer
+
+Form
+
+Grid
+
+Header
+
+Icon
+
+Icon list
+
+Identifier
+
+In-page navigation
+
+Input mask
+
+Input prefix/suffix
+
+Language selector
+
+Link
+
+List
+
+Memorable date
+
+Modal
+
+Pagination
+
+Process list
+
+Prose
+
+Radio buttons
+
+Range slider
+
+Search
+
+Select
+
+Side navigation
+
+Site alert
+
+Step indicator
+
+Summary box
+
+Table
+
+Tag
+
+Text input
+
+Time picker
+
+Tooltip
+
+Typography
+
+Validation
+
+Patterns
+
+Patterns
+
+Introducing patterns
+
+Create a user profile
+
+Complete a complex form
+
+Select a language
+
+Design tokens
+
+Design tokens
+
+Color
+
+Typesetting
+
+Flex
+
+Opacity
+
+Order
+
+Shadow
+
+Spacing units
+
+Z-index
+
+Utilities
+
+Utilities
+
+Layout grid
+
+Color
+
+Height and width
+
+Margin and padding
+
+Border
+
+Outline
+
+Font size and family
+
+Text styles
+
+Paragraph styles
+
+Display
+
+Flex
+
+Shadow
+
+Float
+
+Clearfix
+
+List reset
+
+Templates
+
+Templates
+
+404 page
+
+Documentation page
+
+Landing page
+
+Authentication pages
+
+Form templates
+
+About
+
+About
+
+Key benefits
+
+Product values
+
+Contribute
+
+Community
+
+What’s new
+
+Monthly calls
+
+Product roadmap
+
+Research
+
+Security
+
+Website policies and notices
+
+How to use USWDS
+
+Design principles
+
+Components
+
+Patterns
+
+Design tokens
+
+Utilities
+
+Templates
+
+About
+
+Search
+
+Read website standards
+
+Download v3.14.0
+
+View on GitHub
+
+Components
+
+Accordion
+
+Alert
+
+Banner
+
+Banner accessibility tests
+
+Breadcrumb
+
+Button
+
+Button group
+
+Card
+
+Character count
+
+Checkbox
+
+Collection
+
+Combo box
+
+Data visualizations
+
+Date picker
+
+Date range picker
+
+File input
+
+Footer
+
+Form
+
+Grid
+
+Header
+
+Icon
+
+Icon list
+
+Identifier
+
+In-page navigation
+
+Input mask
+
+Input prefix/suffix
+
+Language selector
+
+Link
+
+List
+
+Memorable date
+
+Modal
+
+Pagination
+
+Process list
+
+Prose
+
+Radio buttons
+
+Range slider
+
+Search
+
+Select
+
+Side navigation
+
+Site alert
+
+Step indicator
+
+Summary box
+
+Table
+
+Tag
+
+Text input
+
+Time picker
+
+Tooltip
+
+Typography
+
+Validation
+
+Components
+
+Banner
+
+Banners identify official websites of government organizations in the United States. They also help visitors understand whether a website is official and secure.
+
+Passed WCAG 2.1 AA
+
+About the banner component
+
+Note: Banners and identifiers are core components. We recommend using both core components on most sites. Together, they are the most recognizable and standardized design elements of a government site.
+
+You should use the banner to identify your site as an official government site.
+
+The banner explains how to identify an official .gov or .mil domain and that these sites have secure HTTPS connections. Using the banner component is the best way to assure visitors that they’re connected to an official site.
+
+Most government sites should use the banner, but some should not use the banner. Do NOT use the banner on non-government domains such as a .com or .org.
+
+If you are unable to update to USWDS 2.8.0 (described on GitHub) or higher but still want to include the new language in your banner, we recommend editing your content to the language outlined in the component preview.
+
+Default banner
+
+This is the default banner. USWDS 3.0.0 through 3.12.0 only provide this version.
+
+Component preview
+
+.gov domains
+
+An official website of the United States government
+
+Here’s how you know
+
+Here’s how you know
+
+Official websites use .gov
+A
+ .gov website belongs to an official government
+ organization in the United States.
+
+Secure .gov websites use HTTPS
+A
+ lock (
+ ) or https:// means you’ve safely connected to
+ the .gov website. Share sensitive information only on official,
+ secure websites.
+
+.mil domains
+
+An official website of the United States government
+
+Here’s how you know
+
+Here’s how you know
+
+Official websites use .mil
+A
+ .mil website belongs to an official U.S.
+ Department of Defense organization.
+
+Secure .mil websites use HTTPS
+A
+ lock (
+ ) or https:// means you’ve safely connected to
+ the .mil website. Share sensitive information only on official,
+ secure websites.
+
+.gov domains (Spanish)
+
+Un sitio oficial del Gobierno de Estados Unidos
+
+Así es como usted puede verificarlo
+
+Así es como usted puede verificarlo
+
+Los sitios web oficiales usan .gov
+Un sitio
+ web .gov pertenece a una organización oficial del
+ Gobierno de Estados Unidos.
+
+Los sitios web seguros .gov usan HTTPS
+Un
+ candado (
+ ) o https:// significa que usted se conectó de
+ forma segura a un sitio web .gov. Comparta información sensible
+ sólo en sitios web oficiales y seguros.
+
+.mil domains (Spanish)
+
+Un sitio oficial del Gobierno de Estados Unidos
+
+Así es como usted puede verificarlo
+
+Así es como usted puede verificarlo
+
+Los sitios web oficiales usan .mil
+Un sitio
+ web .mil pertenece a una organización oficial del
+ Departamento de Defensa de EE. UU.
+
+Los sitios web seguros .mil usan HTTPS
+Un
+ candado (
+ ) o https:// significa que usted se conectó de
+ forma segura a un sitio web .mil. Comparta información sensible
+ sólo en sitios web oficiales y seguros.
+
+Component code
+
+<h3 class="site-preview-heading">.gov domains</h3>
+<section
+ class="usa-banner"
+ aria-label="Official website of the United States government"
+>
+ <div class="usa-accordion">
+ <header class="usa-banner__header">
+ <div class="usa-banner__inner">
+ <div class="grid-col-auto">
+ <img
+ aria-hidden="true"
+ class="usa-banner__header-flag"
+ src="/assets/img/us_flag_small.png"
+ alt=""
+ />
+ </div>
+ <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+ <p class="usa-banner__header-text">
+ An official website of the United States government
+ </p>
+ <p class="usa-banner__header-action">Here’s how you know</p>
+ </div>
+ <button
+ type="button"
+ class="usa-accordion__button usa-banner__button"
+ aria-expanded="false"
+ aria-controls="gov-banner-default"
+ >
+ <span class="usa-banner__button-text">Here’s how you know</span>
+ </button>
+ </div>
+ </header>
+ <div
+ class="usa-banner__content usa-accordion__content"
+ id="gov-banner-default"
+ >
+ <div class="grid-row grid-gap-lg">
+ <div class="usa-banner__guidance tablet:grid-col-6">
+ <img
+ class="usa-banner__icon usa-media-block__img"
+ src="/assets/img/icon-dot-gov.svg"
+ role="img"
+ alt=""
+ aria-hidden="true"
+ />
+ <div class="usa-media-block__body">
+ <p>
+ <strong>Official websites use .gov</strong><br />A
+ <strong>.gov</strong> website belongs to an official government
+ organization in the United States.
+ </p>
+ </div>
+ </div>
+ <div class="usa-banner__guidance tablet:grid-col-6">
+ <img
+ class="usa-banner__icon usa-media-block__img"
+ src="/assets/img/icon-https.svg"
+ role="img"
+ alt=""
+ aria-hidden="true"
+ />
+ <div class="usa-media-block__body">
+ <p>
+ <strong>Secure .gov websites use HTTPS</strong><br />A
+ <strong>lock</strong> (
+ <span class="icon-lock"
+ ><svg
+ xmlns="http://www.w3.org/2000/svg"
+ width="52"
+ height="64"
+ viewBox="0 0 52 64"
+ class="usa-banner__lock-image"
+ role="img"
+ aria-labelledby="banner-lock-description-default"
+ focusable="false"
+ >
+ <title id="banner-lock-title-default">Lock</title>
+ <desc id="banner-lock-description-default">Locked padlock icon</desc>
+ <path
+ fill="#000000"
+ fill-rule="evenodd"
+ d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"
+ />
+ </svg> </span
+ >) or <strong>https://</strong> means you’ve safely connected to
+ the .gov website. Share sensitive information only on official,
+ secure websites.
+ </p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<h3 class="site-preview-heading">.mil domains</h3>
+<section
+ class="usa-banner"
+ aria-label="Official website of the United States government,"
+>
+ <div class="usa-accordion">
+ <header class="usa-banner__header">
+ <div class="usa-banner__inner">
+ <div class="grid-col-auto">
+ <img
+ aria-hidden="true"
+ class="usa-banner__header-flag"
+ src="/assets/img/us_flag_small.png"
+ alt=""
+ />
+ </div>
+ <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+ <p class="usa-banner__header-text">
+ An official website of the United States government
+ </p>
+ <p class="usa-banner__header-action">Here’s how you know</p>
+ </div>
+ <button
+ type="button"
+ class="usa-accordion__button usa-banner__button"
+ aria-expanded="false"
+ aria-controls="gov-banner-dot-mil"
+ >
+ <span class="usa-banner__button-text">Here’s how you know</span>
+ </button>
+ </div>
+ </header>
+ <div
+ class="usa-banner__content usa-accordion__content"
+ id="gov-banner-dot-mil"
+ >
+ <div class="grid-row grid-gap-lg">
+ <div class="usa-banner__guidance tablet:grid-col-6">
+ <img
+ class="usa-banner__icon usa-media-block__img"
+ src="/assets/img/icon-dot-gov.svg"
+ role="img"
+ alt=""
+ aria-hidden="true"
+ />
+ <div class="usa-media-block__body">
+ <p>
+ <strong>Official websites use .mil</strong><br />A
+ <strong>.mil</strong> website belongs to an official U.S.
+ Department of Defense organization.
+ </p>
+ </div>
+ </div>
+ <div class="usa-banner__guidance tablet:grid-col-6">
+ <img
+ class="usa-banner__icon usa-media-block__img"
+ src="/assets/img/icon-https.svg"
+ role="img"
+ alt=""
+ aria-hidden="true"
+ />
+ <div class="usa-media-block__body">
+ <p>
+ <strong>Secure .mil websites use HTTPS</strong><br />A
+ <strong>lock</strong> (
+ <span class="icon-lock"
+ ><svg
+ xmlns="http://www.w3.org/2000/svg"
+ width="52"
+ height="64"
+ viewBox="0 0 52 64"
+ class="usa-banner__lock-image"
+ role="img"
+ aria-labelledby="banner-lock-description-dot-mil"
+ focusable="false"
+ >
+ <title id="banner-lock-title-dot-mil">Lock</title>
+ <desc id="banner-lock-description-dot-mil">Locked padlock icon</desc>
+ <path
+ fill="#000000"
+ fill-rule="evenodd"
+ d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"
+ />
+ </svg> </span
+ >) or <strong>https://</strong> means you’ve safely connected to
+ the .mil website. Share sensitive information only on official,
+ secure websites.
+ </p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<h3 class="site-preview-heading">.gov domains (Spanish)</h3>
+<section
+ class="usa-banner"
+ aria-label="Un sitio oficial del Gobierno de Estados Unidos"
+>
+ <div class="usa-accordion">
+ <header class="usa-banner__header">
+ <div class="usa-banner__inner">
+ <div class="grid-col-auto">
+ <img
+ aria-hidden="true"
+ class="usa-banner__header-flag"
+ src="/assets/img/us_flag_small.png"
+ alt=""
+ />
+ </div>
+ <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+ <p class="usa-banner__header-text">
+ Un sitio oficial del Gobierno de Estados Unidos
+ </p>
+ <p class="usa-banner__header-action">
+ Así es como usted puede verificarlo
+ </p>
+ </div>
+ <button
+ type="button"
+ class="usa-accordion__button usa-banner__button"
+ aria-expanded="false"
+ aria-controls="gov-banner-lang-es"
+ >
+ <span class="usa-banner__button-text"
+ >Así es como usted puede verificarlo</span
+ >
+ </button>
+ </div>
+ </header>
+ <div
+ class="usa-banner__content usa-accordion__content"
+ id="gov-banner-lang-es"
+ >
+ <div class="grid-row grid-gap-lg">
+ <div class="usa-banner__guidance tablet:grid-col-6">
+ <img
+ class="usa-banner__icon usa-media-block__img"
+ src="/assets/img/icon-dot-gov.svg"
+ role="img"
+ alt=""
+ aria-hidden="true"
+ />
+ <div class="usa-media-block__body">
+ <p>
+ <strong>Los sitios web oficiales usan .gov</strong><br />Un sitio
+ web <strong>.gov</strong> pertenece a una organización oficial del
+ Gobierno de Estados Unidos.
+ </p>
+ </div>
+ </div>
+ <div class="usa-banner__guidance tablet:grid-col-6">
+ <img
+ class="usa-banner__icon usa-media-block__img"
+ src="/assets/img/icon-https.svg"
+ role="img"
+ alt=""
+ aria-hidden="true"
+ />
+ <div class="usa-media-block__body">
+ <p>
+ <strong>Los sitios web seguros .gov usan HTTPS</strong><br />Un
+ <strong>candado</strong> (
+ <span class="icon-lock"
+ ><svg
+ xmlns="http://www.w3.org/2000/svg"
+ width="52"
+ height="64"
+ viewBox="0 0 52 64"
+ class="usa-banner__lock-image"
+ role="img"
+ aria-labelledby="banner-lock-description-spanish"
+ focusable="false"
+ >
+ <title id="banner-lock-title-spanish">Lock</title>
+ <desc id="banner-lock-description-spanish">Locked padlock icon</desc>
+ <path
+ fill="#000000"
+ fill-rule="evenodd"
+ d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"
+ />
+ </svg> </span
+ >) o <strong>https://</strong> significa que usted se conectó de
+ forma segura a un sitio web .gov. Comparta información sensible
+ sólo en sitios web oficiales y seguros.
+ </p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<h3 class="site-preview-heading">.mil domains (Spanish)</h3>
+<section
+ class="usa-banner"
+ aria-label="Un sitio oficial del Gobierno de Estados Unidos,"
+>
+ <div class="usa-accordion">
+ <header class="usa-banner__header">
+ <div class="usa-banner__inner">
+ <div class="grid-col-auto">
+ <img
+ aria-hidden="true"
+ class="usa-banner__header-flag"
+ src="/assets/img/us_flag_small.png"
+ alt=""
+ />
+ </div>
+ <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+ <p class="usa-banner__header-text">
+ Un sitio oficial del Gobierno de Estados Unidos
+ </p>
+ <p class="usa-banner__header-action">
+ Así es como usted puede verificarlo
+ </p>
+ </div>
+ <button
+ type="button"
+ class="usa-accordion__button usa-banner__button"
+ aria-expanded="false"
+ aria-controls="gov-banner-dot-mil-lang-es"
+ >
+ <span class="usa-banner__button-text"
+ >Así es como usted puede verificarlo</span
+ >
+ </button>
+ </div>
+ </header>
+ <div
+ class="usa-banner__content usa-accordion__content"
+ id="gov-banner-dot-mil-lang-es"
+ >
+ <div class="grid-row grid-gap-lg">
+ <div class="usa-banner__guidance tablet:grid-col-6">
+ <img
+ class="usa-banner__icon usa-media-block__img"
+ src="/assets/img/icon-dot-gov.svg"
+ role="img"
+ alt=""
+ aria-hidden="true"
+ />
+ <div class="usa-media-block__body">
+ <p>
+ <strong>Los sitios web oficiales usan .mil</strong><br />Un sitio
+ web <strong>.mil</strong> pertenece a una organización oficial del
+ Departamento de Defensa de EE. UU.
+ </p>
+ </div>
+ </div>
+ <div class="usa-banner__guidance tablet:grid-col-6">
+ <img
+ class="usa-banner__icon usa-media-block__img"
+ src="/assets/img/icon-https.svg"
+ role="img"
+ alt=""
+ aria-hidden="true"
+ />
+ <div class="usa-media-block__body">
+ <p>
+ <strong>Los sitios web seguros .mil usan HTTPS</strong><br />Un
+ <strong>candado</strong> (
+ <span class="icon-lock"
+ ><svg
+ xmlns="http://www.w3.org/2000/svg"
+ width="52"
+ height="64"
+ viewBox="0 0 52 64"
+ class="usa-banner__lock-image"
+ role="img"
+ aria-labelledby="banner-lock-description-dot-mil-spanish"
+ focusable="false"
+ >
+ <title id="banner-lock-title-dot-mil-spanish">Lock</title>
+ <desc id="banner-lock-description-dot-mil-spanish">Locked padlock icon</desc>
+ <path
+ fill="#000000"
+ fill-rule="evenodd"
+ d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"
+ />
+ </svg> </span
+ >) o <strong>https://</strong> significa que usted se conectó de
+ forma segura a un sitio web .mil. Comparta información sensible
+ sólo en sitios web oficiales y seguros.
+ </p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<h3 class="site-preview-heading">.gov domains</h3>
+<section
+ class="usa-banner"
+ aria-label="Official website of the United States government"
+>
+ <div class="usa-accordion">
+ <header class="usa-banner__header">
+ <div class="usa-banner__inner">
+ <div class="grid-col-auto">
+ <img
+ aria-hidden="true"
+ class="usa-banner__header-flag"
+ src="/assets/img/us_flag_small.png"
+ alt=""
+ />
+ </div>
+ <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+ <p class="usa-banner__header-text">
+ An official website of the United States government
+ </p>
+ <p class="usa-banner__header-action">Here’s how you know</p>
+ </div>
+ <button
+ type="button"
+ class="usa-accordion__button usa-banner__button"
+ aria-expanded="false"
+ aria-controls="gov-banner-default"
+ >
+ <span class="usa-banner__button-text">Here’s how you know</span>
+ </button>
+ </div>
+ </header>
+ <div
+ class="usa-banner__content usa-accordion__content"
+ id="gov-banner-default"
+ >
+ <div class="grid-row grid-gap-lg">
+ <div class="usa-banner__guidance tablet:grid-col-6">
+ <img
+ class="usa-banner__icon usa-media-block__img"
+ src="/assets/img/icon-dot-gov.svg"
+ role="img"
+ alt=""
+ aria-hidden="true"
+ />
+ <div class="usa-media-block__body">
+ <p>
+ <strong>Official websites use .gov</strong><br />A
+ <strong>.gov</strong> website belongs to an official government
+ organization in the United States.
+ </p>
+ </div>
+ </div>
+ <div class="usa-banner__guidance tablet:grid-col-6">
+ <img
+ class="usa-banner__icon usa-media-block__img"
+ src="/assets/img/icon-https.svg"
+ role="img"
+ alt=""
+ aria-hidden="true"
+ />
+ <div class="usa-media-block__body">
+ <p>
+ <strong>Secure .gov websites use HTTPS</strong><br />A
+ <strong>lock</strong> (
+ <span class="icon-lock"
+ ><svg
+ xmlns="http://www.w3.org/2000/svg"
+ width="52"
+ height="64"
+ viewBox="0 0 52 64"
+ class="usa-banner__lock-image"
+ role="img"
+ aria-labelledby="banner-lock-description-default"
+ focusable="false"
+ >
+ <title id="banner-lock-title-default">Lock</title>
+ <desc id="banner-lock-description-default">Locked padlock icon</desc>
+ <path
+ fill="#000000"
+ fill-rule="evenodd"
+ d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"
+ />
+ </svg> </span
+ >) or <strong>https://</strong> means you’ve safely connected to
+ the .gov website. Share sensitive information only on official,
+ secure websites.
+ </p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<h3 class="site-preview-heading">.mil domains</h3>
+<section
+ class="usa-banner"
+ aria-label="Official website of the United States government,"
+>
+ <div class="usa-accordion">
+ <header class="usa-banner__header">
+ <div class="usa-banner__inner">
+ <div class="grid-col-auto">
+ <img
+ aria-hidden="true"
+ class="usa-banner__header-flag"
+ src="/assets/img/us_flag_small.png"
+ alt=""
+ />
+ </div>
+ <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+ <p class="usa-banner__header-text">
+ An official website of the United States government
+ </p>
+ <p class="usa-banner__header-action">Here’s how you know</p>
+ </div>
+ <button
+ type="button"
+ class="usa-accordion__button usa-banner__button"
+ aria-expanded="false"
+ aria-controls="gov-banner-dot-mil"
+ >
+ <span class="usa-banner__button-text">Here’s how you know</span>
+ </button>
+ </div>
+ </header>
+ <div
+ class="usa-banner__content usa-accordion__content"
+ id="gov-banner-dot-mil"
+ >
+ <div class="grid-row grid-gap-lg">
+ <div class="usa-banner__guidance tablet:grid-col-6">
+ <img
+ class="usa-banner__icon usa-media-block__img"
+ src="/assets/img/icon-dot-gov.svg"
+ role="img"
+ alt=""
+ aria-hidden="true"
+ />
+ <div class="usa-media-block__body">
+ <p>
+ <strong>Official websites use .mil</strong><br />A
+ <strong>.mil</strong> website belongs to an official U.S.
+ Department of Defense organization.
+ </p>
+ </div>
+ </div>
+ <div class="usa-banner__guidance tablet:grid-col-6">
+ <img
+ class="usa-banner__icon usa-media-block__img"
+ src="/assets/img/icon-https.svg"
+ role="img"
+ alt=""
+ aria-hidden="true"
+ />
+ <div class="usa-media-block__body">
+ <p>
+ <strong>Secure .mil websites use HTTPS</strong><br />A
+ <strong>lock</strong> (
+ <span class="icon-lock"
+ ><svg
+ xmlns="http://www.w3.org/2000/svg"
+ width="52"
+ height="64"
+ viewBox="0 0 52 64"
+ class="usa-banner__lock-image"
+ role="img"
+ aria-labelledby="banner-lock-description-dot-mil"
+ focusable="false"
+ >
+ <title id="banner-lock-title-dot-mil">Lock</title>
+ <desc id="banner-lock-description-dot-mil">Locked padlock icon</desc>
+ <path
+ fill="#000000"
+ fill-rule="evenodd"
+ d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"
+ />
+ </svg> </span
+ >) or <strong>https://</strong> means you’ve safely connected to
+ the .mil website. Share sensitive information only on official,
+ secure websites.
+ </p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<h3 class="site-preview-heading">.gov domains (Spanish)</h3>
+<section
+ class="usa-banner"
+ aria-label="Un sitio oficial del Gobierno de Estados Unidos"
+>
+ <div class="usa-accordion">
+ <header class="usa-banner__header">
+ <div class="usa-banner__inner">
+ <div class="grid-col-auto">
+ <img
+ aria-hidden="true"
+ class="usa-banner__header-flag"
+ src="/assets/img/us_flag_small.png"
+ alt=""
+ />
+ </div>
+ <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+ <p class="usa-banner__header-text">
+ Un sitio oficial del Gobierno de Estados Unidos
+ </p>
+ <p class="usa-banner__header-action">
+ Así es como usted puede verificarlo
+ </p>
+ </div>
+ <button
+ type="button"
+ class="usa-accordion__button usa-banner__button"
+ aria-expanded="false"
+ aria-controls="gov-banner-lang-es"
+ >
+ <span class="usa-banner__button-text"
+ >Así es como usted puede verificarlo</span
+ >
+ </button>
+ </div>
+ </header>
+ <div
+ class="usa-banner__content usa-accordion__content"
+ id="gov-banner-lang-es"
+ >
+ <div class="grid-row grid-gap-lg">
+ <div class="usa-banner__guidance tablet:grid-col-6">
+ <img
+ class="usa-banner__icon usa-media-block__img"
+ src="/assets/img/icon-dot-gov.svg"
+ role="img"
+ alt=""
+ aria-hidden="true"
+ />
+ <div class="usa-media-block__body">
+ <p>
+ <strong>Los sitios web oficiales usan .gov</strong><br />Un sitio
+ web <strong>.gov</strong> pertenece a una organización oficial del
+ Gobierno de Estados Unidos.
+ </p>
+ </div>
+ </div>
+ <div class="usa-banner__guidance tablet:grid-col-6">
+ <img
+ class="usa-banner__icon usa-media-block__img"
+ src="/assets/img/icon-https.svg"
+ role="img"
+ alt=""
+ aria-hidden="true"
+ />
+ <div class="usa-media-block__body">
+ <p>
+ <strong>Los sitios web seguros .gov usan HTTPS</strong><br />Un
+ <strong>candado</strong> (
+ <span class="icon-lock"
+ ><svg
+ xmlns="http://www.w3.org/2000/svg"
+ width="52"
+ height="64"
+ viewBox="0 0 52 64"
+ class="usa-banner__lock-image"
+ role="img"
+ aria-labelledby="banner-lock-description-spanish"
+ focusable="false"
+ >
+ <title id="banner-lock-title-spanish">Lock</title>
+ <desc id="banner-lock-description-spanish">Locked padlock icon</desc>
+ <path
+ fill="#000000"
+ fill-rule="evenodd"
+ d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"
+ />
+ </svg> </span
+ >) o <strong>https://</strong> significa que usted se conectó de
+ forma segura a un sitio web .gov. Comparta información sensible
+ sólo en sitios web oficiales y seguros.
+ </p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<h3 class="site-preview-heading">.mil domains (Spanish)</h3>
+<section
+ class="usa-banner"
+ aria-label="Un sitio oficial del Gobierno de Estados Unidos,"
+>
+ <div class="usa-accordion">
+ <header class="usa-banner__header">
+ <div class="usa-banner__inner">
+ <div class="grid-col-auto">
+ <img
+ aria-hidden="true"
+ class="usa-banner__header-flag"
+ src="/assets/img/us_flag_small.png"
+ alt=""
+ />
+ </div>
+ <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+ <p class="usa-banner__header-text">
+ Un sitio oficial del Gobierno de Estados Unidos
+ </p>
+ <p class="usa-banner__header-action">
+ Así es como usted puede verificarlo
+ </p>
+ </div>
+ <button
+ type="button"
+ class="usa-accordion__button usa-banner__button"
+ aria-expanded="false"
+ aria-controls="gov-banner-dot-mil-lang-es"
+ >
+ <span class="usa-banner__button-text"
+ >Así es como usted puede verificarlo</span
+ >
+ </button>
+ </div>
+ </header>
+ <div
+ class="usa-banner__content usa-accordion__content"
+ id="gov-banner-dot-mil-lang-es"
+ >
+ <div class="grid-row grid-gap-lg">
+ <div class="usa-banner__guidance tablet:grid-col-6">
+ <img
+ class="usa-banner__icon usa-media-block__img"
+ src="/assets/img/icon-dot-gov.svg"
+ role="img"
+ alt=""
+ aria-hidden="true"
+ />
+ <div class="usa-media-block__body">
+ <p>
+ <strong>Los sitios web oficiales usan .mil</strong><br />Un sitio
+ web <strong>.mil</strong> pertenece a una organización oficial del
+ Departamento de Defensa de EE. UU.
+ </p>
+ </div>
+ </div>
+ <div class="usa-banner__guidance tablet:grid-col-6">
+ <img
+ class="usa-banner__icon usa-media-block__img"
+ src="/assets/img/icon-https.svg"
+ role="img"
+ alt=""
+ aria-hidden="true"
+ />
+ <div class="usa-media-block__body">
+ <p>
+ <strong>Los sitios web seguros .mil usan HTTPS</strong><br />Un
+ <strong>candado</strong> (
+ <span class="icon-lock"
+ ><svg
+ xmlns="http://www.w3.org/2000/svg"
+ width="52"
+ height="64"
+ viewBox="0 0 52 64"
+ class="usa-banner__lock-image"
+ role="img"
+ aria-labelledby="banner-lock-description-dot-mil-spanish"
+ focusable="false"
+ >
+ <title id="banner-lock-title-dot-mil-spanish">Lock</title>
+ <desc id="banner-lock-description-dot-mil-spanish">Locked padlock icon</desc>
+ <path
+ fill="#000000"
+ fill-rule="evenodd"
+ d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"
+ />
+ </svg> </span
+ >) o <strong>https://</strong> significa que usted se conectó de
+ forma segura a un sitio web .mil. Comparta información sensible
+ sólo en sitios web oficiales y seguros.
+ </p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+Guidance
+
+About
+
+This default banner was the only variant available until USWDS 13.3.0. The primary difference is that the default is more customizable but can add steps when updating USWDS versions.
+
+When to use the default banner 
+
+To identify as an official government site. Most government sites should use the banner, though non-federal government sites will need to change the text to be more accurate.
+
+When to consider something else
+
+If you don’t use a .gov/.mil domain and HTTPS. The Design System’s banner text identifies .gov and .mil domains and HTTPS as indicators that a website is an official government website. Use this banner only if your site uses both the proper top-level domain (TLD) and HTTPS.
+
+ Any time it would be misleading. The banner should be used to reduce confusion. Avoid using the banner on any site meant only for testing or otherwise not meant to be identified as an official government website.
+
+Usability guidance
+
+Use the provided text without customization. The banner is most effective as an identifier and a learning tool when its message is consistent across government sites. With only a few exceptions (described in our Implementation guidance), sites should use the top-level domain (TLD)-appropriate text provided, unaltered. Use the Spanish version of the banner for Spanish-language websites.
+
+ Use the version appropriate to your website’s top-level domain (TLD). If your project uses a .mil top-level domain, use the .mil banner text.
+
+ Show the banner on every page. Use the banner at the top of every page of a site. It can be confusing or misleading if it appears on some pages and not others.
+
+ Avoid distraction. The banner should appear on every page of your site. Choose background colors that fit with your site theme, and avoid color combinations that draw excessive attention to the banner.
+
+ Keep the text up to date. Use the most current version of the banner.
+
+Accessibility guidance
+
+Use aria-label to give the banner a useful name. Our default markup uses aria-label="Official website of the United States government" or aria-label="Un sitio oficial del Gobierno de Estados Unidos" to distinguish the banner header from the main header.
+
+ The banner’s accordion uses JavaScript to set the aria-hidden value of its content area. To ensure your content remains accessible in the event the JavaScript does not load or is disabled, you should not set aria-hidden="true" on usa-banner__content.
+
+Using the default banner 
+
+Some .gov websites don’t represent the federal level of the U.S. government. These sites should adapt the An official website of the United States government and Official websites use .gov sections to use more accurate language specific to the site.
+
+ Some .mil websites don’t belong to an official U.S. Department of Defense organization. These sites should adapt the Official websites use .mil section to use more technically accurate language: “A .mil website operates under the approval of the U.S. Department of Defense.”
+
+ The banner should directly follow the skipnav component.
+
+ Set the banner background color with $theme-banner-background-color. Banner text color will update automatically.
+
+Note: We recommend loading uswds-init.js when using banner, header, or modal components to assist in preventing flashes of unstyled content (FOUC) as well as cumulative layout shift (CLS). This small JavaScript file (less than 1 KB minified) helps the browser know if the USWDS JavaScript library is loading properly.
+
+To add uswds-init to your site, simply copy uswds-init.js into your site assets from either the uswds-core/src/js package or the dist/js directory in the downloadable package. Then, reference the file in the <head> of your HTML files. Alternatively, you can inline its contents directly into a <script> tag in your HTML files.
+
+Package
+
+Package usage: @forward "usa-banner";
+
+Dependencies: uswds-fonts, 
+usa-media-block
+
+Banner Web Component
+
+A banner variant that may be easier for some teams to implement and keep up to date.
+
+Component preview
+
+Web Component Variant
+
+Web Component Variant (Spanish)
+
+Web Component Variant (.mil domain, customized)
+
+A .mil website belongs to an official U.S. Department of Defense organization.
+
+Component code
+
+<h3 class="site-preview-heading">Web Component Variant</h3>
+<!-- The script tag should go in the head of your page, if possible -->
+<script src="/assets/uswds/components/usa-banner.js.mjs" type="module"></script>
+<usa-banner></usa-banner>
+
+<h3 class="site-preview-heading">Web Component Variant (Spanish)</h3>
+<!-- The script tag should go in the head of your page, if possible -->
+<script src="/assets/uswds/components/usa-banner.js.mjs" type="module"></script>
+<usa-banner lang="es"></usa-banner>
+
+<h3 class="site-preview-heading">Web Component Variant (.mil domain, customized)</h3>
+<!-- The script tag should go in the head of your page, if possible -->
+<script src="/assets/uswds/components/usa-banner.js.mjs" type="module"></script>
+<usa-banner 
+ tld="mil"
+ style="--theme-banner-background-color: #e1f3f8;"
+ >
+ <div slot="domain-text">A <strong>.mil</strong> website belongs to an official U.S. Department of Defense organization.</div>
+</usa-banner>
+
+<h3 class="site-preview-heading">Web Component Variant</h3>
+<!-- The script tag should go in the head of your page, if possible -->
+<script src="/assets/uswds/components/usa-banner.js.mjs" type="module"></script>
+<usa-banner></usa-banner>
+
+<h3 class="site-preview-heading">Web Component Variant (Spanish)</h3>
+<!-- The script tag should go in the head of your page, if possible -->
+<script src="/assets/uswds/components/usa-banner.js.mjs" type="module"></script>
+<usa-banner lang="es"></usa-banner>
+
+<h3 class="site-preview-heading">Web Component Variant (.mil domain, customized)</h3>
+<!-- The script tag should go in the head of your page, if possible -->
+<script src="/assets/uswds/components/usa-banner.js.mjs" type="module"></script>
+<usa-banner 
+ tld="mil"
+ style="--theme-banner-background-color: #e1f3f8;"
+ >
+ <div slot="domain-text">A <strong>.mil</strong> website belongs to an official U.S. Department of Defense organization.</div>
+</usa-banner>
+
+Guidance
+
+About
+
+USWDS 3.13.0 introduces an HTML Web Component variant of banner.
+
+Both options exist in components/banner, as well as in dist/components/usa-banner. We recommend most implementations use the compiled version in dist at this point, though this version is less customizable.
+
+When to use the banner web component 
+
+Use the Web Component variant of the banner anywhere you would use the default banner. The Web Component variant may be easier to add to your site, but it is also less customizable than the default banner.
+
+When to consider something else
+
+If you need more customizability than the Web Component variant of the banner offers.
+
+Using the banner web component 
+
+Some .gov websites don’t represent the federal level of the U.S. government. These sites should adapt the An official website of the United States government and Official websites use .gov sections to use more accurate language specific to the site.
+
+ Some .mil websites don’t belong to an official U.S. Department of Defense organization. These sites should adapt the Official websites use .mil section to use more technically accurate language: “A .mil website operates under the approval of the U.S. Department of Defense.”
+
+ The banner should directly follow the skipnav component.
+
+ We realize this documentation won’t cover all use cases, build environments, or tooling. If you have questions, you can ask USWDS community members in our GitHub discussions or Slack channel, or contact us directly at uswds@gsa.gov. We’ll be expanding this documentation in the future and your questions and feedback will help us understand what you need to get started with this variant and its implementation.
+
+Web Component Settings
+
+Attributes
+
+Attribute
+ Description
+
+lang
+
+The element's language. Defaults to en
+
+label
+
+The custom aria label users can override.
+
+tld
+
+The top level domain for the site. Defaults to .gov
+
+Slots
+
+Slot
+ Description
+
+banner-text
+
+The text for official government website text.
+
+banner-action
+
+Action text label "Here's how you know."
+
+domain-heading 
+
+Heading text for the domain section.
+
+domain-text
+
+Body text for domain section.
+
+https-heading
+
+Heading for HTTPs section.
+
+https-text
+
+Body text for HTTPs section.
+
+Custom Properties
+
+Custom Property
+ Description
+
+--theme-banner-text-color
+
+Sets banner text color.
+
+--theme-banner-background-color
+
+Sets banner background color.
+
+--theme-banner-font-family
+
+Sets banner font family
+
+--theme-banner-link-color
+
+Sets the default link/button color.
+
+--theme-banner-link-hover-color
+
+Sets the default link/banner hover color.
+
+--theme-banner-chevron-color
+
+Sets the default chevron color.
+
+Note: As this is the first Web Component shipping in USWDS, we are still working on the best way to document its usage. We want to hear from users about challenges with adding this component to your projects. Please let us know what works, what doesn’t, and what additional documentation might be helpful in this discussion thread.
+
+Guidance
+
+Using the banner component
+
+Banner settings
+
+Variable
+ Description
+
+$theme-banner-background-color
+
+Background color of the banner and its content.
+
+$theme-banner-font-family
+
+The font family of the banner.
+
+$theme-banner-link-color
+
+The color of banner link. Add the link color and the system will generate the hover state. Default uses the default link settings calculated from your background color.
+
+$theme-banner-max-width
+
+Maximum width of the banner content.
+
+Banner variants
+
+Variant
+
+ Description
+
+<usa-banner>
+
+An HTML Web Component version of Banner. Easier to implement and update but potentially harder to customize. See above for details.
+
+Accessibility test status
+
+The USWDS team did 14 tests based on WCAG 2.1 AA success criteria.
+
+Overview of recent accessibility test results:
+
+Total tests
+
+Passed
+
+Passed with exceptions
+
+Conditional
+
+Failed
+
+14
+
+12
+
+0
+
+2
+
+0
+
+Overview of recent accessibility test results:
+
+Passed: 12
+
+Passed with exceptions: 0
+
+Conditional: 2
+
+Failed: 0
+
+Learn more on the banner accessibility tests page.
+
+Package
+
+Package usage: @forward "usa-banner";
+
+Dependencies: uswds-fonts, 
+usa-media-block
+
+Latest updates
+Meaningful code and guidance updates are listed in the following table:
+
+Date
+ USWDS version
+ Affects
+ Breaking
+ Description
+
+2026-08-18
+
+3.14.0
+
+JavaScript
+
+No
+
+Fixed banner toggle lookup to respect the component root.
+
+The toggle now resolves aria-controls from the control’s root node instead of always using document, so banner toggles work correctly when initialized inside a shadow root via banner.on(root).
+
+More information:
+ 
+ uswds#6714
+
+2026-08-18
+
+3.14.0
+
+JavaScript
+
+No
+
+Updated web component JSDoc to use the standard @element tag.
+
+Changed the JSDoc decorator from @tagname to @element for the usa-banner web component. This is a documentation-only change with no functional impact.
+
+More information:
+ 
+ uswds#6739
+
+2025-05-23
+
+3.13.0
+
+Guidance
+
+No
+
+Added a new HTML Web Component-based variant of the banner.
+
+More information:
+ 
+ uswds#6460
+
+2024-06-07
+
+N/A
+
+Guidance
+
+No
+
+Added WCAG compliance tag and accessibility test status section.
+
+More information:
+ 
+ uswds-site#2687
+
+2023-11-30
+
+N/A
+
+Markup
+
+Breaking
+
+Breaking
+
+Fixed a bug causing component code example ID’s and relevant aria attributes to display incorrectly.
+
+Now, example ID’s match what’s found in the USWDS repo and are more succinct.
+
+More information:
+ 
+ uswds-site#2312
+
+2023-11-20
+
+N/A
+
+Guidance
+
+No
+
+Updated the text in the aria-label documentation to match the component markup.
+
+More information:
+ 
+ uswds-site#2149
+
+2023-11-20
+
+N/A
+
+Guidance
+
+No
+
+Removed usa-layout-grid from the list of dependencies.
+
+More information:
+ 
+ uswds-site#2149
+
+2023-11-09
+
+3.7.0
+
+JavaScript
+
+No
+
+Updated the banner component so that it initializes without requiring import of the usa-accordion package.
+
+More information:
+ 
+ uswds#5551
+
+2023-11-09
+
+3.7.0
+
+Assets
+
+No
+
+Optimized the us_flag_small.png icon and added a vector us_flag.svgicon.
+
+More information:
+ 
+ uswds#5542
+
+2023-09-29
+
+3.6.1
+
+Assets
+
+No
+
+Improved horizontal alignment in icon-dot-gov.svg.
+
+More information:
+ 
+ uswds#5370
+
+2023-03-09
+
+3.4.0
+
+Styles
+
+No
+
+Improved display of focus outline on mobile.
+
+Now the focus outline is visible all around the banner on mobile devices.
+
+More information:
+ 
+ uswds#5013
+
+2023-03-09
+
+3.4.0
+
+Styles
+
+No
+
+Updated padding settings to accept any valid spacing token.
+
+More information:
+ 
+ uswds#5076
+
+2023-03-09
+
+3.4.0
+
+Styles
+
+No
+
+Removed grid dependency from Banner.
+
+Banner no longer needs the usa-layout-grid package resulting in a much smaller package size.
+
+More information:
+ 
+ uswds#5000
+
+2022-10-09
+
+3.2.0
+
+Accessibility
+
+Markup
+
+No
+
+Updated the aria-label in English versions of banner.
+
+When read out on a screen reader, the statement “An official website of the United States government” can sound like “Unofficial website of the United States government”. To minimize confusion, we updated the component’s aria-label to instead read “Official website of the United States government”.
+
+More information:
+ 
+ uswds#4925
+
+2022-10-09
+
+3.2.0
+
+Accessibility
+
+Markup
+
+No
+
+Added aria-hidden attribute to the flag icon.
+
+The flag icon in the banner component is purely decorative and we can safely remove it from the screen reader readout.
+
+More information:
+ 
+ uswds#4925
+
+2022-10-09
+
+3.2.0
+
+Accessibility
+
+Markup
+
+No
+
+Simplified ARIA label in the lock SVG.
+
+We simplified the way we’re using aria-labelledby in the lock SVG to streamline screen reader vocalization.
+
+More information:
+ 
+ uswds#4925
+
+2022-08-05
+
+3.1.0
+
+JavaScript
+
+Markup
+
+Breaking
+
+Breaking
+
+Added type="button" to all non-form buttons to prevent default submit behaviors.
+
+This allowed us to remove preventDefault() from the relevant component JavaScript.
+
+More information:
+ 
+ uswds#4695
+
+2022-06-17
+
+3.0.2
+
+Assets
+
+JavaScript
+
+No
+
+Updated uswds-init.js to better suppress flashing content.
+
+We updated the uswds-init script’s event listener to target window from document. This assures that the page’s JavaScript is fully loaded before we remove the loadingClass that suppresses the open banner. The banner should no longer flash open.
+
+More information:
+ 
+ uswds#4676
+
+2022-06-17
+
+3.0.2
+
+Assets
+
+No
+
+Updated flag icon to be high resolution.
+
+More information:
+ 
+ uswds#4792
+
+2022-04-28
+
+3.0.0
+
+Assets
+
+JavaScript
+
+Styles
+
+Breaking
+
+Breaking
+
+Updated to Sass module syntax and new package structure.
+
+More information:
+ 
+ uswds#4656
+
+2022-04-11
+
+2.13.3
+
+Accessibility
+
+Styles
+
+No
+
+Added support for forced colors mode.
+
+All our components now support proper display when users have a forced colors mode set in their operating system.
+
+More information:
+ 
+ uswds#4610
+
+2021-03-02
+
+N/A
+
+Guidance
+
+No
+
+Updated guidance to identify banner as a core component.
+
+More information:
+ 
+ uswds-site#1136
+
+2020-12-17
+
+2.10.0
+
+Assets
+
+JavaScript
+
+No
+
+Introduced uswds-init.js to prevent banner flash.
+
+When added to the head of your document, this script prevents the banner from flashing its content on page load and shifting content.
+
+More information:
+ 
+ uswds#3867
+
+2020-12-17
+
+2.10.0
+
+Accessibility
+
+Assets
+
+No
+
+Improved the accessibility of decorative images in the banner.
+
+We modified the banner to properly mark up SVG files used as decorative images. Now all decorative images are hidden from screen readers, and all SVGs are more resilient to browser bugs. See the banner page for the complete, correct markup, and see the pull request for more context on the changes.
+
+More information:
+ 
+ uswds#3892
+
+2020-07-09
+
+2.8.0
+
+Content
+
+No
+
+Updated banner copy.
+
+Updated the expanded text in the banner to emphasize that trustworthiness is a combination of an official TLD and a secure HTTPS connection.
+
+More information:
+ 
+ uswds#3524
+
+2020-07-09
+
+2.8.0
+
+Content
+
+No
+
+Added Spanish versions.
+
+Included approved Spanish versions of the banner text.
+
+More information:
+ 
+ uswds#3524
+
+2020-07-09
+
+2.8.0
+
+Styles
+
+Breaking
+
+Breaking
+
+Updated banner settings.
+
+Allowed users to change background color, link color, and link reverse colors. This update requires the use of Autoprefixer.
+
+More information:
+ 
+ uswds#3531
+
+2020-06-17
+
+2.7.1
+
+Accessibility
+
+Assets
+
+No
+
+Added role="img" to SVGs.
+
+More information:
+ 
+ uswds#3316
+
+2020-05-11
+
+2.7.0
+
+Styles
+
+No
+
+Improved display of the “Here’s how you know” link in the gov banner.
+
+Now there’s no distracting change to the length of the underline on hover.
+
+More information:
+ 
+ uswds#3427
+
+Was this page helpful?
+
+Become part of the community
+
+USWDS is an active open source community of government engineers, content specialists, and designers. Our contributors both in and out of government support dozens of agencies and nearly 200 sites.
+
+Have an idea or an issue?
+
+ Reach out in GitHub
+
+Engage with the community
+
+ Find a channel that works for you
+
+Subscribe to our newsletter
+
+ Sign up for USWDS updates
+
+Get support
+
+ Email the USWDS team
+
+Looking for USWDS v1 documentation?
+ Visit v1.designsystem.digital.gov
+
+designsystem.digital.gov
+
+ An official website of the General Services Administration
+
+About GSA
+
+Accessibility statement
+
+FOIA requests
+
+No FEAR Act data
+
+Office of the Inspector General
+
+Performance reports
+
+Privacy policy
+
+Looking for U.S. government information and services?
+
+Visit USA.gov

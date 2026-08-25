@@ -1,0 +1,730 @@
+﻿Summary box | U.S. Web Design System (USWDS)
+
+Skip to main content
+
+An official website of the United States government
+
+Here’s how you know
+
+Here’s how you know
+
+Official websites use .gov
+A
+ .gov website belongs to an official government
+ organization in the United States.
+
+Secure .gov websites use HTTPS
+A
+ lock (
+ ) or https:// means you’ve safely connected to
+ the .gov website. Share sensitive information only on official,
+ secure websites.
+
+USWDS
+ U.S. Web Design System (USWDS)
+
+Menu
+
+How to use USWDS
+
+How to use USWDS
+
+Getting started for developers
+
+Getting started for designers
+
+Documentation
+
+Settings
+
+USWDS maturity model
+
+Accessibility
+
+Performance guidelines
+
+Code guidelines
+
+Migrating to USWDS 3.0
+
+Migrating to USWDS 2.0
+
+Implementations
+
+Showcase
+
+Sample contract language for 21st Century IDEA
+
+Website standards
+
+Design principles
+
+Components
+
+Components
+
+Accordion
+
+Alert
+
+Banner
+
+Breadcrumb
+
+Button
+
+Button group
+
+Card
+
+Character count
+
+Checkbox
+
+Collection
+
+Combo box
+
+Data visualizations
+
+Date picker
+
+Date range picker
+
+File input
+
+Footer
+
+Form
+
+Grid
+
+Header
+
+Icon
+
+Icon list
+
+Identifier
+
+In-page navigation
+
+Input mask
+
+Input prefix/suffix
+
+Language selector
+
+Link
+
+List
+
+Memorable date
+
+Modal
+
+Pagination
+
+Process list
+
+Prose
+
+Radio buttons
+
+Range slider
+
+Search
+
+Select
+
+Side navigation
+
+Site alert
+
+Step indicator
+
+Summary box
+
+Summary box accessibility tests
+
+Table
+
+Tag
+
+Text input
+
+Time picker
+
+Tooltip
+
+Typography
+
+Validation
+
+Patterns
+
+Patterns
+
+Introducing patterns
+
+Create a user profile
+
+Complete a complex form
+
+Select a language
+
+Design tokens
+
+Design tokens
+
+Color
+
+Typesetting
+
+Flex
+
+Opacity
+
+Order
+
+Shadow
+
+Spacing units
+
+Z-index
+
+Utilities
+
+Utilities
+
+Layout grid
+
+Color
+
+Height and width
+
+Margin and padding
+
+Border
+
+Outline
+
+Font size and family
+
+Text styles
+
+Paragraph styles
+
+Display
+
+Flex
+
+Shadow
+
+Float
+
+Clearfix
+
+List reset
+
+Templates
+
+Templates
+
+404 page
+
+Documentation page
+
+Landing page
+
+Authentication pages
+
+Form templates
+
+About
+
+About
+
+Key benefits
+
+Product values
+
+Contribute
+
+Community
+
+What’s new
+
+Monthly calls
+
+Product roadmap
+
+Research
+
+Security
+
+Website policies and notices
+
+How to use USWDS
+
+Design principles
+
+Components
+
+Patterns
+
+Design tokens
+
+Utilities
+
+Templates
+
+About
+
+Search
+
+Read website standards
+
+Download v3.14.0
+
+View on GitHub
+
+Components
+
+Accordion
+
+Alert
+
+Banner
+
+Breadcrumb
+
+Button
+
+Button group
+
+Card
+
+Character count
+
+Checkbox
+
+Collection
+
+Combo box
+
+Data visualizations
+
+Date picker
+
+Date range picker
+
+File input
+
+Footer
+
+Form
+
+Grid
+
+Header
+
+Icon
+
+Icon list
+
+Identifier
+
+In-page navigation
+
+Input mask
+
+Input prefix/suffix
+
+Language selector
+
+Link
+
+List
+
+Memorable date
+
+Modal
+
+Pagination
+
+Process list
+
+Prose
+
+Radio buttons
+
+Range slider
+
+Search
+
+Select
+
+Side navigation
+
+Site alert
+
+Step indicator
+
+Summary box
+
+Summary box accessibility tests
+
+Table
+
+Tag
+
+Text input
+
+Time picker
+
+Tooltip
+
+Typography
+
+Validation
+
+Components
+
+Summary box
+
+A summary box highlights key information from a longer page or displays next steps.
+
+Passed WCAG 2.1 AA
+
+Component preview
+
+Default
+
+Key information
+
+If you are under a winter storm warning,
+ find shelter right away.
+
+Sign up for
+ your community’s warning system.
+
+Learn the signs of, and basic treatments for,
+ frostbite and
+ hypothermia.
+
+Gather emergency supplies for your
+ home and your
+ car.
+
+Component code
+
+<h3 class="site-preview-heading">Default</h3>
+<div
+ class="usa-summary-box"
+ role="region"
+ aria-labelledby="summary-box-key-information"
+>
+ <div class="usa-summary-box__body">
+ <h4 class="usa-summary-box__heading" id="summary-box-key-information">
+ Key information
+ </h4>
+ <div class="usa-summary-box__text">
+ <ul class="usa-list">
+ <li>
+ If you are under a winter storm warning,
+ <a class="usa-summary-box__link" href="">find shelter</a> right away.
+ </li>
+ <li>
+ Sign up for
+ <a class="usa-summary-box__link" href=""
+ >your community’s warning system</a
+ >.
+ </li>
+ <li>
+ Learn the signs of, and basic treatments for,
+ <a class="usa-summary-box__link" href="">frostbite</a> and
+ <a class="usa-summary-box__link" href="">hypothermia</a>.
+ </li>
+ <li>
+ Gather emergency supplies for your
+ <a class="usa-summary-box__link" href="">home</a> and your
+ <a class="usa-summary-box__link" href="">car</a>.
+ </li>
+ </ul>
+ </div>
+ </div>
+</div>
+
+<h3 class="site-preview-heading">Default</h3>
+<div
+ class="usa-summary-box"
+ role="region"
+ aria-labelledby="summary-box-key-information"
+>
+ <div class="usa-summary-box__body">
+ <h4 class="usa-summary-box__heading" id="summary-box-key-information">
+ Key information
+ </h4>
+ <div class="usa-summary-box__text">
+ <ul class="usa-list">
+ <li>
+ If you are under a winter storm warning,
+ <a class="usa-summary-box__link" href="">find shelter</a> right away.
+ </li>
+ <li>
+ Sign up for
+ <a class="usa-summary-box__link" href=""
+ >your community’s warning system</a
+ >.
+ </li>
+ <li>
+ Learn the signs of, and basic treatments for,
+ <a class="usa-summary-box__link" href="">frostbite</a> and
+ <a class="usa-summary-box__link" href="">hypothermia</a>.
+ </li>
+ <li>
+ Gather emergency supplies for your
+ <a class="usa-summary-box__link" href="">home</a> and your
+ <a class="usa-summary-box__link" href="">car</a>.
+ </li>
+ </ul>
+ </div>
+ </div>
+</div>
+
+Guidance
+
+When to use the summary box component
+
+Summarize dense content. If your page contains a lot of information, use the summary box to call out 3-5 key details that readers shouldn’t miss.
+
+ Highlight a short, actionable list. If the page content describes a few steps or a checklist of items to remember, collect them in a summary box. Use five bullet points or less.
+
+When to consider something else
+
+Internal page navigation. Don’t use a summary box as a table of contents. If you’re listing headings for internal page navigation, use a simple unordered list of jump links or side navigation.
+
+ Your page is short. The summary box gives users quick access to the most important information on a long page. If your page isn’t that long, a recap may feel redundant.
+
+ Your list needs more detail. Summary boxes should be short. Use a process list, graphic list, or icon list in the body of the article when:
+ 
+ There are more than five bullet points.
+
+ Bullet points are longer than 20 words.
+
+ Bullet points require a header, image, or button.
+
+Alerts or callouts. you’re highlighting something new, rather than surfacing details from further down the page, use the alert component, such as the informative status alert.
+
+Usability guidance
+
+Select, split, and sequence to prioritize critical information. First, select the most important information from the page. Then, split up the information into logical parts. Finally, sequence the parts in an order that makes sense to the reader.
+
+ Link to more information. We suggest linking to further reading on the same page using an anchor link. To do this without confusing your readers, do your best to explain where the link will take them in the hyperlinked text and reiterate it with the subsequent heading.
+
+ Use smooth scrolling. Show the reader that they haven’t left the page with smooth scrolling. If you opt for smooth scrolling, ensure the focus state is transferred appropriately.
+
+ Give the user a way to get back. Provide a “back to top” link or sticky internal navigation.
+
+Accessibility guidance
+
+Test the summary box component in your own project.
+
+USWDS tested the summary box component for accessibility. You should test your implementation, too.
+
+Use summary box accessibility tests
+
+Write for your audience. The summary box is meant to make it easier to understand page content. Don’t leave readers without access to critical information. Check your writing level to ensure it’s easy to read. Search for “readability level tool” to find tools that assess reading level.
+
+Using the summary box component
+
+Summary box settings
+
+Variable
+ Description
+
+$theme-summary-box-background-color
+
+Background color of the Summary box.
+
+$theme-summary-box-border-color
+
+Color the border around the Summary box.
+
+$theme-summary-box-border-width
+
+Width of the border around the Summary box.
+
+$theme-summary-box-border-radius
+
+Border radius of the summary box.
+
+$theme-summary-box-font-family
+
+Font family of the content text.
+
+$theme-summary-box-link-color
+
+Color of the links inside the content text. When set to “default”, links will get one of three values, based on contrast: $theme-link-color, $theme-link-reverse-color, or “ink”.
+
+$theme-summary-box-text-color
+
+Color of the content text. When set to “default”, text will get one of two values, based on contrast: $theme-text-reverse-color or $theme-text-color.
+
+Summary box variants
+
+This component has no variants.
+
+Accessibility test status
+
+The USWDS team did 8 tests based on WCAG 2.1 AA success criteria.
+
+Overview of recent accessibility test results:
+
+Total tests
+
+Passed
+
+Passed with exceptions
+
+Conditional
+
+Failed
+
+8
+
+3
+
+0
+
+5
+
+0
+
+Overview of recent accessibility test results:
+
+Passed: 3
+
+Passed with exceptions: 0
+
+Conditional: 5
+
+Failed: 0
+
+Learn more on the summary box accessibility tests page.
+
+Package
+
+Package usage: @forward "usa-summary-box";
+
+Dependencies: uswds-fonts, 
+usa-list
+
+Latest updates
+Meaningful code and guidance updates are listed in the following table:
+
+Date
+ USWDS version
+ Affects
+ Breaking
+ Description
+
+2024-12-17
+
+N/A
+
+Guidance
+
+No
+
+Added WCAG compliance tag and accessibility test status section.
+
+More information:
+ 
+ uswds-site#3016
+
+2022-04-28
+
+3.0.0
+
+Assets
+
+JavaScript
+
+Styles
+
+Breaking
+
+Breaking
+
+Updated to Sass module syntax and new package structure.
+
+More information:
+ 
+ uswds#4656
+
+2021-04-28
+
+2.11.2
+
+Assets
+
+Styles
+
+No
+
+Added missing summary box Sass package.
+
+Now you can add a summary box package to your project with packages/usa-summary-box.
+
+More information:
+ 
+ uswds#4162
+
+Was this page helpful?
+
+Become part of the community
+
+USWDS is an active open source community of government engineers, content specialists, and designers. Our contributors both in and out of government support dozens of agencies and nearly 200 sites.
+
+Have an idea or an issue?
+
+ Reach out in GitHub
+
+Engage with the community
+
+ Find a channel that works for you
+
+Subscribe to our newsletter
+
+ Sign up for USWDS updates
+
+Get support
+
+ Email the USWDS team
+
+Looking for USWDS v1 documentation?
+ Visit v1.designsystem.digital.gov
+
+designsystem.digital.gov
+
+ An official website of the General Services Administration
+
+About GSA
+
+Accessibility statement
+
+FOIA requests
+
+No FEAR Act data
+
+Office of the Inspector General
+
+Performance reports
+
+Privacy policy
+
+Looking for U.S. government information and services?
+
+Visit USA.gov

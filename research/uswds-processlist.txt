@@ -1,0 +1,904 @@
+﻿Process list | U.S. Web Design System (USWDS)
+
+Skip to main content
+
+An official website of the United States government
+
+Here’s how you know
+
+Here’s how you know
+
+Official websites use .gov
+A
+ .gov website belongs to an official government
+ organization in the United States.
+
+Secure .gov websites use HTTPS
+A
+ lock (
+ ) or https:// means you’ve safely connected to
+ the .gov website. Share sensitive information only on official,
+ secure websites.
+
+USWDS
+ U.S. Web Design System (USWDS)
+
+Menu
+
+How to use USWDS
+
+How to use USWDS
+
+Getting started for developers
+
+Getting started for designers
+
+Documentation
+
+Settings
+
+USWDS maturity model
+
+Accessibility
+
+Performance guidelines
+
+Code guidelines
+
+Migrating to USWDS 3.0
+
+Migrating to USWDS 2.0
+
+Implementations
+
+Showcase
+
+Sample contract language for 21st Century IDEA
+
+Website standards
+
+Design principles
+
+Components
+
+Components
+
+Accordion
+
+Alert
+
+Banner
+
+Breadcrumb
+
+Button
+
+Button group
+
+Card
+
+Character count
+
+Checkbox
+
+Collection
+
+Combo box
+
+Data visualizations
+
+Date picker
+
+Date range picker
+
+File input
+
+Footer
+
+Form
+
+Grid
+
+Header
+
+Icon
+
+Icon list
+
+Identifier
+
+In-page navigation
+
+Input mask
+
+Input prefix/suffix
+
+Language selector
+
+Link
+
+List
+
+Memorable date
+
+Modal
+
+Pagination
+
+Process list
+
+Process list accessibility tests
+
+Prose
+
+Radio buttons
+
+Range slider
+
+Search
+
+Select
+
+Side navigation
+
+Site alert
+
+Step indicator
+
+Summary box
+
+Table
+
+Tag
+
+Text input
+
+Time picker
+
+Tooltip
+
+Typography
+
+Validation
+
+Patterns
+
+Patterns
+
+Introducing patterns
+
+Create a user profile
+
+Complete a complex form
+
+Select a language
+
+Design tokens
+
+Design tokens
+
+Color
+
+Typesetting
+
+Flex
+
+Opacity
+
+Order
+
+Shadow
+
+Spacing units
+
+Z-index
+
+Utilities
+
+Utilities
+
+Layout grid
+
+Color
+
+Height and width
+
+Margin and padding
+
+Border
+
+Outline
+
+Font size and family
+
+Text styles
+
+Paragraph styles
+
+Display
+
+Flex
+
+Shadow
+
+Float
+
+Clearfix
+
+List reset
+
+Templates
+
+Templates
+
+404 page
+
+Documentation page
+
+Landing page
+
+Authentication pages
+
+Form templates
+
+About
+
+About
+
+Key benefits
+
+Product values
+
+Contribute
+
+Community
+
+What’s new
+
+Monthly calls
+
+Product roadmap
+
+Research
+
+Security
+
+Website policies and notices
+
+How to use USWDS
+
+Design principles
+
+Components
+
+Patterns
+
+Design tokens
+
+Utilities
+
+Templates
+
+About
+
+Search
+
+Read website standards
+
+Download v3.14.0
+
+View on GitHub
+
+Components
+
+Accordion
+
+Alert
+
+Banner
+
+Breadcrumb
+
+Button
+
+Button group
+
+Card
+
+Character count
+
+Checkbox
+
+Collection
+
+Combo box
+
+Data visualizations
+
+Date picker
+
+Date range picker
+
+File input
+
+Footer
+
+Form
+
+Grid
+
+Header
+
+Icon
+
+Icon list
+
+Identifier
+
+In-page navigation
+
+Input mask
+
+Input prefix/suffix
+
+Language selector
+
+Link
+
+List
+
+Memorable date
+
+Modal
+
+Pagination
+
+Process list
+
+Process list accessibility tests
+
+Prose
+
+Radio buttons
+
+Range slider
+
+Search
+
+Select
+
+Side navigation
+
+Site alert
+
+Step indicator
+
+Summary box
+
+Table
+
+Tag
+
+Text input
+
+Time picker
+
+Tooltip
+
+Typography
+
+Validation
+
+Components
+
+Process list
+
+A process list displays the steps or stages of important instructions or processes.
+
+Passed WCAG 2.1 AA
+
+Component preview
+
+Default
+
+Start a process
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo,
+ ipsum sed pharetra gravida, orci magna rhoncus neque.
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo,
+ ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio
+ lorem non turpis.
+
+Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat
+ condimentum.
+
+Aliquam erat volutpat. Sed quis velit.
+
+Proceed to the second step
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo,
+ ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio
+ lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula
+ volutpat condimentum. Aliquam erat volutpat. Sed quis velit. Nulla
+ facilisi. Nulla libero. Vivamus pharetra posuere sapien.
+
+Complete the step-by-step process
+
+Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat
+ condimentum. Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla
+ libero. Vivamus pharetra posuere sapien.
+
+No text and custom sizing
+
+Start a process.
+
+Proceed to the second step.
+
+Complete the step-by-step process.
+
+Custom sizing
+
+Start a process.
+
+Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat
+ condimentum.
+
+Proceed to the second step.
+
+Suspendisse id velit vitae ligula volutpat condimentum. Aliquam erat
+ volutpat.
+
+Complete the step-by-step process.
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo,
+ ipsum sed pharetra gravida, orci magna rhoncus neque.
+
+Component code
+
+<h3 class="site-preview-heading">Default</h3>
+<ol class="usa-process-list">
+ <li class="usa-process-list__item">
+ <h4 class="usa-process-list__heading">Start a process</h4>
+ <p class="margin-top-05">
+ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo,
+ ipsum sed pharetra gravida, orci magna rhoncus neque.
+ </p>
+ <ul>
+ <li>
+ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo,
+ ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio
+ lorem non turpis.
+ </li>
+ <li>
+ Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat
+ condimentum.
+ </li>
+ <li>Aliquam erat volutpat. Sed quis velit.</li>
+ </ul>
+ </li>
+ <li class="usa-process-list__item">
+ <h4 class="usa-process-list__heading">Proceed to the second step</h4>
+ <p>
+ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo,
+ ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio
+ lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula
+ volutpat condimentum. Aliquam erat volutpat. Sed quis velit. Nulla
+ facilisi. Nulla libero. Vivamus pharetra posuere sapien.
+ </p>
+ </li>
+ <li class="usa-process-list__item">
+ <h4 class="usa-process-list__heading">Complete the step-by-step process</h4>
+ <p>
+ Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat
+ condimentum. Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla
+ libero. Vivamus pharetra posuere sapien.
+ </p>
+ </li>
+</ol>
+
+<h3 class="site-preview-heading">No text and custom sizing</h3>
+<ol class="usa-process-list">
+ <li class="usa-process-list__item padding-bottom-4">
+ <p class="usa-process-list__heading font-sans-xl line-height-sans-1">
+ Start a process.
+ </p>
+ </li>
+ <li class="usa-process-list__item padding-bottom-4">
+ <p class="usa-process-list__heading font-sans-xl line-height-sans-1">
+ Proceed to the second step.
+ </p>
+ </li>
+ <li class="usa-process-list__item">
+ <p class="usa-process-list__heading font-sans-xl line-height-sans-1">
+ Complete the step-by-step process.
+ </p>
+ </li>
+</ol>
+
+<h3 class="site-preview-heading">Custom sizing</h3>
+<ol class="usa-process-list">
+ <li class="usa-process-list__item padding-bottom-4">
+ <h4 class="usa-process-list__heading font-sans-xl line-height-sans-1">
+ Start a process.
+ </h4>
+ <p class="font-sans-lg margin-top-1 text-light">
+ Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat
+ condimentum.
+ </p>
+ </li>
+ <li class="usa-process-list__item padding-bottom-4">
+ <h4 class="usa-process-list__heading font-sans-xl line-height-sans-1">
+ Proceed to the second step.
+ </h4>
+ <p class="font-sans-lg margin-top-1 text-light">
+ Suspendisse id velit vitae ligula volutpat condimentum. Aliquam erat
+ volutpat.
+ </p>
+ </li>
+ <li class="usa-process-list__item">
+ <h4 class="usa-process-list__heading font-sans-xl line-height-sans-1">
+ Complete the step-by-step process.
+ </h4>
+ <p class="font-sans-lg margin-top-1 text-light">
+ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo,
+ ipsum sed pharetra gravida, orci magna rhoncus neque.
+ </p>
+ </li>
+</ol>
+
+<h3 class="site-preview-heading">Default</h3>
+<ol class="usa-process-list">
+ <li class="usa-process-list__item">
+ <h4 class="usa-process-list__heading">Start a process</h4>
+ <p class="margin-top-05">
+ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo,
+ ipsum sed pharetra gravida, orci magna rhoncus neque.
+ </p>
+ <ul>
+ <li>
+ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo,
+ ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio
+ lorem non turpis.
+ </li>
+ <li>
+ Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat
+ condimentum.
+ </li>
+ <li>Aliquam erat volutpat. Sed quis velit.</li>
+ </ul>
+ </li>
+ <li class="usa-process-list__item">
+ <h4 class="usa-process-list__heading">Proceed to the second step</h4>
+ <p>
+ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo,
+ ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio
+ lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula
+ volutpat condimentum. Aliquam erat volutpat. Sed quis velit. Nulla
+ facilisi. Nulla libero. Vivamus pharetra posuere sapien.
+ </p>
+ </li>
+ <li class="usa-process-list__item">
+ <h4 class="usa-process-list__heading">Complete the step-by-step process</h4>
+ <p>
+ Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat
+ condimentum. Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla
+ libero. Vivamus pharetra posuere sapien.
+ </p>
+ </li>
+</ol>
+
+<h3 class="site-preview-heading">No text and custom sizing</h3>
+<ol class="usa-process-list">
+ <li class="usa-process-list__item padding-bottom-4">
+ <p class="usa-process-list__heading font-sans-xl line-height-sans-1">
+ Start a process.
+ </p>
+ </li>
+ <li class="usa-process-list__item padding-bottom-4">
+ <p class="usa-process-list__heading font-sans-xl line-height-sans-1">
+ Proceed to the second step.
+ </p>
+ </li>
+ <li class="usa-process-list__item">
+ <p class="usa-process-list__heading font-sans-xl line-height-sans-1">
+ Complete the step-by-step process.
+ </p>
+ </li>
+</ol>
+
+<h3 class="site-preview-heading">Custom sizing</h3>
+<ol class="usa-process-list">
+ <li class="usa-process-list__item padding-bottom-4">
+ <h4 class="usa-process-list__heading font-sans-xl line-height-sans-1">
+ Start a process.
+ </h4>
+ <p class="font-sans-lg margin-top-1 text-light">
+ Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat
+ condimentum.
+ </p>
+ </li>
+ <li class="usa-process-list__item padding-bottom-4">
+ <h4 class="usa-process-list__heading font-sans-xl line-height-sans-1">
+ Proceed to the second step.
+ </h4>
+ <p class="font-sans-lg margin-top-1 text-light">
+ Suspendisse id velit vitae ligula volutpat condimentum. Aliquam erat
+ volutpat.
+ </p>
+ </li>
+ <li class="usa-process-list__item">
+ <h4 class="usa-process-list__heading font-sans-xl line-height-sans-1">
+ Complete the step-by-step process.
+ </h4>
+ <p class="font-sans-lg margin-top-1 text-light">
+ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo,
+ ipsum sed pharetra gravida, orci magna rhoncus neque.
+ </p>
+ </li>
+</ol>
+
+Guidance
+
+When to use the process list component
+
+Displaying high-level sequential steps. Use process lists to create a clear hierarchy and help users easily differentiate between individual steps or stages in a process.
+
+When to consider something else
+
+Multi-page forms or wizards. Use the step indicator component to help users work through a form or process that spans several different pages.
+
+ When showing current status or progress. Use the step indicator component to show the user the current step in a multi-step process.
+
+ In-page navigation. Use the side navigation component to display the “sub-navigation” within a section or page of the website.
+
+ The steps are non-sequential. Use unordered lists, graphic lists (coming soon), or icon lists (coming soon) to display text that doesn’t have a clear, logical order to it.
+
+ The listed content is meant to improve readability of a complex sentence. Use the ordered and unordered list components to break up sentences and paragraphs with lists. These lists are part of the general content of the page and don’t need the typographical hierarchy or visual impact of the process list.
+
+Usability guidance
+
+Be thoughtful about the number of steps. A process list should include between three and ten steps to prevent it from getting too unwieldy or confusing.
+
+ Use consistent headings. Headings should be written with a parallel structure (e.g., all start with an action verb, etc.), including consistent end punctuation, and should be short enough to fit on one line, if possible.
+
+ Add other types of content as needed. The body of each list item can be used to display additional rich text content including HTML, images, and other components like buttons, images, simple lists, links, and tables.
+
+Accessibility guidance
+
+Test the process list component in your own project.
+
+USWDS tested the process list component for accessibility. You should test your implementation, too.
+
+Use process list accessibility tests
+
+Use semantic heading levels. Though our default code uses an <h4>, use the correct heading level with the class name usa-process-list__heading in your own implementation.
+
+Using the process list component
+
+Use counters to reinforce step progression. The counter pattern (step numbers in a circle) attracts more attention to the indicator bar, but more strongly communicates step-by-step progression. Use counters when you want to reinforce step progression. Omit them if testing proves that this reinforcement is unnecessary for your audience.
+
+ Omit labels with verbose content. Aim for clear and crisp labels. Omit labels to save space or if the step names are too long to comfortably fit in the step indicator.
+
+ Use the centered variant with centered content and headings. The centered variant is designed to complement centered content and headings. If you have left-aligned content and headings, use the default alignment.
+
+ Center the heading with utilities. Use the flex-justify-center utility on usa-step-indicator__header to center the heading.
+
+ Centered counters need narrower gaps and a thinner segment. If you use a centered variant with counters, you should use a narrower gap (2px is a good starting point) to increase the continuity between segments. A narrower counter gap (again, 2px is a good starting point) can also improve legibility. Centered counters can also benefit from a thinner segment, as the centered variant focusses emphasis on the counter instead of the segment.
+
+ Pending text should use gray. Pending text should use the gray family that complements the background and the pending segment colors. Use warm grays with warm backgrounds and segments, and cool grays with cool backgrounds and segments.
+
+ Pending segments can use gray or complete family. Pending segments can use gray, just as with pending text, but they can also use a light grade of the complete color family.
+
+ The current color can be a contrast color. The current color can be in the same family as the complete color or it can be a contrast color that distinguishes itself from the complete color.
+
+ Thicker segments use wider counter gaps. It can be distracting to use a thick segment with a narrow counter gap. Use a gap of at least 0.5 units on a 1 unit segment.
+
+ Avoid wide counter gaps. Counter gaps cap improve legibility of the counters, but wide counter gaps hurt the overall continuity between the counters and the segments.
+
+Process list settings
+
+Variable
+ Description
+
+$theme-process-list-counter-background-color
+
+Background color of the counter circle.
+
+$theme-process-list-counter-border-color
+
+Color of the border around the counter circle.
+
+$theme-process-list-counter-border-width
+
+Size of the border around the counter circle.
+
+$theme-process-list-counter-font-family
+
+Font family of the counter text.
+
+$theme-process-list-counter-font-size
+
+Font size of the counter text.
+
+$theme-process-list-counter-gap-color
+
+Color of gap between counter and connector. This should the the same as the background color behind the component.
+
+$theme-process-list-counter-gap-width
+
+Size of gap between counter and connector.
+
+$theme-process-list-counter-size
+
+Size of the counter circle.
+
+$theme-process-list-counter-text-color
+
+Color of the number text inside the counter circle.
+
+$theme-process-list-connector-color
+
+Color of the connector line between counter circles.
+
+$theme-process-list-connector-width
+
+Width of the connector line between counter circles.
+
+$theme-process-list-font-family
+
+Font family of the content text.
+
+$theme-process-list-font-size
+
+Font size of the content text.
+
+$theme-process-list-heading-color
+
+Color of the heading text.
+
+$theme-process-list-heading-font-family
+
+Font family of the heading text.
+
+$theme-process-list-heading-font-size
+
+Font size of the heading text.
+
+Process list variants
+
+This component has no variants.
+
+Accessibility test status
+
+The USWDS team did 6 tests based on WCAG 2.1 AA success criteria.
+
+Overview of recent accessibility test results:
+
+Total tests
+
+Passed
+
+Passed with exceptions
+
+Conditional
+
+Failed
+
+6
+
+2
+
+0
+
+4
+
+0
+
+Overview of recent accessibility test results:
+
+Passed: 2
+
+Passed with exceptions: 0
+
+Conditional: 4
+
+Failed: 0
+
+Learn more on the process list accessibility tests page.
+
+Package
+
+Package usage: @forward "usa-process-list";
+
+Dependencies: uswds-fonts
+
+Latest updates
+Meaningful code and guidance updates are listed in the following table:
+
+Date
+ USWDS version
+ Affects
+ Breaking
+ Description
+
+2024-12-18
+
+N/A
+
+Guidance
+
+No
+
+Added WCAG compliance tag and accessibility test status section.
+
+More information:
+ 
+ uswds-site#3007
+
+2022-04-28
+
+3.0.0
+
+Assets
+
+JavaScript
+
+Styles
+
+Breaking
+
+Breaking
+
+Updated to Sass module syntax and new package structure.
+
+More information:
+ 
+ uswds#4656
+
+Was this page helpful?
+
+Become part of the community
+
+USWDS is an active open source community of government engineers, content specialists, and designers. Our contributors both in and out of government support dozens of agencies and nearly 200 sites.
+
+Have an idea or an issue?
+
+ Reach out in GitHub
+
+Engage with the community
+
+ Find a channel that works for you
+
+Subscribe to our newsletter
+
+ Sign up for USWDS updates
+
+Get support
+
+ Email the USWDS team
+
+Looking for USWDS v1 documentation?
+ Visit v1.designsystem.digital.gov
+
+designsystem.digital.gov
+
+ An official website of the General Services Administration
+
+About GSA
+
+Accessibility statement
+
+FOIA requests
+
+No FEAR Act data
+
+Office of the Inspector General
+
+Performance reports
+
+Privacy policy
+
+Looking for U.S. government information and services?
+
+Visit USA.gov

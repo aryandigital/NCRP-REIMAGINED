@@ -1,0 +1,787 @@
+﻿Spacing units | U.S. Web Design System (USWDS)
+
+Skip to main content
+
+An official website of the United States government
+
+Here’s how you know
+
+Here’s how you know
+
+Official websites use .gov
+A
+ .gov website belongs to an official government
+ organization in the United States.
+
+Secure .gov websites use HTTPS
+A
+ lock (
+ ) or https:// means you’ve safely connected to
+ the .gov website. Share sensitive information only on official,
+ secure websites.
+
+USWDS
+ U.S. Web Design System (USWDS)
+
+Menu
+
+How to use USWDS
+
+How to use USWDS
+
+Getting started for developers
+
+Getting started for designers
+
+Documentation
+
+Settings
+
+USWDS maturity model
+
+Accessibility
+
+Performance guidelines
+
+Code guidelines
+
+Migrating to USWDS 3.0
+
+Migrating to USWDS 2.0
+
+Implementations
+
+Showcase
+
+Sample contract language for 21st Century IDEA
+
+Website standards
+
+Design principles
+
+Components
+
+Components
+
+Accordion
+
+Alert
+
+Banner
+
+Breadcrumb
+
+Button
+
+Button group
+
+Card
+
+Character count
+
+Checkbox
+
+Collection
+
+Combo box
+
+Data visualizations
+
+Date picker
+
+Date range picker
+
+File input
+
+Footer
+
+Form
+
+Grid
+
+Header
+
+Icon
+
+Icon list
+
+Identifier
+
+In-page navigation
+
+Input mask
+
+Input prefix/suffix
+
+Language selector
+
+Link
+
+List
+
+Memorable date
+
+Modal
+
+Pagination
+
+Process list
+
+Prose
+
+Radio buttons
+
+Range slider
+
+Search
+
+Select
+
+Side navigation
+
+Site alert
+
+Step indicator
+
+Summary box
+
+Table
+
+Tag
+
+Text input
+
+Time picker
+
+Tooltip
+
+Typography
+
+Validation
+
+Patterns
+
+Patterns
+
+Introducing patterns
+
+Create a user profile
+
+Complete a complex form
+
+Select a language
+
+Design tokens
+
+Design tokens
+
+Color
+
+Typesetting
+
+Flex
+
+Opacity
+
+Order
+
+Shadow
+
+Spacing units
+
+Spacing unit tokens
+
+Using spacing unit tokens
+
+Latest update
+
+Z-index
+
+Utilities
+
+Utilities
+
+Layout grid
+
+Color
+
+Height and width
+
+Margin and padding
+
+Border
+
+Outline
+
+Font size and family
+
+Text styles
+
+Paragraph styles
+
+Display
+
+Flex
+
+Shadow
+
+Float
+
+Clearfix
+
+List reset
+
+Templates
+
+Templates
+
+404 page
+
+Documentation page
+
+Landing page
+
+Authentication pages
+
+Form templates
+
+About
+
+About
+
+Key benefits
+
+Product values
+
+Contribute
+
+Community
+
+What’s new
+
+Monthly calls
+
+Product roadmap
+
+Research
+
+Security
+
+Website policies and notices
+
+How to use USWDS
+
+Design principles
+
+Components
+
+Patterns
+
+Design tokens
+
+Utilities
+
+Templates
+
+About
+
+Search
+
+Read website standards
+
+Download v3.14.0
+
+View on GitHub
+
+Design tokens
+
+Color
+
+Typesetting
+
+Flex
+
+Opacity
+
+Order
+
+Shadow
+
+Spacing units
+
+Spacing unit tokens
+
+Using spacing unit tokens
+
+Latest update
+
+Z-index
+
+Design tokens
+
+Spacing units
+
+USWDS spacing unit tokens are based on multiples of 8px, with additional tokens for small sizes, named tokens for large sizes, and a more limited selection of negative tokens.
+
+Any spacing value in utilities or component CSS should use the following spacing unit tokens, based on multiples of 8px. The documentation below displays a target value in pixels, but the final output for tokens above 2px and below -2px is the eqivalent value in rem, which will vary depending on your project settings.
+
+Note: Some units tokens come in two flavors: a numeric token (like 0.5 or -2) and a string token (like '05' or 'neg-2'). Utility classes use unquoted string tokens exclusively when they exist (like .margin-x-neg-2). Mixins and functions usually accept either, and we will note any exceptions.
+
+Spacing unit tokens
+
+Token
+ Multiple
+ Value
+ Example
+
+1px
+
+—
+
+1px
+
+2px
+
+—
+
+2px
+
+0.5,
+
+'05'
+
+0.5
+
+4px
+
+1
+
+1
+
+8px
+
+1.5,
+
+'105'
+
+1.5
+
+12px
+
+2
+
+2
+
+16px
+
+2.5,
+
+'205'
+
+2.5
+
+20px
+
+3
+
+3
+
+24px
+
+4
+
+4
+
+32px
+
+5
+
+5
+
+40px
+
+6
+
+6
+
+48px
+
+7
+
+7
+
+56px
+
+8
+
+8
+
+64px
+
+9
+
+9
+
+72px
+
+10
+
+10
+
+80px
+
+15
+
+15
+
+120px
+
+'card'
+
+20
+
+160px
+
+'card-lg'
+
+30
+
+240px
+
+'mobile'
+
+40
+
+320px
+
+'mobile-lg'
+
+60
+
+480px
+
+'tablet'
+
+80
+
+640px
+
+'tablet-lg'
+
+110
+
+880px
+
+'desktop'
+
+128
+
+1024px
+
+'desktop-lg'
+
+150
+
+1200px
+
+'widescreen'
+
+175
+
+1400px
+
+-1px,
+
+'neg-1px'
+
+—
+
+-1px
+
+-2px,
+
+'neg-2px'
+
+—
+
+-2px
+
+-0.5,
+
+'neg-05'
+
+-0.5
+
+-4px
+
+-1,
+
+'neg-1'
+
+-1
+
+-8px
+
+-1.5,
+
+'neg-105'
+
+-1.5
+
+-12px
+
+-2,
+
+'neg-2'
+
+-2
+
+-16px
+
+-2.5,
+
+'neg-205'
+
+-2.5
+
+-20px
+
+-3,
+
+'neg-3'
+
+-3
+
+-24px
+
+-4,
+
+'neg-4'
+
+-4
+
+-32px
+
+-5,
+
+'neg-5'
+
+-5
+
+-40px
+
+-6,
+
+'neg-6'
+
+-6
+
+-48px
+
+-7,
+
+'neg-7'
+
+-7
+
+-56px
+
+-8,
+
+'neg-8'
+
+-8
+
+-64px
+
+-9,
+
+'neg-9'
+
+-9
+
+-72px
+
+-10,
+
+'neg-10'
+
+-10
+
+-80px
+
+-15,
+
+'neg-15'
+
+-15
+
+-120px
+
+Using spacing unit tokens
+
+Your context and coding style determine how you access USWDS spacing unit tokens in code.
+
+Many mixins and utilities accept spacing unit tokens. See the utilities section for more on individual utilities and their matching mixins. We show only a few representative examples below.
+
+Context
+ Usage
+ Example
+
+function
+
+units(units)
+
+padding-top: units(3);
+
+ margin-left: units(-2px);
+
+ border-radius: units(0.5);
+
+ min-height: units('card');
+
+mixin 
+
+ min-width media query
+
+at-media(units)
+
+@include at-media('mobile-lg')
+
+mixin 
+
+ max-width media query
+
+at-media-max(units)
+
+@include at-media-max('mobile-lg')
+
+setting
+
+units
+
+$theme-site-margin-mobile: 2
+
+utility
+
+.padding-x-units
+
+ .margin-x-units
+
+.padding-x-2
+
+ .margin-x-neg-2
+
+Latest updates
+Meaningful code and guidance updates are listed in the following table:
+
+Date
+ USWDS version
+ Affects
+ Breaking
+ Description
+
+2023-08-23
+
+3.6.0
+
+Styles
+
+No
+
+Updated 0 token values to include units when needed.
+
+Now, units(0) can be used in calc() functions.
+
+More information:
+ 
+ uswds#5325
+
+2023-02-24
+
+N/A
+
+Guidance
+
+No
+
+Corrected alternate token name for token 05.
+
+More information:
+ 
+ uswds-site#1949
+
+2022-03-11
+
+N/A
+
+Guidance
+
+No
+
+Reverted value of tablet-lg to 880px.
+
+More information:
+ 
+ uswds-site#1474
+
+2022-02-24
+
+N/A
+
+Guidance
+
+No
+
+Updated value of tablet-lg from 880px to 800px.
+
+More information:
+ 
+ uswds-site#1455
+
+Was this page helpful?
+
+Become part of the community
+
+USWDS is an active open source community of government engineers, content specialists, and designers. Our contributors both in and out of government support dozens of agencies and nearly 200 sites.
+
+Have an idea or an issue?
+
+ Reach out in GitHub
+
+Engage with the community
+
+ Find a channel that works for you
+
+Subscribe to our newsletter
+
+ Sign up for USWDS updates
+
+Get support
+
+ Email the USWDS team
+
+Looking for USWDS v1 documentation?
+ Visit v1.designsystem.digital.gov
+
+designsystem.digital.gov
+
+ An official website of the General Services Administration
+
+About GSA
+
+Accessibility statement
+
+FOIA requests
+
+No FEAR Act data
+
+Office of the Inspector General
+
+Performance reports
+
+Privacy policy
+
+Looking for U.S. government information and services?
+
+Visit USA.gov

@@ -1,0 +1,810 @@
+﻿State color tokens | U.S. Web Design System (USWDS)
+
+Skip to main content
+
+An official website of the United States government
+
+Here’s how you know
+
+Here’s how you know
+
+Official websites use .gov
+A
+ .gov website belongs to an official government
+ organization in the United States.
+
+Secure .gov websites use HTTPS
+A
+ lock (
+ ) or https:// means you’ve safely connected to
+ the .gov website. Share sensitive information only on official,
+ secure websites.
+
+USWDS
+ U.S. Web Design System (USWDS)
+
+Menu
+
+How to use USWDS
+
+How to use USWDS
+
+Getting started for developers
+
+Getting started for designers
+
+Documentation
+
+Settings
+
+USWDS maturity model
+
+Accessibility
+
+Performance guidelines
+
+Code guidelines
+
+Migrating to USWDS 3.0
+
+Migrating to USWDS 2.0
+
+Implementations
+
+Showcase
+
+Sample contract language for 21st Century IDEA
+
+Website standards
+
+Design principles
+
+Components
+
+Components
+
+Accordion
+
+Alert
+
+Banner
+
+Breadcrumb
+
+Button
+
+Button group
+
+Card
+
+Character count
+
+Checkbox
+
+Collection
+
+Combo box
+
+Data visualizations
+
+Date picker
+
+Date range picker
+
+File input
+
+Footer
+
+Form
+
+Grid
+
+Header
+
+Icon
+
+Icon list
+
+Identifier
+
+In-page navigation
+
+Input mask
+
+Input prefix/suffix
+
+Language selector
+
+Link
+
+List
+
+Memorable date
+
+Modal
+
+Pagination
+
+Process list
+
+Prose
+
+Radio buttons
+
+Range slider
+
+Search
+
+Select
+
+Side navigation
+
+Site alert
+
+Step indicator
+
+Summary box
+
+Table
+
+Tag
+
+Text input
+
+Time picker
+
+Tooltip
+
+Typography
+
+Validation
+
+Patterns
+
+Patterns
+
+Introducing patterns
+
+Create a user profile
+
+Complete a complex form
+
+Select a language
+
+Design tokens
+
+Design tokens
+
+Color
+
+Using color
+
+Theme color tokens
+
+State color tokens
+
+State color tokens
+
+Customizing state color tokens
+
+State color tokens table
+
+Using color tokens
+
+Latest updates
+
+System color tokens
+
+Typesetting
+
+Flex
+
+Opacity
+
+Order
+
+Shadow
+
+Spacing units
+
+Z-index
+
+Utilities
+
+Utilities
+
+Layout grid
+
+Color
+
+Height and width
+
+Margin and padding
+
+Border
+
+Outline
+
+Font size and family
+
+Text styles
+
+Paragraph styles
+
+Display
+
+Flex
+
+Shadow
+
+Float
+
+Clearfix
+
+List reset
+
+Templates
+
+Templates
+
+404 page
+
+Documentation page
+
+Landing page
+
+Authentication pages
+
+Form templates
+
+About
+
+About
+
+Key benefits
+
+Product values
+
+Contribute
+
+Community
+
+What’s new
+
+Monthly calls
+
+Product roadmap
+
+Research
+
+Security
+
+Website policies and notices
+
+How to use USWDS
+
+Design principles
+
+Components
+
+Patterns
+
+Design tokens
+
+Utilities
+
+Templates
+
+About
+
+Search
+
+Read website standards
+
+Download v3.14.0
+
+View on GitHub
+
+Design tokens
+
+Color
+
+Using color
+
+Theme color tokens
+
+State color tokens
+
+State color tokens
+
+Customizing state color tokens
+
+State color tokens table
+
+Using color tokens
+
+Latest updates
+
+System color tokens
+
+Typesetting
+
+Flex
+
+Opacity
+
+Order
+
+Shadow
+
+Spacing units
+
+Z-index
+
+Design tokens
+
+State color tokens
+
+USWDS state colors tokens provide flexible, accessible, customizable colors for warning, error, and other states
+
+USWDS state color tokens are designed to be useful and effective for any project that has states or alerts. Each state token is drawn from a system color token and we only use token-based colors in official components.
+
+State color tokens
+
+The state color palette is divided into five high-level role-based color families: info, error, warning, success, emergency, and disabled.
+
+Each color family except emergency and disabled has five possible lightness grades, from lighter to darker, though not every family needs to include a color at each grade. Some grades may be set to false in your project’s theme settings.
+
+Customizing state color tokens
+
+Customize state color tokens in your USWDS settings configuration using the variables listed in the state color
+tokens table below. Define state variables with
+system color tokens.
+Set any unused theme color to false.
+
+For example, if you wanted to set the value of the error-dark token to red-warm-60v, your settings
+configuration would look like this:
+
+@use "uswds-core" with (
+ $theme-color-error-dark: "red-warm-60v",
+);
+
+State color tokens table
+
+Color
+ Token
+ Default
+ Settings variable
+ Value
+
+'info-lighter'
+
+'cyan-5'
+
+$theme-color-info-lighter
+
+#e7f6f8
+
+'info-light'
+
+'cyan-20'
+
+$theme-color-info-light
+
+#99deea
+
+'info'
+
+'cyan-30v'
+
+$theme-color-info
+
+#00bde3
+
+'info-dark'
+
+'cyan-40v'
+
+$theme-color-info-dark
+
+#009ec1
+
+'info-darker'
+
+'blue-cool-60'
+
+$theme-color-info-darker
+
+#2e6276
+
+'error-lighter'
+
+'red-warm-10'
+
+$theme-color-error-lighter
+
+#f4e3db
+
+'error-light'
+
+'red-warm-30v'
+
+$theme-color-error-light
+
+#f39268
+
+'error'
+
+'red-warm-50v'
+
+$theme-color-error
+
+#d54309
+
+'error-dark'
+
+'red-60v'
+
+$theme-color-error-dark
+
+#b50909
+
+'error-darker'
+
+'red-70'
+
+$theme-color-error-darker
+
+#6f3331
+
+'warning-lighter'
+
+'yellow-5'
+
+$theme-color-warning-lighter
+
+#faf3d1
+
+'warning-light'
+
+'yellow-10v'
+
+$theme-color-warning-light
+
+#fee685
+
+'warning'
+
+'gold-20v'
+
+$theme-color-warning
+
+#ffbe2e
+
+'warning-dark'
+
+'gold-30v'
+
+$theme-color-warning-dark
+
+#e5a000
+
+'warning-darker'
+
+'gold-50v'
+
+$theme-color-warning-darker
+
+#936f38
+
+'success-lighter'
+
+'green-cool-5'
+
+$theme-color-success-lighter
+
+#ecf3ec
+
+'success-light'
+
+'green-cool-20v'
+
+$theme-color-success-light
+
+#70e17b
+
+'success'
+
+'green-cool-40v'
+
+$theme-color-success
+
+#00a91c
+
+'success-dark'
+
+'green-cool-50v'
+
+$theme-color-success-dark
+
+#008817
+
+'success-darker'
+
+'green-cool-60v'
+
+$theme-color-success-darker
+
+#216e1f
+
+'disabled-lighter'
+
+'gray-20'
+
+$theme-color-disabled-lighter
+
+#c9c9c9
+
+'disabled-light'
+
+'gray-40'
+
+$theme-color-disabled-light
+
+#919191
+
+'disabled'
+
+'gray-50'
+
+$theme-color-disabled
+
+#757575
+
+'disabled-dark'
+
+'gray-70'
+
+$theme-color-disabled-dark
+
+#454545
+
+'disabled-darker'
+
+'gray-90'
+
+$theme-color-disabled-darker
+
+#1b1b1b
+
+'emergency'
+
+'red-warm-60v'
+
+$theme-color-emergency
+
+#9c3d10
+
+'emergency-dark'
+
+'red-warm-80'
+
+$theme-color-emergency-dark
+
+#332d29
+
+Using color tokens
+
+Your context and coding style determine how you access USWDS color tokens in code.
+
+Context
+ Usage
+ Example
+
+function
+
+color(color)
+
+color: color('warning-dark')
+
+mixin
+
+ background-color
+
+u-bg(color)
+
+@include u-bg('warning-dark')
+
+mixin
+
+ color
+
+u-text(color)
+
+@include u-text('warning-dark')
+
+mixin
+
+ border-color
+
+u-border(color)
+
+@include u-border('warning-dark')
+
+mixin
+
+ text-decoration-color
+
+u-underline(color)
+
+@include u-underline('warning-dark')
+
+setting
+
+color
+
+$theme-alert-text-color: 'warning-dark'
+
+mixin
+
+ text-decoration-color
+
+u-underline(color)
+
+@include u-underline('warning-dark')
+
+utility
+
+ background-color
+
+.bg-color
+
+.bg-warning-light
+
+utility
+
+ border-color
+
+.border-color
+
+.border-error
+
+utility
+
+ color
+
+.text-color
+
+.text-error
+
+utility
+
+ outline-color
+
+.outline-color
+
+.outline-error
+
+utility
+
+ text-decoration-color
+
+.underline-color
+
+.underline-error
+
+Latest updates
+Meaningful code and guidance updates are listed in the following table:
+
+Date
+ USWDS version
+ Affects
+ Breaking
+ Description
+
+2024-05-15
+
+N/A
+
+Guidance
+
+No
+
+Updated guidance for configuring color settings.
+
+More information:
+ 
+ uswds-site#2377
+
+2023-08-23
+
+3.6.0
+
+Styles
+
+Breaking
+
+Breaking
+
+Updated the default values for all disabled tokens and added disabled-lighter and disabled-darker tokens.
+
+If your project uses disabled tokens, you probably need to update your token references.
+
+More information:
+ 
+ uswds#5402
+
+2021-12-21
+
+N/A
+
+Guidance
+
+No
+
+Updated the documentation for success-dark and success-darker to match the current USWDS values.
+
+More information:
+ 
+ uswds-site#1939
+
+2021-06-16
+
+2.12.0
+
+Styles
+
+No
+
+Updated the values of success-dark from green-cool-50 to green-cool-50v and success-darker from green-cool-60 to green-cool-60v.
+
+More information:
+ 
+ uswds#4183
+
+Was this page helpful?
+
+Become part of the community
+
+USWDS is an active open source community of government engineers, content specialists, and designers. Our contributors both in and out of government support dozens of agencies and nearly 200 sites.
+
+Have an idea or an issue?
+
+ Reach out in GitHub
+
+Engage with the community
+
+ Find a channel that works for you
+
+Subscribe to our newsletter
+
+ Sign up for USWDS updates
+
+Get support
+
+ Email the USWDS team
+
+Looking for USWDS v1 documentation?
+ Visit v1.designsystem.digital.gov
+
+designsystem.digital.gov
+
+ An official website of the General Services Administration
+
+About GSA
+
+Accessibility statement
+
+FOIA requests
+
+No FEAR Act data
+
+Office of the Inspector General
+
+Performance reports
+
+Privacy policy
+
+Looking for U.S. government information and services?
+
+Visit USA.gov

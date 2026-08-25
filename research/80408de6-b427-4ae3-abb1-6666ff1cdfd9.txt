@@ -1,0 +1,711 @@
+﻿=== user TEXT ===
+<timestamp>Monday, Aug 24, 2026, 2:00 PM (UTC+5:30)</timestamp>
+<user_query>
+Research the India-specific context for designing a government cybercrime victim-reporting web portal. Today is August 2026. Use WebSearch and WebFetch. Be specific and cite sources.
+
+Cover:
+
+1. THE REAL cybercrime.gov.in (India's National Cyber Crime Reporting Portal, NCRP) â€” run by I4C / Ministry of Home Affairs.
+   - Describe its ACTUAL current UI and UX in concrete detail: layout, navigation, colour scheme, the reporting form flow, the categories a user must choose between, field validations, known complaints from users and journalists.
+   - Specific documented pain points: the 200-character minimum description, character restrictions, mandatory self-categorisation into "Women/Child Related Crime" vs "Financial Fraud" vs "Other Cyber Crime", requirement to upload evidence including intimate images, OTP/login friction, session timeouts, form resets.
+   - Statistics: 2024/2025/2026 complaint volumes, financial losses, FIR conversion rate, money recovery rate. Get the most recent verifiable numbers and cite them.
+   - The 1930 helpline, CFCFRMS (Citizen Financial Cyber Fraud Reporting and Management System), the "golden hour" concept.
+
+2. Indian digital-government design references
+   - India Design System / "Indian Government Design System" if it exists, MeitY guidelines, GIGW (Guidelines for Indian Government Websites) â€” current version and what it mandates (accessibility, bilingual, emblem usage, footer requirements).
+   - UMANG, DigiLocker, ONDC, UPI/BHIM, Aadhaar mAadhaar, RBI Sachet, Income Tax portal, IRCTC, Bhashini.
+   - What Indian users actually find familiar and trustworthy in a government interface.
+   - The visual language of Indian government sites: the national emblem, saffron/white/green, "Government of India" lockups, Digital India branding. NOTE: our project explicitly must NOT use the national emblem or imply government endorsement â€” so we need to signal official-grade seriousness WITHOUT those assets. Research how to do that.
+
+3. Device and connectivity reality in India (2026)
+   - Smartphone vs desktop share for government service access.
+   - Dominant screen sizes, Android version distribution, typical RAM.
+   - Network conditions, data cost sensitivity, and implications for image weight and page size.
+   - Digital literacy levels and first-time internet user behaviour.
+
+4. Language and typography
+   - Hindi/Devanagari typography on the web: recommended fonts (Noto Sans Devanagari, Mukta, Hind, Tiruvalluvar etc.), line-height requirements for Devanagari (it needs more vertical space than Latin â€” get specifics), font-size parity issues between Latin and Devanagari.
+   - How bilingual (English/Hindi) toggles are best implemented in Indian gov products.
+   - Hinglish and code-mixing in UI copy â€” is it acceptable, what do users prefer?
+   - Number formatting: lakh/crore vs millions, the Indian digit grouping (â‚¹1,00,000), rupee symbol usage.
+
+5. Trust and scam-adjacent design in India
+   - Since the audience has just been scammed, and Indian scams heavily useå®˜æ–¹-looking WhatsApp messages, fake government letterheads, fake RBI/CBI branding â€” what visual cues do Indian scams use that a legitimate portal must AVOID looking like? Be very specific (e.g. fake emblem, red urgent banners, WhatsApp green, specific fonts, all-caps Hindi).
+   - What makes Indian citizens trust a website vs suspect it.
+
+6. Relevant Indian statutory/legal UI content: 1930, Tele-MANAS 14416, Childline 1098, TAFCOP/Sanchar Saathi, RBI ombudsman, CERT-In, StopNCII, Take It Down. Give the correct current names, numbers and URLs for each.
+
+Return a long, detail-dense markdown brief with specifics and URLs.
+</user_query>
+=== assistant TEXT ===
+I'll research this systematically, starting with the actual NCRP portal and its documented UX problems.
+=== assistant TEXT ===
+Good start. Let me fetch the actual portal and dig into the citizen manual and statistics.
+
+I should pull up the actual portal, the citizen manual, and the stats to get real data.
+=== assistant TEXT ===
+Strong data coming in. Let me dig into the citizen manual and run parallel research tracks.
+
+I want to dig into the citizen manual PDF I saved, then run parallel searches on NCRP criticism and journalist complaints, Devanagari typography line-height conventions, and India smartphone/device stats for 2026.
+=== assistant TEXT ===
+Now let me cover device reality, scam visual patterns, and the design-system landscape.
+
+I should also look into device and connectivity trends in India for 2026, common visual cues used in scams there, helpline numbers, and relevant systems like India's Design System, Bhashini, and UMANG. I'll run a batch of searches to cover these areas.
+=== assistant TEXT ===
+UX4G and DBIM are key finds. Let me pull those plus the helpline/statutory details.
+
+With UX4G found, I should now dig into helplines like Tele-MANAS, Childline, Sanchar Saathi/TAFCOP, StopNCII, Take It Down, CERT-In, and RBI ombudsman, plus the golden hour concept, bilingual/Hinglish toggle patterns, Indian number formatting, and the DBIM referenced in UX4G 3.0 docs.
+=== assistant TEXT ===
+Let me mine the DBIM manual directly and cover the remaining language/trust topics.
+
+I should check the DBIM PDF for typography, color, and emblem guidelines, then look into bilingual toggle preferences, Indian number formatting conventions, and details on StopNCII, Take It Down, and Sanchar Saathi. Let me grep the DBIM file now.
+=== assistant TEXT ===
+Let me close the remaining gaps: Sanchar Saathi, RBI channels, number formatting, and Indic font specifics.
+
+I still need to gather a few more details: Sanchar Saathi/TAFCOP/Chakshu specifics and URLs, RBI ombudsman and Sachet/CMS info, Indian number formatting conventions with lakh/crore and rupee symbol, Indian-origin fonts like Mukta and Hind, NCRB 2024 cybercrime statistics, and digital literacy patterns among first-time internet users.  I also want to think through what trust signals actually matter to Indian citizens visiting a website. Let me batch all of this together.
+=== assistant TEXT ===
+A few gaps left â€” the portal's actual visual design, journalist critiques, and trust signals.
+
+I still need concrete details on the NCRP interface's colors and layout, so I should try fetching cybercrime.gov.in again or its FAQ page, and look for journalist critiques from outlets like The Hindu, Scroll, Article 14, or MediaNama. I also want to understand what builds trust for Indian citizens on government websites, and pull the latest NCRB 2024 cybercrime case figures.
+=== assistant TEXT ===
+Let me extract the DBIM typography specifics and the women/child reporting flow.
+
+I still need a few more specifics: the DBIM typography details like type scale and Noto Sans usage, the UX4G design system colors, and the anonymous reporting flow for women/child cases from the citizen manual. I also want concrete details on the NCRP UI color scheme, so I'm trying alternate routes like archive.org or searching for screenshots of the cybercrime portal homepage.
+=== assistant TEXT ===
+One last pass on the portal's actual visual design and UX4G specifics.
+
+I want to do a couple more quick checks â€” verifying the actual NCRP homepage color scheme and UX4G typography details, so let me try the Wayback Machine for cybercrime.gov.in.
+=== assistant TEXT ===
+I should pull up the Wayback Machine snapshot to see the actual homepage structure.
+=== assistant TEXT ===
+The wayback snapshot didn't give me the page body, but I already have enough from the Cyber Blog India description and search results. I'll do two more targeted searches â€” one on Android version distribution and data costs in India, and one on Indic fonts like Mukta and Hind â€” to round things out efficiently.
+=== assistant TEXT ===
+I have enough to write the brief. Here it is.
+
+# India Context Brief: Designing a Cybercrime Victim-Reporting Web Portal
+**Compiled August 2026. All figures are the most recent verifiable ones found; confidence flags are marked inline.**
+
+---
+
+## 1. The real cybercrime.gov.in (NCRP)
+
+### 1.1 What it is and who runs it
+
+The **National Cyber Crime Reporting Portal (NCRP)** at [cybercrime.gov.in](https://cybercrime.gov.in/) is operated by the **Indian Cybercrime Coordination Centre (I4C)** under the **Ministry of Home Affairs**. Per [I4C's own page](http://i4c.mha.gov.in/ncrp.aspx), NCRP launched **30 August 2019** (replacing an older CCPWC-scheme portal that only accepted child sexual abuse material and rape/gang-rape content reports) and was "dedicated to the nation" by the Home Minister on **20 January 2020**. I4C was approved by Cabinet in October 2018 with an outlay of ~â‚¹415.86 crore, and was **elevated to an Attached Office of MHA in July 2024** ([The420.in](https://the420.in/india-cybercrime-data-i4c-lok-sabha-fraud-losses/)).
+
+### 1.2 Actual UI and technology
+
+The portal is a **classic ASP.NET WebForms application** â€” every URL is a `.aspx` page (`/Webform/Accept.aspx`, `/Webform/FAQ.aspx`, `/Webform/Crime_AuthoLogin.aspx`, `/Webform/cyber_suspect.aspx`). It sits behind **Akamai** edge (I received an Akamai `Access Denied` reference page when fetching programmatically, and a 500 on the root â€” the site is aggressively bot-hostile, which is itself a UX signal: it breaks for anyone on an unusual browser, VPN, or corporate proxy).
+
+Concrete UI characteristics I could verify:
+
+- **Header:** blue banner with "National Cyber Crime Reporting Portal" wordmark, Government of India / MHA lockup with the State Emblem.
+- **Homepage primary navigation** is three large category tiles/tabs, which is the *first* decision forced on the user:
+  - `REPORT WOMEN/CHILD RELATED CRIME`
+  - `FINANCIAL FRAUD`
+  - `REPORT OTHER CYBER CRIME`
+- **Homepage carousel/alert strip** carrying I4C announcements. As of the current live copy it includes: *"Important Alert!!!! Fake mails are being sent impersonating officials of Indian Cyber Crime Coordination Centre â€“ CEO I4C, Intelligence Bureau and Delhi Police. The claim is FAKE."* â€” note the four exclamation marks. The government's own anti-scam warning is typeset exactly like a scam.
+- **Two newer features** promoted on the homepage: the **Suspect Repository** (search mobile numbers, email IDs, account numbers, URLs against I4C's criminal-identifier database) and **Report Suspect** at `https://cybercrime.gov.in/Webform/cyber_suspect.aspx`.
+- **Chatbot:** "Vani â€“ CyberDost", a predefined-response bot (per I4C).
+- **Footer:** "Website Content Managed by Ministry of Home Affairs, Govt. of India. **Best viewed in Mozilla Firefox, Google Chrome.**" plus a **Visitor Count** widget and a **"Last Updated: 02/02/2024"** stamp on the complaint-acceptance page. A stale "last updated" date on the page a victim sees immediately before filing is a live trust liability.
+
+### 1.3 The actual reporting flow (Other Cyber Crime), step by step
+
+Reconstructed from the official [MHA Citizen Manual (v10)](https://nal.res.in/sites/default/files/inline-files/2MHA-CitizenManualReportOtherCyberCrime-v10%20%282%29.pdf) and corroborating guides:
+
+1. **Home** â†’ click `File a Complaint`.
+2. **`Accept.aspx`** â€” a wall of legal text; user must tick an **"I Accept"** checkbox. This page also carries the emergency numbers (112 police, 181 women, 1930 cyber).
+3. **Citizen Login** â€” select **State** from a dropdown, enter **User Name**, enter **Mobile Number**, click `Get OTP`. **OTP is valid 30 minutes.** Then a **security question/CAPTCHA** answer. Then Submit.
+4. **Category selection** (mandatory dropdown). For "Other Cyber Crime" the dropdown has **eight** options: Online and Social Media Related Crime; Online Financial Fraud; Ransomware; Hacking; Cryptocurrency Related Crime; Online Trafficking; Online Gambling; Any Other Cyber Crime.
+5. **Sub-category** (mandatory second dropdown, contents dependent on category â€” e.g. Cyber Bullying/Stalking/Sexting, Email Phishing, Email Hacking, Profile Hacking, Online Job Fraud, Provocative Speech, Impersonating Email, Intimidating Emailâ€¦).
+6. **Incident Details tab** â€” every one of these is marked **Mandatory** in the manual:
+   - Approximate **Date and Time** of incident
+   - **"Reason for delay in reporting"** (a field that reads as accusatory to a victim who took two days to admit what happened)
+   - **"Where did the incident occur?"** â€” dropdown of social media platform / messaging platform / e-mail / website / URL / other
+   - **Email ID**
+   - **Upload evidence** â€” max **5 MB**, marked *Mandatory*
+   - **Additional information about the incident** â€” marked *Mandatory*
+   - `Save and Next`
+7. **Suspect Details tab** â€” suspect name, mobile, email, bank account, address, "please upload any photograph of suspect".
+8. **Complainant Details tab** â€” including **"Father/Mother/Spouse Name" (Mandatory)** and **"Upload victim National ID (voter ID / PAN / Driving Licence or any Govt. issued card)" (Mandatory)**, jpeg/jpg/png â‰¤ 5 MB.
+9. **Address block** â€” Nationality, house no./street/colony/tehsil, village/town/city, Country (default India), **State (Mandatory)**, **District (Mandatory)**, Police Station, tehsil, PIN. â†’ `Save & Preview`.
+10. **Submit** â†’ **14-digit acknowledgement number**, delivered by SMS/email, used for tracking.
+
+For **Women/Child related crime**, the branch differs: the user first chooses between **"Report Anonymously"** (no personal information, permitted for CSEAM / rapeâ€“gang-rape / sexually explicit content) and **"Report and Track"** (full identification, OTP registration, trackable).
+
+### 1.4 Documented pain points â€” specifics
+
+| Pain point | Detail | Source |
+|---|---|---|
+| **200-character minimum** | Incident description must be **at least 200 characters** | [RBL Bank guide](https://www.rbl.bank.in/blog/banking/safe-banking/report-cybercrime-india-national-portal), [NCSAI](https://www.ncsai.in/file-a-proper-complaint-with-details) |
+| **Special characters rejected** | Description must avoid `# $ @ ^ * %` â€” the form silently rejects or errors. Note that UPI IDs, emails and URLs *contain* `@` | Same |
+| **Mandatory self-categorisation** | User must pick one of three top-level buckets, then a category from 8, then a sub-category â€” before describing anything. A sextortion-plus-money case genuinely spans two buckets | Citizen Manual |
+| **Evidence upload is mandatory** | Not optional. For the Women/Child track this means a victim must upload the intimate images of themselves to proceed | Citizen Manual |
+| **File limits** | ID proof â‰¤ 5 MB jpeg/jpg/png; evidence 5 MB (manual) / up to 10 MB each (bank guides) â€” sources disagree, which suggests limits vary by field | Multiple |
+| **OTP friction** | 30-minute OTP + separate security answer + CAPTCHA; users report **delayed/failed OTP delivery** and site unresponsiveness mid-filing | [Reddit-sourced report via OffSeq](https://radar.offseq.com/threat/indian-cyber-security-complain-website-suck-de5d52ff) |
+| **Session timeouts and form reset** | A product manager's public teardown documents losing progress to timeouts, and re-verification of phone and email "on every reload"; draft-saving exists but is "not effective for first full page" | [Deep Dave, LinkedIn](https://www.linkedin.com/posts/deep-dave-1b251811b_productmanager-productmanagement-civictech-activity-7346550466723368961-Ot1c) |
+| **"Reason for delay in reporting"** | Mandatory field that implicitly blames the victim | Citizen Manual |
+| **Father/Mother/Spouse name mandatory** | Excludes/embarrasses users; irrelevant to the crime | Citizen Manual |
+| **NCRP â‰  FIR** | The portal does not register an FIR. In practice FIR takes 7â€“30 days unless the citizen physically walks into a police station | [RTI Wiki](https://righttoinformation.wiki/cybercrime-portal-vs-police-station-india) |
+| **1930 jurisdiction bug** | 1930 calls route to the cyber cell **of the state the call originates from**, not where the victim lives or the fraud occurred â€” costing golden-hour time for anyone travelling | [Times of India](https://timesofindia.indiatimes.com/business/cybersecurity/jurisdiction-flaw-in-1930-helpline-costs-cyber-fraud-victim-crucial-response-time/articleshow/121391891.cms) |
+
+Judicial confirmation of downstream failure: the **Andhra Pradesh High Court** (May 2026) found that a cybercrime complaint filed in September 2025 had produced **no FIR and no tangible steps after eight months**, held this violated Articles 14 and 21, and ordered the preliminary enquiry concluded within one month on pain of contempt ([case note](https://cassie.in/blog/natural-justice-police-accountability-mandatory-preliminary-enquiry-completion-in-cybercrime-complaints-within-one-month-andhra-0d361d)).
+
+### 1.5 Statistics â€” most recent verifiable
+
+**Financial fraud complaints on NCRP, by year** â€” from [PIB Press Release PRID 2226441](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2226441&lang=1&reg=1) (MHA, citing NCRP & CFCFRMS):
+
+| Year | Complaints | Amount reported (â‚¹ crore) |
+|---|---|---|
+| 2021 | 2,62,846 | 551 |
+| 2022 | 6,94,446 | 2,290 |
+| 2023 | 13,10,357 | 7,465 |
+| 2024 | 19,18,835 | 22,848 |
+| 2025 | 24,02,579 | 22,495 |
+
+**From Lok Sabha Unstarred Question AU1603 (answered ~21 July 2026)** â€” [sansad.in PDF](https://sansad.in/getFile/lsapps/loksabhaquestions/annex/188/AU1603_6Nenau.pdf), reported by [New Indian Express](https://www.newindianexpress.com/india/2026/Jul/21/cyber-fraud-reporting-system-helped-save-rs-11k-crore-since-2021-but-scams-crossed-rs-55k-crore-centre) and [The420.in](https://the420.in/india-cybercrime-data-i4c-lok-sabha-fraud-losses/):
+
+- **2021â€“2025 total: >65.89 lakh financial cyber fraud complaints, >â‚¹55,050 crore reported lost.**
+- **CFCFRMS has "saved" >â‚¹11,158 crore across >32.80 lakh complaints as of 30 June 2026.**
+- **FIRs registered from those 65.89 lakh complaints: 1,95,760 â†’ an FIR conversion rate of roughly 3%.**
+- **2023â€“2025 specifically: >50,11,083 complaints; amount marked as lien >â‚¹7,788 crore; amount actually refunded >â‚¹132 crore.**
+
+That last line is the single most important number in this brief. **Against roughly â‚¹52,800 crore reported lost in 2023â€“25, about â‚¹132 crore was actually refunded â€” on the order of 0.25%.** "Saved" (â‚¹11,158 cr) means *frozen/lien-marked*, not *returned to the victim*. Do not conflate the two in copy.
+
+âš ï¸ **Source conflict to be aware of:** PIB PRID 2226441 states â‚¹8,189 crore was "**saved**" in 23.61 lakh complaints till 31.12.2025, whereas New Indian Express reports the same â‚¹8,189 crore figure as "**marked under lien**". Treat "saved" in government communications as ambiguous.
+
+**Other verified figures:**
+- **NCRB:** **1,01,928** cybercrime cases registered nationally in **2024**, up from **86,420** in 2023 (+~18%); 50,035 in 2020 (cited in the Lok Sabha reply coverage).
+- **H1 2026 (1 Jan â€“ 30 Jun 2026): >12.71 lakh complaints, >â‚¹10,178 crore reported.** State ranking: Uttar Pradesh 1.85 lakh, Maharashtra 1.58 lakh, Karnataka 1.21 lakh, Gujarat 97,937, Bihar 93,137 ([Indian Express](https://indianexpress.com/article/india/up-highest-cyber-fraud-complaints-india-rs-10178-crore-losses-10785370/)).
+- **April 2026:** a **Money Restoration Module** and a **Grievance Redressal Module** became functional on NCRP. Under the new MHA SOP, frauds **under â‚¹50,000 can be refunded without a court order**, and where no court/restoration order exists **banks must lift holds within 90 days** ([Indian Express](https://indianexpress.com/article/india/mha-new-sop-cyber-financial-frauds-swift-return-funds-10472726/)).
+
+### 1.6 1930, CFCFRMS, and the golden hour
+
+- **1930** is the toll-free 24Ã—7 National Cyber Crime Helpline run by I4C. It **replaced the older 155260** (which ran only 09:00â€“18:00). Staffed in Hindi, English and major regional languages; free from any Indian mobile network.
+- **CFCFRMS** (Citizen Financial Cyber Fraud Reporting and Management System) launched **2021**. It is the integration layer connecting **LEAs, banks, RBI, payment intermediaries, wallets and NPCI** â€” I4C cites **85 banks/payment intermediaries/wallets** onboarded. A 1930 call or an NCRP financial-fraud complaint raises a ticket that alerts the **beneficiary** bank to place a **temporary lien** on the recipient account.
+- **The golden hour** is consistently defined by police sources as **the first 60 minutes, maximum 90â€“120 minutes**, after the debit â€” the window in which money is still sitting in the first intermediary wallet/account before being layered across mule accounts ([News18 interview with Bengaluru cyber police](https://www.news18.com/cities/bengaluru-news/the-golden-hour-in-cyber-crime-how-fast-must-you-report-to-recover-lost-money-skn-ws-l-9846794.html); [RTI Wiki 1930 script](https://righttoinformation.wiki/1930-helpline-cyber-fraud-script)). The temporary lien lasts **up to 7 working days**.
+- **Formal complaint must be filed on NCRP within 24 hours** of the 1930 call to convert the ticket into a tracked complaint.
+- **RBI limited-liability rule:** under RBI circular `DBR.No.Leg.BC.78/09.07.005/2017-18`, a customer reporting an unauthorised electronic transaction **within 3 working days has zero liability**, and the bank must credit back **within 10 working days**. Banks routinely resist this by citing "customer negligence" where an OTP was shared. âš ï¸ Verify current circular status before putting this in production copy.
+
+**Design implication:** the golden hour is the entire product thesis. Any flow that puts registration, OTP, category taxonomy, ID upload and a 200-character essay *before* the act of freezing money is architecturally misaligned with the one mechanism that actually recovers funds. The correct first screen is *"Have you lost money in the last 2 hours? â†’ Call 1930 now"* as a `tel:` link, with everything else deferred.
+
+---
+
+## 2. Indian digital-government design references
+
+### 2.1 Yes, there is an official design system: UX4G
+
+**UX4G â€” "User Experience for Government"** â€” [ux4g.gov.in](https://ux4g.gov.in/), by **NeGD / MeitY**, Digital India Corporation. This is the thing to know about; most people outside India's govtech circle don't.
+
+- **Open-source design system** with Figma community kits, component library, and a **Design Handbook** described as mandatory for government websites and apps.
+- **v2.0** (beta, ~2025) added Stepper, Circular Progress Indicators, Tables, a Feedback Widget, Chart.js integration, a "UX4G Theme Craft" theming plugin, and an expanded icon library including **State & UT emblems** and common government icons. [Figma community file](https://www.figma.com/community/file/1471833723727926454/ux4g-design-system-2-0-web-kit).
+- **v3.0 developer docs** ([docux4g.dl6.in](https://docux4g.dl6.in/)) advertise **40+ components, 4 frameworks (Vanilla HTML/CSS, React, Angular, Flutter), WCAG 2.1 AA, and "GIGW Â· DBIM Govt. compliance"**, with Storybook explorers.
+- **CDN (v1.0.1):**
+
+```html
+<link href="https://img1.digitallocker.gov.in/ux4g/UX4G@1.0.1/css/ux4g-min.css" rel="stylesheet">
+<script src="https://img1.digitallocker.gov.in/ux4g/UX4G@1.0.1/js/ux4g.min.js"></script>
+```
+
+- **Important structural fact:** UX4G is a **Bootstrap 5 fork**. Its JS component list is Bootstrap's verbatim (Alerts, Collapse, Dropdowns *"also requires Popper"*, Offcanvas, Scrollspy, Toasts, Tooltips/Popovers), and it is explicitly mobile-first with the standard responsive viewport meta tag. Practically: **you can reproduce the UX4G look and feel with plain Bootstrap 5 plus DBIM tokens, without touching any government asset.**
+- Deployed on **UMANG, DigiLocker, Parivahan**.
+
+âš ï¸ The claim that "all new government projects are required to comply with UX4G 2.0 from September 2025" comes from a LinkedIn post, not a gazette notification. Treat as directional.
+
+### 2.2 GIGW 3.0
+
+**Guidelines for Indian Government Websites and Apps, v3.0** â€” [guidelines.india.gov.in](https://guidelines.india.gov.in/introduction/). Formulated by **NIC (MeitY)** jointly with **STQC** and **CERT-In** â€” the first version to be co-authored with the security agency.
+
+What it mandates:
+
+- **Conformity with WCAG 2.1 Level AA.** GIGW 2.0 was WCAG 2.0; 3.0 adds **17 new success criteria** targeting cognitive/learning disabilities, low vision, and mobile disability. ([New features page](https://guidelines.india.gov.in/new-features-of-gigw-3-0/))
+- **88 mandatory checkpoints** across accessibility, quality, cybersecurity and lifecycle management; aligned to **IS 17802** (the Indian ICT accessibility standard).
+- **STQC "Certified Quality Website" (CQW) certification**, with a **12-month renewal cycle**.
+- Legal hook: **Section 42 of the Rights of Persons with Disabilities (RPwD) Act, 2016**. Compliance is a statutory obligation, not a best practice.
+- **Domain mandate:** all Indian government websites MUST use `gov.in` or `nic.in`. GIGW is explicit that this is a **trust mechanism**: *"The URL or the Web Address of any Government website is a strong indicator of its authenticityâ€¦ Use of gov.in or nic.in domain inspires trust in the visitor."* ([GIGW cybersecurity chapter](https://guidelines.india.gov.in/cybersecurity-temp/))
+- Mandatory link to the National Portal (india.gov.in) from the homepage.
+- API-level integration guidance for DigiLocker, Aadhaar identity, single sign-on, MyGov, open data, and **AI-based Indian language translation tools** (i.e. Bhashini).
+- Bilingual/multilingual content, "last updated" dates, sitemap, accessibility statement, screen-reader access page.
+
+**Directly relevant constraint for this project: you cannot get a `gov.in` domain, and GIGW itself says the domain is the primary authenticity cue.** That is the trust gap you must engineer around (see Â§5.3).
+
+### 2.3 DBIM â€” Digital Brand Identity Manual
+
+Released by **MeitY in February 2025** ([PIB PRID 2104185](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2104185)); **Manual v3.0** is downloadable from [STQC's DBIM certification page](https://www.stqc.gov.in/en/dbim-compliance-certification), toolkit at [dbimtoolkit.digifootprint.gov.in](https://dbimtoolkit.digifootprint.gov.in/). There is a separate **DBIM compliance certification** from STQC.
+
+This is the most useful document for the project, because **DBIM explicitly defines a variant for organisations that are NOT allowed to use the State Emblem.**
+
+**Typography (DBIM Â§4):**
+- **Noto Sans is the mandated primary typeface** for all Government of India digital presence, and **Noto Sans for all Indic scripts** (Devanagari, Bengali, Gujarati, Gurmukhi, Kannada, Malayalam, Oriya, Tamil, Telugu).
+- Body text **left-aligned**. Tables: text left, **numbers right**, column headers centred.
+- **All-caps must not be used for long sentences or paragraphs.**
+- **Desktop type scale (px):** H1 36 Â· H2 24 Â· H3/Subtitle 20 Â· Paragraph1 16 Â· Paragraph2 14 Â· Small Text 12
+- **Mobile type scale (px):** H1 24 Â· H2 20 Â· H3/Subtitle 16 Â· Paragraph1 14 Â· Paragraph2 12 Â· Small Text 10
+- Use text, not images of text (WCAG 2.1 Â§1.4.5).
+
+**Colour palette (DBIM Â§3), verbatim hex values:**
+
+| Name | Hex | Role |
+|---|---|---|
+| Inclusive (white) | `#FFFFFF` | Primary page background |
+| Linen | `#EBEAEA` | Surface |
+| Black | `#000000` | Text |
+| Deep Earthy Brown | `#150202` | Dark surface |
+| Mustard Yellow | `#FFC107` | Warning |
+| Liberty Green | `#198754` | Success |
+| Blue | `#0D6EFD` | Primary/info |
+| Coral Red | `#DC3545` | Error/danger |
+| Grey 02 | `#8E8E8E` | â€” |
+| Grey 03 | `#606060` | â€” |
+| Grey | `#C6C6C6` | â€” |
+
+Note: `#0D6EFD`, `#198754`, `#DC3545`, `#FFC107` are **Bootstrap 5's default primary/success/danger/warning** exactly. India's official government digital palette is Bootstrap's. This is enormously convenient â€” you can look government-native using stock Bootstrap semantic colours, which is defensibly *not* an appropriation of any state asset.
+
+**Emblem and logo lockups (DBIM Â§5) â€” the critical section:**
+
+DBIM defines four lockups, governed by **The State Emblem of India (Regulation of Use) Rules, 2007** ([MHA PDF](https://www.mha.gov.in/sites/default/files/EmblemRules2007_12022019.pdf)):
+
+- **Lockup 1** â€” Bilingual State Emblem + "à¤­à¤¾à¤°à¤¤ à¤¸à¤°à¤•à¤¾à¤° / Government of India"
+- **Lockup 2** â€” State Emblem + Ministry/Department name
+- **Lockup 3A** â€” State Emblem + organisation logo and name, for **organisations permitted** to use the emblem (example given: UIDAI)
+- **Lockup 3B** â€” **organisation logo and name only, no emblem** â€” *"must be used by all government organizations that are **not allowed** to use the State Emblem in their portals. Tagline may be placed below the entity name."* (example given: GAIL)
+
+Correspondingly, **Header 3** is the prescribed header for non-emblem entities: Logo Lockup 3B + highlighted search bar + space for centrally published campaign logos + user controls (skip to main content, language selection, accessibility controls) + global navigation menu + profile icon for login/register.
+
+**This is your template.** Lockup 3B / Header 3 is an officially sanctioned Government-of-India visual pattern that contains no emblem. Adopting its *structure* â€” search-forward header, explicit user-control cluster, global nav, tagline under a wordmark â€” gives you government-grade formality with zero emblem use and zero implied endorsement.
+
+**Header, fixed elements (DBIM Â§5.4):** engagement bar (search); user controls = **skip to main content, language selection, accessibility controls (A- / A / A+ and contrast)**; global navigation menu.
+
+**Footer requirements (DBIM Â§5.6) â€” mandatory elements:**
+- Website Policy (terms of use, privacy policy, hyperlink policy, copyright policy)
+- Sitemap (**hierarchical, at least 2 levels**)
+- Related Links
+- Help (FAQs, screen reader access, accessibility help, site certificates)
+- Feedback mechanism
+- **"Last Updated On"** date, per page
+- Optional: Archives, social media links
+- **The footer must be in the key colour (darkest shade) of the selected colour group from the primary palette** â€” i.e. Indian government footers are dark, full-width, and dense. This is the single most recognisable structural signature of an Indian government site.
+
+DBIM also has a compliance checklist including: *"The typeface used is Noto Sans"*, *"Emblem has been obtained from the authorized source"*, *"Emblem is in proper ratio and is not scaled disproportionately"*.
+
+### 2.4 Reference products, and what each teaches
+
+| Product | URL | Relevant lesson |
+|---|---|---|
+| **UMANG** | web.umang.gov.in | Single front-door aggregator; UX4G-adopting; heavy on service tiles |
+| **DigiLocker** | digilocker.gov.in | The trust anchor for document identity; also hosts the UX4G CDN (`img1.digitallocker.gov.in`) |
+| **UPI / BHIM** | npci.org.in | The visual grammar Indians associate with money moving safely â€” QR, VPA (`name@bank`), amount confirmation, PIN pad. Sets expectations for how a money-loss form should feel |
+| **mAadhaar / UIDAI** | uidai.gov.in | Lockup 3A example in DBIM; the canonical "official but not a ministry" look |
+| **RBI Sachet** | [sachet.rbi.org.in](https://sachet.rbi.org.in/home) | Closest analogue to your product: a multi-regulator complaint intake with a fixed "Complaint Title" dropdown (Fake websites, Fictitious phone calls, Phishing e-mails, Ponzi schemesâ€¦). Study its taxonomy; it's better-worded than NCRP's |
+| **Income Tax portal** | incometax.gov.in | Cautionary tale â€” the 2021 relaunch is India's most publicly criticised govtech UX failure |
+| **IRCTC** | irctc.co.in | What Indian users *tolerate*; extremely high familiarity, extremely low delight. Sets the (low) baseline expectation |
+| **Sanchar Saathi** | [sancharsaathi.gov.in](https://sancharsaathi.gov.in/) | Best-in-class Indian gov reporting form (see Â§6). Its Chakshu flow does things NCRP doesn't: screenshot upload with **autofill of sender details from the image**, a **30-day validity notice up front**, and a plain-language "if you already lost money, go to 1930 instead" redirect |
+| **Bhashini** | bhashini.gov.in | National language-AI mission; GIGW 3.0 explicitly points government sites at it for translation. Referenced as a partner by Federal Bank's chatbot for 14 languages |
+
+### 2.5 What Indian users find familiar and trustworthy in a government interface
+
+Synthesising GIGW's own trust rationale and observed convention:
+
+- The `gov.in` / `nic.in` domain, stated plainly.
+- **A dark, dense, link-heavy full-width footer.** Counterintuitively, minimal footers read as *less* official in India.
+- The **A- / A / A+ font sizer and high-contrast toggle** in the top-right corner. This trio is near-universal on Indian government sites and is an instant recognition cue.
+- **"Skip to main content"** as a visible top-left link.
+- A **"Last Updated On: DD/MM/YYYY"** stamp.
+- A visitor counter (dated, but read as institutional).
+- **Hindi/English toggle in the header**, usually as `English | à¤¹à¤¿à¤¨à¥à¤¦à¥€` text links rather than a globe icon.
+- Explicit **"Content owned and managed byâ€¦"** attribution.
+- Serious, unbranded, slightly austere typography. Marketing polish reduces perceived officialness.
+
+---
+
+## 3. Device and connectivity reality, India 2026
+
+### 3.1 Scale and access
+
+From **DataReportal / Kepios, Digital 2026: India** ([link](https://datareportal.com/reports/digital-2026-india)):
+- **1.03 billion internet users** as of October 2025; **70.0% penetration**; **440 million people still offline**.
+- 1.06 billion cellular connections (72.5% of population).
+- Median mobile download speed **131.77 Mbps** (Ookla, to Aug 2025), up 36.7% YoY. *This is a median â€” design for the tail, not the median.*
+
+From **NCAER, "The Evolving Landscape of Digital Inclusion in India", June 2026** ([PDF](https://ncaer.org/wp-content/uploads/2026/06/NCAER_Report_June_26.pdf)) and the [IHDS Research Digest, July 2026](https://ncaer.org/wp-content/uploads/2026/07/IHDS-Research-Digest-July-2026.pdf):
+
+| Metric | India | Urban | Rural |
+|---|---|---|---|
+| Household owns any mobile phone | **95.1%** | 97.3% | 94.1% |
+| Household has a smartphone | **74.8%** | 85.0% | 70.1% |
+| Accesses internet **via mobile** | **71.4%** | 80.8% | 67.0% |
+| Owns computer/laptop | **8.0%** | 14.9% | **4.7%** |
+| Owns tablet | 2.3% | 3.7% | 1.7% |
+| Household entirely offline | **27.5%** | â€” | â€” |
+
+Two findings that should drive the design more than any other statistic in this brief:
+
+- **Only 11.4% of households have ever used the internet for a government service.** Even among households whose most-educated member holds a graduate degree, it is **18.9%**. Your user is, with high probability, **doing this for the first time.**
+- **20.4% of households that use digital services require help from someone outside the household** to do so. One in five sessions is **two people at one screen** â€” a neighbour, a shopkeeper, a CSC operator, a nephew. This has direct consequences: sensitive fields must be maskable, the flow must survive being narrated aloud, and a "print/share this summary" artefact matters because the helper leaves and the victim keeps the paper.
+
+### 3.2 Screens, OS, hardware
+
+- **India's mobile share of web traffic exceeds 80%** â€” substantially above the ~62â€“64% global figure ([BroadbandSearch, 2026](https://www.broadbandsearch.net/blog/facts-statistics-smartphone-usage)).
+- **Dominant CSS viewports (StatCounter, India, Feb 2026):** `360Ã—800`, `393Ã—873`, `385Ã—854`, `393Ã—876`, `360Ã—804`, `360Ã—806`. **Design and test at 360 CSS px wide.** 360 is still the modal width.
+- **Android version share (StatCounter, India, July 2026):** Android 15 â€” 23.73%, Android 16 â€” 23.42%, Android 13 â€” 14.03%, Android 14 â€” 12.31%, Android 12 â€” 9.43%, Android 11 â€” 8.82%. **~31% of users are on Android 12 or older.** That means WebView/Chrome versions that may lag on newer CSS. Avoid relying on very recent CSS features without fallbacks; `container queries`, `:has()`, and `subgrid` are risky as load-bearing layout.
+- **The entry-level tier has collapsed in 2026.** IDC via [EMSNow](https://www.emsnow.com/indias-smartphone-shipments-fall-11-1-in-q2-2026-amid-deepening-memory-chip-shortage/) and [News18](https://www.news18.com/tech/indian-smartphone-market-just-had-its-worst-half-in-5-years-mobiles-under-rs-10000-fast-disappearing-10265611.html): Q2 2026 shipments **33.2 mn, âˆ’11.1% YoY**; sub-US$100 segment **âˆ’74.3% YoY, share collapsed 15.6% â†’ 4.5%**; ASP at a record **US$315 (+14.4%)**; the **US$100â€“200 band is the largest at 46.8%**; 4G share *rose* to 11.1% as brands re-introduced 4G models. Driver: memory chip prices, now **>45% of an entry phone's bill of materials** (up from 15â€“20%).
+
+  **The implication is counterintuitive and important: because new cheap phones stopped being made, the existing installed base of low-RAM devices is being held onto longer, not replaced.** Assume **2â€“4 GB RAM** and aggressive background-tab eviction for a meaningful minority of users. A tab that gets killed mid-form and loses state is a real, frequent failure mode â€” not an edge case.
+
+### 3.3 Performance budget implications
+
+Practical targets that follow from the above:
+
+- **Total page weight for the critical reporting path: under 200 KB compressed**, images included. Every 100 KB is real money to a prepaid user on a metered pack.
+- **Server-render the form.** Do not ship a SPA framework to deliver a five-field government form to a 3 GB Android 12 phone.
+- **Self-host and subset fonts.** See Â§4.1 for the actual byte cost of Devanagari.
+- **Persist form state to `localStorage` on every field blur, not on step transitions.** Background eviction and session timeouts are the top two documented NCRP failure modes; both are solved by this one decision.
+- **Never require a file upload to advance.** Uploading a 4 MB phone photo on a congested cell is the single heaviest action in the flow. Make evidence a post-submission attachment against an already-issued reference number.
+- Avoid webfont-blocking render; `font-display: swap`.
+- Offer a **plain-text / printable summary** of the submitted report.
+
+---
+
+## 4. Language and typography
+
+### 4.1 Devanagari on the web
+
+**Structural facts** (from [Pooja Saxena, "Devanagari Type Anatomy", TypeTogether](https://www.type-together.com/devanagari-type-anatomy) and [Alphabettes, "Devanagari Typography 101"](https://www.alphabettes.org/devanagari-typography-101-a-guide-for-typesetting-with-latin/)):
+
+- Devanagari letters **hang from a horizontal headline (à¤¶à¤¿à¤°à¥‹à¤°à¥‡à¤–à¤¾ / shirorekha)** as well as sitting on a baseline.
+- **There is no x-height in Devanagari.** There is base-letter height (headline to baseline), plus **matras and marks extending both above and below**. Ukars and lower matras should be treated like Latin descenders when aligning baselines.
+- Only one case. **No italics, no underlines** as reliable emphasis â€” underlining "does not work well in Devanagari" and italics "feel forced". Emphasis must come from **weight and scale**, or a break/stylisation of the shirorekha.
+- Traditional diagonal stress axis at ~30â€“45Â°, opposite to Latin.
+- Own punctuation: **danda `à¥¤` and double danda `à¥¥`**, though Latin punctuation is common.
+
+**Vertical space â€” the concrete numbers:**
+
+Google's Material guidance classifies Hindi/Devanagari as a **"Tall" script** requiring extra line height ([Material typography language support](https://www.mdui.org/en/design/1/style/typography.html)). Its two specific rules:
+
+- **Line height: +0.1em over English-like languages, at every style.** Rationale given: Latin mostly occupies the lower portion of the em box below the x-height, whereas tall scripts have long ascenders/descenders and will clip between adjacent lines.
+- **Font size: +1px over the English spec** for Title-through-Caption sizes; at Display sizes the English size is fine.
+
+Noto Sans Devanagari metrics are cited as **x-height 0.48em, line height 1.3em** at regular weight. âš ï¸ This specific pair comes from a low-authority aggregator; treat 1.3em as a plausible floor rather than a verified spec.
+
+**Practical recommendation:**
+
+```css
+:root {
+  --lh-latin: 1.5;
+  --lh-deva: 1.65;   /* â‰ˆ +0.15; comfortably clears matra + ukar stacking */
+}
+
+html[lang="en"] body { line-height: var(--lh-latin); }
+html[lang="hi"] body { line-height: var(--lh-deva); font-size: 1.0625rem; } /* â‰ˆ +1px at 16px base */
+
+/* Never clip Devanagari in single-line UI */
+.btn, .chip, .tab, .input { line-height: 1.6; padding-block: .7em; overflow: visible; }
+```
+
+The most common real-world Devanagari bug is **matra clipping in fixed-height buttons, chips, tabs and single-line inputs**. Any component with a hard `height` and `overflow: hidden` will shear the top matra or the bottom ukar. Use padding-driven heights, never fixed heights, on anything that can hold Hindi.
+
+**Font choices, with actual weights:**
+
+- **Noto Sans Devanagari** â€” mandated by DBIM. Safest choice for "reads as official". Designed for metric harmony with Noto Sans Latin (shared weight distribution and spacing).
+- **Mukta** â€” by **Ek Type** (Girish Dalvi & Yashodeep Gholap), **SIL OFL 1.1**, [GitHub](https://github.com/ektype/mukta), [Google Fonts](https://fonts.google.com/specimen/Mukta). Seven weights (200â€“800). Humanist, mono-linear, **narrower glyphs so more content fits**, extensive conjuncts, hinted for screen. Siblings cover other scripts with a unified design: **Mukta Vaani** (Gujarati), **Mukta Mahee** (Gurmukhi), **Mukta Malar** (Tamil) â€” which matters if you ever expand past Hindi.
+- **Hind** (Indian Type Foundry) â€” the other common open Devanagari UI face.
+
+**Byte cost â€” this is the number people forget.** From [`@fontsource/mukta`](https://registry.npmjs.org/%40fontsource%2Fmukta):
+
+| Subset | woff2 per weight |
+|---|---|
+| **devanagari** | **~92â€“104 KB** |
+| latin | **~17 KB** |
+
+**Devanagari webfonts cost roughly 5â€“6Ã— Latin per weight.** Shipping four weights of Devanagari is ~400 KB â€” twice your entire page budget. Mitigations:
+
+- Ship **two weights maximum** (Regular 400 + SemiBold 600). Use scale, not weight, for hierarchy.
+- **Load the Devanagari subset only when `lang="hi"` is active.** Do not ship it to English users.
+- Subset further with `pyftsubset`/glyphhanger against your actual Hindi string corpus â€” a government form has a small, closed vocabulary and can often be cut to 20â€“30 KB.
+- Consider **system Devanagari** (Noto Sans Devanagari ships with Android) as the primary stack with a webfont only as enhancement. On Android this is free:
+
+```css
+font-family: "Noto Sans", "Noto Sans Devanagari", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+```
+
+### 4.2 Bilingual English/Hindi toggle â€” how to do it
+
+Conventions and evidence:
+
+- **DBIM places language selection in the header's fixed "user controls" cluster**, alongside "skip to main content" and accessibility controls. Put it there; that's where Indian users look.
+- DBIM: *"Name in Hindi or other language should appear on selection of the language"* â€” the organisation name itself must switch, not just body content.
+- **Label each language in its own script**, never in the other: `English` / `à¤¹à¤¿à¤¨à¥à¤¦à¥€`. Never `Hindi`. Never a flag. A globe icon alone tests poorly with low-literacy users; pair icon with text.
+- **Persist the choice** (cookie + `localStorage`) and **honour `Accept-Language`** on first load, but always show the toggle â€” do not auto-switch silently.
+- **Set `lang` correctly** on `<html>` and on any mixed-script inline spans. This is a WCAG 3.1.1/3.1.2 requirement, it's what makes Indic screen-reader pronunciation work, and the [IJRSML audit of Indian public health portals](https://ijrsml.org/multilingual-accessibility-in-indias-public-health-portals-a-usability-audit/) found missing `lang` tagging and Indic screen-reader failures to be recurring defects.
+- **Content parity is the failure mode.** That same audit identifies "content parity gaps" and "inconsistent terminology" as the dominant multilingual problems on Indian government sites â€” the Hindi version is a stale, partial translation. For a victim-facing product, a partially-translated page is worse than an untranslated one, because the user cannot tell what they're missing. **Either translate a screen completely or mark it explicitly as English-only.**
+- **Do not use machine translation silently on legal/procedural text.** If you use Bhashini, label it.
+- Language choice must **survive the entire form flow** including validation errors â€” error messages in the wrong language are a classic Indian govtech bug.
+
+### 4.3 Hinglish and code-mixing
+
+The evidence is real but of mixed quality â€” be honest about that internally.
+
+**Strong evidence:** a Microsoft Research mixed-methods study found that **multilingual users strongly prefer chatbots that code-mix**, with significantly higher ratings for naturalness and conversational ability versus monolingual bots, and identified an effective **"Nudge" policy** where the system introduces code-mixed cues and adapts based on user reciprocation (summarised in [arXiv 2512.01439](https://arxiv.org/html/2512.01439), which also notes only ~10% of India's population understands English).
+
+**Weaker evidence, directionally useful:** an industry playbook reports a Hinglish CTA (`à¤…à¤ªà¤¨à¤¾ SIP à¤¶à¥à¤°à¥‚ à¤•à¤°à¥‡à¤‚` / "Apna SIP Shuru Karein") **outperforming the English CTA by 18.4% in Tier-2/Tier-3 cities** ([ProductGrowth.in](https://productgrowth.in/resources/playbooks/growth/small-changes-ctr-lifts/)) â€” vendor case study, unaudited. A student research project reports **88.8% preferring a Hindi/English mix** ([tanaya.art](https://www.tanaya.art/projects/accessible-ux-vernacular)) â€” small sample, not peer-reviewed.
+
+**Counterweight â€” Google's official localisation guidance for Indian users** ([Think with Google PDF](https://services.google.com/fh/files/misc/app-website-localization-indian-users.pdf)) says the opposite for *content*:
+
+> *"Avoid mixed scripts. Keep to a single language script. Exception: Brand names can be retained in English. Common acronyms and technical terms may be left in English and their meaning can be offered in brackets."*
+
+**Reconciling these into a usable rule:** the distinction is **script-mixing vs. word-borrowing**.
+
+- âœ… **Do** borrow English *words* inside Hindi sentences, written **in Devanagari**, where that is the word people actually use: `à¤“à¤Ÿà¥€à¤ªà¥€`, `à¤¬à¥ˆà¤‚à¤•`, `à¤¸à¥à¤•à¥à¤°à¥€à¤¨à¤¶à¥‰à¤Ÿ`, `à¤²à¤¿à¤‚à¤•`, `à¤¯à¥‚à¤ªà¥€à¤†à¤ˆ`, `à¤ªà¥à¤²à¤¿à¤¸`. Forcing à¤¶à¥à¤¦à¥à¤§ à¤¹à¤¿à¤¨à¥à¤¦à¥€ coinages (`à¤à¤•à¤¬à¤¾à¤°à¤—à¥€ à¤•à¥‚à¤Ÿà¤¶à¤¬à¥à¤¦` for OTP) actively harms comprehension.
+- âŒ **Don't** mix Latin and Devanagari glyphs in the same sentence (`à¤…à¤ªà¤¨à¤¾ OTP à¤¡à¤¾à¤²à¥‡à¤‚`). It is harder to read, harder for screen readers, and breaks font-loading assumptions.
+- âœ… **Do** keep proper nouns and numbers in Latin: `1930`, `cybercrime.gov.in`, `NCRP`, `UPI`, `RBI` â€” with a Devanagari gloss in brackets on first use.
+- âš ï¸ **Be conservative with Hinglish in a trauma context.** The evidence for Hinglish is drawn from *marketing CTAs and chatbots*, where informality builds rapport. This product's register needs to be **calm and institutional**, not chummy. A scam victim being addressed too casually may read the site as unofficial â€” the exact failure you cannot afford. **Use warm, simple, standard Hindi; use borrowed English terms in Devanagari; avoid slangy Hinglish CTAs.**
+- Google also found Indian-language users **prefer calling over chatting**, partly because chat interfaces are English-only and require Latin typing. This validates making the **1930 `tel:` link the single most prominent element** on the page.
+
+### 4.4 Numbers, currency, digit grouping
+
+- **Indian grouping is 3-then-2s**, not 3-3-3. `1,00,000` = one lakh. `1,00,00,000` = one crore. Rendering `â‚¹1,00,000` as `â‚¹100,000` forces an Indian reader to stop and count digits â€” in a screen where someone is reporting the amount they lost, that is a correctness failure, not a style preference.
+- **Locale controls grouping; currency controls the symbol. They are independent axes.** `en-US` + `INR` yields `â‚¹1,000,000` â€” a rupee sign on Western grouping. This is the bug that survives code review because it looks approximately right.
+
+```js
+// Correct
+new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(100000);
+// â†’ "â‚¹1,00,000.00"
+
+new Intl.NumberFormat('en-IN').format(1234567.89);
+// â†’ "12,34,567.89"
+
+// Compact notation speaks lakh/crore natively
+new Intl.NumberFormat('en-IN', {
+  notation: 'compact', style: 'currency', currency: 'INR', maximumFractionDigits: 1
+}).format(10000000);
+// â†’ "â‚¹1Cr"   (1L / 10L / 1Cr â€¦)
+```
+
+Sources: [MDN Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat), [localization.guide â€” India](https://www.localization.guide/country/in), [localization.guide â€” INR](https://www.localization.guide/currencies/INR).
+
+Rules for this product:
+- **Hardcode `'en-IN'`.** Never pass `undefined` as the locale (SSR will pick the server's locale).
+- **Always pass `maximumFractionDigits` with `notation: 'compact'`** or â‚¹9,99,000 renders as `10L` â€” unacceptable when the number is the amount someone lost.
+- **Store money as integer paise.** Never do floating-point arithmetic on rupees.
+- **Symbol immediately before the amount, no space:** `â‚¹1,00,000`. Decimal mark `.`, group separator `,`, Western digits 0â€“9.
+- **In prose, use lakh/crore, not millions.** "â‚¹22,495 crore" is legible to an Indian reader; "â‚¹224.95 billion" is not.
+- In the amount-entry field, **echo the parsed value back in words as the user types** â€” `â‚¹1,50,000 (à¤à¤• à¤²à¤¾à¤– à¤ªà¤šà¤¾à¤¸ à¤¹à¤œà¤¼à¤¾à¤°)`. This is standard on Indian banking/cheque interfaces, it catches zero-count errors, and it is genuinely reassuring at the exact moment a user is typing their worst number.
+- DBIM: **numbers right-aligned in tables.**
+
+---
+
+## 5. Trust and scam-adjacent design in India
+
+### 5.1 What Indian scams actually look like â€” the do-not-resemble list
+
+The dominant 2026 pattern is the **"digital arrest"** scam. Sources: [RTI Wiki "Real vs Fake Police Notice"](https://righttoinformation.wiki/real-vs-fake-police-notice-india), [PIB Fact Check coverage](https://www.digit.in/news/general/received-an-intelligence-bureau-letter-threatening-arrest-it-may-be-a-scam-how-to-stay-safe.html), [SBI advisory](https://sbi.bank.in/web/yono/blog/digital-arrest-scams-protect-yourself-from-cybercriminals), [TOI on CBI's ABHAY bot](https://timesofindia.indiatimes.com/city/delhi/meet-abhay-your-new-shield-against-digital-arrest/articleshow/131125102.cms).
+
+**Visual and verbal signatures your portal must not share:**
+
+1. **The fake State Emblem / agency crest at the top of a document.** Scammers put the Ashoka Lions, CBI, IB, Delhi Police, RBI and I4C crests on fabricated PDFs. A victim who has just been shown a fake emblem has been *conditioned to distrust emblems*. **This alone is a strong argument for the no-emblem constraint being a feature, not a limitation.**
+2. **PDF-as-authority.** Scam notices are polished PDFs â€” letterhead, crest, scribbled signature, QR code â€” built from stock templates in Foxit/Nitro/Adobe and delivered over **WhatsApp or Telegram from a foreign or unknown number**. Avoid making a downloadable letterhead PDF the centrepiece of your output.
+3. **WhatsApp as a government channel.** PIB Fact Check has stated flatly that government agencies **do not send legal notices via email, WhatsApp, Instagram or other messaging platforms**. Do not use WhatsApp green (`#25D366`), do not put a WhatsApp CTA in a position of authority, and do not imitate WhatsApp's chat-bubble UI.
+4. **Red urgency banners, countdown timers, and blinking/marquee alerts.** "Your arrest warrant has been issued", "respond within 24 hours or face legal action". A red urgency banner is the scammer's core device. **Use amber/`#FFC107` and calm phrasing for time-sensitivity; reserve red strictly for validation errors.** Frame the golden hour as *help* ("Calling 1930 in the next hour gives the best chance of freezing the money"), never as *threat*.
+5. **ALL-CAPS, especially all-caps Hindi and multiple exclamation marks.** All-caps Devanagari is not even a real thing typographically â€” it appears in scam material as caps-locked Latin transliteration or as heavy bold. DBIM independently forbids all-caps for sentences and paragraphs. **Never use `text-transform: uppercase` on any Hindi string.**
+6. **Fabricated legal citations, mashed together.** Scam notices cite implausible combinations like *"IPC Â§420 + IT Act Â§66 + Aadhaar Act"*. If you cite law, cite it precisely and correctly (BNS 2023, BNSS 2023, IT Act 2000 with the right section) and **link to the actual text**. Sloppy legal citation reads as fraudulent to anyone who has just been shown a fake notice.
+7. **Invented official-sounding nouns.** *"Digital arrest"*, *"digital house arrest"*, *"RBI Verification Escrow account"*, *"audit clearance"*, *"security deposit"*, *"case clearance fee"*. None of these exist. **Never coin an official-sounding term the user cannot verify elsewhere.** Every term you use should be findable on a `gov.in` site.
+8. **Demands for secrecy and isolation** â€” "stay alone", "don't tell your family", "keep this confidential". Your product should do the loud opposite: **actively encourage the user to involve a family member**, given that 20.4% of digital-service households need outside help anyway.
+9. **Requests to move to a video call, screen share, or install an app.** Never ask for any of these.
+10. **Asking for money, OTP, PIN, CVV, full card number, or Aadhaar number.** Your portal should ask for **none of these, ever**, and should say so prominently and permanently. NCRP's mandatory National ID upload is, in this light, a genuine design hazard â€” it trains victims that "official portals ask you to upload your Aadhaar", which is precisely the behaviour scammers exploit.
+11. **Lookalike domains.** The Cyber Blog India warning is explicit: *"There can be fake URLs with a similar user interface as the original website."* Scam clones of cybercrime.gov.in exist.
+
+### 5.2 What makes Indian citizens trust a website
+
+Evidence:
+
+- **Visible security cues dominate abstract ones.** A 2025 Indian study found the strongest correlates of trust were **HTTPS indicators and padlock symbols, clear and accessible privacy policies, and sensitivity to insecure payment pages** â€” and explicitly concluded that *"consumers respond more strongly to easily visible and understandable security cues"* than to technical certifications like ISO 27001 ([DOI 10.2478/ssidt-2025-0003](https://doi.org/10.2478/ssidt-2025-0003)).
+- **Website appearance is itself a statistically significant predictor** of online trust in the Indian context, alongside online security and online privacy ([IJPBR study](https://www.openaccessojs.com/JBReview/article/view/3945)).
+- **The domain is the single strongest official-status signal**, per GIGW's own text.
+- **Consistency of visual identity across government properties reinforces authenticity** â€” GIGW: *"Maintaining a consistent visual identity reinforces the authenticity and enhances the trust level of the visitors."*
+- **Digital literacy correlates positively with perceived security of e-government services** (r = 0.117, p < 0.05 â€” statistically significant but weak; [DOI 10.17821/srels/2025/v62i6/171423](https://doi.org/10.17821/srels/2025/v62i6/171423)). Low-literacy users are *less* able to evaluate credibility signals, so the signals must be crude and explicit, not subtle.
+
+### 5.3 Signalling official-grade seriousness without the emblem
+
+This is the design problem. The recommended strategy, in priority order:
+
+**A. Adopt DBIM Lockup 3B / Header 3 structure wholesale.** It is the officially prescribed pattern for non-emblem entities. Reproduce its *architecture* â€” wordmark + tagline, search bar, `skip to main content` / language / `A- A A+` / contrast controls in the top-right, global nav, dark dense mandatory footer with policies, sitemap, help, feedback and a per-page "Last Updated On" â€” without any state asset. Structure carries most of the officialness signal; the emblem carries less than people assume.
+
+**B. Adopt the DBIM palette and Noto Sans.** These are Bootstrap 5 semantic colours and an open Google font. Using them is not appropriation of anything, and it produces immediate visual kinship with `gov.in` properties.
+
+**C. Substitute radical transparency for the domain signal.** You lack `gov.in`, which GIGW names as the primary authenticity cue. Compensate with a **persistent, prominent "Who we are and who we are not" disclosure** â€” not buried in an About page. State plainly: who runs this, that it is **not** a government body, that it has no endorsement from I4C/MHA, that it **cannot** register an FIR or freeze money, and **exactly what it does do**. Counterintuitively, explicit disavowal of authority increases trust with a scam-primed audience, because every scam *overclaims* authority. Being the only site that tells you what it *can't* do is a differentiator.
+
+**D. Make the official destinations more prominent than your own brand.** The most trustworthy possible posture is to be visibly a **signpost to 1930 and cybercrime.gov.in**, not a competitor to them. Link out early, often, and with the real URLs spelled in full so users can verify them independently.
+
+**E. Borrow institutional seriousness from typography and restraint, not decoration.**
+- Left-aligned text, generous line height, no centred body copy.
+- One accent colour, used sparingly. No gradients, no glassmorphism, no illustrations of smiling people, no stock photography of hooded hackers.
+- Numbers set in tabular figures.
+- No animation beyond focus/hover states. Motion reads as marketing.
+- Plain, unhedged sentences. No exclamation marks anywhere, in any language.
+
+**F. Do the verifiable-security things and show them.**
+- HTTPS with HSTS; make the padlock the user's own browser affordance work for you.
+- A short, plain-language, genuinely readable privacy policy linked from the header *and* footer, not just the footer.
+- State the data retention period in a sentence.
+- A permanent, visible line: **"We will never ask for your OTP, PIN, CVV, card number, Aadhaar number, or any payment."**
+- Publish a "How to check this site is real" page, and give it a memorable short path.
+
+**G. Colour: avoid the tricolour.** Saffron/white/green combined with any emblem-like mark will read as an endorsement claim and is exactly the register scam letterheads use. **DBIM's own palette is not tricolour** â€” its primary is Bootstrap blue `#0D6EFD` on white with a dark footer. Follow DBIM, not the flag. Blue is the safest primary: it is what NCRP, Sanchar Saathi, RBI CMS and most Indian government service portals already use, so it inherits the familiarity without inheriting the emblem.
+
+---
+
+## 6. Statutory and helpline content â€” correct current names, numbers, URLs
+
+Verify each before shipping; these are current as of August 2026.
+
+### Cybercrime and financial fraud
+
+| Service | Number | URL | Notes |
+|---|---|---|---|
+| **National Cyber Crime Helpline** | **1930** | â€” | Toll-free, 24Ã—7, I4C/MHA. Hindi, English, major regional languages. **Replaced 155260.** Routes by calling state (known flaw) |
+| **National Cyber Crime Reporting Portal (NCRP)** | â€” | https://cybercrime.gov.in | I4C, MHA. File within 24h of a 1930 call |
+| **NCRP â€“ Report Suspect** | â€” | https://cybercrime.gov.in/Webform/cyber_suspect.aspx | Report URLs, WhatsApp/Telegram handles, phone numbers, email IDs, SMS headers, social media URLs |
+| **NCRP â€“ Suspect Repository** | â€” | via cybercrime.gov.in homepage | Search identifiers against I4C's database of known criminal identifiers |
+| **CFCFRMS** | via 1930 / NCRP | â€” | The bank-integration layer; ~85 banks/PIs/wallets |
+| **I4C** | â€” | http://i4c.mha.gov.in | Nodal body |
+| **CERT-In** | â€” | https://www.cert-in.org.in | National incident response agency; co-author of GIGW 3.0. For incident reporting, not individual victim support |
+| **CBI ABHAY** | â€” | https://www.cbi.gov.in | AI notice-verification bot, 24Ã—7. Upload a suspected CBI notice after OTP verification; returns genuine/fake. **Directly relevant for digital-arrest victims** |
+
+### Emergency and general
+
+| Service | Number | URL |
+|---|---|---|
+| **National Emergency (ERSS)** | **112** | â€” |
+| **Police** | 100 | â€” |
+| **Women's Helpline** | **181** | â€” |
+| **National Consumer Helpline** | **1915** | consumerhelpline.gov.in |
+| **National Commission for Women** | 7827170170 | ncw.gov.in |
+
+### Mental health â€” essential for this audience
+
+| Service | Number | URL | Notes |
+|---|---|---|---|
+| **Tele-MANAS** | **14416** or **1-800-891-4416** | https://telemanas.mohfw.gov.in | MoHFW. Toll-free, **24Ã—7**, caller selects language, routed to state Tele-MANAS cell. Nodal centre NIMHANS. Launched World Mental Health Day 2022 ([PIB](https://pib.gov.in/Pressreleaseshare.aspx?PRID=1866498)) |
+| **KIRAN** | 1800-599-0019 | â€” | MSJE mental health rehabilitation helpline |
+| **NIMHANS** | 080-46110007 | â€” | â€” |
+| **Vandrevala Foundation** | +91 9999 666 555 | vandrevalafoundation.com | NGO, 24Ã—7 crisis intervention |
+
+Sexual-image and financial-ruin victims are at elevated suicide risk. **Tele-MANAS 14416 should be visible on every page of a victim-facing flow, not tucked into a resources list.**
+
+### Children
+
+| Service | Number | URL | Notes |
+|---|---|---|---|
+| **Child Helpline (Childline)** | **1098** | https://www.wcd.gov.in/child/child-helpline | âš ï¸ **Now under Ministry of Women and Child Development's Mission Vatsalya**, integrated with **ERSS-112**, operated via State/District administration and C-DAC. The old NGO (Childline India Foundation) [now directs users to 112](https://www.childlineindia.org/). Describe it as *"Child Helpline 1098 (Mission Vatsalya, MWCD)"*, not "Childline India Foundation" |
+
+### Telecom fraud
+
+**Sanchar Saathi** â€” https://sancharsaathi.gov.in â€” Department of Telecommunications, Ministry of Communications. Also a mobile app; DoT directed handset makers on **28 November 2025** to preload/facilitate it. Modules:
+
+| Module | Purpose | URL |
+|---|---|---|
+| **Chakshu (à¤šà¤•à¥à¤·à¥)** | Report **suspected fraud communication** (call/SMS/WhatsApp) â€” impersonation of DoT/TRAI/police/government, KYC scams, sextortion, fake customer care, investment/trading, loan/job/lottery offers, malicious links | https://sancharsaathi.gov.in/sfc/ |
+| **Chakshu â€“ UCC/Spam** | Report unsolicited commercial communication under TRAI TCCCPR 2018 | same |
+| **TAFCOP** | See all mobile connections issued in your name; request disconnection | via portal |
+| **CEIR** | Block/trace lost or stolen phone by IMEI | via portal |
+| **KYM** | Know Your Mobile â€” check device genuineness | via portal |
+
+Chakshu specifics worth copying: **reports must be made within 30 days** (stated up front); complaint details require a **minimum of 30 valid characters** (vs NCRP's 200); the screenshot upload **autofills sender and complaint details from the image**; and it carries an explicit redirect â€” *"If you have already lost money, please report at cyber crime helpline 1930 or cybercrime.gov.in."* Note its honest disclaimer: *"Department of Telecommunications does not undertake to act against the reported suspected fraud communication sender."*
+
+âš ï¸ Two conflicting UCC timelines appear on DoT's own pages â€” the SFC page says 30 days, the main portal text says 7 days for a "valid complaint" vs. beyond-7-days counting as a "report". Verify before quoting.
+
+### Banking and financial redress
+
+| Service | Number | URL | Notes |
+|---|---|---|---|
+| **RBI Ombudsman (RB-IOS 2021)** | **14448** (09:30â€“17:15) | **https://cms.rbi.org.in** | Complaint Management System. Contact centre in Hindi, English + 8+ regional languages. Physical/email route via **Centralised Receipt and Processing Centre, RBI, 4th Floor, Sector 17, Chandigarh â€“ 160017** |
+| **RBI Sachet** | â€” | **https://sachet.rbi.org.in** | For **unauthorised deposit schemes, fake websites, fictitious phone calls, phishing emails, Ponzi/MLM, unregistered entities**. Multi-regulator (RBI, SEBI, NHB, IRDAI, PFRDA, MoF, CRCS, Registrar of Chit Funds) |
+| **RBI DAKSH** | â€” | daksh.rbi.org.in | For **regulated entities** reporting to RBI, not citizens |
+
+**Critical routing rule for your copy:** `cms.rbi.org.in` requires a **mandatory 30-day pre-step** â€” the customer must first complain to the bank/NBFC and either receive an unsatisfactory reply or wait 30 days. Uploads capped around 10 MB. If you send a victim to RBI CMS on day one they will bounce.
+
+### Non-consensual intimate imagery
+
+| Service | URL | Who |
+|---|---|---|
+| **StopNCII.org** | https://stopncii.org | **Adults 18+.** On-device hashing â€” the image never leaves the device; only the hash is shared with participating platforms (Meta, and others). Case can be withdrawn via case number + PIN |
+| **Take It Down (NCMEC)** | https://takeitdown.ncmec.org | **Under-18 at the time the image was taken**, including if you are now an adult. Also on-device hashing. Anonymous |
+| **NCRP â€“ Women/Child track** | https://cybercrime.gov.in | Anonymous reporting available for CSEAM / RGR / sexually explicit content |
+
+**Indian legal timelines â€” these changed in 2026, get them right:**
+- **IT Rules 2021, Rule 3(2)(b):** intermediaries must remove content exposing a private area / showing full or partial nudity / depicting a sexual act / **impersonation including artificially morphed images**, **within 24 hours** of a complaint by the individual or someone on their behalf. MeitY has issued a dedicated [NCII SOP](https://www.medianama.com/wp-content/uploads/2025/11/a2c9500ef5f8b62a43bfc68747de592d-1.pdf).
+- **IT (Intermediary Guidelines and Digital Media Ethics Code) Amendment Rules, 2026** â€” notified **10 February 2026**, in force **20 February 2026** ([analysis](https://www.pkpadvocates.in/blog/deepfake-takedown-it-rules-2026-three-hour)):
+  - **3 hours** â€” content flagged by a court order or designated government authority
+  - **2 hours** â€” **non-consensual intimate synthetic content (deepfake nudity)**, from acknowledgement of complaint
+  - **36 hours** â€” other harmful content via user grievance, with **acknowledgement required within 24 hours**
+- Every Significant Social Media Intermediary must have a **designated Grievance Officer** publicly listed.
+
+âš ï¸ These 2026 amendment timelines come from a law-firm analysis, not the gazette itself. **Verify against the MeitY notification before publishing them as guidance.**
+
+**Practical sequencing to give NCII victims:** (1) preserve evidence â€” screenshots, URLs, timestamps, *before* requesting removal; (2) hash via StopNCII or Take It Down depending on age; (3) file the platform grievance to start the 24h/2h clock; (4) file on NCRP under the Women/Child track (anonymous option available). Note that steps 1 and 2 conflict emotionally â€” you are asking someone to look at the images again. Say so, and say why.
+
+---
+
+## 7. Consolidated design implications
+
+**The one-line thesis:** NCRP fails because it is a *records system* that a victim must serve, at the exact hour when the victim needs a *response system* to serve them. Every specific failure â€” the 200-character minimum, the 8-way taxonomy, the mandatory ID upload, the "reason for delay" field, the 30-minute OTP, the lost sessions â€” is that inversion expressed in a form field.
+
+**Concrete design positions the research supports:**
+
+1. **Triage before taxonomy.** Ask "did you lose money in the last 2 hours?" first. If yes â†’ `tel:1930` above everything else. Do not make a category choice the price of entry.
+2. **Never force self-categorisation.** Let the user describe what happened in free text and infer the category. A sextortion-plus-payment victim cannot correctly choose between "Women/Child" and "Financial Fraud", and forcing the choice is both a UX failure and a re-traumatisation.
+3. **No minimum character count.** Ever. Accept "he took my money" and ask follow-up questions.
+4. **Accept every character.** `@`, `#`, `â‚¹`, `/` and emoji all appear in real evidence. Sanitise server-side; never reject client-side.
+5. **Autosave to `localStorage` on every blur.** This is the highest-value 20 lines of code in the project.
+6. **Never gate progress on a file upload.** Attach evidence after a reference number exists.
+7. **Never ask for Aadhaar, OTP, PIN, CVV or payment** â€” and say so permanently and visibly.
+8. **360 CSS px, <200 KB, server-rendered, two font weights, Devanagari subset loaded on demand.**
+9. **Adopt DBIM Lockup 3B / Header 3, the DBIM palette, Noto Sans, the A-/A/A+ control cluster, and the dense dark mandatory footer.** No emblem, no tricolour, no implied endorsement.
+10. **Amber for urgency, never red.** No countdowns, no exclamation marks, no all-caps, no WhatsApp green.
+11. **Be a signpost, loudly.** 1930, cybercrime.gov.in, 14416, sancharsaathi.gov.in, cms.rbi.org.in, stopncii.org â€” with a plain statement of what each one can and cannot do, and a plain statement that you are not the government.
+12. **Design for two people at one phone.** One in five sessions has a helper present. Mask sensitive fields, and produce a printable summary the victim keeps after the helper leaves.
+
+**Highest-leverage single insight:** â‚¹132 crore refunded against ~â‚¹52,800 crore reported over 2023â€“25. The honest, trust-building thing this product can do â€” and the thing no government portal will do â€” is **tell users the truth about their odds, and then spend every design decision on the one hour where those odds are actually good.**
+
+I have enough research now to start drafting the brief, aiming for something long and detail-dense with proper citations, while being careful to flag any uncertainty. I'm pulling together key facts like the NCRP portal's launch timeline and its connection to I4C under the Ministry of Home Affairs.
+
+I'm also mapping out the site's structure â€” the three main reporting entry points, the women/child sub-options, and the technical details like the ASP.NET framework. I'm tracing the full complaint filing flow step by step, from the homepage through acknowledgement, OTP verification, incident categorization, evidence upload, and into the suspect and complainant detail sections.
+
+Now I'm noting the file size limits, character requirements, and the 14-digit acknowledgement number format, along with the 1930 helpline history and the Vani chatbot. I'm also compiling the year-over-year financial fraud complaint statistics from NCRP, tracking both case counts and rupee amounts lost from 2021 through 2025.
+
+I'm cross-referencing the Lok Sabha answer figures against the PIB press release, noting the cumulative totals for complaints, amounts saved, and FIR conversion rates, while flagging a possible discrepancy between the lien-marked amount and the saved amount figures across sources.
+
+I'm also noting state-wise breakdowns and a separate 2025 figure from Indian Express (~â‚¹19,813 crore across 21.77 lakh complaints) that doesn't quite match PIB's numbers â€” worth flagging the discrepancy. I'm also capturing the April 2026 SOP update allowing refunds under â‚¹50,000 without a court order and a 90-day hold limit, plus the golden-hour window (1-2 hours, ideally 60 minutes), the 7-day lien period, and RBI's zero-liability rule for reports made within 3 working days.
+
+I'm noting the bank refund timeline under the RBI circular (10 days), the jurisdictional quirk where 1930 complaints route by call-origin state rather than the victim's state, and details on GIGW 3.0 accessibility standards (WCAG 2.1 AA, 88 mandatory checkpoints, STQC certification) along with the DBIM Manual V3.0 released by MeitY in February 2025.
+
+Now I'm going through the DBIM typography and color specs â€” Noto Sans typefaces, desktop/mobile type scales, and the full color palette including Mustard Yellow, Liberty Green, Coral Red, and greys â€” and noticing these hex values actually match Bootstrap 5's default theme colors, which seems like a worthwhile observation to flag.
+
+I'm also noting the lockup variants (1, 2, 3A, 3B), with 3B specifically covering organizations not permitted to use the State Emblem, referencing the 2007 MHA regulation rules. I'm capturing footer requirements (policy links, sitemap, feedback, last-updated date, darkest color variant) and header structure (fixed engagement bar, accessibility controls, global nav) before moving into the UX4G guidelines.
+
+For UX4G, I'm noting it's a NeGD/MeitY initiative with v2.0 beta and v3.0 documentation offering 40+ components across four frameworks, WCAG 2.1 AA and GIGW/DBIM compliance, a Bootstrap-derived component set, and adoption in platforms like UMANG, DigiLocker, and Parivahan. Now I'm pulling device and internet usage statistics from Kepios data to round out the research.
+
+About 31% of Indian Android users are still on version 12 or older. Median mobile download speed is 131.77 Mbps per Ookla, though tail performance matters more for low-end devices; meanwhile entry-level phones are collapsing (sub-$100 down 74.3% YoY) while $100-200 devices dominate at 46.8% share. For typography, I'm noting Devanagari has no x-height concept, instead using a shirorekha headline stroke with matras positioned above and below the baseline.
+
+Material Design treats Hindi as "Tall" script, needing slightly larger line height and font size than Latin text. Noto Sans Devanagari has specific x-height and line-height metrics, though I should flag that source as lower confidence. Mukta is a solid open-source option with 7 weights covering Devanagari, Latin, and related scripts, with reasonable file sizes around 91-104 KB per weight for Devanagari glyphs â€” and there are sister fonts like Mukta Vaani and Mukta Mahee for Gujarati and Gurmukhi scripts.
+
+Google's official guidance recommends avoiding mixed scripts and sticking to one script per UI element, though brand names and technical terms can stay in English with bracketed translations. On Hinglish code-mixing, I'm weighing a Microsoft Research finding that multilingual users prefer code-mixed chatbot interactions against some lower-confidence vendor case studies claiming conversion lifts â€” I should treat those numbers cautiously given small sample sizes. For number formatting, I'm noting the Indian numbering convention (lakhs/crores grouping) achievable via Intl.NumberFormat with the en-IN locale.
+
+Now I'm cataloging common scam visual patterns to flag: fake official-looking PDFs circulated on WhatsApp/Telegram with forged letterheads and QR codes, bogus legal/regulatory terminology like "digital arrest" or fabricated IPC/IT Act citations, and documented cases of fraudulent letters impersonating I4C, IB, Delhi Police, and CBI officials that government fact-checkers have publicly debunked.
+
+I'm also noting key trust indicators like HTTPS padlocks and gov.in domains, plus the legitimate statutory helplines people should actually use â€” 1930 for cyber fraud, 112 for emergencies, 181 for women's safety, and 1098 for child protection.
+
+Chakshu requires at least 30 characters of complaint detail, and directs anyone who's actually lost money to 1930 or cybercrime.gov.in instead. For content removal, CERT-In, stopncii.org (adults), and takeitdown.ncmec.org (minors) handle reporting, with IT Rules 2021 mandating 24-hour NCII takedown â€” tightened further by the 2026 amendments into 2-3 hour windows for court-flagged or deepfake content and 36 hours for general complaints.
+
+I'm also noting other helplines worth including: 1915 for consumer complaints, 1930 (formerly 155260) for cyber fraud, the CBI's ABHAY chatbot, NCW's helpline, and the Suspect Repository reporting tool on cybercrime.gov.in. Now I'll write the full brief â€” dense, organized, flagging confidence levels where sources are thin, and using proper markdown code fences for any code snippets.
+=== assistant TEXT ===
+I've delivered the brief above. A few things worth flagging about what I found:
+
+**The most consequential number** isn't the headline "â‚¹11,158 crore saved." It's buried in a Lok Sabha reply: against roughly â‚¹52,800 crore reported lost in 2023â€“25, about **â‚¹132 crore was actually refunded**. "Saved" in government communications means *frozen/lien-marked*, not *returned*. FIR conversion sits near 3%. This reframes the whole product â€” the golden hour (first 60 minutes, via 1930) is the only lever that reliably works, so everything else in the flow should defer to it.
+
+**The no-emblem constraint has an official answer.** India's Digital Brand Identity Manual defines **Lockup 3B / Header 3** specifically for government organisations *not permitted* to use the State Emblem. It's a sanctioned GoI visual pattern with no state asset in it. Bonus finding: DBIM's colour palette is literally Bootstrap 5's defaults (`#0D6EFD`, `#198754`, `#DC3545`, `#FFC107`), and the official UX4G design system is a Bootstrap fork â€” so you can look government-native using entirely generic components.
+
+**One insight that should change the interaction model:** 20.4% of Indian households using digital services need help from someone *outside* the household. One in five sessions is two people at one screen. That argues for maskable sensitive fields and a printable summary the victim keeps after the helper leaves.
+
+**Caveats I'd want you to carry forward:** the 2026 IT Rules takedown timelines (2h/3h/36h) come from a law-firm analysis rather than the gazette; the Noto Sans Devanagari 1.3em line-height figure is from a weak aggregator; the Hinglish preference evidence is mostly marketing case studies, and I'd argue against slangy Hinglish here anyway since the register needs to read institutional to a scam-primed user. All flagged inline.
+

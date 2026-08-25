@@ -1,0 +1,29 @@
+﻿Home – Singapore Government Design System
+
+Get startedFoundationsComponentsTemplatesBlocksAIStories 
+ 
+ Unifying Government through Design and Code.
+ Get started
+
+Design once,
+use everywhere. 
+
+Building together,
+designing better. 
+
+Shared foundation,
+stronger services. 
+ With a common foundation of colour, typography, and components, our design system helps teams create consistent, accessible, and reliable services across government. 
+
+Empowering teams,
+transforming services. 
+ 
+Design tokens
+
+Colour
+
+Iconography
+
+Singapore Government Design System
+The Singapore Government Design System was developed to empower teams in creating fast, accessible and mobile-friendly digital services.
+Past VersionsSGDS v1SGDS v2

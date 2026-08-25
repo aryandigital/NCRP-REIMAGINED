@@ -1,0 +1,4046 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+  <head>
+    <!-- ANALYTICS
+================================================== -->
+
+<!-- Google Analytics - GA4 -->
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-KH01P8TN5V"></script>
+	<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-KH01P8TN5V'); </script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+	<script async type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA&subagency=TTS"></script>
+
+
+<!-- Basic Page Needs
+================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+  
+
+  
+
+<!-- Mobile Specific Metas
+================================================== -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Title and meta description
+================================================== -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>State color tokens | U.S. Web Design System (USWDS)</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="State color tokens" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="USWDS makes it easier to build accessible, mobile-friendly government websites." />
+<meta property="og:description" content="USWDS makes it easier to build accessible, mobile-friendly government websites." />
+<link rel="canonical" href="https://designsystem.digital.gov/design-tokens/color/state-tokens/" />
+<meta property="og:url" content="https://designsystem.digital.gov/design-tokens/color/state-tokens/" />
+<meta property="og:site_name" content="U.S. Web Design System (USWDS)" />
+<meta property="og:image" content="https://designsystem.digital.gov/img/uswds-logo/lg-black.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://designsystem.digital.gov/img/uswds-logo/lg-black.png" />
+<meta property="twitter:title" content="State color tokens" />
+<meta name="twitter:site" content="@USWDS" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"USWDS makes it easier to build accessible, mobile-friendly government websites.","headline":"State color tokens","image":"https://designsystem.digital.gov/img/uswds-logo/lg-black.png","url":"https://designsystem.digital.gov/design-tokens/color/state-tokens/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<!-- Favicons
+================================================== -->
+  <!-- 128x128 -->
+  <link rel="shortcut icon" type="image/ico" href="/assets/img/favicons/favicon.ico">
+  <link rel="icon" type="image/png" href="/assets/img/favicons/favicon.png">
+
+  <!-- 192x192, as recommended for Android
+  http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+  -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicons/favicon-192.png">
+
+  <!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicons/favicon-57.png">
+  <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/img/favicons/favicon-72.png">
+  <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/img/favicons/favicon-114.png">
+  <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/favicons/favicon-144.png">
+
+<!-- CSS
+================================================== -->
+<!-- env: production -->
+
+
+  
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  
+
+
+<!-- USWDS INIT
+================================================== -->
+<script>
+  /**
+   * This script block contains the contents of the uswds-init.js script.
+   * It's inlined because it's necessary for the first paint of the banner,
+   * and we want to avoid a round-trip to the server.
+   */
+  (function uswdsInit() {
+    "use strict";
+
+    const loadingClass = "usa-js-loading";
+    let fallback;
+
+    document.documentElement.classList.add(loadingClass);
+    function revertClass() {
+      document.documentElement.classList.remove(loadingClass);
+    }
+
+    fallback = setTimeout(revertClass, 8000);
+
+    function verifyLoaded() {
+      if (window.uswdsPresent) {
+        clearTimeout(fallback);
+        revertClass();
+        window.removeEventListener("load", verifyLoaded, true);
+      }
+    }
+
+    window.addEventListener("load", verifyLoaded, true);
+  })();
+</script>
+<script src="/assets/uswds/components/usa-banner.js.mjs" type="module"></script>
+<link rel="preload" href="/assets/js/vendor/uswds.min.js" as="script">
+  </head>
+  <body class="page-state-color-tokens layout-styleguide ">
+    <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+<section
+  class="usa-banner site-banner"
+  aria-label="Official website of the United States government,,,,,,"
+>
+  <div class="usa-accordion">
+    <header class="usa-banner__header">
+      <div class="usa-banner__inner">
+        <div class="grid-col-auto">
+          <img
+            aria-hidden="true"
+            class="usa-banner__header-flag"
+            src="/assets/img/us_flag_small.png"
+            alt=""
+          />
+        </div>
+        <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+          <p class="usa-banner__header-text">
+            An official website of the United States government
+          </p>
+          <p class="usa-banner__header-action">Here’s how you know</p>
+        </div>
+        <button
+          type="button"
+          class="usa-accordion__button usa-banner__button"
+          aria-expanded="false"
+          aria-controls="gov-banner"
+        >
+          <span class="usa-banner__button-text">Here’s how you know</span>
+        </button>
+      </div>
+    </header>
+    <div
+      class="usa-banner__content usa-accordion__content"
+      id="gov-banner"
+    >
+      <div class="grid-row grid-gap-lg">
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img
+            class="usa-banner__icon usa-media-block__img"
+            src="/assets/img/icon-dot-gov.svg"
+            role="img"
+            alt=""
+            aria-hidden="true"
+          />
+          <div class="usa-media-block__body">
+            <p>
+              <strong>Official websites use .gov</strong><br />A
+              <strong>.gov</strong> website belongs to an official government
+              organization in the United States.
+            </p>
+          </div>
+        </div>
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img
+            class="usa-banner__icon usa-media-block__img"
+            src="/assets/img/icon-https.svg"
+            role="img"
+            alt=""
+            aria-hidden="true"
+          />
+          <div class="usa-media-block__body">
+            <p>
+              <strong>Secure .gov websites use HTTPS</strong><br />A
+              <strong>lock</strong> (
+              <span class="icon-lock"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="52"
+                  height="64"
+                  viewBox="0 0 52 64"
+                  class="usa-banner__lock-image"
+                  role="img"
+                  aria-labelledby="banner-lock-description"
+                  focusable="false"
+                >
+                  <title id="banner-lock-title">Lock</title>
+                  <desc id="banner-lock-description">Locked padlock icon</desc>
+                  <path
+                    fill="#000000"
+                    fill-rule="evenodd"
+                    d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"
+                  />
+                </svg> </span
+              >) or <strong>https://</strong> means you’ve safely connected to
+              the .gov website. Share sensitive information only on official,
+              secure websites.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<header class="usa-header usa-header--extended site-header site-header--dark" role="banner">
+  <div class="usa-navbar site-header__navbar">
+    <div class="usa-logo site-logo" id="logo">
+      <em class="usa-logo__text site-logo__text">
+        <a href="/" title="U.S. Web Design System (USWDS) Home">
+          <span aria-hidden="true" class="site-title--short">USWDS</span>
+          <span class="site-title--long">U.S. Web Design System (USWDS)</span>
+        </a>
+      </em>
+    </div>
+    <button type="button" class="usa-menu-btn">Menu</button>
+  </div>
+</header>
+<nav aria-label="Primary navigation" class="usa-nav site-nav sticky">
+  <div class="usa-nav__inner site-nav__inner">
+    <button type="button" class="usa-nav__close">
+      <img src="/assets/img/usa-icons/close.svg" role="img" alt="Close">
+    </button>
+    <!-- Mobile nav -->
+    <ul class="usa-nav__primary usa-nav__primary--mobile usa-accordion">
+      
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-how-to-use-uswds"
+  aria-expanded="false"
+  >
+  <span>
+    How to use USWDS
+  </span>
+</button>
+<ul id="nav-how-to-use-uswds" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/how-to-use-uswds/">
+  <span>
+    How to use USWDS
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/getting-started-for-developers/">
+  <span>
+    Getting started for developers
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/getting-started-for-designers/">
+  <span>
+    Getting started for designers
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/developers/">
+  <span>
+    Documentation
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/settings/">
+  <span>
+    Settings
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/maturity-model/">
+  <span>
+    USWDS maturity model
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/accessibility/">
+  <span>
+    Accessibility
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/performance/">
+  <span>
+    Performance guidelines
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/code-guidelines/">
+  <span>
+    Code guidelines
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/migration/">
+  <span>
+    Migrating to USWDS 3.0
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/migration-v2/">
+  <span>
+    Migrating to USWDS 2.0
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/implementations/">
+  <span>
+    Implementations
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/showcase/">
+  <span>
+    Showcase
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/sample-contract-language/">
+  <span>
+    Sample contract language for 21st Century IDEA
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/website-standards/">
+  <span>
+    Website standards
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<a href="/design-principles/">
+  <span>
+    Design principles
+  </span>
+</a>
+
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-components"
+  aria-expanded="false"
+  >
+  <span>
+    Components
+  </span>
+</button>
+<ul id="nav-components" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/">
+  <span>
+    Components
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/accordion/">
+  <span>
+    Accordion
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/alert/">
+  <span>
+    Alert
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/banner/">
+  <span>
+    Banner
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/breadcrumb/">
+  <span>
+    Breadcrumb
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/button/">
+  <span>
+    Button
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/button-group/">
+  <span>
+    Button group
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/card/">
+  <span>
+    Card
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/character-count/">
+  <span>
+    Character count
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/checkbox/">
+  <span>
+    Checkbox
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/collection/">
+  <span>
+    Collection
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/combo-box/">
+  <span>
+    Combo box
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/data-visualizations/">
+  <span>
+    Data visualizations
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/date-picker/">
+  <span>
+    Date picker
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/date-range-picker/">
+  <span>
+    Date range picker
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/file-input/">
+  <span>
+    File input
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/footer/">
+  <span>
+    Footer
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/form/">
+  <span>
+    Form
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/layout-grid/">
+  <span>
+    Grid
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/header/">
+  <span>
+    Header
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/icon/">
+  <span>
+    Icon
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/icon-list/">
+  <span>
+    Icon list
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/identifier/">
+  <span>
+    Identifier
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/in-page-navigation/">
+  <span>
+    In-page navigation
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/input-mask/">
+  <span>
+    Input mask
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/input-prefix-suffix/">
+  <span>
+    Input prefix/suffix
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/language-selector/">
+  <span>
+    Language selector
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/link/">
+  <span>
+    Link
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/list/">
+  <span>
+    List
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/memorable-date/">
+  <span>
+    Memorable date
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/modal/">
+  <span>
+    Modal
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/pagination/">
+  <span>
+    Pagination
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/process-list/">
+  <span>
+    Process list
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/prose/">
+  <span>
+    Prose
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/radio-buttons/">
+  <span>
+    Radio buttons
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/range-slider/">
+  <span>
+    Range slider
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/search/">
+  <span>
+    Search
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/select/">
+  <span>
+    Select
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/side-navigation/">
+  <span>
+    Side navigation
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/site-alert/">
+  <span>
+    Site alert
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/step-indicator/">
+  <span>
+    Step indicator
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/summary-box/">
+  <span>
+    Summary box
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/table/">
+  <span>
+    Table
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/tag/">
+  <span>
+    Tag
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/text-input/">
+  <span>
+    Text input
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/time-picker/">
+  <span>
+    Time picker
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/tooltip/">
+  <span>
+    Tooltip
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/typography/">
+  <span>
+    Typography
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/validation/">
+  <span>
+    Validation
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-patterns"
+  aria-expanded="false"
+  >
+  <span>
+    Patterns
+  </span>
+</button>
+<ul id="nav-patterns" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/">
+  <span>
+    Patterns
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/intro/">
+  <span>
+    Introducing patterns
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/create-a-user-profile/">
+  <span>
+    Create a user profile
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/complete-a-complex-form/">
+  <span>
+    Complete a complex form
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/select-a-language/">
+  <span>
+    Select a language
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-design-tokens"
+  
+  class="usa-current"
+  aria-expanded="true"
+  >
+  <span>
+    Design tokens
+  </span>
+</button>
+<ul id="nav-design-tokens" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/">
+  <span>
+    Design tokens
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+<a href="/design-tokens/color/"class="usa-current">
+  <span>
+    Color
+  </span>
+</a>
+
+    
+    
+    
+    <ul class="usa-nav__submenu">
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/color/overview/">
+  <span>
+    Using color
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/color/theme-tokens/">
+  <span>
+    Theme color tokens
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+<a href="/design-tokens/color/state-tokens/"class="usa-current">
+  <span>
+    State color tokens
+  </span>
+</a>
+
+    
+    
+    
+    <ul class="usa-nav__submenu">
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+
+<a href="#uswds-state-color-tokens">State color tokens</a>
+
+    
+  </li>
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+
+<a href="#customizing-state-color-tokens">Customizing state color tokens</a>
+
+    
+  </li>
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+
+<a href="#state-color-tokens-table">State color tokens table</a>
+
+    
+  </li>
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+
+<a href="#using-color-tokens">Using color tokens</a>
+
+    
+  </li>
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+
+<a href="#changelog">Latest updates</a>
+
+    
+  </li>
+
+</ul>
+    
+  
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/color/system-tokens/">
+  <span>
+    System color tokens
+  </span>
+</a>
+
+
+    
+  </li>
+
+</ul>
+    
+  
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/typesetting/">
+  <span>
+    Typesetting
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/flex/">
+  <span>
+    Flex
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/opacity/">
+  <span>
+    Opacity
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/order/">
+  <span>
+    Order
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/shadow/">
+  <span>
+    Shadow
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/spacing-units/">
+  <span>
+    Spacing units
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/z-index/">
+  <span>
+    Z-index
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-utilities"
+  aria-expanded="false"
+  >
+  <span>
+    Utilities
+  </span>
+</button>
+<ul id="nav-utilities" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/">
+  <span>
+    Utilities
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/layout-grid/">
+  <span>
+    Layout grid
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/color/">
+  <span>
+    Color
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/height-and-width/">
+  <span>
+    Height and width
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/margin-and-padding/">
+  <span>
+    Margin and padding
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/border/">
+  <span>
+    Border
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/outline/">
+  <span>
+    Outline
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/font-size-and-family/">
+  <span>
+    Font size and family
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/text-styles/">
+  <span>
+    Text styles
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/paragraph-styles/">
+  <span>
+    Paragraph styles
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/display/">
+  <span>
+    Display
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/flex/">
+  <span>
+    Flex
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/shadow/">
+  <span>
+    Shadow
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/float/">
+  <span>
+    Float
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/clearfix/">
+  <span>
+    Clearfix
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/list-reset/">
+  <span>
+    List reset
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-templates"
+  aria-expanded="false"
+  >
+  <span>
+    Templates
+  </span>
+</button>
+<ul id="nav-templates" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/">
+  <span>
+    Templates
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/404-page/">
+  <span>
+    404 page
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/documentation-page/">
+  <span>
+    Documentation page
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/landing-page/">
+  <span>
+    Landing page
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/authentication-pages/">
+  <span>
+    Authentication pages
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/form-templates/">
+  <span>
+    Form templates
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-about"
+  aria-expanded="false"
+  >
+  <span>
+    About
+  </span>
+</button>
+<ul id="nav-about" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/">
+  <span>
+    About
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/key-benefits/">
+  <span>
+    Key benefits
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/product-values/">
+  <span>
+    Product values
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/contribute/">
+  <span>
+    Contribute
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/community/">
+  <span>
+    Community
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/whats-new/">
+  <span>
+    What’s new
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/monthly-calls/">
+  <span>
+    Monthly calls
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/product-roadmap/">
+  <span>
+    Product roadmap
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/research/">
+  <span>
+    Research
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/security/">
+  <span>
+    Security
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/website-policies-notices/">
+  <span>
+    Website policies and notices
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+
+    </ul>
+    <!-- /Mobile nav -->
+    <!-- Desktop nav -->
+    <ul class="usa-nav__primary usa-nav__primary--desktop">
+      
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/how-to-use-uswds/">
+  <span>
+    How to use USWDS
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-principles/">
+  <span>
+    Design principles
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/">
+  <span>
+    Components
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/">
+  <span>
+    Patterns
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+<a href="/design-tokens/"class="usa-current">
+  <span>
+    Design tokens
+  </span>
+</a>
+
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/">
+  <span>
+    Utilities
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/">
+  <span>
+    Templates
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/">
+  <span>
+    About
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+    </ul>
+    <!-- /Desktop nav -->
+    <div class="usa-nav__secondary">
+      <form id="search_form-mobile" class="site-search usa-search usa-search--small"
+  action="https://search.usa.gov/search" accept-charset="UTF-8" method="get">
+  <input name="utf8" type="hidden" value="&#x2713;" />
+  <input type="hidden" name="affiliate" id="affiliate-mobile" value="uswds" />
+  <div role="search">
+    <label class="usa-sr-only" for="query-mobile">Search</label>
+    <input
+      id="query-mobile"
+      class="usa-input usagov-search-autocomplete"
+      name="query"
+      type="search"
+      autocomplete="off" />
+    <button class="site-search__button usa-button margin-top-0" type="submit" name="commit">
+      <img
+        src="/assets/img/usa-icons-bg/search--white.svg"
+        class="usa-search__submit-icon"
+        alt="Search"
+      >
+    </button>
+  </div>
+</form>
+
+      <div class="site-cta-buttons buttons">
+  <a
+    class="usa-button site-button-outline-secondary site-button-standards margin-x-0 desktop:margin-right-1 padding-x-05 desktop:padding-left-1 desktop:padding-right-05 desktop-lg:padding-left-205 desktop-lg:padding-right-2 font-lang-sm"
+    href="/website-standards/"
+    onclick="ga('send', 'event', 'Read website standards', 'Clicked Read website standards from inside site');"
+  >
+    Read website standards
+  </a>
+  <a
+    class="usa-button site-button-outline-secondary site-button-download margin-x-0 desktop:margin-right-1 desktop:padding-left-1 desktop:padding-right-05 desktop-lg:padding-left-205 desktop-lg:padding-right-2 font-lang-sm"
+    href="/download/"
+    onclick="ga('send', 'event', 'Downloaded code and design files', 'Clicked Download code and design files from inside site');"
+  >
+    Download <span class="version desktop:display-none desktop-lg:display-inline">v3.14.0</span>
+  </a>
+  <a
+    class="usa-button site-button-github margin-x-0 font-lang-sm"
+    href="https://github.com/uswds/uswds"
+    onclick="ga('send', 'event', 'Viewed on Github', 'Clicked View on Github from inside site');"
+  >
+    <?xml version="1.0" encoding="UTF-8"?><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="33"
+  height="32"
+  viewBox="0 0 33 32"
+  class="logo"
+>
+  <title>Github logo</title>
+  <path
+    fill="#161514"
+    fill-rule="evenodd"
+    d="M16.288 0C7.294 0 0 7.293 0 16.29c0 7.197 4.667 13.302 11.14 15.456.815.15 1.112-.353 1.112-.785 0-.386-.014-1.411-.022-2.77-4.531.984-5.487-2.184-5.487-2.184-.741-1.882-1.809-2.383-1.809-2.383-1.479-1.01.112-.99.112-.99 1.635.115 2.495 1.679 2.495 1.679 1.453 2.489 3.813 1.77 4.741 1.353.148-1.052.569-1.77 1.034-2.177-3.617-.411-7.42-1.809-7.42-8.051 0-1.778.635-3.233 1.677-4.371-.168-.412-.727-2.069.16-4.311 0 0 1.367-.438 4.479 1.67a15.602 15.602 0 0 1 4.078-.549 15.62 15.62 0 0 1 4.078.549c3.11-2.108 4.475-1.67 4.475-1.67.889 2.242.33 3.899.163 4.311 1.044 1.138 1.674 2.593 1.674 4.371 0 6.258-3.809 7.635-7.437 8.038.584.503 1.105 1.497 1.105 3.017 0 2.177-.02 3.934-.02 4.468 0 .436.294.943 1.12.784 6.468-2.159 11.131-8.26 11.131-15.455C32.579 7.293 25.285 0 16.288 0"
+  />
+</svg>
+
+    <span class="text">View on GitHub</span>
+  </a>
+</div>
+
+    </div>
+  </div>
+</nav>
+<div class="usa-overlay"></div>
+
+
+<div class="default-container">
+  <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
+    
+    
+    <ul class="site-sidenav usa-sidenav">
+      
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/">
+  
+    Design tokens
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+<a href="/design-tokens/color/"class="usa-current">
+  
+    Color
+  
+</a>
+
+    
+    
+    
+    <ul class="usa-sidenav__sublist">
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/color/overview/">
+  
+    Using color
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/color/theme-tokens/">
+  
+    Theme color tokens
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+<a href="/design-tokens/color/state-tokens/"class="usa-current">
+  
+    State color tokens
+  
+</a>
+
+    
+    
+    
+    <ul class="usa-sidenav__sublist">
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+
+<a href="#uswds-state-color-tokens">State color tokens</a>
+
+    
+  </li>
+
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+
+<a href="#customizing-state-color-tokens">Customizing state color tokens</a>
+
+    
+  </li>
+
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+
+<a href="#state-color-tokens-table">State color tokens table</a>
+
+    
+  </li>
+
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+
+<a href="#using-color-tokens">Using color tokens</a>
+
+    
+  </li>
+
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+
+<a href="#changelog">Latest updates</a>
+
+    
+  </li>
+
+</ul>
+    
+  
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/color/system-tokens/">
+  
+    System color tokens
+  
+</a>
+
+
+    
+  </li>
+
+</ul>
+    
+  
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/typesetting/">
+  
+    Typesetting
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/flex/">
+  
+    Flex
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/opacity/">
+  
+    Opacity
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/order/">
+  
+    Order
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/shadow/">
+  
+    Shadow
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/spacing-units/">
+  
+    Spacing units
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/design-tokens/z-index/">
+  
+    Z-index
+  
+</a>
+
+
+    
+  </li>
+
+
+    </ul>
+    
+  </aside>
+
+  
+  <div class="usa-in-page-nav-container">
+    <aside class="usa-in-page-nav"
+      aria-label="On this page"
+      data-scroll-offset="48"
+      data-root-margin="48px 0px -90% 0px"
+      data-threshold="1"
+      data-heading-elements=
+    ></aside>
+  
+    <main id="main-content" class="main-content">
+      <div class="styleguide-content usa-prose site-prose">
+        <header>
+          
+            
+              <p class="site-subheading">Design tokens</p>
+            
+          
+          <h1 id="state-color-tokens" class="site-page-title">State color tokens</h1>
+        </header>
+
+        <p class="site-text-intro">USWDS state colors tokens provide flexible, accessible, customizable colors for warning, error, and other states</p>
+
+
+
+
+        <!-- Add wcag compliance status tag -->
+        <!-- Add compliance tag -->
+
+
+
+
+
+
+
+
+
+        
+<p>USWDS state color tokens are designed to be useful and effective for any project that has states or alerts. Each state token is drawn from a system <a href="/design-tokens/color/system-tokens/" class="token">color</a> token and we only use token-based colors in official components.</p>
+
+<h2 id="uswds-state-color-tokens">State color tokens</h2>
+<p>The state color palette is divided into five high-level role-based color families: <code class="language-plaintext highlighter-rouge">info</code>, <code class="language-plaintext highlighter-rouge">error</code>, <code class="language-plaintext highlighter-rouge">warning</code>, <code class="language-plaintext highlighter-rouge">success</code>, <code class="language-plaintext highlighter-rouge">emergency</code>, and <code class="language-plaintext highlighter-rouge">disabled</code>.</p>
+
+<p>Each color family except <code class="language-plaintext highlighter-rouge">emergency</code> and <code class="language-plaintext highlighter-rouge">disabled</code> has five possible lightness grades, from <code class="language-plaintext highlighter-rouge">lighter</code> to <code class="language-plaintext highlighter-rouge">darker</code>, though not every family needs to include a color at each grade. Some grades may be set to <code class="language-plaintext highlighter-rouge">false</code> in your project’s theme settings.</p>
+
+<h2 id="customizing-state-color-tokens">Customizing state color tokens</h2>
+
+<p>Customize state color tokens in your <a href="/documentation/settings/#configuring-custom-uswds-settings">USWDS settings configuration</a> using the variables listed in the <a href="#state-color-tokens-table">state color
+tokens table</a> below. Define state variables with
+<a href="/design-tokens/color/system-tokens/">system color tokens</a>.
+Set any unused theme color to <code class="language-plaintext highlighter-rouge">false</code>.</p>
+
+<p>For example, if you wanted to set the value of the <code class="language-plaintext highlighter-rouge">error-dark</code> token to <code class="language-plaintext highlighter-rouge">red-warm-60v</code>, your settings
+configuration would look like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@use "uswds-core" with (
+  $theme-color-error-dark: "red-warm-60v",
+);
+</code></pre></div></div>
+
+<h2 id="state-color-tokens-table">State color tokens table</h2>
+
+<div class="site-table-wrapper">
+  <table class="usa-table--borderless site-table-responsive">
+    <thead>
+      <tr>
+        <th scope="col">Color</th>
+        <th scope="col">Token</th>
+        <th scope="col">Default</th>
+        <th scope="col">Settings variable</th>
+        <th scope="col" class="text-right">Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-info-lighter"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'info-lighter'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'cyan-5'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-info-lighter
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #e7f6f8
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-info-light"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'info-light'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'cyan-20'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-info-light
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #99deea
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-info"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'info'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'cyan-30v'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-info
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #00bde3
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-info-dark"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'info-dark'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'cyan-40v'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-info-dark
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #009ec1
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-info-darker"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'info-darker'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'blue-cool-60'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-info-darker
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #2e6276
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-error-lighter"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'error-lighter'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'red-warm-10'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-error-lighter
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #f4e3db
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-error-light"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'error-light'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'red-warm-30v'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-error-light
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #f39268
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-error"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'error'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'red-warm-50v'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-error
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #d54309
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-error-dark"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'error-dark'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'red-60v'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-error-dark
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #b50909
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-error-darker"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'error-darker'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'red-70'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-error-darker
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #6f3331
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-warning-lighter"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'warning-lighter'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'yellow-5'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-warning-lighter
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #faf3d1
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-warning-light"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'warning-light'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'yellow-10v'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-warning-light
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #fee685
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-warning"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'warning'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'gold-20v'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-warning
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #ffbe2e
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-warning-dark"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'warning-dark'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'gold-30v'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-warning-dark
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #e5a000
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-warning-darker"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'warning-darker'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'gold-50v'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-warning-darker
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #936f38
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-success-lighter"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'success-lighter'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'green-cool-5'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-success-lighter
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #ecf3ec
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-success-light"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'success-light'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'green-cool-20v'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-success-light
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #70e17b
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-success"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'success'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'green-cool-40v'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-success
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #00a91c
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-success-dark"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'success-dark'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'green-cool-50v'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-success-dark
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #008817
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-success-darker"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'success-darker'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'green-cool-60v'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-success-darker
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #216e1f
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-disabled-lighter"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'disabled-lighter'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'gray-20'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-disabled-lighter
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #c9c9c9
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-disabled-light"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'disabled-light'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'gray-40'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-disabled-light
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #919191
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-disabled"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'disabled'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'gray-50'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-disabled
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #757575
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-disabled-dark"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'disabled-dark'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'gray-70'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-disabled-dark
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #454545
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-disabled-darker"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'disabled-darker'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'gray-90'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-disabled-darker
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #1b1b1b
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-emergency"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'emergency'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'red-warm-60v'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-emergency
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #9c3d10
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row" data-title="Color" class="flex-align-center">
+            <span class="site-inline-swatch bg-emergency-dark"></span>
+          </th>
+          <td data-title="Token">
+            <span class="utility-class font-mono-2xs">'emergency-dark'</span>
+          </td>
+          <td data-title="Default" class="font-mono-2xs">
+            'red-warm-80'
+          </td>
+          <td data-title="Settings var" class="font-mono-2xs">
+            $theme-color-emergency-dark
+          </td>
+          <td data-title="Value" class="font-mono-2xs text-right">
+            
+            #332d29
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+<h2 id="using-color-tokens">Using color tokens</h2>
+<p>Your context and coding style determine how you access USWDS color tokens in code.</p>
+
+<div class="site-table-wrapper">
+  <table class="usa-table--borderless site-table-responsive">
+    <thead>
+      <tr>
+        <th scope="col">Context</th>
+        <th scope="col">Usage</th>
+        <th scope="col">Example</th>
+      </tr>
+    </thead>
+    <tbody class="font-mono-2xs">
+      <tr>
+        <th scope="row" data-title="Context">
+          <span class="font-lang-3">function</span>
+        </th>
+        <td data-title="Description">
+          <span>
+            color(<a href="/design-tokens/color/state-tokens/" class="token">color</a>)
+          </span>
+        </td>
+        <td data-title="Example">
+          <span>
+            color: color(<code>'warning-dark'</code>)
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" data-title="Context">
+          <span class="font-lang-3">
+            <span>mixin</span><br />
+            <span class="text-normal">background-color</span>
+          </span>
+        </th>
+        <td data-title="Description">
+          <span>
+            u-bg(<a href="/design-tokens/color/state-tokens/" class="token">color</a>)
+          </span>
+        </td>
+        <td data-title="Example">
+          <span>
+            @include u-bg(<code>'warning-dark'</code>)<br />
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" data-title="Context">
+          <span class="font-lang-3">
+            <span>mixin</span><br />
+            <span class="text-normal">color</span>
+          </span>
+        </th>
+        <td data-title="Description">
+          <span>
+            u-text(<a href="/design-tokens/color/state-tokens/" class="token">color</a>)<br />
+          </span>
+        </td>
+        <td data-title="Example">
+          <span>
+            @include u-text(<code>'warning-dark'</code>)<br />
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" data-title="Context">
+          <span class="font-lang-3">
+            <span>mixin</span><br />
+            <span class="text-normal">border-color</span>
+          </span>
+        </th>
+        <td data-title="Description">
+          <span>
+            u-border(<a href="/design-tokens/color/state-tokens/" class="token">color</a>)
+          </span>
+        </td>
+        <td data-title="Example">
+          <span>
+            @include u-border(<code>'warning-dark'</code>)<br />
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" data-title="Context">
+          <span class="font-lang-3">
+            <span>mixin</span><br />
+            <span class="text-normal">text-decoration-color</span>
+          </span>
+        </th>
+        <td data-title="Description">
+          <span>
+            u-underline(<a href="/design-tokens/color/state-tokens/" class="token">color</a>)
+          </span>
+        </td>
+        <td data-title="Example">
+          <span>
+            @include u-underline(<code>'warning-dark'</code>)<br />
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" data-title="Context">
+          <span>
+            <span class="font-lang-3">setting</span><br />
+          </span>
+        </th>
+        <td data-title="Description">
+          <span>
+            <a href="/design-tokens/color/state-tokens/" class="token">color</a>
+          </span>
+        </td>
+        <td data-title="Example">
+          <span>
+            $theme-alert-text-color: <code>'warning-dark'</code>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" data-title="Context">
+          <span class="font-lang-3">
+            <span>mixin</span><br />
+            <span class="text-normal">text-decoration-color</span>
+          </span>
+        </th>
+        <td data-title="Description">
+          <span>
+            u-underline(<a href="/design-tokens/color/state-tokens/" class="token">color</a>)
+          </span>
+        </td>
+        <td data-title="Example">
+          <span>
+            @include u-underline(<code>'warning-dark'</code>)<br />
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" data-title="Context">
+          <span class="font-lang-3">
+            <span>utility</span><br />
+            <span class="text-normal">background-color</span>
+          </span>
+        </th>
+        <td data-title="Description">
+          <span>
+            .bg-<a href="/design-tokens/color/state-tokens/" class="token">color</a>
+          </span>
+        </td>
+        <td data-title="Example">
+          <span>
+            .bg-<code>warning-light</code>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" data-title="Context">
+          <span class="font-lang-3">
+            <span>utility</span><br />
+            <span class="text-normal">border-color</span>
+          </span>
+        </th>
+        <td data-title="Description">
+          <span>
+            .border-<a href="/design-tokens/color/state-tokens/" class="token">color</a>
+          </span>
+        </td>
+        <td data-title="Example">
+          <span>
+            .border-<code>error</code>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" data-title="Context">
+          <span class="font-lang-3">
+            <span>utility</span><br />
+            <span class="text-normal">color</span>
+          </span>
+        </th>
+        <td data-title="Description">
+          <span>
+            .text-<a href="/design-tokens/color/state-tokens/" class="token">color</a>
+          </span>
+        </td>
+        <td data-title="Example">
+          <span>
+            .text-<code>error</code>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" data-title="Context">
+          <span class="font-lang-3">
+            <span>utility</span><br />
+            <span class="text-normal">outline-color</span>
+          </span>
+        </th>
+        <td data-title="Description">
+          <span>
+            .outline-<a href="/design-tokens/color/state-tokens/" class="token">color</a>
+          </span>
+        </td>
+        <td data-title="Example">
+          <span>
+            .outline-<code>error</code>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" data-title="Context">
+          <span class="font-lang-3">
+            <span>utility</span><br />
+            <span class="text-normal">text-decoration-color</span>
+          </span>
+        </th>
+        <td data-title="Description">
+          <span>
+            .underline-<a href="/design-tokens/color/state-tokens/" class="token">color</a>
+          </span>
+        </td>
+        <td data-title="Example">
+          <span>
+            .underline-<code>error</code>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+        
+
+
+
+<h2 id="changelog" class="site-component-section-title">Latest updates</h2><p>Meaningful code and guidance updates are listed in the following table:</p>
+  
+    
+
+
+
+
+
+
+
+
+
+
+<table class="usa-table--borderless site-table-responsive site-table-simple">
+  <thead>
+    <tr>
+      <th scope="col" class="tablet:grid-col">Date</th>
+      <th scope="col" class="tablet:grid-col tablet:padding-left-0">USWDS version</th>
+      <th scope="col" class="tablet:grid-col">Affects</th>
+      <th scope="col" class="tablet:grid-col site-changelog--hide-tablet">Breaking</th>
+      <th scope="col" class="tablet:grid-col-6">Description</th>
+    </tr>
+  </thead>
+  <tbody class="font-lang-3xs">
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2024-05-15</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        N/A
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+          
+            <li><span class="output-neutral">Guidance</span></li>
+          
+          
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Updated guidance for configuring color settings.
+
+          </strong>
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds-site/pull/2377">
+              uswds-site#2377
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2023-08-23</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v3.6.0">
+            3.6.0
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+          
+          
+          
+          
+            <li><span class="output-neutral">Styles</span></li>
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          <span class="output-false">Breaking</span>
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+            <span class="site-changelog--show-tablet output-false">Breaking</span>
+          
+          <strong>
+            Updated the default values for all disabled tokens and added <code class="language-plaintext highlighter-rouge">disabled-lighter</code> and <code class="language-plaintext highlighter-rouge">disabled-darker</code> tokens.
+
+          </strong>
+          
+            If your project uses disabled tokens, you probably need to update your token references.
+
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/5402">
+              uswds#5402
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2021-12-21</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        N/A
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+          
+            <li><span class="output-neutral">Guidance</span></li>
+          
+          
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Updated the documentation for <code class="language-plaintext highlighter-rouge">success-dark</code> and <code class="language-plaintext highlighter-rouge">success-darker</code> to match the current USWDS values.
+
+          </strong>
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds-site/pull/1939">
+              uswds-site#1939
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2021-06-16</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v2.12.0">
+            2.12.0
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+          
+          
+          
+          
+            <li><span class="output-neutral">Styles</span></li>
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Updated the values of <code class="language-plaintext highlighter-rouge">success-dark</code> from <code class="language-plaintext highlighter-rouge">green-cool-50</code> to <code class="language-plaintext highlighter-rouge">green-cool-50v</code> and <code class="language-plaintext highlighter-rouge">success-darker</code> from <code class="language-plaintext highlighter-rouge">green-cool-60</code> to <code class="language-plaintext highlighter-rouge">green-cool-60v</code>.
+
+          </strong>
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/4183">
+              uswds#4183
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+  
+
+      </div>
+    </main>
+  
+  </div>
+  
+</div>
+
+
+
+
+
+  
+  <script src="https://touchpoints.app.cloud.gov/touchpoints/5c2410e4.js" async></script>
+
+
+
+
+
+
+<section class="touchpoints__container" role="complementary" aria-label="Page feedback">
+  
+    <button type="button" class="usa-button site-button usa-button--outline" id="touchpoints-modal-button" aria-label="Provide feedback about this page" tabindex="0">Was this page helpful?</button>
+  
+</section>
+
+
+
+<footer class="usa-footer site-footer">
+  <div class="usa-footer__secondary-section">
+    <div class="grid-container footer-content">
+      <h2>Become part of the community</h2>
+      <p>
+        USWDS is an active open source community of government engineers, content specialists, and designers. Our contributors both in and out of government support dozens of agencies and nearly 200 sites.
+      </p>
+      <div class="grid-row footer-contact-links">
+        
+          <div class="tablet:grid-col">
+            <div class="usa-media-block">
+              <div class="usa-media-block__img circle-5 bg-accent-cool display-flex flex-row flex-align-center flex-justify-center text-white">
+                <svg class="usa-icon usa-icon--size-3" aria-hidden="true" role="img" focusable="false">
+                  <use href="/assets/img/sprite.svg#help"></use>
+                </svg>
+              </div>
+              <div class="usa-media-block__body">
+                <h3>Have an idea or an issue?</h3>
+                <a href="https://github.com/uswds/uswds/issues/new/choose">Reach out in GitHub</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="tablet:grid-col">
+            <div class="usa-media-block">
+              <div class="usa-media-block__img circle-5 bg-accent-cool display-flex flex-row flex-align-center flex-justify-center text-white">
+                <svg class="usa-icon usa-icon--size-3" aria-hidden="true" role="img" focusable="false">
+                  <use href="/assets/img/sprite.svg#people"></use>
+                </svg>
+              </div>
+              <div class="usa-media-block__body">
+                <h3>Engage with the community</h3>
+                <a href="https://designsystem.digital.gov/about/community/">Find a channel that works for you</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="tablet:grid-col">
+            <div class="usa-media-block">
+              <div class="usa-media-block__img circle-5 bg-accent-cool display-flex flex-row flex-align-center flex-justify-center text-white">
+                <svg class="usa-icon usa-icon--size-3" aria-hidden="true" role="img" focusable="false">
+                  <use href="/assets/img/sprite.svg#mail"></use>
+                </svg>
+              </div>
+              <div class="usa-media-block__body">
+                <h3>Subscribe to our newsletter</h3>
+                <a href="https://public.govdelivery.com/accounts/USGSATTS/subscriber/new?qsp=GSA_TTS">Sign up for USWDS updates</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="tablet:grid-col">
+            <div class="usa-media-block">
+              <div class="usa-media-block__img circle-5 bg-accent-cool display-flex flex-row flex-align-center flex-justify-center text-white">
+                <svg class="usa-icon usa-icon--size-3" aria-hidden="true" role="img" focusable="false">
+                  <use href="/assets/img/sprite.svg#support"></use>
+                </svg>
+              </div>
+              <div class="usa-media-block__body">
+                <h3>Get support</h3>
+                <a href="mailto:uswds@gsa.gov">Email the USWDS team</a>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+
+    <div class="bg-base-light padding-y-1 line-height-sans-3 font-lang-4">
+      <div class="grid-container">
+        Looking for USWDS v1 documentation?
+        <a
+          href="https://v1.designsystem.digital.gov"
+          class="text-ink text-bold hover:text-no-underline"
+          >Visit v1.designsystem.digital.gov</a
+        >
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<div class="usa-identifier site-identifier">
+  <section
+    class="usa-identifier__section usa-identifier__section--masthead"
+    aria-label="Agency identifier,,,,,,"
+  >
+    <div class="usa-identifier__container">
+      <div class="usa-identifier__logos"><a href="javascript:void(0);" class="usa-identifier__logo">
+          <img
+            class="usa-identifier__logo-img"
+            src="/img/gsa-logo.svg"
+            alt="GSA Logo"
+            role="img"
+            width="48"
+            height="48"
+          >
+        </a></div>
+      <section class="usa-identifier__identity" aria-label="Agency description">
+        <p class="usa-identifier__identity-domain">designsystem.digital.gov</p>
+        <p class="usa-identifier__identity-disclaimer"><span aria-hidden="true">An </span>official website of the <a href=https://gsa.gov>General Services Administration</a></p>
+      </section>
+    </div>
+  </section>
+  <nav class="usa-identifier__section usa-identifier__section--required-links" aria-label="Important links">
+      <div class="usa-identifier__container">
+        <ul class="usa-identifier__required-links-list"><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/about-us" class="usa-identifier__required-link">About GSA</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/website-information/accessibility-statement" class="usa-identifier__required-link">Accessibility statement</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/reference/freedom-of-information-act-foia" class="usa-identifier__required-link">FOIA requests</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002" class="usa-identifier__required-link">No FEAR Act data</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsaig.gov/" class="usa-identifier__required-link">Office of the Inspector General</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/reference/reports/budget-performance" class="usa-identifier__required-link">Performance reports</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/website-information/website-policies" class="usa-identifier__required-link">Privacy policy</a>
+          </li></ul>
+      </div>
+  </nav>
+  <section class="usa-identifier__section usa-identifier__section--usagov" aria-label="Government information and services">
+    <div class="usa-identifier__container">
+      <div class="usa-identifier__usagov-description">
+        Looking for U.S. government information and services?
+      </div>
+      <a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a>
+    </div>
+  </section>
+</div>
+
+
+
+    <script src="/assets/js/styleguide.js"></script>
+
+<script src="/assets/js/vendor/uswds.min.js"></script>
+<!--<script>
+//<![CDATA[
+      var usasearch_config = { siteHandle:"uswds" };
+
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "//search.usa.gov/javascripts/remote.loader.js";
+      document.getElementsByTagName("head")[0].appendChild(script);
+
+//]]>
+</script>
+-->
+
+  </body>
+</html>

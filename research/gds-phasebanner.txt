@@ -1,0 +1,649 @@
+﻿Phase banner – GOV.UK Design System
+
+Cookies on GOV.UK Design System
+
+We’d like to use analytics cookies so we can understand how you use the Design System and make improvements.
+
+ We also use essential cookies to remember if you’ve accepted analytics cookies.
+
+Accept analytics cookies
+
+Reject analytics cookies
+ 
+ View cookies
+
+You’ve accepted analytics cookies. You can change your cookie settings at any time.
+
+Hide cookie message
+
+You’ve rejected analytics cookies. You can change your cookie settings at any time.
+
+Hide cookie message
+
+Skip to main content
+
+Design System
+
+Search Design system
+ Sitemap
+
+Menu
+
+Get started 
+
+Get started overview
+
+Setup guides
+
+Prototyping
+
+Production
+
+How to guides
+
+Making labels and legends headings
+
+Extending and modifying components in production
+
+Understanding focus state styles
+
+Using the updated type scale
+
+Styles 
+
+Styles overview
+
+Page structure
+
+Page template
+
+Layout
+
+Spacing
+
+Section break
+
+Typography
+
+Typeface
+
+Type scale
+
+Headings
+
+Paragraphs
+
+Links
+
+Lists
+
+Font override classes
+
+Visual elements
+
+Colour
+
+Images
+
+Components 
+
+Components overview
+
+Accordion
+
+Back link
+
+Breadcrumbs
+
+Button
+
+Character count
+
+Checkboxes
+
+Cookie banner
+
+Date input
+
+Details
+
+Error message
+
+Error summary
+
+Exit this page
+
+Fieldset
+
+File upload
+
+Generic header
+
+GOV.UK footer
+
+GOV.UK header
+
+Inset text
+
+Notification banner
+
+Pagination
+
+Panel
+
+Password input
+
+Phase banner
+
+Radios
+
+Select
+
+Service navigation
+
+Skip link
+
+Summary list
+
+Table
+
+Tabs
+
+Tag
+
+Task list
+
+Text input
+
+Textarea
+
+Warning text
+
+Patterns 
+
+Patterns overview
+
+Ask users for…
+
+Addresses
+
+Bank details
+
+Dates
+
+Email addresses
+
+Equality information
+
+Names
+
+National Insurance numbers
+
+Passwords
+
+Payment card details
+
+Phone numbers
+
+Help users to…
+
+Check a service is suitable
+
+Check answers
+
+Complete multiple tasks
+
+Confirm a phone number
+
+Confirm an email address
+
+Contact a department or service team
+
+Create a username
+
+Create accounts
+
+Exit a page quickly
+
+Navigate a service
+
+Recover from validation errors
+
+Start using a service
+
+Pages
+
+Confirmation pages
+
+Cookies page
+
+Interruption pages
+
+Page not found pages
+
+Question pages
+
+Service unavailable pages
+
+Step by step navigation
+
+There is a problem with the service pages
+
+Community 
+
+Community overview
+
+What we’re working on
+
+Upcoming components and patterns
+
+Roadmap
+
+What's new
+
+Ways to get involved
+
+Take part in our research
+
+Share findings about your users
+
+Propose a component or pattern
+
+Develop a component or pattern
+
+Propose a content change using GitHub
+
+How we work
+
+Community principles
+
+Contribution criteria
+
+Blog posts, videos and podcasts
+
+Resources
+
+Resources and tools
+
+Events and workshops
+
+Design System Day events
+
+Code of Conduct
+
+Accessibility 
+
+Accessibility overview
+
+Accessibility strategy
+
+Pages in this section
+
+Accordion
+
+Back link
+
+Breadcrumbs
+
+Button
+
+Character count
+
+Checkboxes
+
+Cookie banner
+
+Date input
+
+Details
+
+Error message
+
+Error summary
+
+Exit this page
+
+Fieldset
+
+File upload
+
+Generic header
+
+GOV.UK footer
+
+GOV.UK header
+
+Inset text
+
+Notification banner
+
+Pagination
+
+Panel
+
+Password input
+
+Phase banner
+
+Radios
+
+Select
+
+Service navigation
+
+Skip link
+
+Summary list
+
+Table
+
+Tabs
+
+Tag
+
+Task list
+
+Text input
+
+Textarea
+
+Warning text
+
+Home
+
+Components
+
+Phase banner
+
+Use the phase banner component to show users your service is still being worked on.
+
+Open this example in a new tab: phase banner
+
+HTML
+
+ Nunjucks
+
+HTML
+
+<div class="govuk-phase-banner govuk-width-container">
+ <p class="govuk-phase-banner__content">
+ <strong class="govuk-tag govuk-phase-banner__content__tag">
+ Alpha
+ </strong>
+ <span class="govuk-phase-banner__text">
+ This is a new service. Help us improve it and <a class="govuk-link" href="#">give your feedback by email</a>.
+ </span>
+ </p>
+</div>
+
+Nunjucks
+
+Nunjucks macro options
+
+Use options to customise the appearance, content and behaviour of a component when using a macro, for example, changing the text.
+
+Some options are required for the macro to work; these are marked as “Required” in the option description. Deprecated options are marked as “Deprecated”.
+
+If you’re using Nunjucks macros in production with “html” options, or ones ending with “html”, you must sanitise the HTML to protect against cross-site scripting exploits.
+
+Primary options
+
+Name
+ Type
+ Description
+
+text
+ string
+ 
+ Required.
+ If html is set, this is not required. Text to use within the phase banner. If html is provided, the text option will be ignored.
+
+html
+ string
+ 
+ Required.
+ If text is set, this is not required. HTML to use within the phase banner. If html is provided, the text option will be ignored.
+
+tag
+ object
+ 
+ Required.
+ The tag used by the phase banner component.
+ See macro options for tag.
+
+classes
+ string
+ 
+ Classes to add to the phase banner container.
+
+attributes
+ object
+ 
+ HTML attributes (for example data attributes) to add to the phase banner container.
+
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+
+{{ govukPhaseBanner({
+ tag: {
+ text: "Alpha"
+ },
+ html: 'This is a new service. Help us improve it and <a class="govuk-link" href="#">give your feedback by email</a>.'
+}) }}
+
+When to use this component
+
+Services hosted on a service.gov.uk domain must use the phase banner until they pass a live assessment.
+
+How it works
+
+There are 2 ways to use the phase banner component. You can use HTML or, if you are using Nunjucks or the GOV.UK Prototype Kit, you can use the Nunjucks macro.
+
+Use an alpha banner when your service is in alpha, and a beta banner if your service is in private or public beta.
+
+Show the Phase banner inside the <header> element, directly after either:
+
+the Service navigation component
+
+the GOV.UK header component (if your service does not use the Service navigation component)
+
+If you use Nunjucks, use the headerEnd block to place the Phase banner on your page.
+
+See ‘Add extra content at the start or end of the <header> element’ in ‘Page template: Blocks and options’.
+
+Phase banners are shown across all pages of a service, so users should understand it as a service-level message.
+
+You can choose to place the Phase banner in a more appropriate place for your service, however you’ll need to customise the component and provide your own CSS code to make it show correctly.
+
+Add a feedback link
+
+Use a ‘feedback’ link to collect on-page feedback about your service. This can open an email or take the user to a dedicated page or form.
+
+Open this example in a new tab: phase banner second
+
+HTML
+
+ Nunjucks
+
+HTML
+
+<div class="govuk-phase-banner govuk-width-container">
+ <p class="govuk-phase-banner__content">
+ <strong class="govuk-tag govuk-phase-banner__content__tag">
+ Alpha
+ </strong>
+ <span class="govuk-phase-banner__text">
+ This is a new service. Help us improve it and <a class="govuk-link" href="#">give your feedback by email</a>.
+ </span>
+ </p>
+</div>
+
+Nunjucks
+
+Nunjucks macro options
+
+Use options to customise the appearance, content and behaviour of a component when using a macro, for example, changing the text.
+
+Some options are required for the macro to work; these are marked as “Required” in the option description. Deprecated options are marked as “Deprecated”.
+
+If you’re using Nunjucks macros in production with “html” options, or ones ending with “html”, you must sanitise the HTML to protect against cross-site scripting exploits.
+
+Primary options
+
+Name
+ Type
+ Description
+
+text
+ string
+ 
+ Required.
+ If html is set, this is not required. Text to use within the phase banner. If html is provided, the text option will be ignored.
+
+html
+ string
+ 
+ Required.
+ If text is set, this is not required. HTML to use within the phase banner. If html is provided, the text option will be ignored.
+
+tag
+ object
+ 
+ Required.
+ The tag used by the phase banner component.
+ See macro options for tag.
+
+classes
+ string
+ 
+ Classes to add to the phase banner container.
+
+attributes
+ object
+ 
+ HTML attributes (for example data attributes) to add to the phase banner container.
+
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+
+{{ govukPhaseBanner({
+ tag: {
+ text: "Alpha"
+ },
+ html: 'This is a new service. Help us improve it and <a class="govuk-link" href="#">give your feedback by email</a>.'
+}) }}
+
+Open this example in a new tab: phase banner with beta text – phase banner
+
+HTML
+
+ Nunjucks
+
+HTML
+
+<div class="govuk-phase-banner govuk-width-container">
+ <p class="govuk-phase-banner__content">
+ <strong class="govuk-tag govuk-phase-banner__content__tag">
+ Beta
+ </strong>
+ <span class="govuk-phase-banner__text">
+ This is a new service. Help us improve it and <a class="govuk-link" href="#">give your feedback (opens in new tab)</a>.
+ </span>
+ </p>
+</div>
+
+Nunjucks
+
+Nunjucks macro options
+
+Use options to customise the appearance, content and behaviour of a component when using a macro, for example, changing the text.
+
+Some options are required for the macro to work; these are marked as “Required” in the option description. Deprecated options are marked as “Deprecated”.
+
+If you’re using Nunjucks macros in production with “html” options, or ones ending with “html”, you must sanitise the HTML to protect against cross-site scripting exploits.
+
+Primary options
+
+Name
+ Type
+ Description
+
+text
+ string
+ 
+ Required.
+ If html is set, this is not required. Text to use within the phase banner. If html is provided, the text option will be ignored.
+
+html
+ string
+ 
+ Required.
+ If text is set, this is not required. HTML to use within the phase banner. If html is provided, the text option will be ignored.
+
+tag
+ object
+ 
+ Required.
+ The tag used by the phase banner component.
+ See macro options for tag.
+
+classes
+ string
+ 
+ Classes to add to the phase banner container.
+
+attributes
+ object
+ 
+ HTML attributes (for example data attributes) to add to the phase banner container.
+
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+
+{{ govukPhaseBanner({
+ tag: {
+ text: "Beta"
+ },
+ html: 'This is a new service. Help us improve it and <a class="govuk-link" href="#">give your feedback (opens in new tab)</a>.'
+}) }}
+
+Whatever option you use, make sure that users do not lose their place in the service and can return to the page they were on.
+
+Find out what feedback you need to collect at each phase in the GOV.UK Service Manual.
+
+Help improve this component
+
+To help make sure that this page is useful, relevant and up to date, you can:
+
+take part in the
+ 
+ ‘Phase banner’ discussion on GitHub
+ 
+ and share your research
+
+propose a change on GitHub
+ – read more about
+ 
+ how to propose changes in GitHub
+
+Need help?
+
+If you’ve got a question about the GOV.UK Design System, contact the team.
+
+Back to top
+
+Support links
+
+Accessibility statement
+
+Sitemap
+
+Cookies
+
+Privacy
+
+Contact the team
+
+Built by the GOV.UK Design System team
+
+All content is available under the
+ Open Government Licence v3.0, except where otherwise stated
+
+© Crown copyright

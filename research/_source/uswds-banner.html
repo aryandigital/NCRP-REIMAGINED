@@ -1,0 +1,6984 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+  <head>
+    <!-- ANALYTICS
+================================================== -->
+
+<!-- Google Analytics - GA4 -->
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-KH01P8TN5V"></script>
+	<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-KH01P8TN5V'); </script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+	<script async type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA&subagency=TTS"></script>
+
+
+<!-- Basic Page Needs
+================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+  
+
+  
+
+<!-- Mobile Specific Metas
+================================================== -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Title and meta description
+================================================== -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Banner | U.S. Web Design System (USWDS)</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Banner" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Note: Banners and identifiers are core components. We recommend using both core components on most sites. Together, they are the most recognizable and standardized design elements of a government site." />
+<meta property="og:description" content="Note: Banners and identifiers are core components. We recommend using both core components on most sites. Together, they are the most recognizable and standardized design elements of a government site." />
+<link rel="canonical" href="https://designsystem.digital.gov/components/banner/" />
+<meta property="og:url" content="https://designsystem.digital.gov/components/banner/" />
+<meta property="og:site_name" content="U.S. Web Design System (USWDS)" />
+<meta property="og:image" content="https://designsystem.digital.gov/img/uswds-logo/lg-black.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-08-19T16:49:39+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://designsystem.digital.gov/img/uswds-logo/lg-black.png" />
+<meta property="twitter:title" content="Banner" />
+<meta name="twitter:site" content="@USWDS" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-08-19T16:49:39+00:00","datePublished":"2026-08-19T16:49:39+00:00","description":"Note: Banners and identifiers are core components. We recommend using both core components on most sites. Together, they are the most recognizable and standardized design elements of a government site.","headline":"Banner","image":"https://designsystem.digital.gov/img/uswds-logo/lg-black.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://designsystem.digital.gov/components/banner/"},"url":"https://designsystem.digital.gov/components/banner/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<!-- Favicons
+================================================== -->
+  <!-- 128x128 -->
+  <link rel="shortcut icon" type="image/ico" href="/assets/img/favicons/favicon.ico">
+  <link rel="icon" type="image/png" href="/assets/img/favicons/favicon.png">
+
+  <!-- 192x192, as recommended for Android
+  http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+  -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicons/favicon-192.png">
+
+  <!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicons/favicon-57.png">
+  <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/img/favicons/favicon-72.png">
+  <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/img/favicons/favicon-114.png">
+  <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/favicons/favicon-144.png">
+
+<!-- CSS
+================================================== -->
+<!-- env: production -->
+
+
+  
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  
+
+
+<!-- USWDS INIT
+================================================== -->
+<script>
+  /**
+   * This script block contains the contents of the uswds-init.js script.
+   * It's inlined because it's necessary for the first paint of the banner,
+   * and we want to avoid a round-trip to the server.
+   */
+  (function uswdsInit() {
+    "use strict";
+
+    const loadingClass = "usa-js-loading";
+    let fallback;
+
+    document.documentElement.classList.add(loadingClass);
+    function revertClass() {
+      document.documentElement.classList.remove(loadingClass);
+    }
+
+    fallback = setTimeout(revertClass, 8000);
+
+    function verifyLoaded() {
+      if (window.uswdsPresent) {
+        clearTimeout(fallback);
+        revertClass();
+        window.removeEventListener("load", verifyLoaded, true);
+      }
+    }
+
+    window.addEventListener("load", verifyLoaded, true);
+  })();
+</script>
+<script src="/assets/uswds/components/usa-banner.js.mjs" type="module"></script>
+<link rel="preload" href="/assets/js/vendor/uswds.min.js" as="script">
+  </head>
+  <body class="page-banner layout-component ">
+    <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+<section
+  class="usa-banner site-banner"
+  aria-label="Official website of the United States government,,,,,,"
+>
+  <div class="usa-accordion">
+    <header class="usa-banner__header">
+      <div class="usa-banner__inner">
+        <div class="grid-col-auto">
+          <img
+            aria-hidden="true"
+            class="usa-banner__header-flag"
+            src="/assets/img/us_flag_small.png"
+            alt=""
+          />
+        </div>
+        <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+          <p class="usa-banner__header-text">
+            An official website of the United States government
+          </p>
+          <p class="usa-banner__header-action">Here’s how you know</p>
+        </div>
+        <button
+          type="button"
+          class="usa-accordion__button usa-banner__button"
+          aria-expanded="false"
+          aria-controls="gov-banner"
+        >
+          <span class="usa-banner__button-text">Here’s how you know</span>
+        </button>
+      </div>
+    </header>
+    <div
+      class="usa-banner__content usa-accordion__content"
+      id="gov-banner"
+    >
+      <div class="grid-row grid-gap-lg">
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img
+            class="usa-banner__icon usa-media-block__img"
+            src="/assets/img/icon-dot-gov.svg"
+            role="img"
+            alt=""
+            aria-hidden="true"
+          />
+          <div class="usa-media-block__body">
+            <p>
+              <strong>Official websites use .gov</strong><br />A
+              <strong>.gov</strong> website belongs to an official government
+              organization in the United States.
+            </p>
+          </div>
+        </div>
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img
+            class="usa-banner__icon usa-media-block__img"
+            src="/assets/img/icon-https.svg"
+            role="img"
+            alt=""
+            aria-hidden="true"
+          />
+          <div class="usa-media-block__body">
+            <p>
+              <strong>Secure .gov websites use HTTPS</strong><br />A
+              <strong>lock</strong> (
+              <span class="icon-lock"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="52"
+                  height="64"
+                  viewBox="0 0 52 64"
+                  class="usa-banner__lock-image"
+                  role="img"
+                  aria-labelledby="banner-lock-description"
+                  focusable="false"
+                >
+                  <title id="banner-lock-title">Lock</title>
+                  <desc id="banner-lock-description">Locked padlock icon</desc>
+                  <path
+                    fill="#000000"
+                    fill-rule="evenodd"
+                    d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"
+                  />
+                </svg> </span
+              >) or <strong>https://</strong> means you’ve safely connected to
+              the .gov website. Share sensitive information only on official,
+              secure websites.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<header class="usa-header usa-header--extended site-header site-header--dark" role="banner">
+  <div class="usa-navbar site-header__navbar">
+    <div class="usa-logo site-logo" id="logo">
+      <em class="usa-logo__text site-logo__text">
+        <a href="/" title="U.S. Web Design System (USWDS) Home">
+          <span aria-hidden="true" class="site-title--short">USWDS</span>
+          <span class="site-title--long">U.S. Web Design System (USWDS)</span>
+        </a>
+      </em>
+    </div>
+    <button type="button" class="usa-menu-btn">Menu</button>
+  </div>
+</header>
+<nav aria-label="Primary navigation" class="usa-nav site-nav sticky">
+  <div class="usa-nav__inner site-nav__inner">
+    <button type="button" class="usa-nav__close">
+      <img src="/assets/img/usa-icons/close.svg" role="img" alt="Close">
+    </button>
+    <!-- Mobile nav -->
+    <ul class="usa-nav__primary usa-nav__primary--mobile usa-accordion">
+      
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-how-to-use-uswds"
+  aria-expanded="false"
+  >
+  <span>
+    How to use USWDS
+  </span>
+</button>
+<ul id="nav-how-to-use-uswds" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/how-to-use-uswds/">
+  <span>
+    How to use USWDS
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/getting-started-for-developers/">
+  <span>
+    Getting started for developers
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/getting-started-for-designers/">
+  <span>
+    Getting started for designers
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/developers/">
+  <span>
+    Documentation
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/settings/">
+  <span>
+    Settings
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/maturity-model/">
+  <span>
+    USWDS maturity model
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/accessibility/">
+  <span>
+    Accessibility
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/performance/">
+  <span>
+    Performance guidelines
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/code-guidelines/">
+  <span>
+    Code guidelines
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/migration/">
+  <span>
+    Migrating to USWDS 3.0
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/migration-v2/">
+  <span>
+    Migrating to USWDS 2.0
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/implementations/">
+  <span>
+    Implementations
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/showcase/">
+  <span>
+    Showcase
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/documentation/sample-contract-language/">
+  <span>
+    Sample contract language for 21st Century IDEA
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/website-standards/">
+  <span>
+    Website standards
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<a href="/design-principles/">
+  <span>
+    Design principles
+  </span>
+</a>
+
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-components"
+  
+  class="usa-current"
+  aria-expanded="true"
+  >
+  <span>
+    Components
+  </span>
+</button>
+<ul id="nav-components" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/">
+  <span>
+    Components
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/accordion/">
+  <span>
+    Accordion
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/alert/">
+  <span>
+    Alert
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+<a href="/components/banner/"class="usa-current">
+  <span>
+    Banner
+  </span>
+</a>
+
+    
+    
+    
+    <ul class="usa-nav__submenu">
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/banner/accessibility-tests/">
+  <span>
+    Banner accessibility tests
+  </span>
+</a>
+
+
+    
+  </li>
+
+</ul>
+    
+  
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/breadcrumb/">
+  <span>
+    Breadcrumb
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/button/">
+  <span>
+    Button
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/button-group/">
+  <span>
+    Button group
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/card/">
+  <span>
+    Card
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/character-count/">
+  <span>
+    Character count
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/checkbox/">
+  <span>
+    Checkbox
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/collection/">
+  <span>
+    Collection
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/combo-box/">
+  <span>
+    Combo box
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/data-visualizations/">
+  <span>
+    Data visualizations
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/date-picker/">
+  <span>
+    Date picker
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/date-range-picker/">
+  <span>
+    Date range picker
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/file-input/">
+  <span>
+    File input
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/footer/">
+  <span>
+    Footer
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/form/">
+  <span>
+    Form
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/layout-grid/">
+  <span>
+    Grid
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/header/">
+  <span>
+    Header
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/icon/">
+  <span>
+    Icon
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/icon-list/">
+  <span>
+    Icon list
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/identifier/">
+  <span>
+    Identifier
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/in-page-navigation/">
+  <span>
+    In-page navigation
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/input-mask/">
+  <span>
+    Input mask
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/input-prefix-suffix/">
+  <span>
+    Input prefix/suffix
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/language-selector/">
+  <span>
+    Language selector
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/link/">
+  <span>
+    Link
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/list/">
+  <span>
+    List
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/memorable-date/">
+  <span>
+    Memorable date
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/modal/">
+  <span>
+    Modal
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/pagination/">
+  <span>
+    Pagination
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/process-list/">
+  <span>
+    Process list
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/prose/">
+  <span>
+    Prose
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/radio-buttons/">
+  <span>
+    Radio buttons
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/range-slider/">
+  <span>
+    Range slider
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/search/">
+  <span>
+    Search
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/select/">
+  <span>
+    Select
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/side-navigation/">
+  <span>
+    Side navigation
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/site-alert/">
+  <span>
+    Site alert
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/step-indicator/">
+  <span>
+    Step indicator
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/summary-box/">
+  <span>
+    Summary box
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/table/">
+  <span>
+    Table
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/tag/">
+  <span>
+    Tag
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/text-input/">
+  <span>
+    Text input
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/time-picker/">
+  <span>
+    Time picker
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/tooltip/">
+  <span>
+    Tooltip
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/typography/">
+  <span>
+    Typography
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/components/validation/">
+  <span>
+    Validation
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-patterns"
+  aria-expanded="false"
+  >
+  <span>
+    Patterns
+  </span>
+</button>
+<ul id="nav-patterns" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/">
+  <span>
+    Patterns
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/intro/">
+  <span>
+    Introducing patterns
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/create-a-user-profile/">
+  <span>
+    Create a user profile
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/complete-a-complex-form/">
+  <span>
+    Complete a complex form
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/select-a-language/">
+  <span>
+    Select a language
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-design-tokens"
+  aria-expanded="false"
+  >
+  <span>
+    Design tokens
+  </span>
+</button>
+<ul id="nav-design-tokens" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/">
+  <span>
+    Design tokens
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/color/">
+  <span>
+    Color
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/typesetting/">
+  <span>
+    Typesetting
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/flex/">
+  <span>
+    Flex
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/opacity/">
+  <span>
+    Opacity
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/order/">
+  <span>
+    Order
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/shadow/">
+  <span>
+    Shadow
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/spacing-units/">
+  <span>
+    Spacing units
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/z-index/">
+  <span>
+    Z-index
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-utilities"
+  aria-expanded="false"
+  >
+  <span>
+    Utilities
+  </span>
+</button>
+<ul id="nav-utilities" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/">
+  <span>
+    Utilities
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/layout-grid/">
+  <span>
+    Layout grid
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/color/">
+  <span>
+    Color
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/height-and-width/">
+  <span>
+    Height and width
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/margin-and-padding/">
+  <span>
+    Margin and padding
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/border/">
+  <span>
+    Border
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/outline/">
+  <span>
+    Outline
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/font-size-and-family/">
+  <span>
+    Font size and family
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/text-styles/">
+  <span>
+    Text styles
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/paragraph-styles/">
+  <span>
+    Paragraph styles
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/display/">
+  <span>
+    Display
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/flex/">
+  <span>
+    Flex
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/shadow/">
+  <span>
+    Shadow
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/float/">
+  <span>
+    Float
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/clearfix/">
+  <span>
+    Clearfix
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/list-reset/">
+  <span>
+    List reset
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-templates"
+  aria-expanded="false"
+  >
+  <span>
+    Templates
+  </span>
+</button>
+<ul id="nav-templates" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/">
+  <span>
+    Templates
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/404-page/">
+  <span>
+    404 page
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/documentation-page/">
+  <span>
+    Documentation page
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/landing-page/">
+  <span>
+    Landing page
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/authentication-pages/">
+  <span>
+    Authentication pages
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/form-templates/">
+  <span>
+    Form templates
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+  <li class="usa-nav__primary-item">
+  
+  
+    
+
+<button type="button" class="usa-accordion__button usa-nav__link" aria-controls="nav-about"
+  aria-expanded="false"
+  >
+  <span>
+    About
+  </span>
+</button>
+<ul id="nav-about" class="usa-nav__submenu">
+  
+  
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/">
+  <span>
+    About
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/key-benefits/">
+  <span>
+    Key benefits
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/product-values/">
+  <span>
+    Product values
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/contribute/">
+  <span>
+    Contribute
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/community/">
+  <span>
+    Community
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/whats-new/">
+  <span>
+    What’s new
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/monthly-calls/">
+  <span>
+    Monthly calls
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/product-roadmap/">
+  <span>
+    Product roadmap
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/research/">
+  <span>
+    Research
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/security/">
+  <span>
+    Security
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/website-policies-notices/">
+  <span>
+    Website policies and notices
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+</ul>
+
+  
+  </li>
+
+
+    </ul>
+    <!-- /Mobile nav -->
+    <!-- Desktop nav -->
+    <ul class="usa-nav__primary usa-nav__primary--desktop">
+      
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/how-to-use-uswds/">
+  <span>
+    How to use USWDS
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-principles/">
+  <span>
+    Design principles
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item is-current">
+    
+
+<a href="/components/"class="usa-current">
+  <span>
+    Components
+  </span>
+</a>
+
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/patterns/">
+  <span>
+    Patterns
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/design-tokens/">
+  <span>
+    Design tokens
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/utilities/">
+  <span>
+    Utilities
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/templates/">
+  <span>
+    Templates
+  </span>
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-nav__submenu-item">
+    
+
+<a href="/about/">
+  <span>
+    About
+  </span>
+</a>
+
+
+    
+  </li>
+
+
+    </ul>
+    <!-- /Desktop nav -->
+    <div class="usa-nav__secondary">
+      <form id="search_form-mobile" class="site-search usa-search usa-search--small"
+  action="https://search.usa.gov/search" accept-charset="UTF-8" method="get">
+  <input name="utf8" type="hidden" value="&#x2713;" />
+  <input type="hidden" name="affiliate" id="affiliate-mobile" value="uswds" />
+  <div role="search">
+    <label class="usa-sr-only" for="query-mobile">Search</label>
+    <input
+      id="query-mobile"
+      class="usa-input usagov-search-autocomplete"
+      name="query"
+      type="search"
+      autocomplete="off" />
+    <button class="site-search__button usa-button margin-top-0" type="submit" name="commit">
+      <img
+        src="/assets/img/usa-icons-bg/search--white.svg"
+        class="usa-search__submit-icon"
+        alt="Search"
+      >
+    </button>
+  </div>
+</form>
+
+      <div class="site-cta-buttons buttons">
+  <a
+    class="usa-button site-button-outline-secondary site-button-standards margin-x-0 desktop:margin-right-1 padding-x-05 desktop:padding-left-1 desktop:padding-right-05 desktop-lg:padding-left-205 desktop-lg:padding-right-2 font-lang-sm"
+    href="/website-standards/"
+    onclick="ga('send', 'event', 'Read website standards', 'Clicked Read website standards from inside site');"
+  >
+    Read website standards
+  </a>
+  <a
+    class="usa-button site-button-outline-secondary site-button-download margin-x-0 desktop:margin-right-1 desktop:padding-left-1 desktop:padding-right-05 desktop-lg:padding-left-205 desktop-lg:padding-right-2 font-lang-sm"
+    href="/download/"
+    onclick="ga('send', 'event', 'Downloaded code and design files', 'Clicked Download code and design files from inside site');"
+  >
+    Download <span class="version desktop:display-none desktop-lg:display-inline">v3.14.0</span>
+  </a>
+  <a
+    class="usa-button site-button-github margin-x-0 font-lang-sm"
+    href="https://github.com/uswds/uswds"
+    onclick="ga('send', 'event', 'Viewed on Github', 'Clicked View on Github from inside site');"
+  >
+    <?xml version="1.0" encoding="UTF-8"?><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="33"
+  height="32"
+  viewBox="0 0 33 32"
+  class="logo"
+>
+  <title>Github logo</title>
+  <path
+    fill="#161514"
+    fill-rule="evenodd"
+    d="M16.288 0C7.294 0 0 7.293 0 16.29c0 7.197 4.667 13.302 11.14 15.456.815.15 1.112-.353 1.112-.785 0-.386-.014-1.411-.022-2.77-4.531.984-5.487-2.184-5.487-2.184-.741-1.882-1.809-2.383-1.809-2.383-1.479-1.01.112-.99.112-.99 1.635.115 2.495 1.679 2.495 1.679 1.453 2.489 3.813 1.77 4.741 1.353.148-1.052.569-1.77 1.034-2.177-3.617-.411-7.42-1.809-7.42-8.051 0-1.778.635-3.233 1.677-4.371-.168-.412-.727-2.069.16-4.311 0 0 1.367-.438 4.479 1.67a15.602 15.602 0 0 1 4.078-.549 15.62 15.62 0 0 1 4.078.549c3.11-2.108 4.475-1.67 4.475-1.67.889 2.242.33 3.899.163 4.311 1.044 1.138 1.674 2.593 1.674 4.371 0 6.258-3.809 7.635-7.437 8.038.584.503 1.105 1.497 1.105 3.017 0 2.177-.02 3.934-.02 4.468 0 .436.294.943 1.12.784 6.468-2.159 11.131-8.26 11.131-15.455C32.579 7.293 25.285 0 16.288 0"
+  />
+</svg>
+
+    <span class="text">View on GitHub</span>
+  </a>
+</div>
+
+    </div>
+  </div>
+</nav>
+<div class="usa-overlay"></div>
+
+
+<div class="default-container">
+  <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
+    
+    
+    <ul class="site-sidenav usa-sidenav">
+      
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/">
+  
+    Components
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/accordion/">
+  
+    Accordion
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/alert/">
+  
+    Alert
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item is-current">
+    
+
+<a href="/components/banner/"class="usa-current">
+  
+    Banner
+  
+</a>
+
+    
+    
+    
+    <ul class="usa-sidenav__sublist">
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/banner/accessibility-tests/">
+  
+    Banner accessibility tests
+  
+</a>
+
+
+    
+  </li>
+
+</ul>
+    
+  
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/breadcrumb/">
+  
+    Breadcrumb
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/button/">
+  
+    Button
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/button-group/">
+  
+    Button group
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/card/">
+  
+    Card
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/character-count/">
+  
+    Character count
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/checkbox/">
+  
+    Checkbox
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/collection/">
+  
+    Collection
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/combo-box/">
+  
+    Combo box
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/data-visualizations/">
+  
+    Data visualizations
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/date-picker/">
+  
+    Date picker
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/date-range-picker/">
+  
+    Date range picker
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/file-input/">
+  
+    File input
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/footer/">
+  
+    Footer
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/form/">
+  
+    Form
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/utilities/layout-grid/">
+  
+    Grid
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/header/">
+  
+    Header
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/icon/">
+  
+    Icon
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/icon-list/">
+  
+    Icon list
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/identifier/">
+  
+    Identifier
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/in-page-navigation/">
+  
+    In-page navigation
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/input-mask/">
+  
+    Input mask
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/input-prefix-suffix/">
+  
+    Input prefix/suffix
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/language-selector/">
+  
+    Language selector
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/link/">
+  
+    Link
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/list/">
+  
+    List
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/memorable-date/">
+  
+    Memorable date
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/modal/">
+  
+    Modal
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/pagination/">
+  
+    Pagination
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/process-list/">
+  
+    Process list
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/prose/">
+  
+    Prose
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/radio-buttons/">
+  
+    Radio buttons
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/range-slider/">
+  
+    Range slider
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/search/">
+  
+    Search
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/select/">
+  
+    Select
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/side-navigation/">
+  
+    Side navigation
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/site-alert/">
+  
+    Site alert
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/step-indicator/">
+  
+    Step indicator
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/summary-box/">
+  
+    Summary box
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/table/">
+  
+    Table
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/tag/">
+  
+    Tag
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/text-input/">
+  
+    Text input
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/time-picker/">
+  
+    Time picker
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/tooltip/">
+  
+    Tooltip
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/typography/">
+  
+    Typography
+  
+</a>
+
+
+    
+  </li>
+
+  
+
+  
+  <li class="usa-sidenav__item">
+    
+
+<a href="/components/validation/">
+  
+    Validation
+  
+</a>
+
+
+    
+  </li>
+
+
+    </ul>
+    
+  </aside>
+
+  
+  <div class="usa-in-page-nav-container">
+    <aside class="usa-in-page-nav"
+      aria-label="On this page"
+      data-scroll-offset="48"
+      data-root-margin="48px 0px -90% 0px"
+      data-threshold="1"
+      data-heading-elements=
+    ></aside>
+  
+    <main id="main-content" class="main-content">
+      <div class="styleguide-content usa-prose site-prose">
+        <header>
+          
+            
+              <p class="site-subheading">Components</p>
+            
+          
+          <h1 id="banner" class="site-page-title">Banner</h1>
+        </header>
+
+        <p class="site-text-intro">Banners identify official websites of government organizations in the United States. They also help visitors understand whether a website is official and secure.</p>
+
+
+
+
+        <!-- Add wcag compliance status tag -->
+        <!-- Add compliance tag -->
+
+
+
+
+
+
+
+<p class="margin-top-0 margin-bottom-4">
+  <span class="usa-tag site-compliance-tag site-compliance-tag--pass">
+    Passed WCAG 2.1 AA
+  </span>
+</p>
+
+
+
+        
+
+
+
+
+
+
+
+
+
+<h2 class="site-component-section-title">About the banner component</h2>
+<div class="font-lang-md measure-5 margin-top-3 margin-bottom-6">
+  <p class="site-note"><strong>Note:</strong> Banners and <a href="/components/identifier">identifiers</a> are core components. We recommend using both core components on most sites. Together, they are the most recognizable and standardized design elements of a government site.</p>
+
+<p>You should use the banner to identify your site as an official government site.</p>
+
+<p>The banner explains how to identify an official <code class="language-plaintext highlighter-rouge">.gov</code> or <code class="language-plaintext highlighter-rouge">.mil</code> domain and that these sites have secure HTTPS connections. Using the banner component is the best way to assure visitors that they’re connected to an official site.</p>
+
+<p>Most government sites should use the banner, but some should not use the banner. Do NOT use the banner on non-government domains such as a .com or .org.</p>
+
+<p>If you are unable to update to <a href="https://github.com/uswds/uswds/releases">USWDS 2.8.0</a> (described on GitHub) or higher but still want to include the new language in your banner, we recommend editing your content to the language outlined in the component preview.</p>
+
+<h2 class="site-component-name" id="default-banner">Default banner</h2>
+
+<p class="site-text-intro">This is the default banner. USWDS 3.0.0 through 3.12.0 only provide this version.</p>
+
+<div class="usa-accordion usa-accordion--bordered site-accordion-code site-component-preview">
+  
+  
+  <h3 id="banner--default-preview" class="usa-accordion__heading site-accordion-heading">
+    <button type="button" class="usa-accordion__button" aria-controls="banner--default-preview-content" aria-expanded="true">
+      Component preview
+    </button>
+  </h3>
+  <div id="banner--default-preview-content" class="usa-accordion__content">
+
+    
+        <h3 class="site-preview-heading">.gov domains</h3>
+<section class="usa-banner" aria-label="Official website of the United States government">
+  <div class="usa-accordion">
+    <header class="usa-banner__header">
+      <div class="usa-banner__inner">
+        <div class="grid-col-auto">
+          <img aria-hidden="true" class="usa-banner__header-flag" src="/assets/img/us_flag_small.png" alt="" />
+        </div>
+        <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+          <p class="usa-banner__header-text">
+            An official website of the United States government
+          </p>
+          <p class="usa-banner__header-action">Here’s how you know</p>
+        </div>
+        <button type="button" class="usa-accordion__button usa-banner__button" aria-expanded="false" aria-controls="gov-banner-default">
+          <span class="usa-banner__button-text">Here’s how you know</span>
+        </button>
+      </div>
+    </header>
+    <div class="usa-banner__content usa-accordion__content" id="gov-banner-default">
+      <div class="grid-row grid-gap-lg">
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img class="usa-banner__icon usa-media-block__img" src="/assets/img/icon-dot-gov.svg" role="img" alt="" aria-hidden="true" />
+          <div class="usa-media-block__body">
+            <p>
+              <strong>Official websites use .gov</strong><br />A
+              <strong>.gov</strong> website belongs to an official government
+              organization in the United States.
+            </p>
+          </div>
+        </div>
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img class="usa-banner__icon usa-media-block__img" src="/assets/img/icon-https.svg" role="img" alt="" aria-hidden="true" />
+          <div class="usa-media-block__body">
+            <p>
+              <strong>Secure .gov websites use HTTPS</strong><br />A
+              <strong>lock</strong> (
+              <span class="icon-lock"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="64" viewBox="0 0 52 64" class="usa-banner__lock-image" role="img" aria-labelledby="banner-lock-description-default" focusable="false">
+                  <title id="banner-lock-title-default">Lock</title>
+                  <desc id="banner-lock-description-default">Locked padlock icon</desc>
+                  <path fill="#000000" fill-rule="evenodd" d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
+                </svg> </span>) or <strong>https://</strong> means you’ve safely connected to
+              the .gov website. Share sensitive information only on official,
+              secure websites.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<h3 class="site-preview-heading">.mil domains</h3>
+<section class="usa-banner" aria-label="Official website of the United States government,">
+  <div class="usa-accordion">
+    <header class="usa-banner__header">
+      <div class="usa-banner__inner">
+        <div class="grid-col-auto">
+          <img aria-hidden="true" class="usa-banner__header-flag" src="/assets/img/us_flag_small.png" alt="" />
+        </div>
+        <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+          <p class="usa-banner__header-text">
+            An official website of the United States government
+          </p>
+          <p class="usa-banner__header-action">Here’s how you know</p>
+        </div>
+        <button type="button" class="usa-accordion__button usa-banner__button" aria-expanded="false" aria-controls="gov-banner-dot-mil">
+          <span class="usa-banner__button-text">Here’s how you know</span>
+        </button>
+      </div>
+    </header>
+    <div class="usa-banner__content usa-accordion__content" id="gov-banner-dot-mil">
+      <div class="grid-row grid-gap-lg">
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img class="usa-banner__icon usa-media-block__img" src="/assets/img/icon-dot-gov.svg" role="img" alt="" aria-hidden="true" />
+          <div class="usa-media-block__body">
+            <p>
+              <strong>Official websites use .mil</strong><br />A
+              <strong>.mil</strong> website belongs to an official U.S.
+              Department of Defense organization.
+            </p>
+          </div>
+        </div>
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img class="usa-banner__icon usa-media-block__img" src="/assets/img/icon-https.svg" role="img" alt="" aria-hidden="true" />
+          <div class="usa-media-block__body">
+            <p>
+              <strong>Secure .mil websites use HTTPS</strong><br />A
+              <strong>lock</strong> (
+              <span class="icon-lock"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="64" viewBox="0 0 52 64" class="usa-banner__lock-image" role="img" aria-labelledby="banner-lock-description-dot-mil" focusable="false">
+                  <title id="banner-lock-title-dot-mil">Lock</title>
+                  <desc id="banner-lock-description-dot-mil">Locked padlock icon</desc>
+                  <path fill="#000000" fill-rule="evenodd" d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
+                </svg> </span>) or <strong>https://</strong> means you’ve safely connected to
+              the .mil website. Share sensitive information only on official,
+              secure websites.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<h3 class="site-preview-heading">.gov domains (Spanish)</h3>
+<section class="usa-banner" aria-label="Un sitio oficial del Gobierno de Estados Unidos">
+  <div class="usa-accordion">
+    <header class="usa-banner__header">
+      <div class="usa-banner__inner">
+        <div class="grid-col-auto">
+          <img aria-hidden="true" class="usa-banner__header-flag" src="/assets/img/us_flag_small.png" alt="" />
+        </div>
+        <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+          <p class="usa-banner__header-text">
+            Un sitio oficial del Gobierno de Estados Unidos
+          </p>
+          <p class="usa-banner__header-action">
+            Así es como usted puede verificarlo
+          </p>
+        </div>
+        <button type="button" class="usa-accordion__button usa-banner__button" aria-expanded="false" aria-controls="gov-banner-lang-es">
+          <span class="usa-banner__button-text">Así es como usted puede verificarlo</span>
+        </button>
+      </div>
+    </header>
+    <div class="usa-banner__content usa-accordion__content" id="gov-banner-lang-es">
+      <div class="grid-row grid-gap-lg">
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img class="usa-banner__icon usa-media-block__img" src="/assets/img/icon-dot-gov.svg" role="img" alt="" aria-hidden="true" />
+          <div class="usa-media-block__body">
+            <p>
+              <strong>Los sitios web oficiales usan .gov</strong><br />Un sitio
+              web <strong>.gov</strong> pertenece a una organización oficial del
+              Gobierno de Estados Unidos.
+            </p>
+          </div>
+        </div>
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img class="usa-banner__icon usa-media-block__img" src="/assets/img/icon-https.svg" role="img" alt="" aria-hidden="true" />
+          <div class="usa-media-block__body">
+            <p>
+              <strong>Los sitios web seguros .gov usan HTTPS</strong><br />Un
+              <strong>candado</strong> (
+              <span class="icon-lock"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="64" viewBox="0 0 52 64" class="usa-banner__lock-image" role="img" aria-labelledby="banner-lock-description-spanish" focusable="false">
+                  <title id="banner-lock-title-spanish">Lock</title>
+                  <desc id="banner-lock-description-spanish">Locked padlock icon</desc>
+                  <path fill="#000000" fill-rule="evenodd" d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
+                </svg> </span>) o <strong>https://</strong> significa que usted se conectó de
+              forma segura a un sitio web .gov. Comparta información sensible
+              sólo en sitios web oficiales y seguros.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<h3 class="site-preview-heading">.mil domains (Spanish)</h3>
+<section class="usa-banner" aria-label="Un sitio oficial del Gobierno de Estados Unidos,">
+  <div class="usa-accordion">
+    <header class="usa-banner__header">
+      <div class="usa-banner__inner">
+        <div class="grid-col-auto">
+          <img aria-hidden="true" class="usa-banner__header-flag" src="/assets/img/us_flag_small.png" alt="" />
+        </div>
+        <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+          <p class="usa-banner__header-text">
+            Un sitio oficial del Gobierno de Estados Unidos
+          </p>
+          <p class="usa-banner__header-action">
+            Así es como usted puede verificarlo
+          </p>
+        </div>
+        <button type="button" class="usa-accordion__button usa-banner__button" aria-expanded="false" aria-controls="gov-banner-dot-mil-lang-es">
+          <span class="usa-banner__button-text">Así es como usted puede verificarlo</span>
+        </button>
+      </div>
+    </header>
+    <div class="usa-banner__content usa-accordion__content" id="gov-banner-dot-mil-lang-es">
+      <div class="grid-row grid-gap-lg">
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img class="usa-banner__icon usa-media-block__img" src="/assets/img/icon-dot-gov.svg" role="img" alt="" aria-hidden="true" />
+          <div class="usa-media-block__body">
+            <p>
+              <strong>Los sitios web oficiales usan .mil</strong><br />Un sitio
+              web <strong>.mil</strong> pertenece a una organización oficial del
+              Departamento de Defensa de EE. UU.
+            </p>
+          </div>
+        </div>
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img class="usa-banner__icon usa-media-block__img" src="/assets/img/icon-https.svg" role="img" alt="" aria-hidden="true" />
+          <div class="usa-media-block__body">
+            <p>
+              <strong>Los sitios web seguros .mil usan HTTPS</strong><br />Un
+              <strong>candado</strong> (
+              <span class="icon-lock"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="64" viewBox="0 0 52 64" class="usa-banner__lock-image" role="img" aria-labelledby="banner-lock-description-dot-mil-spanish" focusable="false">
+                  <title id="banner-lock-title-dot-mil-spanish">Lock</title>
+                  <desc id="banner-lock-description-dot-mil-spanish">Locked padlock icon</desc>
+                  <path fill="#000000" fill-rule="evenodd" d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
+                </svg> </span>) o <strong>https://</strong> significa que usted se conectó de
+              forma segura a un sitio web .mil. Comparta información sensible
+              sólo en sitios web oficiales y seguros.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    
+  </div>
+</div>
+
+<div class="usa-accordion usa-accordion--bordered site-accordion-code">
+  
+  
+  <h3 id="banner--default-code" class="usa-accordion__heading site-accordion-heading">
+    <button type="button" class="usa-accordion__button" aria-controls="banner--default-code-content">
+      Component code
+    </button>
+  </h3>
+  <div id="banner--default-code-content" class="usa-accordion__content copy-code">
+    
+
+<div class="usa-sr-only">
+  
+<figure class="highlight"><pre><code class="language-text" data-lang="text">&lt;h3 class="site-preview-heading"&gt;.gov domains&lt;/h3&gt;
+&lt;section
+  class="usa-banner"
+  aria-label="Official website of the United States government"
+&gt;
+  &lt;div class="usa-accordion"&gt;
+    &lt;header class="usa-banner__header"&gt;
+      &lt;div class="usa-banner__inner"&gt;
+        &lt;div class="grid-col-auto"&gt;
+          &lt;img
+            aria-hidden="true"
+            class="usa-banner__header-flag"
+            src="/assets/img/us_flag_small.png"
+            alt=""
+          /&gt;
+        &lt;/div&gt;
+        &lt;div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true"&gt;
+          &lt;p class="usa-banner__header-text"&gt;
+            An official website of the United States government
+          &lt;/p&gt;
+          &lt;p class="usa-banner__header-action"&gt;Here’s how you know&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;button
+          type="button"
+          class="usa-accordion__button usa-banner__button"
+          aria-expanded="false"
+          aria-controls="gov-banner-default"
+        &gt;
+          &lt;span class="usa-banner__button-text"&gt;Here’s how you know&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
+    &lt;div
+      class="usa-banner__content usa-accordion__content"
+      id="gov-banner-default"
+    &gt;
+      &lt;div class="grid-row grid-gap-lg"&gt;
+        &lt;div class="usa-banner__guidance tablet:grid-col-6"&gt;
+          &lt;img
+            class="usa-banner__icon usa-media-block__img"
+            src="/assets/img/icon-dot-gov.svg"
+            role="img"
+            alt=""
+            aria-hidden="true"
+          /&gt;
+          &lt;div class="usa-media-block__body"&gt;
+            &lt;p&gt;
+              &lt;strong&gt;Official websites use .gov&lt;/strong&gt;&lt;br /&gt;A
+              &lt;strong&gt;.gov&lt;/strong&gt; website belongs to an official government
+              organization in the United States.
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="usa-banner__guidance tablet:grid-col-6"&gt;
+          &lt;img
+            class="usa-banner__icon usa-media-block__img"
+            src="/assets/img/icon-https.svg"
+            role="img"
+            alt=""
+            aria-hidden="true"
+          /&gt;
+          &lt;div class="usa-media-block__body"&gt;
+            &lt;p&gt;
+              &lt;strong&gt;Secure .gov websites use HTTPS&lt;/strong&gt;&lt;br /&gt;A
+              &lt;strong&gt;lock&lt;/strong&gt; (
+              &lt;span class="icon-lock"
+                &gt;&lt;svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="52"
+                  height="64"
+                  viewBox="0 0 52 64"
+                  class="usa-banner__lock-image"
+                  role="img"
+                  aria-labelledby="banner-lock-description-default"
+                  focusable="false"
+                &gt;
+                  &lt;title id="banner-lock-title-default"&gt;Lock&lt;/title&gt;
+                  &lt;desc id="banner-lock-description-default"&gt;Locked padlock icon&lt;/desc&gt;
+                  &lt;path
+                    fill="#000000"
+                    fill-rule="evenodd"
+                    d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"
+                  /&gt;
+                &lt;/svg&gt; &lt;/span
+              &gt;) or &lt;strong&gt;https://&lt;/strong&gt; means you’ve safely connected to
+              the .gov website. Share sensitive information only on official,
+              secure websites.
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;h3 class="site-preview-heading"&gt;.mil domains&lt;/h3&gt;
+&lt;section
+  class="usa-banner"
+  aria-label="Official website of the United States government,"
+&gt;
+  &lt;div class="usa-accordion"&gt;
+    &lt;header class="usa-banner__header"&gt;
+      &lt;div class="usa-banner__inner"&gt;
+        &lt;div class="grid-col-auto"&gt;
+          &lt;img
+            aria-hidden="true"
+            class="usa-banner__header-flag"
+            src="/assets/img/us_flag_small.png"
+            alt=""
+          /&gt;
+        &lt;/div&gt;
+        &lt;div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true"&gt;
+          &lt;p class="usa-banner__header-text"&gt;
+            An official website of the United States government
+          &lt;/p&gt;
+          &lt;p class="usa-banner__header-action"&gt;Here’s how you know&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;button
+          type="button"
+          class="usa-accordion__button usa-banner__button"
+          aria-expanded="false"
+          aria-controls="gov-banner-dot-mil"
+        &gt;
+          &lt;span class="usa-banner__button-text"&gt;Here’s how you know&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
+    &lt;div
+      class="usa-banner__content usa-accordion__content"
+      id="gov-banner-dot-mil"
+    &gt;
+      &lt;div class="grid-row grid-gap-lg"&gt;
+        &lt;div class="usa-banner__guidance tablet:grid-col-6"&gt;
+          &lt;img
+            class="usa-banner__icon usa-media-block__img"
+            src="/assets/img/icon-dot-gov.svg"
+            role="img"
+            alt=""
+            aria-hidden="true"
+          /&gt;
+          &lt;div class="usa-media-block__body"&gt;
+            &lt;p&gt;
+              &lt;strong&gt;Official websites use .mil&lt;/strong&gt;&lt;br /&gt;A
+              &lt;strong&gt;.mil&lt;/strong&gt; website belongs to an official U.S.
+              Department of Defense organization.
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="usa-banner__guidance tablet:grid-col-6"&gt;
+          &lt;img
+            class="usa-banner__icon usa-media-block__img"
+            src="/assets/img/icon-https.svg"
+            role="img"
+            alt=""
+            aria-hidden="true"
+          /&gt;
+          &lt;div class="usa-media-block__body"&gt;
+            &lt;p&gt;
+              &lt;strong&gt;Secure .mil websites use HTTPS&lt;/strong&gt;&lt;br /&gt;A
+              &lt;strong&gt;lock&lt;/strong&gt; (
+              &lt;span class="icon-lock"
+                &gt;&lt;svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="52"
+                  height="64"
+                  viewBox="0 0 52 64"
+                  class="usa-banner__lock-image"
+                  role="img"
+                  aria-labelledby="banner-lock-description-dot-mil"
+                  focusable="false"
+                &gt;
+                  &lt;title id="banner-lock-title-dot-mil"&gt;Lock&lt;/title&gt;
+                  &lt;desc id="banner-lock-description-dot-mil"&gt;Locked padlock icon&lt;/desc&gt;
+                  &lt;path
+                    fill="#000000"
+                    fill-rule="evenodd"
+                    d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"
+                  /&gt;
+                &lt;/svg&gt; &lt;/span
+              &gt;) or &lt;strong&gt;https://&lt;/strong&gt; means you’ve safely connected to
+              the .mil website. Share sensitive information only on official,
+              secure websites.
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;h3 class="site-preview-heading"&gt;.gov domains (Spanish)&lt;/h3&gt;
+&lt;section
+  class="usa-banner"
+  aria-label="Un sitio oficial del Gobierno de Estados Unidos"
+&gt;
+  &lt;div class="usa-accordion"&gt;
+    &lt;header class="usa-banner__header"&gt;
+      &lt;div class="usa-banner__inner"&gt;
+        &lt;div class="grid-col-auto"&gt;
+          &lt;img
+            aria-hidden="true"
+            class="usa-banner__header-flag"
+            src="/assets/img/us_flag_small.png"
+            alt=""
+          /&gt;
+        &lt;/div&gt;
+        &lt;div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true"&gt;
+          &lt;p class="usa-banner__header-text"&gt;
+            Un sitio oficial del Gobierno de Estados Unidos
+          &lt;/p&gt;
+          &lt;p class="usa-banner__header-action"&gt;
+            Así es como usted puede verificarlo
+          &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;button
+          type="button"
+          class="usa-accordion__button usa-banner__button"
+          aria-expanded="false"
+          aria-controls="gov-banner-lang-es"
+        &gt;
+          &lt;span class="usa-banner__button-text"
+            &gt;Así es como usted puede verificarlo&lt;/span
+          &gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
+    &lt;div
+      class="usa-banner__content usa-accordion__content"
+      id="gov-banner-lang-es"
+    &gt;
+      &lt;div class="grid-row grid-gap-lg"&gt;
+        &lt;div class="usa-banner__guidance tablet:grid-col-6"&gt;
+          &lt;img
+            class="usa-banner__icon usa-media-block__img"
+            src="/assets/img/icon-dot-gov.svg"
+            role="img"
+            alt=""
+            aria-hidden="true"
+          /&gt;
+          &lt;div class="usa-media-block__body"&gt;
+            &lt;p&gt;
+              &lt;strong&gt;Los sitios web oficiales usan .gov&lt;/strong&gt;&lt;br /&gt;Un sitio
+              web &lt;strong&gt;.gov&lt;/strong&gt; pertenece a una organización oficial del
+              Gobierno de Estados Unidos.
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="usa-banner__guidance tablet:grid-col-6"&gt;
+          &lt;img
+            class="usa-banner__icon usa-media-block__img"
+            src="/assets/img/icon-https.svg"
+            role="img"
+            alt=""
+            aria-hidden="true"
+          /&gt;
+          &lt;div class="usa-media-block__body"&gt;
+            &lt;p&gt;
+              &lt;strong&gt;Los sitios web seguros .gov usan HTTPS&lt;/strong&gt;&lt;br /&gt;Un
+              &lt;strong&gt;candado&lt;/strong&gt; (
+              &lt;span class="icon-lock"
+                &gt;&lt;svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="52"
+                  height="64"
+                  viewBox="0 0 52 64"
+                  class="usa-banner__lock-image"
+                  role="img"
+                  aria-labelledby="banner-lock-description-spanish"
+                  focusable="false"
+                &gt;
+                  &lt;title id="banner-lock-title-spanish"&gt;Lock&lt;/title&gt;
+                  &lt;desc id="banner-lock-description-spanish"&gt;Locked padlock icon&lt;/desc&gt;
+                  &lt;path
+                    fill="#000000"
+                    fill-rule="evenodd"
+                    d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"
+                  /&gt;
+                &lt;/svg&gt; &lt;/span
+              &gt;) o &lt;strong&gt;https://&lt;/strong&gt; significa que usted se conectó de
+              forma segura a un sitio web .gov. Comparta información sensible
+              sólo en sitios web oficiales y seguros.
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;h3 class="site-preview-heading"&gt;.mil domains (Spanish)&lt;/h3&gt;
+&lt;section
+  class="usa-banner"
+  aria-label="Un sitio oficial del Gobierno de Estados Unidos,"
+&gt;
+  &lt;div class="usa-accordion"&gt;
+    &lt;header class="usa-banner__header"&gt;
+      &lt;div class="usa-banner__inner"&gt;
+        &lt;div class="grid-col-auto"&gt;
+          &lt;img
+            aria-hidden="true"
+            class="usa-banner__header-flag"
+            src="/assets/img/us_flag_small.png"
+            alt=""
+          /&gt;
+        &lt;/div&gt;
+        &lt;div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true"&gt;
+          &lt;p class="usa-banner__header-text"&gt;
+            Un sitio oficial del Gobierno de Estados Unidos
+          &lt;/p&gt;
+          &lt;p class="usa-banner__header-action"&gt;
+            Así es como usted puede verificarlo
+          &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;button
+          type="button"
+          class="usa-accordion__button usa-banner__button"
+          aria-expanded="false"
+          aria-controls="gov-banner-dot-mil-lang-es"
+        &gt;
+          &lt;span class="usa-banner__button-text"
+            &gt;Así es como usted puede verificarlo&lt;/span
+          &gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
+    &lt;div
+      class="usa-banner__content usa-accordion__content"
+      id="gov-banner-dot-mil-lang-es"
+    &gt;
+      &lt;div class="grid-row grid-gap-lg"&gt;
+        &lt;div class="usa-banner__guidance tablet:grid-col-6"&gt;
+          &lt;img
+            class="usa-banner__icon usa-media-block__img"
+            src="/assets/img/icon-dot-gov.svg"
+            role="img"
+            alt=""
+            aria-hidden="true"
+          /&gt;
+          &lt;div class="usa-media-block__body"&gt;
+            &lt;p&gt;
+              &lt;strong&gt;Los sitios web oficiales usan .mil&lt;/strong&gt;&lt;br /&gt;Un sitio
+              web &lt;strong&gt;.mil&lt;/strong&gt; pertenece a una organización oficial del
+              Departamento de Defensa de EE. UU.
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="usa-banner__guidance tablet:grid-col-6"&gt;
+          &lt;img
+            class="usa-banner__icon usa-media-block__img"
+            src="/assets/img/icon-https.svg"
+            role="img"
+            alt=""
+            aria-hidden="true"
+          /&gt;
+          &lt;div class="usa-media-block__body"&gt;
+            &lt;p&gt;
+              &lt;strong&gt;Los sitios web seguros .mil usan HTTPS&lt;/strong&gt;&lt;br /&gt;Un
+              &lt;strong&gt;candado&lt;/strong&gt; (
+              &lt;span class="icon-lock"
+                &gt;&lt;svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="52"
+                  height="64"
+                  viewBox="0 0 52 64"
+                  class="usa-banner__lock-image"
+                  role="img"
+                  aria-labelledby="banner-lock-description-dot-mil-spanish"
+                  focusable="false"
+                &gt;
+                  &lt;title id="banner-lock-title-dot-mil-spanish"&gt;Lock&lt;/title&gt;
+                  &lt;desc id="banner-lock-description-dot-mil-spanish"&gt;Locked padlock icon&lt;/desc&gt;
+                  &lt;path
+                    fill="#000000"
+                    fill-rule="evenodd"
+                    d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"
+                  /&gt;
+                &lt;/svg&gt; &lt;/span
+              &gt;) o &lt;strong&gt;https://&lt;/strong&gt; significa que usted se conectó de
+              forma segura a un sitio web .mil. Comparta información sensible
+              sólo en sitios web oficiales y seguros.
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre></figure>
+
+</div>
+<div aria-hidden="true">
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"site-preview-heading"</span><span class="nt">&gt;</span>.gov domains<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;section</span>
+  <span class="na">class=</span><span class="s">"usa-banner"</span>
+  <span class="na">aria-label=</span><span class="s">"Official website of the United States government"</span>
+<span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-accordion"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"usa-banner__header"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-banner__inner"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-col-auto"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;img</span>
+            <span class="na">aria-hidden=</span><span class="s">"true"</span>
+            <span class="na">class=</span><span class="s">"usa-banner__header-flag"</span>
+            <span class="na">src=</span><span class="s">"/assets/img/us_flag_small.png"</span>
+            <span class="na">alt=</span><span class="s">""</span>
+          <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-col-fill tablet:grid-col-auto"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"usa-banner__header-text"</span><span class="nt">&gt;</span>
+            An official website of the United States government
+          <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"usa-banner__header-action"</span><span class="nt">&gt;</span>Here’s how you know<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;button</span>
+          <span class="na">type=</span><span class="s">"button"</span>
+          <span class="na">class=</span><span class="s">"usa-accordion__button usa-banner__button"</span>
+          <span class="na">aria-expanded=</span><span class="s">"false"</span>
+          <span class="na">aria-controls=</span><span class="s">"gov-banner-default"</span>
+        <span class="nt">&gt;</span>
+          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"usa-banner__button-text"</span><span class="nt">&gt;</span>Here’s how you know<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/header&gt;</span>
+    <span class="nt">&lt;div</span>
+      <span class="na">class=</span><span class="s">"usa-banner__content usa-accordion__content"</span>
+      <span class="na">id=</span><span class="s">"gov-banner-default"</span>
+    <span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-row grid-gap-lg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-banner__guidance tablet:grid-col-6"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;img</span>
+            <span class="na">class=</span><span class="s">"usa-banner__icon usa-media-block__img"</span>
+            <span class="na">src=</span><span class="s">"/assets/img/icon-dot-gov.svg"</span>
+            <span class="na">role=</span><span class="s">"img"</span>
+            <span class="na">alt=</span><span class="s">""</span>
+            <span class="na">aria-hidden=</span><span class="s">"true"</span>
+          <span class="nt">/&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-media-block__body"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p&gt;</span>
+              <span class="nt">&lt;strong&gt;</span>Official websites use .gov<span class="nt">&lt;/strong&gt;&lt;br</span> <span class="nt">/&gt;</span>A
+              <span class="nt">&lt;strong&gt;</span>.gov<span class="nt">&lt;/strong&gt;</span> website belongs to an official government
+              organization in the United States.
+            <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-banner__guidance tablet:grid-col-6"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;img</span>
+            <span class="na">class=</span><span class="s">"usa-banner__icon usa-media-block__img"</span>
+            <span class="na">src=</span><span class="s">"/assets/img/icon-https.svg"</span>
+            <span class="na">role=</span><span class="s">"img"</span>
+            <span class="na">alt=</span><span class="s">""</span>
+            <span class="na">aria-hidden=</span><span class="s">"true"</span>
+          <span class="nt">/&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-media-block__body"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p&gt;</span>
+              <span class="nt">&lt;strong&gt;</span>Secure .gov websites use HTTPS<span class="nt">&lt;/strong&gt;&lt;br</span> <span class="nt">/&gt;</span>A
+              <span class="nt">&lt;strong&gt;</span>lock<span class="nt">&lt;/strong&gt;</span> (
+              <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-lock"</span>
+                <span class="nt">&gt;&lt;svg</span>
+                  <span class="na">xmlns=</span><span class="s">"http://www.w3.org/2000/svg"</span>
+                  <span class="na">width=</span><span class="s">"52"</span>
+                  <span class="na">height=</span><span class="s">"64"</span>
+                  <span class="na">viewBox=</span><span class="s">"0 0 52 64"</span>
+                  <span class="na">class=</span><span class="s">"usa-banner__lock-image"</span>
+                  <span class="na">role=</span><span class="s">"img"</span>
+                  <span class="na">aria-labelledby=</span><span class="s">"banner-lock-description-default"</span>
+                  <span class="na">focusable=</span><span class="s">"false"</span>
+                <span class="nt">&gt;</span>
+                  <span class="nt">&lt;title</span> <span class="na">id=</span><span class="s">"banner-lock-title-default"</span><span class="nt">&gt;</span>Lock<span class="nt">&lt;/title&gt;</span>
+                  <span class="nt">&lt;desc</span> <span class="na">id=</span><span class="s">"banner-lock-description-default"</span><span class="nt">&gt;</span>Locked padlock icon<span class="nt">&lt;/desc&gt;</span>
+                  <span class="nt">&lt;path</span>
+                    <span class="na">fill=</span><span class="s">"#000000"</span>
+                    <span class="na">fill-rule=</span><span class="s">"evenodd"</span>
+                    <span class="na">d=</span><span class="s">"M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"</span>
+                  <span class="nt">/&gt;</span>
+                <span class="nt">&lt;/svg&gt;</span> <span class="nt">&lt;/span</span>
+              <span class="nt">&gt;</span>) or <span class="nt">&lt;strong&gt;</span>https://<span class="nt">&lt;/strong&gt;</span> means you’ve safely connected to
+              the .gov website. Share sensitive information only on official,
+              secure websites.
+            <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+
+<span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"site-preview-heading"</span><span class="nt">&gt;</span>.mil domains<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;section</span>
+  <span class="na">class=</span><span class="s">"usa-banner"</span>
+  <span class="na">aria-label=</span><span class="s">"Official website of the United States government,"</span>
+<span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-accordion"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"usa-banner__header"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-banner__inner"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-col-auto"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;img</span>
+            <span class="na">aria-hidden=</span><span class="s">"true"</span>
+            <span class="na">class=</span><span class="s">"usa-banner__header-flag"</span>
+            <span class="na">src=</span><span class="s">"/assets/img/us_flag_small.png"</span>
+            <span class="na">alt=</span><span class="s">""</span>
+          <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-col-fill tablet:grid-col-auto"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"usa-banner__header-text"</span><span class="nt">&gt;</span>
+            An official website of the United States government
+          <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"usa-banner__header-action"</span><span class="nt">&gt;</span>Here’s how you know<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;button</span>
+          <span class="na">type=</span><span class="s">"button"</span>
+          <span class="na">class=</span><span class="s">"usa-accordion__button usa-banner__button"</span>
+          <span class="na">aria-expanded=</span><span class="s">"false"</span>
+          <span class="na">aria-controls=</span><span class="s">"gov-banner-dot-mil"</span>
+        <span class="nt">&gt;</span>
+          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"usa-banner__button-text"</span><span class="nt">&gt;</span>Here’s how you know<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/header&gt;</span>
+    <span class="nt">&lt;div</span>
+      <span class="na">class=</span><span class="s">"usa-banner__content usa-accordion__content"</span>
+      <span class="na">id=</span><span class="s">"gov-banner-dot-mil"</span>
+    <span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-row grid-gap-lg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-banner__guidance tablet:grid-col-6"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;img</span>
+            <span class="na">class=</span><span class="s">"usa-banner__icon usa-media-block__img"</span>
+            <span class="na">src=</span><span class="s">"/assets/img/icon-dot-gov.svg"</span>
+            <span class="na">role=</span><span class="s">"img"</span>
+            <span class="na">alt=</span><span class="s">""</span>
+            <span class="na">aria-hidden=</span><span class="s">"true"</span>
+          <span class="nt">/&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-media-block__body"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p&gt;</span>
+              <span class="nt">&lt;strong&gt;</span>Official websites use .mil<span class="nt">&lt;/strong&gt;&lt;br</span> <span class="nt">/&gt;</span>A
+              <span class="nt">&lt;strong&gt;</span>.mil<span class="nt">&lt;/strong&gt;</span> website belongs to an official U.S.
+              Department of Defense organization.
+            <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-banner__guidance tablet:grid-col-6"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;img</span>
+            <span class="na">class=</span><span class="s">"usa-banner__icon usa-media-block__img"</span>
+            <span class="na">src=</span><span class="s">"/assets/img/icon-https.svg"</span>
+            <span class="na">role=</span><span class="s">"img"</span>
+            <span class="na">alt=</span><span class="s">""</span>
+            <span class="na">aria-hidden=</span><span class="s">"true"</span>
+          <span class="nt">/&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-media-block__body"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p&gt;</span>
+              <span class="nt">&lt;strong&gt;</span>Secure .mil websites use HTTPS<span class="nt">&lt;/strong&gt;&lt;br</span> <span class="nt">/&gt;</span>A
+              <span class="nt">&lt;strong&gt;</span>lock<span class="nt">&lt;/strong&gt;</span> (
+              <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-lock"</span>
+                <span class="nt">&gt;&lt;svg</span>
+                  <span class="na">xmlns=</span><span class="s">"http://www.w3.org/2000/svg"</span>
+                  <span class="na">width=</span><span class="s">"52"</span>
+                  <span class="na">height=</span><span class="s">"64"</span>
+                  <span class="na">viewBox=</span><span class="s">"0 0 52 64"</span>
+                  <span class="na">class=</span><span class="s">"usa-banner__lock-image"</span>
+                  <span class="na">role=</span><span class="s">"img"</span>
+                  <span class="na">aria-labelledby=</span><span class="s">"banner-lock-description-dot-mil"</span>
+                  <span class="na">focusable=</span><span class="s">"false"</span>
+                <span class="nt">&gt;</span>
+                  <span class="nt">&lt;title</span> <span class="na">id=</span><span class="s">"banner-lock-title-dot-mil"</span><span class="nt">&gt;</span>Lock<span class="nt">&lt;/title&gt;</span>
+                  <span class="nt">&lt;desc</span> <span class="na">id=</span><span class="s">"banner-lock-description-dot-mil"</span><span class="nt">&gt;</span>Locked padlock icon<span class="nt">&lt;/desc&gt;</span>
+                  <span class="nt">&lt;path</span>
+                    <span class="na">fill=</span><span class="s">"#000000"</span>
+                    <span class="na">fill-rule=</span><span class="s">"evenodd"</span>
+                    <span class="na">d=</span><span class="s">"M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"</span>
+                  <span class="nt">/&gt;</span>
+                <span class="nt">&lt;/svg&gt;</span> <span class="nt">&lt;/span</span>
+              <span class="nt">&gt;</span>) or <span class="nt">&lt;strong&gt;</span>https://<span class="nt">&lt;/strong&gt;</span> means you’ve safely connected to
+              the .mil website. Share sensitive information only on official,
+              secure websites.
+            <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+
+<span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"site-preview-heading"</span><span class="nt">&gt;</span>.gov domains (Spanish)<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;section</span>
+  <span class="na">class=</span><span class="s">"usa-banner"</span>
+  <span class="na">aria-label=</span><span class="s">"Un sitio oficial del Gobierno de Estados Unidos"</span>
+<span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-accordion"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"usa-banner__header"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-banner__inner"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-col-auto"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;img</span>
+            <span class="na">aria-hidden=</span><span class="s">"true"</span>
+            <span class="na">class=</span><span class="s">"usa-banner__header-flag"</span>
+            <span class="na">src=</span><span class="s">"/assets/img/us_flag_small.png"</span>
+            <span class="na">alt=</span><span class="s">""</span>
+          <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-col-fill tablet:grid-col-auto"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"usa-banner__header-text"</span><span class="nt">&gt;</span>
+            Un sitio oficial del Gobierno de Estados Unidos
+          <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"usa-banner__header-action"</span><span class="nt">&gt;</span>
+            Así es como usted puede verificarlo
+          <span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;button</span>
+          <span class="na">type=</span><span class="s">"button"</span>
+          <span class="na">class=</span><span class="s">"usa-accordion__button usa-banner__button"</span>
+          <span class="na">aria-expanded=</span><span class="s">"false"</span>
+          <span class="na">aria-controls=</span><span class="s">"gov-banner-lang-es"</span>
+        <span class="nt">&gt;</span>
+          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"usa-banner__button-text"</span>
+            <span class="nt">&gt;</span>Así es como usted puede verificarlo<span class="nt">&lt;/span</span>
+          <span class="nt">&gt;</span>
+        <span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/header&gt;</span>
+    <span class="nt">&lt;div</span>
+      <span class="na">class=</span><span class="s">"usa-banner__content usa-accordion__content"</span>
+      <span class="na">id=</span><span class="s">"gov-banner-lang-es"</span>
+    <span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-row grid-gap-lg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-banner__guidance tablet:grid-col-6"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;img</span>
+            <span class="na">class=</span><span class="s">"usa-banner__icon usa-media-block__img"</span>
+            <span class="na">src=</span><span class="s">"/assets/img/icon-dot-gov.svg"</span>
+            <span class="na">role=</span><span class="s">"img"</span>
+            <span class="na">alt=</span><span class="s">""</span>
+            <span class="na">aria-hidden=</span><span class="s">"true"</span>
+          <span class="nt">/&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-media-block__body"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p&gt;</span>
+              <span class="nt">&lt;strong&gt;</span>Los sitios web oficiales usan .gov<span class="nt">&lt;/strong&gt;&lt;br</span> <span class="nt">/&gt;</span>Un sitio
+              web <span class="nt">&lt;strong&gt;</span>.gov<span class="nt">&lt;/strong&gt;</span> pertenece a una organización oficial del
+              Gobierno de Estados Unidos.
+            <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-banner__guidance tablet:grid-col-6"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;img</span>
+            <span class="na">class=</span><span class="s">"usa-banner__icon usa-media-block__img"</span>
+            <span class="na">src=</span><span class="s">"/assets/img/icon-https.svg"</span>
+            <span class="na">role=</span><span class="s">"img"</span>
+            <span class="na">alt=</span><span class="s">""</span>
+            <span class="na">aria-hidden=</span><span class="s">"true"</span>
+          <span class="nt">/&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-media-block__body"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p&gt;</span>
+              <span class="nt">&lt;strong&gt;</span>Los sitios web seguros .gov usan HTTPS<span class="nt">&lt;/strong&gt;&lt;br</span> <span class="nt">/&gt;</span>Un
+              <span class="nt">&lt;strong&gt;</span>candado<span class="nt">&lt;/strong&gt;</span> (
+              <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-lock"</span>
+                <span class="nt">&gt;&lt;svg</span>
+                  <span class="na">xmlns=</span><span class="s">"http://www.w3.org/2000/svg"</span>
+                  <span class="na">width=</span><span class="s">"52"</span>
+                  <span class="na">height=</span><span class="s">"64"</span>
+                  <span class="na">viewBox=</span><span class="s">"0 0 52 64"</span>
+                  <span class="na">class=</span><span class="s">"usa-banner__lock-image"</span>
+                  <span class="na">role=</span><span class="s">"img"</span>
+                  <span class="na">aria-labelledby=</span><span class="s">"banner-lock-description-spanish"</span>
+                  <span class="na">focusable=</span><span class="s">"false"</span>
+                <span class="nt">&gt;</span>
+                  <span class="nt">&lt;title</span> <span class="na">id=</span><span class="s">"banner-lock-title-spanish"</span><span class="nt">&gt;</span>Lock<span class="nt">&lt;/title&gt;</span>
+                  <span class="nt">&lt;desc</span> <span class="na">id=</span><span class="s">"banner-lock-description-spanish"</span><span class="nt">&gt;</span>Locked padlock icon<span class="nt">&lt;/desc&gt;</span>
+                  <span class="nt">&lt;path</span>
+                    <span class="na">fill=</span><span class="s">"#000000"</span>
+                    <span class="na">fill-rule=</span><span class="s">"evenodd"</span>
+                    <span class="na">d=</span><span class="s">"M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"</span>
+                  <span class="nt">/&gt;</span>
+                <span class="nt">&lt;/svg&gt;</span> <span class="nt">&lt;/span</span>
+              <span class="nt">&gt;</span>) o <span class="nt">&lt;strong&gt;</span>https://<span class="nt">&lt;/strong&gt;</span> significa que usted se conectó de
+              forma segura a un sitio web .gov. Comparta información sensible
+              sólo en sitios web oficiales y seguros.
+            <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+
+<span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"site-preview-heading"</span><span class="nt">&gt;</span>.mil domains (Spanish)<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;section</span>
+  <span class="na">class=</span><span class="s">"usa-banner"</span>
+  <span class="na">aria-label=</span><span class="s">"Un sitio oficial del Gobierno de Estados Unidos,"</span>
+<span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-accordion"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"usa-banner__header"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-banner__inner"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-col-auto"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;img</span>
+            <span class="na">aria-hidden=</span><span class="s">"true"</span>
+            <span class="na">class=</span><span class="s">"usa-banner__header-flag"</span>
+            <span class="na">src=</span><span class="s">"/assets/img/us_flag_small.png"</span>
+            <span class="na">alt=</span><span class="s">""</span>
+          <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-col-fill tablet:grid-col-auto"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"usa-banner__header-text"</span><span class="nt">&gt;</span>
+            Un sitio oficial del Gobierno de Estados Unidos
+          <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"usa-banner__header-action"</span><span class="nt">&gt;</span>
+            Así es como usted puede verificarlo
+          <span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;button</span>
+          <span class="na">type=</span><span class="s">"button"</span>
+          <span class="na">class=</span><span class="s">"usa-accordion__button usa-banner__button"</span>
+          <span class="na">aria-expanded=</span><span class="s">"false"</span>
+          <span class="na">aria-controls=</span><span class="s">"gov-banner-dot-mil-lang-es"</span>
+        <span class="nt">&gt;</span>
+          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"usa-banner__button-text"</span>
+            <span class="nt">&gt;</span>Así es como usted puede verificarlo<span class="nt">&lt;/span</span>
+          <span class="nt">&gt;</span>
+        <span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/header&gt;</span>
+    <span class="nt">&lt;div</span>
+      <span class="na">class=</span><span class="s">"usa-banner__content usa-accordion__content"</span>
+      <span class="na">id=</span><span class="s">"gov-banner-dot-mil-lang-es"</span>
+    <span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-row grid-gap-lg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-banner__guidance tablet:grid-col-6"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;img</span>
+            <span class="na">class=</span><span class="s">"usa-banner__icon usa-media-block__img"</span>
+            <span class="na">src=</span><span class="s">"/assets/img/icon-dot-gov.svg"</span>
+            <span class="na">role=</span><span class="s">"img"</span>
+            <span class="na">alt=</span><span class="s">""</span>
+            <span class="na">aria-hidden=</span><span class="s">"true"</span>
+          <span class="nt">/&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-media-block__body"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p&gt;</span>
+              <span class="nt">&lt;strong&gt;</span>Los sitios web oficiales usan .mil<span class="nt">&lt;/strong&gt;&lt;br</span> <span class="nt">/&gt;</span>Un sitio
+              web <span class="nt">&lt;strong&gt;</span>.mil<span class="nt">&lt;/strong&gt;</span> pertenece a una organización oficial del
+              Departamento de Defensa de EE. UU.
+            <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-banner__guidance tablet:grid-col-6"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;img</span>
+            <span class="na">class=</span><span class="s">"usa-banner__icon usa-media-block__img"</span>
+            <span class="na">src=</span><span class="s">"/assets/img/icon-https.svg"</span>
+            <span class="na">role=</span><span class="s">"img"</span>
+            <span class="na">alt=</span><span class="s">""</span>
+            <span class="na">aria-hidden=</span><span class="s">"true"</span>
+          <span class="nt">/&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"usa-media-block__body"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p&gt;</span>
+              <span class="nt">&lt;strong&gt;</span>Los sitios web seguros .mil usan HTTPS<span class="nt">&lt;/strong&gt;&lt;br</span> <span class="nt">/&gt;</span>Un
+              <span class="nt">&lt;strong&gt;</span>candado<span class="nt">&lt;/strong&gt;</span> (
+              <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-lock"</span>
+                <span class="nt">&gt;&lt;svg</span>
+                  <span class="na">xmlns=</span><span class="s">"http://www.w3.org/2000/svg"</span>
+                  <span class="na">width=</span><span class="s">"52"</span>
+                  <span class="na">height=</span><span class="s">"64"</span>
+                  <span class="na">viewBox=</span><span class="s">"0 0 52 64"</span>
+                  <span class="na">class=</span><span class="s">"usa-banner__lock-image"</span>
+                  <span class="na">role=</span><span class="s">"img"</span>
+                  <span class="na">aria-labelledby=</span><span class="s">"banner-lock-description-dot-mil-spanish"</span>
+                  <span class="na">focusable=</span><span class="s">"false"</span>
+                <span class="nt">&gt;</span>
+                  <span class="nt">&lt;title</span> <span class="na">id=</span><span class="s">"banner-lock-title-dot-mil-spanish"</span><span class="nt">&gt;</span>Lock<span class="nt">&lt;/title&gt;</span>
+                  <span class="nt">&lt;desc</span> <span class="na">id=</span><span class="s">"banner-lock-description-dot-mil-spanish"</span><span class="nt">&gt;</span>Locked padlock icon<span class="nt">&lt;/desc&gt;</span>
+                  <span class="nt">&lt;path</span>
+                    <span class="na">fill=</span><span class="s">"#000000"</span>
+                    <span class="na">fill-rule=</span><span class="s">"evenodd"</span>
+                    <span class="na">d=</span><span class="s">"M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"</span>
+                  <span class="nt">/&gt;</span>
+                <span class="nt">&lt;/svg&gt;</span> <span class="nt">&lt;/span</span>
+              <span class="nt">&gt;</span>) o <span class="nt">&lt;strong&gt;</span>https://<span class="nt">&lt;/strong&gt;</span> significa que usted se conectó de
+              forma segura a un sitio web .mil. Comparta información sensible
+              sólo en sitios web oficiales y seguros.
+            <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span></code></pre></figure>
+
+</div>
+  </div>
+</div>
+
+<h3 id="default-banner-guidance" class="site-component-section-title">
+  Guidance
+</h3>
+<div class="site-component-usage">
+  
+  
+    <h4 id="about-default-banner" class="usa-heading site-component-usage__header--secondary">About</h4>
+    
+<p class="usa-content-list">This default banner was the only variant available until USWDS 13.3.0. The primary difference is that the default is more customizable but can add steps when updating USWDS versions.</p>
+
+
+  
+  
+    <h4 id="when-to-use-the-default-banner" class="usa-heading site-component-usage__header--secondary">
+      When to use the default banner 
+    </h4>
+    <ul class="usa-content-list">
+  <li><strong>To identify as an official government site.</strong> Most government sites should use the banner, though non-federal government sites will need to change the text to be more accurate.</li>
+</ul>
+
+  
+  
+    <h4 id="when-to-consider-something-else-default-banner" class="usa-heading site-component-usage__header--secondary">
+      When to consider something else
+    </h4>
+    <ul class="usa-content-list">
+  <li><strong>If you don’t use a .gov/.mil domain and HTTPS.</strong> The Design System’s banner text identifies <code class="language-plaintext highlighter-rouge">.gov</code> and <code class="language-plaintext highlighter-rouge">.mil</code> domains and HTTPS as indicators that a website is an official government website. Use this banner only if your site uses both the proper top-level domain (TLD) <em>and</em> HTTPS.</li>
+  <li><strong>Any time it would be misleading.</strong> The banner should be used to reduce confusion. Avoid using the banner on any site meant only for testing or otherwise not meant to be identified as an official government website.</li>
+</ul>
+
+  
+  
+    <h4 id="usability-guidance-default-banner" class="usa-heading site-component-usage__header--secondary">Usability guidance</h4>
+    <ul class="usa-content-list">
+  <li><strong>Use the provided text without customization.</strong> The banner is most effective as an identifier and a learning tool when its message is consistent across government sites. With only a few exceptions (described in our <a href="#using-the-banner-component">Implementation guidance</a>), sites should use the top-level domain (TLD)-appropriate text provided, unaltered. Use the Spanish version of the banner for Spanish-language websites.</li>
+  <li><strong>Use the version appropriate to your website’s top-level domain (TLD).</strong> If your project uses a <code class="language-plaintext highlighter-rouge">.mil</code> top-level domain, use the <code class="language-plaintext highlighter-rouge">.mil</code> banner text.</li>
+  <li><strong>Show the banner on every page.</strong> Use the banner at the top of every page of a site. It can be confusing or misleading if it appears on some pages and not others.</li>
+  <li><strong>Avoid distraction.</strong> The banner should appear on every page of your site. Choose background colors that fit with your site theme, and avoid color combinations that draw excessive attention to the banner.</li>
+  <li><strong>Keep the text up to date.</strong> Use the most current version of the banner.</li>
+</ul>
+
+  
+  
+    <h4 id="accessibility-default-banner" class="usa-heading site-component-usage__header--secondary">
+      Accessibility guidance
+    </h4>
+    
+    <ul class="usa-content-list">
+  <li><strong>Use <code class="language-plaintext highlighter-rouge">aria-label</code> to give the banner a useful name.</strong> Our default markup uses <code class="language-plaintext highlighter-rouge">aria-label="Official website of the United States government"</code> or <code class="language-plaintext highlighter-rouge">aria-label="Un sitio oficial del Gobierno de Estados Unidos"</code> to distinguish the banner <code class="language-plaintext highlighter-rouge">header</code> from the main <code class="language-plaintext highlighter-rouge">header</code>.</li>
+  <li><strong>The banner’s accordion uses JavaScript to set the <code class="language-plaintext highlighter-rouge">aria-hidden</code> value of its content area.</strong> To ensure your content remains accessible in the event the JavaScript does not load or is disabled, you should not set <code class="language-plaintext highlighter-rouge">aria-hidden="true"</code> on <code class="language-plaintext highlighter-rouge">usa-banner__content</code>.</li>
+</ul>
+
+  
+  
+  
+    <h4 id="using-the-default-banner-" class="usa-heading site-component-usage__header--secondary">
+      Using the default banner 
+    </h4>
+    <ul class="usa-content-list">
+  <li>Some <code class="language-plaintext highlighter-rouge">.gov</code> websites don’t represent the federal level of the U.S. government. These sites should adapt the <strong>An official website of the United States government</strong> and <strong>Official websites use .gov</strong> sections to use more accurate language specific to the site.</li>
+  <li>Some <code class="language-plaintext highlighter-rouge">.mil</code> websites don’t belong to an official U.S. Department of Defense organization. These sites should adapt the <strong>Official websites use .mil</strong> section to use more technically accurate language: “A <strong>.mil</strong> website operates under the approval of the U.S. Department of Defense.”</li>
+  <li>The banner should directly follow the <code class="language-plaintext highlighter-rouge">skipnav</code> component.</li>
+  <li>Set the banner background color with <code class="language-plaintext highlighter-rouge">$theme-banner-background-color</code>. Banner text color will update automatically.</li>
+</ul>
+
+<p class="site-note">
+  <strong>Note:</strong> We recommend loading <code>uswds-init.js</code> when using banner, header, or modal components to assist in preventing flashes of unstyled content (FOUC) as well as cumulative layout shift (CLS). This small JavaScript file (less than 1 KB minified) helps the browser know if the USWDS JavaScript library is loading properly.
+  <br />
+  <br />
+  To add <code>uswds-init</code> to your site, simply copy <code>uswds-init.js</code> into your site assets from either the <a href="https://github.com/uswds/uswds/blob/develop/packages/uswds-core/src/js"><code>uswds-core/src/js</code></a> package or the <code>dist/js</code> directory in the <a href="/download/">downloadable package</a>. Then, reference the file in the <code>&lt;head&gt;</code> of your HTML files. Alternatively, you can inline its contents directly into a <code>&lt;script&gt;</code> tag in your HTML files.
+</p>
+
+
+    
+  
+  
+  
+</div>
+
+<!-- Add accessibility test results -->
+
+<h3 id="default-banner-package" class="site-component-section-title">Package</h3>
+<ul class="usa-content-list">
+  <li>
+    <strong>Package usage:</strong> <code>@forward "usa-banner";</code>
+  </li>
+  <li><strong>Dependencies: </strong><code class="text-no-wrap">uswds-fonts</code>, 
+<code class="text-no-wrap">usa-media-block</code>
+</li>
+</ul>
+
+<h2 class="site-component-name" id="banner-web-component">Banner Web Component</h2>
+
+<p class="site-text-intro">A banner variant that may be easier for some teams to implement and keep up to date.</p>
+
+<div class="usa-accordion usa-accordion--bordered site-accordion-code site-component-preview">
+  
+  
+  <h3 id="banner--web-component-preview" class="usa-accordion__heading site-accordion-heading">
+    <button type="button" class="usa-accordion__button" aria-controls="banner--web-component-preview-content" aria-expanded="true">
+      Component preview
+    </button>
+  </h3>
+  <div id="banner--web-component-preview-content" class="usa-accordion__content">
+
+    
+        <h3 class="site-preview-heading">Web Component Variant</h3>
+<!-- The script tag should go in the head of your page, if possible -->
+<script src="/assets/uswds/components/usa-banner.js.mjs" type="module"></script>
+<usa-banner></usa-banner>
+
+<h3 class="site-preview-heading">Web Component Variant (Spanish)</h3>
+<!-- The script tag should go in the head of your page, if possible -->
+<script src="/assets/uswds/components/usa-banner.js.mjs" type="module"></script>
+<usa-banner lang="es"></usa-banner>
+
+<h3 class="site-preview-heading">Web Component Variant (.mil domain, customized)</h3>
+<!-- The script tag should go in the head of your page, if possible -->
+<script src="/assets/uswds/components/usa-banner.js.mjs" type="module"></script>
+<usa-banner tld="mil" style="--theme-banner-background-color: #e1f3f8;">
+  <div slot="domain-text">A <strong>.mil</strong> website belongs to an official U.S. Department of Defense organization.</div>
+</usa-banner>
+    
+  </div>
+</div>
+
+<div class="usa-accordion usa-accordion--bordered site-accordion-code">
+  
+  
+  <h3 id="banner--web-component-code" class="usa-accordion__heading site-accordion-heading">
+    <button type="button" class="usa-accordion__button" aria-controls="banner--web-component-code-content">
+      Component code
+    </button>
+  </h3>
+  <div id="banner--web-component-code-content" class="usa-accordion__content copy-code">
+    
+
+<div class="usa-sr-only">
+  
+<figure class="highlight"><pre><code class="language-text" data-lang="text">&lt;h3 class="site-preview-heading"&gt;Web Component Variant&lt;/h3&gt;
+&lt;!-- The script tag should go in the head of your page, if possible --&gt;
+&lt;script src="/assets/uswds/components/usa-banner.js.mjs" type="module"&gt;&lt;/script&gt;
+&lt;usa-banner&gt;&lt;/usa-banner&gt;
+
+&lt;h3 class="site-preview-heading"&gt;Web Component Variant (Spanish)&lt;/h3&gt;
+&lt;!-- The script tag should go in the head of your page, if possible --&gt;
+&lt;script src="/assets/uswds/components/usa-banner.js.mjs" type="module"&gt;&lt;/script&gt;
+&lt;usa-banner lang="es"&gt;&lt;/usa-banner&gt;
+
+&lt;h3 class="site-preview-heading"&gt;Web Component Variant (.mil domain, customized)&lt;/h3&gt;
+&lt;!-- The script tag should go in the head of your page, if possible --&gt;
+&lt;script src="/assets/uswds/components/usa-banner.js.mjs" type="module"&gt;&lt;/script&gt;
+&lt;usa-banner 
+  tld="mil"
+  style="--theme-banner-background-color: #e1f3f8;"
+  &gt;
+  &lt;div slot="domain-text"&gt;A &lt;strong&gt;.mil&lt;/strong&gt; website belongs to an official U.S. Department of Defense organization.&lt;/div&gt;
+&lt;/usa-banner&gt;</code></pre></figure>
+
+</div>
+<div aria-hidden="true">
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"site-preview-heading"</span><span class="nt">&gt;</span>Web Component Variant<span class="nt">&lt;/h3&gt;</span>
+<span class="c">&lt;!-- The script tag should go in the head of your page, if possible --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/assets/uswds/components/usa-banner.js.mjs"</span> <span class="na">type=</span><span class="s">"module"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;usa-banner&gt;&lt;/usa-banner&gt;</span>
+
+<span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"site-preview-heading"</span><span class="nt">&gt;</span>Web Component Variant (Spanish)<span class="nt">&lt;/h3&gt;</span>
+<span class="c">&lt;!-- The script tag should go in the head of your page, if possible --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/assets/uswds/components/usa-banner.js.mjs"</span> <span class="na">type=</span><span class="s">"module"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;usa-banner</span> <span class="na">lang=</span><span class="s">"es"</span><span class="nt">&gt;&lt;/usa-banner&gt;</span>
+
+<span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"site-preview-heading"</span><span class="nt">&gt;</span>Web Component Variant (.mil domain, customized)<span class="nt">&lt;/h3&gt;</span>
+<span class="c">&lt;!-- The script tag should go in the head of your page, if possible --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/assets/uswds/components/usa-banner.js.mjs"</span> <span class="na">type=</span><span class="s">"module"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;usa-banner</span> 
+  <span class="na">tld=</span><span class="s">"mil"</span>
+  <span class="na">style=</span><span class="s">"--theme-banner-background-color: #e1f3f8;"</span>
+  <span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">slot=</span><span class="s">"domain-text"</span><span class="nt">&gt;</span>A <span class="nt">&lt;strong&gt;</span>.mil<span class="nt">&lt;/strong&gt;</span> website belongs to an official U.S. Department of Defense organization.<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/usa-banner&gt;</span></code></pre></figure>
+
+</div>
+  </div>
+</div>
+
+<h3 id="banner-web-component-guidance" class="site-component-section-title">
+  Guidance
+</h3>
+<div class="site-component-usage">
+  
+  
+    <h4 id="about-banner-web-component" class="usa-heading site-component-usage__header--secondary">About</h4>
+    
+<p class="usa-content-list">USWDS 3.13.0 introduces an HTML Web Component variant of banner.</p>
+
+<p>Both options exist in <code class="language-plaintext highlighter-rouge">components/banner</code>, as well as in <code class="language-plaintext highlighter-rouge">dist/components/usa-banner</code>. We recommend most implementations use the compiled version in <code class="language-plaintext highlighter-rouge">dist</code> at this point, though this version is less customizable.</p>
+
+
+  
+  
+    <h4 id="when-to-use-the-banner-web-component" class="usa-heading site-component-usage__header--secondary">
+      When to use the banner web component 
+    </h4>
+    <ul class="usa-content-list">
+  <li>Use the Web Component variant of the banner anywhere you would use the default banner. The Web Component variant may be easier to add to your site, but it is also less customizable than the default banner.</li>
+</ul>
+
+  
+  
+    <h4 id="when-to-consider-something-else-banner-web-component" class="usa-heading site-component-usage__header--secondary">
+      When to consider something else
+    </h4>
+    <p class="usa-content-list">If you need more customizability than the Web Component variant of the banner offers.</p>
+
+  
+  
+  
+  
+  
+    <h4 id="using-the-banner-web-component-" class="usa-heading site-component-usage__header--secondary">
+      Using the banner web component 
+    </h4>
+    <ul class="usa-content-list">
+  <li>Some <code class="language-plaintext highlighter-rouge">.gov</code> websites don’t represent the federal level of the U.S. government. These sites should adapt the <strong>An official website of the United States government</strong> and <strong>Official websites use .gov</strong> sections to use more accurate language specific to the site.</li>
+  <li>Some <code class="language-plaintext highlighter-rouge">.mil</code> websites don’t belong to an official U.S. Department of Defense organization. These sites should adapt the <strong>Official websites use .mil</strong> section to use more technically accurate language: “A <strong>.mil</strong> website operates under the approval of the U.S. Department of Defense.”</li>
+  <li>The banner should directly follow the <code class="language-plaintext highlighter-rouge">skipnav</code> component.</li>
+  <li>We realize this documentation won’t cover all use cases, build environments, or tooling. If you have questions, you can ask USWDS community members in our <a href="https://github.com/uswds/uswds/discussions">GitHub discussions</a> or <a href="https://designsystem.digital.gov/about/community/#join-the-community-2" data-proofer-ignore="">Slack channel</a>, or contact us directly at <a href="mailto:uswds@gsa.gov">uswds@gsa.gov</a>. We’ll be expanding this documentation in the future and your questions and feedback will help us understand what you need to get started with this variant and its implementation.</li>
+</ul>
+
+<h4>Web Component Settings</h4>
+
+<h5>Attributes</h5>
+<table class="usa-table--borderless site-table-responsive site-table-simple">
+    <thead>
+      <tr>
+        <th scope="col" class="flex-6 display-inline-flex">Attribute</th>
+        <th scope="col" class="flex-6 display-inline-flex">Description</th>
+      </tr>
+    </thead>
+    <tbody class="font-mono-2xs">
+      
+      <tr>
+        <td data-title="Variable" class="flex-6 display-inline-flex flex-align-start">
+          <code>
+            lang
+          </code>
+        </td>
+        <td data-title="Description" class="flex-6 display-inline-flex flex-align-start">
+          <span class="font-lang-3xs">
+            <p>The element's language. Defaults to <code>en</code></p>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td data-title="Variable" class="flex-6 display-inline-flex flex-align-start">
+          <code>
+            label
+          </code>
+        </td>
+        <td data-title="Description" class="flex-6 display-inline-flex flex-align-start">
+          <span class="font-lang-3xs">
+            <p>The custom aria label users can override.</p>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td data-title="Variable" class="flex-6 display-inline-flex flex-align-start">
+          <code>
+            tld
+          </code>
+        </td>
+        <td data-title="Description" class="flex-6 display-inline-flex flex-align-start">
+          <span class="font-lang-3xs">
+            <p>The top level domain for the site. Defaults to <code>.gov</code></p>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<h5>Slots</h5>
+<table class="usa-table--borderless site-table-responsive site-table-simple">
+    <thead>
+      <tr>
+        <th scope="col" class="flex-6 display-inline-flex">Slot</th>
+        <th scope="col" class="flex-6 display-inline-flex">Description</th>
+      </tr>
+    </thead>
+    <tbody class="font-mono-2xs">
+      
+      <tr>
+        <td data-title="Variable" class="flex-6 display-inline-flex flex-align-start">
+          <code>
+            banner-text
+          </code>
+        </td>
+        <td data-title="Description" class="flex-6 display-inline-flex flex-align-start">
+          <span class="font-lang-3xs">
+            <p>The text for official government website text.</p>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td data-title="Variable" class="flex-6 display-inline-flex flex-align-start">
+          <code>
+            banner-action
+          </code>
+        </td>
+        <td data-title="Description" class="flex-6 display-inline-flex flex-align-start">
+          <span class="font-lang-3xs">
+            <p>Action text label "Here's how you know."</p>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td data-title="Variable" class="flex-6 display-inline-flex flex-align-start">
+          <code>
+            domain-heading 
+          </code>
+        </td>
+        <td data-title="Description" class="flex-6 display-inline-flex flex-align-start">
+          <span class="font-lang-3xs">
+            <p>Heading text for the domain section.</p>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td data-title="Variable" class="flex-6 display-inline-flex flex-align-start">
+          <code>
+            domain-text
+          </code>
+        </td>
+        <td data-title="Description" class="flex-6 display-inline-flex flex-align-start">
+          <span class="font-lang-3xs">
+            <p>Body text for domain section.</p>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td data-title="Variable" class="flex-6 display-inline-flex flex-align-start">
+          <code>
+            https-heading
+          </code>
+        </td>
+        <td data-title="Description" class="flex-6 display-inline-flex flex-align-start">
+          <span class="font-lang-3xs">
+            <p>Heading for HTTPs section.</p>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td data-title="Variable" class="flex-6 display-inline-flex flex-align-start">
+          <code>
+            https-text
+          </code>
+        </td>
+        <td data-title="Description" class="flex-6 display-inline-flex flex-align-start">
+          <span class="font-lang-3xs">
+            <p>Body text for HTTPs section.</p>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<h5>Custom Properties</h5>
+<table class="usa-table--borderless site-table-responsive site-table-simple">
+    <thead>
+      <tr>
+        <th scope="col" class="flex-6 display-inline-flex">Custom Property</th>
+        <th scope="col" class="flex-6 display-inline-flex">Description</th>
+      </tr>
+    </thead>
+    <tbody class="font-mono-2xs">
+      
+      <tr>
+        <td data-title="Variable" class="flex-6 display-inline-flex flex-align-start">
+          <code>
+            --theme-banner-text-color
+          </code>
+        </td>
+        <td data-title="Description" class="flex-6 display-inline-flex flex-align-start">
+          <span class="font-lang-3xs">
+            <p>Sets banner text color.</p>
+          </span>
+        </td>
+      </tr>
+      
+      <tr>
+        <td data-title="Variable" class="flex-6 display-inline-flex flex-align-start">
+          <code>
+            --theme-banner-background-color
+          </code>
+        </td>
+        <td data-title="Description" class="flex-6 display-inline-flex flex-align-start">
+          <span class="font-lang-3xs">
+            <p>Sets banner background color.</p>
+          </span>
+        </td>
+      </tr>
+      
+      <tr>
+        <td data-title="Variable" class="flex-6 display-inline-flex flex-align-start">
+          <code>
+            --theme-banner-font-family
+          </code>
+        </td>
+        <td data-title="Description" class="flex-6 display-inline-flex flex-align-start">
+          <span class="font-lang-3xs">
+            <p>Sets banner font family</p>
+          </span>
+        </td>
+      </tr>
+
+      <tr>
+        <td data-title="Variable" class="flex-6 display-inline-flex flex-align-start">
+          <code>
+            --theme-banner-link-color
+          </code>
+        </td>
+        <td data-title="Description" class="flex-6 display-inline-flex flex-align-start">
+          <span class="font-lang-3xs">
+            <p>Sets the default link/button color.</p>
+          </span>
+        </td>
+      </tr>
+
+      <tr>
+        <td data-title="Variable" class="flex-6 display-inline-flex flex-align-start">
+          <code>
+            --theme-banner-link-hover-color
+          </code>
+        </td>
+        <td data-title="Description" class="flex-6 display-inline-flex flex-align-start">
+          <span class="font-lang-3xs">
+            <p>Sets the default link/banner hover color.</p>
+          </span>
+        </td>
+      </tr>
+
+      <tr>
+        <td data-title="Variable" class="flex-6 display-inline-flex flex-align-start">
+          <code>
+            --theme-banner-chevron-color
+          </code>
+        </td>
+        <td data-title="Description" class="flex-6 display-inline-flex flex-align-start">
+          <span class="font-lang-3xs">
+            <p>Sets the default chevron color.</p>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<p class="site-note"><strong>Note:</strong> As this is the first Web Component shipping in USWDS, we are still working on the best way to document its usage. We want to hear from users about challenges with adding this component to your projects. Please let us know what works, what doesn’t, and what additional documentation might be helpful in this <a href="https://github.com/uswds/uswds/discussions/6477">discussion thread</a>.</p>
+
+    
+  
+  
+  
+</div>
+
+<!-- Add accessibility test results -->
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="banner-guidance" class="site-component-section-title">
+  Guidance
+</h2>
+<div class="site-component-usage">
+  
+  
+  
+  
+  
+  
+  
+  
+    <h3  id="using-the-banner-component" class="usa-heading site-component-usage__header--secondary">
+      Using the banner component
+    </h3>
+    
+    
+      <h4 id="component-settings-banner" class="site-component-usage__header--tertiary">
+        Banner settings
+      </h4>
+      
+      
+
+
+
+
+
+
+
+  <table class="usa-table--borderless site-table-responsive site-table-simple">
+    <thead>
+      <tr>
+        <th scope="col" class="flex-6 display-inline-flex">Variable</th>
+        <th scope="col" class="flex-6 display-inline-flex">Description</th>
+      </tr>
+    </thead>
+    <tbody class="font-mono-2xs">
+      
+      <tr>
+        <td data-title="Variable" class="flex-6 display-inline-flex flex-align-start">
+          <code>
+            $theme-banner-background-color
+          </code>
+        </td>
+        <td data-title="Description" class="flex-6 display-inline-flex flex-align-start">
+          <span class="font-lang-3xs">
+            <p>Background color of the banner and its content.</p>
+
+          </span>
+        </td>
+      </tr>
+      
+      <tr>
+        <td data-title="Variable" class="flex-6 display-inline-flex flex-align-start">
+          <code>
+            $theme-banner-font-family
+          </code>
+        </td>
+        <td data-title="Description" class="flex-6 display-inline-flex flex-align-start">
+          <span class="font-lang-3xs">
+            <p>The font family of the banner.</p>
+
+          </span>
+        </td>
+      </tr>
+      
+      <tr>
+        <td data-title="Variable" class="flex-6 display-inline-flex flex-align-start">
+          <code>
+            $theme-banner-link-color
+          </code>
+        </td>
+        <td data-title="Description" class="flex-6 display-inline-flex flex-align-start">
+          <span class="font-lang-3xs">
+            <p>The color of banner link. Add the link color and the system will generate the hover state. <code class="language-plaintext highlighter-rouge">Default</code> uses the default link settings calculated from your background color.</p>
+
+          </span>
+        </td>
+      </tr>
+      
+      <tr>
+        <td data-title="Variable" class="flex-6 display-inline-flex flex-align-start">
+          <code>
+            $theme-banner-max-width
+          </code>
+        </td>
+        <td data-title="Description" class="flex-6 display-inline-flex flex-align-start">
+          <span class="font-lang-3xs">
+            <p>Maximum width of the banner content.</p>
+
+          </span>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+
+      <h4 id="component-variants-banner" class="site-component-usage__header--tertiary">
+        Banner variants
+      </h4>
+      
+
+
+  <table class="usa-table--borderless site-table-responsive site-table-simple margin-top-105">
+    <thead>
+      <tr>
+
+        <th scope="col" class="flex-1 display-inline-flex">Variant</th>
+
+        <th scope="col" class="flex-1 display-inline-flex">Description</th>
+      </tr>
+    </thead>
+    <tbody class="font-lang-3xs">
+      <tr>
+
+        <td class="flex-1 display-inline-flex flex-align-start"
+          data-title="Variant"
+          >
+          <p><code class="language-plaintext highlighter-rouge">&lt;usa-banner&gt;</code></p>
+
+        </td>
+
+        <td class="flex-1 display-inline-flex flex-align-start"
+          data-title="Description"
+          >
+          <p>An HTML Web Component version of Banner. Easier to implement and update but potentially harder to customize. <a href="#banner-web-component" data-proofer-ignore="">See above</a> for details.</p>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+    
+  
+  
+  
+</div>
+
+<!-- Add accessibility test results -->
+
+  
+
+
+
+<!-- Create a list of each status type -->
+
+
+<!-- Set status icons -->
+
+
+
+
+
+<!-- Count the number of items for each status type -->
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="site-component-section-title">Accessibility test status</h2>
+
+
+  <p class="margin-top-1 margin-bottom-0">The USWDS team did 14 tests based on WCAG 2.1 AA success criteria.</p>
+
+  <!-- Add test summary for desktop widths -->
+  <table class="usa-table site-checklist-test-summary__table">
+    <caption>
+      Overview of recent accessibility test results:
+    </caption>
+    <thead>
+      <tr>
+        <th>Total tests</th>
+        
+          
+          <th>
+            <div class="display-flex flex-align-center">
+                <svg class="usa-icon site-checklist-icon site-checklist-icon--pass" aria-hidden="true" role="img">
+                  <use href="/assets/img/sprite.svg#check_circle"></use>
+                </svg>
+              Passed
+            </div>
+          </th>
+        
+          
+          <th>
+            <div class="display-flex flex-align-center">
+                <svg class="usa-icon site-checklist-icon site-checklist-icon--exception" aria-hidden="true" role="img">
+                  <use href="/assets/img/sprite.svg#warning"></use>
+                </svg>
+              Passed with exceptions
+            </div>
+          </th>
+        
+          
+          <th>
+            <div class="display-flex flex-align-center">
+                <svg class="usa-icon site-checklist-icon site-checklist-icon--conditional" aria-hidden="true" role="img">
+                  <use href="/assets/img/sprite.svg#info"></use>
+                </svg>
+              Conditional
+            </div>
+          </th>
+        
+          
+          <th>
+            <div class="display-flex flex-align-center">
+                <svg class="usa-icon site-checklist-icon site-checklist-icon--fail" aria-hidden="true" role="img">
+                  <use href="/assets/img/sprite.svg#cancel"></use>
+                </svg>
+              Failed
+            </div>
+          </th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>14</td>
+        
+          
+          <td class="border-">12</td>
+        
+          
+          <td class="border-">0</td>
+        
+          
+          <td class="border-">2</td>
+        
+          
+          <td class="border-">0</td>
+        
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Add test summary for mobile widths -->
+  <div class="site-checklist-test-summary__list">
+    <p class="site-checklist-test-summary__list-summary">Overview of recent accessibility test results:</p>
+    <ul class="usa-icon-list">
+      
+        
+
+        
+        
+
+        <li class="usa-icon-list__item">
+          <div class="usa-icon-list__icon site-checklist-icon--pass">
+            <svg class="usa-icon" aria-hidden="true" role="img">
+              <use href="/assets/img/sprite.svg#check_circle"></use>
+            </svg>
+          </div>
+          <div class="usa-icon-list__content">
+            <b>Passed:</b> 12
+          </div>
+        </li>
+      
+        
+
+        
+        
+
+        <li class="usa-icon-list__item">
+          <div class="usa-icon-list__icon site-checklist-icon--exception">
+            <svg class="usa-icon" aria-hidden="true" role="img">
+              <use href="/assets/img/sprite.svg#warning"></use>
+            </svg>
+          </div>
+          <div class="usa-icon-list__content">
+            <b>Passed with exceptions:</b> 0
+          </div>
+        </li>
+      
+        
+
+        
+        
+
+        <li class="usa-icon-list__item">
+          <div class="usa-icon-list__icon site-checklist-icon--conditional">
+            <svg class="usa-icon" aria-hidden="true" role="img">
+              <use href="/assets/img/sprite.svg#info"></use>
+            </svg>
+          </div>
+          <div class="usa-icon-list__content">
+            <b>Conditional:</b> 2
+          </div>
+        </li>
+      
+        
+
+        
+        
+
+        <li class="usa-icon-list__item">
+          <div class="usa-icon-list__icon site-checklist-icon--fail">
+            <svg class="usa-icon" aria-hidden="true" role="img">
+              <use href="/assets/img/sprite.svg#cancel"></use>
+            </svg>
+          </div>
+          <div class="usa-icon-list__content">
+            <b>Failed:</b> 0
+          </div>
+        </li>
+      
+    </ul>
+  </div>
+
+<p class="margin-top-0">Learn more on the <a href="/components/banner/accessibility-tests/">banner accessibility tests page</a>.</p>
+
+
+
+
+
+  
+
+
+
+
+
+<h2 id="banner-package" class="site-component-section-title">Package</h2>
+<ul class="usa-content-list">
+  <li>
+    <strong>Package usage:</strong> <code>@forward "usa-banner";</code>
+  </li>
+  <li><strong>Dependencies: </strong><code class="text-no-wrap">uswds-fonts</code>, 
+<code class="text-no-wrap">usa-media-block</code>
+</li>
+</ul>
+
+
+
+
+
+
+        
+
+
+
+<h2 id="changelog" class="site-component-section-title">Latest updates</h2><p>Meaningful code and guidance updates are listed in the following table:</p>
+  
+    
+
+
+
+
+
+
+
+
+
+
+<table class="usa-table--borderless site-table-responsive site-table-simple">
+  <thead>
+    <tr>
+      <th scope="col" class="tablet:grid-col">Date</th>
+      <th scope="col" class="tablet:grid-col tablet:padding-left-0">USWDS version</th>
+      <th scope="col" class="tablet:grid-col">Affects</th>
+      <th scope="col" class="tablet:grid-col site-changelog--hide-tablet">Breaking</th>
+      <th scope="col" class="tablet:grid-col-6">Description</th>
+    </tr>
+  </thead>
+  <tbody class="font-lang-3xs">
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2026-08-18</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v3.14.0">
+            3.14.0
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+          
+          
+            <li><span class="output-neutral">JavaScript</span></li>
+          
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Fixed banner toggle lookup to respect the component root.
+
+          </strong>
+          
+            The toggle now resolves aria-controls from the control’s root node instead of always using document, so banner toggles work correctly when initialized inside a shadow root via banner.on(root).
+
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/6714">
+              uswds#6714
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2026-08-18</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v3.14.0">
+            3.14.0
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+          
+          
+            <li><span class="output-neutral">JavaScript</span></li>
+          
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Updated web component JSDoc to use the standard @element tag.
+
+          </strong>
+          
+            Changed the JSDoc decorator from @tagname to @element for the usa-banner web component. This is a documentation-only change with no functional impact.
+
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/6739">
+              uswds#6739
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2025-05-23</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v3.13.0">
+            3.13.0
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+          
+            <li><span class="output-neutral">Guidance</span></li>
+          
+          
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Added a new HTML Web Component-based variant of the banner.
+
+          </strong>
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/6460">
+              uswds#6460
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2024-06-07</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        N/A
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+          
+            <li><span class="output-neutral">Guidance</span></li>
+          
+          
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Added WCAG compliance tag and accessibility test status section.
+
+          </strong>
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds-site/pull/2687">
+              uswds-site#2687
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2023-11-30</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        N/A
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+          
+          
+          
+            <li><span class="output-warning">Markup</span></li>
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          <span class="output-false">Breaking</span>
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+            <span class="site-changelog--show-tablet output-false">Breaking</span>
+          
+          <strong>
+            Fixed a bug causing component code example ID’s and relevant aria attributes to display incorrectly.
+
+          </strong>
+          
+            Now, example ID’s match what’s found in the USWDS repo and are more succinct.
+
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds-site/pull/2312">
+              uswds-site#2312
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2023-11-20</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        N/A
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+          
+            <li><span class="output-neutral">Guidance</span></li>
+          
+          
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Updated the text in the <code class="language-plaintext highlighter-rouge">aria-label</code> documentation to match the component markup.
+
+          </strong>
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds-site/pull/2149">
+              uswds-site#2149
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2023-11-20</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        N/A
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+          
+            <li><span class="output-neutral">Guidance</span></li>
+          
+          
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Removed <code class="language-plaintext highlighter-rouge">usa-layout-grid</code> from the list of dependencies.
+
+          </strong>
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds-site/pull/2149">
+              uswds-site#2149
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2023-11-09</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v3.7.0">
+            3.7.0
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+          
+          
+            <li><span class="output-neutral">JavaScript</span></li>
+          
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Updated the banner component so that it initializes without requiring import of the <code class="language-plaintext highlighter-rouge">usa-accordion</code> package.
+
+          </strong>
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/5551">
+              uswds#5551
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2023-11-09</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v3.7.0">
+            3.7.0
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+            <li><span class="output-neutral">Assets</span></li>
+          
+          
+          
+          
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Optimized the <code class="language-plaintext highlighter-rouge">us_flag_small.png</code> icon and added a vector <code class="language-plaintext highlighter-rouge">us_flag.svg</code>icon.
+
+          </strong>
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/5542">
+              uswds#5542
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2023-09-29</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v3.6.1">
+            3.6.1
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+            <li><span class="output-neutral">Assets</span></li>
+          
+          
+          
+          
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Improved horizontal alignment in <code class="language-plaintext highlighter-rouge">icon-dot-gov.svg</code>.
+
+          </strong>
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/5370">
+              uswds#5370
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2023-03-09</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v3.4.0">
+            3.4.0
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+          
+          
+          
+          
+            <li><span class="output-neutral">Styles</span></li>
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Improved display of focus outline on mobile.
+
+          </strong>
+          
+            Now the focus outline is visible all around the banner on mobile devices.
+
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/5013">
+              uswds#5013
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2023-03-09</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v3.4.0">
+            3.4.0
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+          
+          
+          
+          
+            <li><span class="output-neutral">Styles</span></li>
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Updated padding settings to accept any valid spacing token.
+
+          </strong>
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/5076">
+              uswds#5076
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2023-03-09</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v3.4.0">
+            3.4.0
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+          
+          
+          
+          
+            <li><span class="output-neutral">Styles</span></li>
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Removed grid dependency from Banner.
+
+          </strong>
+          
+            Banner no longer needs the <code class="language-plaintext highlighter-rouge">usa-layout-grid</code> package resulting in a much smaller package size.
+
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/5000">
+              uswds#5000
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2022-10-09</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v3.2.0">
+            3.2.0
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+            <li><span class="output-warning">Accessibility</span></li>
+          
+          
+          
+          
+          
+          
+            <li><span class="output-warning">Markup</span></li>
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Updated the aria-label in English versions of banner.
+
+          </strong>
+          
+            When read out on a screen reader, the statement “An official website of the United States government” can sound like “Unofficial website of the United States government”. To minimize confusion, we updated the component’s <code class="language-plaintext highlighter-rouge">aria-label</code> to instead read “Official website of the United States government”.
+
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/4925">
+              uswds#4925
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2022-10-09</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v3.2.0">
+            3.2.0
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+            <li><span class="output-warning">Accessibility</span></li>
+          
+          
+          
+          
+          
+          
+            <li><span class="output-warning">Markup</span></li>
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Added aria-hidden attribute to the flag icon.
+
+          </strong>
+          
+            The flag icon in the banner component is purely decorative and we can safely remove it from the screen reader readout.
+
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/4925">
+              uswds#4925
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2022-10-09</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v3.2.0">
+            3.2.0
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+            <li><span class="output-warning">Accessibility</span></li>
+          
+          
+          
+          
+          
+          
+            <li><span class="output-warning">Markup</span></li>
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Simplified ARIA label in the lock SVG.
+
+          </strong>
+          
+            We simplified the way we’re using <code class="language-plaintext highlighter-rouge">aria-labelledby</code> in the lock SVG to streamline screen reader vocalization.
+
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/4925">
+              uswds#4925
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2022-08-05</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v3.1.0">
+            3.1.0
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+          
+          
+            <li><span class="output-neutral">JavaScript</span></li>
+          
+          
+            <li><span class="output-warning">Markup</span></li>
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          <span class="output-false">Breaking</span>
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+            <span class="site-changelog--show-tablet output-false">Breaking</span>
+          
+          <strong>
+            Added <code class="language-plaintext highlighter-rouge">type="button"</code> to all non-form buttons to prevent default submit behaviors.
+
+          </strong>
+          
+            This allowed us to remove <code class="language-plaintext highlighter-rouge">preventDefault()</code> from the relevant component JavaScript.
+
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/4695">
+              uswds#4695
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2022-06-17</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v3.0.2">
+            3.0.2
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+            <li><span class="output-neutral">Assets</span></li>
+          
+          
+          
+          
+            <li><span class="output-neutral">JavaScript</span></li>
+          
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Updated uswds-init.js to better suppress flashing content.
+
+          </strong>
+          
+            We updated the <code class="language-plaintext highlighter-rouge">uswds-init</code> script’s event listener to target <code class="language-plaintext highlighter-rouge">window</code> from <code class="language-plaintext highlighter-rouge">document</code>. This assures that the page’s JavaScript is fully loaded before we remove the <code class="language-plaintext highlighter-rouge">loadingClass</code> that suppresses the open banner. The banner should no longer flash open.
+
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/4676">
+              uswds#4676
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2022-06-17</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v3.0.2">
+            3.0.2
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+            <li><span class="output-neutral">Assets</span></li>
+          
+          
+          
+          
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Updated flag icon to be high resolution.
+
+          </strong>
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/4792">
+              uswds#4792
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2022-04-28</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v3.0.0">
+            3.0.0
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+            <li><span class="output-neutral">Assets</span></li>
+          
+          
+          
+          
+            <li><span class="output-neutral">JavaScript</span></li>
+          
+          
+          
+            <li><span class="output-neutral">Styles</span></li>
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          <span class="output-false">Breaking</span>
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+            <span class="site-changelog--show-tablet output-false">Breaking</span>
+          
+          <strong>
+            Updated to Sass module syntax and new package structure.
+
+          </strong>
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/4656">
+              uswds#4656
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2022-04-11</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v2.13.3">
+            2.13.3
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+            <li><span class="output-warning">Accessibility</span></li>
+          
+          
+          
+          
+          
+          
+          
+            <li><span class="output-neutral">Styles</span></li>
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Added support for forced colors mode.
+
+          </strong>
+          
+            All our components now support proper display when users have a forced colors mode set in their operating system.
+
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/4610">
+              uswds#4610
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2021-03-02</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        N/A
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+          
+            <li><span class="output-neutral">Guidance</span></li>
+          
+          
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Updated guidance to identify banner as a core component.
+
+          </strong>
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds-site/pull/1136">
+              uswds-site#1136
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2020-12-17</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v2.10.0">
+            2.10.0
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+            <li><span class="output-neutral">Assets</span></li>
+          
+          
+          
+          
+            <li><span class="output-neutral">JavaScript</span></li>
+          
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Introduced uswds-init.js to prevent banner flash.
+
+          </strong>
+          
+            When added to the <code class="language-plaintext highlighter-rouge">head</code> of your document, this script prevents the banner from flashing its content on page load and shifting content.
+
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/3867">
+              uswds#3867
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2020-12-17</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v2.10.0">
+            2.10.0
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+            <li><span class="output-warning">Accessibility</span></li>
+          
+          
+            <li><span class="output-neutral">Assets</span></li>
+          
+          
+          
+          
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Improved the accessibility of decorative images in the banner.
+
+          </strong>
+          
+            We modified the banner to properly mark up SVG files used as decorative images. Now all decorative images are hidden from screen readers, and all SVGs are more resilient to browser bugs. See the banner page for the complete, correct markup, and see the pull request for more context on the changes.
+
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/3892">
+              uswds#3892
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2020-07-09</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v2.8.0">
+            2.8.0
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+            <li><span class="output-neutral">Content</span></li>
+          
+          
+          
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Updated banner copy.
+
+          </strong>
+          
+            Updated the expanded text in the banner to emphasize that trustworthiness is a combination of an official TLD and a secure HTTPS connection.
+
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/3524">
+              uswds#3524
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2020-07-09</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v2.8.0">
+            2.8.0
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+            <li><span class="output-neutral">Content</span></li>
+          
+          
+          
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Added Spanish versions.
+
+          </strong>
+          
+            Included approved Spanish versions of the banner text.
+
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/3524">
+              uswds#3524
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2020-07-09</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v2.8.0">
+            2.8.0
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+          
+          
+          
+          
+            <li><span class="output-neutral">Styles</span></li>
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          <span class="output-false">Breaking</span>
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+            <span class="site-changelog--show-tablet output-false">Breaking</span>
+          
+          <strong>
+            Updated banner settings.
+
+          </strong>
+          
+            Allowed users to change background color, link color, and link reverse colors. This update requires the use of Autoprefixer.
+
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/3531">
+              uswds#3531
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2020-06-17</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v2.7.1">
+            2.7.1
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+            <li><span class="output-warning">Accessibility</span></li>
+          
+          
+            <li><span class="output-neutral">Assets</span></li>
+          
+          
+          
+          
+          
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Added <code class="language-plaintext highlighter-rouge">role="img"</code> to SVGs.
+
+          </strong>
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/3316">
+              uswds#3316
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td data-title="Date" class="tablet:grid-col">
+        
+          <span class="font-mono-3xs">2020-05-11</span>
+        
+      </td>
+      <td data-title="USWDS version" class="tablet:grid-col tablet:padding-left-0">
+        
+        <span class="font-mono-3xs">
+          <a href="https://github.com/uswds/uswds/releases/tag/v2.7.0">
+            2.7.0
+          </a>
+        </span>
+        
+      </td>
+      <td data-title="Affects" class="tablet:grid-col">
+        <ul class="add-list-reset">
+          
+          
+          
+          
+          
+          
+          
+            <li><span class="output-neutral">Styles</span></li>
+          
+          
+        </ul>
+      </td>
+      <td data-title="Breaking" class="tablet:grid-col site-changelog--hide-tablet">
+        
+          No
+        
+      </td>
+      <td data-title="Description" class="tablet:grid-col-6">
+        
+        <p class="measure-6">
+          
+          <strong>
+            Improved display of the “Here’s how you know” link in the gov banner.
+
+          </strong>
+          
+            Now there’s no distracting change to the length of the underline on hover.
+
+          
+          
+            More information:
+            <a href="https://github.com/uswds/uswds/pull/3427">
+              uswds#3427
+            </a>
+          
+        </p>
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+  
+
+      </div>
+    </main>
+  
+  </div>
+  
+</div>
+
+
+
+
+
+  
+  <script src="https://touchpoints.app.cloud.gov/touchpoints/5c2410e4.js" async></script>
+
+
+
+
+
+
+<section class="touchpoints__container" role="complementary" aria-label="Page feedback">
+  
+    <button type="button" class="usa-button site-button usa-button--outline" id="touchpoints-modal-button" aria-label="Provide feedback about this page" tabindex="0">Was this page helpful?</button>
+  
+</section>
+
+
+
+<footer class="usa-footer site-footer">
+  <div class="usa-footer__secondary-section">
+    <div class="grid-container footer-content">
+      <h2>Become part of the community</h2>
+      <p>
+        USWDS is an active open source community of government engineers, content specialists, and designers. Our contributors both in and out of government support dozens of agencies and nearly 200 sites.
+      </p>
+      <div class="grid-row footer-contact-links">
+        
+          <div class="tablet:grid-col">
+            <div class="usa-media-block">
+              <div class="usa-media-block__img circle-5 bg-accent-cool display-flex flex-row flex-align-center flex-justify-center text-white">
+                <svg class="usa-icon usa-icon--size-3" aria-hidden="true" role="img" focusable="false">
+                  <use href="/assets/img/sprite.svg#help"></use>
+                </svg>
+              </div>
+              <div class="usa-media-block__body">
+                <h3>Have an idea or an issue?</h3>
+                <a href="https://github.com/uswds/uswds/issues/new/choose">Reach out in GitHub</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="tablet:grid-col">
+            <div class="usa-media-block">
+              <div class="usa-media-block__img circle-5 bg-accent-cool display-flex flex-row flex-align-center flex-justify-center text-white">
+                <svg class="usa-icon usa-icon--size-3" aria-hidden="true" role="img" focusable="false">
+                  <use href="/assets/img/sprite.svg#people"></use>
+                </svg>
+              </div>
+              <div class="usa-media-block__body">
+                <h3>Engage with the community</h3>
+                <a href="https://designsystem.digital.gov/about/community/">Find a channel that works for you</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="tablet:grid-col">
+            <div class="usa-media-block">
+              <div class="usa-media-block__img circle-5 bg-accent-cool display-flex flex-row flex-align-center flex-justify-center text-white">
+                <svg class="usa-icon usa-icon--size-3" aria-hidden="true" role="img" focusable="false">
+                  <use href="/assets/img/sprite.svg#mail"></use>
+                </svg>
+              </div>
+              <div class="usa-media-block__body">
+                <h3>Subscribe to our newsletter</h3>
+                <a href="https://public.govdelivery.com/accounts/USGSATTS/subscriber/new?qsp=GSA_TTS">Sign up for USWDS updates</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="tablet:grid-col">
+            <div class="usa-media-block">
+              <div class="usa-media-block__img circle-5 bg-accent-cool display-flex flex-row flex-align-center flex-justify-center text-white">
+                <svg class="usa-icon usa-icon--size-3" aria-hidden="true" role="img" focusable="false">
+                  <use href="/assets/img/sprite.svg#support"></use>
+                </svg>
+              </div>
+              <div class="usa-media-block__body">
+                <h3>Get support</h3>
+                <a href="mailto:uswds@gsa.gov">Email the USWDS team</a>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+
+    <div class="bg-base-light padding-y-1 line-height-sans-3 font-lang-4">
+      <div class="grid-container">
+        Looking for USWDS v1 documentation?
+        <a
+          href="https://v1.designsystem.digital.gov"
+          class="text-ink text-bold hover:text-no-underline"
+          >Visit v1.designsystem.digital.gov</a
+        >
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<div class="usa-identifier site-identifier">
+  <section
+    class="usa-identifier__section usa-identifier__section--masthead"
+    aria-label="Agency identifier,,,,,,"
+  >
+    <div class="usa-identifier__container">
+      <div class="usa-identifier__logos"><a href="javascript:void(0);" class="usa-identifier__logo">
+          <img
+            class="usa-identifier__logo-img"
+            src="/img/gsa-logo.svg"
+            alt="GSA Logo"
+            role="img"
+            width="48"
+            height="48"
+          >
+        </a></div>
+      <section class="usa-identifier__identity" aria-label="Agency description">
+        <p class="usa-identifier__identity-domain">designsystem.digital.gov</p>
+        <p class="usa-identifier__identity-disclaimer"><span aria-hidden="true">An </span>official website of the <a href=https://gsa.gov>General Services Administration</a></p>
+      </section>
+    </div>
+  </section>
+  <nav class="usa-identifier__section usa-identifier__section--required-links" aria-label="Important links">
+      <div class="usa-identifier__container">
+        <ul class="usa-identifier__required-links-list"><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/about-us" class="usa-identifier__required-link">About GSA</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/website-information/accessibility-statement" class="usa-identifier__required-link">Accessibility statement</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/reference/freedom-of-information-act-foia" class="usa-identifier__required-link">FOIA requests</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002" class="usa-identifier__required-link">No FEAR Act data</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsaig.gov/" class="usa-identifier__required-link">Office of the Inspector General</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/reference/reports/budget-performance" class="usa-identifier__required-link">Performance reports</a>
+          </li><li class="usa-identifier__required-links-item">
+            <a href="https://www.gsa.gov/website-information/website-policies" class="usa-identifier__required-link">Privacy policy</a>
+          </li></ul>
+      </div>
+  </nav>
+  <section class="usa-identifier__section usa-identifier__section--usagov" aria-label="Government information and services">
+    <div class="usa-identifier__container">
+      <div class="usa-identifier__usagov-description">
+        Looking for U.S. government information and services?
+      </div>
+      <a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a>
+    </div>
+  </section>
+</div>
+
+
+
+    <script src="/assets/js/styleguide.js"></script>
+
+<script src="/assets/js/vendor/uswds.min.js"></script>
+<!--<script>
+//<![CDATA[
+      var usasearch_config = { siteHandle:"uswds" };
+
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "//search.usa.gov/javascripts/remote.loader.js";
+      document.getElementsByTagName("head")[0].appendChild(script);
+
+//]]>
+</script>
+-->
+
+  </body>
+</html>

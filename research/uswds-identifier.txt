@@ -1,0 +1,2228 @@
+﻿Identifier | U.S. Web Design System (USWDS)
+
+Skip to main content
+
+An official website of the United States government
+
+Here’s how you know
+
+Here’s how you know
+
+Official websites use .gov
+A
+ .gov website belongs to an official government
+ organization in the United States.
+
+Secure .gov websites use HTTPS
+A
+ lock (
+ ) or https:// means you’ve safely connected to
+ the .gov website. Share sensitive information only on official,
+ secure websites.
+
+USWDS
+ U.S. Web Design System (USWDS)
+
+Menu
+
+How to use USWDS
+
+How to use USWDS
+
+Getting started for developers
+
+Getting started for designers
+
+Documentation
+
+Settings
+
+USWDS maturity model
+
+Accessibility
+
+Performance guidelines
+
+Code guidelines
+
+Migrating to USWDS 3.0
+
+Migrating to USWDS 2.0
+
+Implementations
+
+Showcase
+
+Sample contract language for 21st Century IDEA
+
+Website standards
+
+Design principles
+
+Components
+
+Components
+
+Accordion
+
+Alert
+
+Banner
+
+Breadcrumb
+
+Button
+
+Button group
+
+Card
+
+Character count
+
+Checkbox
+
+Collection
+
+Combo box
+
+Data visualizations
+
+Date picker
+
+Date range picker
+
+File input
+
+Footer
+
+Form
+
+Grid
+
+Header
+
+Icon
+
+Icon list
+
+Identifier
+
+Identifier accessibility tests
+
+In-page navigation
+
+Input mask
+
+Input prefix/suffix
+
+Language selector
+
+Link
+
+List
+
+Memorable date
+
+Modal
+
+Pagination
+
+Process list
+
+Prose
+
+Radio buttons
+
+Range slider
+
+Search
+
+Select
+
+Side navigation
+
+Site alert
+
+Step indicator
+
+Summary box
+
+Table
+
+Tag
+
+Text input
+
+Time picker
+
+Tooltip
+
+Typography
+
+Validation
+
+Patterns
+
+Patterns
+
+Introducing patterns
+
+Create a user profile
+
+Complete a complex form
+
+Select a language
+
+Design tokens
+
+Design tokens
+
+Color
+
+Typesetting
+
+Flex
+
+Opacity
+
+Order
+
+Shadow
+
+Spacing units
+
+Z-index
+
+Utilities
+
+Utilities
+
+Layout grid
+
+Color
+
+Height and width
+
+Margin and padding
+
+Border
+
+Outline
+
+Font size and family
+
+Text styles
+
+Paragraph styles
+
+Display
+
+Flex
+
+Shadow
+
+Float
+
+Clearfix
+
+List reset
+
+Templates
+
+Templates
+
+404 page
+
+Documentation page
+
+Landing page
+
+Authentication pages
+
+Form templates
+
+About
+
+About
+
+Key benefits
+
+Product values
+
+Contribute
+
+Community
+
+What’s new
+
+Monthly calls
+
+Product roadmap
+
+Research
+
+Security
+
+Website policies and notices
+
+How to use USWDS
+
+Design principles
+
+Components
+
+Patterns
+
+Design tokens
+
+Utilities
+
+Templates
+
+About
+
+Search
+
+Read website standards
+
+Download v3.14.0
+
+View on GitHub
+
+Components
+
+Accordion
+
+Alert
+
+Banner
+
+Breadcrumb
+
+Button
+
+Button group
+
+Card
+
+Character count
+
+Checkbox
+
+Collection
+
+Combo box
+
+Data visualizations
+
+Date picker
+
+Date range picker
+
+File input
+
+Footer
+
+Form
+
+Grid
+
+Header
+
+Icon
+
+Icon list
+
+Identifier
+
+Identifier accessibility tests
+
+In-page navigation
+
+Input mask
+
+Input prefix/suffix
+
+Language selector
+
+Link
+
+List
+
+Memorable date
+
+Modal
+
+Pagination
+
+Process list
+
+Prose
+
+Radio buttons
+
+Range slider
+
+Search
+
+Select
+
+Side navigation
+
+Site alert
+
+Step indicator
+
+Summary box
+
+Table
+
+Tag
+
+Text input
+
+Time picker
+
+Tooltip
+
+Typography
+
+Validation
+
+Components
+
+Identifier
+
+The identifier communicates a site’s parent agency and displays agency links required by federal laws and policies.
+
+Passed WCAG 2.1 AA
+
+About the identifier component
+
+Note: Identifier is a core component along with the banner component. We recommend using both core components on most sites. Together, they are the most recognizable and standardized design elements of a government site.
+
+Component preview
+
+Default
+
+domain.gov
+
+An official website of the
+ <Parent agency>
+
+About <Parent shortname>
+
+Accessibility statement
+
+FOIA requests
+
+No FEAR Act data
+
+Office of the Inspector General
+
+Performance reports
+
+Privacy policy
+
+Looking for U.S. government information and services?
+
+Visit USA.gov
+
+Default (Spanish)
+
+domain.gov
+
+Un sitio web oficial de <Parent agency>
+
+Acerca de <Parent shortname>
+
+Declaración de accesibilidad
+
+Solicitud a través de FOIA
+
+Datos de la ley No FEAR
+
+Oficina del Inspector General
+
+Informes de desempeño
+
+Política de privacidad
+
+¿Necesita información y servicios del Gobierno?
+
+Visite USAGov en Español
+
+Multiple parents and logos
+
+domain.gov
+
+An official website of the
+ <Parent agency> and the
+ <Other agency>
+
+About <Parent shortname>
+
+Accessibility statement
+
+FOIA requests
+
+No FEAR Act data
+
+Office of the Inspector General
+
+Performance reports
+
+Privacy policy
+
+Looking for U.S. government information and services?
+
+Visit USA.gov
+
+Multiple parents and logos (Spanish)
+
+domain.gov
+
+Un sitio web oficial de <Parent agency> y
+ <Other agency>
+
+Acerca de <Parent shortname>
+
+Declaración de accesibilidad
+
+Solicitud a través de FOIA
+
+Datos de la ley No FEAR
+
+Oficina del Inspector General
+
+Informes de desempeño
+
+Política de privacidad
+
+¿Necesita información y servicios del Gobierno?
+
+Visite USAGov en Español
+
+No logos
+
+domain.gov
+
+An official website of the
+ <Parent agency>
+
+About <Parent shortname>
+
+Accessibility statement
+
+FOIA requests
+
+No FEAR Act data
+
+Office of the Inspector General
+
+Performance reports
+
+Privacy policy
+
+Looking for U.S. government information and services?
+
+Visit USA.gov
+
+Taxpayer disclaimer
+
+domain.gov
+
+An official website of the
+ <Parent agency> . Produced and published at
+ taxpayer expense.
+
+About <Parent shortname>
+
+Accessibility statement
+
+FOIA requests
+
+No FEAR Act data
+
+Office of the Inspector General
+
+Performance reports
+
+Privacy policy
+
+Looking for U.S. government information and services?
+
+Visit USA.gov
+
+Taxpayer disclaimer (Spanish)
+
+domain.gov
+
+Un sitio web oficial de <Parent agency> .
+ Producido y publicado con dinero de los contribuyentes de impuestos.
+
+Acerca de <Parent shortname>
+
+Declaración de accesibilidad
+
+Solicitud a través de FOIA
+
+Datos de la ley No FEAR
+
+Oficina del Inspector General
+
+Informes de desempeño
+
+Política de privacidad
+
+¿Necesita información y servicios del Gobierno?
+
+Visite USAGov en Español
+
+Component code
+
+<h3 class="site-preview-heading">Default</h3>
+
+ <div class="usa-identifier">
+ <section
+ class="usa-identifier__section usa-identifier__section--masthead"
+ aria-label="Agency identifier,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__logos">
+ <a href="" class="usa-identifier__logo"
+ ><img
+ class="usa-identifier__logo-img"
+ src="/assets/img/circle-gray-20.svg"
+ alt="&lt;Parent agency&gt; logo"
+ role="img"
+ /></a>
+ </div>
+ <section
+ class="usa-identifier__identity"
+ aria-label="Agency description,"
+ >
+ <p class="usa-identifier__identity-domain">domain.gov</p>
+ <p class="usa-identifier__identity-disclaimer">
+ <span aria-hidden="true">An </span>official website of the
+ <a href="">&lt;Parent agency&gt;</a>
+ </p>
+ </section>
+ </div>
+ </section>
+ <nav
+ class="usa-identifier__section usa-identifier__section--required-links"
+ aria-label="Important links,"
+ >
+ <div class="usa-identifier__container">
+ <ul class="usa-identifier__required-links-list">
+ <li class="usa-identifier__required-links-item">
+ <a
+ href="javascript:void(0)"
+ class="usa-identifier__required-link usa-link"
+ >About &lt;Parent shortname&gt;</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Accessibility statement</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >FOIA requests</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >No FEAR Act data</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Office of the Inspector General</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Performance reports</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Privacy policy</a
+ >
+ </li>
+ </ul>
+ </div>
+ </nav>
+ <section
+ class="usa-identifier__section usa-identifier__section--usagov"
+ aria-label="U.S. government information and services,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__usagov-description">
+ Looking for U.S. government information and services?
+ </div>
+ <a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a>
+ </div>
+ </section>
+</div>
+
+<h3 class="site-preview-heading">Default (Spanish)</h3>
+
+ <div class="usa-identifier">
+ <section
+ class="usa-identifier__section usa-identifier__section--masthead"
+ aria-label="Identificador de la agencia,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__logos">
+ <a href="javascript:void(0)" class="usa-identifier__logo"
+ ><img
+ class="usa-identifier__logo-img"
+ src="/assets/img/circle-gray-20.svg"
+ alt="&lt;Parent agency&gt; logo"
+ role="img"
+ /></a>
+ </div>
+ <section
+ class="usa-identifier__identity"
+ aria-label="Descripción de la agencia,"
+ >
+ <p class="usa-identifier__identity-domain">domain.gov</p>
+ <p class="usa-identifier__identity-disclaimer">
+ Un sitio web oficial de <a href="">&lt;Parent agency&gt;</a>
+ </p>
+ </section>
+ </div>
+ </section>
+ <nav
+ class="usa-identifier__section usa-identifier__section--required-links"
+ aria-label="Enlaces importantes,"
+ >
+ <div class="usa-identifier__container">
+ <ul class="usa-identifier__required-links-list">
+ <li class="usa-identifier__required-links-item">
+ <a
+ href="javascript:void(0)"
+ class="usa-identifier__required-link usa-link"
+ >Acerca de &lt;Parent shortname&gt;</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Declaración de accesibilidad</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Solicitud a través de FOIA</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Datos de la ley No FEAR</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Oficina del Inspector General</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Informes de desempeño</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Política de privacidad</a
+ >
+ </li>
+ </ul>
+ </div>
+ </nav>
+ <section
+ class="usa-identifier__section usa-identifier__section--usagov"
+ aria-label="Información y servicios del Gobierno de EE. UU.,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__usagov-description">
+ ¿Necesita información y servicios del Gobierno?
+ </div>
+ <a href="https://www.usa.gov/es/" class="usa-link"
+ >Visite USAGov en Español</a
+ >
+ </div>
+ </section>
+</div>
+
+<h3 class="site-preview-heading">Multiple parents and logos</h3>
+
+ <div class="usa-identifier">
+ <section
+ class="usa-identifier__section usa-identifier__section--masthead"
+ aria-label="Agency identifier,,,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__logos">
+ <a href="javascript:void(0)" class="usa-identifier__logo"
+ ><img
+ class="usa-identifier__logo-img"
+ src="/assets/img/circle-gray-20.svg"
+ alt="&lt;Parent agency&gt; logo"
+ role="img"
+ /> </a
+ ><a href="javascript:void(0);" class="usa-identifier__logo"
+ ><img
+ class="usa-identifier__logo-img"
+ src="/assets/img/circle-gray-20.svg"
+ alt="&lt;Other agency&gt; logo"
+ role="img"
+ /></a>
+ </div>
+ <section
+ class="usa-identifier__identity"
+ aria-label="Agency description,,,"
+ >
+ <p class="usa-identifier__identity-domain">domain.gov</p>
+ <p class="usa-identifier__identity-disclaimer">
+ <span aria-hidden="true">An </span>official website of the
+ <a href="">&lt;Parent agency&gt;</a> and the
+ <a href="javascript:void(0)">&lt;Other agency&gt;</a>
+ </p>
+ </section>
+ </div>
+ </section>
+ <nav
+ class="usa-identifier__section usa-identifier__section--required-links"
+ aria-label="Important links,,,"
+ >
+ <div class="usa-identifier__container">
+ <ul class="usa-identifier__required-links-list">
+ <li class="usa-identifier__required-links-item">
+ <a
+ href="javascript:void(0)"
+ class="usa-identifier__required-link usa-link"
+ >About &lt;Parent shortname&gt;</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Accessibility statement</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >FOIA requests</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >No FEAR Act data</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Office of the Inspector General</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Performance reports</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Privacy policy</a
+ >
+ </li>
+ </ul>
+ </div>
+ </nav>
+ <section
+ class="usa-identifier__section usa-identifier__section--usagov"
+ aria-label="U.S. government information and services,,,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__usagov-description">
+ Looking for U.S. government information and services?
+ </div>
+ <a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a>
+ </div>
+ </section>
+</div>
+
+<h3 class="site-preview-heading">Multiple parents and logos (Spanish)</h3>
+
+ <div class="usa-identifier">
+ <section
+ class="usa-identifier__section usa-identifier__section--masthead"
+ aria-label="Identificador de la agencia,,,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__logos">
+ <a href="javascript:void(0)" class="usa-identifier__logo"
+ ><img
+ class="usa-identifier__logo-img"
+ src="/assets/img/circle-gray-20.svg"
+ alt="&lt;Parent agency&gt; logo"
+ role="img"
+ /> </a
+ ><a href="javascript:void(0);" class="usa-identifier__logo"
+ ><img
+ class="usa-identifier__logo-img"
+ src="/assets/img/circle-gray-20.svg"
+ alt="&lt;Other agency&gt; logo"
+ role="img"
+ /></a>
+ </div>
+ <section
+ class="usa-identifier__identity"
+ aria-label="Descripción de la agencia,,,"
+ >
+ <p class="usa-identifier__identity-domain">domain.gov</p>
+ <p class="usa-identifier__identity-disclaimer">
+ Un sitio web oficial de <a href="">&lt;Parent agency&gt;</a> y
+ <a href="javascript:void(0)">&lt;Other agency&gt;</a>
+ </p>
+ </section>
+ </div>
+ </section>
+ <nav
+ class="usa-identifier__section usa-identifier__section--required-links"
+ aria-label="Enlaces importantes,,,"
+ >
+ <div class="usa-identifier__container">
+ <ul class="usa-identifier__required-links-list">
+ <li class="usa-identifier__required-links-item">
+ <a
+ href="javascript:void(0)"
+ class="usa-identifier__required-link usa-link"
+ >Acerca de &lt;Parent shortname&gt;</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Declaración de accesibilidad</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Solicitud a través de FOIA</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Datos de la ley No FEAR</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Oficina del Inspector General</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Informes de desempeño</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Política de privacidad</a
+ >
+ </li>
+ </ul>
+ </div>
+ </nav>
+ <section
+ class="usa-identifier__section usa-identifier__section--usagov"
+ aria-label="Información y servicios del Gobierno de EE. UU.,,,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__usagov-description">
+ ¿Necesita información y servicios del Gobierno?
+ </div>
+ <a href="https://www.usa.gov/es/" class="usa-link"
+ >Visite USAGov en Español</a
+ >
+ </div>
+ </section>
+</div>
+
+<h3 class="site-preview-heading">No logos</h3>
+
+ <div class="usa-identifier">
+ <section
+ class="usa-identifier__section usa-identifier__section--masthead"
+ aria-label="Agency identifier,,"
+ >
+ <div class="usa-identifier__container">
+ <section
+ class="usa-identifier__identity"
+ aria-label="Agency description,,"
+ >
+ <p class="usa-identifier__identity-domain">domain.gov</p>
+ <p class="usa-identifier__identity-disclaimer">
+ <span aria-hidden="true">An </span>official website of the
+ <a href="">&lt;Parent agency&gt;</a>
+ </p>
+ </section>
+ </div>
+ </section>
+ <nav
+ class="usa-identifier__section usa-identifier__section--required-links"
+ aria-label="Important links,,"
+ >
+ <div class="usa-identifier__container">
+ <ul class="usa-identifier__required-links-list">
+ <li class="usa-identifier__required-links-item">
+ <a
+ href="javascript:void(0)"
+ class="usa-identifier__required-link usa-link"
+ >About &lt;Parent shortname&gt;</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Accessibility statement</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >FOIA requests</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >No FEAR Act data</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Office of the Inspector General</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Performance reports</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Privacy policy</a
+ >
+ </li>
+ </ul>
+ </div>
+ </nav>
+ <section
+ class="usa-identifier__section usa-identifier__section--usagov"
+ aria-label="U.S. government information and services,,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__usagov-description">
+ Looking for U.S. government information and services?
+ </div>
+ <a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a>
+ </div>
+ </section>
+</div>
+
+<h3 class="site-preview-heading">Taxpayer disclaimer</h3>
+
+ <div class="usa-identifier">
+ <section
+ class="usa-identifier__section usa-identifier__section--masthead"
+ aria-label="Agency identifier,,,,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__logos">
+ <a href="javascript:void(0)" class="usa-identifier__logo"
+ ><img
+ class="usa-identifier__logo-img"
+ src="/assets/img/circle-gray-20.svg"
+ alt="&lt;Parent agency&gt; logo"
+ role="img"
+ /></a>
+ </div>
+ <section
+ class="usa-identifier__identity"
+ aria-label="Agency description,,,,"
+ >
+ <p class="usa-identifier__identity-domain">domain.gov</p>
+ <p class="usa-identifier__identity-disclaimer">
+ <span aria-hidden="true">An </span>official website of the
+ <a href="">&lt;Parent agency&gt;</a> . Produced and published at
+ taxpayer expense.
+ </p>
+ </section>
+ </div>
+ </section>
+ <nav
+ class="usa-identifier__section usa-identifier__section--required-links"
+ aria-label="Important links,,,,"
+ >
+ <div class="usa-identifier__container">
+ <ul class="usa-identifier__required-links-list">
+ <li class="usa-identifier__required-links-item">
+ <a
+ href="javascript:void(0)"
+ class="usa-identifier__required-link usa-link"
+ >About &lt;Parent shortname&gt;</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Accessibility statement</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >FOIA requests</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >No FEAR Act data</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Office of the Inspector General</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Performance reports</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Privacy policy</a
+ >
+ </li>
+ </ul>
+ </div>
+ </nav>
+ <section
+ class="usa-identifier__section usa-identifier__section--usagov"
+ aria-label="U.S. government information and services,,,,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__usagov-description">
+ Looking for U.S. government information and services?
+ </div>
+ <a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a>
+ </div>
+ </section>
+</div>
+
+<h3 class="site-preview-heading">Taxpayer disclaimer (Spanish)</h3>
+
+ <div class="usa-identifier">
+ <section
+ class="usa-identifier__section usa-identifier__section--masthead"
+ aria-label="Identificador de la agencia,,,,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__logos">
+ <a href="javascript:void(0)" class="usa-identifier__logo"
+ ><img
+ class="usa-identifier__logo-img"
+ src="/assets/img/circle-gray-20.svg"
+ alt="&lt;Parent agency&gt; logo"
+ role="img"
+ /></a>
+ </div>
+ <section
+ class="usa-identifier__identity"
+ aria-label="Descripción de la agencia,,,,"
+ >
+ <p class="usa-identifier__identity-domain">domain.gov</p>
+ <p class="usa-identifier__identity-disclaimer">
+ Un sitio web oficial de <a href="">&lt;Parent agency&gt;</a> .
+ Producido y publicado con dinero de los contribuyentes de impuestos.
+ </p>
+ </section>
+ </div>
+ </section>
+ <nav
+ class="usa-identifier__section usa-identifier__section--required-links"
+ aria-label="Enlaces importantes,,,,"
+ >
+ <div class="usa-identifier__container">
+ <ul class="usa-identifier__required-links-list">
+ <li class="usa-identifier__required-links-item">
+ <a
+ href="javascript:void(0)"
+ class="usa-identifier__required-link usa-link"
+ >Acerca de &lt;Parent shortname&gt;</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Declaración de accesibilidad</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Solicitud a través de FOIA</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Datos de la ley No FEAR</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Oficina del Inspector General</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Informes de desempeño</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Política de privacidad</a
+ >
+ </li>
+ </ul>
+ </div>
+ </nav>
+ <section
+ class="usa-identifier__section usa-identifier__section--usagov"
+ aria-label="Información y servicios del Gobierno de EE. UU.,,,,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__usagov-description">
+ ¿Necesita información y servicios del Gobierno?
+ </div>
+ <a href="https://www.usa.gov/es/" class="usa-link"
+ >Visite USAGov en Español</a
+ >
+ </div>
+ </section>
+</div>
+
+<h3 class="site-preview-heading">Default</h3>
+
+ <div class="usa-identifier">
+ <section
+ class="usa-identifier__section usa-identifier__section--masthead"
+ aria-label="Agency identifier,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__logos">
+ <a href="" class="usa-identifier__logo"
+ ><img
+ class="usa-identifier__logo-img"
+ src="/assets/img/circle-gray-20.svg"
+ alt="&lt;Parent agency&gt; logo"
+ role="img"
+ /></a>
+ </div>
+ <section
+ class="usa-identifier__identity"
+ aria-label="Agency description,"
+ >
+ <p class="usa-identifier__identity-domain">domain.gov</p>
+ <p class="usa-identifier__identity-disclaimer">
+ <span aria-hidden="true">An </span>official website of the
+ <a href="">&lt;Parent agency&gt;</a>
+ </p>
+ </section>
+ </div>
+ </section>
+ <nav
+ class="usa-identifier__section usa-identifier__section--required-links"
+ aria-label="Important links,"
+ >
+ <div class="usa-identifier__container">
+ <ul class="usa-identifier__required-links-list">
+ <li class="usa-identifier__required-links-item">
+ <a
+ href="javascript:void(0)"
+ class="usa-identifier__required-link usa-link"
+ >About &lt;Parent shortname&gt;</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Accessibility statement</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >FOIA requests</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >No FEAR Act data</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Office of the Inspector General</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Performance reports</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Privacy policy</a
+ >
+ </li>
+ </ul>
+ </div>
+ </nav>
+ <section
+ class="usa-identifier__section usa-identifier__section--usagov"
+ aria-label="U.S. government information and services,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__usagov-description">
+ Looking for U.S. government information and services?
+ </div>
+ <a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a>
+ </div>
+ </section>
+</div>
+
+<h3 class="site-preview-heading">Default (Spanish)</h3>
+
+ <div class="usa-identifier">
+ <section
+ class="usa-identifier__section usa-identifier__section--masthead"
+ aria-label="Identificador de la agencia,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__logos">
+ <a href="javascript:void(0)" class="usa-identifier__logo"
+ ><img
+ class="usa-identifier__logo-img"
+ src="/assets/img/circle-gray-20.svg"
+ alt="&lt;Parent agency&gt; logo"
+ role="img"
+ /></a>
+ </div>
+ <section
+ class="usa-identifier__identity"
+ aria-label="Descripción de la agencia,"
+ >
+ <p class="usa-identifier__identity-domain">domain.gov</p>
+ <p class="usa-identifier__identity-disclaimer">
+ Un sitio web oficial de <a href="">&lt;Parent agency&gt;</a>
+ </p>
+ </section>
+ </div>
+ </section>
+ <nav
+ class="usa-identifier__section usa-identifier__section--required-links"
+ aria-label="Enlaces importantes,"
+ >
+ <div class="usa-identifier__container">
+ <ul class="usa-identifier__required-links-list">
+ <li class="usa-identifier__required-links-item">
+ <a
+ href="javascript:void(0)"
+ class="usa-identifier__required-link usa-link"
+ >Acerca de &lt;Parent shortname&gt;</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Declaración de accesibilidad</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Solicitud a través de FOIA</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Datos de la ley No FEAR</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Oficina del Inspector General</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Informes de desempeño</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Política de privacidad</a
+ >
+ </li>
+ </ul>
+ </div>
+ </nav>
+ <section
+ class="usa-identifier__section usa-identifier__section--usagov"
+ aria-label="Información y servicios del Gobierno de EE. UU.,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__usagov-description">
+ ¿Necesita información y servicios del Gobierno?
+ </div>
+ <a href="https://www.usa.gov/es/" class="usa-link"
+ >Visite USAGov en Español</a
+ >
+ </div>
+ </section>
+</div>
+
+<h3 class="site-preview-heading">Multiple parents and logos</h3>
+
+ <div class="usa-identifier">
+ <section
+ class="usa-identifier__section usa-identifier__section--masthead"
+ aria-label="Agency identifier,,,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__logos">
+ <a href="javascript:void(0)" class="usa-identifier__logo"
+ ><img
+ class="usa-identifier__logo-img"
+ src="/assets/img/circle-gray-20.svg"
+ alt="&lt;Parent agency&gt; logo"
+ role="img"
+ /> </a
+ ><a href="javascript:void(0);" class="usa-identifier__logo"
+ ><img
+ class="usa-identifier__logo-img"
+ src="/assets/img/circle-gray-20.svg"
+ alt="&lt;Other agency&gt; logo"
+ role="img"
+ /></a>
+ </div>
+ <section
+ class="usa-identifier__identity"
+ aria-label="Agency description,,,"
+ >
+ <p class="usa-identifier__identity-domain">domain.gov</p>
+ <p class="usa-identifier__identity-disclaimer">
+ <span aria-hidden="true">An </span>official website of the
+ <a href="">&lt;Parent agency&gt;</a> and the
+ <a href="javascript:void(0)">&lt;Other agency&gt;</a>
+ </p>
+ </section>
+ </div>
+ </section>
+ <nav
+ class="usa-identifier__section usa-identifier__section--required-links"
+ aria-label="Important links,,,"
+ >
+ <div class="usa-identifier__container">
+ <ul class="usa-identifier__required-links-list">
+ <li class="usa-identifier__required-links-item">
+ <a
+ href="javascript:void(0)"
+ class="usa-identifier__required-link usa-link"
+ >About &lt;Parent shortname&gt;</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Accessibility statement</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >FOIA requests</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >No FEAR Act data</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Office of the Inspector General</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Performance reports</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Privacy policy</a
+ >
+ </li>
+ </ul>
+ </div>
+ </nav>
+ <section
+ class="usa-identifier__section usa-identifier__section--usagov"
+ aria-label="U.S. government information and services,,,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__usagov-description">
+ Looking for U.S. government information and services?
+ </div>
+ <a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a>
+ </div>
+ </section>
+</div>
+
+<h3 class="site-preview-heading">Multiple parents and logos (Spanish)</h3>
+
+ <div class="usa-identifier">
+ <section
+ class="usa-identifier__section usa-identifier__section--masthead"
+ aria-label="Identificador de la agencia,,,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__logos">
+ <a href="javascript:void(0)" class="usa-identifier__logo"
+ ><img
+ class="usa-identifier__logo-img"
+ src="/assets/img/circle-gray-20.svg"
+ alt="&lt;Parent agency&gt; logo"
+ role="img"
+ /> </a
+ ><a href="javascript:void(0);" class="usa-identifier__logo"
+ ><img
+ class="usa-identifier__logo-img"
+ src="/assets/img/circle-gray-20.svg"
+ alt="&lt;Other agency&gt; logo"
+ role="img"
+ /></a>
+ </div>
+ <section
+ class="usa-identifier__identity"
+ aria-label="Descripción de la agencia,,,"
+ >
+ <p class="usa-identifier__identity-domain">domain.gov</p>
+ <p class="usa-identifier__identity-disclaimer">
+ Un sitio web oficial de <a href="">&lt;Parent agency&gt;</a> y
+ <a href="javascript:void(0)">&lt;Other agency&gt;</a>
+ </p>
+ </section>
+ </div>
+ </section>
+ <nav
+ class="usa-identifier__section usa-identifier__section--required-links"
+ aria-label="Enlaces importantes,,,"
+ >
+ <div class="usa-identifier__container">
+ <ul class="usa-identifier__required-links-list">
+ <li class="usa-identifier__required-links-item">
+ <a
+ href="javascript:void(0)"
+ class="usa-identifier__required-link usa-link"
+ >Acerca de &lt;Parent shortname&gt;</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Declaración de accesibilidad</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Solicitud a través de FOIA</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Datos de la ley No FEAR</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Oficina del Inspector General</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Informes de desempeño</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Política de privacidad</a
+ >
+ </li>
+ </ul>
+ </div>
+ </nav>
+ <section
+ class="usa-identifier__section usa-identifier__section--usagov"
+ aria-label="Información y servicios del Gobierno de EE. UU.,,,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__usagov-description">
+ ¿Necesita información y servicios del Gobierno?
+ </div>
+ <a href="https://www.usa.gov/es/" class="usa-link"
+ >Visite USAGov en Español</a
+ >
+ </div>
+ </section>
+</div>
+
+<h3 class="site-preview-heading">No logos</h3>
+
+ <div class="usa-identifier">
+ <section
+ class="usa-identifier__section usa-identifier__section--masthead"
+ aria-label="Agency identifier,,"
+ >
+ <div class="usa-identifier__container">
+ <section
+ class="usa-identifier__identity"
+ aria-label="Agency description,,"
+ >
+ <p class="usa-identifier__identity-domain">domain.gov</p>
+ <p class="usa-identifier__identity-disclaimer">
+ <span aria-hidden="true">An </span>official website of the
+ <a href="">&lt;Parent agency&gt;</a>
+ </p>
+ </section>
+ </div>
+ </section>
+ <nav
+ class="usa-identifier__section usa-identifier__section--required-links"
+ aria-label="Important links,,"
+ >
+ <div class="usa-identifier__container">
+ <ul class="usa-identifier__required-links-list">
+ <li class="usa-identifier__required-links-item">
+ <a
+ href="javascript:void(0)"
+ class="usa-identifier__required-link usa-link"
+ >About &lt;Parent shortname&gt;</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Accessibility statement</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >FOIA requests</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >No FEAR Act data</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Office of the Inspector General</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Performance reports</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Privacy policy</a
+ >
+ </li>
+ </ul>
+ </div>
+ </nav>
+ <section
+ class="usa-identifier__section usa-identifier__section--usagov"
+ aria-label="U.S. government information and services,,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__usagov-description">
+ Looking for U.S. government information and services?
+ </div>
+ <a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a>
+ </div>
+ </section>
+</div>
+
+<h3 class="site-preview-heading">Taxpayer disclaimer</h3>
+
+ <div class="usa-identifier">
+ <section
+ class="usa-identifier__section usa-identifier__section--masthead"
+ aria-label="Agency identifier,,,,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__logos">
+ <a href="javascript:void(0)" class="usa-identifier__logo"
+ ><img
+ class="usa-identifier__logo-img"
+ src="/assets/img/circle-gray-20.svg"
+ alt="&lt;Parent agency&gt; logo"
+ role="img"
+ /></a>
+ </div>
+ <section
+ class="usa-identifier__identity"
+ aria-label="Agency description,,,,"
+ >
+ <p class="usa-identifier__identity-domain">domain.gov</p>
+ <p class="usa-identifier__identity-disclaimer">
+ <span aria-hidden="true">An </span>official website of the
+ <a href="">&lt;Parent agency&gt;</a> . Produced and published at
+ taxpayer expense.
+ </p>
+ </section>
+ </div>
+ </section>
+ <nav
+ class="usa-identifier__section usa-identifier__section--required-links"
+ aria-label="Important links,,,,"
+ >
+ <div class="usa-identifier__container">
+ <ul class="usa-identifier__required-links-list">
+ <li class="usa-identifier__required-links-item">
+ <a
+ href="javascript:void(0)"
+ class="usa-identifier__required-link usa-link"
+ >About &lt;Parent shortname&gt;</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Accessibility statement</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >FOIA requests</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >No FEAR Act data</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Office of the Inspector General</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Performance reports</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Privacy policy</a
+ >
+ </li>
+ </ul>
+ </div>
+ </nav>
+ <section
+ class="usa-identifier__section usa-identifier__section--usagov"
+ aria-label="U.S. government information and services,,,,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__usagov-description">
+ Looking for U.S. government information and services?
+ </div>
+ <a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a>
+ </div>
+ </section>
+</div>
+
+<h3 class="site-preview-heading">Taxpayer disclaimer (Spanish)</h3>
+
+ <div class="usa-identifier">
+ <section
+ class="usa-identifier__section usa-identifier__section--masthead"
+ aria-label="Identificador de la agencia,,,,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__logos">
+ <a href="javascript:void(0)" class="usa-identifier__logo"
+ ><img
+ class="usa-identifier__logo-img"
+ src="/assets/img/circle-gray-20.svg"
+ alt="&lt;Parent agency&gt; logo"
+ role="img"
+ /></a>
+ </div>
+ <section
+ class="usa-identifier__identity"
+ aria-label="Descripción de la agencia,,,,"
+ >
+ <p class="usa-identifier__identity-domain">domain.gov</p>
+ <p class="usa-identifier__identity-disclaimer">
+ Un sitio web oficial de <a href="">&lt;Parent agency&gt;</a> .
+ Producido y publicado con dinero de los contribuyentes de impuestos.
+ </p>
+ </section>
+ </div>
+ </section>
+ <nav
+ class="usa-identifier__section usa-identifier__section--required-links"
+ aria-label="Enlaces importantes,,,,"
+ >
+ <div class="usa-identifier__container">
+ <ul class="usa-identifier__required-links-list">
+ <li class="usa-identifier__required-links-item">
+ <a
+ href="javascript:void(0)"
+ class="usa-identifier__required-link usa-link"
+ >Acerca de &lt;Parent shortname&gt;</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Declaración de accesibilidad</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Solicitud a través de FOIA</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Datos de la ley No FEAR</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Oficina del Inspector General</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Informes de desempeño</a
+ >
+ </li>
+ <li class="usa-identifier__required-links-item">
+ <a href="" class="usa-identifier__required-link usa-link"
+ >Política de privacidad</a
+ >
+ </li>
+ </ul>
+ </div>
+ </nav>
+ <section
+ class="usa-identifier__section usa-identifier__section--usagov"
+ aria-label="Información y servicios del Gobierno de EE. UU.,,,,"
+ >
+ <div class="usa-identifier__container">
+ <div class="usa-identifier__usagov-description">
+ ¿Necesita información y servicios del Gobierno?
+ </div>
+ <a href="https://www.usa.gov/es/" class="usa-link"
+ >Visite USAGov en Español</a
+ >
+ </div>
+ </section>
+</div>
+
+Guidance
+
+When to use the identifier component
+
+To identify the highest-level agency associated with a site or service. The identifier is a complement to the USWDS banner. Use the identifier to tell users what parent agency is responsible for your website. Consider the parent agency the highest-level agency associated with a site or service. If your site is the primary site associated with an agency, you can still use the identifier.
+
+ To display links required by federal laws and policies. The identifier includes links required on all government sites.
+
+When to consider something else
+
+Any time it would be misleading. The identifier should be used to reduce confusion. Avoid using the identifier on any site meant only for testing or otherwise not meant to be identified as an official government website.
+
+ Redundant content. Don’t add the identifier without removing any duplicate links from your existing site footer. Favor the common links and content in the identifier over any equivalent content in your site footer.
+
+Usability guidance
+
+Use the identifier component for required links. If your site already includes the federally required links in its site footer, remove them in favor of the links in the identifier. This assures that site visitors find the required links in a consistent location from site to site.
+
+ Consider the parent agency the highest-level agency associated with a site or service. In some cases, your site may not have a parent agency. If your site is the primary site for your agency, use your agency name in place of [Parent Agency]. For example, “[agency.gov] An official website of [Agency].”
+
+ Display the parent agency logo, not the product logo. The identifier is meant to identify a website’s parent agency as a complement to the site footer. Site-specific logos, like a product logo, should be in the site footer, not the identifier. You may omit the logo in the identifier if it is redundant with the agency logo in your site’s footer.
+
+ Display multiple parents and logos in hierarchical order. If a site has more than one parent agency, you may display a reference and a logo for each parent in hierarchical order, highest first. For example, “An official website of [Grandparent Department] and [Parent Agency]”.
+
+ Avoid distraction. The identifier appears on every page of your site. Choose background colors that fit with your site theme and avoid color combinations that draw excessive attention to the identifier.
+
+ Keep the text up-to-date. Use the most current version of the identifier.
+
+Accessibility guidance
+
+Test the identifier component in your own project.
+
+USWDS tested the identifier component for accessibility. You should test your implementation, too.
+
+Use identifier accessibility tests
+
+Use proper landmarks for each identifier section. Each identifier section should be either a section or a nav, and include an appropriate aria-label property.
+
+ Add an alt attribute to each logo image. Use [Agency shortname] logo as the alt text for each logo image you add.
+
+ Use image role for any SVG images. Use role="img" with any SVG logo image.
+
+Using the identifier component
+
+Except where noted, use the entire component without deletions or additions. With rare exceptions, if you use the identifier, include the entire identifier. That is, don’t delete sections or required links or change any link text beyond the customizations mentioned in the implementation section.
+
+ Use a background color darker than that of the footer. Anchor the identifier to the bottom of the page and distinguish it from other site content by adding a background color that is darker than the footer. Use primary or base family background colors of grade 80 or higher, or black.
+
+ Use an SVG logo if possible. Ensure the logo is high resolution. We recommend using the SVG version of any logo if you have one. Otherwise, use an image that’s at least 120 pixels tall.
+
+ Use logos intended for dark backgrounds if possible. The identifier has a dark background. If your agency has a version of its logo intended for dark backgrounds, use that version.
+
+ Update the required links to point to the proper URLs. The identifier includes links required of any federal website, and these links are specific to a department, agency, or website. We’ve linked each section below to the guidance on Digital.gov to provide further context.
+
+About [Official parent agency acronym]: Update the link text to include the parent agency’s official acronym. Link to the “About” page of your parent agency’s principal website. If your site includes multiple parents, include only the organization highest in the hierarchy in this link.
+
+Example: https://www.gsa.gov/about-us
+
+Accessibility statement: Link to your website or service’s accessibility statement, or to your parent agency’s accessibility statement if your website or service does not have its own.
+
+Example: https://www.dhs.gov/accessibility
+
+FOIA requests: Link to a page that includes information about how the public can request information under the Freedom of Information Act on your parent agency’s principal website.
+
+Example: https://www.gsa.gov/reference/freedom-of-information-act-foia
+
+No FEAR Act data: Link to the “Equal Employment Opportunity Data Posted Pursuant to the No Fear Act” page on your parent agency’s principal website.
+
+Example: https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002
+
+Office of the Inspector General: Link to your parent agency’s Office of the Inspector General.
+
+Example: https://www.gsaig.gov
+
+Performance reports: Link to a “Budget and Performance” page that includes the parent agency’s strategic plan among other financial and performance documentation.
+
+Example: https://www.gsa.gov/reference/reports/budget-performance
+
+Privacy policy: Link to the “Privacy” page most specific to your website. For example, if both your product website and your parent agency’s principal website have privacy pages, link to your product website’s privacy page here.
+
+Example: https://www.dhs.gov/privacy-policy
+
+Use the Spanish version for Spanish-language sites. If you have an official Spanish-language website, use the Spanish version of the identifier.
+
+ Duplicate the logo element if using multiple logos. If you’re using multiple logos, duplicate the usa-identifier__logo element and link the image to your image source.
+
+ If applicable, include any taxpayer disclaimer after the standard text. If the organization must provide a taxpayer expense disclaimer, include it following the “Official website” text, as a separate sentence. For example, “An official website of [Department]. Produced and published at taxpayer expense.”
+
+Identifier settings
+
+Variable
+ Description
+
+$theme-identifier-background-color
+
+The background color of the identifier. Use a color of grade 80 or higher, darker than the section that precedes it.
+
+$theme-identifier-font-family
+
+The font family of the identifier.
+
+$theme-identifier-identity-domain-color
+
+The color of your domain text in the identifier masthead. This should be grade 20-30 in the same family as the $theme-identifier-background-color.
+
+$theme-identifier-max-width
+
+The maximum width of the content within the identifier. Use the same max-width as your site footer.
+
+$theme-identifier-primary-link-color
+
+The color of the links in the masthead section. Default uses either the standard or reverse link color set with $theme-link-color and $theme-link-reverse-color.
+
+$theme-identifier-secondary-link-color
+
+The color of the links in the required links section. This should be grade 20-30 in a gray family.
+
+Identifier variants
+
+This component has no variants.
+
+Accessibility test status
+
+The USWDS team did 16 tests based on WCAG 2.1 AA success criteria.
+
+Overview of recent accessibility test results:
+
+Total tests
+
+Passed
+
+Passed with exceptions
+
+Conditional
+
+Failed
+
+16
+
+11
+
+0
+
+5
+
+0
+
+Overview of recent accessibility test results:
+
+Passed: 11
+
+Passed with exceptions: 0
+
+Conditional: 5
+
+Failed: 0
+
+Learn more on the identifier accessibility tests page.
+
+Package
+
+Package usage: @forward "usa-identifier";
+
+Dependencies: uswds-fonts, 
+uswds-core
+
+Latest updates
+Meaningful code and guidance updates are listed in the following table:
+
+Date
+ USWDS version
+ Affects
+ Breaking
+ Description
+
+2024-11-07
+
+N/A
+
+Guidance
+
+No
+
+Added clarification on parent agency.
+
+We added guidance to cover cases where a site has no higher-level agency.
+
+More information:
+ 
+ uswds-site#2591
+
+2024-10-04
+
+3.9.0
+
+Content
+
+No
+
+Updated the USA.gov link in Spanish versions of the identifier.
+
+The link text now reads “Visite USAGov en Español” and the link url is now “https://www.usa.gov/es/”.
+
+More information:
+ 
+ uswds#5892
+
+2024-08-13
+
+N/A
+
+Guidance
+
+No
+
+Added WCAG compliance tag and accessibility test status section.
+
+More information:
+ 
+ uswds-site#2754
+
+2024-05-31
+
+3.8.1
+
+Content
+
+Guidance
+
+No
+
+Fixed a bug that mistakenly added the English word “An” to Spanish variants in the component preview.
+
+More information:
+ 
+ uswds#5857
+
+2023-11-09
+
+3.7.0
+
+Accessibility
+
+Markup
+
+No
+
+Updated the screen reader readout in English versions of the component.
+
+When read out on a screen reader, the statement “An official website of [Agency name]” can sound like “UNofficial website of [Agency name]”. Users should update their markup to improve the screen reader experience.
+
+More information:
+ 
+ uswds#5491
+
+2023-06-09
+
+3.5.0
+
+Content
+
+Breaking
+
+Breaking
+
+Updated Accessibility statement link text.
+
+Updated the identifier to use the text “Accessibility statement” (EN) / “Declaración de accesibilidad” (ES) for the required link to an accessibility statement.
+
+More information:
+ 
+ uswds#5278
+
+2023-06-09
+
+3.5.0
+
+Guidance
+
+No
+
+Updated Accessibility statement link guidance.
+
+Updated and clarified the identifier guidance for accessibility statements. We also improved the accessibility statement example links.
+
+More information:
+ 
+ uswds-site#2097
+
+2022-10-19
+
+3.2.0
+
+Accessibility
+
+Markup
+
+Breaking
+
+Breaking
+
+Used valid element for identity’s aria-label.
+
+We updated the identity section of the identifier to use a section instead of a div so its aria-label will apply to a valid element.
+
+More information:
+ 
+ uswds#4964
+
+2022-04-28
+
+3.0.0
+
+Assets
+
+JavaScript
+
+Styles
+
+Breaking
+
+Breaking
+
+Updated to Sass module syntax and new package structure.
+
+More information:
+ 
+ uswds#4656
+
+2021-03-17
+
+N/A
+
+Guidance
+
+No
+
+Added identifier guidance and documentation.
+
+More information:
+ 
+ uswds-site#1180
+
+Was this page helpful?
+
+Become part of the community
+
+USWDS is an active open source community of government engineers, content specialists, and designers. Our contributors both in and out of government support dozens of agencies and nearly 200 sites.
+
+Have an idea or an issue?
+
+ Reach out in GitHub
+
+Engage with the community
+
+ Find a channel that works for you
+
+Subscribe to our newsletter
+
+ Sign up for USWDS updates
+
+Get support
+
+ Email the USWDS team
+
+Looking for USWDS v1 documentation?
+ Visit v1.designsystem.digital.gov
+
+designsystem.digital.gov
+
+ An official website of the General Services Administration
+
+About GSA
+
+Accessibility statement
+
+FOIA requests
+
+No FEAR Act data
+
+Office of the Inspector General
+
+Performance reports
+
+Privacy policy
+
+Looking for U.S. government information and services?
+
+Visit USA.gov

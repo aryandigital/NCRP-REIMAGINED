@@ -1,0 +1,1020 @@
+﻿Site alert | U.S. Web Design System (USWDS)
+
+Skip to main content
+
+An official website of the United States government
+
+Here’s how you know
+
+Here’s how you know
+
+Official websites use .gov
+A
+ .gov website belongs to an official government
+ organization in the United States.
+
+Secure .gov websites use HTTPS
+A
+ lock (
+ ) or https:// means you’ve safely connected to
+ the .gov website. Share sensitive information only on official,
+ secure websites.
+
+USWDS
+ U.S. Web Design System (USWDS)
+
+Menu
+
+How to use USWDS
+
+How to use USWDS
+
+Getting started for developers
+
+Getting started for designers
+
+Documentation
+
+Settings
+
+USWDS maturity model
+
+Accessibility
+
+Performance guidelines
+
+Code guidelines
+
+Migrating to USWDS 3.0
+
+Migrating to USWDS 2.0
+
+Implementations
+
+Showcase
+
+Sample contract language for 21st Century IDEA
+
+Website standards
+
+Design principles
+
+Components
+
+Components
+
+Accordion
+
+Alert
+
+Banner
+
+Breadcrumb
+
+Button
+
+Button group
+
+Card
+
+Character count
+
+Checkbox
+
+Collection
+
+Combo box
+
+Data visualizations
+
+Date picker
+
+Date range picker
+
+File input
+
+Footer
+
+Form
+
+Grid
+
+Header
+
+Icon
+
+Icon list
+
+Identifier
+
+In-page navigation
+
+Input mask
+
+Input prefix/suffix
+
+Language selector
+
+Link
+
+List
+
+Memorable date
+
+Modal
+
+Pagination
+
+Process list
+
+Prose
+
+Radio buttons
+
+Range slider
+
+Search
+
+Select
+
+Side navigation
+
+Site alert
+
+Site alert accessibility tests
+
+Step indicator
+
+Summary box
+
+Table
+
+Tag
+
+Text input
+
+Time picker
+
+Tooltip
+
+Typography
+
+Validation
+
+Patterns
+
+Patterns
+
+Introducing patterns
+
+Create a user profile
+
+Complete a complex form
+
+Select a language
+
+Design tokens
+
+Design tokens
+
+Color
+
+Typesetting
+
+Flex
+
+Opacity
+
+Order
+
+Shadow
+
+Spacing units
+
+Z-index
+
+Utilities
+
+Utilities
+
+Layout grid
+
+Color
+
+Height and width
+
+Margin and padding
+
+Border
+
+Outline
+
+Font size and family
+
+Text styles
+
+Paragraph styles
+
+Display
+
+Flex
+
+Shadow
+
+Float
+
+Clearfix
+
+List reset
+
+Templates
+
+Templates
+
+404 page
+
+Documentation page
+
+Landing page
+
+Authentication pages
+
+Form templates
+
+About
+
+About
+
+Key benefits
+
+Product values
+
+Contribute
+
+Community
+
+What’s new
+
+Monthly calls
+
+Product roadmap
+
+Research
+
+Security
+
+Website policies and notices
+
+How to use USWDS
+
+Design principles
+
+Components
+
+Patterns
+
+Design tokens
+
+Utilities
+
+Templates
+
+About
+
+Search
+
+Read website standards
+
+Download v3.14.0
+
+View on GitHub
+
+Components
+
+Accordion
+
+Alert
+
+Banner
+
+Breadcrumb
+
+Button
+
+Button group
+
+Card
+
+Character count
+
+Checkbox
+
+Collection
+
+Combo box
+
+Data visualizations
+
+Date picker
+
+Date range picker
+
+File input
+
+Footer
+
+Form
+
+Grid
+
+Header
+
+Icon
+
+Icon list
+
+Identifier
+
+In-page navigation
+
+Input mask
+
+Input prefix/suffix
+
+Language selector
+
+Link
+
+List
+
+Memorable date
+
+Modal
+
+Pagination
+
+Process list
+
+Prose
+
+Radio buttons
+
+Range slider
+
+Search
+
+Select
+
+Side navigation
+
+Site alert
+
+Site alert accessibility tests
+
+Step indicator
+
+Summary box
+
+Table
+
+Tag
+
+Text input
+
+Time picker
+
+Tooltip
+
+Typography
+
+Validation
+
+Components
+
+Site alert
+
+A site alert communicates urgent sitewide information.
+
+Passed WCAG 2.1 AA
+
+About the site alert component
+
+When your agency has urgent information to share with the public, it’s essential that it stands out from other content on the site. A site alert prominently displays critical, time-sensitive warnings or directions across every page so that users see it whenever they visit the site. Using the same site alert treatment across agencies helps create a consistent and predictable way for users to find urgent information across all government websites.
+
+Component preview
+
+Standard informational site alert
+
+Short alert message
+
+Additional context and followup information including
+ a link.
+
+Standard emergency site alert
+
+Emergency alert message
+
+Additional context and followup information including
+ a link.
+
+Site alert with no header
+
+Short alert message. Additional context and followup
+ information including
+ a link.
+
+Site alert with list 
+
+Emergency alert message
+
+The primary emergency message and
+ a link for
+ supporting context.
+
+Another message,
+ and another link.
+
+A final emergency message.
+
+Slim site alert
+
+Short alert message. Additional context and followup
+ information including
+ a link.
+
+Site alert with no icon
+
+Short alert message. Additional context and followup
+ information including
+ a link.
+
+Component code
+
+<h3 class="site-preview-heading">Standard informational site alert</h3>
+
+<section class="usa-site-alert usa-site-alert--info" aria-label="Site alert,">
+ <div class="usa-alert">
+ <div class="usa-alert__body">
+ <h4 class="usa-alert__heading">Short alert message</h4>
+ <p class="usa-alert__text">
+ Additional context and followup information including
+ <a class="usa-link" href="javascript:void(0);">a link</a>.
+ </p>
+ </div>
+ </div>
+</section>
+
+<h3 class="site-preview-heading">Standard emergency site alert</h3>
+
+<section
+ class="usa-site-alert usa-site-alert--emergency"
+ aria-label="Site alert,,"
+>
+ <div class="usa-alert">
+ <div class="usa-alert__body">
+ <h4 class="usa-alert__heading">Emergency alert message</h4>
+ <p class="usa-alert__text">
+ Additional context and followup information including
+ <a class="usa-link" href="javascript:void(0);">a link</a>.
+ </p>
+ </div>
+ </div>
+</section>
+
+<h3 class="site-preview-heading">Site alert with no header</h3>
+
+<section
+ class="usa-site-alert usa-site-alert--emergency usa-site-alert--no-heading"
+ aria-label="Site alert,,,,"
+>
+ <div class="usa-alert">
+ <div class="usa-alert__body">
+ <p class="usa-alert__text">
+ <strong>Short alert message.</strong> Additional context and followup
+ information including
+ <a class="usa-link" href="javascript:void(0);">a link</a>.
+ </p>
+ </div>
+ </div>
+</section>
+
+<h3 class="site-preview-heading">Site alert with list </h3>
+
+<section
+ class="usa-site-alert usa-site-alert--emergency"
+ aria-label="Site alert,,,"
+>
+ <div class="usa-alert">
+ <div class="usa-alert__body">
+ <h4 class="usa-alert__heading">Emergency alert message</h4>
+ <ul class="usa-list">
+ <li>
+ The primary emergency message and
+ <a class="usa-link" href="javascript:void(0);">a link</a> for
+ supporting context.
+ </li>
+ <li>
+ Another message,
+ <a class="usa-link" href="javascript:void(0);">and another link</a>.
+ </li>
+ <li>A final emergency message.</li>
+ </ul>
+ </div>
+ </div>
+</section>
+<h3 class="site-preview-heading">Slim site alert</h3>
+
+<section
+ class="usa-site-alert usa-site-alert--emergency usa-site-alert--slim"
+ aria-label="Site alert,,,,,,"
+>
+ <div class="usa-alert">
+ <div class="usa-alert__body">
+ <p class="usa-alert__text">
+ <strong>Short alert message.</strong> Additional context and followup
+ information including
+ <a class="usa-link" href="javascript:void(0);">a link</a>.
+ </p>
+ </div>
+ </div>
+</section>
+
+<h3 class="site-preview-heading">Site alert with no icon</h3>
+
+<section
+ class="usa-site-alert usa-site-alert--emergency usa-site-alert--no-icon"
+ aria-label="Site alert,,,,,"
+>
+ <div class="usa-alert">
+ <div class="usa-alert__body">
+ <p class="usa-alert__text">
+ <strong>Short alert message.</strong> Additional context and followup
+ information including
+ <a class="usa-link" href="javascript:void(0);">a link</a>.
+ </p>
+ </div>
+ </div>
+</section>
+
+<h3 class="site-preview-heading">Standard informational site alert</h3>
+
+<section class="usa-site-alert usa-site-alert--info" aria-label="Site alert,">
+ <div class="usa-alert">
+ <div class="usa-alert__body">
+ <h4 class="usa-alert__heading">Short alert message</h4>
+ <p class="usa-alert__text">
+ Additional context and followup information including
+ <a class="usa-link" href="javascript:void(0);">a link</a>.
+ </p>
+ </div>
+ </div>
+</section>
+
+<h3 class="site-preview-heading">Standard emergency site alert</h3>
+
+<section
+ class="usa-site-alert usa-site-alert--emergency"
+ aria-label="Site alert,,"
+>
+ <div class="usa-alert">
+ <div class="usa-alert__body">
+ <h4 class="usa-alert__heading">Emergency alert message</h4>
+ <p class="usa-alert__text">
+ Additional context and followup information including
+ <a class="usa-link" href="javascript:void(0);">a link</a>.
+ </p>
+ </div>
+ </div>
+</section>
+
+<h3 class="site-preview-heading">Site alert with no header</h3>
+
+<section
+ class="usa-site-alert usa-site-alert--emergency usa-site-alert--no-heading"
+ aria-label="Site alert,,,,"
+>
+ <div class="usa-alert">
+ <div class="usa-alert__body">
+ <p class="usa-alert__text">
+ <strong>Short alert message.</strong> Additional context and followup
+ information including
+ <a class="usa-link" href="javascript:void(0);">a link</a>.
+ </p>
+ </div>
+ </div>
+</section>
+
+<h3 class="site-preview-heading">Site alert with list </h3>
+
+<section
+ class="usa-site-alert usa-site-alert--emergency"
+ aria-label="Site alert,,,"
+>
+ <div class="usa-alert">
+ <div class="usa-alert__body">
+ <h4 class="usa-alert__heading">Emergency alert message</h4>
+ <ul class="usa-list">
+ <li>
+ The primary emergency message and
+ <a class="usa-link" href="javascript:void(0);">a link</a> for
+ supporting context.
+ </li>
+ <li>
+ Another message,
+ <a class="usa-link" href="javascript:void(0);">and another link</a>.
+ </li>
+ <li>A final emergency message.</li>
+ </ul>
+ </div>
+ </div>
+</section>
+<h3 class="site-preview-heading">Slim site alert</h3>
+
+<section
+ class="usa-site-alert usa-site-alert--emergency usa-site-alert--slim"
+ aria-label="Site alert,,,,,,"
+>
+ <div class="usa-alert">
+ <div class="usa-alert__body">
+ <p class="usa-alert__text">
+ <strong>Short alert message.</strong> Additional context and followup
+ information including
+ <a class="usa-link" href="javascript:void(0);">a link</a>.
+ </p>
+ </div>
+ </div>
+</section>
+
+<h3 class="site-preview-heading">Site alert with no icon</h3>
+
+<section
+ class="usa-site-alert usa-site-alert--emergency usa-site-alert--no-icon"
+ aria-label="Site alert,,,,,"
+>
+ <div class="usa-alert">
+ <div class="usa-alert__body">
+ <p class="usa-alert__text">
+ <strong>Short alert message.</strong> Additional context and followup
+ information including
+ <a class="usa-link" href="javascript:void(0);">a link</a>.
+ </p>
+ </div>
+ </div>
+</section>
+
+Guidance
+
+When to use the site alert component
+
+Critical system notifications. Use a site alert to deliver a static system status update, such as notices about unavailable services or content. Site alerts should appear by default and not in response to an action.
+
+ Messages that should be displayed on every page. A site alert makes critical information obvious and findable on every page.
+
+When to consider something else
+
+Responding to user actions. Use the alert component for page-level validation messages (like error messages on a form) or to inform a user that a task was completed successfully.
+
+ Validating form input. On most forms, especially longer forms, validation messages should appear inline with error messages at the top of the form.
+
+Usability guidance
+
+Place prominently. Use a full-width site alert positioned near the top of the page so it’s one of the first things users see.
+
+ Avoid stacking multiple site alerts. If you need to convey more than one message, provide a list of links within a single site alert instead of multiple, stacked alerts.
+
+ Avoid overwhelming use of color. It may be tempting to make heavy use of bright red or orange to draw attention to an emergency-related site alert. However, these colors can produce strong negative emotional reactions such as fear or panic. Positioning the banner at the top of the screen provides enough weight that such strong colors may not be necessary.
+
+Accessibility guidance
+
+Test the site alert component in your own project.
+
+USWDS tested the site alert component for accessibility. You should test your implementation, too.
+
+Use site alert accessibility tests
+
+Don’t visually hide alert messages and then make them visible when they are needed. Users of older assistive technologies may still be able to perceive hidden alert messages. Fully remove alert messages when they’re not needed.
+
+ Include a descriptive ARIA label. Add an aria-label or aria-labelledby attribute to the .usa-site-alert element to ensure that your site alert appears in the landmarks menu. A well-written label can help assistive technology users easily find and understand the top-level information of your site alert.
+
+ Add an ARIA role to dynamically-updated site alerts. For important, time-sensitive site alerts that will receive new content mid-session, for example if your site pushes out an updated emergency alert, add an ARIA role attribute that will notify users of changes. To do this, choose the appropriate role from the ARIA roles table and add it to the .usa-site-alert element.
+
+Site alert ARIA roles
+
+Attribute
+ Use Case
+
+role="alert"
+
+Important messages that demand the user's immediate attention. Use this role sparingly because it interrupts the user's workflow.
+
+role="status"
+
+Messages that provide advisory information but do not have the same urgency as alerts.
+
+Reference: WAI-ARIA
+
+Using the site alert component
+
+Site alert settings
+
+Variable
+ Description
+
+$theme-site-alert-max-width
+
+Maximum width of the site alert content.
+
+Site alert variants
+
+Variant
+
+ Description
+
+.usa-site-alert--info
+
+Displays an information site alert.
+
+.usa-site-alert--emergency
+
+Displays an emergency site alert.
+
+.usa-site-alert--slim
+
+Display a slimmer version of the site alert.
+
+.usa-site-alert--no-icon
+
+Display an site alert without an icon.
+
+Accessibility test status
+
+The USWDS team did 8 tests based on WCAG 2.1 AA success criteria.
+
+Overview of recent accessibility test results:
+
+Total tests
+
+Passed
+
+Passed with exceptions
+
+Conditional
+
+Failed
+
+8
+
+3
+
+0
+
+5
+
+0
+
+Overview of recent accessibility test results:
+
+Passed: 3
+
+Passed with exceptions: 0
+
+Conditional: 5
+
+Failed: 0
+
+Learn more on the site alert accessibility tests page.
+
+Package
+
+Package usage: @forward "usa-site-alert";
+
+Dependencies: usa-alert
+
+Latest updates
+Meaningful code and guidance updates are listed in the following table:
+
+Date
+ USWDS version
+ Affects
+ Breaking
+ Description
+
+2025-01-14
+
+N/A
+
+Guidance
+
+No
+
+Added WCAG compliance tag and accessibility test status section.
+
+More information:
+ 
+ uswds-site#3049
+
+2024-10-04
+
+3.9.0
+
+Styles
+
+Breaking
+
+Breaking
+
+Fixed a bug that caused $theme-site-margins-width to unexpectedly adjust the alignment inside the alert and site alert components.
+
+Alignment on the alert and site alert components will likely shift from this change.
+Confirm that your implementation of the component aligns as expected.
+
+More information:
+ 
+ uswds#5636
+
+2023-11-09
+
+3.7.0
+
+Styles
+
+No
+
+Removed the component’s top margin.
+
+More information:
+ 
+ uswds#5550
+
+2023-03-09
+
+3.4.0
+
+Styles
+
+No
+
+Updated padding settings to accept any valid spacing token.
+
+More information:
+ 
+ uswds#5076
+
+2022-09-26
+
+N/A
+
+Guidance
+
+No
+
+Added guidance for using ARIA roles and ARIA labels.
+
+More information:
+ 
+ uswds-site#1774
+
+2022-10-19
+
+3.2.0
+
+Styles
+
+No
+
+Updated the alignment of site alert content to visually match banner content.
+
+The alert component was also updated.
+
+More information:
+ 
+ uswds#4922
+
+2022-04-28
+
+3.0.0
+
+Assets
+
+JavaScript
+
+Styles
+
+Breaking
+
+Breaking
+
+Updated to Sass module syntax and new package structure.
+
+More information:
+ 
+ uswds#4656
+
+2021-03-17
+
+2.11.1
+
+Assets
+
+No
+
+Restored missing white icons.
+
+Restored error--white, info--white, and warning--white icons.
+
+More information:
+ 
+ uswds#4106
+
+2021-03-17
+
+N/A
+
+Guidance
+
+No
+
+Updated and improved guidance for site alert.
+
+More information:
+ 
+ uswds-site#1180
+
+2021-03-17
+
+2.11.0
+
+Assets
+
+Styles
+
+No
+
+Provided better support for color icons that adapt to theme settings.
+
+Now the color of the alert icon will update automatically to adapt to the alert background, or to the color of the alert text.
+
+More information:
+ 
+ uswds#4079
+
+2021-03-17
+
+2.11.0
+
+Styles
+
+No
+
+Added the $theme-alert-padding-y setting.
+
+More information:
+ 
+ uswds#4079
+
+Was this page helpful?
+
+Become part of the community
+
+USWDS is an active open source community of government engineers, content specialists, and designers. Our contributors both in and out of government support dozens of agencies and nearly 200 sites.
+
+Have an idea or an issue?
+
+ Reach out in GitHub
+
+Engage with the community
+
+ Find a channel that works for you
+
+Subscribe to our newsletter
+
+ Sign up for USWDS updates
+
+Get support
+
+ Email the USWDS team
+
+Looking for USWDS v1 documentation?
+ Visit v1.designsystem.digital.gov
+
+designsystem.digital.gov
+
+ An official website of the General Services Administration
+
+About GSA
+
+Accessibility statement
+
+FOIA requests
+
+No FEAR Act data
+
+Office of the Inspector General
+
+Performance reports
+
+Privacy policy
+
+Looking for U.S. government information and services?
+
+Visit USA.gov
