@@ -158,22 +158,28 @@ button:active, a:active { transform: translateY(1px); }
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(8, 11, 22, 0) 72%, var(--color-paper) 100%),
-    radial-gradient(120% 90% at 50% -20%, #ff9138 0%, transparent 55%),
-    radial-gradient(90% 80% at 12% 30%, rgba(255, 157, 92, .55) 0%, transparent 60%),
-    radial-gradient(90% 80% at 88% 24%, rgba(255, 183, 119, .5) 0%, transparent 55%),
-    linear-gradient(180deg, #ff8b2e 0%, #ffb877 16%, #f3dbc9 34%, #c6ccf4 56%, #9aa7f2 76%, #8494ef 100%);
+    radial-gradient(ellipse 110% 55% at 50% -5%, rgba(111, 134, 245, .13) 0%, transparent 58%),
+    radial-gradient(ellipse 55% 35% at 15% 85%, rgba(142, 160, 255, .06) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 30% at 85% 80%, rgba(199, 154, 224, .05) 0%, transparent 50%),
+    #080b16;
 }
 
 .hero-aurora::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(23, 26, 48, .08) 1px, transparent 1px);
-  background-size: 26px 26px;
-  -webkit-mask-image: radial-gradient(60rem 34rem at 50% 0%, #000, transparent 78%);
-  mask-image: radial-gradient(60rem 34rem at 50% 0%, #000, transparent 78%);
+  background-image: radial-gradient(circle, rgba(237, 236, 225, .055) 1px, transparent 1px);
+  background-size: 28px 28px;
   pointer-events: none;
+}
+
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .hero-emblem {
@@ -186,7 +192,7 @@ button:active, a:active { transform: translateY(1px); }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #2b2f52;
+  color: var(--color-ink-soft);
   font-size: 13px;
   font-weight: 700;
   letter-spacing: .02em;
@@ -197,22 +203,22 @@ button:active, a:active { transform: translateY(1px); }
   content: "";
   width: 36px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(43, 47, 82, .5));
+  background: linear-gradient(90deg, transparent, rgba(168, 173, 199, .35));
 }
 
 .hero-eyebrow::after {
-  background: linear-gradient(90deg, rgba(43, 47, 82, .5), transparent);
+  background: linear-gradient(90deg, rgba(168, 173, 199, .35), transparent);
 }
 
-.hero-aurora .display { color: #171a30; }
-.hero-aurora .hero-sub { color: rgba(23, 26, 48, .72); }
+.hero-aurora .display { color: var(--color-ink); }
+.hero-aurora .hero-sub { color: rgba(237, 236, 225, .6); }
 .hero-aurora .hero-safety {
-  color: #2b2f52;
-  border: 1px solid rgba(23, 26, 48, .14);
+  color: var(--color-ink-soft);
+  border: 1px solid rgba(237, 236, 225, .1);
   border-radius: 999px;
-  background: rgba(255, 255, 255, .38);
+  background: rgba(16, 21, 41, .65);
   padding: 9px 16px;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px);
 }
 .hero-aurora .hero-statline {
   color: rgba(237, 236, 225, .55);
@@ -223,7 +229,7 @@ button:active, a:active { transform: translateY(1px); }
   text-transform: uppercase;
 }
 
-/* Buttons that sit on the light aurora */
+/* Buttons on the dark hero */
 .btn-night {
   display: inline-flex;
   min-height: 52px;
@@ -231,15 +237,15 @@ button:active, a:active { transform: translateY(1px); }
   justify-content: center;
   gap: 8px;
   border-radius: 999px;
-  background: #171a30;
-  padding: 0 26px;
+  background: var(--color-service);
+  padding: 0 28px;
   color: #fff;
   font-size: 14px;
   font-weight: 700;
-  box-shadow: 0 16px 36px rgba(23, 26, 48, .3);
+  box-shadow: 0 0 0 1px rgba(111, 134, 245, .3), 0 8px 28px rgba(111, 134, 245, .25);
 }
 
-.btn-night:hover { background: #2b46ce; }
+.btn-night:hover { background: #8ea0ff; box-shadow: 0 0 0 1px rgba(142, 160, 255, .4), 0 8px 32px rgba(142, 160, 255, .3); }
 
 .btn-daylight {
   display: inline-flex;
@@ -247,17 +253,17 @@ button:active, a:active { transform: translateY(1px); }
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border: 1px solid rgba(23, 26, 48, .14);
+  border: 1px solid rgba(237, 236, 225, .15);
   border-radius: 999px;
-  background: rgba(255, 255, 255, .85);
-  padding: 0 26px;
-  color: #171a30;
+  background: rgba(237, 236, 225, .06);
+  padding: 0 28px;
+  color: var(--color-ink);
   font-size: 14px;
   font-weight: 700;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
 }
 
-.btn-daylight:hover { background: #ffffff; border-color: rgba(23, 26, 48, .3); }
+.btn-daylight:hover { background: rgba(237, 236, 225, .11); border-color: rgba(237, 236, 225, .28); }
 
 /* ---------- Artwork cards: generated spectrum panels with white linework ---------- */
 

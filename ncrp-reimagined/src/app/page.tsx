@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
+import HeroParticles from "@/components/HeroParticles";
 import { PATTERNS } from "@/data/patterns";
 import { useRakshaLanguage } from "@/hooks/useRakshaLanguage";
 import { HOME_COPY } from "@/data/homeCopy";
@@ -39,6 +40,7 @@ export default function HomePage() {
       <main id="main-content" tabIndex={-1}>
         {/* Hero: full-bleed aurora gradient, centered, melting into the night */}
         <section className="hero-aurora">
+          <HeroParticles />
           <div className="public-shell relative z-[1] flex min-h-[94dvh] flex-col items-center justify-center py-24 text-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/illustrations/raksha-arch-emblem.png" alt="" className="hero-emblem" aria-hidden="true" />
