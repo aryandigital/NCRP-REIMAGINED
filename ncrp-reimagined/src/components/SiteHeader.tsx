@@ -48,7 +48,6 @@ export default function SiteHeader({ current }: { current?: "check" | "track" | 
           <LanguageSwitcher compact />
         </div>
       </div>
-      <div className="hero-rule" aria-hidden="true" />
     </header>
   );
 }

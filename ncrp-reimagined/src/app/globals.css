@@ -100,17 +100,18 @@ button:active, a:active { transform: translateY(1px); }
 /* ---------- Global chrome ---------- */
 
 .emergency-bar {
-  background: #2b46ce;
-  color: #ffffff;
-  min-height: 42px;
+  background: #1c2030;
+  color: rgba(237, 236, 225, 0.55);
+  border-bottom: 1px solid rgba(237, 236, 225, 0.08);
+  min-height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 9px 16px;
+  padding: 5px 16px;
   text-align: center;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.35;
-  font-weight: 650;
+  font-weight: 600;
 }
 
 .public-shell {
@@ -536,22 +537,20 @@ button:active, a:active { transform: translateY(1px); }
 
 .samvaad-dock { position: fixed; z-index: 60; right: 18px; bottom: 18px; display: grid; justify-items: end; gap: 10px; }
 
-.samvaad-fab { position: relative; display: flex; min-height: 62px; align-items: center; gap: 10px; border-radius: 999px; background: #2b46ce; padding: 6px 18px 6px 7px; color: #fff; box-shadow: 0 16px 36px rgba(43, 70, 206, .3); text-align: left; }
-.samvaad-fab::after { content: ""; position: absolute; inset: -5px; border: 2px solid rgba(43, 70, 206, .4); border-radius: 999px; animation: fab-pulse 2.6s ease-out infinite; pointer-events: none; }
-.samvaad-fab-mark { display: flex; height: 48px; width: 48px; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,.18); box-shadow: inset 0 0 0 1px rgba(255,255,255,.32); }
-.samvaad-fab strong, .samvaad-fab small { display: block; }
-.samvaad-fab strong { font-size: 14px; letter-spacing: -.01em; }
-.samvaad-fab small { margin-top: 2px; font-size: 10px; font-weight: 650; opacity: .85; }
+.samvaad-fab { position: relative; display: flex; min-height: 44px; align-items: center; gap: 8px; border-radius: 999px; border: 1px solid rgba(237, 236, 225, .16); background: rgba(13, 17, 36, .92); padding: 0 16px 0 10px; color: var(--color-ink); box-shadow: 0 8px 24px rgba(0, 0, 0, .4); backdrop-filter: blur(14px); }
+.samvaad-fab:hover { border-color: rgba(237, 236, 225, .28); background: rgba(20, 26, 54, .96); }
+.samvaad-fab-mark { display: flex; height: 28px; width: 28px; align-items: center; justify-content: center; border-radius: 50%; background: var(--color-service-soft); color: var(--color-service); }
+.samvaad-fab strong { font-size: 13px; font-weight: 700; letter-spacing: -.01em; }
 
 .samvaad-greet { position: relative; max-width: 250px; border: 1px solid rgba(237, 236, 225, .14); border-radius: 16px 16px 4px 16px; background: rgba(16, 21, 41, .96); padding: 11px 34px 11px 13px; color: var(--deep-ink); font-size: 12px; font-weight: 650; line-height: 1.5; box-shadow: 0 14px 34px rgba(0, 0, 0, .45); backdrop-filter: blur(14px); animation: greet-in 480ms cubic-bezier(.2, .9, .3, 1.2) both; }
 .samvaad-greet button { position: absolute; top: 6px; right: 6px; display: flex; height: 22px; width: 22px; align-items: center; justify-content: center; border-radius: 50%; color: var(--color-ink-faint); }
 .samvaad-greet button:hover { background: var(--color-muted); color: var(--deep-ink); }
 
-.samvaad-panel { width: min(400px, calc(100vw - 28px)); overflow: hidden; border: 1px solid rgba(237, 236, 225, .13); border-radius: 28px; background: rgba(13, 17, 36, .94); box-shadow: 0 24px 72px rgba(0, 0, 0, .55); backdrop-filter: blur(22px) saturate(1.2); }
-.samvaad-spectrum { height: 6px; background: linear-gradient(90deg, var(--spectrum-blue), var(--spectrum-periwinkle) 35%, var(--spectrum-lilac) 65%, var(--spectrum-orange)); }
-.samvaad-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 16px 13px; }
-.samvaad-top h2 { margin: 2px 0 0; color: var(--deep-ink); font-size: 17px; font-weight: 780; letter-spacing: -.03em; }
-.samvaad-orbit { display: flex; height: 38px; width: 38px; align-items: center; justify-content: center; border-radius: 50%; background: conic-gradient(from 210deg, var(--spectrum-blue), var(--spectrum-periwinkle), var(--spectrum-lilac), var(--spectrum-orange), var(--spectrum-blue)); color: #fff; box-shadow: 0 0 0 5px rgba(111, 134, 245, .16); }
+.samvaad-panel { width: min(400px, calc(100vw - 28px)); overflow: hidden; border: 1px solid rgba(237, 236, 225, .13); border-radius: 20px; background: rgba(13, 17, 36, .96); box-shadow: 0 24px 72px rgba(0, 0, 0, .55); backdrop-filter: blur(22px) saturate(1.2); }
+.samvaad-spectrum { display: none; }
+.samvaad-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 14px 12px; border-bottom: 1px solid rgba(237, 236, 225, .07); }
+.samvaad-top h2 { margin: 2px 0 0; color: var(--deep-ink); font-size: 15px; font-weight: 700; letter-spacing: -.02em; }
+.samvaad-orbit { display: flex; height: 32px; width: 32px; align-items: center; justify-content: center; border-radius: 50%; background: var(--color-service-soft); color: var(--color-service); }
 .samvaad-close { display: flex; height: 34px; width: 34px; align-items: center; justify-content: center; border: 1px solid rgba(237, 236, 225, .12); border-radius: 50%; color: var(--deep-ink); }
 .samvaad-info { display: flex; gap: 7px; margin: 0 16px; border-radius: 12px; background: linear-gradient(90deg, rgba(111, 134, 245, .12), rgba(255, 157, 92, .12)); padding: 9px 10px; color: var(--color-ink-soft); font-size: 11px; line-height: 1.45; }
 .samvaad-language { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 12px 16px 0; color: var(--color-ink-soft); font-size: 11px; font-weight: 750; }
@@ -602,8 +601,7 @@ html[data-raksha-contrast="high"] { filter: contrast(1.18) saturate(1.06); }
   .stage-rail > *:nth-child(-n + 2) { border-bottom: 1px solid var(--color-line); }
   .arch-frame { border-radius: 999px 999px 22px 22px; }
   .samvaad-dock { right: 10px; bottom: 10px; }
-  .samvaad-fab { min-height: 56px; padding-right: 14px; }
-  .samvaad-fab small { display: none; }
+  .samvaad-fab { min-height: 42px; padding-right: 14px; }
   .samvaad-greet { max-width: 210px; }
   .access-tools { bottom: 10px; left: 10px; }
   .access-launch span { display: none; }

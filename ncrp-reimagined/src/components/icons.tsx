@@ -51,21 +51,10 @@ const GUARD_DOTS: Array<[number, number, number]> = [
 ];
 
 export function BrandMark({ size = 40, className }: { size?: number; className?: string }) {
-  const id = useId().replace(/[^a-zA-Z0-9]/g, "");
   return (
-    <svg width={size} height={size} viewBox="0 0 40 40" fill="none" className={className} role="img" aria-label="Raksha">
-      <defs>
-        <linearGradient id={id} x1="8" y1="6" x2="32" y2="34" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#2b46ce" />
-          <stop offset=".55" stopColor="#8f7ee8" />
-          <stop offset="1" stopColor="#ff8a3d" />
-        </linearGradient>
-      </defs>
-      {GUARD_DOTS.map(([cx, cy, opacity]) => (
-        <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r="1.35" fill="#16182b" opacity={opacity} />
-      ))}
-      <path d="M20 8.5 C 23.4 11.2 26 12.6 26 15.4 V21 C 26 25.4 23.2 28.2 20 30.2 C 16.8 28.2 14 25.4 14 21 V15.4 C 14 12.6 16.6 11.2 20 8.5 Z" stroke={`url(#${id})`} strokeWidth="2" fill="rgba(43,70,206,.06)" />
-      <circle cx="20" cy="19.5" r="2.2" fill={`url(#${id})`} />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} role="img" aria-label="Raksha">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      <path d="M9 12l2 2 4-4"/>
     </svg>
   );
 }
