@@ -552,23 +552,23 @@ button:active, a:active { transform: translateY(1px); }
 .samvaad-top h2 { margin: 2px 0 0; color: var(--deep-ink); font-size: 15px; font-weight: 700; letter-spacing: -.02em; }
 .samvaad-orbit { display: flex; height: 32px; width: 32px; align-items: center; justify-content: center; border-radius: 50%; background: var(--color-service-soft); color: var(--color-service); }
 .samvaad-close { display: flex; height: 34px; width: 34px; align-items: center; justify-content: center; border: 1px solid rgba(237, 236, 225, .12); border-radius: 50%; color: var(--deep-ink); }
-.samvaad-info { display: flex; gap: 7px; margin: 0 16px; border-radius: 12px; background: linear-gradient(90deg, rgba(111, 134, 245, .12), rgba(255, 157, 92, .12)); padding: 9px 10px; color: var(--color-ink-soft); font-size: 11px; line-height: 1.45; }
+.samvaad-info { display: flex; gap: 7px; margin: 12px 14px 0; border-radius: 10px; background: rgba(237, 236, 225, .04); border: 1px solid rgba(237, 236, 225, .07); padding: 9px 10px; color: var(--color-ink-faint); font-size: 11px; line-height: 1.45; }
 .samvaad-language { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 12px 16px 0; color: var(--color-ink-soft); font-size: 11px; font-weight: 750; }
 .samvaad-language > div { position: relative; }
 .samvaad-language select { min-height: 33px; appearance: none; border: 1px solid rgba(237, 236, 225, .14); border-radius: 999px; background: #10152a; padding: 0 27px 0 11px; color: var(--deep-ink); font-size: 11px; font-weight: 750; outline: 0; }
 .samvaad-language svg { position: absolute; top: 10px; right: 9px; pointer-events: none; }
-.samvaad-panel .samvaad-thread { max-height: 250px; margin: 0 16px; padding: 13px 0 5px; }
+.samvaad-panel .samvaad-thread { max-height: 250px; margin: 0 14px; padding: 12px 0 4px; }
 .samvaad-panel .samvaad-message { font-size: 12px; }
-.samvaad-panel .samvaad-assistant { border-color: rgba(111, 134, 245, .2); background: linear-gradient(135deg, #171d3a, #141936); }
+.samvaad-panel .samvaad-assistant { border-color: rgba(237, 236, 225, .08); background: rgba(237, 236, 225, .04); }
 .samvaad-panel .samvaad-user { background: linear-gradient(120deg, #4c63e8, #7d6fe8); }
 .samvaad-actions { display: flex; flex-wrap: wrap; gap: 7px; margin: 8px 16px 0; }
 .samvaad-actions button { display: inline-flex; min-height: 31px; align-items: center; gap: 5px; border: 1px solid rgba(237, 236, 225, .12); border-radius: 999px; background: #10152a; padding: 0 9px; color: var(--color-ink-soft); font-size: 10px; font-weight: 750; }
-.samvaad-panel .samvaad-compose { margin: 11px 16px 0; }
+.samvaad-panel .samvaad-compose { margin: 10px 14px 0; }
 .samvaad-panel .samvaad-compose textarea { border-color: rgba(237, 236, 225, .18); background: rgba(8, 11, 22, .9); font-size: 12px; }
 .samvaad-mic, .samvaad-panel .samvaad-send { display: flex; min-height: 40px; align-items: center; justify-content: center; border-radius: 12px; }
 .samvaad-mic { border: 1px solid rgba(237, 236, 225, .16); background: #10152a; color: var(--deep-ink); }
 .samvaad-mic.samvaad-recording { border-color: var(--spectrum-coral); background: rgba(240, 146, 125, .14); color: var(--spectrum-coral); }
-.samvaad-panel .samvaad-send { background: linear-gradient(130deg, #4c63e8, #7d6fe8 56%, #f0927d); }
+.samvaad-panel .samvaad-send { background: var(--color-service); }
 .samvaad-note { margin: 9px 16px 15px; color: var(--color-ink-faint); font-size: 10px; line-height: 1.45; }
 
 /* ---------- Accessibility dock ---------- */

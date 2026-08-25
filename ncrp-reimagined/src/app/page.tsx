@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Mic, ShieldCheck, Phone, Activity, Network, Volume2, Route } from "lucide-react";
+import { ArrowRight, Mic, ShieldCheck, Phone, Activity, Network, Volume2, Route, AlertCircle, TrendingDown, Search } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import HeroParticles from "@/components/HeroParticles";
 import { PATTERNS } from "@/data/patterns";
@@ -10,9 +10,9 @@ import { HOME_COPY } from "@/data/homeCopy";
 import { BrandMark, IconAlert, IconClock, IconEmergency, IconEvidence } from "@/components/icons";
 
 const routeMeta = [
-  { href: "/check?mode=emergency", icon: "/illustrations/icons/icon-emergency.png" },
-  { href: "/check?mode=lost", icon: "/illustrations/icons/icon-lost.png" },
-  { href: "/check", icon: "/illustrations/icons/icon-check.png" },
+  { href: "/check?mode=emergency", Icon: AlertCircle },
+  { href: "/check?mode=lost", Icon: TrendingDown },
+  { href: "/check", Icon: Search },
 ] as const;
 
 const journeyIcons = [Mic, ShieldCheck, Phone, Activity] as const;
@@ -60,13 +60,12 @@ export default function HomePage() {
             </div>
             <div className="mt-9 grid gap-4 lg:grid-cols-3">
               {copy.routes.items.map((route, index) => {
-                const { href, icon } = routeMeta[index];
+                const { href, Icon } = routeMeta[index];
                 return (
-                  <Link key={route.label} href={href} className="group glow-card flex flex-col rounded-2xl p-6 transition-shadow">
+                  <Link key={route.label} href={href} className="group glow-card flex flex-col rounded-2xl p-5 transition-shadow">
                     <span className="flex items-start justify-between gap-3">
-                      <span className="icon-well h-14 w-14 shrink-0 p-0">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={icon} alt="" className="icon-art h-9 w-9" aria-hidden="true" />
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-line-strong bg-paper transition-colors duration-200 group-hover:border-service/40 group-hover:bg-service-soft">
+                        <Icon size={18} className="text-ink-faint transition-colors duration-200 group-hover:text-service" aria-hidden="true" />
                       </span>
                       <ArrowRight size={16} className="mt-1 shrink-0 text-ink-faint transition-transform group-hover:translate-x-1 group-hover:text-service" aria-hidden="true" />
                     </span>
@@ -235,16 +234,21 @@ export default function HomePage() {
       </main>
 
       <footer className="border-t border-line bg-paper">
-        <div className="public-shell flex flex-col gap-6 py-10 text-xs text-ink-faint sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="flex items-center gap-2.5 font-bold text-ink"><BrandMark size={22} />{copy.footer.brand}</p>
-            <p className="mt-3 max-w-[62ch] leading-5">{copy.footer.disclosure}</p>
+        <div className="public-shell py-8">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <p className="flex items-center gap-2 text-sm font-bold text-ink">
+              <BrandMark size={18} aria-hidden="true" />
+              {copy.footer.brand}
+            </p>
+            <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-xs font-semibold text-ink-faint">
+              <Link href="/check" className="hover:text-ink transition-colors">{copy.footer.links.start}</Link>
+              <Link href="/track" className="hover:text-ink transition-colors">{copy.footer.links.track}</Link>
+              <Link href="/atlas" className="hover:text-ink transition-colors">{copy.footer.links.bulletin}</Link>
+            </div>
           </div>
-          <div className="flex flex-wrap gap-x-5 gap-y-2 font-semibold">
-            <Link href="/check" className="hover:text-service">{copy.footer.links.start}</Link>
-            <Link href="/track" className="hover:text-service">{copy.footer.links.track}</Link>
-            <Link href="/atlas" className="hover:text-service">{copy.footer.links.bulletin}</Link>
-          </div>
+          <p className="mt-5 border-t border-line pt-5 text-[11px] leading-5 text-ink-faint opacity-50">
+            {copy.footer.disclosure}
+          </p>
         </div>
       </footer>
     </div>
