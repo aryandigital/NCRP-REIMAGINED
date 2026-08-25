@@ -199,19 +199,27 @@ export default function HomePage() {
               </div>
               <Link href="/atlas" className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-service hover:text-ink">{copy.bulletin.openAll} <ArrowRight size={16} aria-hidden="true" /></Link>
             </div>
-            <div className="mt-6 overflow-hidden border-y border-line">
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {PATTERNS.map((pattern, index) => (
-                <Link key={pattern.slug} href={`/atlas/${pattern.slug}`} className={`reveal ${STAGGER[index]} group grid gap-3 border-b border-line px-1 py-5 last:border-b-0 sm:grid-cols-[70px_1fr_auto] sm:items-center sm:gap-6`}>
-                  <span className="font-mono text-xs font-bold text-ink-faint">0{index + 1}</span>
-                  <span>
+                <Link
+                  key={pattern.slug}
+                  href={`/atlas/${pattern.slug}`}
+                  className={`reveal ${STAGGER[index]} group relative flex flex-col gap-4 rounded-xl border border-line bg-paper p-6 transition-colors hover:border-service/40 hover:bg-command`}
+                >
+                  <div className="flex items-start justify-between gap-2">
                     <span className="flex flex-wrap items-center gap-2">
                       <span className="rounded-[5px] bg-danger-soft px-2 py-1 font-mono text-[10px] font-bold uppercase tracking-[.1em] text-danger">{copy.bulletin.active}</span>
                       <span className="text-xs text-ink-faint">{pattern.channels.slice(0, 3).join(" / ")}</span>
                     </span>
-                    <span className="mt-2 block text-base font-bold text-ink group-hover:text-service">{pattern.name}</span>
-                    <span className="mt-1 block text-sm leading-6 text-ink-soft">{pattern.stages[0]?.signals[0]}</span>
+                    <span className="font-mono text-xs font-bold text-ink-faint">0{index + 1}</span>
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-base font-bold text-ink group-hover:text-service">{pattern.name}</p>
+                    <p className="mt-2 text-sm leading-6 text-ink-soft">{pattern.stages[0]?.signals[0]}</p>
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 text-sm font-bold text-service">
+                    {copy.bulletin.viewScript} <ArrowRight size={14} aria-hidden="true" className="transition-transform group-hover:translate-x-0.5" />
                   </span>
-                  <span className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-service sm:justify-self-end">{copy.bulletin.viewScript} <ArrowRight size={16} aria-hidden="true" /></span>
                 </Link>
               ))}
             </div>
