@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { BrandMark } from "@/components/icons";
@@ -7,6 +8,15 @@ import { useRakshaLanguage } from "@/hooks/useRakshaLanguage";
 
 export default function SiteHeader({ current }: { current?: "check" | "track" | "atlas" | "operator" }) {
   const { language } = useRakshaLanguage();
+  const headerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const onScroll = () => {
+      headerRef.current?.classList.toggle("is-scrolled", window.scrollY > 20);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   const copy = {
     en: { bulletin: "Threat bulletin", track: "Track case", operator: "Operator view", start: "Start incident", sub: "National cyber response platform" },
     hi: { bulletin: "खतरा बुलेटिन", track: "केस ट्रैक करें", operator: "ऑपरेटर व्यू", start: "शिकायत शुरू करें", sub: "राष्ट्रीय साइबर प्रतिक्रिया मंच" },
@@ -17,8 +27,8 @@ export default function SiteHeader({ current }: { current?: "check" | "track" | 
   }[language];
 
   return (
-    <header className="site-header border-b border-line" data-raksha-i18n="react">
-      <div className="public-shell flex min-h-[78px] items-center justify-between gap-3 py-3 sm:gap-5">
+    <header ref={headerRef} className="site-header" data-raksha-i18n="react">
+      <div className="public-shell flex min-h-[78px] items-center justify-between gap-3 px-4 py-3 sm:gap-5 sm:px-6">
         <Link href="/" className="flex min-w-0 items-center gap-3" aria-label="Raksha home">
           <span className="flex h-10 w-10 shrink-0 items-center justify-center">
             <BrandMark size={38} />
