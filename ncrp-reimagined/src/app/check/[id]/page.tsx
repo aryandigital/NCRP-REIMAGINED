@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getIncident } from "@/lib/store";
+import { getSession } from "@/lib/auth";
 import { notFound } from "next/navigation";
 import SiteHeader from "@/components/SiteHeader";
 import FactReview from "@/components/FactReview";
@@ -116,8 +117,9 @@ const SECONDARY_TRIGGERS = [
 
 export default async function CheckResultPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
+  const session = await getSession();
   const incident = await getIncident(id);
-  if (!incident || !incident.dna) notFound();
+  if (!incident || !incident.dna || !session || (!incident.syntheticOnly && incident.userId !== session.userId)) notFound();
 
   const dna = incident.dna;
   const view = RISK_VIEW[dna.risk];

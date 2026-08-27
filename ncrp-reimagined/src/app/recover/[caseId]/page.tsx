@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, CheckCircle2, Clock3, FileText, ShieldAlert, Timer } from "lucide-react";
 import { getIncident } from "@/lib/store";
+import { getSession } from "@/lib/auth";
 import { CLOCKS, computeDueAt, humanRemaining, statusOf } from "@/lib/clocks";
 import { notFound } from "next/navigation";
 import SiteHeader from "@/components/SiteHeader";
@@ -18,8 +19,9 @@ function ClockRow({ kind, startAt }: { kind: keyof typeof CLOCKS; startAt: Date 
 
 export default async function RecoverPage({ params }: { params: Promise<{ caseId: string }> }) {
   const { caseId } = await params;
+  const session = await getSession();
   const incident = await getIncident(caseId);
-  if (!incident) notFound();
+  if (!incident || !session || (!incident.syntheticOnly && incident.userId !== session.userId)) notFound();
   const createdAt = new Date(incident.createdAt);
   const patternName = incident.dna?.patternName ?? "Cyber fraud incident";
   const ackNumber = incident.ackNumber ?? "Pending acknowledgement";
