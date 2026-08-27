@@ -34,6 +34,13 @@ export interface UserRow {
   createdAt: Date;
 }
 
+export class DatabaseRequiredError extends Error {
+  constructor() {
+    super("DATABASE_URL is required for persistent user accounts");
+    this.name = "DatabaseRequiredError";
+  }
+}
+
 const memoryUsersByEmail = new Map<string, UserRow>();
 const memoryUsersById = new Map<string, UserRow>();
 let memoryUsersReady: Promise<void> | null = null;
@@ -67,9 +74,7 @@ export async function createUser(data: { id: string; email: string; passwordHash
   };
 
   if (!database) {
-    memoryUsersByEmail.set(row.email, row);
-    memoryUsersById.set(row.id, row);
-    return row;
+    throw new DatabaseRequiredError();
   }
 
   await database.insert(users).values(row).execute();
