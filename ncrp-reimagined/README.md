@@ -4,7 +4,7 @@ Raksha is an independent cyber-fraud response prototype. It turns a synthetic in
 
 ## Setup
 
-Copy `.env.example` to `.env.local` and add replacement credentials only if you want real model analysis or Neon persistence. Never use the API key previously pasted into chat.
+Copy `.env.example` to `.env.local`. `SESSION_SECRET` is required for authentication. `DATABASE_URL` is required for persistent accounts and incidents; without it, local development supports the documented demo accounts and temporary incident storage only. Never use an API key previously pasted into chat.
 
 Run the development server:
 
@@ -32,8 +32,19 @@ Useful checks:
 
 ```bash
 npm run lint
+npm test
 npm run build
 ```
+
+## Deploy to Vercel
+
+1. Import the `Open-Ai-Hakathon` repository and set the Vercel Root Directory to `ncrp-reimagined`.
+2. Add `SESSION_SECRET` and `DATABASE_URL` to Production, Preview, and Development environments. Generate `SESSION_SECRET` with at least 32 random bytes.
+3. Optionally add `OPENAI_API_KEY` and `SARVAM_API_KEY`. The app keeps its local analysis and safety-guidance fallbacks when these are absent.
+4. From a trusted shell with the production `DATABASE_URL` exported, run `npm run db:push` and then `npm run db:seed` once.
+5. Deploy with the default Next.js preset (`npm ci`, then `npm run build`). Run `npm run verify` before pushing deployment changes.
+
+Do not deploy without `DATABASE_URL`: serverless instances do not provide durable local storage, so account signup and incident persistence require Neon or another compatible PostgreSQL database.
 
 ## Prototype boundary
 
