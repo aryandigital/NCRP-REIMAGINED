@@ -54,8 +54,8 @@ export default function UserMenu() {
         aria-label={`User menu for ${displayName}`}
         className="flex min-h-9 items-center gap-2 rounded-[4px] px-2 text-[13px] font-semibold text-[rgba(254,252,248,.85)] hover:text-[#fefcf8] sm:px-3 sm:text-sm"
       >
-        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--saffron)] text-[11px] font-bold text-white">
-          {initials}
+        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--saffron)] text-white">
+          <User size={15} aria-hidden="true" />
         </span>
         <span className="hidden sm:block">{displayName}</span>
       </button>

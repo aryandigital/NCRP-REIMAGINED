@@ -184,8 +184,8 @@ button:active, a:active { transform: translateY(1px); }
 /* ---------- Global chrome ---------- */
 
 .emergency-bar {
-  background: var(--navy-dark);
-  color: rgba(254, 252, 248, 0.85);
+  background: #f0f4ff;
+  color: #0d1557;
   border-bottom: none;
   min-height: 34px;
   display: flex;
