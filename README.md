@@ -158,6 +158,17 @@ The public demo works without credentials via the local pattern matcher and a bu
 
 ---
 
+## Deploy to Vercel
+
+1. Import this repository in Vercel and set the **Root Directory** to `ncrp-reimagined`.
+2. In Production, Preview, and Development, add `DATABASE_URL` and a unique `SESSION_SECRET` of at least 32 random bytes. `OPENAI_API_KEY` and `SARVAM_API_KEY` are optional.
+3. From a trusted machine with the production `DATABASE_URL` set, run `npm run db:push` and then `npm run db:seed` from `ncrp-reimagined` once.
+4. Vercel will build with `npm ci` followed by `npm run build`. Run `npm run verify` locally before deploying.
+
+Do not deploy without `DATABASE_URL`: serverless instances do not provide durable local storage for accounts and incidents.
+
+---
+
 ## Test Accounts
 
 | Email | Password |
@@ -200,7 +211,7 @@ No real complaint, bank request, police queue, or platform report is submitted b
 | `OPENAI_API_KEY` | Optional | GPT-4o scam analysis |
 | `SARVAM_API_KEY` | Optional | Sarvam multilingual agent |
 | `DATABASE_URL` | Optional | Neon PostgreSQL persistence |
-| `JWT_SECRET` | Optional | Auth token signing |
+| `SESSION_SECRET` | Required in deployment | Auth cookie signing |
 
 </details>
 

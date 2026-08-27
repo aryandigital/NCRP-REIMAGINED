@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Banknote, FileCheck2, LockKeyhole, PhoneCall, ShieldAlert } from "lucide-react";
 import { getIncident } from "@/lib/store";
+import { getSession } from "@/lib/auth";
 import { BANK_PLAYBOOKS, CONTENT_PLAYBOOK, HELPLINE_1930 } from "@/lib/playbooks";
 import { notFound } from "next/navigation";
 import SiteHeader from "@/components/SiteHeader";
@@ -13,8 +14,9 @@ const TRIGGER_LABELS: Record<string, string> = { paid: "money was transferred", 
 export default async function ActPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ trigger?: string }> }) {
   const { id } = await params;
   const { trigger = "none" } = await searchParams;
+  const session = await getSession();
   const incident = await getIncident(id);
-  if (!incident) notFound();
+  if (!incident || !session || (!incident.syntheticOnly && incident.userId !== session.userId)) notFound();
   const isEmergency = ["paid", "otp", "app", "screen", "images"].includes(trigger);
   const isContent = trigger === "images";
   const isMoney = ["paid", "otp"].includes(trigger);

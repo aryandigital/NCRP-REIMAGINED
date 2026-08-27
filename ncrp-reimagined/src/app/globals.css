@@ -596,6 +596,7 @@ button:active, a:active { transform: translateY(1px); }
 
 .language-switcher { display: inline-flex; min-height: 36px; align-items: center; gap: 7px; border: 1px solid rgba(254, 252, 248, .2); border-radius: 4px; background: rgba(254, 252, 248, .06); padding: 0 12px; color: #fefcf8; }
 .language-switcher select { max-width: 104px; cursor: pointer; appearance: none; border: 0; background: transparent; color: inherit; font-size: 12px; font-weight: 750; outline: 0; }
+.language-switcher option { background: #ffffff; color: var(--color-ink); }
 .language-switcher-compact { min-height: 36px; }
 
 /* ---------- Signal loom (inner pages) ---------- */
@@ -766,13 +767,16 @@ html[data-raksha-contrast="high"] { filter: contrast(1.12); }
 
 @media (max-width: 767px) {
   .public-shell { width: min(100% - 24px, 1240px); }
-  .site-header > .public-shell { width: min(100% - 14px, 1240px); }
+  .site-header > .public-shell { width: min(100% - 14px, 1240px); flex-wrap: wrap; align-items: flex-start; row-gap: 5px; }
+  .site-header > .public-shell > div:last-child { min-width: 0; flex: 1 1 220px; flex-wrap: wrap; justify-content: flex-end; }
+  .site-header nav { order: 2; flex-basis: 100%; justify-content: flex-end; }
   .stage-rail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stage-rail > *:nth-child(2) { border-right: 0; }
   .stage-rail > *:nth-child(-n + 2) { border-bottom: 1px solid var(--color-line); }
   .samvaad-dock { right: 10px; bottom: 10px; }
-  .samvaad-fab { min-height: 42px; padding-right: 14px; }
-  .samvaad-greet { max-width: 210px; }
+  .samvaad-fab { min-height: 44px; width: 44px; justify-content: center; padding: 0; }
+  .samvaad-fab strong { display: none; }
+  .samvaad-greet { display: none; }
   .access-tools { bottom: 10px; left: 10px; }
   .access-launch span { display: none; }
 }

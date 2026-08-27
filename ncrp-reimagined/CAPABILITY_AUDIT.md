@@ -1,6 +1,6 @@
 # Raksha capability audit
 
-Verified locally on August 24, 2026 (second pass after the Sarvam visual redesign).
+Verified locally on August 27, 2026 after authentication, authorization, mobile-layout, and deployment-readiness fixes.
 
 | Planned capability | Status | Verification / note |
 | --- | --- | --- |
@@ -11,7 +11,7 @@ Verified locally on August 24, 2026 (second pass after the Sarvam visual redesig
 | Six-language conversation assistance | Working | Raksha Samvaad supports all six languages for text/voice prompts; the assistant defaults to the visitor's chosen site language. |
 | Voice path | Working, browser-dependent | Browser speech recognition fills an editable transcript at intake (all six locales selectable) and inside Samvaad. Typing remains available when unsupported. |
 | Read-aloud / low-vision access | Working, browser-dependent | Persistent accessibility dock offers page read-aloud (locale-aware for all six languages), larger text, and higher contrast. |
-| Assistant discoverability | Working | Gradient FAB bottom-right with pulse ring and one-time greeting bubble in the visitor's language. |
+| Assistant discoverability | Working | Persistent assistant control; the greeting bubble is suppressed on narrow screens so it cannot cover primary actions. |
 | Screenshot input | Working | Screenshot upload accepted at intake (8 MB cap). |
 | Screenshot extraction | Working with credentials | Vision analysis runs when `OPENAI_API_KEY` is set in `.env.local`; otherwise local pattern matching takes over. |
 | Confirmable, editable fact graph | Working | Extracted facts expose source/confidence and may be edited before confirmation. |
@@ -22,9 +22,9 @@ Verified locally on August 24, 2026 (second pass after the Sarvam visual redesig
 | Operator console | Working | `/operator` shows provenance, packets, routing events, and linked cluster context. |
 | Redacted case export | Working | Recovery produces a redacted JSON bundle (`/api/incidents/[id]?format=bundle`). |
 | Sample-data boundary | Working | Public UI and packet flow state that this environment runs on sample data and transmits nothing to institutions. No "prototype/demo/mock" wording remains in user-visible copy. |
-| Mobile responsive layout | Working | Checked at 390 × 844 with no horizontal overflow. |
+| Mobile responsive layout | Working | Checked at 375 × 812 with no horizontal overflow, including the operator table. |
 | Real government/bank/platform integration | Intentionally not implemented | All adapters are environment-local. |
-| Production provider credentials | Configured locally | Keys live only in `.env.local` (gitignored); never paste keys into chat or source. |
+| Production environment | Requires deployment configuration | `SESSION_SECRET` and `DATABASE_URL` must be configured in Vercel. Provider keys are optional and belong only in environment variables. |
 
 ## Visual and accessibility additions
 

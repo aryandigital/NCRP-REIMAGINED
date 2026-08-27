@@ -7,9 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test": "tsx --test \"src/**/*.test.ts\"",
+    "verify": "npm run lint && npm test && npm run build",
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
-    "db:seed": "tsx --env-file=.env scripts/seed-users.ts"
+    "db:seed": "tsx scripts/seed-users.ts",
+    "db:seed:local": "tsx --env-file=.env.local scripts/seed-users.ts"
   },
   "dependencies": {
     "@ai-sdk/openai": "^4.0.46",

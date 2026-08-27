@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { hashPassword, setSessionCookie } from "@/lib/auth";
-import { createUser, getUserByEmail } from "@/lib/db/users";
+import { createUser, DatabaseRequiredError, getUserByEmail } from "@/lib/db/users";
 
 const schema = z.object({
   email: z.string().email(),
@@ -25,16 +25,28 @@ export async function POST(req: NextRequest) {
 
   const { email, password, name } = parsed.data;
 
-  const existing = await getUserByEmail(email);
-  if (existing) {
-    return NextResponse.json({ error: "Email already registered" }, { status: 409 });
+  try {
+    const existing = await getUserByEmail(email);
+    if (existing) {
+      return NextResponse.json({ error: "Email already registered" }, { status: 409 });
+    }
+
+    const passwordHash = await hashPassword(password);
+    const id = `USR${crypto.randomUUID().replace(/-/g, "").slice(0, 12).toUpperCase()}`;
+    const user = await createUser({ id, email, passwordHash, name });
+
+    await setSessionCookie({ userId: user.id, email: user.email });
+
+    return NextResponse.json({ userId: user.id, email: user.email, name: user.name }, { status: 201 });
+  } catch (error) {
+    if (error instanceof DatabaseRequiredError) {
+      return NextResponse.json(
+        { error: "Account creation requires DATABASE_URL. Use a demo account locally or configure Neon." },
+        { status: 503 },
+      );
+    }
+
+    console.error("/api/auth/signup error:", error);
+    return NextResponse.json({ error: "Account creation is temporarily unavailable" }, { status: 500 });
   }
-
-  const passwordHash = await hashPassword(password);
-  const id = `USR${crypto.randomUUID().replace(/-/g, "").slice(0, 12).toUpperCase()}`;
-  const user = await createUser({ id, email, passwordHash, name });
-
-  await setSessionCookie({ userId: user.id, email: user.email });
-
-  return NextResponse.json({ userId: user.id, email: user.email, name: user.name }, { status: 201 });
 }
