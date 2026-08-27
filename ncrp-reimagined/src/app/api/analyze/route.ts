@@ -3,6 +3,7 @@ import { analyzeWithAI, analyzeLocal } from "@/lib/dna";
 import { analyzeIdentifier, mergeWithPatternResult } from "@/lib/identifier";
 import { createIncident, type DnaResult } from "@/lib/store";
 import { redact, evidenceIdentifiers } from "@/lib/redact";
+import { getSession } from "@/lib/auth";
 
 function tracksFor(dna: DnaResult): string[] {
   if (!dna.patternSlug) return ["money"];
@@ -13,6 +14,11 @@ function tracksFor(dna: DnaResult): string[] {
 }
 
 export async function POST(req: NextRequest) {
+  const session = await getSession();
+  if (!session) {
+    return NextResponse.json({ error: "Sign in to report a cybercrime", code: "UNAUTHENTICATED" }, { status: 401 });
+  }
+
   try {
     const fd = await req.formData();
     const rawText = (fd.get("text") as string | null) ?? "";
@@ -51,6 +57,8 @@ export async function POST(req: NextRequest) {
 
     // 4. Create incident
     const incident = await createIncident({
+      userId: session.userId,
+      syntheticOnly: false,
       rawText: (redacted || rawText).slice(0, 2000),
       dna,
       tracks: tracksFor(dna),

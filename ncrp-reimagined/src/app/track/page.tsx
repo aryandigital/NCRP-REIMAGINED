@@ -1,17 +1,150 @@
-"use client";
-
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Search, ShieldCheck } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
+import { ArrowRight, FileSearch, ShieldAlert, ShieldCheck, ShieldQuestion } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
+import { getSession } from "@/lib/auth";
+import { getUserIncidents, type Incident } from "@/lib/store";
 
-export default function TrackPage() {
-  const router = useRouter();
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const value = new FormData(event.currentTarget).get("caseId");
-    if (typeof value === "string" && value.trim()) router.push(`/recover/${value.trim()}`);
-  }
+export const dynamic = "force-dynamic";
 
-  return <div className="min-h-[100dvh] bg-paper"><SiteHeader current="track" /><main id="main-content" className="public-shell py-8 sm:py-12"><div className="mx-auto max-w-xl"><Link href="/" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-ink-soft hover:text-service"><ArrowLeft size={16} aria-hidden="true" /> Back to response desk</Link><div className="mt-8"><p className="kicker">Case tracking</p><h1 className="mt-3 text-3xl font-bold tracking-[-.04em] text-ink sm:text-4xl">Find your recovery plan.</h1><p className="mt-4 text-base leading-7 text-ink-soft">Enter the acknowledgement number from your case record. An example case is available without an account.</p></div><form onSubmit={handleSubmit} className="panel mt-7 p-5 sm:p-6"><label htmlFor="caseId" className="block text-sm font-bold text-ink">Acknowledgement number</label><div className="relative mt-3"><Search size={17} className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-faint" aria-hidden="true" /><input id="caseId" name="caseId" placeholder="Example: DEMO0001" className="min-h-12 w-full rounded-[8px] border border-line bg-paper pl-10 pr-3 font-mono text-sm text-ink placeholder:text-ink-faint focus:border-service focus:bg-surface focus:outline-none" /></div><button type="submit" className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[10px] bg-service px-5 text-sm font-bold text-white hover:bg-command">Open case <ArrowRight size={17} aria-hidden="true" /></button></form><div className="panel mt-4 border-service/30 bg-service-soft p-5"><div className="flex gap-3"><ShieldCheck size={20} className="mt-0.5 shrink-0 text-service" aria-hidden="true" /><div><p className="text-sm font-bold text-ink">Open an example case</p><p className="mt-2 text-xs leading-5 text-ink-soft">See clocks, packet statuses, routing events, and the recovery warning in the complete journey.</p><Link href="/recover/DEMO0001" className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-service">Open DEMO0001 <ArrowRight size={15} aria-hidden="true" /></Link></div></div></div><p className="mt-7 text-center text-xs leading-5 text-ink-faint">Service information: this deployment does not retrieve live status from government, bank, police, or platform systems.</p></div></main></div>;
+const RISK_CONFIG = {
+  high: {
+    label: "High risk",
+    icon: ShieldAlert,
+    chipClass: "bg-[var(--color-danger-soft)] text-[var(--color-danger)]",
+  },
+  medium: {
+    label: "Needs caution",
+    icon: ShieldQuestion,
+    chipClass: "bg-[var(--color-warning-soft)] text-[var(--color-warning)]",
+  },
+  unclear: {
+    label: "No match",
+    icon: ShieldCheck,
+    chipClass: "bg-surface text-ink-faint",
+  },
+} as const;
+
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+}
+
+function IncidentCard({ incident }: { incident: Incident }) {
+  const risk = incident.dna?.risk ?? "unclear";
+  const cfg = RISK_CONFIG[risk];
+  const Icon = cfg.icon;
+  const patternName = incident.dna?.patternName ?? "Unclassified incident";
+  const ackOrId = incident.ackNumber ?? incident.id;
+  const confirmed = incident.extractedFacts.filter((f) => f.confirmationStatus === "confirmed").length;
+  const total = incident.extractedFacts.length + incident.missingFacts.length;
+
+  return (
+    <Link
+      href={`/recover/${incident.id}`}
+      className="group panel flex items-start gap-4 p-5 transition hover:border-[var(--color-service)] hover:bg-[var(--color-service-soft)] sm:p-6"
+    >
+      <div className={`mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${cfg.chipClass}`}>
+        <Icon size={18} aria-hidden="true" />
+      </div>
+
+      <div className="min-w-0 flex-1">
+        <div className="flex flex-wrap items-start gap-2">
+          <p className="text-[15px] font-bold text-ink">{patternName}</p>
+          <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold ${cfg.chipClass}`}>
+            {cfg.label}
+          </span>
+        </div>
+
+        <p className="mt-1 text-xs text-ink-faint">{formatDate(incident.createdAt)}</p>
+
+        <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-ink-soft">
+          <span className="mono-ref font-bold text-ink-faint">{ackOrId}</span>
+          {total > 0 && <span>{confirmed}/{total} facts confirmed</span>}
+          {incident.ackNumber && (
+            <span className="font-semibold text-[var(--color-success)]">Submitted</span>
+          )}
+        </div>
+      </div>
+
+      <ArrowRight
+        size={17}
+        className="mt-1 shrink-0 text-ink-faint transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--color-service)]"
+        aria-hidden="true"
+      />
+    </Link>
+  );
+}
+
+export default async function TrackPage() {
+  const session = await getSession();
+  if (!session) redirect("/login?next=/track");
+
+  const incidents = await getUserIncidents(session.userId);
+  const userIncidents = incidents
+    .filter((i) => !i.syntheticOnly && i.userId === session.userId)
+    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+
+  return (
+    <div className="min-h-[100dvh] bg-paper">
+      <SiteHeader current="track" />
+      <main id="main-content" className="public-shell py-8 sm:py-12">
+        <div className="mx-auto max-w-3xl">
+
+          {/* Header */}
+          <div className="flex flex-col gap-3 border-b border-line pb-6 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="kicker">Case tracking</p>
+              <h1 className="mt-3 text-3xl font-bold tracking-[-0.04em] text-ink sm:text-4xl">
+                Your complaints
+              </h1>
+              <p className="mt-3 max-w-xl text-base leading-7 text-ink-soft">
+                Track all cybercrime reports linked to your account.
+              </p>
+            </div>
+            <Link
+              href="/check"
+              className="inline-flex shrink-0 min-h-12 items-center gap-2 rounded-[6px] bg-[var(--color-service)] px-5 text-sm font-bold text-white hover:bg-[var(--saffron-deep)]"
+            >
+              Report new incident <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+          </div>
+
+          {/* Incident list */}
+          {userIncidents.length === 0 ? (
+            <div className="panel mt-8 flex flex-col items-center gap-4 py-16 text-center">
+              <FileSearch size={40} className="text-ink-faint" aria-hidden="true" />
+              <div>
+                <p className="text-lg font-bold text-ink">No complaints yet</p>
+                <p className="mt-2 max-w-sm text-sm leading-6 text-ink-soft">
+                  When you report a cybercrime, it will appear here so you can track its status from any device.
+                </p>
+              </div>
+              <Link
+                href="/check"
+                className="mt-2 inline-flex min-h-12 items-center gap-2 rounded-[6px] bg-[var(--color-command)] px-6 text-sm font-bold text-white hover:bg-[var(--color-command-2)]"
+              >
+                Report your first incident <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+            </div>
+          ) : (
+            <>
+              <div className="mt-6 space-y-3">
+                {userIncidents.map((incident) => (
+                  <IncidentCard key={incident.id} incident={incident} />
+                ))}
+              </div>
+              <p className="mt-6 text-center text-xs text-ink-faint">
+                {userIncidents.length} complaint{userIncidents.length !== 1 ? "s" : ""} on record
+              </p>
+            </>
+          )}
+
+        </div>
+      </main>
+    </div>
+  );
 }

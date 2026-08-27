@@ -56,6 +56,7 @@ export interface Incident {
   packets: ActionPacket[];
   routingEvents: RoutingEvent[];
   syntheticOnly: boolean;
+  userId?: string | null;
 }
 
 const memoryStore = new Map<string, Incident>();
@@ -206,6 +207,21 @@ export async function updateIncident(id: string, updates: Partial<Incident>): Pr
     await persistFallback();
   }
   return updated;
+}
+
+export async function getUserIncidents(userId: string): Promise<Incident[]> {
+  await ensureStorage();
+  if (database) {
+    const rows = await database
+      .select()
+      .from(incidents)
+      .where(sql`${incidents.payload}->>'userId' = ${userId}`)
+      .execute();
+    return rows.map((r) => r.payload as Incident);
+  }
+  return Array.from(memoryStore.values()).filter(
+    (i) => i.userId === userId && !i.syntheticOnly
+  );
 }
 
 export { makeAckNumber };
