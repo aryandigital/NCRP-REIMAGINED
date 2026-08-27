@@ -45,7 +45,6 @@ export default function UserMenu() {
   }
 
   const displayName = user.name ?? user.email.split("@")[0];
-  const initials = displayName.slice(0, 2).toUpperCase();
 
   return (
     <div className="relative">
