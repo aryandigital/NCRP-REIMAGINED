@@ -3,16 +3,18 @@ import { drizzle } from "drizzle-orm/neon-http";
 import { eq, sql } from "drizzle-orm";
 import { users } from "./schema";
 
-function getDb() {
-  const url = process.env.DATABASE_URL;
-  if (!url) throw new Error("DATABASE_URL is not set");
-  return drizzle(neon(url));
-}
+const databaseUrl = process.env.DATABASE_URL;
+const database = databaseUrl ? drizzle(neon(databaseUrl)) : null;
 
 let tableReady: Promise<void> | null = null;
 
 async function ensureTable() {
-  tableReady ??= getDb().execute(sql`
+  if (!database) {
+    await ensureMemoryUsers();
+    return;
+  }
+
+  tableReady ??= database.execute(sql`
     CREATE TABLE IF NOT EXISTS users (
       id text PRIMARY KEY,
       email text NOT NULL UNIQUE,
@@ -32,9 +34,30 @@ export interface UserRow {
   createdAt: Date;
 }
 
+const memoryUsersByEmail = new Map<string, UserRow>();
+const memoryUsersById = new Map<string, UserRow>();
+let memoryUsersReady: Promise<void> | null = null;
+
+async function ensureMemoryUsers() {
+  memoryUsersReady ??= (async () => {
+    const createdAt = new Date();
+    const demoUsers = [
+      { id: "USRDEMO000001", email: "user1@email.com", passwordHash: "$2b$12$EJ8RujQD0jR1kxz4XgtVUuh3HakJ071HM7.A5uKPM4V80qTDbd6nu", name: "User One" },
+      { id: "USRDEMO000002", email: "user2@email.com", passwordHash: "$2b$12$LUQHOALIDoatb7RnBK8snOTKCqZERHRxgNtryeMcscZ1IZV6XCF66", name: "User Two" },
+    ];
+
+    for (const demoUser of demoUsers) {
+      const user: UserRow = { ...demoUser, createdAt };
+      memoryUsersByEmail.set(user.email, user);
+      memoryUsersById.set(user.id, user);
+    }
+  })();
+
+  await memoryUsersReady;
+}
+
 export async function createUser(data: { id: string; email: string; passwordHash: string; name?: string }): Promise<UserRow> {
   await ensureTable();
-  const db = getDb();
   const row = {
     id: data.id,
     email: data.email.toLowerCase(),
@@ -42,20 +65,28 @@ export async function createUser(data: { id: string; email: string; passwordHash
     name: data.name ?? null,
     createdAt: new Date(),
   };
-  await db.insert(users).values(row).execute();
+
+  if (!database) {
+    memoryUsersByEmail.set(row.email, row);
+    memoryUsersById.set(row.id, row);
+    return row;
+  }
+
+  await database.insert(users).values(row).execute();
   return row;
 }
 
 export async function getUserByEmail(email: string): Promise<UserRow | null> {
   await ensureTable();
-  const db = getDb();
-  const rows = await db.select().from(users).where(eq(users.email, email.toLowerCase())).limit(1);
+  const normalizedEmail = email.toLowerCase();
+  if (!database) return memoryUsersByEmail.get(normalizedEmail) ?? null;
+  const rows = await database.select().from(users).where(eq(users.email, normalizedEmail)).limit(1);
   return rows[0] ?? null;
 }
 
 export async function getUserById(id: string): Promise<UserRow | null> {
   await ensureTable();
-  const db = getDb();
-  const rows = await db.select().from(users).where(eq(users.id, id)).limit(1);
+  if (!database) return memoryUsersById.get(id) ?? null;
+  const rows = await database.select().from(users).where(eq(users.id, id)).limit(1);
   return rows[0] ?? null;
 }
