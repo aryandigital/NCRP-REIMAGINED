@@ -21,7 +21,9 @@ export default async function RecoverPage({ params }: { params: Promise<{ caseId
   const { caseId } = await params;
   const session = await getSession();
   const incident = await getIncident(caseId);
-  if (!incident || !session || (!incident.syntheticOnly && incident.userId !== session.userId)) notFound();
+  // Anonymous incidents (no owner) are reachable by their unguessable ID;
+  // owned incidents are only visible to the signed-in owner.
+  if (!incident || (!incident.syntheticOnly && incident.userId && incident.userId !== session?.userId)) notFound();
   const createdAt = new Date(incident.createdAt);
   const patternName = incident.dna?.patternName ?? "Cyber fraud incident";
   const ackNumber = incident.ackNumber ?? "Pending acknowledgement";

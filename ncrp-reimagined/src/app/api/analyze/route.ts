@@ -14,10 +14,9 @@ function tracksFor(dna: DnaResult): string[] {
 }
 
 export async function POST(req: NextRequest) {
+  // Filing is anonymous by default. When a session exists the incident is
+  // linked to the user so it shows up in their tracking views.
   const session = await getSession();
-  if (!session) {
-    return NextResponse.json({ error: "Sign in to report a cybercrime", code: "UNAUTHENTICATED" }, { status: 401 });
-  }
 
   try {
     const fd = await req.formData();
@@ -57,7 +56,7 @@ export async function POST(req: NextRequest) {
 
     // 4. Create incident
     const incident = await createIncident({
-      userId: session.userId,
+      userId: session?.userId ?? null,
       syntheticOnly: false,
       rawText: (redacted || rawText).slice(0, 2000),
       dna,

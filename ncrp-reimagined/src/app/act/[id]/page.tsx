@@ -16,7 +16,9 @@ export default async function ActPage({ params, searchParams }: { params: Promis
   const { trigger = "none" } = await searchParams;
   const session = await getSession();
   const incident = await getIncident(id);
-  if (!incident || !session || (!incident.syntheticOnly && incident.userId !== session.userId)) notFound();
+  // Anonymous incidents (no owner) are reachable by their unguessable ID;
+  // owned incidents are only visible to the signed-in owner.
+  if (!incident || (!incident.syntheticOnly && incident.userId && incident.userId !== session?.userId)) notFound();
   const isEmergency = ["paid", "otp", "app", "screen", "images"].includes(trigger);
   const isContent = trigger === "images";
   const isMoney = ["paid", "otp"].includes(trigger);

@@ -119,7 +119,9 @@ export default async function CheckResultPage({ params }: { params: Promise<{ id
   const { id } = await params;
   const session = await getSession();
   const incident = await getIncident(id);
-  if (!incident || !incident.dna || !session || (!incident.syntheticOnly && incident.userId !== session.userId)) notFound();
+  // Anonymous incidents (no owner) are reachable by their unguessable ID;
+  // owned incidents are only visible to the signed-in owner.
+  if (!incident || !incident.dna || (!incident.syntheticOnly && incident.userId && incident.userId !== session?.userId)) notFound();
 
   const dna = incident.dna;
   const view = RISK_VIEW[dna.risk];

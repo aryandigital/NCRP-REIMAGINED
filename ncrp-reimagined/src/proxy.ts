@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify } from "jose";
 
-const PROTECTED = ["/operator", "/triage", "/check", "/act", "/report", "/recover", "/my-incidents", "/track"];
+// Filing a complaint (/check, /act, /report, /recover) works anonymously.
+// Sign-in is only required for tracking and the operator console.
+const PROTECTED = ["/operator", "/triage", "/my-incidents", "/track"];
 const COOKIE_NAME = "raksha_session";
 
 function getSecret() {
@@ -35,10 +37,6 @@ export const config = {
   matcher: [
     "/operator/:path*",
     "/triage/:path*",
-    "/check/:path*",
-    "/act/:path*",
-    "/report/:path*",
-    "/recover/:path*",
     "/my-incidents/:path*",
     "/track/:path*",
   ],

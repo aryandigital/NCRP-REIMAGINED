@@ -4,18 +4,21 @@ import { getIncident, makeAckNumber, updateIncident } from "@/lib/store";
 import { redact } from "@/lib/redact";
 
 async function getAuthorizedIncident(id: string) {
-  const session = await getSession();
-  if (!session) {
-    return { response: NextResponse.json({ error: "Not authenticated" }, { status: 401 }) };
-  }
-
   const incident = await getIncident(id);
   if (!incident) {
     return { response: NextResponse.json({ error: "Incident not found" }, { status: 404 }) };
   }
 
-  if (!incident.syntheticOnly && incident.userId !== session.userId) {
-    return { response: NextResponse.json({ error: "Not authorized" }, { status: 403 }) };
+  // Anonymous incidents (no owner) and synthetic demo incidents are reachable
+  // by their unguessable ID. Owned incidents require the matching session.
+  if (!incident.syntheticOnly && incident.userId) {
+    const session = await getSession();
+    if (!session) {
+      return { response: NextResponse.json({ error: "Not authenticated" }, { status: 401 }) };
+    }
+    if (incident.userId !== session.userId) {
+      return { response: NextResponse.json({ error: "Not authorized" }, { status: 403 }) };
+    }
   }
 
   return { incident };
