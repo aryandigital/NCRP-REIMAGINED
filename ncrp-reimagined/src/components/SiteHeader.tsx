@@ -35,7 +35,7 @@ export default function SiteHeader({ current }: { current?: "check" | "track" | 
       <header ref={headerRef} className="site-header" data-raksha-i18n="react">
         <div className="public-shell flex min-h-[64px] items-center justify-between gap-3 py-3 sm:gap-5">
           <Link href="/" className="flex min-w-0 items-center gap-3" aria-label="Raksha home">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center text-[#fefcf8]">
               <BrandMark size={34} />
             </span>
             <span className="min-w-0">
