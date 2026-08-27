@@ -596,6 +596,7 @@ button:active, a:active { transform: translateY(1px); }
 
 .language-switcher { display: inline-flex; min-height: 36px; align-items: center; gap: 7px; border: 1px solid rgba(254, 252, 248, .2); border-radius: 4px; background: rgba(254, 252, 248, .06); padding: 0 12px; color: #fefcf8; }
 .language-switcher select { max-width: 104px; cursor: pointer; appearance: none; border: 0; background: transparent; color: inherit; font-size: 12px; font-weight: 750; outline: 0; }
+.language-switcher option { background: #ffffff; color: var(--color-ink); }
 .language-switcher-compact { min-height: 36px; }
 
 /* ---------- Signal loom (inner pages) ---------- */
