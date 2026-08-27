@@ -175,9 +175,9 @@ export async function createIncident(partial: Partial<Incident> = {}): Promise<I
 export async function getIncident(id: string): Promise<Incident | undefined> {
   await ensureStorage();
   if (database) {
-    const rows = await database.select().from(incidents).where(eq(incidents.id, id)).limit(1);
+    const rows = await database.select().from(incidents).where(sql`${incidents.id} = ${id} OR ${incidents.payload}->>'ackNumber' = ${id}`).limit(1);
     if (rows[0]) return rows[0].payload as Incident;
-    if (id === "DEMO0001") {
+    if (id === "DEMO0001" || id === "NCRPDEMO0001") {
       const demo = seedDemoIncident();
       await database.insert(incidents).values({ id: demo.id, createdAt: new Date(demo.createdAt), payload: demo }).onConflictDoNothing().execute();
       return demo;
@@ -188,7 +188,11 @@ export async function getIncident(id: string): Promise<Incident | undefined> {
     memoryStore.set("DEMO0001", seedDemoIncident());
     await persistFallback();
   }
-  return memoryStore.get(id);
+  let incident = memoryStore.get(id);
+  if (!incident) {
+    incident = Array.from(memoryStore.values()).find(i => i.ackNumber === id);
+  }
+  return incident;
 }
 
 export async function updateIncident(id: string, updates: Partial<Incident>): Promise<Incident | null> {
