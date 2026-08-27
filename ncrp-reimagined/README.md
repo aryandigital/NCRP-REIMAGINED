@@ -18,6 +18,12 @@ The complete demo path is: intake by message, voice, screenshot, identifier, or 
 
 See [CAPABILITY_AUDIT.md](CAPABILITY_AUDIT.md) for the locally verified capability status and credential-gated items.
 
+## Test accounts
+| Name | Email | Password |
+|------|-------|----------|
+| User One | user1@email.com | Password1@123 |
+| User Two | user2@email.com | Password2@123 |
+
 ## Multilingual Raksha Samvaad agent
 
 Raksha now includes a multilingual safety agent on the home page, with a language selector for English, Hindi, Tamil, Telugu, Bengali, and Marathi. It works in a local safety-guidance mode without credentials. To enable Sarvam-backed replies, create `.env.local` from `.env.example` and set a newly issued `SARVAM_API_KEY`; never paste a provider key into chat or commit it to the repository.
