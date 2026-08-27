@@ -75,7 +75,7 @@ export const CLOCKS: Record<ClockKind, ClockDefinition> = {
     duration: 24,
     unit: "hours",
     basis:
-      "IT (Intermediary Guidelines and Digital Media Ethics Code) Rules 2021, Rule 3(2)(b) — removal within 24 hours of a complaint by or on behalf of the individual, for content exposing private areas, nudity, sexual acts, or impersonation including morphed images.",
+      "IT (Intermediary Guidelines and Digital Media Ethics Code) Rules 2021, Rule 3(2)(b), removal within 24 hours of a complaint by or on behalf of the individual, for content exposing private areas, nudity, sexual acts, or impersonation including morphed images.",
     triggers: "PLATFORM_TAKEDOWN_NOTICE",
     onExpiry: "GAC_APPEAL",
   },
@@ -102,10 +102,10 @@ export const CLOCKS: Record<ClockKind, ClockDefinition> = {
     kind: "GAC_APPEAL",
     track: "content",
     label: "Appeal to the Grievance Appellate Committee",
-    why: "If the platform refused or ignored you, you can appeal — but only within 30 days.",
+    why: "If the platform refused or ignored you, you can appeal, but only within 30 days.",
     duration: 30,
     unit: "calendarDays",
-    basis: "IT Rules 2021, Rule 3A — appeal to GAC (gac.gov.in) within 30 days of the Grievance Officer's decision.",
+    basis: "IT Rules 2021, Rule 3A, appeal to GAC (gac.gov.in) within 30 days of the Grievance Officer's decision.",
     triggers: "GAC_APPEAL",
   },
   MRM_APPLICATION: {
@@ -125,7 +125,7 @@ export const CLOCKS: Record<ClockKind, ClockDefinition> = {
     why: "If the bank has not resolved it in 30 days, escalate free of cost.",
     duration: 30,
     unit: "calendarDays",
-    basis: "RBI Integrated Ombudsman Scheme 2021 — complaint after 30 days of no reply, within one year.",
+    basis: "RBI Integrated Ombudsman Scheme 2021, complaint after 30 days of no reply, within one year.",
     triggers: "OMBUDSMAN_COMPLAINT",
   },
 };

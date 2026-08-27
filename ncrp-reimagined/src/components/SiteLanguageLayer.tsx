@@ -31,7 +31,7 @@ const HINDI: Record<string, string> = {
   "Raksha will never ask for your OTP, PIN, card number, or password.": "रक्षा आपसे OTP, PIN, कार्ड नंबर या पासवर्ड कभी नहीं मांगेगा।",
   // Private photo protection
   "Is someone threatening to share your photos?": "क्या कोई आपकी तस्वीरें साझा करने की धमकी दे रहा है?",
-  "You can act on it here without showing the photo to anyone, including us.": "आप यहां कार्रवाई कर सकते हैं, किसी को भी तस्वीर दिखाए बिना — हमें भी नहीं।",
+  "You can act on it here without showing the photo to anyone, including us.": "आप यहां कार्रवाई कर सकते हैं, किसी को भी तस्वीर दिखाए बिना, हमें भी नहीं।",
   "Do NOT send, share, or download any photo or video in order to use this.": "इसका उपयोग करने के लिए कोई फ़ोटो या वीडियो भेजें, साझा करें या डाउनलोड न करें।",
   "Only use a photo that is already on this device.": "केवल वही फ़ोटो चुनें जो पहले से इस डिवाइस पर है।",
   "Choose the photo to protect": "सुरक्षित करने के लिए फ़ोटो चुनें",
@@ -162,7 +162,7 @@ const TAMIL: Record<string, string> = {
   "Raksha will never ask for your OTP, PIN, card number, or password.": "ரக்ஷா உங்கள் OTP, PIN, அட்டை எண் அல்லது கடவுச்சொல்லை எப்போதும் கேட்காது.",
   // Private photo protection
   "Is someone threatening to share your photos?": "உங்கள் படங்களைப் பங்கிடுவேன் என யாரோ மிரட்டுகிறாரா?",
-  "You can act on it here without showing the photo to anyone, including us.": "படத்தை யாருக்கும் — எங்களுக்கும் — காட்டாமல் இங்கே நடவடிக்கை எடுக்கலாம்.",
+  "You can act on it here without showing the photo to anyone, including us.": "படத்தை யாருக்கும், எங்களுக்கும், காட்டாமல் இங்கே நடவடிக்கை எடுக்கலாம்.",
   "Do NOT send, share, or download any photo or video in order to use this.": "இதைப் பயன்படுத்த எந்தப் படத்தையும் வீடியோவையும் அனுப்ப, பங்கிட, பதிவிறக்க வேண்டாம்.",
   "Only use a photo that is already on this device.": "இந்தச் சாதனத்தில் ஏற்கெனவே உள்ள படத்தை மட்டும் பயன்படுத்துங்கள்.",
   "Choose the photo to protect": "பாதுகாக்க வேண்டிய படத்தைத் தேர்ந்தெடுங்கள்",
@@ -285,7 +285,7 @@ const TELUGU: Record<string, string> = {
   "Raksha will never ask for your OTP, PIN, card number, or password.": "రక్ష మీ OTP, PIN, కార్డ్ నంబర్ లేదా పాస్‌వర్డ్ ఎప్పుడూ అడగదు.",
   // Private photo protection
   "Is someone threatening to share your photos?": "మీ ఫోటోలను షేర్ చేస్తానని ఎవరైనా బెదిరిస్తున్నారా?",
-  "You can act on it here without showing the photo to anyone, including us.": "ఫోటోను ఎవరికీ — మాకు కూడా — చూపకుండా ఇక్కడ చర్య తీసుకోవచ్చు.",
+  "You can act on it here without showing the photo to anyone, including us.": "ఫోటోను ఎవరికీ, మాకు కూడా, చూపకుండా ఇక్కడ చర్య తీసుకోవచ్చు.",
   "Do NOT send, share, or download any photo or video in order to use this.": "ఇది ఉపయోగించడానికి ఏ ఫోటో లేదా వీడియోను పంపవద్దు, షేర్ చేయవద్దు, డౌన్‌లోడ్ చేయవద్దు.",
   "Only use a photo that is already on this device.": "ఈ పరికరంలో ఇప్పటికే ఉన్న ఫోటోను మాత్రమే ఉపయోగించండి.",
   "Choose the photo to protect": "రక్షించాల్సిన ఫోటోను ఎంచుకోండి",
@@ -408,7 +408,7 @@ const BENGALI: Record<string, string> = {
   "Raksha will never ask for your OTP, PIN, card number, or password.": "রক্ষা কখনও আপনার OTP, PIN, কার্ড নম্বর বা পাসওয়ার্ড চাইবে না।",
   // Private photo protection
   "Is someone threatening to share your photos?": "কেউ আপনার ছবি ছড়িয়ে দেওয়ার হুমকি দিচ্ছে?",
-  "You can act on it here without showing the photo to anyone, including us.": "ছবিটি কাউকে — আমাদেরও — না দেখিয়ে এখানেই ব্যবস্থা নিতে পারেন।",
+  "You can act on it here without showing the photo to anyone, including us.": "ছবিটি কাউকে, আমাদেরও, না দেখিয়ে এখানেই ব্যবস্থা নিতে পারেন।",
   "Do NOT send, share, or download any photo or video in order to use this.": "এটি ব্যবহারের জন্য কোনো ছবি বা ভিডিও পাঠাবেন না, শেয়ার করবেন না, ডাউনলোড করবেন না।",
   "Only use a photo that is already on this device.": "এই ডিভাইসে আগে থেকেই থাকা ছবিই ব্যবহার করুন।",
   "Choose the photo to protect": "সুরক্ষিত করার ছবিটি বেছে নিন",
@@ -531,7 +531,7 @@ const MARATHI: Record<string, string> = {
   "Raksha will never ask for your OTP, PIN, card number, or password.": "रक्षा तुमचा OTP, PIN, कार्ड नंबर किंवा पासवर्ड कधीही मागणार नाही.",
   // Private photo protection
   "Is someone threatening to share your photos?": "कोणी तुमचे फोटो पसरवण्याची धमकी देत आहे?",
-  "You can act on it here without showing the photo to anyone, including us.": "फोटो कोणालाही — आम्हालाही — न दाखवता तुम्ही येथे कारवाई करू शकता.",
+  "You can act on it here without showing the photo to anyone, including us.": "फोटो कोणालाही, आम्हालाही, न दाखवता तुम्ही येथे कारवाई करू शकता.",
   "Do NOT send, share, or download any photo or video in order to use this.": "हे वापरण्यासाठी कोणताही फोटो किंवा व्हिडिओ पाठवू नका, शेअर करू नका, डाउनलोड करू नका.",
   "Only use a photo that is already on this device.": "या डिव्हाइसवर आधीच असलेला फोटोच वापरा.",
   "Choose the photo to protect": "सुरक्षित करण्यासाठी फोटो निवडा",

@@ -3,7 +3,7 @@ import test from "node:test";
 import { compare } from "bcryptjs";
 import { getUserByEmail, getUserById } from "./users";
 
-// Regression: ISSUE-002 — auth crashed when DATABASE_URL was not configured
+// Regression: ISSUE-002, auth crashed when DATABASE_URL was not configured
 // Found by /qa on 2026-08-27
 // Report: .gstack/qa-reports/qa-report-localhost-2026-08-27.md
 test("documented demo users remain available without a database", async () => {

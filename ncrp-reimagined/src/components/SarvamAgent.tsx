@@ -27,12 +27,12 @@ const WELCOME: Record<AgentLanguage, string> = {
 const BROWSER_LOCALES = LANGUAGE_LOCALES;
 
 const GREET: Record<AgentLanguage, string> = {
-  en: "Namaste! Need help? Speak or type — I understand 6 Indian languages.",
-  hi: "नमस्ते! मदद चाहिए? बोलिए या लिखिए — मैं 6 भारतीय भाषाएँ समझता हूँ।",
-  ta: "வணக்கம்! உதவி வேண்டுமா? பேசுங்கள் அல்லது எழுதுங்கள் — 6 இந்திய மொழிகள் புரியும்.",
-  te: "నమస్తే! సహాయం కావాలా? మాట్లాడండి లేదా టైప్ చేయండి — 6 భారతీయ భాషలు అర్థమవుతాయి.",
-  bn: "নমস্কার! সাহায্য দরকার? বলুন বা লিখুন — আমি ৬টি ভারতীয় ভাষা বুঝি।",
-  mr: "नमस्कार! मदत हवी आहे? बोला किंवा लिहा — मला 6 भारतीय भाषा समजतात.",
+  en: "Namaste! Need help? Speak or type, I understand 6 Indian languages.",
+  hi: "नमस्ते! मदद चाहिए? बोलिए या लिखिए, मैं 6 भारतीय भाषाएँ समझता हूँ।",
+  ta: "வணக்கம்! உதவி வேண்டுமா? பேசுங்கள் அல்லது எழுதுங்கள், 6 இந்திய மொழிகள் புரியும்.",
+  te: "నమస్తే! సహాయం కావాలా? మాట్లాడండి లేదా టైప్ చేయండి, 6 భారతీయ భాషలు అర్థమవుతాయి.",
+  bn: "নমস্কার! সাহায্য দরকার? বলুন বা লিখুন, আমি ৬টি ভারতীয় ভাষা বুঝি।",
+  mr: "नमस्कार! मदत हवी आहे? बोला किंवा लिहा, मला 6 भारतीय भाषा समजतात.",
 };
 
 type BrowserRecognition = { continuous: boolean; interimResults: boolean; lang: string; onend: (() => void) | null; onerror: (() => void) | null; onresult: ((event: { results: ArrayLike<{ 0: { transcript: string } }> }) => void) | null; start: () => void; stop: () => void };

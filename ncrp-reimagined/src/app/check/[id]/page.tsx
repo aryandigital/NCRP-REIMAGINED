@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
  * Ordering is deliberate and follows crisis-service research: the one urgent
  * action comes before any administrative content, the shame-reducing line is
  * said once at the point of highest shame, and uncertainty is named rather than
- * hidden. The verdict contract allows High / Needs caution / No match — never
+ * hidden. The verdict contract allows High / Needs caution / No match, never
  * "safe".
  */
 
@@ -36,16 +36,16 @@ const RISK_VIEW = {
     label: "No match found",
     tone: "border-line-strong bg-surface",
     accent: "text-ink-soft",
-    meaning: "We could not match this to a script we hold. That does not mean it is safe — it means we have no match. Your own judgement still counts.",
+    meaning: "We could not match this to a script we hold. That does not mean it is safe, it means we have no match. Your own judgement still counts.",
   },
 } as const;
 
 /** Said once, at the point of highest shame. Never paired with a prevention tip. */
 const NOT_YOUR_FAULT: Record<string, string> = {
   "digital-arrest":
-    "There is no such thing as a digital arrest. No police officer, court, CBI, ED, or customs official in India will arrest you over a video call, or ask you to transfer money to prove you are innocent. If you were told this, you were being deceived by criminals — not investigated. Being frightened was the point.",
+    "There is no such thing as a digital arrest. No police officer, court, CBI, ED, or customs official in India will arrest you over a video call, or ask you to transfer money to prove you are innocent. If you were told this, you were being deceived by criminals, not investigated. Being frightened was the point.",
   "sextortion-image-threat":
-    "You are not in trouble. The person threatening you is committing a crime — you are not. These are usually organised groups who contact hundreds of people at a time, and paying them almost never stops it.",
+    "You are not in trouble. The person threatening you is committing a crime, you are not. These are usually organised groups who contact hundreds of people at a time, and paying them almost never stops it.",
   "task-scam":
     "This was done to you by people who do it for a living. They run scripts refined on thousands of people before you. Losing money to them is not a failure of intelligence.",
   "investment-pig-butchering":
@@ -195,7 +195,7 @@ export default async function CheckResultPage({ params }: { params: Promise<{ id
                   </>
                 )}
                 <p className="mt-3.5 border-t border-line pt-3 text-[11px] leading-5 text-ink-faint">
-                  Raksha pattern corpus, compiled from public advisories. A pattern match is a warning — not proof of identity, guilt, or safety.
+                  Raksha pattern corpus, compiled from public advisories. A pattern match is a warning, not proof of identity, guilt, or safety.
                 </p>
               </div>
             </div>
@@ -236,7 +236,7 @@ export default async function CheckResultPage({ params }: { params: Promise<{ id
             <p className="kicker">Next step</p>
             <h2 id="already-heading" className="mt-3 text-xl font-bold text-ink">Has any of this already happened?</h2>
             <p className="mt-2.5 max-w-[62ch] text-sm leading-6 text-ink-soft">
-              Pick the closest one. It decides what we put in front of you next — containment comes before paperwork.
+              Pick the closest one. It decides what we put in front of you next, containment comes before paperwork.
             </p>
             <div className="mt-5 grid gap-2.5 sm:grid-cols-2">
               {PRIMARY_TRIGGERS.map((item) => (
@@ -308,7 +308,7 @@ export default async function CheckResultPage({ params }: { params: Promise<{ id
                 <div>
                   <p className="kicker text-warning">What they will try next</p>
                   <p className="mt-3 max-w-[72ch] text-base font-semibold leading-7 text-ink">{dna.nextMove}</p>
-                  <p className="mt-3 text-sm leading-6 text-ink-soft">If this is already happening, it is confirmation of the script — not a new problem. Do not pay, and do not share another code.</p>
+                  <p className="mt-3 text-sm leading-6 text-ink-soft">If this is already happening, it is confirmation of the script, not a new problem. Do not pay, and do not share another code.</p>
                 </div>
               </div>
             </section>
@@ -337,7 +337,7 @@ export default async function CheckResultPage({ params }: { params: Promise<{ id
                 <p className="kicker">Your record</p>
                 <h2 id="facts-heading" className="mt-3 text-lg font-bold text-ink">Have we understood this correctly?</h2>
                 <p className="mt-2.5 max-w-[62ch] text-sm leading-6 text-ink-soft">
-                  Correct anything that is wrong. Only what you confirm is used later. If you do not know an answer, leave it — an estimate or a gap is fine.
+                  Correct anything that is wrong. Only what you confirm is used later. If you do not know an answer, leave it, an estimate or a gap is fine.
                 </p>
               </div>
               <span className="mono-ref shrink-0 rounded-[3px] bg-service-soft px-2.5 py-1.5 text-[11px] font-bold text-service">
@@ -356,7 +356,7 @@ export default async function CheckResultPage({ params }: { params: Promise<{ id
                 <p className="kicker">What to expect</p>
                 <h2 className="mt-3 text-lg font-bold text-ink">Nothing has been sent yet.</h2>
                 <p className="mt-2.5 max-w-[62ch] text-sm leading-6 text-ink-soft">
-                  Take as long as you need. When you continue, we assemble your complaint from what you have already given us — you will not be asked the same thing twice.
+                  Take as long as you need. When you continue, we assemble your complaint from what you have already given us, you will not be asked the same thing twice.
                   {incident.missingFacts.length > 0 && ` ${incident.missingFacts.length} details are still open and can be added later.`}
                 </p>
               </div>

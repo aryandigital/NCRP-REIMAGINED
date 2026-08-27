@@ -1,8 +1,7 @@
 /**
  * Identifier risk engine.
  *
- * When a user submits a bare identifier — a link, a UPI ID, or a phone number —
- * keyword pattern matching has nothing to work with. This module applies
+ * When a user submits a bare identifier, a link, a UPI ID, or a phone number, * keyword pattern matching has nothing to work with. This module applies
  * deterministic phishing/fraud heuristics so identifiers get a real verdict:
  *
  *   URL  → TLD reputation, brand lookalikes, IP hosts, punycode, shorteners,
@@ -103,7 +102,7 @@ function analyzeUrl(raw: string): IdentifierVerdict {
     return {
       kind: "url",
       value: raw,
-      dna: verdictDna("url", raw, 0.4, ["This link is malformed — a hallmark of obfuscated phishing URLs."]),
+      dna: verdictDna("url", raw, 0.4, ["This link is malformed, a hallmark of obfuscated phishing URLs."]),
     };
   }
 
@@ -114,7 +113,7 @@ function analyzeUrl(raw: string): IdentifierVerdict {
 
   if (IP_HOST_RE.test(host)) {
     score += 0.45;
-    signals.push("The link points to a raw server address instead of a real domain name — legitimate banks and services never do this.");
+    signals.push("The link points to a raw server address instead of a real domain name, legitimate banks and services never do this.");
   }
 
   if (host.startsWith("xn--") || host.includes(".xn--")) {
@@ -130,7 +129,7 @@ function analyzeUrl(raw: string): IdentifierVerdict {
   const brandHit = IMPERSONATED_BRANDS.find((b) => fullPath.includes(b.token));
   if (brandHit && !brandHit.official.test(host)) {
     score += 0.5;
-    signals.push(`It references "${brandHit.token}" but is NOT hosted on the official domain — a classic look-alike domain attack.`);
+    signals.push(`It references "${brandHit.token}" but is NOT hosted on the official domain, a classic look-alike domain attack.`);
   }
 
   const scareHits = SCARE_WORDS.filter((w) => fullPath.includes(w));
@@ -146,7 +145,7 @@ function analyzeUrl(raw: string): IdentifierVerdict {
 
   if (url.protocol === "http:") {
     score += 0.15;
-    signals.push("It uses plain HTTP without encryption — no legitimate payment or banking page does this.");
+    signals.push("It uses plain HTTP without encryption, no legitimate payment or banking page does this.");
   }
 
   const subdomainCount = host.split(".").length - 2;
@@ -168,11 +167,11 @@ function analyzeUrl(raw: string): IdentifierVerdict {
 
   if (raw.includes("@")) {
     score += 0.2;
-    signals.push("It contains an \"@\" symbol — browsers ignore everything before it, so the visible address is fake.");
+    signals.push("It contains an \"@\" symbol, browsers ignore everything before it, so the visible address is fake.");
   }
 
   if (signals.length === 0) {
-    signals.push("No obvious phishing markers were detected. That is not proof of safety — verify the sender through an official channel before opening it.");
+    signals.push("No obvious phishing markers were detected. That is not proof of safety, verify the sender through an official channel before opening it.");
   }
 
   const confidence = Math.min(0.35 + score, 0.97);
@@ -203,7 +202,7 @@ function analyzeUpi(raw: string): IdentifierVerdict {
   const scareHits = UPI_SCARE_WORDS.filter((w) => local.includes(w));
   if (scareHits.length > 0) {
     score += 0.45;
-    signals.push(`The ID is built around "${scareHits[0]}" — scam handles pose as refunds, rewards, or helpdesks to make you accept a collect request.`);
+    signals.push(`The ID is built around "${scareHits[0]}", scam handles pose as refunds, rewards, or helpdesks to make you accept a collect request.`);
   }
 
   const digitRatio = (local.match(/\d/g) ?? []).length / Math.max(local.length, 1);
@@ -219,11 +218,11 @@ function analyzeUpi(raw: string): IdentifierVerdict {
 
   if (!KNOWN_UPI_SUFFIXES.has(bank)) {
     score += 0.1;
-    signals.push(`The "@${bank}" part is not a commonly recognised bank or wallet handle — treat it as unverified.`);
+    signals.push(`The "@${bank}" part is not a commonly recognised bank or wallet handle, treat it as unverified.`);
   }
 
   if (signals.length === 0) {
-    signals.push("The format is valid, but a UPI ID alone cannot prove who owns it — names shown in apps are chosen by the account holder.");
+    signals.push("The format is valid, but a UPI ID alone cannot prove who owns it, names shown in apps are chosen by the account holder.");
   }
 
   const confidence = Math.min(0.3 + score, 0.95);
@@ -235,7 +234,7 @@ function analyzeUpi(raw: string): IdentifierVerdict {
 function analyzePhone(raw: string): IdentifierVerdict {
   const digits = raw.replace(/\D/g, "").replace(/^91(?=\d{10}$)/, "");
   const signals: string[] = [
-    "The number is a valid Indian mobile format, but caller ID is trivially spoofed — the displayed number proves nothing about who is calling.",
+    "The number is a valid Indian mobile format, but caller ID is trivially spoofed, the displayed number proves nothing about who is calling.",
   ];
   let score = 0.15;
 
@@ -259,24 +258,24 @@ const KIND_LABEL: Record<IdentifierKind, string> = {
 const KIND_NEXT_MOVE: Record<IdentifierKind, string> = {
   url: "If you open it, the page will imitate a real bank, payment app, or government portal and ask for your card details, UPI PIN, or an OTP. That is the payload.",
   upi: "The likely next step is a UPI collect request from this ID, or a demand to send a 'small verification amount'. Approving either hands over money.",
-  phone: "The caller will escalate urgency — a blocked account, a parcel, a police case — and then ask for an OTP, a screen-share app, or a transfer.",
+  phone: "The caller will escalate urgency, a blocked account, a parcel, a police case, and then ask for an OTP, a screen-share app, or a transfer.",
 };
 
 const KIND_DO_NOT: Record<IdentifierKind, string[]> = {
   url: [
     "Do not open the link, even 'just to check'. Some pages trigger actions on load.",
     "Do not enter card details, UPI PIN, passwords, or OTPs on any page it leads to.",
-    "Do not forward it to family or group chats — report it instead.",
+    "Do not forward it to family or group chats, report it instead.",
   ],
   upi: [
-    "Do not approve any collect request from this ID — entering your PIN to 'receive' money actually sends it.",
+    "Do not approve any collect request from this ID, entering your PIN to 'receive' money actually sends it.",
     "Do not send even ₹1 as a 'verification' payment.",
     "Do not assume the display name in your UPI app is the real owner.",
   ],
   phone: [
     "Do not share OTPs, PINs, or card details over a call from this number.",
     "Do not install any app (AnyDesk, TeamViewer, RustDesk) if the caller asks.",
-    "Do not call back on numbers sent by SMS — use the official number from the bank's website or card.",
+    "Do not call back on numbers sent by SMS, use the official number from the bank's website or card.",
   ],
 };
 

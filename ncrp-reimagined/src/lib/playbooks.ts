@@ -114,7 +114,7 @@ Account [ACCOUNT], mobile [PHONE], ₹[AMOUNT] deducted unauthorisedly on [DATE]
       "Tap profile icon → Help → Dispute a Transaction",
       "Select the fraudulent transaction",
       "Tap 'Report as Fraud'",
-      "Your linked bank account is NOT automatically blocked — call your bank too",
+      "Your linked bank account is NOT automatically blocked, call your bank too",
     ],
     callScript: `"I want to report a fraudulent UPI transaction.
 Phone number [PHONE], UPI ID [UPI], amount ₹[AMOUNT] on [DATE].
@@ -136,7 +136,7 @@ I did not initiate this payment."`,
       "Open Google Pay",
       "Tap the transaction → 'Dispute this transaction'",
       "Select 'I didn't make this payment'",
-      "Also call your bank — GPay cannot freeze the destination bank account",
+      "Also call your bank, GPay cannot freeze the destination bank account",
     ],
     callScript: `"I need to report an unauthorised UPI payment made from my GPay.
 Registered number [PHONE], transaction ID [TXN_ID], ₹[AMOUNT] on [DATE].
@@ -195,7 +195,7 @@ The money was transferred without my consent."`,
     "Transaction or UTR reference number",
     "Scammer's UPI ID, phone, or bank account if shown",
   ],
-  note: "Call 1930 FIRST — even before the portal. The faster CFCFRMS receives the alert, the higher the chance of freezing the funds before the scammer withdraws.",
+  note: "Call 1930 FIRST, even before the portal. The faster CFCFRMS receives the alert, the higher the chance of freezing the funds before the scammer withdraws.",
 };
 
 // ─── Content track playbook ───────────────────────────────────────────────
@@ -214,7 +214,7 @@ export const CONTENT_PLAYBOOK = {
     },
     {
       id: "gac",
-      title: "If they don't comply — appeal to the GAC",
+      title: "If they don't comply, appeal to the GAC",
       body: "If the platform misses the 24-hour window, you can appeal to the Grievance Appellate Committee (gac.gov.in) within 30 days. We draft that appeal when the clock expires.",
     },
     {
@@ -225,7 +225,7 @@ export const CONTENT_PLAYBOOK = {
   ],
   doNot: [
     "Do not pay the person threatening you. Payment guarantees the demands continue.",
-    "Do not delete the chat or block them yet — preserve it as evidence first.",
+    "Do not delete the chat or block them yet, preserve it as evidence first.",
     "You have not done anything illegal. You can report this anonymously.",
   ],
   supportLine: "Tele-MANAS: 14416",

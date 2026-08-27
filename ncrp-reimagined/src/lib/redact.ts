@@ -6,7 +6,7 @@
  *
  * Rule: raw user text is NEVER persisted and NEVER sent to an LLM.
  * We store `redacted` and the typed `entities` (values kept only where the
- * identifier IS the evidence, e.g. a scammer's UPI ID — see `keepAsEvidence`).
+ * identifier IS the evidence, e.g. a scammer's UPI ID, see `keepAsEvidence`).
  */
 
 export type PiiType =

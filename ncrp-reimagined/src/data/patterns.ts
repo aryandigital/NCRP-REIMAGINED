@@ -3,7 +3,7 @@
  *
  * Identifiers rotate hourly. Behaviour does not. Each pattern is a behavioural
  * script: an ordered sequence of stages, the channels it runs on, what the
- * attacker asks for, and — the reason this engine exists — what they will ask
+ * attacker asks for, and, the reason this engine exists, what they will ask
  * for NEXT once the victim is at a given stage.
  *
  * `sources` are real public advisories and MUST be shown in the UI with dates.
@@ -29,7 +29,7 @@ export interface ScamPattern {
   stages: ScamStage[];
   /** What the attacker asks for, in escalating order. */
   asks: string[];
-  /** Keyed by stage id — the single most likely next demand. */
+  /** Keyed by stage id, the single most likely next demand. */
   nextMove: Record<string, string>;
   /** Actions that make it materially worse. Shown as "do not". */
   doNot: string[];
@@ -59,19 +59,19 @@ export const PATTERNS: ScamPattern[] = [
       "small-reward": "They will invite you to a 'prepaid task' and ask you to deposit your own money to unlock a higher tier.",
       "prepaid-task": "Your dashboard will show a large fake balance to make the next, bigger deposit feel safe.",
       "fake-balance": "Your withdrawal will fail, and the failure will be blamed on an incomplete task set.",
-      "withdrawal-blocked": "They will demand a tax, GST or unlocking fee — framed as the last step before payout.",
+      "withdrawal-blocked": "They will demand a tax, GST or unlocking fee, framed as the last step before payout.",
       "unlock-fee": "There is no last step. Each payment produces a new fee. Nothing will be released.",
     },
     doNot: [
       "Do not make another payment to release your balance. No legitimate employer charges you to be paid.",
       "Do not let them move you onto a new app or dashboard.",
-      "Do not delete the chat — it is your evidence.",
+      "Do not delete the chat, it is your evidence.",
     ],
     advisoryCountries: ["India", "Singapore", "Australia"],
     sources: [
-      { label: "I4C / cybercrime.gov.in — Daily Digest advisories", url: "https://cybercrime.gov.in/Webform/daily-digest.aspx", retrieved: "2026-08-22" },
-      { label: "ScamShield (Singapore) — job scams", url: "https://www.scamshield.gov.sg/", retrieved: "2026-08-22" },
-      { label: "Scamwatch (Australia) — jobs and employment scams", url: "https://www.scamwatch.gov.au/types-of-scams", retrieved: "2026-08-22" },
+      { label: "I4C / cybercrime.gov.in, Daily Digest advisories", url: "https://cybercrime.gov.in/Webform/daily-digest.aspx", retrieved: "2026-08-22" },
+      { label: "ScamShield (Singapore), job scams", url: "https://www.scamshield.gov.sg/", retrieved: "2026-08-22" },
+      { label: "Scamwatch (Australia), jobs and employment scams", url: "https://www.scamwatch.gov.au/types-of-scams", retrieved: "2026-08-22" },
     ],
   },
   {
@@ -100,7 +100,7 @@ export const PATTERNS: ScamPattern[] = [
     ],
     advisoryCountries: ["India"],
     sources: [
-      { label: "I4C / cybercrime.gov.in — advisories", url: "https://cybercrime.gov.in/Webform/Advisory.aspx", retrieved: "2026-08-22" },
+      { label: "I4C / cybercrime.gov.in, advisories", url: "https://cybercrime.gov.in/Webform/Advisory.aspx", retrieved: "2026-08-22" },
     ],
   },
   {
@@ -125,12 +125,12 @@ export const PATTERNS: ScamPattern[] = [
     doNot: [
       "Do not pay tax or margin to withdraw. Real platforms deduct from the balance.",
       "Do not borrow to top up.",
-      "Screenshot the platform dashboard now — these sites are taken offline quickly.",
+      "Screenshot the platform dashboard now, these sites are taken offline quickly.",
     ],
     advisoryCountries: ["India", "Singapore", "Australia", "United States"],
     sources: [
-      { label: "Scamwatch (Australia) — investment scams", url: "https://www.scamwatch.gov.au/types-of-scams", retrieved: "2026-08-22" },
-      { label: "FTC (US) — consumer alerts", url: "https://consumer.ftc.gov/consumer-alerts", retrieved: "2026-08-22" },
+      { label: "Scamwatch (Australia), investment scams", url: "https://www.scamwatch.gov.au/types-of-scams", retrieved: "2026-08-22" },
+      { label: "FTC (US), consumer alerts", url: "https://consumer.ftc.gov/consumer-alerts", retrieved: "2026-08-22" },
     ],
   },
   {
@@ -156,7 +156,7 @@ export const PATTERNS: ScamPattern[] = [
     ],
     advisoryCountries: ["India"],
     sources: [
-      { label: "NPCI — UPI safety guidance", url: "https://www.npci.org.in/what-we-do/upi/product-overview", retrieved: "2026-08-22" },
+      { label: "NPCI, UPI safety guidance", url: "https://www.npci.org.in/what-we-do/upi/product-overview", retrieved: "2026-08-22" },
     ],
   },
   {
@@ -187,9 +187,9 @@ export const PATTERNS: ScamPattern[] = [
     ],
     advisoryCountries: ["India", "United Kingdom", "United States", "Australia"],
     sources: [
-      { label: "StopNCII.org — hash-based blocking for over-18s", url: "https://stopncii.org/", retrieved: "2026-08-22" },
-      { label: "Take It Down (NCMEC) — for content taken under 18", url: "https://takeitdown.ncmec.org/", retrieved: "2026-08-22" },
-      { label: "I4C / cybercrime.gov.in — women & children reporting", url: "https://cybercrime.gov.in/", retrieved: "2026-08-22" },
+      { label: "StopNCII.org, hash-based blocking for over-18s", url: "https://stopncii.org/", retrieved: "2026-08-22" },
+      { label: "Take It Down (NCMEC), for content taken under 18", url: "https://takeitdown.ncmec.org/", retrieved: "2026-08-22" },
+      { label: "I4C / cybercrime.gov.in, women & children reporting", url: "https://cybercrime.gov.in/", retrieved: "2026-08-22" },
     ],
   },
 ];

@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
 
   const user = await getUserByEmail(email);
   if (!user) {
-    // Constant-time rejection — don't reveal whether email exists
+    // Constant-time rejection, don't reveal whether email exists
     await verifyPassword(password, "$2a$12$placeholder.hash.for.timing.safety.xxxxx");
     return NextResponse.json({ error: "Invalid email or password" }, { status: 401 });
   }

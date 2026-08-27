@@ -200,7 +200,7 @@ function CheckForm() {
 
     const body = text.trim();
     if (!body && !file) {
-      setError("Paste a message, number, UPI ID, or link — or attach a screenshot.");
+      setError("Paste a message, number, UPI ID, or link, or attach a screenshot.");
       return;
     }
 
@@ -281,7 +281,7 @@ function CheckForm() {
       router.push(`/check/${id}`);
     } catch {
       setFingerprintState("ready");
-      setPrivateError("We could not open your case right now. Your code above still works — copy it and keep it, then try again.");
+      setPrivateError("We could not open your case right now. Your code above still works, copy it and keep it, then try again.");
     }
   }
 
@@ -329,7 +329,7 @@ function CheckForm() {
                     onDragOver={(event) => { event.preventDefault(); setDragging(true); }}
                     onDragLeave={() => setDragging(false)}
                     onDrop={handleDrop}
-                    placeholder={"Paste here — a message, phone number, UPI ID, or link.\nYou can also drop a screenshot onto this box."}
+                    placeholder={"Paste here, a message, phone number, UPI ID, or link.\nYou can also drop a screenshot onto this box."}
                     rows={6}
                     className="min-h-[168px] w-full resize-y rounded-[4px] bg-transparent px-4 pb-16 pt-4 text-[15px] leading-7 text-ink placeholder:text-ink-faint focus:outline-none"
                   />
@@ -440,7 +440,7 @@ function CheckForm() {
                     <ol className="mt-3.5 space-y-3">
                       {[
                         "Pick the photo someone is threatening to share.",
-                        "This device turns it into a unique code — like a fingerprint for that photo. Nobody sees the photo, including us.",
+                        "This device turns it into a unique code, like a fingerprint for that photo. Nobody sees the photo, including us.",
                         "Register the code to open your case and get the steps that apply to you.",
                       ].map((step, index) => (
                         <li key={step} className="flex gap-3 text-sm leading-6 text-ink-soft">
@@ -499,7 +499,7 @@ function CheckForm() {
                           {fingerprintState !== "registering" && <ArrowRight size={16} aria-hidden="true" />}
                         </button>
                         <p className="mt-3.5 text-xs leading-5 text-ink-faint">
-                          This opens a case with the steps that apply to you. To have images blocked across participating platforms, also create a case at StopNCII.org — it works the same way, and your images stay on your device there too.
+                          This opens a case with the steps that apply to you. To have images blocked across participating platforms, also create a case at StopNCII.org, it works the same way, and your images stay on your device there too.
                         </p>
                       </div>
                     )}

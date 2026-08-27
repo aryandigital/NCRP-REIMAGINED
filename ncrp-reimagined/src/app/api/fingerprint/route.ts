@@ -4,7 +4,7 @@ import { createIncident } from "@/lib/store";
 /**
  * Registers a locally-computed perceptual image fingerprint.
  *
- * The image itself NEVER leaves the user's device — the browser computes the
+ * The image itself NEVER leaves the user's device, the browser computes the
  * fingerprint with blockhash and only the fingerprint string is submitted.
  * Registering it opens an incident on the content-protection track so the user
  * lands on the sextortion playbook instead of a dead end.
@@ -27,13 +27,13 @@ export async function POST(req: NextRequest) {
         currentStage: null,
         signals: [
           "You protected a private photo on this device.",
-          "The photo itself was never uploaded — only its unique code was registered.",
+          "The photo itself was never uploaded, only its unique code was registered.",
           "If anyone threatens to share this photo, this code is your proof and your shield.",
         ],
         nextMove: "If someone threatens to publish this image, they will demand money or more images. Paying once guarantees another demand.",
         doNot: [
           "Do not pay or negotiate with anyone threatening to share your images.",
-          "Do not delete the threatening messages — they are your evidence.",
+          "Do not delete the threatening messages, they are your evidence.",
           "Do not share more images, no matter what is promised.",
         ],
         exactMatches: [{ type: "fingerprint", value: fingerprint }],

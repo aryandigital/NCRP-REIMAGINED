@@ -13,7 +13,7 @@ const yatraOne = Yatra_One({ variable: "--font-display-hindi", weight: "400", su
 const tiroDevanagari = Tiro_Devanagari_Hindi({ variable: "--font-display-indic", weight: "400", subsets: ["devanagari"] });
 
 export const metadata: Metadata = {
-  title: "Raksha \u2014 Cyber Crime Response",
+  title: "Raksha | Cyber Crime Response",
   description: "India\u2019s end-to-end cyber crime response system. Check, act, report, recover.",
   keywords: ["cyber crime", "scam", "fraud", "India", "NCRP", "1930"],
   icons: {
@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <EmergencyBar />
         {children}
-        {/* Persistent disclaimer — required on every page (hackathon rule) */}
+        {/* Persistent disclaimer, required on every page (hackathon rule) */}
         <div className="border-t border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-4 text-center">
           <p className="mx-auto max-w-3xl text-[11px] leading-5 text-[var(--color-ink-faint)]">
             <span className="font-bold">[SIMULATED ENCLAVE]</span> Raksha is an independent public-service prototype built for the Build What Moves India hackathon. It is not affiliated with the Government of India, MHA, I4C, or NCRP. This environment runs on sample data and does not transmit reports to any government body, bank, or platform. In an emergency, call <a href="tel:1930" className="font-bold text-[var(--color-ink)] underline">1930</a>.
