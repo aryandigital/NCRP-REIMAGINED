@@ -281,9 +281,9 @@ button:active, a:active { transform: translateY(1px); }
 }
 
 .hero-emblem {
-    width: 104px;
-  height: auto;
-  filter: drop-shadow(0 2px 16px rgba(255, 119, 34, .35)) brightness(1.05);
+    width: 90px;
+    height: auto;
+    filter: drop-shadow(0 0 12px rgba(217, 221, 255, .22));
   animation: emblem-enter 1s cubic-bezier(.16,1,.3,1) both, emblem-float 7s ease-in-out 1.3s infinite;
 }
 

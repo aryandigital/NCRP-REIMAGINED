@@ -1,33 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none" role="img" aria-labelledby="title">
-  <title>Raksha protective arch emblem</title>
-  <defs>
-    <linearGradient id="frame" x1="32" y1="20" x2="126" y2="140" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#8ea0ff"/>
-      <stop offset=".56" stop-color="#c79ae0"/>
-      <stop offset="1" stop-color="#ff9d5c"/>
-    </linearGradient>
-    <linearGradient id="door" x1="63" y1="72" x2="97" y2="121" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#ffca8a"/>
-      <stop offset="1" stop-color="#ff8a3d"/>
-    </linearGradient>
-    <filter id="glow" x="24" y="16" width="112" height="132" color-interpolation-filters="sRGB">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-  </defs>
-  <g stroke="url(#frame)" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M80 19c12 13 33 21 33 45v48c0 15-11 24-33 31-22-7-33-16-33-31V64c0-24 21-32 33-45Z" stroke-width="3.2" filter="url(#glow)"/>
-    <path d="M61 111V76c0-10 8-18 19-25 11 7 19 15 19 25v35" stroke-width="2.6"/>
-    <path d="M61 111h38" stroke-width="2.6"/>
-    <path d="M68 76c3-5 7-8 12-11 5 3 9 6 12 11" stroke-width="1.8" opacity=".75"/>
-    <path d="M70 90h20M70 100h20" stroke-width="1.5" opacity=".52"/>
-    <path d="m73 106 5 5 11-12" stroke="#fff8eb" stroke-width="2.8"/>
-    <path d="M49 84c-8-1-13-6-16-13m15 2c-5-3-7-7-8-12m8 25c-6 3-9 7-10 12" stroke-width="1.8" opacity=".85"/>
-    <path d="M111 84c8-1 13-6 16-13m-15 2c5-3 7-7 8-12m-8 25c6 3 9 7 10 12" stroke-width="1.8" opacity=".85"/>
-    <path d="M80 12v-4M80 152v-4" stroke-width="1.7" opacity=".75"/>
-    <circle cx="80" cy="37" r="2.2" fill="url(#door)" stroke="none"/>
-    <circle cx="80" cy="76" r="2.4" fill="url(#door)" stroke="none"/>
-    <circle cx="42" cy="64" r="1.7" fill="url(#frame)" stroke="none"/>
-    <circle cx="118" cy="64" r="1.7" fill="url(#frame)" stroke="none"/>
+  <title>Raksha arch and lotus emblem</title>
+  <g stroke="#d9ddff" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M55 126V69c0-21 12-31 25-44 13 13 25 23 25 44v57H55Z" stroke-width="3"/>
+    <path d="M64 116V73c0-14 7-22 16-31 9 9 16 17 16 31v43H64Z" stroke-width="2.2" opacity=".78"/>
+    <path d="M80 116c-7-8-7-17 0-27 7 10 7 19 0 27Z" stroke-width="2"/>
+    <path d="M80 101c-8-12-13-18-16-27 10 2 16 10 16 27Zm0 0c8-12 13-18 16-27-10 2-16 10-16 27Z" stroke-width="2"/>
+    <path d="M80 110c-9-9-17-10-25-4 8 8 17 9 25 4Zm0 0c9-9 17-10 25-4-8 8-17 9-25 4Z" stroke-width="2"/>
+    <path d="M55 103c-10 0-16-5-22-12m21 3c-8-3-11-8-13-15m9 10c-8 1-13-2-18-7m73 21c10 0 16-5 22-12m-21 3c8-3 11-8 13-15m-9 10c8 1 13-2 18-7" stroke-width="1.8" opacity=".88"/>
+    <path d="M80 18v-4M80 136v-4" stroke-width="1.6" opacity=".72"/>
+    <circle cx="80" cy="8" r="1.8" fill="#d9ddff" stroke="none"/>
+    <circle cx="80" cy="144" r="1.8" fill="#d9ddff" stroke="none"/>
+    <circle cx="80" cy="151" r="1.8" fill="#d9ddff" stroke="none"/>
   </g>
 </svg>
