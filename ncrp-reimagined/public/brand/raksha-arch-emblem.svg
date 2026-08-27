@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none" role="img" aria-labelledby="title">
+  <title>Raksha protective arch emblem</title>
+  <defs>
+    <linearGradient id="frame" x1="32" y1="20" x2="126" y2="140" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8ea0ff"/>
+      <stop offset=".56" stop-color="#c79ae0"/>
+      <stop offset="1" stop-color="#ff9d5c"/>
+    </linearGradient>
+    <linearGradient id="door" x1="63" y1="72" x2="97" y2="121" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffca8a"/>
+      <stop offset="1" stop-color="#ff8a3d"/>
+    </linearGradient>
+    <filter id="glow" x="24" y="16" width="112" height="132" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g stroke="url(#frame)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M80 19c12 13 33 21 33 45v48c0 15-11 24-33 31-22-7-33-16-33-31V64c0-24 21-32 33-45Z" stroke-width="3.2" filter="url(#glow)"/>
+    <path d="M61 111V76c0-10 8-18 19-25 11 7 19 15 19 25v35" stroke-width="2.6"/>
+    <path d="M61 111h38" stroke-width="2.6"/>
+    <path d="M68 76c3-5 7-8 12-11 5 3 9 6 12 11" stroke-width="1.8" opacity=".75"/>
+    <path d="M70 90h20M70 100h20" stroke-width="1.5" opacity=".52"/>
+    <path d="m73 106 5 5 11-12" stroke="#fff8eb" stroke-width="2.8"/>
+    <path d="M49 84c-8-1-13-6-16-13m15 2c-5-3-7-7-8-12m8 25c-6 3-9 7-10 12" stroke-width="1.8" opacity=".85"/>
+    <path d="M111 84c8-1 13-6 16-13m-15 2c5-3 7-7 8-12m-8 25c6 3 9 7 10 12" stroke-width="1.8" opacity=".85"/>
+    <path d="M80 12v-4M80 152v-4" stroke-width="1.7" opacity=".75"/>
+    <circle cx="80" cy="37" r="2.2" fill="url(#door)" stroke="none"/>
+    <circle cx="80" cy="76" r="2.4" fill="url(#door)" stroke="none"/>
+    <circle cx="42" cy="64" r="1.7" fill="url(#frame)" stroke="none"/>
+    <circle cx="118" cy="64" r="1.7" fill="url(#frame)" stroke="none"/>
+  </g>
+</svg>

@@ -36,7 +36,7 @@ export default function SiteHeader({ current }: { current?: "check" | "track" | 
         <div className="public-shell flex min-h-[64px] items-center justify-between gap-3 py-3 sm:gap-5">
           <Link href="/" className="flex min-w-0 items-center gap-3" aria-label="Raksha home">
             <span className="flex h-9 w-9 shrink-0 items-center justify-center">
-              <BrandMark size={34} />
+              <BrandMark size={34} className="text-[#fefcf8]" />
             </span>
             <span className="min-w-0">
               <span className="wordmark block truncate text-[17px] text-[#fefcf8]">raksha</span>

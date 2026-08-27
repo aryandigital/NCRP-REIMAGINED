@@ -2,22 +2,22 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, Mic, ShieldCheck, Phone, Activity, Network, Volume2, Route, AlertCircle, TrendingDown, Search } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import HeroParticles from "@/components/HeroParticles";
 import { PATTERNS } from "@/data/patterns";
 import { useRakshaLanguage } from "@/hooks/useRakshaLanguage";
 import { HOME_COPY } from "@/data/homeCopy";
-import { BrandMark, IconAlert, IconClock, IconEmergency, IconEvidence } from "@/components/icons";
+import { BrandMark, IconAlert, IconClock, IconEmergency, IconEvidence, IconRadar, IconRecover, IconReport, IconVoice } from "@/components/icons";
 
 const routeMeta = [
-  { href: "/check?mode=emergency", Icon: AlertCircle },
-  { href: "/check?mode=lost", Icon: TrendingDown },
-  { href: "/check", Icon: Search },
+  { href: "/check?mode=emergency", Icon: IconEmergency },
+  { href: "/check?mode=lost", Icon: IconRecover },
+  { href: "/check", Icon: IconRadar },
 ] as const;
 
-const journeyIcons = [Mic, ShieldCheck, Phone, Activity] as const;
-const capabilityIcons = [Network, Volume2, Route] as const;
+const journeyIcons = [IconReport, IconRadar, IconEmergency, IconRecover] as const;
+const capabilityIcons = [IconRadar, IconVoice, IconClock] as const;
 const principleIcons = [IconEvidence, IconClock, IconAlert] as const;
 
 const STAGGER = ["delay-1", "delay-2", "delay-3", "delay-4", "delay-5"] as const;
@@ -51,7 +51,7 @@ export default function HomePage() {
           <HeroParticles />
           <div className="public-shell relative z-[1] flex min-h-[88dvh] flex-col items-center justify-center py-20 text-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/illustrations/raksha-arch-emblem.png" alt="" className="hero-emblem" aria-hidden="true" />
+            <img src="/brand/raksha-arch-emblem.svg" alt="" className="hero-emblem" aria-hidden="true" />
 
             <p className="hero-eyebrow mt-6">{copy.hero.ornament}</p>
             <h1 className="display hero-title-anim mt-5 max-w-[18ch] text-[2.5rem] sm:text-[3.5rem] lg:text-[4.2rem]">{copy.hero.title}</h1>
@@ -142,7 +142,6 @@ export default function HomePage() {
                       <div className="relative z-10 flex h-[72px] w-[72px] shrink-0 items-center justify-center rounded-full border-2 border-[var(--navy)] bg-paper transition-all duration-300 group-hover:border-[var(--saffron)] group-hover:shadow-[0_0_24px_rgba(255,119,34,.15)]">
                         <StepIcon
                           className="h-7 w-7 text-[var(--navy)] transition-all duration-300 group-hover:scale-110 group-hover:text-[var(--saffron)]"
-                          strokeWidth={1.5}
                           aria-hidden="true"
                         />
                       </div>
@@ -254,7 +253,7 @@ export default function HomePage() {
         <section className="aurora-cta">
           <div className="public-shell flex flex-col items-center gap-5 py-14 text-center sm:py-18">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/illustrations/raksha-arch-emblem.png" alt="" className="cta-emblem-anim h-12 w-auto opacity-75" aria-hidden="true" />
+            <img src="/brand/raksha-arch-emblem.svg" alt="" className="cta-emblem-anim h-12 w-auto opacity-75" aria-hidden="true" />
             <h2 className="reveal display max-w-[18ch] text-[1.8rem] text-ink sm:text-[2.8rem]">{copy.cta.title}</h2>
             <p className="reveal delay-1 max-w-[52ch] text-sm font-semibold leading-6 text-ink-soft sm:text-base">{copy.cta.sub}</p>
             <Link href="/check" className="reveal delay-2 btn-night">{copy.hero.ctaStart} <ArrowRight size={17} aria-hidden="true" /></Link>

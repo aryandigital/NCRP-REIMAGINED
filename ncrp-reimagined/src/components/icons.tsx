@@ -46,8 +46,11 @@ function Base({ size = 24, className, title, gradientId, stroke, spectrum, child
 export function BrandMark({ size = 40, className }: { size?: number; className?: string }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} role="img" aria-label="Raksha">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-      <path d="M9 12l2 2 4-4"/>
+      <path d="M12 2.4c2.7 3.1 6.6 4.7 6.6 8.8v5.1c0 2.6-2.2 4.4-6.6 5.8-4.4-1.4-6.6-3.2-6.6-5.8v-5.1c0-4.1 3.9-5.7 6.6-8.8Z"/>
+      <path d="M8.2 16.3v-4.4c0-1.8 1.6-3.4 3.8-4.7 2.2 1.3 3.8 2.9 3.8 4.7v4.4"/>
+      <path d="M8.2 16.3h7.6"/>
+      <path d="m10.1 13.8 1.5 1.5 2.7-3"/>
+      <circle cx="12" cy="10.1" r=".65" fill="currentColor" stroke="none"/>
     </svg>
   );
 }
