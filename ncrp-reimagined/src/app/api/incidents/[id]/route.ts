@@ -1,11 +1,31 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getSession } from "@/lib/auth";
 import { getIncident, makeAckNumber, updateIncident } from "@/lib/store";
 import { redact } from "@/lib/redact";
 
+async function getAuthorizedIncident(id: string) {
+  const session = await getSession();
+  if (!session) {
+    return { response: NextResponse.json({ error: "Not authenticated" }, { status: 401 }) };
+  }
+
+  const incident = await getIncident(id);
+  if (!incident) {
+    return { response: NextResponse.json({ error: "Incident not found" }, { status: 404 }) };
+  }
+
+  if (!incident.syntheticOnly && incident.userId !== session.userId) {
+    return { response: NextResponse.json({ error: "Not authorized" }, { status: 403 }) };
+  }
+
+  return { incident };
+}
+
 export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const incident = await getIncident(id);
-  if (!incident) return NextResponse.json({ error: "Incident not found" }, { status: 404 });
+  const authorized = await getAuthorizedIncident(id);
+  if (authorized.response) return authorized.response;
+  const { incident } = authorized;
   if (req.nextUrl.searchParams.get("format") === "bundle") {
     const redactedText = incident.rawText ? redact(incident.rawText).redacted : null;
     return new NextResponse(JSON.stringify({
@@ -29,8 +49,9 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
 
 export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const incident = await getIncident(id);
-  if (!incident) return NextResponse.json({ error: "Incident not found" }, { status: 404 });
+  const authorized = await getAuthorizedIncident(id);
+  if (authorized.response) return authorized.response;
+  const { incident } = authorized;
 
   const body = await req.json() as {
     answers?: Record<string, boolean>;
