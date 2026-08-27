@@ -1,7 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { analyzeWithAI, analyzeLocal } from "@/lib/dna";
-import { createIncident } from "@/lib/store";
+import { analyzeIdentifier, mergeWithPatternResult } from "@/lib/identifier";
+import { createIncident, type DnaResult } from "@/lib/store";
 import { redact, evidenceIdentifiers } from "@/lib/redact";
+
+function tracksFor(dna: DnaResult): string[] {
+  if (!dna.patternSlug) return ["money"];
+  if (["task-scam", "investment-pig-butchering", "upi-collect-request"].includes(dna.patternSlug)) return ["money"];
+  if (dna.patternSlug === "sextortion-image-threat") return ["content", "money", "safety"];
+  if (dna.patternSlug === "digital-arrest") return ["money", "safety"];
+  return ["money"];
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -20,9 +29,15 @@ export async function POST(req: NextRequest) {
       imageBase64 = Buffer.from(buf).toString("base64");
     }
 
-    // 3. Analyse
+    // 3. Analyse. A bare identifier (link / UPI ID / phone number) carries no
+    //    narrative keywords, so it routes through the heuristic identifier
+    //    engine first and merges with whatever the pattern analysis found.
     const textForAnalysis = redacted || rawText; // use redacted for AI, raw for local
-    const dna = await analyzeWithAI(textForAnalysis, imageBase64);
+    const identifierVerdict = imageBase64 ? null : analyzeIdentifier(rawText.trim());
+    let dna = await analyzeWithAI(textForAnalysis, imageBase64);
+    if (identifierVerdict) {
+      dna = mergeWithPatternResult(identifierVerdict, dna);
+    }
 
     // Inject exact matches from redaction that AI may have missed
     if (identifiers.length > 0) {
@@ -38,15 +53,7 @@ export async function POST(req: NextRequest) {
     const incident = await createIncident({
       rawText: (redacted || rawText).slice(0, 2000),
       dna,
-      tracks: dna.patternSlug
-        ? (["task-scam", "investment-pig-butchering", "upi-collect-request"].includes(dna.patternSlug)
-          ? ["money"]
-          : dna.patternSlug === "sextortion-image-threat"
-          ? ["content", "money", "safety"]
-          : dna.patternSlug === "digital-arrest"
-          ? ["money", "safety"]
-          : ["money"])
-        : ["money"],
+      tracks: tracksFor(dna),
       extractedFacts: [
         ...(dna.patternName ? [{ field: "Scam type", value: dna.patternName, source: "model" as const, confidence: dna.confidence, confirmationStatus: "unconfirmed" as const }] : []),
         ...dna.exactMatches.slice(0, 3).map((match) => ({ field: match.type, value: match.value, source: "user" as const, confidence: 0.9, confirmationStatus: "unconfirmed" as const })),
@@ -69,12 +76,16 @@ export async function GET(req: NextRequest) {
   }
 
   const { redacted } = redact(q);
-  const dna = analyzeLocal(redacted || q);
+  const identifierVerdict = analyzeIdentifier(q.trim());
+  let dna = analyzeLocal(redacted || q);
+  if (identifierVerdict) {
+    dna = mergeWithPatternResult(identifierVerdict, dna);
+  }
 
   const incident = await createIncident({
     rawText: redacted.slice(0, 500),
     dna,
-    tracks: ["money"],
+    tracks: tracksFor(dna),
     missingFacts: ["incident date and time", "bank or wallet", "financial amount"],
   });
 
