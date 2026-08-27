@@ -64,11 +64,9 @@ export default function HeroParticles() {
       };
     });
 
-    let frame = 0;
     let raf: number;
 
     const tick = () => {
-      frame++;
       ctx.clearRect(0, 0, W, H);
 
       for (const p of dots) {

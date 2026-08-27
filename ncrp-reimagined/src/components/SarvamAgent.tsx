@@ -59,19 +59,21 @@ export default function SarvamAgent() {
 
   // Default the conversation language to the site language the visitor chose.
   useEffect(() => {
-    try {
-      const stored = window.localStorage.getItem("raksha-language");
-      if (stored && AGENT_LANGUAGE_OPTIONS.some((option) => option.code === stored)) {
-        setLanguage(stored as AgentLanguage);
-      }
-    } catch { /* storage blocked */ }
+    const timer = window.setTimeout(() => {
+      try {
+        const stored = window.localStorage.getItem("raksha-language");
+        if (stored && AGENT_LANGUAGE_OPTIONS.some((option) => option.code === stored)) {
+          setLanguage(stored as AgentLanguage);
+        }
+      } catch { /* storage blocked */ }
+    }, 0);
+    return () => window.clearTimeout(timer);
   }, []);
 
   // Surface the assistant once per visitor so it is discoverable without
   // blocking the page; dismissing or opening the dock ends the greeting.
   useEffect(() => {
     if (window.localStorage.getItem("raksha-samvaad-greeted") === "true") {
-      setGreeted(true);
       return;
     }
     const timer = window.setTimeout(() => setShowGreet(true), 1800);

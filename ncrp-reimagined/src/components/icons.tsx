@@ -43,13 +43,6 @@ function Base({ size = 24, className, title, gradientId, stroke, spectrum, child
   );
 }
 
-/** The Raksha mark: a pointed-arch shield ringed by twelve guard dots. */
-const GUARD_DOTS: Array<[number, number, number]> = [
-  [20, 3, 0.9], [28.5, 5.278, 0.35], [34.722, 11.5, 0.35], [37, 20, 0.9],
-  [34.722, 28.5, 0.35], [28.5, 34.722, 0.35], [20, 37, 0.9], [11.5, 34.722, 0.35],
-  [5.278, 28.5, 0.35], [3, 20, 0.9], [5.278, 11.5, 0.35], [11.5, 5.278, 0.35],
-];
-
 export function BrandMark({ size = 40, className }: { size?: number; className?: string }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} role="img" aria-label="Raksha">
