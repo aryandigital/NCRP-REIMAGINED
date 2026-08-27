@@ -16,6 +16,10 @@ export const metadata: Metadata = {
   title: "Raksha \u2014 Cyber Crime Response",
   description: "India\u2019s end-to-end cyber crime response system. Check, act, report, recover.",
   keywords: ["cyber crime", "scam", "fraud", "India", "NCRP", "1930"],
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
