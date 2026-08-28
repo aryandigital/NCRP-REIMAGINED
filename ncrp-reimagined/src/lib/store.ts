@@ -70,7 +70,7 @@ function makeId(prefix = "INC") {
 }
 
 function makeAckNumber() {
-  return `NCRP${crypto.randomUUID().replace(/-/g, "").slice(0, 12).toUpperCase()}`;
+  return `RKS${crypto.randomUUID().replace(/-/g, "").slice(0, 12).toUpperCase()}`;
 }
 
 async function ensureStorage() {
@@ -130,7 +130,7 @@ function seedDemoIncident(): Incident {
     },
     answers: { paid: false },
     tracks: ["money"],
-    ackNumber: "NCRPDEMO0001",
+    ackNumber: "RKSDEMO0001",
     completedActions: [],
     extractedFacts: [
       { field: "Scam type", value: "Task / part-time job scam", source: "model", confidence: 0.96, confirmationStatus: "confirmed" },
@@ -178,7 +178,7 @@ export async function getIncident(id: string): Promise<Incident | undefined> {
   if (database) {
     const rows = await database.select().from(incidents).where(sql`${incidents.id} = ${id} OR ${incidents.payload}->>'ackNumber' = ${id}`).limit(1);
     if (rows[0]) return rows[0].payload as Incident;
-    if (id === "DEMO0001" || id === "NCRPDEMO0001") {
+    if (id === "DEMO0001" || id === "RKSDEMO0001") {
       const demo = seedDemoIncident();
       await database.insert(incidents).values({ id: demo.id, createdAt: new Date(demo.createdAt), payload: demo }).onConflictDoNothing().execute();
       return demo;

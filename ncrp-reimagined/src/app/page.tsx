@@ -71,7 +71,7 @@ export default function HomePage() {
         {/* Tricolor separator */}
         <div className="tricolor-bar" aria-hidden="true" />
 
-        {/* Report categories (from real NCRP) */}
+        {/* Report categories */}
         <section className="section-glow bg-paper">
           <div className="public-shell py-14 sm:py-20">
             <div className="reveal max-w-2xl">

@@ -20,12 +20,12 @@ export default function SiteHeader({ current }: { current?: "check" | "track" | 
   }, []);
 
   const copy = {
-    en: { check: "Check Suspect", track: "Track Complaint", alerts: "Cyber Alerts", start: "Report Crime", sub: "National Cyber Crime Reporting Portal", gov: "Ministry of Home Affairs | Govt. of India" },
-    hi: { check: "संदिग्ध जांचें", track: "शिकायत ट्रैक करें", alerts: "साइबर चेतावनी", start: "अपराध दर्ज करें", sub: "राष्ट्रीय साइबर अपराध रिपोर्टिंग पोर्टल", gov: "गृह मंत्रालय | भारत सरकार" },
-    ta: { check: "சந்தேகத்தை சரிபார்", track: "புகார் கண்காணி", alerts: "சைபர் எச்சரிக்கை", start: "குற்றம் பதிவு", sub: "தேசிய சைபர் குற்ற புகார் போர்டல்", gov: "உள்துறை அமைச்சகம் | இந்திய அரசு" },
-    te: { check: "అనుమానితుడిని తనిఖీ", track: "ఫిర్యాదు ట్రాక్", alerts: "సైబర్ హెచ్చరిక", start: "నేరం నమోదు", sub: "జాతీయ సైబర్ నేర నివేదిక పోర్టల్", gov: "హోం వ్యవహారాల మంత్రిత్వ శాఖ | భారత ప్రభుత్వం" },
-    bn: { check: "সন্দেহভাজন যাচাই", track: "অভিযোগ ট্র্যাক", alerts: "সাইবার সতর্কতা", start: "অপরাধ নথিভুক্ত", sub: "জাতীয় সাইবার অপরাধ রিপোর্টিং পোর্টাল", gov: "স্বরাষ্ট্র মন্ত্রক | ভারত সরকার" },
-    mr: { check: "संशयित तपासा", track: "तक्रार ट्रॅक", alerts: "सायबर सतर्कता", start: "गुन्हा नोंदवा", sub: "राष्ट्रीय सायबर गुन्हे तक्रार पोर्टल", gov: "गृह मंत्रालय | भारत सरकार" },
+    en: { check: "Check Suspect", track: "Track Complaint", alerts: "Cyber Alerts", start: "Report Crime", sub: "Hackathon Prototype \u2014 Not an official service" },
+    hi: { check: "संदिग्ध जांचें", track: "शिकायत ट्रैक करें", alerts: "साइबर चेतावनी", start: "अपराध दर्ज करें", sub: "हैकाथॉन प्रोटोटाइप \u2014 यह सरकारी सेवा नहीं है" },
+    ta: { check: "சந்தேகத்தை சரிபார்", track: "புகார் கண்காணி", alerts: "சைபர் எச்சரிக்கை", start: "குற்றம் பதிவு", sub: "ஹேக்கத்தான் முன்மாதிரி \u2014 அரசு சேவை அல்ல" },
+    te: { check: "అనుమానితుడిని తనిఖీ", track: "ఫిర్యాదు ట్రాక్", alerts: "సైబర్ హెచ్చరిక", start: "నేరం నమోదు", sub: "హ్యాకథాన్ ప్రోటోటైప్ \u2014 ప్రభుత్వ సేవ కాదు" },
+    bn: { check: "সন্দেহভাজন যাচাই", track: "অভিযোগ ট্র্যাক", alerts: "সাইবার সতর্কতা", start: "অপরাধ নথিভুক্ত", sub: "হ্যাকাথন প্রোটোটাইপ \u2014 সরকারি সেবা নয়" },
+    mr: { check: "संशयित तपासा", track: "तक्रार ट्रॅक", alerts: "सायबर सतर्कता", start: "गुन्हा नोंदवा", sub: "हॅकाथॉन प्रोटोटाइप \u2014 सरकारी सेवा नाही" },
   }[language];
 
   return (

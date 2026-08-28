@@ -15,7 +15,7 @@ const tiroDevanagari = Tiro_Devanagari_Hindi({ variable: "--font-display-indic",
 export const metadata: Metadata = {
   title: "Raksha | Cyber Crime Response",
   description: "India\u2019s end-to-end cyber crime response system. Check, act, report, recover.",
-  keywords: ["cyber crime", "scam", "fraud", "India", "NCRP", "1930"],
+  keywords: ["cyber crime", "scam", "fraud", "India", "1930", "hackathon", "prototype"],
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },

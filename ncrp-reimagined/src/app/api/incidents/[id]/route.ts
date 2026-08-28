@@ -75,7 +75,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
     ackNumber: body.submitMock ? (incident.ackNumber ?? makeAckNumber()) : incident.ackNumber,
     packets: body.submitMock
       ? [
-          { recipient: "ncrp", status: "acknowledged", payload: { incidentId: id, submittedAt: now } },
+          { recipient: "ncrp", status: "acknowledged", payload: { incidentId: id, submittedAt: now, simulated: true } },
           { recipient: "bank", status: "acknowledged", payload: { incidentId: id, requestedAction: "freeze and review" } },
           { recipient: "police", status: "submitted", payload: { incidentId: id, queue: "state cyber cell" } },
         ]
@@ -84,7 +84,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
       ? [
           ...incident.routingEvents,
           { type: "incident_compiled", message: "Incident record compiled from confirmed facts.", occurredAt: now, status: "complete" },
-          { type: "ncrp_acknowledged", message: "NCRP channel returned an acknowledgement.", occurredAt: now, status: "recorded" },
+          { type: "ncrp_acknowledged", message: "(Simulated) Portal channel returned an acknowledgement.", occurredAt: now, status: "recorded" },
           { type: "bank_queued", message: "Bank nodal queue accepted the packet.", occurredAt: now, status: "recorded" },
         ]
       : incident.routingEvents,
