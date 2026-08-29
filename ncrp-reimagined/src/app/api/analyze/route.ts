@@ -14,9 +14,10 @@ function tracksFor(dna: DnaResult): string[] {
 }
 
 export async function POST(req: NextRequest) {
-  // Filing is anonymous by default. When a session exists the incident is
-  // linked to the user so it shows up in their tracking views.
   const session = await getSession();
+  if (!session) {
+    return NextResponse.json({ error: "Sign in to file a complaint." }, { status: 401 });
+  }
 
   try {
     const fd = await req.formData();
@@ -56,7 +57,7 @@ export async function POST(req: NextRequest) {
 
     // 4. Create incident
     const incident = await createIncident({
-      userId: session?.userId ?? null,
+      userId: session.userId,
       syntheticOnly: false,
       rawText: (redacted || rawText).slice(0, 2000),
       dna,
@@ -77,6 +78,13 @@ export async function POST(req: NextRequest) {
 
 // GET for the search-param flow from the homepage
 export async function GET(req: NextRequest) {
+  const session = await getSession();
+  if (!session) {
+    const loginUrl = new URL("/login", req.url);
+    loginUrl.searchParams.set("next", "/check");
+    return NextResponse.redirect(loginUrl);
+  }
+
   const q = req.nextUrl.searchParams.get("q") ?? "";
   if (!q) {
     return NextResponse.redirect(new URL("/check", req.url));

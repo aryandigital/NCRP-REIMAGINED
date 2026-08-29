@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify } from "jose";
 
-// Filing a complaint (/check, /act, /report, /recover) works anonymously.
-// Sign-in is only required for tracking and the operator console.
-const PROTECTED = ["/operator", "/triage", "/my-incidents", "/track"];
+const PROTECTED = ["/operator", "/triage", "/my-incidents", "/track", "/check", "/act", "/report", "/recover"];
 const COOKIE_NAME = "raksha_session";
 
 function getSecret() {
@@ -39,5 +37,10 @@ export const config = {
     "/triage/:path*",
     "/my-incidents/:path*",
     "/track/:path*",
+    "/check/:path*",
+    "/check",
+    "/act/:path*",
+    "/report/:path*",
+    "/recover/:path*",
   ],
 };
