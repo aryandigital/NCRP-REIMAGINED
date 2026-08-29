@@ -173,7 +173,7 @@ Do not deploy without `DATABASE_URL`: serverless instances do not provide durabl
 
 | Email | Password |
 |---|---|
-| user1@email.com | Password1@123 |
+| test@email.com | Password@123 |
 | user2@email.com | Password2@123 |
 
 ---
