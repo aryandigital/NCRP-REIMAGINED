@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, FileDown } from "lucide-react";
 import { getIncident, isIncidentId } from "@/lib/store";
 import { CLOCKS, type ClockKind } from "@/lib/clocks";
 import { notFound } from "next/navigation";
@@ -99,6 +99,13 @@ export default async function RecoverPage({ params }: { params: Promise<{ caseId
 
         <section className="panel mt-6 p-5 sm:p-6" aria-label="Case export and review">
           <DownloadBundle incidentId={incident.id} />
+          <a
+            href={`/api/incidents/${incident.id}/document`}
+            download={`complaint-draft-${incident.id.toLowerCase()}.pdf`}
+            className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-service"
+          >
+            <FileDown size={16} aria-hidden="true" /> Complaint draft (PDF) — prototype document, no legal standing
+          </a>
           <Link href={`/operator?caseId=${id}`} className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-service">
             {example ? "View read-only synthetic operator example" : "View this case in read-only operator view"} <ArrowRight size={16} aria-hidden="true" />
           </Link>
