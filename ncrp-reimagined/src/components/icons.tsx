@@ -43,29 +43,18 @@ function Base({ size = 24, className, title, gradientId, stroke, spectrum, child
   );
 }
 
-/** The Raksha mark: a pointed-arch shield ringed by twelve guard dots. */
-const GUARD_DOTS: Array<[number, number, number]> = [
-  [20, 3, 0.9], [28.5, 5.278, 0.35], [34.722, 11.5, 0.35], [37, 20, 0.9],
-  [34.722, 28.5, 0.35], [28.5, 34.722, 0.35], [20, 37, 0.9], [11.5, 34.722, 0.35],
-  [5.278, 28.5, 0.35], [3, 20, 0.9], [5.278, 11.5, 0.35], [11.5, 5.278, 0.35],
-];
-
-export function BrandMark({ size = 40, className }: { size?: number; className?: string }) {
-  const id = useId().replace(/[^a-zA-Z0-9]/g, "");
+/** The finalized Raksha mark: a pointed arch with a lotus and guard dots. */
+export function BrandMark({ size = 40, className, ...props }: { size?: number; className?: string; "aria-hidden"?: boolean | "true" | "false" }) {
+  const decorative = props["aria-hidden"] === true || props["aria-hidden"] === "true";
   return (
-    <svg width={size} height={size} viewBox="0 0 40 40" fill="none" className={className} role="img" aria-label="Raksha">
-      <defs>
-        <linearGradient id={id} x1="8" y1="6" x2="32" y2="34" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#2b46ce" />
-          <stop offset=".55" stopColor="#8f7ee8" />
-          <stop offset="1" stopColor="#ff8a3d" />
-        </linearGradient>
-      </defs>
-      {GUARD_DOTS.map(([cx, cy, opacity]) => (
-        <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r="1.35" fill="#16182b" opacity={opacity} />
-      ))}
-      <path d="M20 8.5 C 23.4 11.2 26 12.6 26 15.4 V21 C 26 25.4 23.2 28.2 20 30.2 C 16.8 28.2 14 25.4 14 21 V15.4 C 14 12.6 16.6 11.2 20 8.5 Z" stroke={`url(#${id})`} strokeWidth="2" fill="rgba(43,70,206,.06)" />
-      <circle cx="20" cy="19.5" r="2.2" fill={`url(#${id})`} />
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" className={className} role={decorative ? undefined : "img"} aria-label={decorative ? undefined : "Raksha"} aria-hidden={decorative ? true : undefined}>
+      <path d="M10 27V13.5C10 8.7 13 6.2 16 3.4c3 2.8 6 5.3 6 10.1V27H10Z" />
+      <path d="M12.8 24.2v-10c0-3.2 1.5-5.1 3.2-6.9 1.7 1.8 3.2 3.7 3.2 6.9v10h-6.4Z" opacity=".82" />
+      <path d="M16 24c-2.1-2.4-2.1-5.1 0-8 2.1 2.9 2.1 5.6 0 8Z" />
+      <path d="M16 20c-2.7-3.7-4.2-5.2-5.2-7.8 3.7.8 5.2 3.2 5.2 7.8Zm0 0c2.7-3.7 4.2-5.2 5.2-7.8-3.7.8-5.2 3.2-5.2 7.8Z" />
+      <path d="M10 20.7c-3.1 0-5-1.5-6.8-3.8m18.8 3.8c3.1 0 5-1.5 6.8-3.8" opacity=".8" />
+      <circle cx="16" cy="1.2" r=".75" fill="currentColor" stroke="none" />
+      <circle cx="16" cy="30.3" r=".75" fill="currentColor" stroke="none" />
     </svg>
   );
 }
