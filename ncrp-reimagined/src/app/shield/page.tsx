@@ -4,29 +4,16 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import {
-  ArrowLeft, CheckCircle2, Mic, PhoneCall, Play, Save, ShieldAlert, Square,
+  ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, Keyboard, Mic, PhoneCall, Play, RotateCcw, Save, ShieldAlert, Square, Volume2, VolumeX,
 } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
+import { IconReport, IconRadar, IconVoice } from "@/components/icons";
 import { DEMO_CALL_LINES } from "@/data/demoCall";
 import { assessLocal, type ShieldAssessment } from "@/lib/shield";
 import { decideEscalation, emptyAnswers, type VictimAnswers } from "@/lib/brief";
+import { speechIssue, startSpeechCapture, type CaptureIssue, type CaptureState, type SpeechRecognitionCtor } from "@/lib/speechCapture";
 
 // ── Speech API types (mirrors check/page.tsx) ──────────────────────────────
-type SpeechResultEvent = {
-  resultIndex: number;
-  results: ArrayLike<{ isFinal: boolean; 0: { transcript: string } }>;
-};
-type SpeechRecognitionInstance = {
-  continuous: boolean;
-  interimResults: boolean;
-  lang: string;
-  onend: (() => void) | null;
-  onerror: (() => void) | null;
-  onresult: ((e: SpeechResultEvent) => void) | null;
-  start: () => void;
-  stop: () => void;
-};
-type SpeechRecognitionCtor = new () => SpeechRecognitionInstance;
 type VoiceWindow = Window & {
   SpeechRecognition?: SpeechRecognitionCtor;
   webkitSpeechRecognition?: SpeechRecognitionCtor;
@@ -150,6 +137,12 @@ export default function ShieldPage() {
   const [elapsed, setElapsed]       = useState(0);
   const [playbackComplete, setPlaybackComplete] = useState(false);
   const [typedText, setTypedText] = useState("");
+  const [micState, setMicState] = useState<CaptureState>("idle");
+  const [micIssue, setMicIssue] = useState<CaptureIssue | null>(null);
+  const [showMicSetup, setShowMicSetup] = useState(false);
+  const [demoStep, setDemoStep] = useState(0);
+  const [muted, setMuted] = useState(false);
+  const [audioUnavailable, setAudioUnavailable] = useState(false);
 
   // Confirm form state
   const [answers, setAnswers]       = useState<VictimAnswers>(emptyAnswers());
@@ -162,9 +155,12 @@ export default function ShieldPage() {
   const endedAtRef      = useRef("");
   const startMsRef      = useRef(0);
   const transcriptRef   = useRef("");
-  const recognitionRef  = useRef<SpeechRecognitionInstance | null>(null);
+  const captureRef = useRef<ReturnType<typeof startSpeechCapture> | null>(null);
   const audioRef        = useRef<HTMLAudioElement | null>(null);
   const simTimerRef     = useRef<number | null>(null);
+  const simWatchdogRef = useRef<number | null>(null);
+  const advanceDemoRef = useRef<(() => void) | null>(null);
+  const mutedRef = useRef(false);
   const lastAssessedRef = useRef("");
   const inFlightRef     = useRef(false);
   const listeningRef    = useRef(false);
@@ -190,8 +186,8 @@ export default function ShieldPage() {
   // ── AI assessment on a steady 4 s cadence (reads ref, never stale) ───────
   useEffect(() => {
     if (phase !== "listening") return;
-    const session = sessionRef.current;
     const id = window.setInterval(async () => {
+      const session = sessionRef.current;
       const t = transcriptRef.current;
       if (inFlightRef.current || t.length < 20 || t === lastAssessedRef.current) return;
       inFlightRef.current = true;
@@ -228,83 +224,82 @@ export default function ShieldPage() {
 
   // ── Live mic ─────────────────────────────────────────────────────────────
   function startMic() {
-    if (listeningRef.current) return;
+    if (listeningRef.current && source !== "text") return;
+    const initialLines = listeningRef.current ? [...bubbles] : [];
+    if (!listeningRef.current) begin("mic");
+    else setSource("mic");
+    setMicIssue(null);
+    captureRef.current?.stop();
     const Ctor = (window as VoiceWindow).SpeechRecognition
       ?? (window as VoiceWindow).webkitSpeechRecognition;
-    if (!Ctor) {
-      setError("Speech recognition is unavailable. Type what you heard or try the scripted demo instead.");
+    if (!Ctor || !window.isSecureContext) {
+      setMicState("unavailable");
+      setMicIssue(speechIssue("unsupported"));
+      setSource("text");
       return;
     }
-    const r = new Ctor();
-    r.continuous      = true;
-    r.interimResults  = true;
-    r.lang            = lang;
-    let previous: string[] = [];
-    let finalized: string[] = [];
-    begin("mic");
     const session = sessionRef.current;
-    r.onresult = (e) => {
-      if (!listeningRef.current || session !== sessionRef.current) return;
-      const finals: string[] = [];
-      let live = "";
-      for (let i = 0; i < e.results.length; i++) {
-        const res = e.results[i];
-        const t = res[0].transcript.trim();
-        if (!t) continue;
-        if (res.isFinal) finals.push(t);
-        else live = t;
-      }
-      finalized = finals;
-      updateTranscript([...previous, ...finals, ...(live ? [live] : [])]);
-    };
-    const switchToText = () => {
-      if (!listeningRef.current || session !== sessionRef.current) return;
-      r.onend = null;
-      r.onresult = null;
-      r.stop();
-      recognitionRef.current = null;
-      setSource("text");
-      setError("Microphone unavailable. Your existing transcript is kept; add what you heard below or continue to help.");
-    };
-    r.onerror = switchToText;
-    r.onend = () => {
-      if (!listeningRef.current || session !== sessionRef.current) return;
-      previous = [...previous, ...finalized];
-      finalized = [];
-      try { r.start(); } catch { switchToText(); }
-    };
-    recognitionRef.current = r;
-    try { r.start(); } catch { switchToText(); }
+    const current = () => listeningRef.current && session === sessionRef.current;
+    captureRef.current = startSpeechCapture({
+      Recognition: Ctor, language: lang, initialLines,
+      onState: (state) => { if (current()) setMicState(state); },
+      onTranscript: (lines) => { if (current()) updateTranscript(lines); },
+      onIssue: (issue) => {
+        if (!current()) return;
+        setMicIssue(issue);
+        setSource("text");
+      },
+    });
   }
 
   // ── Simulation ───────────────────────────────────────────────────────────
   function startSimulation() {
-    if (listeningRef.current) return;
+    if (listeningRef.current) {
+      if (source !== "simulation" && transcriptRef.current) return;
+      listeningRef.current = false;
+      captureRef.current?.stop();
+      audioRef.current?.pause();
+      if (simTimerRef.current) window.clearTimeout(simTimerRef.current);
+      if (simWatchdogRef.current) window.clearTimeout(simWatchdogRef.current);
+      assessmentRequestRef.current?.abort();
+    }
     begin("simulation");
     const session = sessionRef.current;
     const lines: string[] = [];
     let i = 0;
     const playNext = () => {
       if (!listeningRef.current || session !== sessionRef.current) return;
+      if (simTimerRef.current) window.clearTimeout(simTimerRef.current);
+      if (simWatchdogRef.current) window.clearTimeout(simWatchdogRef.current);
+      if (audioRef.current) {
+        audioRef.current.onended = audioRef.current.onerror = null;
+        audioRef.current.pause();
+      }
       if (i >= DEMO_CALL_LINES.length) {
         endedAtRef.current = new Date().toISOString();
         setPlaybackComplete(true);
+        advanceDemoRef.current = null;
         return;
       }
       const line = DEMO_CALL_LINES[i++];
+      setDemoStep(i);
       lines.push(line.text);
       updateTranscript([...lines]);
       const audio = new Audio(line.audio);
+      audio.muted = mutedRef.current;
       audioRef.current = audio;
       let scheduled = false;
       const advance = (delay: number, unavailable = false) => {
         if (scheduled || !listeningRef.current || session !== sessionRef.current) return;
         scheduled = true;
-        if (unavailable) setError("Audio unavailable. The fictional script continues as text; detection still works.");
+        if (simWatchdogRef.current) window.clearTimeout(simWatchdogRef.current);
+        if (unavailable) setAudioUnavailable(true);
         simTimerRef.current = window.setTimeout(playNext, delay);
       };
+      advanceDemoRef.current = () => { scheduled = true; playNext(); };
       audio.onended = () => advance(600);
       audio.onerror = () => advance(5000, true);
+      simWatchdogRef.current = window.setTimeout(() => advance(0, true), 20000);
       audio.play().catch(() => advance(5000, true));
     };
     playNext();
@@ -314,6 +309,10 @@ export default function ShieldPage() {
     if (listeningRef.current) return;
     sessionRef.current += 1;
     setError("");
+    setMicIssue(null);
+    setMicState("idle");
+    setDemoStep(0);
+    setAudioUnavailable(false);
     setBubbles([]);
     transcriptRef.current = "";
     setAssessment(IDLE_ASSESSMENT);
@@ -335,11 +334,14 @@ export default function ShieldPage() {
     listeningRef.current = false;
     sessionRef.current += 1;
     assessmentRequestRef.current?.abort();
-    recognitionRef.current?.stop();
-    recognitionRef.current = null;
+    captureRef.current?.stop();
+    captureRef.current = null;
     audioRef.current?.pause();
     audioRef.current = null;
     if (simTimerRef.current) window.clearTimeout(simTimerRef.current);
+    if (simWatchdogRef.current) window.clearTimeout(simWatchdogRef.current);
+    advanceDemoRef.current = null;
+    setMicIssue(null);
     setPhase("confirm");
   }
 
@@ -347,9 +349,10 @@ export default function ShieldPage() {
     listeningRef.current = false;
     sessionRef.current += 1;
     assessmentRequestRef.current?.abort();
-    recognitionRef.current?.stop();
+    captureRef.current?.stop();
     audioRef.current?.pause();
     if (simTimerRef.current) window.clearTimeout(simTimerRef.current);
+    if (simWatchdogRef.current) window.clearTimeout(simWatchdogRef.current);
   }, []);
 
   // ── Save ─────────────────────────────────────────────────────────────────
@@ -403,6 +406,8 @@ export default function ShieldPage() {
 
   const blipCount = Math.min(assessment.markers.length, BLIP_POS.length);
   const isScam = assessment.verdict === "scam";
+  const captureLabel = micState === "connecting" ? "Connecting microphone" : micState === "reconnecting" ? "Resuming speech capture" : "Microphone active";
+  const signalLabel = isScam ? "Strong warning signs" : assessment.verdict === "suspicious" ? "Something isn't right" : source === "text" ? "Ready for your words" : source === "simulation" ? "Following the call" : captureLabel;
 
   const routeStamp =
     escalationPreview.escalation === "112"            ? { text: "ROUTE → 112", cls: "text-danger" }
@@ -418,107 +423,82 @@ export default function ShieldPage() {
 
         {/* ══════════════════════ IDLE — mission briefing ══════════════════ */}
         {phase === "idle" && (
-          <div className="mx-auto max-w-4xl">
-            <Link href="/" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-ink-soft hover:text-ink">
-              <ArrowLeft size={16} aria-hidden="true" /> Home
-            </Link>
+          <div className="shield-intro mx-auto max-w-5xl">
+            <Link href="/" className="shield-back"><ArrowLeft size={15} aria-hidden="true" /> Home</Link>
+            <header className="shield-intro-heading">
+              <p className="kicker">Raksha Call Shield</p>
+              <h1 className="display">Know when to <em>end the call.</em></h1>
+              <p>Hear a suspicious call unfold. See the warning signs.<br className="hidden sm:block" /> Leave with the words and next steps to take back control.</p>
+            </header>
 
-            <div className="mt-8 text-center">
-              <p className="kicker">Call Shield · live call screening</p>
-              <h1 className="display mx-auto mt-4 max-w-2xl text-4xl text-ink sm:text-5xl">
-                Someone on the phone is pushing you?
-              </h1>
-              <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-ink-soft">
-                Rehearse a suspicious call with fictional data. Raksha flags known patterns,
-                gives you words to end the call, and prepares a fact-separated brief.
-                Detection is advisory, not proof of a scam.
-              </p>
-            </div>
-
-            {/* The radar IS the listen button */}
-            <div className="mt-10">
-              <button
-                type="button"
-                onClick={startMic}
-                aria-label="Start listening to the call"
-                className="radar radar-idle group mx-auto block cursor-pointer"
-                data-state="idle"
-              >
-                <span className="radar-rings" aria-hidden="true" />
-                <span className="radar-sweep" aria-hidden="true" />
-                <span className="radar-core" aria-hidden="true">
-                  <span className="transition-transform group-hover:scale-110">
-                    <Mic size={30} />
-                  </span>
-                </span>
-              </button>
-              <p className="mt-4 text-center text-sm font-bold text-ink">
-                Tap the radar to start listening
-              </p>
-              <p className="mt-1 text-center text-xs text-ink-faint">
-                Chrome or Edge speech recognition may send audio to its provider.
-                Recognised identifiers are filtered before text analysis; filtering is not anonymisation.
-              </p>
-            </div>
-
-            {/* Language + actions */}
-            <div className="mx-auto mt-8 max-w-xl">
-              <div className="flex justify-center" role="group" aria-label="Caller's language">
-                {(["hi-IN", "en-IN"] as const).map((l) => (
-                  <button
-                    key={l}
-                    type="button"
-                    aria-pressed={lang === l}
-                    onClick={() => setLang(l)}
-                    className={`min-h-11 border px-5 text-sm font-bold transition-colors ${l === "hi-IN" ? "rounded-l-full" : "rounded-r-full"} ${lang === l ? "border-service bg-service text-white" : "border-line bg-surface text-ink-soft hover:text-ink"}`}
-                  >
-                    {l === "hi-IN" ? "हिन्दी / Hinglish" : "English"}
-                  </button>
-                ))}
+            <section className="shield-stage" aria-labelledby="demo-title">
+              <div className="shield-stage-topline">
+                <span className="mono-ref">INTERACTIVE DEMO</span>
+                <span><span className="shield-ready-dot" /> No microphone needed</span>
               </div>
-              <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                <button type="button" onClick={startMic} className="btn-ink">
-                  <Mic size={18} aria-hidden="true" /> Listen to the call
+              <div className="shield-stage-launch">
+                <h2 id="demo-title">One call. Six moments to spot the scam.</h2>
+                <button type="button" onClick={startSimulation} className="shield-launch-button">
+                  <Play size={18} fill="currentColor" aria-hidden="true" /> Start guided demo <ArrowRight size={18} aria-hidden="true" />
                 </button>
-                <button type="button" onClick={startSimulation} className="btn-ghost">
-                  <Play size={18} aria-hidden="true" /> Simulate a scam call
-                </button>
+                <p>Synthetic voice · Hindi / Hinglish · Captions included</p>
               </div>
-              <button type="button" onClick={() => begin("text")} className="btn-ghost mt-3 w-full">
-                Type what you heard instead
-              </button>
-              <p className="mt-3 text-center text-xs text-ink-faint">
-                Simulation plays a synthetic voice reading a fictional digital-arrest script.
-                Script text is supplied directly, not transcribed from audio. No real call was recorded.
-              </p>
-              {error && <p role="alert" className="mt-3 text-center text-sm text-danger">{error}</p>}
-            </div>
-
-            {/* Three-step strip */}
-            <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-3">
-              {[
-                ["01", "Separate device", "Raksha cannot join an existing phone call. Rehearse using speaker audio from a second device."],
-                ["02", "Watch the radar", "Known scam scripts light up as blips, with the reason for each flag."],
-                ["03", "Stop, then choose", "Optional answers become a draft brief. You choose whether to contact an official channel."],
-              ].map(([n, t, d]) => (
-                <div key={n} className="bg-surface p-5">
-                  <p className="mono-ref text-xs font-bold text-service">{n}</p>
-                  <p className="mt-2 text-sm font-bold text-ink">{t}</p>
-                  <p className="mt-1 text-xs leading-5 text-ink-soft">{d}</p>
+              <div className="shield-preview" aria-label="Example of what the demo reveals">
+                <div className="shield-preview-radar" aria-hidden="true">
+                  <div className="radar" data-state="idle">
+                    <span className="radar-rings" /><span className="radar-sweep" />
+                    <span className="radar-core"><IconRadar size={44} /></span>
+                    <span className="shield-preview-pin" />
+                  </div>
+                  <span className="mono-ref">LISTEN → SPOT → RESPOND</span>
                 </div>
-              ))}
+                <div className="shield-preview-evidence">
+                  <span className="shield-example-label">A moment from the fictional call</span>
+                  <blockquote>“This is a <mark>digital arrest</mark>.<br /> <mark>Don’t tell your family.</mark>”</blockquote>
+                  <div className="shield-preview-tags"><span>Authority pressure</span><span>Isolation tactic</span></div>
+                  <p>See exactly which words triggered a warning, and why.</p>
+                </div>
+              </div>
+              <div className="shield-stage-footer"><IconReport size={17} /> Finish with a reviewable brief and clear next steps.</div>
+            </section>
+
+            <div className="shield-input-options">
+              <button type="button" aria-expanded={showMicSetup} aria-controls="mic-setup" onClick={() => setShowMicSetup(!showMicSetup)}>
+                <IconVoice size={25} /><span><strong>Use your microphone</strong><small>Rehearse aloud or use a second device</small></span><ChevronRight size={18} aria-hidden="true" />
+              </button>
+              <button type="button" onClick={() => begin("text")}>
+                <Keyboard size={24} aria-hidden="true" /><span><strong>Type what you heard</strong><small>Paste a fictional call excerpt</small></span><ChevronRight size={18} aria-hidden="true" />
+              </button>
             </div>
+            {showMicSetup && (
+              <section id="mic-setup" className="shield-mic-setup">
+                <div><h2>Choose the caller’s language</h2><p>Raksha cannot join a phone call. Use speaker audio from a separate device, or rehearse aloud.</p></div>
+                <div className="shield-mic-controls">
+                  <label htmlFor="speech-language" className="sr-only">Caller’s language</label>
+                  <select id="speech-language" value={lang} onChange={(event) => setLang(event.target.value as "hi-IN" | "en-IN")}>
+                    <option value="hi-IN">हिन्दी / Hinglish</option><option value="en-IN">English</option>
+                  </select>
+                  <button type="button" onClick={startMic} className="btn-ink"><Mic size={17} aria-hidden="true" /> Start microphone</button>
+                </div>
+                <p className="shield-privacy-note">Your browser’s speech provider may receive audio. Recognised identifiers are filtered before text analysis; this is not anonymisation. Use fictional details.</p>
+              </section>
+            )}
+            <p className="shield-intro-note">Practice safely with fictional details. Pattern matches are advisory, not proof of a scam. The demo supplies its script directly; it does not transcribe the recording.</p>
           </div>
         )}
 
         {/* ══════════════════════ LISTENING — the radar ═══════════════════ */}
         {phase === "listening" && (
-          <div className="mx-auto max-w-6xl">
+          <div className="shield-session mx-auto max-w-6xl">
+            <header className="shield-session-heading">
+              <div><p className="kicker">Raksha Call Shield</p><h1 className="display">{source === "simulation" ? "A call, decoded." : "Let's look at the call."}</h1></div>
+              <span className="shield-session-label">{source === "simulation" ? "Guided demo" : "Advisory screening"}</span>
+            </header>
             {/* Status strip */}
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-line pb-4">
               <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-danger">
-                <span className={playbackComplete ? "" : "live-dot"} aria-hidden="true" />
-                {playbackComplete ? "Demo complete" : source === "mic" ? "Listening" : source === "text" ? "Text screening" : "Scripted demo"}
+                <span className={!playbackComplete && (source === "simulation" || (source === "mic" && micState === "listening")) ? "live-dot" : ""} aria-hidden="true" />
+                {playbackComplete ? "Demo complete" : source === "mic" ? captureLabel : source === "text" ? "Text screening" : "Scripted demo"}
               </span>
               <span className="mono-ref text-xs font-bold text-ink-soft">{fmtClock(elapsed)}</span>
               <span className="rounded-full border border-line px-2.5 py-0.5 text-[11px] text-ink-faint">
@@ -530,39 +510,65 @@ export default function ShieldPage() {
                 </span>
               )}
               <span className="ml-auto text-[11px] text-ink-faint">
-                {assessment.method === "model" ? "AI analysis" : "Keyword watch"} · redacted before analysis
+                {assessment.method === "model" ? "AI-assisted pattern review" : "Local pattern review"}
               </span>
             </div>
 
-            <div className="shield-actionbar flex flex-wrap items-center gap-3 rounded-xl border border-line bg-paper p-3 shadow-lg">
+            <div className="shield-actionbar flex flex-wrap items-center gap-3 rounded-xl border border-line bg-paper p-3">
               <button type="button" onClick={stop} className="btn-ink flex-1">
-                <Square size={16} aria-hidden="true" /> Stop screening &amp; get help
+                {playbackComplete ? <ArrowRight size={16} aria-hidden="true" /> : <Square size={16} aria-hidden="true" />} {playbackComplete ? "Review & get help" : "Stop screening & get help"}
               </button>
-              <p className="text-xs text-ink-soft">End the phone call yourself. Raksha cannot hang up for you.</p>
+              <p className="text-xs text-ink-soft">{source === "simulation" ? "Explore at your pace. You can stop at any point." : "End the phone call yourself. Raksha cannot hang up for you."}</p>
             </div>
 
+            {source === "simulation" && (
+              <section className="shield-playback" aria-label="Demo playback">
+                <div className="shield-playback-top"><span className="mono-ref">{playbackComplete ? "CALL COMPLETE" : `MOMENT ${demoStep} OF ${DEMO_CALL_LINES.length}`}</span><strong>{["", "The introduction", "The accusation", "The pressure", "The isolation", "The money demand", "The threat"][demoStep]}</strong></div>
+                <div className="shield-demo-progress" role="progressbar" aria-label="Demo progress" aria-valuemin={0} aria-valuemax={DEMO_CALL_LINES.length} aria-valuenow={playbackComplete ? DEMO_CALL_LINES.length : demoStep - 1}>
+                  {DEMO_CALL_LINES.map((line, index) => <span key={line.id} data-progress={playbackComplete || index < demoStep - 1 ? "done" : index === demoStep - 1 ? "current" : "next"} />)}
+                </div>
+                <div className="shield-playback-controls">
+                  <button type="button" aria-pressed={muted} onClick={() => { mutedRef.current = !muted; setMuted(!muted); if (audioRef.current) audioRef.current.muted = !muted; }}>
+                    {muted ? <VolumeX size={17} /> : <Volume2 size={17} />} {muted ? "Unmute demo" : "Mute demo"}
+                  </button>
+                  <span>{audioUnavailable ? "Audio unavailable · captions continue" : "Synthetic voice · captions supplied by script"}</span>
+                  {playbackComplete ? <button type="button" onClick={startSimulation}><RotateCcw size={16} /> Replay demo</button> : <button type="button" onClick={() => advanceDemoRef.current?.()}>Next moment <ChevronRight size={16} /></button>}
+                </div>
+              </section>
+            )}
+
+            {micIssue && (
+              <section className="shield-capture-notice" aria-label="Speech capture status">
+                <div role="status"><h2>{micIssue.title}</h2><p>{micIssue.detail}</p>{bubbles.length > 0 && <p className="shield-transcript-kept"><CheckCircle2 size={15} /> Your transcript is kept. Continue below or retry.</p>}</div>
+                <div className="shield-notice-actions">
+                  {micIssue.retryable && <button type="button" onClick={startMic} className="btn-ghost"><RotateCcw size={16} /> Retry microphone</button>}
+                  {bubbles.length === 0 && <button type="button" onClick={startSimulation} className="btn-ink"><Play size={16} /> Start guided demo</button>}
+                </div>
+              </section>
+            )}
+
             {source === "text" && (
-              <form className="panel mt-4 p-4" onSubmit={(event) => {
+              <form className="shield-text-form panel mt-4 p-4" onSubmit={(event) => {
                 event.preventDefault();
                 if (!typedText.trim()) return;
                 updateTranscript([...bubbles, typedText.trim()]);
                 setTypedText("");
               }}>
                 <label htmlFor="heard-text" className="text-sm font-bold">What did you hear? Use fictional details, never actual credentials.</label>
-                <textarea id="heard-text" value={typedText} maxLength={3000} onChange={(event) => setTypedText(event.target.value)} className={fieldCls} rows={3} />
+                <textarea id="heard-text" value={typedText} maxLength={3000} onChange={(event) => setTypedText(event.target.value)} placeholder="For example: They said I was under digital arrest and must transfer money to a safe account…" className={fieldCls} rows={3} />
                 <button type="submit" disabled={!typedText.trim()} className="btn-ghost mt-2">Add to screening</button>
               </form>
             )}
             {error && <p role="alert" className="mt-3 text-sm text-danger">{error}</p>}
 
-            <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+            <div className="shield-workspace mt-6 grid gap-5 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)]">
               {/* ── Left: radar + verdict ─────────────────────────────── */}
               <section
-                role="alert"
-                aria-live="assertive"
-                className={`panel p-6 ${isScam ? "border-danger/60" : assessment.verdict === "suspicious" ? "border-warning/50" : ""}`}
+                aria-label="Pattern assessment"
+                className={`shield-signal-panel panel p-6 ${isScam ? "is-warning" : assessment.verdict === "suspicious" ? "is-caution" : ""}`}
               >
-                <div className="radar" data-state={assessment.verdict}>
+                <p className="shield-signal-eyebrow mono-ref">CALL SIGNAL</p>
+                <div className="radar" data-state={isScam ? "danger" : assessment.verdict !== "listening" ? "suspicious" : (source === "mic" && micState === "listening") || (source === "simulation" && !playbackComplete) ? "listening" : "idle"}>
                   <div className="radar-rings" aria-hidden="true" />
                   <div className="radar-sweep" aria-hidden="true" />
                   {Array.from({ length: blipCount }).map((_, i) => (
@@ -575,29 +581,19 @@ export default function ShieldPage() {
                   ))}
                   <div className="radar-core">
                     <div>
-                      {isScam ? <ShieldAlert size={30} aria-hidden="true" /> : <Mic size={30} aria-hidden="true" />}
+                      {isScam ? <ShieldAlert size={30} aria-hidden="true" /> : <IconRadar size={34} />}
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-6 text-center">
-                  <p className={`mono-ref text-xl font-black tracking-[.18em] sm:text-2xl ${isScam ? "text-danger" : assessment.verdict === "suspicious" ? "text-warning" : "text-ink-soft"}`}>
-                    {isScam ? "SCAM SCRIPT" : assessment.verdict === "suspicious" ? "SUSPICIOUS" : "LISTENING…"}
-                  </p>
+                  <h2 className="shield-signal-title" aria-live="polite" aria-atomic="true">{signalLabel}</h2>
                   {assessment.patternName && (
                     <p className="mt-2 text-sm font-bold text-ink">{assessment.patternName}</p>
                   )}
-                  <div className="mx-auto mt-4 max-w-[220px]">
-                    <div className="flex justify-between text-[10px] font-semibold uppercase tracking-wider text-ink-faint">
-                      <span>Heuristic strength</span>
-                      <span>{Math.round(assessment.confidence * 100)}%{assessment.method === "keyword" && assessment.confidence >= 0.7 ? " (keyword cap)" : ""}</span>
-                    </div>
-                    <div className="meter mt-1.5">
-                      <span style={{ width: `${Math.round(assessment.confidence * 100)}%` }} />
-                    </div>
-                  </div>
-                  <p className="mt-4 text-sm leading-6 text-ink-soft">{assessment.coach.headline}</p>
-                  <p className="mt-2 text-xs text-ink-faint">Not a calibrated probability. A missing warning does not mean the call is safe.</p>
+                  <p className="shield-evidence-count">{assessment.markers.length ? `${assessment.markers.length} warning ${assessment.markers.length === 1 ? "sign" : "signs"} found in the words` : "No warning signs identified yet"}</p>
+                  <p className="mt-4 text-sm leading-6 text-ink-soft">{assessment.verdict !== "listening" ? assessment.coach.headline : source === "text" ? "Add the caller's words to start the review." : source === "simulation" ? "Follow the captions. Pressure tactics will be highlighted as they appear." : micState === "listening" ? "Speak clearly. The caller's words will appear beside the signal." : "Waiting for your browser to start speech capture. You can stop at any time."}</p>
+                  <p className="mt-3 text-xs text-ink-faint">Pattern matches are advisory. A missing warning does not mean the call is safe.</p>
                 </div>
               </section>
 

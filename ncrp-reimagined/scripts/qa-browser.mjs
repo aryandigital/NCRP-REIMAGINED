@@ -68,7 +68,7 @@ try {
   await page.evaluateOnNewDocument(() => {
     window.SpeechRecognition = class {
       constructor() { window.qaRecognition = this; }
-      start() {}
+      start() { this.onstart?.(); }
       stop() { this.onend?.(); }
     };
     window.Audio = class {
@@ -78,16 +78,19 @@ try {
   });
   await page.setViewport({ width: 375, height: 812 });
   await page.goto(base + "/shield", { waitUntil: "networkidle0" });
-  await clickText("Listen to the call");
+  await clickText("Use your microphone");
+  await clickText("Start microphone");
   await page.evaluate(() => {
     window.qaRecognition.onresult({ results: [{ isFinal: true, 0: { transcript: "You are under digital arrest." } }] });
   });
   await sleep(100);
   await page.evaluate(() => {
+    window.qaRecognition.onerror({ error: "no-speech" });
     window.qaRecognition.onend();
-    window.qaRecognition.onresult({ results: [{ isFinal: true, 0: { transcript: "Transfer money to a safe account." } }] });
   });
-  await page.waitForFunction(() => document.body.innerText.includes("SCAM SCRIPT"));
+  await page.waitForFunction(() => document.body.innerText.includes("Microphone active"));
+  await page.evaluate(() => window.qaRecognition.onresult({ results: [{ isFinal: true, 0: { transcript: "Transfer money to a safe account." } }] }));
+  await page.waitForFunction(() => document.body.innerText.includes("Strong warning signs"));
   await sleep(1600);
   assert.ok(await page.evaluate(() => document.body.innerText.includes("digital arrest") && document.body.innerText.includes("safe account")), "transcript survives recognition restart");
   await noOverflow("listening mobile");
@@ -116,10 +119,10 @@ try {
   console.log("PASS: restart-safe mic -> unknown-preserving brief -> report/back continuity");
 
   await page.goto(base + "/shield", { waitUntil: "networkidle0" });
-  await clickText("Simulate a scam call");
+  await clickText("Start guided demo");
   await page.waitForFunction(() => document.body.textContent.includes("Demo complete"));
   assert.equal(await page.$eval(".caller-bubble", (node) => Boolean(node.textContent)), true);
-  await clickText("Stop screening");
+  await clickText("Review & get help");
   await clickText("Yes — I am in danger");
   await noOverflow("confirm mobile");
   await page.screenshot({ path: join(artifacts, "shield-confirm-mobile.png"), fullPage: true });
@@ -139,12 +142,14 @@ try {
   console.log("PASS: scripted demo completes, preserves simulation label, routes danger to 112; all six audio assets load");
 
   await page.goto(base + "/shield", { waitUntil: "networkidle0" });
-  await clickText("Listen to the call");
-  await page.evaluate(() => window.qaRecognition.onerror());
+  await clickText("Use your microphone");
+  await clickText("Start microphone");
+  await page.evaluate(() => window.qaRecognition.onerror({ error: "network" }));
+  await page.waitForFunction(() => document.body.innerText.includes("Speech service could not connect"));
   await page.waitForSelector("#heard-text");
   await page.type("#heard-text", "Never share your OTP or CVV.");
   await clickText("Add to screening");
-  assert.equal(await page.evaluate(() => document.body.innerText.includes("SCAM SCRIPT")), false);
+  assert.equal(await page.evaluate(() => document.body.innerText.includes("Strong warning signs")), false);
   await clickText("Stop screening");
   await clickText("Prepare draft brief");
   await page.waitForFunction(() => location.pathname.startsWith("/act/"));
