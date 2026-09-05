@@ -45,11 +45,13 @@ The browser checks found a real overlapping sticky-control issue and verified it
 
 ## Remaining Gates
 
-Local configuration presence check: OpenAI key and both Vapi resource IDs are configured; `VAPI_PRIVATE_KEY`, `ALERT_ALLOWLIST`, `DATABASE_URL`, and `SARVAM_API_KEY` are missing. `DEMO_MODE` is enabled. Presence does not establish credential validity or correct resource ownership. The inherited OpenAI key still differs from the local key; the development launcher handles that precedence explicitly.
+Local configuration presence check: `OPENAI_API_KEY`, `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, `ALERT_ALLOWLIST` and `DEMO_MODE` are configured; `SARVAM_API_KEY`, `TWILIO_PHONE_NUMBER` and `DATABASE_URL` are missing. Presence does not establish credential validity. The inherited OpenAI key still differs from the local key; the development launcher handles that precedence explicitly.
+
+Demo alert works without any paid provider: the action page plays the verified brief through the browser's speech engine (Web Speech API, Indian English voice picker). Sarvam Bulbul v3 (`SARVAM_API_KEY`) and Twilio outbound calls (`TWILIO_PHONE_NUMBER` + verified caller ID) are optional upgrades behind collapsible sections.
 
 1. **Credential rotation:** replace any credentials previously exposed in chat. Repository changes cannot revoke provider keys.
-2. **Vapi setup:** provide the private key and permitted recipient list, verify assistant/phone resource IDs, configure the dashboard assistant, and test one consenting recipient. An accepted call request is not delivery evidence.
-3. **Hosted rehearsal:** verify HTTPS, provider configuration, persistent database storage and a fresh browser/session on the actual submitted URL. This audit did not deploy anything.
+2. **Deployment:** code on `aryandigital/ncrp-reimagined` main is current (Shield release + Kamal's legal-document generator merged, 81 tests, clean build). The live site `ncrp-reimagined-five.vercel.app` serves a stale build: the Vercel project is NOT connected to this repo (no GitHub-linked deployments). Fix: Vercel dashboard → project → Settings → Git → connect `aryandigital/ncrp-reimagined`, Root Directory `ncrp-reimagined`; pushes to main then auto-deploy. Deploy workflow: `scripts/deploy.ps1 "message"` (clone-fresh → mirror → push; never clobbers teammate commits).
+3. **Hosted rehearsal:** verify HTTPS, provider configuration, persistent database storage and a fresh browser/session on the actual submitted URL.
 4. **Real-data security:** implement authentication/session ownership on every case page/API/export/alert, rate limits across instances, retention/deletion and a reviewed consent flow. Current IDs are not access control. Until then, fictional data only and no publicly exposed paid calling endpoint.
 5. **Storage reliability:** local locks/cooldowns are process-local. Durable multi-instance transactions, retries, save idempotency and the two-step incident/brief write still need work before a pilot.
 6. **Evaluation:** create a separately labelled holdout corpus with benign calls, scams, accents and languages. Report measured false positives/negatives and latency, not test-count-as-accuracy or model confidence as probability.
