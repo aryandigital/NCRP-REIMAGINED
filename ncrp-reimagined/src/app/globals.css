@@ -1034,3 +1034,78 @@ html[data-raksha-contrast="high"] {
   }
   .reveal, .reveal-scale { opacity: 1; transform: none; }
 }
+
+/* ---------- Fable visual system: homepage and chrome ---------- */
+
+.prototype-banner {
+  gap: 4px 20px;
+  min-height: 0;
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(237, 236, 225, .08);
+  background: #131936;
+  color: #edece1;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.prototype-banner strong, .prototype-banner a { color: #ffffff; }
+.prototype-banner a { display: inline-flex; min-height: 44px; align-items: center; text-decoration: underline; text-underline-offset: 4px; }
+.emergency-bar { min-height: 42px; padding: 9px 16px; background: linear-gradient(100deg, #253ba8 0%, #3548ae 34%, #704283 68%, #8b4016 100%); color: #fff; font-size: 12px; font-weight: 650; }
+
+.site-header { padding: 9px 8px 0; background: linear-gradient(to bottom, rgba(8,11,22,.96), rgba(8,11,22,.3), transparent); }
+.site-header > .public-shell { width: min(100% - 24px, 1320px); border: 1px solid rgba(237,236,225,.1); border-radius: 28px; background: rgba(16,21,41,.72); box-shadow: inset 0 1px 1px rgba(237,236,225,.06), 0 8px 32px rgba(0,0,0,.35); backdrop-filter: blur(20px) saturate(1.25); }
+.site-header .header-actions { color: #edece1; }
+.site-header .header-menu-toggle { border-color: rgba(237,236,225,.16); background: #12172e; color: #edece1; }
+.site-header .language-switcher { min-height: 40px; border-color: rgba(237,236,225,.16); border-radius: 999px; background: linear-gradient(to bottom, #1a2040, #12172e); color: #edece1; }
+.site-header .language-switcher-compact { min-height: 40px; }
+.site-header a[href="/"] svg { filter: brightness(0) invert(1); }
+
+.fable-home {
+  --color-ink: #edece1;
+  --color-ink-soft: #a8adc7;
+  --color-ink-faint: #6d7392;
+  --color-paper: #080b16;
+  --color-surface: #101529;
+  --color-line: #242c4d;
+  --color-line-strong: #3d4672;
+  --color-command: #131936;
+  --color-command-2: #1b2246;
+  --color-service: #6f86f5;
+  --color-service-soft: rgba(111,134,245,.14);
+  --color-danger: #ff6f61;
+  --color-danger-soft: rgba(255,111,97,.12);
+  --color-warning: #f2a950;
+  --color-warning-soft: rgba(242,169,80,.12);
+  --color-success: #56cf92;
+  --color-success-soft: rgba(86,207,146,.12);
+  --navy: #0d1126;
+  --navy-dark: #080b16;
+  --navy-light: #1b2246;
+  --cream: #080b16;
+  --cream-dark: #101529;
+  background: #080b16;
+}
+.fable-home .display { font-family: var(--font-raksha-display-latin), Georgia, serif; font-variation-settings: "opsz" 100; font-weight: 500; letter-spacing: -.018em; line-height: 1.04; }
+.fable-home .hero-aurora { background: linear-gradient(180deg, rgba(8,11,22,0) 72%, #080b16 100%), radial-gradient(120% 90% at 50% -20%, #ff9138 0%, transparent 55%), radial-gradient(90% 80% at 12% 30%, rgba(255,157,92,.55) 0%, transparent 60%), radial-gradient(90% 80% at 88% 24%, rgba(255,183,119,.5) 0%, transparent 55%), linear-gradient(180deg, #ff8b2e 0%, #ffb877 16%, #f3dbc9 34%, #c6ccf4 56%, #9aa7f2 76%, #8494ef 100%); }
+.fable-home .hero-aurora::before { background-image: radial-gradient(circle, rgba(23,26,48,.08) 1px, transparent 1px); background-size: 26px 26px; -webkit-mask-image: radial-gradient(60rem 34rem at 50% 0%, #000, transparent 78%); mask-image: radial-gradient(60rem 34rem at 50% 0%, #000, transparent 78%); }
+.fable-home .hero-emblem { width: 118px; filter: drop-shadow(0 2px 10px rgba(255,255,255,.35)); animation: none; }
+.fable-home .hero-eyebrow { color: #2b2f52; font-size: 13px; font-family: var(--font-geist-sans), sans-serif; letter-spacing: .02em; text-transform: none; animation: none; }
+.fable-home .hero-eyebrow::before, .fable-home .hero-eyebrow::after { width: 36px; background: linear-gradient(90deg, transparent, rgba(43,47,82,.5)); }
+.fable-home .hero-eyebrow::after { background: linear-gradient(90deg, rgba(43,47,82,.5), transparent); }
+.fable-home .hero-aurora .display { color: #171a30; }
+.fable-home .hero-aurora .hero-sub { color: rgba(23,26,48,.72); }
+.fable-home .hero-aurora .hero-safety { color: #2b2f52; border-color: rgba(23,26,48,.14); background: rgba(255,255,255,.38); }
+.fable-home .btn-night { border-radius: 999px; background: #171a30; color: #fff; box-shadow: 0 16px 36px rgba(23,26,48,.3); }
+.fable-home .btn-daylight { border-color: rgba(23,26,48,.14); border-radius: 999px; background: rgba(255,255,255,.85); color: #171a30; }
+.fable-home .aurora-band { background: radial-gradient(90% 120% at 8% 0%, rgba(255,145,56,.9) 0%, transparent 55%), radial-gradient(90% 120% at 92% 100%, rgba(111,134,245,.85) 0%, transparent 58%), linear-gradient(100deg, #ff8b2e 0%, #f3b183 30%, #b9b9ee 62%, #7d8ef0 100%); color: #171a30; }
+.fable-home .aurora-band .kicker, .fable-home .aurora-band .text-ink, .fable-home .aurora-band .text-ink-soft { color: #171a30; }
+.fable-home .glow-card { border: 1px solid transparent; background: linear-gradient(#101529, #101529) padding-box, linear-gradient(135deg, rgba(142,160,255,.35), rgba(255,157,92,.28)) border-box; }
+.fable-home .glow-card:hover { background: linear-gradient(#141a36, #141a36) padding-box, linear-gradient(135deg, rgba(142,160,255,.6), rgba(255,157,92,.5)) border-box; box-shadow: 0 20px 48px rgba(0,0,0,.35); }
+.fable-home .panel, .fable-home .panel-tight { background: var(--color-surface); border-color: var(--color-line); }
+.fable-home .text-ink { color: var(--color-ink); }
+.fable-home .text-ink-soft, .fable-home .text-ink-faint { color: var(--color-ink-soft); }
+
+@media (max-width: 767px) {
+  .site-header { padding-top: 6px; }
+  .site-header > .public-shell { width: min(100% - 16px, 1320px); }
+  .fable-home .hero-emblem { width: 88px; }
+}
