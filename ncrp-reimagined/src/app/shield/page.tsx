@@ -442,7 +442,7 @@ export default function ShieldPage() {
                 onClick={startMic}
                 aria-label="Start listening to the call"
                 className="radar radar-idle group mx-auto block cursor-pointer"
-                data-state="listening"
+                data-state="idle"
               >
                 <span className="radar-rings" aria-hidden="true" />
                 <span className="radar-sweep" aria-hidden="true" />

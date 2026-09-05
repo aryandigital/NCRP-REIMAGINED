@@ -22,6 +22,7 @@ export default function HeroParticles() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -64,7 +65,8 @@ export default function HeroParticles() {
       };
     });
 
-    let raf: number;
+    let raf: number | undefined;
+    let paused = document.hidden;
 
     const tick = () => {
       ctx.clearRect(0, 0, W, H);
@@ -129,13 +131,19 @@ export default function HeroParticles() {
         ctx.fill();
       }
 
-      raf = requestAnimationFrame(tick);
+      if (!paused) raf = requestAnimationFrame(tick);
     };
 
-    tick();
+    const resume = () => {
+      paused = document.hidden;
+      if (!paused && raf === undefined) raf = requestAnimationFrame(tick);
+    };
+    document.addEventListener("visibilitychange", resume);
+    if (!paused) raf = requestAnimationFrame(tick);
 
     return () => {
-      cancelAnimationFrame(raf);
+      if (raf !== undefined) cancelAnimationFrame(raf);
+      document.removeEventListener("visibilitychange", resume);
       ro.disconnect();
       section?.removeEventListener("mousemove", onMove);
       section?.removeEventListener("mouseleave", onLeave);

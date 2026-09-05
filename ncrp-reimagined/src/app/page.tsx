@@ -49,7 +49,7 @@ export default function HomePage() {
         {/* Hero */}
         <section className="hero-aurora">
           <HeroParticles />
-          <div className="public-shell relative z-[1] flex min-h-[88dvh] flex-col items-center justify-center py-20 text-center">
+          <div className="public-shell hero-content relative z-[1] flex flex-col items-center justify-center text-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/brand/raksha-arch-emblem.svg" alt="" className="hero-emblem" aria-hidden="true" />
 
@@ -59,7 +59,7 @@ export default function HomePage() {
             <div className="hero-ctas-anim mt-9 flex flex-wrap items-center justify-center gap-3">
               <Link href="/check?mode=lost" className="btn-night">{copy.hero.ctaStart} <ArrowRight size={17} aria-hidden="true" /></Link>
               <Link href="/shield" className="btn-daylight" lang="en">Call Shield</Link>
-              <Link href="/track" className="btn-daylight">{copy.hero.ctaTrack}</Link>
+              <Link href="/track" className="hero-track-action">{copy.hero.ctaTrack}</Link>
             </div>
             <p className="hero-pill-anim hero-safety mt-8 flex items-center gap-2.5 text-[13px] font-semibold">
               <IconEmergency size={17} aria-hidden="true" />
@@ -154,7 +154,7 @@ export default function HomePage() {
 
                       <p className="mt-1.5 text-sm font-bold text-ink">{step.title}</p>
 
-                      <div className="max-h-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-h-24 group-hover:opacity-100">
+                      <div className="mt-2">
                         <p className="mt-2 text-xs leading-5 text-ink-soft">{step.detail}</p>
                       </div>
                     </div>

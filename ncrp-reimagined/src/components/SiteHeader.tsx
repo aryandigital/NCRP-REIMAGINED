@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { BrandMark } from "@/components/icons";
@@ -9,6 +9,7 @@ import { useRakshaLanguage } from "@/hooks/useRakshaLanguage";
 export default function SiteHeader({ current }: { current?: "check" | "track" | "atlas" | "operator" | "shield" }) {
   const { language } = useRakshaLanguage();
   const headerRef = useRef<HTMLElement>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -16,6 +17,14 @@ export default function SiteHeader({ current }: { current?: "check" | "track" | 
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
   const copy = {
@@ -42,8 +51,8 @@ export default function SiteHeader({ current }: { current?: "check" | "track" | 
               <span className="hidden text-[9px] font-semibold uppercase tracking-[.08em] text-[rgba(254,252,248,.5)] sm:block">{copy.sub}</span>
             </span>
           </Link>
-          <div className="flex items-center gap-1.5 sm:gap-2.5">
-            <nav aria-label="Primary navigation" className="flex items-center gap-0.5 sm:gap-1">
+          <div className="header-actions flex items-center gap-1.5 sm:gap-2.5">
+            <nav id="primary-navigation" aria-label="Primary navigation" className={`site-nav flex items-center gap-0.5 sm:gap-1 ${menuOpen ? "is-open" : ""}`}>
               <Link
                 href="/shield"
                 lang="en"
@@ -69,18 +78,27 @@ export default function SiteHeader({ current }: { current?: "check" | "track" | 
               <Link
                 href="/atlas"
                 aria-current={current === "atlas" ? "page" : undefined}
-                className={`hidden min-h-9 items-center px-2 text-[13px] font-semibold sm:flex sm:px-3 sm:text-sm ${current === "atlas" ? "text-[var(--saffron)]" : "text-[rgba(254,252,248,.7)] hover:text-[#fefcf8]"}`}
+                className={`hidden min-h-9 items-center px-2 text-[13px] font-semibold lg:flex lg:px-3 lg:text-sm ${current === "atlas" ? "text-[var(--saffron)]" : "text-[rgba(254,252,248,.7)] hover:text-[#fefcf8]"}`}
               >
                 {copy.alerts}
               </Link>
               <Link
                 href="/check?mode=emergency"
-                className="ml-1 hidden min-h-9 items-center rounded-[4px] bg-[var(--saffron)] px-3.5 text-[13px] font-bold text-white hover:bg-[var(--saffron-deep)] sm:flex sm:px-4 sm:text-sm"
+                className="ml-1 hidden min-h-9 items-center rounded-[4px] bg-[var(--saffron)] px-3.5 text-[13px] font-bold text-white hover:bg-[var(--saffron-deep)] lg:flex lg:px-4 lg:text-sm"
               >
                 {copy.start}
               </Link>
             </nav>
             <LanguageSwitcher compact />
+            <button
+              type="button"
+              className="header-menu-toggle"
+              aria-expanded={menuOpen}
+              aria-controls="primary-navigation"
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              {menuOpen ? "Close" : "Menu"}
+            </button>
           </div>
         </div>
       </header>

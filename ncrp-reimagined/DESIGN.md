@@ -2,7 +2,7 @@
 
 ## Design read
 
-Raksha is an independent public-service platform for people in a cyber-fraud crisis. The identity is original: an Indian pointed-arch (jharokha) grammar — arch windows, guard-dot rings, concentric ripples — set in a **Night Durbar** dark theme: deep indigo night, warm off-white ink, the spectrum used as glow. The hero artwork is a lit jharokha window in the dark — help, visible at night. It borrows the confidence of modern Indian design (Sarvam-class spectrum discipline) without copying any brand's marks. It should feel like a national service, never like an official government website.
+Raksha is an independent public-service platform for people in a cyber-fraud crisis. The identity is original: an Indian pointed-arch (jharokha) grammar with arch windows, guard-dot rings, and concentric ripples. It uses deep indigo for focus, warm paper for working screens, and saffron for urgent action. The centered hero is a visible point of help at night. It should feel like a national service, never like an official government website.
 
 ## Dials
 
@@ -12,21 +12,21 @@ Raksha is an independent public-service platform for people in a cyber-fraud cri
 
 ## Foundations
 
-- Primary type: Geist Sans for readable UI in six Indian languages.
+- Primary type: Geist Sans with script-appropriate system fallbacks for readable UI in six Indian languages.
 - Display type: Fraunces (Latin) + Tiro Devanagari Hindi (Devanagari) at high optical size for hero and section headlines.
 - Reference type: Geist Mono for case IDs, step labels, and system status.
-- Primary surface: night indigo paper (`#080b16`) with `#101529` working panels; warm off-white ink (`#edece1`).
-- Spectrum: indigo `#6f86f5` → periwinkle `#8ea0ff` → lilac `#c79ae0` → saffron `#ff9d5c` (brightened for dark). Used as glow: emergency bar, FAB, section rules, icon wells, primary CTA gradient.
+- Primary surfaces: navy `#1a237e`, warm paper `#fefcf8`, and soft paper `#f5f1ea`; ink `#1b1b1b`.
+- Accent: saffron `#ff7722`, reserved for urgent actions, route emphasis, and sparse highlights. Indigo remains the dominant visual color.
 - Icons: custom SVG set in `src/components/icons.tsx` — every icon is built from the same three primitives (pointed arch, circle, dotted ring). Never substitute stock icon sets in primary positions; lucide is allowed only for utility glyphs (arrows, close).
 - The Raksha mark (`BrandMark`): pointed-arch shield ringed by twelve guard dots. Do not replace it with generated logos.
-- Hero: full-bleed aurora gradient (saffron → lilac → indigo) melting into the night theme; centered serif headline in dark ink; the white-line arch emblem (`public/illustrations/raksha-arch-emblem.png`) above the headline; dark pill + white pill CTAs; mono statline at the base. One artwork per viewport, never busy pattern fills.
+- Hero: a centered indigo aurora with restrained particles, a serif headline, the arch emblem, one primary action, one secondary action, and a quiet tracking link. The first primary action remains visible on a phone without scrolling.
 - Generated artwork lives in `public/illustrations/`. Regenerate with `scripts/generate-assets.ps1` (`gpt-image-1-mini` works; `gpt-image-2`/`gpt-image-1` need a paid org).
 
 ## Layout language
 
-- Hero: asymmetric split — copy left, arch-window artwork right; eyebrow pill, pill CTAs, one quiet safety line. No full-bleed artwork.
-- Sections alternate paper / white / deep-ink bands; process rails, bordered rows, and timelines over decorative card grids.
-- Every route has a persistent emergency call strip and a stable floating-pill masthead with the BrandMark.
+- Hero: centered composition with a controlled vertical rhythm. Do not introduce a split hero.
+- Sections alternate paper and deep-ink bands; process rails, bordered rows, and timelines stay more prominent than decorative card grids.
+- Every route has a persistent emergency call strip and a stable masthead with the BrandMark. On small screens, navigation moves into an accessible Menu control.
 - Language switcher sits at the right of the masthead and covers six languages site-wide (`?lang=` deep links honoured).
 
 ## Trust rules

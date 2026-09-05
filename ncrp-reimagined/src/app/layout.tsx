@@ -10,8 +10,8 @@ import SarvamAgent from "@/components/SarvamAgent";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
-const fraunces = Fraunces({ variable: "--font-display", subsets: ["latin"], axes: ["opsz"] });
-const tiroDevanagari = Tiro_Devanagari_Hindi({ variable: "--font-display-indic", weight: "400", subsets: ["devanagari"] });
+const fraunces = Fraunces({ variable: "--font-raksha-display-latin", subsets: ["latin"], axes: ["opsz"] });
+const tiroDevanagari = Tiro_Devanagari_Hindi({ variable: "--font-raksha-display-indic", weight: "400", subsets: ["devanagari"] });
 
 export const metadata: Metadata = {
   title: "Raksha | Independent Cyber Safety Prototype",
@@ -25,9 +25,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen antialiased">
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <div className="prototype-banner" lang="en" data-raksha-i18n="react">
-          <p><strong>Independent prototype. Fictional data only.</strong> Production authentication and security are not verified. Do not enter real victim data. Not a government service; no reports are filed or sent to authorities.</p>
-          <Link href="/shield" className="font-bold underline underline-offset-4">Open Call Shield</Link>
-          <a href="tel:112" className="font-bold underline underline-offset-4">Immediate danger: call 112</a>
+          <p><strong>Independent prototype.</strong> Fictional data only. No official report is sent.</p>
+          <details>
+            <summary>About this demo</summary>
+            <p>Production authentication and security are not verified. Do not enter real victim data. Raksha is not a government service and does not send reports to authorities.</p>
+          </details>
+          <div className="prototype-banner-actions">
+            <Link href="/shield">Open Call Shield</Link>
+            <a href="tel:112">Immediate danger: call 112</a>
+          </div>
         </div>
         <EmergencyBar />
         {children}
