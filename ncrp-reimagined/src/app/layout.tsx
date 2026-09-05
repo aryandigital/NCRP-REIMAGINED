@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import Link from "next/link";
-import { Geist, Geist_Mono, Fraunces, Tiro_Devanagari_Hindi } from "next/font/google";
+import { Geist, Geist_Mono, Fraunces, Tiro_Devanagari_Hindi, Yatra_One } from "next/font/google";
 import "./globals.css";
 import EmergencyBar from "@/components/EmergencyBar";
 import SiteLanguageLayer from "@/components/SiteLanguageLayer";
@@ -11,6 +11,7 @@ import SarvamAgent from "@/components/SarvamAgent";
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 const fraunces = Fraunces({ variable: "--font-raksha-display-latin", subsets: ["latin"], axes: ["opsz"] });
+const yatraOne = Yatra_One({ variable: "--font-raksha-hero", weight: "400", subsets: ["devanagari", "latin"] });
 const tiroDevanagari = Tiro_Devanagari_Hindi({ variable: "--font-raksha-display-indic", weight: "400", subsets: ["devanagari"] });
 
 export const metadata: Metadata = {
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} ${tiroDevanagari.variable}`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} ${yatraOne.variable} ${tiroDevanagari.variable}`}>
       <body className="min-h-screen antialiased">
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <div className="prototype-banner" lang="en" data-raksha-i18n="react">

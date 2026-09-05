@@ -344,6 +344,7 @@ button:active, a:active { transform: translateY(1px); }
 }
 
 .hero-aurora .display { color: #fefcf8; }
+.hero-aurora .hero-title-anim { font-family: var(--font-raksha-hero), var(--font-display), Georgia, serif; }
 .hero-aurora .hero-sub { color: rgba(254, 252, 248, .7); }
 .hero-aurora .hero-safety {
   color: rgba(254, 252, 248, .85);
