@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { getIncident, isIncidentId, makeAckNumber, updateIncident, type ExtractedFact } from "@/lib/store";
+import { getIncident, isIncidentId, isIncidentOwnedBy, makeAckNumber, updateIncident, type ExtractedFact } from "@/lib/store";
 import { redact, sanitizeCredentials, readBoundedBody, evidenceIdentifiers } from "@/lib/redact";
 import { buildBrief, emptyAnswers, type VictimAnswers } from "@/lib/brief";
+import { getSession } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
 const headers = { "Cache-Control": "private, no-store", "Referrer-Policy": "no-referrer" };
@@ -59,6 +60,11 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
   try {
     const incident = await getIncident(id);
     if (!incident) return NextResponse.json({ error: "Incident not found" }, { status: 404, headers });
+    if (id !== "DEMO0001") {
+      const session = await getSession();
+      if (!session) return NextResponse.json({ error: "Sign in to open this case" }, { status: 401, headers });
+      if (!isIncidentOwnedBy(incident, session.userId)) return NextResponse.json({ error: "Incident not found" }, { status: 404, headers });
+    }
     if (req.nextUrl.searchParams.get("format") === "bundle") {
       return new NextResponse(JSON.stringify({
         label: "Incident bundle containing personal details. Credentials filtered; not anonymised.",
@@ -79,6 +85,10 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
   const { id } = await params;
   if (id === "DEMO0001") return NextResponse.json({ error: "This example is read-only. POST /api/demo to create your own synthetic copy." }, { status: 409, headers });
   if (!isIncidentId(id)) return NextResponse.json({ error: "Incident not found" }, { status: 404, headers });
+  const session = await getSession();
+  if (!session) return NextResponse.json({ error: "Sign in to update this case" }, { status: 401, headers });
+  const existing = await getIncident(id);
+  if (!existing || !isIncidentOwnedBy(existing, session.userId)) return NextResponse.json({ error: "Incident not found" }, { status: 404, headers });
   let input: unknown;
   try { input = await new Response(await readBoundedBody(req, 160000)).json(); }
   catch (error) { return NextResponse.json({ error: error instanceof RangeError ? "Input too large" : "Invalid JSON" }, { status: error instanceof RangeError ? 413 : 400, headers }); }

@@ -2,8 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { analyzeWithAI } from "@/lib/dna";
 import { createIncident } from "@/lib/store";
 import { redact, evidenceIdentifiers, readBoundedBody } from "@/lib/redact";
+import { getSession } from "@/lib/auth";
 
 export async function POST(req: NextRequest) {
+  const session = await getSession();
+  if (!session) return NextResponse.json({ error: "Sign in to save and track an incident" }, { status: 401 });
   let fd: FormData;
   try { fd = await new Response(await readBoundedBody(req, 32768), { headers: { "Content-Type": req.headers.get("content-type") ?? "" } }).formData(); }
   catch (error) { return NextResponse.json({ error: error instanceof RangeError ? "Input too large" : "Expected form data" }, { status: error instanceof RangeError ? 413 : 400 }); }
@@ -32,6 +35,7 @@ export async function POST(req: NextRequest) {
 
     // 4. Create incident
     const incident = await createIncident({
+      userId: session.userId,
       rawText: redacted,
       syntheticOnly: false,
       dna,

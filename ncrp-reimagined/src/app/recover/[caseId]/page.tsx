@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, FileDown } from "lucide-react";
-import { getIncident, isIncidentId } from "@/lib/store";
+import { getIncident, isIncidentId, isIncidentOwnedBy } from "@/lib/store";
 import { CLOCKS, type ClockKind } from "@/lib/clocks";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import { getSession } from "@/lib/auth";
 import SiteHeader from "@/components/SiteHeader";
 import DownloadBundle from "@/components/DownloadBundle";
 import DemoCopyButton from "@/components/DemoCopyButton";
@@ -21,6 +22,11 @@ export default async function RecoverPage({ params }: { params: Promise<{ caseId
   if (!isIncidentId(caseId)) notFound();
   const incident = await getIncident(caseId);
   if (!incident) notFound();
+  if (caseId !== "DEMO0001") {
+    const session = await getSession();
+    if (!session) redirect(`/login?next=${encodeURIComponent(`/recover/${caseId}`)}`);
+    if (!isIncidentOwnedBy(incident, session.userId)) notFound();
+  }
   const id = encodeURIComponent(incident.id);
   const example = incident.id === "DEMO0001";
   const guidance: ClockKind[] = [];

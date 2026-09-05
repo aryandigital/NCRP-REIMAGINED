@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, CheckCircle2, CircleAlert, FileSearch, ShieldAlert } from "lucide-react";
-import { getIncident } from "@/lib/store";
-import { notFound } from "next/navigation";
+import { getIncident, isIncidentOwnedBy } from "@/lib/store";
+import { notFound, redirect } from "next/navigation";
+import { getSession } from "@/lib/auth";
 import SiteHeader from "@/components/SiteHeader";
 import FactReview from "@/components/FactReview";
 
@@ -17,6 +18,11 @@ export default async function CheckResultPage({ params }: { params: Promise<{ id
   const { id } = await params;
   const incident = await getIncident(id);
   if (!incident || !incident.dna) notFound();
+  if (id !== "DEMO0001") {
+    const session = await getSession();
+    if (!session) redirect(`/login?next=${encodeURIComponent(`/check/${id}`)}`);
+    if (!isIncidentOwnedBy(incident, session.userId)) notFound();
+  }
   const dna = incident.dna;
   const risk = RISK_CONFIG[dna.risk];
   const facts = incident.extractedFacts.length > 0 ? incident.extractedFacts : [

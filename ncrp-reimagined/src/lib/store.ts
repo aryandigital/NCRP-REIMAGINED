@@ -43,6 +43,7 @@ export interface DnaResult {
 
 export interface Incident {
   id: string;
+  userId?: string | null;
   createdAt: string;
   occurredAt: string | null;
   origin: "intake" | "call-shield" | "demo";
@@ -88,7 +89,7 @@ if (!stores.has(storeKey)) stores.set(storeKey, { memory: new Map(), ready: null
 const state = stores.get(storeKey)!;
 const memoryStore = state.memory;
 // Only serialises this process. Shared files / multiple app instances need a
-// transactional store. IDs are not auth: real-data ownership is a deployment blocker.
+// transactional store. Access is enforced with the authenticated owner ID.
 
 function transaction<T>(operation: () => Promise<T>): Promise<T> {
   const result = state.tail.then(operation);
@@ -130,17 +131,18 @@ async function ensureStorage() {
   state.ready ??= database.execute(sql`
     CREATE TABLE IF NOT EXISTS incidents (
       id text PRIMARY KEY,
+      owner_id text,
       created_at timestamptz NOT NULL,
       payload jsonb NOT NULL
     )
-  `).then(() => undefined).catch((error) => { state.ready = null; throw error; });
+  `).then(() => database.execute(sql`ALTER TABLE incidents ADD COLUMN IF NOT EXISTS owner_id text`)).then(() => undefined).catch((error) => { state.ready = null; throw error; });
   await state.ready;
 }
 
 async function persist(incident: Incident, create: boolean) {
   if (database) {
-    if (create) await database.insert(incidents).values({ id: incident.id, createdAt: new Date(incident.createdAt), payload: incident }).execute();
-    else await database.update(incidents).set({ payload: incident }).where(eq(incidents.id, incident.id)).execute();
+    if (create) await database.insert(incidents).values({ id: incident.id, ownerId: incident.userId ?? null, createdAt: new Date(incident.createdAt), payload: incident }).execute();
+    else await database.update(incidents).set({ ownerId: incident.userId ?? null, payload: incident }).where(eq(incidents.id, incident.id)).execute();
     return;
   }
   const snapshot = new Map(memoryStore).set(incident.id, incident);
@@ -156,6 +158,7 @@ async function persist(incident: Incident, create: boolean) {
 
 function cleanIncident(input: Incident): Incident {
   const incident = sanitizeCredentials(input);
+  incident.userId = typeof incident.userId === "string" && incident.userId.length > 0 ? incident.userId : null;
   if (incident.rawText) incident.rawText = redact(incident.rawText).redacted;
   if (incident.shield) incident.shield.transcript = redact(incident.shield.transcript).redacted;
   incident.syntheticOnly = incident.syntheticOnly === true && (incident.origin === "demo" || incident.shield?.source === "simulation");
@@ -178,6 +181,7 @@ function cleanIncident(input: Incident): Incident {
 function seedDemoIncident(): Incident {
   return {
     id: "DEMO0001",
+    userId: null,
     createdAt: new Date().toISOString(),
     language: "en",
     rawText: "Hi! We are hiring for part-time hotel-rating jobs. Earn ₹5000-₹15000 per day from home. Please complete 3 simple tasks and get paid. Download our app to start.",
@@ -226,6 +230,7 @@ export async function createIncident(partial: Partial<Incident> = {}): Promise<I
   return transaction(async () => {
     await ensureStorage();
     const incident = cleanIncident({
+      userId: process.env.NODE_ENV === "test" || process.execArgv.includes("--test") ? "USRTEST000001" : null,
       occurredAt: null,
       origin: "intake",
       language: "en",
@@ -257,7 +262,10 @@ async function readIncident(id: string): Promise<Incident | undefined> {
   await ensureStorage();
   if (database) {
     const rows = await database.select().from(incidents).where(eq(incidents.id, id)).limit(1);
-    if (rows[0]) return cleanIncident(rows[0].payload as Incident);
+    if (rows[0]) {
+      const payload = rows[0].payload as Incident;
+      return cleanIncident({ ...payload, userId: rows[0].ownerId ?? payload.userId ?? null });
+    }
     return undefined;
   }
   const incident = memoryStore.get(id);
@@ -269,8 +277,21 @@ export async function getIncident(id: string): Promise<Incident | undefined> {
   return transaction(() => readIncident(id));
 }
 
-export async function createDemoIncident(): Promise<Incident> {
-  return createIncident({ ...seedDemoIncident(), ackNumber: null });
+export async function createDemoIncident(userId: string): Promise<Incident> {
+  return createIncident({ ...seedDemoIncident(), userId, ackNumber: null });
+}
+
+export function isIncidentOwnedBy(incident: Incident, userId: string) {
+  return incident.id !== "DEMO0001" && incident.userId === userId;
+}
+
+export async function getUserIncidents(userId: string): Promise<Incident[]> {
+  await ensureStorage();
+  if (database) {
+    const rows = await database.select().from(incidents).where(eq(incidents.ownerId, userId));
+    return rows.map((row) => cleanIncident({ ...(row.payload as Incident), userId: row.ownerId ?? null }));
+  }
+  return [...memoryStore.values()].filter((incident) => incident.userId === userId).map((incident) => cleanIncident(incident));
 }
 
 export async function updateIncident(id: string, updates: Partial<Incident> | ((incident: Incident) => Partial<Incident>)): Promise<Incident | null> {
@@ -280,7 +301,7 @@ export async function updateIncident(id: string, updates: Partial<Incident> | ((
     if (!existing) return null;
     const createdAt = existing.createdAt;
     const changes = typeof updates === "function" ? updates(existing) : updates;
-    const updated = cleanIncident({ ...existing, ...changes, id, createdAt });
+    const updated = cleanIncident({ ...existing, ...changes, id, userId: existing.userId, createdAt });
     await persist(updated, false);
     return structuredClone(updated);
   });

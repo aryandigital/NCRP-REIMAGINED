@@ -5,6 +5,7 @@ import Link from "next/link";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { BrandMark } from "@/components/icons";
 import { useRakshaLanguage } from "@/hooks/useRakshaLanguage";
+import UserMenu from "@/components/UserMenu";
 
 export default function SiteHeader({ current }: { current?: "check" | "track" | "atlas" | "operator" | "shield" }) {
   const { language } = useRakshaLanguage();
@@ -90,6 +91,7 @@ export default function SiteHeader({ current }: { current?: "check" | "track" | 
               </Link>
             </nav>
             <LanguageSwitcher compact />
+            <UserMenu />
             <button
               type="button"
               className="header-menu-toggle"

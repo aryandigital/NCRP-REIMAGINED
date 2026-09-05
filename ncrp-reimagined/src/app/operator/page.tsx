@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import SiteHeader from "@/components/SiteHeader";
 import { PATTERN_BY_SLUG } from "@/data/patterns";
-import { getIncident, isIncidentId } from "@/lib/store";
+import { getIncident, isIncidentId, isIncidentOwnedBy } from "@/lib/store";
+import { getSession } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
 
@@ -19,6 +20,11 @@ export default async function OperatorPage({ searchParams }: { searchParams: Pro
   if (typeof caseId !== "string" || !isIncidentId(caseId)) notFound();
   const incident = await getIncident(caseId);
   if (!incident) notFound();
+  if (caseId !== "DEMO0001") {
+    const session = await getSession();
+    if (!session) redirect(`/login?next=${encodeURIComponent(`/operator?caseId=${caseId}`)}`);
+    if (!isIncidentOwnedBy(incident, session.userId)) notFound();
+  }
   const example = incident.id === "DEMO0001";
   const pattern = incident.dna?.patternSlug ? PATTERN_BY_SLUG.get(incident.dna.patternSlug) : null;
   const reviewed = incident.extractedFacts.filter((fact) => ["confirmed", "corrected"].includes(fact.confirmationStatus)).length;

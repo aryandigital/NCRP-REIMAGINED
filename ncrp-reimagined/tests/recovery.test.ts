@@ -38,9 +38,12 @@ function loadPage(path: string, record: Incident | null = incident) {
       if (name === "@/lib/store") return {
         getIncident: async (value: string) => { reads.push(value); return record; },
         isIncidentId: (value: string) => /^(?:INC(?:[A-F0-9]{10}|[A-F0-9]{32})|DEMO0001)$/.test(value),
+        isIncidentOwnedBy: () => true,
       };
+      if (name === "@/lib/auth") return { getSession: async () => ({ userId: "USRTEST000001", email: "test@raksha.local" }) };
       if (name === "next/navigation") return {
         notFound() { throw new Error("NOT_FOUND"); },
+        redirect() { throw new Error("REDIRECT"); },
         useRouter: () => ({ push() {} }),
       };
       if (name.startsWith("@/components/")) return {

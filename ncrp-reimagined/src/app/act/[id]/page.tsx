@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Banknote, FileCheck2, LockKeyhole, PhoneCall, ShieldAlert } from "lucide-react";
-import { getIncident } from "@/lib/store";
+import { getIncident, isIncidentOwnedBy } from "@/lib/store";
 import { buildBrief, emptyAnswers } from "@/lib/brief";
 import { BANK_PLAYBOOKS, CONTENT_PLAYBOOK, HELPLINE_1930 } from "@/lib/playbooks";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import { getSession } from "@/lib/auth";
 import SiteHeader from "@/components/SiteHeader";
 import ActionChecklist from "@/components/ActionChecklist";
 import DemoAlertButton from "@/components/DemoAlertButton";
@@ -32,6 +33,11 @@ export default async function ActPage({
   const { trigger } = await searchParams;
   const incident           = await getIncident(id);
   if (!incident) notFound();
+  if (id !== "DEMO0001") {
+    const session = await getSession();
+    if (!session) redirect(`/login?next=${encodeURIComponent(`/act/${id}`)}`);
+    if (!isIncidentOwnedBy(incident, session.userId)) notFound();
+  }
 
   const hint = typeof trigger === "string" ? trigger : undefined;
   const answers = incident.shield?.answers;

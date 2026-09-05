@@ -232,6 +232,10 @@ function CheckForm() {
       const form = new FormData();
       form.append("text", body);
       const response = await fetch("/api/analyze", { method: "POST", body: form });
+      if (response.status === 401) {
+        router.push("/login?next=%2Fcheck");
+        return;
+      }
       if (!response.ok) throw new Error("Analysis failed");
       const { id } = await response.json() as { id: string };
       if (!id || typeof id !== "string") throw new Error("Missing incident ID");

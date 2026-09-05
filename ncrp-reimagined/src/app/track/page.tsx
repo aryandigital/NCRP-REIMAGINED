@@ -30,6 +30,10 @@ export default function TrackPage() {
     setLoading(true);
     try {
       const response = await fetch(`/api/incidents/${encodeURIComponent(id)}`, { method: "GET", cache: "no-store", signal: AbortSignal.timeout(10000) });
+      if (response.status === 401) {
+        router.push("/login?next=%2Ftrack");
+        return;
+      }
       if (response.status === 404) {
         setError("No saved case was found for that Raksha case ID. Check the ID and try again.");
         pending.current = false;

@@ -5,6 +5,7 @@ import { redact, evidenceIdentifiers, stripCredentials } from "@/lib/redact";
 import { assessWithAI, readShieldBody, shieldTranscriptSchema, shieldTranscriptWindow } from "@/lib/shield";
 import { buildBrief, emptyAnswers, type VictimAnswers } from "@/lib/brief";
 import { PATTERNS } from "@/data/patterns";
+import { getSession } from "@/lib/auth";
 
 const textAnswer = z.string().max(300).transform((text) => stripCredentials(text.trim()) || null).nullable().optional();
 const timestamp = z.iso.datetime({ offset: true });
@@ -31,6 +32,8 @@ const requestSchema = z.object({
 }).refine((body) => Date.parse(body.endedAt) >= Date.parse(body.startedAt));
 
 export async function POST(req: NextRequest) {
+  const session = await getSession();
+  if (!session) return NextResponse.json({ error: "Sign in to save and track a Call Shield screening" }, { status: 401 });
   let input: unknown;
   try {
     input = await readShieldBody(req);
@@ -67,6 +70,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const incident = await createIncident({
+      userId: session.userId,
       language: a.language,
       rawText: redacted,
       dna,

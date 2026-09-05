@@ -147,12 +147,13 @@ async function actionPage(incident: Incident) {
       if (name === "react/jsx-runtime") return jsxRuntime;
       if (name === "next/link") return { default: "a" };
       if (name === "lucide-react") return new Proxy({}, { get: () => () => null });
-      if (name === "@/lib/store") return { getIncident: async () => incident };
+      if (name === "@/lib/store") return { getIncident: async () => incident, isIncidentOwnedBy: () => true };
+      if (name === "@/lib/auth") return { getSession: async () => ({ userId: "USRTEST000001", email: "test@raksha.local" }) };
       if (name === "@/lib/brief") return { ...briefs, buildBrief: (input: Parameters<typeof briefs.buildBrief>[0]) => {
         const brief = briefs.buildBrief(input); displayed.push(brief); return brief;
       } };
       if (name === "@/lib/playbooks") return playbooks;
-      if (name === "next/navigation") return { notFound() { throw new Error("Unexpected missing incident"); } };
+      if (name === "next/navigation") return { notFound() { throw new Error("Unexpected missing incident"); }, redirect() { throw new Error("Unexpected redirect"); } };
       if (name === "@/components/CopyBrief") return { default: ({ text }: { text: string }) => { copied.push(text); return null; } };
       if (name.startsWith("@/components/")) return { default: () => null };
       throw new Error(`Unexpected module: ${name}`);

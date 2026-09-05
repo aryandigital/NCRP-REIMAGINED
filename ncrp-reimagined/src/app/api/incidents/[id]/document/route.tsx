@@ -1,21 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
 import { renderToBuffer, type DocumentProps } from "@react-pdf/renderer";
 import { createElement, type ReactElement } from "react";
-import { getIncident } from "@/lib/store";
+import { getIncident, isIncidentOwnedBy } from "@/lib/store";
 import { ComplaintDocument } from "@/lib/pdf/complaint-template";
+import { getSession } from "@/lib/auth";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-// GET /api/incidents/[id]/document — generates a complaint-draft PDF.
-// Prototype has no authentication: incident IDs are full-entropy and unguessable,
-// and every document carries the PROTOTYPE watermark. Synthetic data only.
 export async function GET(_req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
 
   const incident = await getIncident(id);
   if (!incident) {
     return NextResponse.json({ error: "Incident not found" }, { status: 404 });
+  }
+  if (id !== "DEMO0001") {
+    const session = await getSession();
+    if (!session) return NextResponse.json({ error: "Sign in to download this draft" }, { status: 401 });
+    if (!isIncidentOwnedBy(incident, session.userId)) return NextResponse.json({ error: "Incident not found" }, { status: 404 });
   }
 
   try {

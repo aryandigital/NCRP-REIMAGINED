@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { getIncident, isIncidentId, updateIncident } from "@/lib/store";
+import { getIncident, isIncidentId, isIncidentOwnedBy, updateIncident } from "@/lib/store";
 import { sanitizeCredentials, readBoundedBody } from "@/lib/redact";
+import { getSession } from "@/lib/auth";
 
 // Two modes: audio-only (no `to`) or phone call (`to` required).
 const audioSchema = z.object({
@@ -30,6 +31,8 @@ function xmlEscape(text: string): string {
 
 export async function POST(req: NextRequest) {
   if (process.env.DEMO_MODE !== "true") return NextResponse.json({ error: "Demo calls are disabled. Raksha never dials public helplines automatically." }, { status: 403 });
+  const session = await getSession();
+  if (!session) return NextResponse.json({ error: "Sign in to use your saved demo" }, { status: 401 });
   let input: unknown;
   try { input = await new Response(await readBoundedBody(req, 2048)).json(); }
   catch (error) { return NextResponse.json({ error: error instanceof RangeError ? "Input too large" : "Invalid JSON" }, { status: error instanceof RangeError ? 413 : 400 }); }
@@ -50,7 +53,7 @@ export async function POST(req: NextRequest) {
     if (!sarvamKey) return NextResponse.json({ error: "SARVAM_API_KEY is not configured. Add it to .env.local to enable voice demo." }, { status: 503 });
 
     const incident = await getIncident(incidentId);
-    if (!incident?.shield?.brief) return NextResponse.json({ error: "Save an incident brief first" }, { status: 404 });
+    if (!incident?.shield?.brief || !isIncidentOwnedBy(incident, session.userId)) return NextResponse.json({ error: "Save an incident brief first" }, { status: 404 });
     if (!incident.syntheticOnly) return NextResponse.json({ error: "Only synthetic demo incidents can use the voice demo" }, { status: 403 });
 
     const brief = sanitizeCredentials(incident.shield.brief);
@@ -141,7 +144,7 @@ export async function POST(req: NextRequest) {
   };
   try {
     const incident = await getIncident(incidentId);
-    if (!incident?.shield?.brief) return finish({ error: "Save an incident brief first" }, 404);
+    if (!incident?.shield?.brief || !isIncidentOwnedBy(incident, session.userId)) return finish({ error: "Save an incident brief first" }, 404);
     if (!incident.syntheticOnly) return finish({ error: "Only synthetic demo incidents can request demo calls" }, 403);
     if (incident.shield.alerts.some((a) => a.kind === "vapi-demo" && now - Date.parse(a.at) < cooldownMs)) return finish({ error: "Wait before requesting another demo call" }, 429);
 
