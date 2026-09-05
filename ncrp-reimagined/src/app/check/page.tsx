@@ -60,6 +60,7 @@ function CheckForm() {
   const [voiceLanguage, setVoiceLanguage] = useState("en-IN");
   const [recording, setRecording] = useState(false);
   const [error, setError] = useState("");
+  const [scamCount, setScamCount] = useState<number | null>(null);
 
   const [privateFile, setPrivateFile] = useState<File | null>(null);
   const [fingerprint, setFingerprint] = useState("");
@@ -117,6 +118,19 @@ function CheckForm() {
   useEffect(() => {
     if (error) errorRef.current?.focus();
   }, [error]);
+
+  // Fetch crowdsourced scam count for detected identifiers (phone / UPI / URL).
+  useEffect(() => {
+    const detected = detectIdentifier(text.trim());
+    if (!detected) { setScamCount(null); return; }
+    const timeout = window.setTimeout(() => {
+      fetch(`/api/scam-count?id=${encodeURIComponent(text.trim())}`)
+        .then((r) => r.json())
+        .then(({ count }: { count: number }) => setScamCount(count > 0 ? count : null))
+        .catch(() => setScamCount(null));
+    }, 400);
+    return () => window.clearTimeout(timeout);
+  }, [text]);
 
   useEffect(() => {
     const q = searchParams.get("q");
@@ -357,6 +371,12 @@ function CheckForm() {
                       <span className="ml-auto inline-flex min-h-11 items-center gap-2 rounded-[3px] bg-service-soft px-3 text-xs font-bold text-service">
                         <span className="h-1.5 w-1.5 rounded-full bg-service" aria-hidden="true" />
                         {detection.label}
+                      </span>
+                    )}
+                    {scamCount !== null && (
+                      <span className="inline-flex min-h-11 items-center gap-2 rounded-[3px] bg-[var(--color-danger-soft,#ffeaea)] px-3 text-xs font-bold text-[var(--color-danger,#ba1a1a)]">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-danger,#ba1a1a)]" aria-hidden="true" />
+                        {scamCount} {scamCount === 1 ? "person" : "people"} reported this
                       </span>
                     )}
                   </div>

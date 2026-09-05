@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowLeft, CheckCircle2, FileText, ShieldCheck } from "lucide-react";
 import { getIncident } from "@/lib/store";
 import { getSession } from "@/lib/auth";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import SiteHeader from "@/components/SiteHeader";
 import ReportForm from "@/components/ReportForm";
 
@@ -11,6 +11,7 @@ export const dynamic = "force-dynamic";
 export default async function ReportPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const session = await getSession();
+  if (!session) redirect(`/login?next=/report/${id}`);
   const incident = await getIncident(id);
   // Anonymous incidents (no owner) are reachable by their unguessable ID;
   // owned incidents are only visible to the signed-in owner.

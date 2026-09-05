@@ -4,6 +4,7 @@ import { analyzeIdentifier, mergeWithPatternResult } from "@/lib/identifier";
 import { createIncident, type DnaResult } from "@/lib/store";
 import { redact, evidenceIdentifiers } from "@/lib/redact";
 import { getSession } from "@/lib/auth";
+import { normalizeIdentifier, incrementCount } from "@/lib/scam-counts";
 
 function tracksFor(dna: DnaResult): string[] {
   if (!dna.patternSlug) return ["money"];
@@ -14,10 +15,8 @@ function tracksFor(dna: DnaResult): string[] {
 }
 
 export async function POST(req: NextRequest) {
+  // Session is optional — anonymous users can triage. Only /report requires auth.
   const session = await getSession();
-  if (!session) {
-    return NextResponse.json({ error: "Sign in to file a complaint." }, { status: 401 });
-  }
 
   try {
     const fd = await req.formData();
@@ -55,9 +54,15 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // 4. Create incident
+    // 4. Increment crowdsourced scam count for identified phone/UPI/URL
+    if (identifierVerdict) {
+      const normalized = normalizeIdentifier(rawText.trim());
+      if (normalized) incrementCount(normalized).catch(() => {});
+    }
+
+    // 5. Create incident
     const incident = await createIncident({
-      userId: session.userId,
+      userId: session?.userId ?? null,
       syntheticOnly: false,
       rawText: (redacted || rawText).slice(0, 2000),
       dna,
@@ -97,7 +102,13 @@ export async function GET(req: NextRequest) {
     dna = mergeWithPatternResult(identifierVerdict, dna);
   }
 
+  if (identifierVerdict) {
+    const normalized = normalizeIdentifier(q.trim());
+    if (normalized) incrementCount(normalized).catch(() => {});
+  }
+
   const incident = await createIncident({
+    userId: session.userId,
     rawText: redacted.slice(0, 500),
     dna,
     tracks: tracksFor(dna),

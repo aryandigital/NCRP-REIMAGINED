@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify } from "jose";
 
-const PROTECTED = ["/operator", "/triage", "/my-incidents", "/track", "/check", "/act", "/report", "/recover"];
+const PROTECTED = ["/operator", "/triage", "/my-incidents", "/track", "/act", "/report", "/recover"];
 const COOKIE_NAME = "raksha_session";
 
 function getSecret() {
@@ -37,8 +37,6 @@ export const config = {
     "/triage/:path*",
     "/my-incidents/:path*",
     "/track/:path*",
-    "/check/:path*",
-    "/check",
     "/act/:path*",
     "/report/:path*",
     "/recover/:path*",

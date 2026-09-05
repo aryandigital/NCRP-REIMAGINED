@@ -1,6 +1,6 @@
 import { neon } from "@neondatabase/serverless";
 import { drizzle } from "drizzle-orm/neon-http";
-import { eq, sql } from "drizzle-orm";
+import { desc, eq, sql } from "drizzle-orm";
 import { readFile, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -221,6 +221,21 @@ export async function getUserIncidents(userId: string): Promise<Incident[]> {
   }
   return Array.from(memoryStore.values()).filter(
     (i) => i.userId === userId && !i.syntheticOnly
+  );
+}
+
+export async function getAllIncidents(): Promise<Incident[]> {
+  await ensureStorage();
+  if (database) {
+    const rows = await database.select().from(incidents).orderBy(desc(incidents.createdAt)).execute();
+    return rows.map((r) => r.payload as Incident);
+  }
+  if (!memoryStore.has("DEMO0001")) {
+    memoryStore.set("DEMO0001", seedDemoIncident());
+    await persistFallback();
+  }
+  return Array.from(memoryStore.values()).sort(
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
   );
 }
 
