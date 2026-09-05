@@ -17,6 +17,7 @@
   "dependencies": {
     "@ai-sdk/openai": "^4.0.46",
     "@neondatabase/serverless": "^1.1.0",
+    "@react-pdf/renderer": "^4.9.0",
     "@xstate/react": "^6.1.0",
     "ai": "^7.0.77",
     "bcryptjs": "^3.0.3",

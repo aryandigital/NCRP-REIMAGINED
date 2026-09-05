@@ -8,6 +8,7 @@ const lanOrigins = Object.values(os.networkInterfaces())
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["localhost", "127.0.0.1", ...lanOrigins],
+  serverExternalPackages: ["@react-pdf/renderer"],
 };
 
 export default nextConfig;

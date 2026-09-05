@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { ArrowRight, FileSearch, ShieldAlert, ShieldCheck, ShieldQuestion } from "lucide-react";
+import { ArrowRight, FileDown, FileSearch, ShieldAlert, ShieldCheck, ShieldQuestion } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import { getSession } from "@/lib/auth";
 import { getUserIncidents, type Incident } from "@/lib/store";
@@ -119,15 +119,19 @@ function IncidentCard({ incident }: { incident: Incident }) {
   const total = incident.extractedFacts.length + incident.missingFacts.length;
 
   return (
-    <Link
-      href={`/recover/${incident.id}`}
-      className="group panel flex items-start gap-4 p-5 transition hover:border-[var(--color-service)] hover:bg-[var(--color-service-soft)] sm:p-6"
-    >
-      <div className={`mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${cfg.chipClass}`}>
+    <div className="group panel relative flex items-start gap-4 p-5 transition hover:border-[var(--color-service)] hover:bg-[var(--color-service-soft)] sm:p-6">
+      {/* Cover link makes the whole card clickable */}
+      <Link
+        href={`/recover/${incident.id}`}
+        className="absolute inset-0 z-0 rounded-[inherit]"
+        aria-label={`View incident: ${patternName}`}
+      />
+
+      <div className={`relative z-10 mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${cfg.chipClass}`}>
         <Icon size={18} aria-hidden="true" />
       </div>
 
-      <div className="min-w-0 flex-1">
+      <div className="relative z-10 min-w-0 flex-1">
         <div className="flex flex-wrap items-start gap-2">
           <p className="text-[15px] font-bold text-ink">{patternName}</p>
           <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold ${cfg.chipClass}`}>
@@ -146,13 +150,22 @@ function IncidentCard({ incident }: { incident: Incident }) {
             <span className="font-semibold text-[var(--color-success)]">Submitted</span>
           )}
         </div>
+
+        <a
+          href={`/api/incidents/${incident.id}/document`}
+          download={`complaint-draft-${incident.id}.pdf`}
+          className="relative z-10 mt-3 inline-flex items-center gap-1.5 rounded-[4px] border border-line bg-paper px-3 py-1.5 text-[11px] font-semibold text-ink-soft transition hover:border-[var(--color-service)] hover:text-[var(--color-service)]"
+        >
+          <FileDown size={12} aria-hidden="true" />
+          Download complaint draft
+        </a>
       </div>
 
       <ArrowRight
         size={17}
-        className="mt-1 shrink-0 text-ink-faint transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--color-service)]"
+        className="relative z-10 mt-1 shrink-0 text-ink-faint transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--color-service)]"
         aria-hidden="true"
       />
-    </Link>
+    </div>
   );
 }
