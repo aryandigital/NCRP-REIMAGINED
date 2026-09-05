@@ -4,9 +4,8 @@
  * Round-1 implementation: deterministic regex + checksum validation, runs in-process.
  * Production path: microsoft/presidio (Python) as a sidecar analyzer/anonymizer service.
  *
- * Rule: raw user text is NEVER persisted and NEVER sent to an LLM.
- * We store `redacted` and the typed `entities` (values kept only where the
- * identifier IS the evidence, e.g. a scammer's UPI ID, see `keepAsEvidence`).
+ * Deterministic filtering is not a guarantee of anonymisation. Structured
+ * incident briefs intentionally contain personal details; credentials do not.
  */
 
 export type PiiType =
@@ -20,12 +19,75 @@ export type PiiType =
   | "email"
   | "url";
 
+const CREDENTIAL_LABEL = String.raw`(?:\b(?:otp|(?:one[ -]?time|verification|security)\s+(?:password|code)|(?:upi\s*|atm\s*)?pin|cvv|cvc|password|passwd|pwd|passcode)\b|ओटीपी|पिन|पासवर्ड)(?:\s+(?:code|number|value))?`;
+const CREDENTIAL_KEY = /^(?:(?:upi|atm)?pin|otp|cvv|cvc|(?:current|new|old)?password|passwd|pwd|passcode|onetimepassword|verificationcode|securitycode)(?:value|number|code)?$/i;
+const credentialKey = (key: string) => CREDENTIAL_KEY.test(key.replace(/[\s_-]/g, ""));
+const CREDENTIAL_PROSE = /^(?:not|never|no|none|unknown|missing|shared|sharing|exposure|compromised|requested|required|needed|safe|secure|or|and|with|to|from|for|was|is|has|have|should|must|will|can|may)[.,;!?]?$/i;
+
+/** Filter labelled credentials before deriving any entity/evidence side channel. */
+export function stripCredentials(input: string): string {
+  return input
+    .replace(/\bhttps?:\/\/[^\s<>"')]+/gi, (value) => {
+      try {
+        const url = new URL(value);
+        // Query strings, fragments and userinfo may contain credentials/tokens.
+        return `${url.origin}${url.pathname}`;
+      } catch { return "[URL]"; }
+    })
+    .replace(new RegExp(`(${CREDENTIAL_LABEL})["']?\\s*(?:(?:is|was|hai|है)\\s*)?[:=\\-]?\\s*["']?([0-9०-९](?:[ \\-]?[0-9०-९]){2,})["']?(?=$|\\s|[.,;!?](?:\\s|$))`, "gi"), "$1 [CREDENTIAL]")
+    .replace(new RegExp(`(${CREDENTIAL_LABEL})\\s+((?=[^\\s<>]*[0-9०-९])[^\\s<>]+)`, "gi"), "$1 [CREDENTIAL]")
+    .replace(new RegExp(`(${CREDENTIAL_LABEL})["']?\\s*(?:(?:is|was|hai|है)\\s*)?[:=\\-]\\s*(?:"[^"\\r\\n]*"|'[^'\\r\\n]*'|[^\\s<>]+)`, "gi"), "$1 [CREDENTIAL]")
+    .replace(new RegExp(`(${CREDENTIAL_LABEL})\\s+(?:is|was|hai|है)\\s+("[^"\\r\\n]*"|'[^'\\r\\n]*'|[^\\s<>]+)`, "gi"), (match, label: string, value: string) => CREDENTIAL_PROSE.test(value) ? match : `${label} [CREDENTIAL]`)
+    .replace(/\b(password|passwd|pwd|passcode)\s+(?!\[)("[^"\r\n]*"|'[^'\r\n]*'|[^\s<>]+)/gi, (match, label: string, value: string) => CREDENTIAL_PROSE.test(value) ? match : `${label} [CREDENTIAL]`);
+}
+
+/** Retains intended contact/evidence fields, but removes credentials at any depth. */
+export function sanitizeCredentials<T>(value: T): T {
+  if (typeof value === "string") return stripCredentials(value) as T;
+  if (Array.isArray(value)) return value.map((item) => sanitizeCredentials(item)) as T;
+  if (value && typeof value === "object") {
+    const object = value as Record<string, unknown>;
+    const sensitiveFact = [object.field, object.type].some((field) => typeof field === "string" && new RegExp(CREDENTIAL_LABEL, "i").test(field));
+    return Object.fromEntries(Object.entries(object)
+      .filter(([key]) => !["__proto__", "prototype", "constructor"].includes(key))
+      .map(([key, item]) => [stripCredentials(key),
+        (credentialKey(key) || (key === "value" && sensitiveFact)) && item !== null && typeof item !== "boolean"
+          ? "[CREDENTIAL]" : sanitizeCredentials(item)])) as T;
+  }
+  return value;
+}
+
+/** Bound ingestion before parsing, including chunked bodies with no Content-Length. */
+export async function readBoundedBody(request: Request, maxBytes: number): Promise<ArrayBuffer> {
+  if (Number(request.headers.get("content-length")) > maxBytes) throw new RangeError("Input too large");
+  const reader = request.body?.getReader();
+  if (!reader) return new ArrayBuffer(0);
+  const chunks: Uint8Array[] = [];
+  let size = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      size += value.byteLength;
+      if (size > maxBytes) {
+        void reader.cancel().catch(() => undefined);
+        throw new RangeError("Input too large");
+      }
+      chunks.push(value);
+    }
+  } finally { reader.releaseLock(); }
+  const body = new Uint8Array(size);
+  let offset = 0;
+  for (const chunk of chunks) { body.set(chunk, offset); offset += chunk.byteLength; }
+  return body.buffer;
+}
+
 export interface PiiEntity {
   type: PiiType;
   value: string;
   start: number;
   end: number;
-  /** Identifiers belonging to the SCAMMER are evidence and are retained. */
+  /** Candidate evidence; callers must establish ownership before attribution. */
   keepAsEvidence: boolean;
 }
 
@@ -34,7 +96,7 @@ export interface RedactionResult {
   entities: PiiEntity[];
 }
 
-/** Identifier classes that describe the attacker, not the victim. */
+/** Candidate evidence only: a regex cannot establish who owns an identifier. */
 const EVIDENCE_TYPES: ReadonlySet<PiiType> = new Set(["upi", "url", "phone", "account"]);
 
 const PATTERNS: ReadonlyArray<{ type: PiiType; re: RegExp }> = [
@@ -77,6 +139,7 @@ function isEmailShaped(value: string): boolean {
 }
 
 export function redact(input: string): RedactionResult {
+  input = stripCredentials(input);
   const found: PiiEntity[] = [];
 
   for (const { type, re } of PATTERNS) {

@@ -32,15 +32,11 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
-!.env.example
 
 # vercel
 .vercel
 
-# locally installed agent skills
-.agents/
-skills-lock.json
-
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.gstack/

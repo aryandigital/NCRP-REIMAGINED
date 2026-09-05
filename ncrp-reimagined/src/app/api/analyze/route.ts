@@ -1,72 +1,49 @@
 import { NextRequest, NextResponse } from "next/server";
-import { analyzeWithAI, analyzeLocal } from "@/lib/dna";
-import { analyzeIdentifier, mergeWithPatternResult } from "@/lib/identifier";
-import { createIncident, type DnaResult } from "@/lib/store";
-import { redact, evidenceIdentifiers } from "@/lib/redact";
-import { getSession } from "@/lib/auth";
-import { normalizeIdentifier, incrementCount } from "@/lib/scam-counts";
-
-function tracksFor(dna: DnaResult): string[] {
-  if (!dna.patternSlug) return ["money"];
-  if (["task-scam", "investment-pig-butchering", "upi-collect-request"].includes(dna.patternSlug)) return ["money"];
-  if (dna.patternSlug === "sextortion-image-threat") return ["content", "money", "safety"];
-  if (dna.patternSlug === "digital-arrest") return ["money", "safety"];
-  return ["money"];
-}
+import { analyzeWithAI } from "@/lib/dna";
+import { createIncident } from "@/lib/store";
+import { redact, evidenceIdentifiers, readBoundedBody } from "@/lib/redact";
 
 export async function POST(req: NextRequest) {
-  // Session is optional — anonymous users can triage. Only /report requires auth.
-  const session = await getSession();
-
+  let fd: FormData;
+  try { fd = await new Response(await readBoundedBody(req, 32768), { headers: { "Content-Type": req.headers.get("content-type") ?? "" } }).formData(); }
+  catch (error) { return NextResponse.json({ error: error instanceof RangeError ? "Input too large" : "Expected form data" }, { status: error instanceof RangeError ? 413 : 400 }); }
+  const text = fd.get("text");
+  const image = fd.get("image");
+  if (image !== null && (!(image instanceof File) || image.size > 0)) {
+    return NextResponse.json({ error: "Images are not processed because credentials cannot be filtered safely. Paste the relevant text without personal details." }, { status: 415 });
+  }
+  if (typeof text !== "string" || !text.trim() || text.length > 6000 || fd.getAll("text").length !== 1 || [...fd.keys()].some((key) => !["text", "image"].includes(key))) {
+    return NextResponse.json({ error: "Provide 1 to 6000 characters of text" }, { status: 400 });
+  }
   try {
-    const fd = await req.formData();
-    const rawText = (fd.get("text") as string | null) ?? "";
-    const imageFile = fd.get("image") as File | null;
-
-    // 1. Redact PII from text before any processing
-    const { redacted, entities } = redact(rawText);
+    const { redacted, entities } = redact(text);
     const identifiers = evidenceIdentifiers(entities);
-
-    // 2. Convert image to base64 if provided
-    let imageBase64: string | undefined;
-    if (imageFile) {
-      const buf = await imageFile.arrayBuffer();
-      imageBase64 = Buffer.from(buf).toString("base64");
-    }
-
-    // 3. Analyse. A bare identifier (link / UPI ID / phone number) carries no
-    //    narrative keywords, so it routes through the heuristic identifier
-    //    engine first and merges with whatever the pattern analysis found.
-    const textForAnalysis = redacted || rawText; // use redacted for AI, raw for local
-    const identifierVerdict = imageBase64 ? null : analyzeIdentifier(rawText.trim());
-    let dna = await analyzeWithAI(textForAnalysis, imageBase64);
-    if (identifierVerdict) {
-      dna = mergeWithPatternResult(identifierVerdict, dna);
-    }
+    const dna = await analyzeWithAI(redacted);
 
     // Inject exact matches from redaction that AI may have missed
     if (identifiers.length > 0) {
       const existing = new Set(dna.exactMatches.map((m) => m.value));
-      for (const id of identifiers) {
+      for (const id of identifiers.slice(0, 5)) {
         if (!existing.has(id.value)) {
           dna.exactMatches.push({ type: id.type, value: id.value });
         }
       }
     }
 
-    // 4. Increment crowdsourced scam count for identified phone/UPI/URL
-    if (identifierVerdict) {
-      const normalized = normalizeIdentifier(rawText.trim());
-      if (normalized) incrementCount(normalized).catch(() => {});
-    }
-
-    // 5. Create incident
+    // 4. Create incident
     const incident = await createIncident({
-      userId: session?.userId ?? null,
+      rawText: redacted,
       syntheticOnly: false,
-      rawText: (redacted || rawText).slice(0, 2000),
       dna,
-      tracks: tracksFor(dna),
+      tracks: dna.patternSlug
+        ? (["task-scam", "investment-pig-butchering", "upi-collect-request"].includes(dna.patternSlug)
+          ? ["money"]
+          : dna.patternSlug === "sextortion-image-threat"
+          ? ["content", "money", "safety"]
+          : dna.patternSlug === "digital-arrest"
+          ? ["money", "safety"]
+          : ["money"])
+        : ["money"],
       extractedFacts: [
         ...(dna.patternName ? [{ field: "Scam type", value: dna.patternName, source: "model" as const, confidence: dna.confidence, confirmationStatus: "unconfirmed" as const }] : []),
         ...dna.exactMatches.slice(0, 3).map((match) => ({ field: match.type, value: match.value, source: "user" as const, confidence: 0.9, confirmationStatus: "unconfirmed" as const })),
@@ -75,45 +52,7 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json({ id: incident.id, risk: dna.risk });
-  } catch (err) {
-    console.error("/api/analyze error:", err);
+  } catch {
     return NextResponse.json({ error: "Analysis failed" }, { status: 500 });
   }
-}
-
-// GET for the search-param flow from the homepage
-export async function GET(req: NextRequest) {
-  const session = await getSession();
-  if (!session) {
-    const loginUrl = new URL("/login", req.url);
-    loginUrl.searchParams.set("next", "/check");
-    return NextResponse.redirect(loginUrl);
-  }
-
-  const q = req.nextUrl.searchParams.get("q") ?? "";
-  if (!q) {
-    return NextResponse.redirect(new URL("/check", req.url));
-  }
-
-  const { redacted } = redact(q);
-  const identifierVerdict = analyzeIdentifier(q.trim());
-  let dna = analyzeLocal(redacted || q);
-  if (identifierVerdict) {
-    dna = mergeWithPatternResult(identifierVerdict, dna);
-  }
-
-  if (identifierVerdict) {
-    const normalized = normalizeIdentifier(q.trim());
-    if (normalized) incrementCount(normalized).catch(() => {});
-  }
-
-  const incident = await createIncident({
-    userId: session.userId,
-    rawText: redacted.slice(0, 500),
-    dna,
-    tracks: tracksFor(dna),
-    missingFacts: ["incident date and time", "bank or wallet", "financial amount"],
-  });
-
-  return NextResponse.redirect(new URL(`/check/${incident.id}`, req.url));
 }

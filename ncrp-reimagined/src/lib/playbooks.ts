@@ -114,7 +114,7 @@ Account [ACCOUNT], mobile [PHONE], ₹[AMOUNT] deducted unauthorisedly on [DATE]
       "Tap profile icon → Help → Dispute a Transaction",
       "Select the fraudulent transaction",
       "Tap 'Report as Fraud'",
-      "Your linked bank account is NOT automatically blocked, call your bank too",
+      "Your linked bank account is NOT automatically blocked — call your bank too",
     ],
     callScript: `"I want to report a fraudulent UPI transaction.
 Phone number [PHONE], UPI ID [UPI], amount ₹[AMOUNT] on [DATE].
@@ -136,7 +136,7 @@ I did not initiate this payment."`,
       "Open Google Pay",
       "Tap the transaction → 'Dispute this transaction'",
       "Select 'I didn't make this payment'",
-      "Also call your bank, GPay cannot freeze the destination bank account",
+      "Also call your bank — GPay cannot freeze the destination bank account",
     ],
     callScript: `"I need to report an unauthorised UPI payment made from my GPay.
 Registered number [PHONE], transaction ID [TXN_ID], ₹[AMOUNT] on [DATE].
@@ -195,38 +195,46 @@ The money was transferred without my consent."`,
     "Transaction or UTR reference number",
     "Scammer's UPI ID, phone, or bank account if shown",
   ],
-  note: "Call 1930 FIRST, even before the portal. The faster CFCFRMS receives the alert, the higher the chance of freezing the funds before the scammer withdraws.",
+  note: "Call 1930 FIRST — even before the portal. The faster CFCFRMS receives the alert, the higher the chance of freezing the funds before the scammer withdraws.",
 };
 
 // ─── Content track playbook ───────────────────────────────────────────────
 
-export const CONTENT_PLAYBOOK = {
+export const CONTENT_PLAYBOOK: {
+  steps: { id: string; title: string; body: string; links: { href: string; label: string }[] }[];
+  doNot: string[];
+  supportLine: string;
+} = {
   steps: [
     {
       id: "hash",
       title: "Fingerprint the image on your device",
-      body: "We create a digital fingerprint (hash) in your browser. The image never leaves your phone. This fingerprint can be used to automatically detect and block the content across participating platforms.",
+      body: "The optional fingerprint is computed in your browser without uploading the image. It is a local prototype, not a platform-compatible submission, and does not detect, block or remove content.",
+      links: [],
     },
     {
       id: "notice",
-      title: "Send a 24-hour takedown notice",
-      body: "IT Rules 2021, Rule 3(2)(b) requires platforms to remove this content within 24 hours of a complaint. We generate the notice and address it to the platform's named Grievance Officer.",
+      title: "Use the platform's official reporting process",
+      body: "Report through the platform's safety or grievance channel and keep its acknowledgement. Raksha does not send a notice or start a legal deadline. Applicable procedures depend on the complaint and platform.",
+      links: [{ href: "https://cybercrime.gov.in/", label: "National Cyber Crime Reporting Portal" }],
     },
     {
       id: "gac",
-      title: "If they don't comply, appeal to the GAC",
-      body: "If the platform misses the 24-hour window, you can appeal to the Grievance Appellate Committee (gac.gov.in) within 30 days. We draft that appeal when the clock expires.",
+      title: "Check whether a grievance appeal is available",
+      body: "Consult the Grievance Appellate Committee's current eligibility rules and timelines. Keep the platform complaint reference and response. Raksha does not file an appeal or determine eligibility.",
+      links: [{ href: "https://gac.gov.in/", label: "Grievance Appellate Committee" }],
     },
     {
       id: "stopncii",
-      title: "Proactive blocking via StopNCII",
-      body: "We hand off your hash to StopNCII.org, which shares it with participating platforms to proactively block re-uploads. Over 300,000 images removed, 90%+ removal rate.",
+      title: "Use a specialist service directly if eligible",
+      body: "Check StopNCII's eligibility for adults, or Take It Down for images taken before age 18. Use their own tools and instructions. Raksha does not hand off its local fingerprint, and these services cannot guarantee removal everywhere.",
+      links: [{ href: "https://stopncii.org/", label: "StopNCII" }, { href: "https://takeitdown.ncmec.org/", label: "Take It Down" }],
     },
   ],
   doNot: [
-    "Do not pay the person threatening you. Payment guarantees the demands continue.",
-    "Do not delete the chat or block them yet, preserve it as evidence first.",
-    "You have not done anything illegal. You can report this anonymously.",
+    "Do not pay the person threatening you. Payment does not guarantee the threats will stop.",
+    "Preserve messages if it is safe to do so, then block and report the account. Your immediate safety comes first.",
+    "You deserve support. Check the official reporting channel for its eligibility and anonymous-reporting options.",
   ],
   supportLine: "Tele-MANAS: 14416",
 };

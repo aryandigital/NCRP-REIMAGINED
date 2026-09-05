@@ -3,11 +3,11 @@
 import { useCallback, useEffect, useRef, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Check, Loader2, Square, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, FileImage, Fingerprint, Link2, MessageSquareText, Mic, PhoneCall, Search, ShieldCheck, Square, Upload } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import { createLocalImageFingerprint } from "@/lib/hash";
-import { detectIdentifier } from "@/lib/identifier";
-import { IconEvidence, IconGuide, IconRadar, IconVoice } from "@/components/icons";
+
+type Mode = "paste" | "voice" | "upload" | "identifier" | "private";
 
 type SpeechResultEvent = {
   resultIndex: number;
@@ -28,123 +28,112 @@ type SpeechRecognitionInstance = {
 type SpeechRecognitionConstructor = new () => SpeechRecognitionInstance;
 type VoiceWindow = Window & { SpeechRecognition?: SpeechRecognitionConstructor; webkitSpeechRecognition?: SpeechRecognitionConstructor; };
 
-type FingerprintState = "idle" | "hashing" | "ready" | "registering" | "error";
-
-const EXAMPLES = [
-  { label: "A suspicious link", value: "https://sbi-secure-kyc-verify.xyz/login" },
-  { label: "A strange UPI ID", value: "refund.helpdesk9034@ybl" },
-  { label: "A scam message", value: "Dear customer, your SBI account will be blocked today. Verify your KYC immediately or your account will be suspended. Call 9876543210." },
-] as const;
-
-function detectionLabel(text: string) {
-  const trimmed = text.trim();
-  if (!trimmed) return null;
-  const detected = detectIdentifier(trimmed);
-  if (!detected) {
-    if (trimmed.length < 4) return null;
-    return { label: "Reading this as a message", detail: "We compare the wording against scam scripts we hold" };
-  }
-  if (detected.kind === "url") return { label: "Reading this as a link", detail: "We check the address for phishing signals" };
-  if (detected.kind === "upi") return { label: "Reading this as a UPI ID", detail: "We check the handle against fraud patterns" };
-  return { label: "Reading this as a phone number", detail: "We check the number against scam indicators" };
-}
-
 function CheckForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [text, setText] = useState(() => searchParams.get("q") ?? "");
+  const requestedMode = searchParams.get("mode");
+  const [mode, setMode] = useState<Mode>("paste");
+  const [text, setText] = useState("");
+  const [identifier, setIdentifier] = useState("");
   const [file, setFile] = useState<File | null>(null);
-  const [filePreview, setFilePreview] = useState<string | null>(null);
   const [dragging, setDragging] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [hashing, setHashing] = useState(false);
+  const [localFingerprint, setLocalFingerprint] = useState("");
   const [voiceLanguage, setVoiceLanguage] = useState("en-IN");
   const [recording, setRecording] = useState(false);
   const [error, setError] = useState("");
-  const [scamCount, setScamCount] = useState<number | null>(null);
-
-  const [privateFile, setPrivateFile] = useState<File | null>(null);
-  const [fingerprint, setFingerprint] = useState("");
-  const [fingerprintState, setFingerprintState] = useState<FingerprintState>("idle");
-  const [copied, setCopied] = useState(false);
-  const [privateError, setPrivateError] = useState("");
-
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const privateInputRef = useRef<HTMLInputElement>(null);
   const recognitionRef = useRef<SpeechRecognitionInstance | null>(null);
-  const errorRef = useRef<HTMLDivElement>(null);
-  const draftLoadedRef = useRef(false);
-  const emergency = searchParams.get("mode") === "emergency";
-  const recovery = searchParams.get("mode") === "lost";
-
-  const detection = detectionLabel(text);
+  const [draftReady, setDraftReady] = useState(false);
+  const fileVersionRef = useRef(0);
+  const emergency = requestedMode === "emergency";
+  const recovery = requestedMode === "lost";
 
   useEffect(() => {
-    if (searchParams.get("q")) {
-      draftLoadedRef.current = true;
-      return;
-    }
     const timeout = window.setTimeout(() => {
+      if (emergency) {
+        setMode("paste");
+        setFile(null);
+        setLocalFingerprint("");
+        fileVersionRef.current += 1;
+        setHashing(false);
+      }
+      // Remove drafts left by earlier versions; never migrate sensitive text.
+      try { window.localStorage.removeItem("raksha-intake-draft"); } catch { /* storage blocked */ }
       try {
-        const saved = window.localStorage.getItem("raksha-intake-draft");
+        const saved = window.sessionStorage.getItem("raksha-intake-draft");
         if (saved) {
-          const draft = JSON.parse(saved) as { text?: string; voiceLanguage?: string };
-          if (draft.text) setText(draft.text);
-          if (draft.voiceLanguage) setVoiceLanguage(draft.voiceLanguage);
+          const draft = JSON.parse(saved) as { mode?: Mode; text?: string; identifier?: string; voiceLanguage?: string };
+          if (!emergency && draft.mode && ["paste", "voice", "upload", "identifier", "private"].includes(draft.mode)) setMode(draft.mode);
+          if (typeof draft.text === "string") setText(draft.text);
+          if (typeof draft.identifier === "string") setIdentifier(draft.identifier);
+          if (typeof draft.voiceLanguage === "string") setVoiceLanguage(draft.voiceLanguage);
         }
       } catch {
         // A blocked or malformed local draft should never stop intake.
       } finally {
-        draftLoadedRef.current = true;
+        setDraftReady(true);
       }
     }, 0);
     return () => window.clearTimeout(timeout);
-  }, [searchParams]);
+  }, [emergency]);
 
   useEffect(() => {
-    if (!draftLoadedRef.current) return;
+    if (!draftReady || loading) return;
     const timeout = window.setTimeout(() => {
-      window.localStorage.setItem("raksha-intake-draft", JSON.stringify({ text, voiceLanguage }));
+      try {
+        if (text || identifier) window.sessionStorage.setItem("raksha-intake-draft", JSON.stringify({ mode, text, identifier, voiceLanguage }));
+        else window.sessionStorage.removeItem("raksha-intake-draft");
+      } catch { /* Intake still works when storage is blocked or full. */ }
     }, 250);
     return () => window.clearTimeout(timeout);
-  }, [text, voiceLanguage]);
-
-  useEffect(() => () => recognitionRef.current?.stop(), []);
+  }, [draftReady, identifier, loading, mode, text, voiceLanguage]);
 
   useEffect(() => () => {
-    if (filePreview) URL.revokeObjectURL(filePreview);
-  }, [filePreview]);
+    fileVersionRef.current += 1;
+    if (recognitionRef.current) {
+      recognitionRef.current.onresult = null;
+      recognitionRef.current.onend = null;
+      recognitionRef.current.onerror = null;
+      recognitionRef.current.stop();
+    }
+  }, []);
 
-  // Error summaries take focus so the problem is announced, not just painted.
-  useEffect(() => {
-    if (error) errorRef.current?.focus();
-  }, [error]);
+  function clearFile() {
+    fileVersionRef.current += 1;
+    setFile(null);
+    setLocalFingerprint("");
+    setHashing(false);
+    setDragging(false);
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  }
 
-  // Fetch crowdsourced scam count for detected identifiers (phone / UPI / URL).
-  useEffect(() => {
-    const detected = detectIdentifier(text.trim());
-    if (!detected) { setScamCount(null); return; }
-    const timeout = window.setTimeout(() => {
-      fetch(`/api/scam-count?id=${encodeURIComponent(text.trim())}`)
-        .then((r) => r.json())
-        .then(({ count }: { count: number }) => setScamCount(count > 0 ? count : null))
-        .catch(() => setScamCount(null));
-    }, 400);
-    return () => window.clearTimeout(timeout);
-  }, [text]);
+  function changeMode(next: Mode) {
+    if (next === mode) return;
+    if (recognitionRef.current) {
+      recognitionRef.current.onresult = null;
+      recognitionRef.current.stop();
+    }
+    setRecording(false);
+    clearFile();
+    setMode(next);
+    setError("");
+  }
 
-  useEffect(() => {
-    const q = searchParams.get("q");
-    if (!q || q.trim().length <= 3) return;
-    const timeout = window.setTimeout(() => {
-      const form = new FormData();
-      form.append("text", q);
-      fetch("/api/analyze", { method: "POST", body: form })
-        .then((response) => response.json())
-        .then(({ id }: { id?: string }) => { if (id) router.push(`/check/${id}`); })
-        .catch(() => setError("We could not check that. Try again, or open the example case."));
-    }, 350);
-    return () => window.clearTimeout(timeout);
-  }, [router, searchParams]);
+  function clearDraft() {
+    if (recognitionRef.current) {
+      recognitionRef.current.onresult = null;
+      recognitionRef.current.stop();
+    }
+    setRecording(false);
+    setText("");
+    setIdentifier("");
+    clearFile();
+    setError("");
+    try { window.sessionStorage.removeItem("raksha-intake-draft"); } catch { /* storage blocked */ }
+    try { window.localStorage.removeItem("raksha-intake-draft"); } catch { /* storage blocked */ }
+  }
 
   const selectFile = useCallback((selected: File | undefined) => {
     if (!selected) return;
@@ -157,10 +146,9 @@ function CheckForm() {
       return;
     }
     setError("");
-    setFilePreview((previous) => {
-      if (previous) URL.revokeObjectURL(previous);
-      return URL.createObjectURL(selected);
-    });
+    fileVersionRef.current += 1;
+    setHashing(false);
+    setLocalFingerprint("");
     setFile(selected);
   }, []);
 
@@ -170,12 +158,6 @@ function CheckForm() {
     selectFile(event.dataTransfer.files[0]);
   }, [selectFile]);
 
-  function clearFile() {
-    setFile(null);
-    if (filePreview) URL.revokeObjectURL(filePreview);
-    setFilePreview(null);
-  }
-
   function toggleVoiceCapture() {
     if (recording) {
       recognitionRef.current?.stop();
@@ -184,7 +166,7 @@ function CheckForm() {
 
     const Recognition = (window as VoiceWindow).SpeechRecognition ?? (window as VoiceWindow).webkitSpeechRecognition;
     if (!Recognition) {
-      setError("Voice input is not available in this browser. Type or paste instead.");
+      setError("Voice capture is not supported in this browser. Use the text box instead.");
       return;
     }
 
@@ -199,347 +181,182 @@ function CheckForm() {
     };
     recognition.onerror = () => {
       setRecording(false);
-      setError("Voice input stopped. Check microphone access, or continue by typing.");
+      setError("Voice capture stopped. Check microphone access or continue by typing the transcript.");
     };
     recognition.onend = () => setRecording(false);
     recognitionRef.current = recognition;
     setError("");
     setRecording(true);
-    recognition.start();
+    try { recognition.start(); } catch {
+      setRecording(false);
+      setError("Voice capture could not start. Continue by typing instead.");
+    }
   }
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
+    if (loading || hashing || !draftReady) return;
     setError("");
 
-    const body = text.trim();
-    if (!body && !file) {
-      setError("Paste a message, number, UPI ID, or link, or attach a screenshot.");
+    if (mode === "upload") {
+      setError("Screenshot analysis is unavailable in this prototype. Use Message to type or paste fictional visible message text instead.");
+      return;
+    }
+
+    if (mode === "private") {
+      if (!file) {
+        setError("Choose the image you want to fingerprint on this device.");
+        return;
+      }
+      setHashing(true);
+      const version = fileVersionRef.current;
+      try {
+        const fingerprint = await createLocalImageFingerprint(file);
+        if (fileVersionRef.current === version) setLocalFingerprint(fingerprint);
+      } catch {
+        if (fileVersionRef.current === version) setError("This image could not be fingerprinted in the browser.");
+      } finally {
+        if (fileVersionRef.current === version) setHashing(false);
+      }
+      return;
+    }
+
+    const body = (mode === "identifier" ? identifier : text).trim();
+    if (!body) {
+      setError("Enter fictional message text or an example identifier to check.");
       return;
     }
 
     setLoading(true);
     try {
       const form = new FormData();
-      if (body) form.append("text", body);
-      if (file) form.append("image", file);
+      form.append("text", body);
       const response = await fetch("/api/analyze", { method: "POST", body: form });
       if (!response.ok) throw new Error("Analysis failed");
       const { id } = await response.json() as { id: string };
+      if (!id || typeof id !== "string") throw new Error("Missing incident ID");
+      try { window.sessionStorage.removeItem("raksha-intake-draft"); } catch { /* storage blocked */ }
       router.push(`/check/${id}`);
     } catch {
-      setError("We could not check that right now. Try again, or open the example case.");
+      setError("Analysis is unavailable right now. Use the example case or try again.");
       setLoading(false);
     }
   }
 
-  // ── Private photo protection ──────────────────────────────────────────────
-
-  const selectPrivateFile = useCallback(async (selected: File | undefined) => {
-    if (!selected) return;
-    if (!selected.type.startsWith("image/")) {
-      setPrivateError("Choose a PNG, JPG, WEBP, or HEIC image.");
-      return;
-    }
-    if (selected.size > 8 * 1024 * 1024) {
-      setPrivateError("Keep the image under 8 MB.");
-      return;
-    }
-    setPrivateError("");
-    setCopied(false);
-    setFingerprint("");
-    setPrivateFile(selected);
-
-    // Protection starts the moment the photo is chosen. No extra click, no dead end.
-    setFingerprintState("hashing");
-    try {
-      const code = await createLocalImageFingerprint(selected);
-      setFingerprint(code);
-      setFingerprintState("ready");
-    } catch {
-      setFingerprintState("error");
-      setPrivateError("This photo could not be processed here. Try a different image.");
-    }
-  }, []);
-
-  function clearPrivateFile() {
-    setPrivateFile(null);
-    setFingerprint("");
-    setFingerprintState("idle");
-    setCopied(false);
-    setPrivateError("");
-  }
-
-  async function copyFingerprint() {
-    try {
-      await navigator.clipboard.writeText(fingerprint);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 2000);
-    } catch {
-      setPrivateError("Copy did not work. Select the code and copy it manually.");
-    }
-  }
-
-  async function registerFingerprint() {
-    if (!fingerprint) return;
-    setFingerprintState("registering");
-    setPrivateError("");
-    try {
-      const response = await fetch("/api/fingerprint", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ fingerprint }),
-      });
-      if (!response.ok) throw new Error("Registration failed");
-      const { id } = await response.json() as { id: string };
-      router.push(`/check/${id}`);
-    } catch {
-      setFingerprintState("ready");
-      setPrivateError("We could not open your case right now. Your code above still works, copy it and keep it, then try again.");
-    }
-  }
+  const tabs: Array<{ id: Mode; label: string; icon: typeof MessageSquareText }> = [
+    { id: "paste", label: "Message", icon: MessageSquareText },
+    { id: "voice", label: "Voice", icon: Mic },
+    { id: "upload", label: "Screenshot (unavailable)", icon: FileImage },
+    { id: "identifier", label: "Number or link", icon: Link2 },
+    { id: "private", label: "Private image hash", icon: Fingerprint },
+  ];
 
   return (
     <div className="min-h-[100dvh] bg-paper">
       <SiteHeader current="check" />
-      <main id="main-content" className="public-shell py-8 sm:py-12">
+      <main id="main-content" lang="en" className="public-shell py-8 sm:py-12">
+        <section aria-label="Immediate help" className="panel mb-6 border-danger/40 bg-danger-soft p-4">
+          <p className="text-sm font-bold text-ink">You do not need to finish this form to get help.</p>
+          <div className="mt-3 flex flex-wrap gap-3">
+            <a href="tel:112" className="inline-flex min-h-11 items-center rounded-[8px] bg-danger px-4 text-sm font-bold text-white">Call 112: immediate danger</a>
+            <a href="tel:1930" className="inline-flex min-h-11 items-center rounded-[8px] bg-danger px-4 text-sm font-bold text-white">Call 1930: financial cyber fraud</a>
+          </div>
+        </section>
         <div className="stage-rail bg-surface" aria-label="Incident stages">
           {["Triage", "Tell the story", "Confirm facts", "Act and track"].map((label, index) => <div key={label} className={index === 0 ? "is-active" : "opacity-60"}><span className="block font-mono text-[10px] font-bold">0{index + 1}</span><span className="mt-1 block text-xs font-bold">{label}</span></div>)}
         </div>
 
-        <div className="mt-8">
+        <div className="mx-auto mt-8 max-w-3xl">
           <Link href="/" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-ink-soft hover:text-service"><ArrowLeft size={16} aria-hidden="true" /> Back to response desk</Link>
+          <div className="mt-7 grid gap-8 lg:grid-cols-[minmax(0,1fr)_240px] lg:items-start">
+            <div>
+              <p className="kicker">Step 01 / incident intake</p>
+              <h1 className="mt-3 text-3xl font-bold tracking-[-.04em] text-ink sm:text-4xl">Show us what happened.</h1>
+              <p className="mt-4 max-w-xl text-base leading-7 text-ink-soft">Use fictional data only to explore possible scam patterns and suggested next steps. This prototype is not ready for real victim data. Guidance can be wrong; this is not an official report.</p>
 
-          <div className="mt-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-2xl">
-              <p className="kicker">Step 01 / tell us what happened</p>
-              <h1 className="display mt-3 text-4xl text-ink sm:text-5xl">Show us what happened.</h1>
-              <p className="mt-3 text-[17px] leading-8 text-ink-soft">Paste anything you received. We work out what it is and check it for you.</p>
-              <p className="mt-2.5 text-sm leading-6 text-ink-faint">Take as long as you need. Nothing is checked until you choose to continue, and you can ask someone you trust to help you with this.</p>
+              {(emergency || recovery) && <div className={`mt-6 panel p-4 ${emergency ? "border-danger/40 bg-danger-soft" : "border-warning/40 bg-warning-soft"}`}><p className={`text-sm font-bold ${emergency ? "text-danger" : "text-warning"}`}>{emergency ? "If money is leaving now, call 1930 before you finish this form." : "Start with the incident record. We will keep the recovery actions in view."}</p><p className="mt-2 text-xs leading-5 text-ink-soft">This environment does not transmit reports to authorities.</p></div>}
+
+              <form onSubmit={handleSubmit} className="mt-7 space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-ink-soft">
+                  <p>Fictional text drafts are kept in this tab&apos;s session. Session storage is not a privacy guarantee; do not enter real victim data.</p>
+                  <button type="button" onClick={clearDraft} disabled={!draftReady || loading} className="min-h-11 font-bold text-service underline underline-offset-4">Clear draft and image</button>
+                </div>
+                <div className="panel p-2">
+                  <div className="grid grid-cols-2 gap-1 sm:grid-cols-3" role="group" aria-label="Choose intake method">
+                    {tabs.map((tab) => { const Icon = tab.icon; return <button key={tab.id} type="button" aria-pressed={mode === tab.id} disabled={loading || !draftReady} onClick={() => changeMode(tab.id)} className={`flex min-h-11 items-center justify-center gap-2 rounded-[8px] px-2 text-xs font-bold sm:px-3 ${mode === tab.id ? "bg-command text-white" : "text-ink-soft hover:bg-paper hover:text-ink"}`}><Icon size={15} aria-hidden="true" /><span>{tab.label}</span></button>; })}
+                  </div>
+                </div>
+
+                {mode === "paste" && <div className="panel p-5"><label htmlFor="incident-message" className="block text-sm font-bold text-ink">Paste the message or conversation</label><textarea id="incident-message" value={text} onChange={(event) => setText(event.target.value)} placeholder={'Example: Your SBI account will be blocked. Share the OTP to verify.'} className="mt-3 min-h-[190px] w-full resize-y rounded-[8px] border border-line bg-paper px-4 py-3 text-sm leading-6 text-ink placeholder:text-ink-faint focus:border-service focus:bg-surface focus:outline-none" /><p className="mt-3 text-xs leading-5 text-ink-faint">English, Hindi, and Hinglish input are accepted. Avoid entering real personal information in this environment.</p></div>}
+
+                {mode === "voice" && <div className="panel p-5">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                    <div>
+                      <p className="block text-sm font-bold text-ink">Tell the story in your own words</p>
+                      <p className="mt-2 text-xs leading-5 text-ink-soft">Optional browser speech recognition may send audio to your browser&apos;s speech provider. On-device processing is not guaranteed. Language availability and accuracy vary.</p>
+                    </div>
+                    <label className="block sm:w-40">
+                      <span className="block text-[10px] font-bold uppercase tracking-[.1em] text-ink-faint">Voice language</span>
+                      <select id="voice-language" value={voiceLanguage} onChange={(event) => setVoiceLanguage(event.target.value)} className="mt-2 min-h-11 w-full rounded-[8px] border border-line bg-paper px-3 text-xs font-semibold text-ink focus:border-service focus:bg-surface focus:outline-none">
+                        <option value="en-IN">English / India</option>
+                        <option value="hi-IN">हिन्दी</option>
+                        <option value="ta-IN">தமிழ்</option>
+                        <option value="te-IN">తెలుగు</option>
+                        <option value="bn-IN">বাংলা</option>
+                        <option value="mr-IN">मराठी</option>
+                      </select>
+                    </label>
+                  </div>
+                  <button type="button" onClick={toggleVoiceCapture} className={`mt-5 inline-flex min-h-12 items-center justify-center gap-2 rounded-[8px] px-4 text-sm font-bold ${recording ? "bg-danger text-white" : "bg-command text-white"}`} aria-pressed={recording}>{recording ? <Square size={15} aria-hidden="true" /> : <Mic size={16} aria-hidden="true" />}{recording ? "Stop recording" : "Start recording"}</button>
+                  <label htmlFor="voice-transcript" className="mt-5 block text-sm font-bold text-ink">Transcript</label>
+                  <textarea id="voice-transcript" value={text} onChange={(event) => setText(event.target.value)} placeholder="Your words will appear here. You can edit them before analysis." className="mt-3 min-h-[170px] w-full resize-y rounded-[8px] border border-line bg-paper px-4 py-3 text-sm leading-6 text-ink placeholder:text-ink-faint focus:border-service focus:bg-surface focus:outline-none" />
+                  <p className="mt-3 text-xs leading-5 text-ink-soft">Review the transcript before analysis. Starting recording may send audio to the speech provider; Raksha receives the transcript only when you submit it.</p>
+                </div>}
+
+                {mode === "upload" && <section className="panel border-warning/40 bg-warning-soft p-5" aria-labelledby="screenshot-unavailable">
+                  <h2 id="screenshot-unavailable" className="text-sm font-bold text-ink">Screenshot analysis is unavailable in this prototype.</h2>
+                  <p className="mt-3 text-sm leading-6 text-ink-soft">Image uploads are disabled because sensitive details in images cannot be reliably filtered. To try the demo, type or paste the visible message in Message using fictional names, numbers, and other details. Do not upload or transcribe real victim data.</p>
+                  <button type="button" onClick={() => changeMode("paste")} className="mt-4 inline-flex min-h-11 items-center rounded-[8px] bg-command px-4 text-sm font-bold text-white">Type or paste a fictional message</button>
+                  <p className="mt-3 text-xs leading-5 text-ink-soft">Private image hash remains a separate local-only demo. It does not analyse screenshot text or upload the image.</p>
+                </section>}
+
+                {mode === "private" && <div>
+                  <div onDragOver={(event) => { event.preventDefault(); setDragging(true); }} onDragLeave={() => setDragging(false)} onDrop={handleDrop} className={`panel border-2 border-dashed p-6 text-center ${dragging ? "border-service bg-service-soft" : file ? "border-success bg-success-soft" : "hover:border-service hover:bg-service-soft/40"}`}>
+                    <input ref={fileInputRef} type="file" accept="image/*" aria-label="Choose a fictional test image for local hashing" className="hidden" onChange={(event) => selectFile(event.target.files?.[0])} />
+                    <button type="button" onClick={() => fileInputRef.current?.click()} className="mb-3 inline-flex min-h-11 items-center rounded-[8px] bg-command px-4 text-sm font-bold text-white">{file ? "Choose another image" : "Choose image"}</button>
+                    {file ? <>
+                      <Check size={28} className="mx-auto text-success" aria-hidden="true" />
+                      <p className="mt-3 break-all text-sm font-bold text-ink">{file.name}</p>
+                      <p className="mt-1 text-xs text-ink-soft">{(file.size / 1024 / 1024).toFixed(1)} MB selected</p>
+                      <button type="button" onClick={clearFile} className="mt-3 min-h-11 px-3 text-xs font-bold text-danger underline underline-offset-2">Remove image</button>
+                    </> : <>
+                      <Upload size={26} className="mx-auto text-service" aria-hidden="true" />
+                      <p className="mt-3 text-sm font-bold text-ink">Or drop an image here</p>
+                      <p className="mt-1 text-xs text-ink-soft">PNG, JPG, WEBP, and HEIC up to 8 MB</p>
+                    </>}</div>
+                  <div className="mt-4 panel-tight border-service/30 bg-service-soft p-4">
+                    <div className="flex gap-3">
+                      <Fingerprint size={20} className="mt-0.5 shrink-0 text-service" aria-hidden="true" />
+                      <div>
+                        <p className="text-sm font-bold text-ink">Local fingerprinting</p>
+                        <p className="mt-1 text-xs leading-5 text-ink-soft">Use a fictional test image only. This operation creates a perceptual fingerprint in your browser without uploading the image. It does not register protection or remove content. For real intimate-image protection, use the official StopNCII process.</p>{localFingerprint && <p className="mono-ref mt-3 break-all text-[11px] font-bold text-service">Fingerprint: {localFingerprint}</p>}</div>
+                    </div>
+                  </div></div>}
+
+                {mode === "identifier" && <div className="panel p-5"><label htmlFor="incident-identifier" className="block text-sm font-bold text-ink">Enter a phone number, UPI ID, or link</label><div className="relative mt-3"><Search size={17} className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-faint" aria-hidden="true" /><input id="incident-identifier" value={identifier} onChange={(event) => setIdentifier(event.target.value)} placeholder="Example: seller@ybl or https://example.com" className="min-h-12 w-full rounded-[8px] border border-line bg-paper pl-10 pr-3 text-sm text-ink placeholder:text-ink-faint focus:border-service focus:bg-surface focus:outline-none" /></div><p className="mt-3 text-xs leading-5 text-ink-faint">Identifiers are analysed as incident evidence. Never enter real account numbers or OTPs.</p></div>}
+
+                {error && <div role="alert" className="panel border-danger/40 bg-danger-soft p-4 text-sm font-semibold text-danger">{error}</div>}
+
+                {mode !== "upload" && <button type="submit" disabled={!draftReady || loading || hashing} className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[10px] bg-service px-5 text-sm font-bold text-white hover:bg-command disabled:cursor-not-allowed disabled:opacity-60">{loading ? "Analysing the incident..." : hashing ? "Creating local fingerprint..." : mode === "private" ? "Create local fingerprint" : "Analyse this incident"}{!loading && !hashing && <ArrowRight size={17} aria-hidden="true" />}</button>}
+              </form>
+
+              <div className="mt-6 text-center"><p className="text-xs text-ink-faint">Want to see the complete response path?</p><Link href="/check/DEMO0001" className="mt-2 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-service hover:text-ink">Open the example task-scam case <ArrowRight size={15} aria-hidden="true" /></Link></div>
             </div>
-            <Link href="/check/DEMO0001" className="inline-flex min-h-11 shrink-0 items-center gap-2 text-sm font-bold text-service hover:text-ink">See a worked example <ArrowRight size={15} aria-hidden="true" /></Link>
-          </div>
 
-          {(emergency || recovery) && <div className={`mt-6 p-5 ${emergency ? "notice notice-danger" : "notice notice-warning"}`}><p className={`text-[15px] font-bold ${emergency ? "text-danger" : "text-warning"}`}>{emergency ? "If money is leaving now, call 1930 before you finish this form." : "Start with the incident record. We will keep the recovery actions in view."}</p><p className="mt-2 text-sm leading-6 text-ink-soft">This environment does not transmit reports to authorities.</p></div>}
-
-          <div className="mt-8 grid gap-6 lg:grid-cols-[1.55fr_1fr] lg:items-start">
-            {/* ── One box, every input type ────────────────────────────────── */}
-            <form onSubmit={handleSubmit} className="panel overflow-hidden">
-              <div className="flex items-start gap-3 border-b border-line px-5 py-5 sm:px-7">
-                <IconEvidence size={20} className="mt-0.5 shrink-0 text-service" aria-hidden="true" />
-                <div>
-                  <p className="text-[15px] font-bold text-ink">What did they send you?</p>
-                  <p className="mt-1.5 text-sm leading-6 text-ink-soft">A message, a phone number, a UPI ID, or a link. One box takes all of them.</p>
-                </div>
-              </div>
-
-              <div className="px-5 py-6 sm:px-7">
-                <div className={`relative rounded-[4px] border bg-paper transition-colors ${dragging ? "border-service" : detection ? "border-service/50" : "border-line"} focus-within:border-service`}>
-                  <label htmlFor="incident-input" className="sr-only">Paste the message, phone number, UPI ID, or link</label>
-                  <textarea
-                    id="incident-input"
-                    value={text}
-                    onChange={(event) => setText(event.target.value)}
-                    onDragOver={(event) => { event.preventDefault(); setDragging(true); }}
-                    onDragLeave={() => setDragging(false)}
-                    onDrop={handleDrop}
-                    placeholder={"Paste here, a message, phone number, UPI ID, or link.\nYou can also drop a screenshot onto this box."}
-                    rows={6}
-                    className="min-h-[168px] w-full resize-y rounded-[4px] bg-transparent px-4 pb-16 pt-4 text-[15px] leading-7 text-ink placeholder:text-ink-faint focus:outline-none"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-center gap-2 rounded-b-[12px] border-t border-line bg-surface/70 px-3 py-2.5">
-                    <button type="button" onClick={toggleVoiceCapture} aria-pressed={recording} className={`inline-flex min-h-11 items-center gap-2 rounded-[3px] px-3 text-[13px] font-bold ${recording ? "bg-danger text-white" : "text-ink-soft hover:bg-paper hover:text-ink"}`}>
-                      {recording ? <Square size={14} aria-hidden="true" /> : <IconVoice size={16} aria-hidden="true" />}
-                      {recording ? "Stop" : "Speak instead"}
-                    </button>
-                    <label className="sr-only" htmlFor="voice-language">Voice language</label>
-                    <select id="voice-language" value={voiceLanguage} onChange={(event) => setVoiceLanguage(event.target.value)} className="min-h-11 rounded-[3px] border border-line bg-paper px-2.5 text-xs font-semibold text-ink focus:border-service focus:outline-none">
-                      <option value="en-IN">English</option>
-                      <option value="hi-IN">हिन्दी</option>
-                      <option value="ta-IN">தமிழ்</option>
-                      <option value="te-IN">తెలుగు</option>
-                      <option value="bn-IN">বাংলা</option>
-                      <option value="mr-IN">मराठी</option>
-                    </select>
-                    <span className="mx-1 hidden h-5 w-px bg-line-strong sm:block" aria-hidden="true" />
-                    <button type="button" onClick={() => fileInputRef.current?.click()} className="inline-flex min-h-11 items-center gap-2 rounded-[3px] px-3 text-[13px] font-bold text-ink-soft hover:bg-paper hover:text-ink">
-                      <IconRadar size={16} aria-hidden="true" />
-                      Add screenshot
-                    </button>
-                    <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={(event) => selectFile(event.target.files?.[0])} />
-                    {detection && (
-                      <span className="ml-auto inline-flex min-h-11 items-center gap-2 rounded-[3px] bg-service-soft px-3 text-xs font-bold text-service">
-                        <span className="h-1.5 w-1.5 rounded-full bg-service" aria-hidden="true" />
-                        {detection.label}
-                      </span>
-                    )}
-                    {scamCount !== null && (
-                      <span className="inline-flex min-h-11 items-center gap-2 rounded-[3px] bg-[var(--color-danger-soft,#ffeaea)] px-3 text-xs font-bold text-[var(--color-danger,#ba1a1a)]">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-danger,#ba1a1a)]" aria-hidden="true" />
-                        {scamCount} {scamCount === 1 ? "person" : "people"} reported this
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                {detection && <p className="mt-2.5 text-sm text-ink-faint">{detection.detail}.</p>}
-
-                {file && (
-                  <div className="mt-4 flex items-center gap-3 notice notice-success p-3">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    {filePreview && <img src={filePreview} alt="" className="h-12 w-12 rounded-[3px] object-cover" />}
-                    <div className="min-w-0 flex-1">
-                      <p className="truncate text-sm font-bold text-ink">{file.name}</p>
-                      <p className="mt-0.5 text-xs text-ink-soft">Added as evidence · {(file.size / 1024 / 1024).toFixed(1)} MB</p>
-                    </div>
-                    <button type="button" onClick={clearFile} className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-[3px] px-3 text-xs font-bold text-ink-soft hover:bg-paper hover:text-danger">
-                      <X size={14} aria-hidden="true" /> Remove
-                    </button>
-                  </div>
-                )}
-
-                {!text && !file && (
-                  <div className="mt-4 flex flex-wrap items-center gap-2">
-                    <span className="text-xs font-semibold text-ink-faint">Not sure what to paste? Try one:</span>
-                    {EXAMPLES.map((example) => (
-                      <button key={example.label} type="button" onClick={() => { setText(example.value); setError(""); }} className="inline-flex min-h-11 items-center rounded-[3px] border border-line px-3.5 text-xs font-bold text-ink-soft hover:border-service hover:text-service">
-                        {example.label}
-                      </button>
-                    ))}
-                  </div>
-                )}
-
-                {error && (
-                  <div ref={errorRef} tabIndex={-1} role="alert" className="mt-5 notice notice-danger p-4">
-                    <p className="text-sm font-bold text-danger">There is a problem</p>
-                    <p className="mt-1.5 text-sm leading-6 text-ink">{error}</p>
-                  </div>
-                )}
-
-                <button type="submit" disabled={loading} className="mt-6 inline-flex min-h-14 w-full items-center justify-center gap-2.5 rounded-[3px] bg-service px-5 text-base font-bold text-white hover:bg-[var(--saffron-deep)] disabled:cursor-not-allowed disabled:opacity-60">
-                  {loading ? <Loader2 size={18} className="animate-spin" aria-hidden="true" /> : null}
-                  {loading ? "Checking this..." : "Check this for me"}
-                  {!loading && <ArrowRight size={17} aria-hidden="true" />}
-                </button>
-
-                <div className="mt-5 notice notice-service p-4">
-                  <p className="text-xs font-bold text-ink">Raksha will never ask for your OTP, PIN, card number, or password.</p>
-                  <p className="mt-1.5 text-xs leading-5 text-ink-soft">Do not type those here. Personal details are masked before anything is checked. Nobody who calls offering to recover your money for a fee is genuine.</p>
-                </div>
-              </div>
-            </form>
-
-            {/* ── Private photo protection ─────────────────────────────────── */}
-            <section className="panel overflow-hidden" aria-labelledby="photo-protection-heading">
-              <div className="border-b border-line px-5 py-5 sm:px-6">
-                <div className="flex items-start gap-3">
-                  <IconGuide size={20} className="mt-0.5 shrink-0 text-service" aria-hidden="true" />
-                  <div>
-                    <p id="photo-protection-heading" className="text-[15px] font-bold text-ink">Is someone threatening to share your photos?</p>
-                    <p className="mt-1.5 text-sm leading-6 text-ink-soft">You can act on it here without showing the photo to anyone, including us.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="px-5 py-6 sm:px-6">
-                {fingerprintState === "idle" && (
-                  <>
-                    <div className="notice notice-warning p-4">
-                      <p className="text-xs font-bold leading-5 text-warning">Do NOT send, share, or download any photo or video in order to use this.</p>
-                      <p className="mt-1.5 text-xs leading-5 text-ink-soft">Only use a photo that is already on this device.</p>
-                    </div>
-
-                    <button type="button" onClick={() => privateInputRef.current?.click()} className="mt-4 flex w-full cursor-pointer flex-col items-center rounded-[4px] border-2 border-dashed border-line px-4 py-9 text-center transition-colors hover:border-service hover:bg-service-soft/40">
-                      <IconGuide size={28} className="text-service" aria-hidden="true" />
-                      <span className="mt-3 text-[15px] font-bold text-ink">Choose the photo to protect</span>
-                      <span className="mt-1.5 text-xs text-ink-soft">A photo will not be shown on this screen</span>
-                    </button>
-                    <input ref={privateInputRef} type="file" accept="image/*" className="hidden" onChange={(event) => selectPrivateFile(event.target.files?.[0])} />
-
-                    <p className="mt-4 text-sm font-bold leading-6 text-ink">Your photo will not leave this device. Only a code made from it is sent, never the photo itself.</p>
-                    <ol className="mt-3.5 space-y-3">
-                      {[
-                        "Pick the photo someone is threatening to share.",
-                        "This device turns it into a unique code, like a fingerprint for that photo. Nobody sees the photo, including us.",
-                        "Register the code to open your case and get the steps that apply to you.",
-                      ].map((step, index) => (
-                        <li key={step} className="flex gap-3 text-sm leading-6 text-ink-soft">
-                          <span className="mt-0.5 font-mono text-[11px] font-bold text-service">0{index + 1}</span>
-                          <span>{step}</span>
-                        </li>
-                      ))}
-                    </ol>
-                    <p className="mt-4 text-xs leading-5 text-ink-faint">You do not have to give your name to use this.</p>
-                  </>
-                )}
-
-                {fingerprintState !== "idle" && (
-                  <div>
-                    {/* The photo is deliberately never rendered back to the screen. */}
-                    <div className="flex items-center gap-3 rounded-[3px] border border-line bg-paper p-3.5">
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[3px] bg-service-soft text-service"><IconGuide size={18} aria-hidden="true" /></span>
-                      <div className="min-w-0 flex-1">
-                        <p className="truncate text-sm font-bold text-ink">{privateFile?.name}</p>
-                        <p className="mt-0.5 text-xs text-ink-soft">Kept on this device. Not shown, not uploaded.</p>
-                      </div>
-                      <button type="button" onClick={clearPrivateFile} className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-[3px] px-3 text-xs font-bold text-ink-soft hover:bg-surface hover:text-danger">
-                        <X size={14} aria-hidden="true" /> Remove
-                      </button>
-                    </div>
-
-                    {fingerprintState === "hashing" && (
-                      <div className="mt-4 flex items-center gap-3 rounded-[3px] border border-service/30 bg-service-soft p-4">
-                        <Loader2 size={18} className="shrink-0 animate-spin text-service" aria-hidden="true" />
-                        <p className="text-sm font-semibold leading-6 text-ink">Making your code on this device…</p>
-                      </div>
-                    )}
-
-                    {(fingerprintState === "ready" || fingerprintState === "registering") && (
-                      <div className="mt-4">
-                        <div className="flex items-center gap-2 text-success">
-                          <Check size={18} aria-hidden="true" />
-                          <p className="text-[15px] font-bold">Your photo is protected.</p>
-                        </div>
-                        <p className="mt-2.5 text-sm leading-6 text-ink-soft">
-                          A code has been sent from this device, but not the photo itself. Your photo has not been shared and it stays on this device.
-                        </p>
-                        <p className="mt-2.5 text-sm leading-6 text-ink-soft">
-                          Any copy of the same photo produces the same code, so a platform can find and block it without ever seeing it.
-                        </p>
-                        <div className="mt-4 flex items-stretch gap-2">
-                          <code className="mono-ref min-w-0 flex-1 break-all rounded-[3px] border border-line bg-paper px-3 py-3 text-[11px] font-bold leading-5 text-service">{fingerprint}</code>
-                          <button type="button" onClick={copyFingerprint} className="inline-flex min-h-11 w-20 shrink-0 flex-col items-center justify-center gap-1 rounded-[3px] border border-line bg-surface text-[10px] font-bold text-ink-soft hover:border-service hover:text-service">
-                            {copied ? <Check size={15} aria-hidden="true" /> : null}
-                            {copied ? "Copied" : "Copy code"}
-                          </button>
-                        </div>
-                        <button type="button" onClick={registerFingerprint} disabled={fingerprintState === "registering"} className="mt-4 inline-flex min-h-14 w-full items-center justify-center gap-2.5 rounded-[3px] bg-service px-4 text-base font-bold text-white hover:bg-[var(--saffron-deep)] disabled:cursor-not-allowed disabled:opacity-60">
-                          {fingerprintState === "registering" ? <Loader2 size={17} className="animate-spin" aria-hidden="true" /> : null}
-                          {fingerprintState === "registering" ? "Opening your case..." : "Open my case"}
-                          {fingerprintState !== "registering" && <ArrowRight size={16} aria-hidden="true" />}
-                        </button>
-                        <p className="mt-3.5 text-xs leading-5 text-ink-faint">
-                          This opens a case with the steps that apply to you. To have images blocked across participating platforms, also create a case at StopNCII.org, it works the same way, and your images stay on your device there too.
-                        </p>
-                      </div>
-                    )}
-
-                    {fingerprintState === "error" && (
-                      <button type="button" onClick={() => privateInputRef.current?.click()} className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[3px] border border-line px-4 text-sm font-bold text-ink hover:border-service">
-                        Try another photo
-                      </button>
-                    )}
-
-                    {privateError && (
-                      <div role="alert" className="mt-4 notice notice-danger p-4">
-                        <p className="text-sm font-bold text-danger">There is a problem</p>
-                        <p className="mt-1.5 text-sm leading-6 text-ink">{privateError}</p>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            </section>
+            <aside className="space-y-4 lg:pt-8">
+              <div className="panel border-danger/35 bg-danger-soft p-5"><PhoneCall size={20} className="text-danger" aria-hidden="true" /><p className="mt-3 text-sm font-bold text-danger">Money moving now?</p><p className="mt-2 text-xs leading-5 text-ink-soft">Call 1930 immediately. This intake can wait.</p></div>
+              <div className="panel p-5"><ShieldCheck size={20} className="text-ink-soft" aria-hidden="true" /><p className="mt-3 text-sm font-bold text-ink">Prototype limits</p><p className="mt-2 text-xs leading-5 text-ink-soft">Fictional data only. Production authentication and security are not verified. Submitted text leaves your device, and automated redaction can miss details. Screenshot uploads are disabled. Local hashing is not a guarantee of privacy for real victims.</p></div>
+            </aside>
           </div>
         </div>
       </main>

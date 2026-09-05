@@ -4,12 +4,12 @@ import { MessageCircle, Mic } from "lucide-react";
 import { useRakshaLanguage } from "@/hooks/useRakshaLanguage";
 
 const LABELS = {
-  en: "Not sure what to do? Get step-by-step help",
-  hi: "समझ नहीं आ रहा? कदम-दर-कदम मदद पाएँ",
-  ta: "என்ன செய்வது என தெரியவில்லையா? படிப்படியான உதவி பெறுங்கள்",
-  te: "ఏం చేయాలో తెలియదా? దశలవారీగా సహాయం పొందండి",
-  bn: "কী করবেন বুঝতে পারছেন না? ধাপে ধাপে সাহায্য নিন",
-  mr: "काय करावे समजत नाही? टप्प्याटप्प्याने मदत मिळवा",
+  en: "Talk or type to Raksha",
+  hi: "रक्षा से बोलिए या लिखिए",
+  ta: "ரக்ஷாவிடம் பேசுங்கள் அல்லது எழுதுங்கள்",
+  te: "రక్షతో మాట్లాడండి లేదా టైప్ చేయండి",
+  bn: "রক্ষার সাথে বলুন বা লিখুন",
+  mr: "रक्षाशी बोला किंवा लिहा",
 } as const;
 
 export default function OpenSamvaadButton({ emphasis = false }: { emphasis?: boolean }) {

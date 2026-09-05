@@ -47,7 +47,7 @@ export interface DnaResult {
   patternSlug: string | null;
   patternConfidence: number;
   currentStageId: string | null;
-  /** Quoted from the citizen's own material, never generic. */
+  /** Quoted from the citizen's own material — never generic. */
   signals: string[];
   likelyNextMove: string | null;
   doNot: string[];
@@ -173,7 +173,7 @@ export const journeyMachine = setup({
       on: { START_CHECK: "check" },
     },
 
-    /** Stage 1, Check. Upload, paste, or describe. */
+    /** Stage 1 — Check. Upload, paste, or describe. */
     check: {
       initial: "collecting",
       states: {
@@ -197,7 +197,7 @@ export const journeyMachine = setup({
       },
     },
 
-    /** Stage 2 gate, what has already happened determines the ordering. */
+    /** Stage 2 gate — what has already happened determines the ordering. */
     triage: {
       on: {
         ANSWER: { actions: "storeAnswers" },
@@ -208,7 +208,7 @@ export const journeyMachine = setup({
       },
     },
 
-    /** Stage 2, Act. Full-screen containment mode. */
+    /** Stage 2 — Act. Full-screen containment mode. */
     act: {
       on: {
         COMPLETE_ACTION: { actions: "markActionDone" },
@@ -216,14 +216,14 @@ export const journeyMachine = setup({
       },
     },
 
-    /** Stage 3, Report. Prefilled from everything above. */
+    /** Stage 3 — Report. Prefilled from everything above. */
     report: {
       on: {
         SUBMIT_COMPLAINT: { target: "recover", actions: "storeAck" },
       },
     },
 
-    /** Stage 4, Recover. Clocks, documents, status. */
+    /** Stage 4 — Recover. Clocks, documents, status. */
     recover: {
       on: {
         COMPLETE_ACTION: { actions: "markActionDone" },

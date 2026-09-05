@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
+import { redact, readBoundedBody } from "@/lib/redact";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-type AgentMessage = { role: "user" | "assistant"; content: string };
 type Language = "en" | "hi" | "ta" | "te" | "bn" | "mr";
 
 const FALLBACKS: Record<Language, { urgent: string; general: string }> = {
@@ -16,30 +17,44 @@ const FALLBACKS: Record<Language, { urgent: string; general: string }> = {
 };
 
 function fallback(language: Language, prompt: string) {
+  if (/\bdanger\b|physical(?:ly)?\s+threat|threaten|kill|weapon|confined|trapped|locked in|cannot leave|can't leave|not (?:to |allowed to )?leave|unsafe|खतरा|धमकी|जान से|ஆபத்து|மிரட்ட|ప్రమాదం|బెదిరి|বিপদ|হুমকি/i.test(prompt)) {
+    return "If you are in immediate physical danger or cannot leave safely, call 112 now when safe to do so. Move to a safe place and contact someone you trust. Your physical safety comes before financial reporting. Raksha has not contacted anyone.";
+  }
   const urgent = /money|paid|transfer|upi|debit|पैसा|भुगतान|पैसे|பணம்|డబ్బు|টাকা/i.test(prompt);
   return FALLBACKS[language][urgent ? "urgent" : "general"];
 }
 
 export async function POST(request: NextRequest) {
-  const body = await request.json() as { language?: Language; messages?: AgentMessage[] };
-  const language = body.language && FALLBACKS[body.language] ? body.language : "en";
-  const messages = (body.messages ?? []).filter((message) => message.role === "user" || message.role === "assistant").slice(-8).map((message) => ({ ...message, content: message.content.slice(0, 1200) }));
-  const prompt = messages.filter((message) => message.role === "user").at(-1)?.content ?? "";
+  let input: unknown;
+  try { input = await new Response(await readBoundedBody(request, 320000)).json(); }
+  catch (error) { return NextResponse.json({ error: error instanceof RangeError ? "Input too large" : "Invalid JSON" }, { status: error instanceof RangeError ? 413 : 400 }); }
+  const parsed = z.object({
+    language: z.enum(["en", "hi", "ta", "te", "bn", "mr"]).default("en"),
+    messages: z.array(z.object({ role: z.enum(["user", "assistant"]), content: z.string().trim().min(1).max(1200) }).strict()).min(1).max(64),
+  }).strict().safeParse(input);
+  if (!parsed.success || !parsed.data.messages.some((m) => m.role === "user")) return NextResponse.json({ error: "Invalid chat request" }, { status: 400 });
+  const { language } = parsed.data;
+  const messages = parsed.data.messages.map((message) => ({ ...message, content: redact(message.content).redacted }));
+  const prompt = messages.filter((message) => message.role === "user").map((message) => message.content).join("\n");
+  const safeReply = fallback(language, prompt);
   const apiKey = process.env.SARVAM_API_KEY;
 
-  if (!apiKey) return NextResponse.json({ reply: fallback(language, prompt), provider: "local-safety-fallback" });
+  // Urgent guidance must not depend on provider availability or model compliance.
+  if (!apiKey || safeReply.includes("112") || safeReply === FALLBACKS[language].urgent) return NextResponse.json({ reply: safeReply, provider: "local-safety-fallback" });
 
-   const system = `You are Raksha Samvaad, a multilingual Indian cyber-safety guide inside an independent public-service platform. Reply in ${language === "en" ? "Indian English" : "the user's selected Indian language"}. Use calm, reassuring language and answer with short numbered action steps when advising what to do. If money may be moving, make step 1 "Call 1930 now". Never ask for OTP, PIN, passwords, full bank account numbers, Aadhaar, PAN, or real personal data. Do not claim to submit a complaint or contact a bank or government body. Explain that this environment does not transmit a complaint, then guide the person to preserve evidence and choose the next safe action.`;
+   const system = `You are Raksha Samvaad, a multilingual Indian cyber-safety guide inside an independent public-service platform. Reply in ${language === "en" ? "Indian English" : "the user's selected Indian language"}. Use concise, calm language. If money may be moving, lead with call 1930 now. Never ask for OTP, PIN, passwords, full bank account numbers, Aadhaar, PAN, or real personal data. Do not claim to submit a complaint or contact a bank or government body. Explain that this environment does not transmit a complaint, then guide the person to preserve evidence and choose the next safe action.`;
 
   try {
     const response = await fetch(process.env.SARVAM_CHAT_API_URL ?? "https://api.sarvam.ai/v1/chat/completions", {
       method: "POST",
       headers: { "Content-Type": "application/json", "api-subscription-key": apiKey, Authorization: `Bearer ${apiKey}` },
-      body: JSON.stringify({ model: process.env.SARVAM_CHAT_MODEL ?? "sarvam-m", temperature: 0.25, max_tokens: 360, messages: [{ role: "system", content: system }, ...messages] }),
+      signal: AbortSignal.timeout(8000),
+      body: JSON.stringify({ model: process.env.SARVAM_CHAT_MODEL ?? "sarvam-m", temperature: 0.25, max_tokens: 360, messages: [{ role: "system", content: system }, ...messages.slice(-8)] }),
     });
     if (!response.ok) return NextResponse.json({ reply: fallback(language, prompt), provider: "local-safety-fallback" });
     const data = await response.json() as { choices?: Array<{ message?: { content?: string } }> };
-    const reply = data.choices?.[0]?.message?.content?.trim();
+    const content = data?.choices?.[0]?.message?.content;
+    const reply = typeof content === "string" && content.length <= 4000 ? redact(content.trim()).redacted : "";
     return NextResponse.json({ reply: reply || fallback(language, prompt), provider: reply ? "sarvam" : "local-safety-fallback" });
   } catch {
     return NextResponse.json({ reply: fallback(language, prompt), provider: "local-safety-fallback" });

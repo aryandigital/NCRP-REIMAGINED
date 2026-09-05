@@ -1,15 +1,5 @@
 # Codex build log
 
-## August 27, 2026
-
-- Fixed the header language dropdown so native option menus use readable dark text on a white background.
-- Added credential-free local sign-in for the two documented demo accounts while keeping new account creation dependent on persistent database storage.
-- Enforced authentication and incident ownership in both API routes and server-rendered incident pages.
-- Expanded protected route coverage to analysis, action, report, and recovery pages and migrated the deprecated Next.js middleware convention to `proxy.ts`.
-- Removed anonymous session-check errors from the browser console.
-- Fixed mobile header wrapping, assistant obstruction, and operator-table horizontal page overflow.
-- Added a tracked `.env.example`, Vercel setup guidance, repeatable test scripts, and deployment verification commands.
-
 ## August 24, 2026
 
 ### Design and UI

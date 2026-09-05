@@ -15,5 +15,5 @@ export default function EmergencyBar() {
   const { language } = useRakshaLanguage();
   const message = COPY[language];
   const [before, after = ""] = message.split("1930");
-  return <div className="emergency-bar" data-raksha-i18n="react"><span>{before}{" "}<a href="tel:1930" className="font-semibold text-ink underline underline-offset-2">1930</a>{" "}{after}</span></div>;
+  return <div className="emergency-bar" data-raksha-i18n="react"><span>{before}{" "}<a href="tel:1930" className="font-bold underline underline-offset-2">1930</a>{" "}{after}</span></div>;
 }
