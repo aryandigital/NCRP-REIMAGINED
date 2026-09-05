@@ -17,7 +17,6 @@ export const metadata: Metadata = {
   title: "Raksha | Independent Cyber Safety Prototype",
   description: "Independent cyber-safety prototype for fictional data only. Production authentication and security are not verified; do not enter real victim data. Not a government service; no reports are filed. For immediate danger call 112; financial cyber fraud: 1930.",
   keywords: ["cyber crime", "scam", "fraud", "India", "NCRP", "1930"],
-  icons: { icon: "/illustrations/raksha-arch-emblem.png" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -26,9 +25,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen antialiased">
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <div className="prototype-banner" lang="en" data-raksha-i18n="react">
-          <p><strong>Independent prototype. Fictional data only.</strong> Production authentication and security are not verified. Do not enter real victim data. Not a government service; no reports are filed or sent to authorities.</p>
-          <Link href="/shield">Open Call Shield</Link>
-          <a href="tel:112">Immediate danger: call 112</a>
+          <p><strong>Independent prototype.</strong> Fictional data only. No official report is sent.</p>
+          <details>
+            <summary>About this demo</summary>
+            <p>Production authentication and security are not verified. Do not enter real victim data. Raksha is not a government service and does not send reports to authorities.</p>
+          </details>
+          <div className="prototype-banner-actions">
+            <Link href="/shield">Open Call Shield</Link>
+            <a href="tel:112">Immediate danger: call 112</a>
+          </div>
         </div>
         <EmergencyBar />
         {children}
