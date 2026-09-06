@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, Mic, ShieldCheck, Phone, Activity, Network, Volume2, Route, AlertCircle, TrendingDown, Search } from "lucide-react";
+import { ArrowRight, Mic, ShieldCheck, Phone, Activity, Network, Volume2, Route, Siren, WalletCards, ScanSearch } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import HeroParticles from "@/components/HeroParticles";
 import { PATTERNS } from "@/data/patterns";
@@ -11,9 +11,9 @@ import { HOME_COPY } from "@/data/homeCopy";
 import { BrandMark, IconAlert, IconClock, IconEmergency, IconEvidence } from "@/components/icons";
 
 const routeMeta = [
-  { href: "/check?mode=emergency", Icon: AlertCircle },
-  { href: "/check?mode=lost", Icon: TrendingDown },
-  { href: "/check", Icon: Search },
+  { href: "/check?mode=emergency", Icon: Siren },
+  { href: "/check?mode=lost", Icon: WalletCards },
+  { href: "/check", Icon: ScanSearch },
 ] as const;
 
 const journeyIcons = [Mic, ShieldCheck, Phone, Activity] as const;
