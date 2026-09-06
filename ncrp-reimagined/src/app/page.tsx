@@ -86,14 +86,16 @@ export default function HomePage() {
                 const { href, Icon } = routeMeta[index];
                 return (
                   <Link key={route.label} href={href} className={`reveal ${STAGGER[index]} group glow-card flex flex-col p-5 transition-shadow`}>
-                    <span className="flex items-start justify-between gap-3">
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[8px] border border-line bg-paper transition-colors duration-200 group-hover:border-[var(--saffron)] group-hover:bg-service-soft">
-                        <Icon size={20} className="text-ink-faint transition-colors duration-200 group-hover:text-[var(--saffron)]" aria-hidden="true" />
+                    <span className="flex items-center justify-between gap-3">
+                      <span className="flex items-center gap-3">
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[8px] border border-line bg-paper transition-colors duration-200 group-hover:border-[var(--saffron)] group-hover:bg-service-soft">
+                          <Icon size={18} className="text-ink-faint transition-colors duration-200 group-hover:text-[var(--saffron)]" aria-hidden="true" />
+                        </span>
+                        <span className="text-[15px] font-bold leading-snug text-ink">{route.label}</span>
                       </span>
-                      <ArrowRight size={16} className="mt-1.5 shrink-0 text-ink-faint transition-transform group-hover:translate-x-1 group-hover:text-[var(--saffron)]" aria-hidden="true" />
+                      <ArrowRight size={16} className="shrink-0 text-ink-faint transition-transform group-hover:translate-x-1 group-hover:text-[var(--saffron)]" aria-hidden="true" />
                     </span>
-                    <span className="mt-5 block text-[15px] font-bold leading-snug text-ink">{route.label}</span>
-                    <span className="mt-2 block text-[13px] leading-6 text-ink-soft">{route.detail}</span>
+                    <span className="mt-4 block text-[13px] leading-6 text-ink-soft">{route.detail}</span>
                   </Link>
                 );
               })}
