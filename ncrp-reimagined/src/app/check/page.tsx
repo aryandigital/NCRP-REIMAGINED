@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Check, FileImage, Fingerprint, Link2, MessageSquareText, Mic, PhoneCall, Search, ShieldCheck, Square, Upload } from "lucide-react";
+import { AlertTriangle, ArrowLeft, ArrowRight, Check, FileImage, Fingerprint, Link2, MessageSquareText, Mic, PhoneCall, Search, ShieldCheck, Square, Upload } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import { createLocalImageFingerprint } from "@/lib/hash";
 
@@ -43,6 +43,8 @@ function CheckForm() {
   const [voiceLanguage, setVoiceLanguage] = useState("en-IN");
   const [recording, setRecording] = useState(false);
   const [error, setError] = useState("");
+  const [identifierLookup, setIdentifierLookup] = useState<{ found: boolean; count: number; type: string | null; firstSeenAt: string | null } | null>(null);
+  const [identifierLookupLoading, setIdentifierLookupLoading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const recognitionRef = useRef<SpeechRecognitionInstance | null>(null);
   const [draftReady, setDraftReady] = useState(false);
@@ -89,6 +91,23 @@ function CheckForm() {
     }, 250);
     return () => window.clearTimeout(timeout);
   }, [draftReady, identifier, loading, mode, text, voiceLanguage]);
+
+  useEffect(() => {
+    if (mode !== "identifier" || identifier.trim().length < 3) {
+      setIdentifierLookup(null);
+      setIdentifierLookupLoading(false);
+      return;
+    }
+    setIdentifierLookupLoading(true);
+    const timeout = window.setTimeout(async () => {
+      try {
+        const res = await fetch(`/api/identifier/lookup?q=${encodeURIComponent(identifier.trim())}`);
+        if (res.ok) setIdentifierLookup(await res.json() as { found: boolean; count: number; type: string | null; firstSeenAt: string | null });
+      } catch { /* lookup failure is non-critical */ }
+      finally { setIdentifierLookupLoading(false); }
+    }, 400);
+    return () => { window.clearTimeout(timeout); setIdentifierLookupLoading(false); };
+  }, [identifier, mode]);
 
   useEffect(() => () => {
     fileVersionRef.current += 1;
@@ -347,7 +366,43 @@ function CheckForm() {
                     </div>
                   </div></div>}
 
-                {mode === "identifier" && <div className="panel p-5"><label htmlFor="incident-identifier" className="block text-sm font-bold text-ink">Enter a phone number, UPI ID, or link</label><div className="relative mt-3"><Search size={17} className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-faint" aria-hidden="true" /><input id="incident-identifier" value={identifier} onChange={(event) => setIdentifier(event.target.value)} placeholder="Example: seller@ybl or https://example.com" className="min-h-12 w-full rounded-[8px] border border-line bg-paper pl-10 pr-3 text-sm text-ink placeholder:text-ink-faint focus:border-service focus:bg-surface focus:outline-none" /></div><p className="mt-3 text-xs leading-5 text-ink-faint">Identifiers are analysed as incident evidence. Never enter real account numbers or OTPs.</p></div>}
+                {mode === "identifier" && (
+                  <div className="panel p-5">
+                    <label htmlFor="incident-identifier" className="block text-sm font-bold text-ink">Enter a phone number, UPI ID, or link</label>
+                    <div className="relative mt-3">
+                      <Search size={17} className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-faint" aria-hidden="true" />
+                      <input
+                        id="incident-identifier"
+                        value={identifier}
+                        onChange={(event) => { setIdentifier(event.target.value); setIdentifierLookup(null); }}
+                        placeholder="Example: seller@ybl or https://example.com"
+                        className="min-h-12 w-full rounded-[8px] border border-line bg-paper pl-10 pr-3 text-sm text-ink placeholder:text-ink-faint focus:border-service focus:bg-surface focus:outline-none"
+                      />
+                    </div>
+                    {identifierLookupLoading && (
+                      <p className="mt-3 text-xs text-ink-faint">Checking crowdsource reports…</p>
+                    )}
+                    {!identifierLookupLoading && identifierLookup && identifierLookup.found && (
+                      <div className="mt-3 flex items-start gap-2 rounded-[8px] border border-danger/40 bg-danger-soft px-3 py-2.5">
+                        <AlertTriangle size={15} className="mt-0.5 shrink-0 text-danger" aria-hidden="true" />
+                        <div>
+                          <p className="text-xs font-bold text-danger">
+                            Reported {identifierLookup.count} {identifierLookup.count === 1 ? "time" : "times"} by users
+                          </p>
+                          {identifierLookup.firstSeenAt && (
+                            <p className="mt-0.5 text-xs text-ink-soft">
+                              First seen {new Date(identifierLookup.firstSeenAt).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    )}
+                    {!identifierLookupLoading && identifierLookup && !identifierLookup.found && identifier.trim().length >= 3 && (
+                      <p className="mt-3 text-xs text-ink-faint">No prior crowdsource reports found for this identifier.</p>
+                    )}
+                    <p className="mt-3 text-xs leading-5 text-ink-faint">Identifiers are analysed as incident evidence. Never enter real account numbers or OTPs.</p>
+                  </div>
+                )}
 
                 {error && <div role="alert" className="panel border-danger/40 bg-danger-soft p-4 text-sm font-semibold text-danger">{error}</div>}
 

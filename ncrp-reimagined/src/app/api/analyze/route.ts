@@ -3,6 +3,7 @@ import { analyzeWithAI } from "@/lib/dna";
 import { createIncident } from "@/lib/store";
 import { redact, evidenceIdentifiers, readBoundedBody } from "@/lib/redact";
 import { getSession } from "@/lib/auth";
+import { recordIdentifiers } from "@/lib/db/identifiers";
 
 export async function POST(req: NextRequest) {
   const session = await getSession();
@@ -32,6 +33,9 @@ export async function POST(req: NextRequest) {
         }
       }
     }
+
+    // Record identifiers for crowdsource intelligence (fire-and-forget)
+    void recordIdentifiers(dna.exactMatches);
 
     // 4. Create incident
     const incident = await createIncident({
