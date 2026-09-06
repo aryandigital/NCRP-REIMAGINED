@@ -133,9 +133,12 @@ export default function HomePage() {
             {/* Timeline */}
             <div className="relative mt-14">
               <div
-                className="pointer-events-none absolute top-9 hidden lg:block"
-                style={{ left: "12.5%", right: "12.5%", height: "2px", background: "linear-gradient(to right, var(--saffron), var(--india-green))", opacity: 0.3 }}
-              />
+                className="pointer-events-none absolute top-9 hidden overflow-hidden lg:block"
+                style={{ left: "12.5%", right: "12.5%", height: "2px" }}
+              >
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to right, var(--saffron), var(--india-green))", opacity: 0.3 }} />
+                <div className="timeline-ripple absolute inset-y-0" style={{ width: "18%", background: "linear-gradient(to right, transparent, rgba(255,255,255,0.55), transparent)" }} />
+              </div>
 
               <div className="grid grid-cols-2 gap-y-12 lg:grid-cols-4">
                 {copy.journey.steps.map((step, index) => {
