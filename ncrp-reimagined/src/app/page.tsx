@@ -54,7 +54,7 @@ export default function HomePage() {
             <img src="/brand/raksha-arch-emblem.svg" alt="" className="hero-emblem" aria-hidden="true" />
 
             <p className="hero-eyebrow mt-6">{copy.hero.ornament}</p>
-            <h1 className="display hero-title-anim mt-5 max-w-[18ch] text-[2.5rem] sm:text-[3.5rem] lg:text-[4.2rem]">{copy.hero.title}</h1>
+            <h1 className="display hero-title-anim mt-5 max-w-[18ch] text-[calc(2.5rem-1px)] sm:text-[calc(3.5rem-1px)] lg:text-[calc(4.2rem-1px)]">{copy.hero.title}</h1>
             <p className="hero-sub hero-sub-anim mt-5 max-w-[52ch] text-[15px] leading-7 sm:text-base sm:leading-8">{copy.hero.sub}</p>
             <div className="hero-ctas-anim mt-9 flex flex-wrap items-center justify-center gap-3">
               <Link href="/check?mode=lost" className="btn-night">{copy.hero.ctaStart} <ArrowRight size={17} aria-hidden="true" /></Link>

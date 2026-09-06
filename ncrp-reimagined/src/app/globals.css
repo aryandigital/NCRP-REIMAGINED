@@ -47,7 +47,7 @@
   --focus: #1a237e;
 
   /* Indian Flag Tricolor */
-  --saffron: #ff7722;
+  --saffron: #f57322;
   --saffron-deep: #e05a00;
   --white-pure: #ffffff;
   --india-green: #138808;
@@ -431,8 +431,8 @@ button:active, a:active { transform: translateY(1px); }
 .shield-ready-dot { width: 6px; height: 6px; background: #a5d9cf; border-radius: 50%; }
 .shield-stage-launch { padding: 26px 24px 28px; text-align: center; }
 .shield-stage-launch h2 { font-size: 17px; font-weight: 500; text-wrap: balance; }
-.shield-launch-button { display: inline-flex; min-height: 56px; justify-content: center; align-items: center; gap: 13px; margin: 18px auto 12px; padding: 0 27px; border: 1px solid #ffae7b; border-radius: 10px; background: var(--saffron); color: #221609; font-size: 15px; font-weight: 800; box-shadow: 0 4px 20px #00000018; }
-.shield-launch-button:hover { background: #ff9b5b; transform: translateY(-2px); }
+.shield-launch-button { display: inline-flex; min-height: 56px; justify-content: center; align-items: center; gap: 13px; margin: 18px auto 12px; padding: 0 27px; border: 1px solid #d96520; border-radius: 10px; background: var(--saffron); color: #221609; font-size: 15px; font-weight: 800; box-shadow: 0 4px 20px #00000018; }
+.shield-launch-button:hover { background: #e06820; transform: translateY(-2px); }
 .shield-launch-button:focus-visible { outline-color: white; }
 .shield-stage-launch > p { color: #c4c9ee; font-size: 11px; }
 .shield-preview { display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: 32px; margin: 0 28px 22px; padding: 22px 28px; border: 1px solid #ffffff21; border-radius: 12px; background: #ffffff05; }
@@ -442,7 +442,7 @@ button:active, a:active { transform: translateY(1px); }
 .shield-preview .radar-rings { border-color: #a8b8ff40; }
 .shield-preview .radar-rings::before, .shield-preview .radar-rings::after { border-color: #a8b8ff40; }
 .shield-preview .radar-core { background: #232c70; box-shadow: 0 0 0 12px #91a1ff0d; }
-.shield-preview-pin { position: absolute; width: 7px; height: 7px; top: 27%; right: 26%; background: var(--saffron); border-radius: 50%; box-shadow: 0 0 0 5px #ff77221a; }
+.shield-preview-pin { position: absolute; width: 7px; height: 7px; top: 27%; right: 26%; background: var(--saffron); border-radius: 50%; box-shadow: 0 0 0 5px #f573221a; }
 .shield-example-label { display: block; color: #c4c9ee; font-size: 11px; }
 .shield-preview blockquote { margin-top: 12px; font-family: var(--font-display), Georgia, serif; font-size: clamp(21px, 2.5vw, 30px); line-height: 1.5; }
 .shield-preview mark { padding: 0 2px 2px; background: transparent; border-bottom: 1px solid #ffae7b; color: #ffbb8f; }
@@ -557,7 +557,7 @@ button:active, a:active { transform: translateY(1px); }
 .live-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--color-danger); box-shadow: 0 0 0 0 rgba(192, 57, 43, .35); animation: live-pulse 1.6s ease-out infinite; }
 .shield-actionbar { position: sticky; top: 84px; z-index: 20; margin-top: 16px; border-radius: 10px; }
 .caller-bubble { border-left: 3px solid var(--saffron); background: var(--cream-dark); padding: 10px 12px; border-radius: 0 8px 8px 0; }
-.ticket { border: 1px solid var(--color-line); border-top: 4px solid var(--saffron); border-radius: 10px; background: var(--color-paper); box-shadow: 0 8px 24px rgba(13, 21, 87, .07); }
+.ticket { border: 1px solid var(--color-line); border-radius: 10px; background: var(--color-paper); box-shadow: 0 8px 24px rgba(13, 21, 87, .07); }
 .ticket-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; padding-block: 10px; border-bottom: 1px solid var(--color-line); font-size: 13px; }
 .ticket-row:last-of-type { border-bottom: 0; }
 .ticket-stamp { display: inline-flex; align-items: center; min-height: 26px; border-radius: 999px; padding: 0 9px; background: var(--color-service-soft); font-size: 10px; font-weight: 800; letter-spacing: .06em; }

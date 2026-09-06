@@ -418,7 +418,7 @@ export default function ShieldPage() {
   // ── Render ────────────────────────────────────────────────────────────────
   return (
     <div className="shield-page min-h-[100dvh] bg-paper" data-raksha-i18n="react">
-      <SiteHeader />
+      <SiteHeader current="shield" />
       <main id="main-content" ref={mainRef} tabIndex={-1} className="shield-main public-shell py-8 pb-40 sm:py-12 sm:pb-40">
 
         {/* ══════════════════════ IDLE — mission briefing ══════════════════ */}
