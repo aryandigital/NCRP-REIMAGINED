@@ -1067,6 +1067,16 @@ html[data-raksha-contrast="high"] {
   .site-nav.is-open a:last-child { grid-column: 1 / -1; justify-content: center; }
 }
 
+/* ---------- Thin site scrollbar ---------- */
+:root {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(27, 27, 27, 0.42) transparent;
+}
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(27, 27, 27, 0.42); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(27, 27, 27, 0.62); }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     scroll-behavior: auto !important;

@@ -449,8 +449,8 @@ function CheckForm() {
             </div>
 
             <aside className="space-y-4 lg:pt-8">
-              <div className="panel border-danger/35 bg-danger-soft p-5"><PhoneCall size={20} className="text-danger" aria-hidden="true" /><p className="mt-3 text-sm font-bold text-danger">Money moving now?</p><p className="mt-2 text-xs leading-5 text-ink-soft">Call 1930 immediately. This intake can wait.</p></div>
-              <div className="panel p-5"><ShieldCheck size={20} className="text-ink-soft" aria-hidden="true" /><p className="mt-3 text-sm font-bold text-ink">Prototype limits</p><p className="mt-2 text-xs leading-5 text-ink-soft">Fictional data only. Production authentication and security are not verified. Submitted text leaves your device, and automated redaction can miss details. Screenshot uploads are disabled. Local hashing is not a guarantee of privacy for real victims.</p></div>
+              <div className="panel border-danger/35 bg-danger-soft p-5"><div className="flex items-center gap-[10px]"><PhoneCall size={20} className="shrink-0 text-danger" aria-hidden="true" /><p className="text-sm font-bold text-danger">Money moving now?</p></div><p className="mt-2 text-xs leading-5 text-ink-soft">Call 1930 immediately. This intake can wait.</p></div>
+              <div className="panel p-5"><div className="flex items-center gap-[10px]"><ShieldCheck size={20} className="shrink-0 text-ink-soft" aria-hidden="true" /><p className="text-sm font-bold text-ink">Prototype limits</p></div><p className="mt-2 text-xs leading-5 text-ink-soft">Fictional data only. Production authentication and security are not verified. Submitted text leaves your device, and automated redaction can miss details. Screenshot uploads are disabled. Local hashing is not a guarantee of privacy for real victims.</p></div>
             </aside>
           </div>
         </div>
