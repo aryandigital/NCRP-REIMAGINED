@@ -49,8 +49,19 @@ Every step is designed for someone operating under stress. No jargon. No dead en
 
 ## Screenshots
 
-> *Screenshots coming soon.*
+ ![alt text](ncrp-reimagined/src/screenshots/image.png)
 
+ ![alt text](<ncrp-reimagined/src/screenshots/Screenshot (4).png>)
+
+ ![alt text](<ncrp-reimagined/src/screenshots/Screenshot (10).png>)
+
+![alt text](<ncrp-reimagined/src/screenshots/Screenshot (11).png>)
+
+![alt text](<ncrp-reimagined/src/screenshots/Screenshot (8).png>)
+
+![alt text](<ncrp-reimagined/src/screenshots/Screenshot (9).png>)
+
+![alt text](<ncrp-reimagined/src/screenshots/Screenshot (12).png>) ![alt text](<ncrp-reimagined/src/screenshots/Screenshot (13).png>) ![alt text](<ncrp-reimagined/src/screenshots/Screenshot (14).png>)
 ---
 
 ## AI at the Core

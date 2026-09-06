@@ -97,7 +97,7 @@ export interface RedactionResult {
 }
 
 /** Candidate evidence only: a regex cannot establish who owns an identifier. */
-const EVIDENCE_TYPES: ReadonlySet<PiiType> = new Set(["upi", "url", "phone", "account"]);
+const EVIDENCE_TYPES: ReadonlySet<PiiType> = new Set(["upi", "url", "phone", "account", "email"]);
 
 const PATTERNS: ReadonlyArray<{ type: PiiType; re: RegExp }> = [
   { type: "aadhaar", re: /\b[2-9]\d{3}\s?\d{4}\s?\d{4}\b/g },

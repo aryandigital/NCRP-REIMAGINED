@@ -2,11 +2,40 @@ import { neon } from "@neondatabase/serverless";
 import { drizzle } from "drizzle-orm/neon-http";
 import { sql, eq } from "drizzle-orm";
 import { identifierReports } from "@/lib/db/schema";
+import { readFile, writeFile, rename } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 
 const databaseUrl = process.env.DATABASE_URL;
 const database = databaseUrl ? drizzle(neon(databaseUrl)) : null;
 
 let tableReady: Promise<void> | null = null;
+
+// --- File-based fallback (used when DATABASE_URL is absent) ---
+const fallbackPath = process.env.RAKSHA_IDENTIFIERS_PATH ?? join(tmpdir(), "raksha-identifiers.json");
+type FallbackRecord = { value: string; type: string; reportCount: number; firstSeenAt: string; lastSeenAt: string };
+type FallbackState = { memory: Map<string, FallbackRecord>; ready: Promise<void> | null; tail: Promise<unknown> };
+const _g = globalThis as typeof globalThis & { _rakshaIdentifiers?: FallbackState };
+const fb: FallbackState = _g._rakshaIdentifiers ??= { memory: new Map(), ready: null, tail: Promise.resolve() };
+
+function fbTransaction<T>(op: () => Promise<T>): Promise<T> {
+  const result = fb.tail.then(op);
+  fb.tail = result.catch(() => undefined);
+  return result;
+}
+
+async function loadFallback(): Promise<void> {
+  fb.ready ??= readFile(fallbackPath, "utf8")
+    .then((raw) => { for (const r of JSON.parse(raw) as FallbackRecord[]) fb.memory.set(r.value, r); })
+    .catch(() => undefined);
+  await fb.ready;
+}
+
+async function saveFallback(): Promise<void> {
+  const tmp = fallbackPath + ".tmp";
+  await writeFile(tmp, JSON.stringify(Array.from(fb.memory.values())), "utf8");
+  await rename(tmp, fallbackPath);
+}
 
 async function ensureTable() {
   if (!database) return;
@@ -41,13 +70,31 @@ export function normalizeIdentifier(value: string, type: string): string {
 }
 
 /**
- * Upsert a report for each identifier. Silently no-ops when DATABASE_URL
- * is absent so the prototype degrades gracefully.
+ * Upsert a report for each identifier. Falls back to a local JSON file
+ * when DATABASE_URL is absent so crowdsource data persists in dev.
  */
 export async function recordIdentifiers(
   identifiers: Array<{ value: string; type: string }>
 ): Promise<void> {
-  if (!database || identifiers.length === 0) return;
+  if (identifiers.length === 0) return;
+
+  if (!database) {
+    await fbTransaction(async () => {
+      await loadFallback();
+      const now = new Date().toISOString();
+      for (const { value, type } of identifiers) {
+        const normalized = normalizeIdentifier(value, type);
+        if (!normalized) continue;
+        const existing = fb.memory.get(normalized);
+        fb.memory.set(normalized, existing
+          ? { ...existing, reportCount: existing.reportCount + 1, lastSeenAt: now }
+          : { value: normalized, type, reportCount: 1, firstSeenAt: now, lastSeenAt: now });
+      }
+      await saveFallback();
+    });
+    return;
+  }
+
   try {
     await ensureTable();
     const now = new Date();
@@ -76,7 +123,16 @@ export interface IdentifierLookupResult {
 
 export async function lookupIdentifier(value: string, type: string): Promise<IdentifierLookupResult> {
   const empty: IdentifierLookupResult = { found: false, count: 0, type: null, firstSeenAt: null };
-  if (!database) return empty;
+
+  if (!database) {
+    await loadFallback();
+    const normalized = normalizeIdentifier(value, type);
+    if (!normalized) return empty;
+    const rec = fb.memory.get(normalized);
+    if (!rec) return empty;
+    return { found: true, count: rec.reportCount, type: rec.type, firstSeenAt: new Date(rec.firstSeenAt) };
+  }
+
   try {
     await ensureTable();
     const normalized = normalizeIdentifier(value, type);
