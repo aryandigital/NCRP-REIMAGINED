@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} ${yatraOne.variable} ${tiroDevanagari.variable}`}>
       <body className="min-h-screen antialiased">
         <a href="#main-content" className="skip-link">Skip to main content</a>
-        <div className="prototype-banner" lang="en" data-raksha-i18n="react">
+        <div className="prototype-banner" data-raksha-i18n="react">
           <p><strong>Independent prototype.</strong> Fictional data only. No official report is sent.</p>
           <details>
             <summary>About this demo</summary>

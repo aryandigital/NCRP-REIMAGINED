@@ -677,7 +677,7 @@ export default function ShieldPage() {
                   <button
                     type="button"
                     onClick={stop}
-                    className={`inline-flex min-h-14 items-center justify-center gap-2 rounded-full px-6 text-base font-bold text-white ${isScam ? "bg-danger hover:brightness-110" : "bg-service hover:bg-command"}`}
+                    className={`inline-flex min-h-14 items-center justify-center gap-2 rounded-full px-6 text-base font-bold text-white ${isScam ? "bg-danger hover:brightness-110" : "bg-[var(--saffron)] hover:bg-[var(--saffron-deep)]"}`}
                   >
                     <PhoneCall size={18} aria-hidden="true" />
                      Continue to help

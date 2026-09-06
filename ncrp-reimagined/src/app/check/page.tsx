@@ -258,7 +258,7 @@ function CheckForm() {
   return (
     <div className="min-h-[100dvh] bg-paper">
       <SiteHeader current="check" />
-      <main id="main-content" lang="en" className="public-shell py-8 sm:py-12">
+      <main id="main-content" className="public-shell py-8 sm:py-12">
         <section aria-label="Immediate help" className="panel mb-6 border-danger/40 bg-danger-soft p-4">
           <p className="text-sm font-bold text-ink">You do not need to finish this form to get help.</p>
           <div className="mt-3 flex flex-wrap gap-3">

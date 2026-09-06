@@ -58,7 +58,7 @@ export default function HomePage() {
             <p className="hero-sub hero-sub-anim mt-5 max-w-[52ch] text-[15px] leading-7 sm:text-base sm:leading-8">{copy.hero.sub}</p>
             <div className="hero-ctas-anim mt-9 flex flex-wrap items-center justify-center gap-3">
               <Link href="/check?mode=lost" className="btn-night">{copy.hero.ctaStart} <ArrowRight size={17} aria-hidden="true" /></Link>
-              <Link href="/shield" className="btn-daylight" lang="en">Call Shield</Link>
+              <Link href="/shield" className="btn-daylight">{copy.hero.ctaShield}</Link>
               <Link href="/track" className="hero-track-action">{copy.hero.ctaTrack}</Link>
             </div>
             <p className="hero-pill-anim hero-safety mt-8 flex items-center gap-2.5 text-[13px] font-semibold">

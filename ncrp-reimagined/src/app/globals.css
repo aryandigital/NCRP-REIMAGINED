@@ -378,7 +378,7 @@ button:active, a:active { transform: translateY(1px); }
   border-radius: 8px;
   background: var(--saffron);
   padding: 0 28px;
-  color: var(--navy-dark);
+  color: #ffffff;
   font-size: 14px;
   font-weight: 700;
   border: none;
@@ -431,7 +431,7 @@ button:active, a:active { transform: translateY(1px); }
 .shield-ready-dot { width: 6px; height: 6px; background: #a5d9cf; border-radius: 50%; }
 .shield-stage-launch { padding: 26px 24px 28px; text-align: center; }
 .shield-stage-launch h2 { font-size: 17px; font-weight: 500; text-wrap: balance; }
-.shield-launch-button { display: inline-flex; min-height: 56px; justify-content: center; align-items: center; gap: 13px; margin: 18px auto 12px; padding: 0 27px; border: 1px solid #d96520; border-radius: 10px; background: var(--saffron); color: #221609; font-size: 15px; font-weight: 800; box-shadow: 0 4px 20px #00000018; }
+.shield-launch-button { display: inline-flex; min-height: 56px; justify-content: center; align-items: center; gap: 13px; margin: 18px auto 12px; padding: 0 27px; border: 1px solid #d96520; border-radius: 10px; background: var(--saffron); color: #ffffff; font-size: 15px; font-weight: 800; box-shadow: 0 4px 20px #00000018; }
 .shield-launch-button:hover { background: #e06820; transform: translateY(-2px); }
 .shield-launch-button:focus-visible { outline-color: white; }
 .shield-stage-launch > p { color: #c4c9ee; font-size: 11px; }
@@ -439,10 +439,11 @@ button:active, a:active { transform: translateY(1px); }
 .shield-preview-radar { display: grid; justify-items: center; gap: 16px; }
 .shield-preview-radar > .mono-ref { color: #abb4e7; font-size: 10px; letter-spacing: .07em; }
 .shield-preview .radar { width: 172px; color: #c4d0ff; border-color: #8998e647; background: radial-gradient(circle, #617ae421, transparent 70%); }
-.shield-preview .radar-rings { border-color: #a8b8ff40; }
+.shield-preview .radar-rings { border-color: #a8b8ff40; animation: radar-rings-breathe 3.6s ease-in-out infinite; }
 .shield-preview .radar-rings::before, .shield-preview .radar-rings::after { border-color: #a8b8ff40; }
 .shield-preview .radar-core { background: #232c70; box-shadow: 0 0 0 12px #91a1ff0d; }
-.shield-preview-pin { position: absolute; width: 7px; height: 7px; top: 27%; right: 26%; background: var(--saffron); border-radius: 50%; box-shadow: 0 0 0 5px #f573221a; }
+.shield-preview-pin { position: absolute; width: 7px; height: 7px; top: 27%; right: 26%; background: var(--saffron); border-radius: 50%; animation: radar-pin-pulse 2.8s ease-in-out infinite; }
+.shield-preview .radar[data-state="idle"] .radar-sweep { opacity: .18; animation: radar-idle-sweep 8s linear infinite; }
 .shield-example-label { display: block; color: #c4c9ee; font-size: 11px; }
 .shield-preview blockquote { margin-top: 12px; font-family: var(--font-display), Georgia, serif; font-size: clamp(21px, 2.5vw, 30px); line-height: 1.5; }
 .shield-preview mark { padding: 0 2px 2px; background: transparent; border-bottom: 1px solid #ffae7b; color: #ffbb8f; }
@@ -565,6 +566,9 @@ button:active, a:active { transform: translateY(1px); }
 @keyframes radar-sweep { to { transform: rotate(360deg); } }
 @keyframes radar-blip { 50% { transform: scale(1.35); opacity: .58; } }
 @keyframes live-pulse { 70% { box-shadow: 0 0 0 7px rgba(192, 57, 43, 0); } 100% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0); } }
+@keyframes radar-idle-sweep { to { transform: rotate(360deg); } }
+@keyframes radar-pin-pulse { 0%, 100% { box-shadow: 0 0 0 3px rgba(255,119,34,.25), 0 0 0 6px rgba(255,119,34,.08); } 50% { box-shadow: 0 0 0 5px rgba(255,119,34,.18), 0 0 0 10px rgba(255,119,34,.05); } }
+@keyframes radar-rings-breathe { 0%, 100% { opacity: .55; } 50% { opacity: .9; } }
 
 /* ---------- Cards ---------- */
 

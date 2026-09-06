@@ -128,7 +128,7 @@ function Agent() {
     window.speechSynthesis.speak(utterance);
   }
 
-  return <aside className={`samvaad-dock ${open ? "samvaad-dock-open" : ""}`} lang="en" data-raksha-i18n="react" aria-label="Raksha Samvaad cyber safety assistant">
+  return <aside className={`samvaad-dock ${open ? "samvaad-dock-open" : ""}`} data-raksha-i18n="react" aria-label="Raksha Samvaad cyber safety assistant">
     {!open && <button ref={launcher} type="button" className="samvaad-fab" onClick={() => setOpen(true)} aria-label="Open Raksha Samvaad, talk or type for cyber safety help"><span className="samvaad-fab-mark"><MessageCircle size={22} aria-hidden="true" /></span><span><strong>Talk to Raksha</strong><small>Optional voice or text</small></span><Mic size={18} aria-hidden="true" /></button>}
     {open && <section className="samvaad-panel" role="dialog" aria-modal="false" aria-label="Raksha Samvaad assistant" onKeyDown={(event) => { if (event.key === "Escape") { event.stopPropagation(); close(); } }}>
       <div className="samvaad-spectrum" aria-hidden="true" />
