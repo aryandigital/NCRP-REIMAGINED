@@ -7,6 +7,7 @@ import { LANGUAGE_LOCALES, useRakshaLanguage } from "@/hooks/useRakshaLanguage";
 export default function AccessibilityTools() {
   const { language } = useRakshaLanguage();
   const [open, setOpen] = useState(false);
+  const [closing, setClosing] = useState(false);
   const [large, setLarge] = useState(false);
   const [contrast, setContrast] = useState(false);
 
@@ -37,5 +38,14 @@ export default function AccessibilityTools() {
     window.speechSynthesis.speak(utterance);
   }
 
-  return <div className="access-tools" data-raksha-i18n="react"><button type="button" onClick={() => setOpen((value) => !value)} className="access-launch" aria-label={open ? "Close accessibility tools" : "Open accessibility tools"} aria-expanded={open}>{open ? <X size={18} aria-hidden="true" /> : <Accessibility size={18} aria-hidden="true" />}<span>Access</span></button>{open && <section className="access-panel" aria-label="Accessibility settings"><p className="kicker">Accessible response desk</p><button type="button" onClick={readPage}><Volume2 size={16} aria-hidden="true" />Read this page aloud</button><button type="button" onClick={() => toggle("large")} aria-pressed={large}><Type size={16} aria-hidden="true" />{large ? "Use standard text" : "Use larger text"}</button><button type="button" onClick={() => toggle("contrast")} aria-pressed={contrast}><Contrast size={16} aria-hidden="true" />{contrast ? "Use standard contrast" : "Use high contrast"}</button><p>Use your screen reader, keyboard, voice, or this audio guide. No visual-only step is required.</p></section>}</div>;
+  function handleToggle() {
+    if (open) {
+      setClosing(true);
+      window.setTimeout(() => { setOpen(false); setClosing(false); }, 200);
+    } else {
+      setOpen(true);
+    }
+  }
+
+  return <div className="access-tools" data-raksha-i18n="react"><button type="button" onClick={handleToggle} className="access-launch" aria-label={open ? "Close accessibility tools" : "Open accessibility tools"} aria-expanded={open}>{open ? <X size={18} aria-hidden="true" /> : <Accessibility size={18} aria-hidden="true" />}<span>Access</span></button>{open && <section className={`access-panel ${closing ? "access-panel-exit" : "access-panel-enter"}`} aria-label="Accessibility settings"><p className="kicker">Accessible response desk</p><button type="button" onClick={readPage}><Volume2 size={16} aria-hidden="true" />Read this page aloud</button><button type="button" onClick={() => toggle("large")} aria-pressed={large}><Type size={16} aria-hidden="true" />{large ? "Use standard text" : "Use larger text"}</button><button type="button" onClick={() => toggle("contrast")} aria-pressed={contrast}><Contrast size={16} aria-hidden="true" />{contrast ? "Use standard contrast" : "Use high contrast"}</button><p>Use your screen reader, keyboard, voice, or this audio guide. No visual-only step is required.</p></section>}</div>;
 }

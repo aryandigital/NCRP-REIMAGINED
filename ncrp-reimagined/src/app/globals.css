@@ -843,10 +843,26 @@ button:active, a:active { transform: translateY(1px); }
 
 /* ---------- Samvaad dock ---------- */
 
+@keyframes samvaad-fab-in {
+  from { opacity: 0; transform: translateY(6px) scale(.94); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes samvaad-panel-in {
+  from { opacity: 0; transform: translateY(10px) scale(.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes samvaad-panel-out {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to   { opacity: 0; transform: translateY(10px) scale(.97); }
+}
+
 .samvaad-dock { position: fixed; z-index: 60; right: 18px; bottom: 18px; display: grid; justify-items: end; gap: 10px; }
 
 .samvaad-fab { position: relative; display: flex; min-height: 44px; align-items: center; gap: 8px; border-radius: 6px; border: 1px solid var(--color-line-strong); background: var(--color-paper); padding: 0 16px 0 10px; color: var(--color-ink); box-shadow: 0 4px 16px rgba(0, 0, 0, .1); }
 .samvaad-fab:hover { border-color: var(--navy); }
+.samvaad-fab-enter { animation: samvaad-fab-in 240ms cubic-bezier(.2, .9, .3, 1.1) both; }
+.samvaad-panel-enter { animation: samvaad-panel-in 240ms cubic-bezier(.2, .9, .3, 1.05) both; }
+.samvaad-panel-exit { animation: samvaad-panel-out 200ms cubic-bezier(.4, 0, 1, 1) both; pointer-events: none; }
 .samvaad-fab-mark { display: flex; height: 28px; width: 28px; align-items: center; justify-content: center; border-radius: 6px; background: rgba(26, 35, 126, .08); color: var(--navy); }
 .samvaad-fab strong { font-size: 13px; font-weight: 700; letter-spacing: -.01em; }
 .samvaad-fab > span:nth-child(2) { display: grid; min-width: 0; line-height: 1.2; text-align: left; }
@@ -895,9 +911,20 @@ button:active, a:active { transform: translateY(1px); }
 
 /* ---------- Accessibility dock ---------- */
 
+@keyframes access-panel-in {
+  from { opacity: 0; transform: translateY(8px) scale(.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes access-panel-out {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to   { opacity: 0; transform: translateY(8px) scale(.97); }
+}
+
 .access-tools { position: fixed; z-index: 55; bottom: 18px; left: 18px; }
 .access-launch { display: inline-flex; min-height: 44px; align-items: center; gap: 7px; border: 1px solid var(--color-line-strong); border-radius: 6px; background: var(--color-paper); padding: 0 13px; color: var(--color-ink); font-size: 12px; font-weight: 800; box-shadow: 0 4px 12px rgba(0, 0, 0, .06); }
 .access-panel { position: absolute; bottom: 54px; left: 0; width: 245px; overflow: hidden; border: 1px solid var(--color-line); border-radius: 8px; background: var(--color-paper); padding: 15px; box-shadow: 0 12px 36px rgba(0, 0, 0, .1); }
+.access-panel-enter { animation: access-panel-in 220ms cubic-bezier(.2, .9, .3, 1.05) both; }
+.access-panel-exit { animation: access-panel-out 180ms cubic-bezier(.4, 0, 1, 1) both; pointer-events: none; }
 .access-panel button { display: flex; width: 100%; min-height: 38px; align-items: center; gap: 8px; border-bottom: 1px solid var(--color-line); color: var(--color-ink); font-size: 12px; font-weight: 750; text-align: left; }
 .access-panel button:last-of-type { border-bottom: 0; }
 .access-panel p:last-child { margin: 10px 0 0; color: var(--color-ink-faint); font-size: 10px; line-height: 1.5; }

@@ -38,6 +38,7 @@ export default function SarvamAgent() {
 
 function Agent() {
   const [open, setOpen] = useState(false);
+  const [closing, setClosing] = useState(false);
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
@@ -79,9 +80,13 @@ function Agent() {
   }, [open]);
 
   function close() {
-    setOpen(false);
+    setClosing(true);
     setRecording(false);
-    window.setTimeout(() => launcher.current?.focus(), 0);
+    window.setTimeout(() => {
+      setOpen(false);
+      setClosing(false);
+      launcher.current?.focus();
+    }, 220);
   }
 
   async function send(event?: FormEvent) {
@@ -129,8 +134,8 @@ function Agent() {
   }
 
   return <aside className={`samvaad-dock ${open ? "samvaad-dock-open" : ""}`} data-raksha-i18n="react" aria-label="Raksha Samvaad cyber safety assistant">
-    {!open && <button ref={launcher} type="button" className="samvaad-fab" onClick={() => setOpen(true)} aria-label="Open Raksha Samvaad, talk or type for cyber safety help"><span className="samvaad-fab-mark"><MessageCircle size={22} aria-hidden="true" /></span><span><strong>Talk to Raksha</strong><small>Optional voice or text</small></span><Mic size={18} aria-hidden="true" /></button>}
-    {open && <section className="samvaad-panel" role="dialog" aria-modal="false" aria-label="Raksha Samvaad assistant" onKeyDown={(event) => { if (event.key === "Escape") { event.stopPropagation(); close(); } }}>
+    {!open && <button ref={launcher} type="button" className="samvaad-fab samvaad-fab-enter" onClick={() => setOpen(true)} aria-label="Open Raksha Samvaad, talk or type for cyber safety help"><span className="samvaad-fab-mark"><MessageCircle size={22} aria-hidden="true" /></span><span><strong>Talk to Raksha</strong><small>Optional voice or text</small></span><Mic size={18} aria-hidden="true" /></button>}
+    {open && <section className={`samvaad-panel ${closing ? "samvaad-panel-exit" : "samvaad-panel-enter"}`} role="dialog" aria-modal="false" aria-label="Raksha Samvaad assistant" onKeyDown={(event) => { if (event.key === "Escape") { event.stopPropagation(); close(); } }}>
       <div className="samvaad-spectrum" aria-hidden="true" />
       <div className="samvaad-top">
         <div className="flex min-w-0 items-center gap-3">

@@ -232,7 +232,7 @@ export default function HomePage() {
 
         {/* Principles */}
         <section className="stamp-frame">
-          <div className="public-shell grid gap-10 py-14 sm:grid-cols-[1fr_1.4fr] sm:items-start sm:py-20">
+          <div className="public-shell grid gap-10 py-6 sm:grid-cols-[1fr_1.4fr] sm:items-center sm:py-8">
             <div className="reveal">
               <h2 className="display mt-3 text-[1.8rem] sm:text-[2.2rem]">{copy.principles.title}</h2>
             </div>
@@ -240,7 +240,7 @@ export default function HomePage() {
               {copy.principles.notes.map((note, index) => {
                 const Icon = principleIcons[index];
                 return (
-                  <div key={note.title} className={`reveal ${STAGGER[index]} border-t border-[rgba(254,252,248,.15)] pt-5`}>
+                  <div key={note.title} className={`reveal ${STAGGER[index]} border-l border-[rgba(254,252,248,.15)] pl-5`}>
                     <Icon size={21} className="text-[var(--saffron)]" aria-hidden="true" />
                     <h3 className="mt-4 text-sm font-bold text-[#fefcf8]">{note.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-[rgba(254,252,248,.55)]">{note.detail}</p>
