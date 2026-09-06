@@ -106,7 +106,7 @@ function Question({
   return (
     <section aria-labelledby={`question-${n}`} className={`panel p-5 transition-colors sm:p-6 ${answered ? "border-service/40" : ""}`}>
       <div className="flex items-start gap-3">
-        <span className={`mono-ref mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-[7px] text-[11px] font-bold ${answered ? "bg-service text-white" : "bg-command text-ink-soft"}`}>
+        <span className={`mono-ref mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-[7px] text-[11px] font-bold ${answered ? "bg-service text-white" : "bg-command text-white"}`}>
           {answered ? <CheckCircle2 size={15} aria-hidden="true" /> : `Q${n}`}
         </span>
         <div className="min-w-0 flex-1">
@@ -699,27 +699,21 @@ export default function ShieldPage() {
         {/* ══════════════════════ CONFIRM — the dispatch desk ═════════════ */}
         {phase === "confirm" && (
           <div className="mx-auto max-w-6xl">
-            <div className="rounded-2xl border border-success/40 bg-success-soft p-5">
-              <p className="flex items-start gap-3 text-sm font-bold leading-6 text-ink">
-                <CheckCircle2 size={20} className="mt-0.5 shrink-0 text-success" aria-hidden="true" />
-                Screening stopped. If the call is still connected, end it yourself.
-                These questions are optional; unanswered facts stay unknown. Use fictional details only.
-              </p>
-              <div className="mt-4 flex items-center gap-3">
-                <div className="progress-cells flex-1">
-                  {Array.from({ length: 6 }).map((_, i) => (
-                    <span key={i} className={i < answeredCount ? "is-done" : ""} />
-                  ))}
-                </div>
-                <span className="mono-ref text-xs font-bold text-ink-soft">{answeredCount}/6</span>
+            <div className="rounded-2xl border border-success/40 bg-success-soft px-4 py-3">
+              <div className="flex items-center gap-3">
+                <CheckCircle2 size={18} className="shrink-0 text-success" aria-hidden="true" />
+                <p className="flex-1 text-sm font-bold leading-5 text-ink">
+                  Screening stopped. If the call is still connected, end it yourself. These questions are optional; unanswered facts stay unknown. Use fictional details only.
+                </p>
+                <span className="mono-ref shrink-0 text-xs font-bold text-ink-soft">{answeredCount}/6</span>
               </div>
             </div>
-            <div className="shield-actionbar flex flex-wrap items-center gap-3 rounded-xl border border-line bg-paper p-3 shadow-lg">
-              <button type="button" onClick={saveAndContinue} className="btn-ink flex-1"><Save size={16} aria-hidden="true" /> Prepare draft brief</button>
+            <div className="shield-actionbar flex items-center gap-3 rounded-xl border border-line bg-paper p-3 shadow-lg">
+              <p className="flex-1 text-xs text-ink-soft">In a real emergency, call now. These questions can wait. Never call emergency services to test the demo.</p>
               {(escalationPreview.escalation === "112" || escalationPreview.escalation === "1930") && (
-                <a href={`tel:${escalationPreview.escalation}`} className="btn-ghost">Call {escalationPreview.escalation} yourself</a>
+                <a href={`tel:${escalationPreview.escalation}`} className="btn-ghost shrink-0">Call {escalationPreview.escalation} yourself</a>
               )}
-              <p className="w-full text-xs text-ink-soft">In a real emergency, call now. These questions can wait. Never call emergency services to test the demo.</p>
+              <button type="button" onClick={saveAndContinue} className="btn-ink shrink-0"><Save size={16} aria-hidden="true" /> Prepare draft brief</button>
               {!transcriptRef.current.trim() && <button type="button" className="btn-ghost" onClick={() => begin("text")}>Add a fictional transcript</button>}
             </div>
             {error && <p role="alert" className="mt-3 text-sm text-danger">{error}</p>}
@@ -999,7 +993,7 @@ export default function ShieldPage() {
               <div className="radar-rings" aria-hidden="true" />
               <div className="radar-sweep" aria-hidden="true" />
               <div className="radar-core">
-                <div style={{ height: 48, width: 48 }}><Save size={20} aria-hidden="true" /></div>
+                <div className="flex items-center justify-center" style={{ height: 48, width: 48 }}><Save size={20} aria-hidden="true" /></div>
               </div>
             </div>
             <p className="mt-6 text-base font-bold text-ink">Preparing your brief</p>
