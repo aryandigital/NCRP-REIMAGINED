@@ -105,16 +105,19 @@ export default async function RecoverPage({ params }: { params: Promise<{ caseId
 
         <section className="panel mt-6 p-5 sm:p-6" aria-label="Case export and review">
           <DownloadBundle incidentId={incident.id} />
-          <a
-            href={`/api/incidents/${incident.id}/document`}
-            download={`complaint-draft-${incident.id.toLowerCase()}.pdf`}
-            className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-service"
-          >
-            <FileDown size={16} aria-hidden="true" /> Complaint draft (PDF) — prototype document, no legal standing
-          </a>
-          <Link href={`/operator?caseId=${id}`} className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-service">
-            {example ? "View read-only synthetic operator example" : "View this case in read-only operator view"} <ArrowRight size={16} aria-hidden="true" />
-          </Link>
+          <div className="mt-5 flex flex-col border-t border-line pt-1 sm:flex-row">
+            <a
+              href={`/api/incidents/${incident.id}/document`}
+              download={`complaint-draft-${incident.id.toLowerCase()}.pdf`}
+              className="flex min-h-11 flex-1 items-center gap-2 text-sm font-bold text-service"
+            >
+              <FileDown size={16} aria-hidden="true" /> Complaint draft (PDF) — prototype document, no legal standing
+            </a>
+            <div className="hidden w-px self-stretch bg-line sm:block" aria-hidden="true" />
+            <Link href={`/operator?caseId=${id}`} className="flex min-h-11 items-center gap-2 border-t border-line text-sm font-bold text-service sm:border-t-0 sm:pl-6">
+              {example ? "View read-only synthetic operator example" : "View this case in read-only operator view"} <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+          </div>
         </section>
       </div>
     </main>
