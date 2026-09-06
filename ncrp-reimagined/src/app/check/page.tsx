@@ -288,10 +288,12 @@ function CheckForm() {
       <SiteHeader current="check" />
       <main id="main-content" className="public-shell py-8 sm:py-12">
         <section aria-label="Immediate help" className="panel mb-6 border-danger/40 bg-danger-soft p-4">
-          <p className="text-sm font-bold text-ink">You do not need to finish this form to get help.</p>
-          <div className="mt-3 flex flex-wrap gap-3">
-            <a href="tel:112" className="inline-flex min-h-11 items-center rounded-[8px] bg-danger px-4 text-sm font-bold text-white">Call 112: immediate danger</a>
-            <a href="tel:1930" className="inline-flex min-h-11 items-center rounded-[8px] bg-danger px-4 text-sm font-bold text-white">Call 1930: financial cyber fraud</a>
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <p className="text-sm font-bold text-ink">You do not need to finish this form to get help.</p>
+            <div className="flex flex-wrap gap-3">
+              <a href="tel:112" className="inline-flex min-h-11 items-center rounded-[8px] bg-danger px-4 text-sm font-bold text-white">Call 112: immediate danger</a>
+              <a href="tel:1930" className="inline-flex min-h-11 items-center rounded-[8px] bg-danger px-4 text-sm font-bold text-white">Call 1930: financial cyber fraud</a>
+            </div>
           </div>
         </section>
         <div className="stage-rail bg-surface" aria-label="Incident stages">
