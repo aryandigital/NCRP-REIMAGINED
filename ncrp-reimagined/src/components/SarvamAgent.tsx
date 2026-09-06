@@ -2,7 +2,7 @@
 
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Headphones, LoaderCircle, MessageCircle, Mic, Send, Sparkles, Square, Volume2, X } from "lucide-react";
+import { Check, ChevronDown, Headphones, LoaderCircle, MessageCircle, Mic, Send, Sparkles, Square, Volume2, X } from "lucide-react";
 import { AGENT_LANGUAGE_OPTIONS, LANGUAGE_LOCALES, type AgentLanguage } from "@/hooks/useRakshaLanguage";
 
 type Message = { role: "user" | "assistant"; content: string };
@@ -44,9 +44,11 @@ function Agent() {
   const [loading, setLoading] = useState(false);
   const [recording, setRecording] = useState(false);
   const [language, setLanguage] = useState<AgentLanguage>("en");
+  const [langOpen, setLangOpen] = useState(false);
   const recognition = useRef<BrowserRecognition | null>(null);
   const textarea = useRef<HTMLTextAreaElement | null>(null);
   const launcher = useRef<HTMLButtonElement | null>(null);
+  const langRef = useRef<HTMLDivElement | null>(null);
   const visibleMessages = useMemo(() => messages.length ? messages : [{ role: "assistant" as const, content: WELCOME[language] }], [language, messages]);
 
   useEffect(() => {
@@ -64,6 +66,14 @@ function Agent() {
       } catch { /* storage blocked */ }
     }, 0);
     return () => window.clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const onClickOutside = (e: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) setLangOpen(false);
+    };
+    document.addEventListener("mousedown", onClickOutside);
+    return () => document.removeEventListener("mousedown", onClickOutside);
   }, []);
 
   useEffect(() => {
@@ -153,12 +163,45 @@ function Agent() {
       </div>
       <div className="samvaad-info">
         <Headphones size={15} aria-hidden="true" />Optional speech recognition and playback depend on your browser and language. Audio may be processed by its speech provider, not on-device. Sent messages may go to an AI provider. Avoid sensitive details.</div>
-      <div className="samvaad-language">
-        <label htmlFor="agent-language">Conversation language</label>
+      <div className="samvaad-language" ref={langRef}>
+        <span>Conversation language</span>
         <div>
-          <select id="agent-language" value={language} onChange={(event) => { setLanguage(event.target.value as AgentLanguage); setMessages([]); }}>
-            <option value="en">English</option>{AGENT_LANGUAGE_OPTIONS.filter((option) => option.code !== "en").map((option) => <option key={option.code} value={option.code}>{option.native}</option>)}</select>
-          <ChevronDown size={14} aria-hidden="true" />
+          <button
+            type="button"
+            aria-haspopup="listbox"
+            aria-expanded={langOpen}
+            aria-label="Choose conversation language"
+            className="samvaad-language-trigger"
+            onClick={() => setLangOpen((v) => !v)}
+          >
+            <span>{AGENT_LANGUAGE_OPTIONS.find((o) => o.code === language)?.native}</span>
+            <ChevronDown size={12} aria-hidden="true" style={{ transition: "transform 0.15s ease", transform: langOpen ? "rotate(180deg)" : "rotate(0deg)" }} />
+          </button>
+          {langOpen && (
+            <ul
+              role="listbox"
+              aria-label="Conversation language"
+              style={{ position: "absolute", top: "calc(100% + 4px)", right: 0, minWidth: "140px", background: "var(--color-paper)", border: "1px solid var(--color-line)", borderRadius: "6px", boxShadow: "0 6px 20px rgba(0,0,0,.12)", padding: "4px", margin: 0, listStyle: "none", zIndex: 999 }}
+            >
+              {AGENT_LANGUAGE_OPTIONS.map((option) => {
+                const isActive = option.code === language;
+                return (
+                  <li
+                    key={option.code}
+                    role="option"
+                    aria-selected={isActive}
+                    onClick={() => { setLanguage(option.code as AgentLanguage); setMessages([]); setLangOpen(false); }}
+                    style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px", padding: "6px 10px", borderRadius: "4px", cursor: "pointer", fontSize: "11px", fontWeight: isActive ? 750 : 500, color: isActive ? "var(--navy)" : "var(--color-ink)", background: isActive ? "rgba(26,35,126,.07)" : "transparent", transition: "background 0.1s" }}
+                    onMouseEnter={(e) => { if (!isActive) (e.currentTarget as HTMLLIElement).style.background = "var(--color-surface)"; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLLIElement).style.background = isActive ? "rgba(26,35,126,.07)" : "transparent"; }}
+                  >
+                    <span>{option.native}</span>
+                    {isActive && <Check size={11} aria-hidden="true" />}
+                  </li>
+                );
+              })}
+            </ul>
+          )}
         </div>
       </div>
       <div className="samvaad-thread" lang={language} aria-live="polite">{visibleMessages.map((message, index) => <div key={`${message.role}-${index}-${message.content.slice(0, 16)}`} className={`samvaad-message samvaad-${message.role}`}>{message.content}</div>)}{loading && <div className="samvaad-message samvaad-assistant flex items-center gap-2">

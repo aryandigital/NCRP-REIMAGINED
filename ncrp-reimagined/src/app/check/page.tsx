@@ -2,8 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import Link from "next/link";
-import { AlertTriangle, ArrowLeft, ArrowRight, Check, FileImage, Fingerprint, Link2, MessageSquareText, Mic, PhoneCall, Search, ShieldCheck, Square, Upload } from "lucide-react";
+import Link from "next/link";import { AlertTriangle, ArrowLeft, ArrowRight, Check, ChevronDown, FileImage, Fingerprint, Link2, MessageSquareText, Mic, PhoneCall, Search, ShieldCheck, Square, Upload } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import { createLocalImageFingerprint } from "@/lib/hash";
 
@@ -41,12 +40,14 @@ function CheckForm() {
   const [hashing, setHashing] = useState(false);
   const [localFingerprint, setLocalFingerprint] = useState("");
   const [voiceLanguage, setVoiceLanguage] = useState("en-IN");
+  const [voiceLangOpen, setVoiceLangOpen] = useState(false);
   const [recording, setRecording] = useState(false);
   const [error, setError] = useState("");
   const [identifierLookup, setIdentifierLookup] = useState<{ found: boolean; count: number; type: string | null; firstSeenAt: string | null } | null>(null);
   const [identifierLookupLoading, setIdentifierLookupLoading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const recognitionRef = useRef<SpeechRecognitionInstance | null>(null);
+  const voiceLangRef = useRef<HTMLDivElement | null>(null);
   const [draftReady, setDraftReady] = useState(false);
   const fileVersionRef = useRef(0);
   const emergency = requestedMode === "emergency";
@@ -80,6 +81,14 @@ function CheckForm() {
     }, 0);
     return () => window.clearTimeout(timeout);
   }, [emergency]);
+
+  useEffect(() => {
+    const onClickOutside = (e: MouseEvent) => {
+      if (voiceLangRef.current && !voiceLangRef.current.contains(e.target as Node)) setVoiceLangOpen(false);
+    };
+    document.addEventListener("mousedown", onClickOutside);
+    return () => document.removeEventListener("mousedown", onClickOutside);
+  }, []);
 
   useEffect(() => {
     if (!draftReady || loading) return;
@@ -318,17 +327,44 @@ function CheckForm() {
                       <p className="block text-sm font-bold text-ink">Tell the story in your own words</p>
                       <p className="mt-2 text-xs leading-5 text-ink-soft">Optional browser speech recognition may send audio to your browser&apos;s speech provider. On-device processing is not guaranteed. Language availability and accuracy vary.</p>
                     </div>
-                    <label className="block sm:w-40">
+                    <div className="block sm:w-40" ref={voiceLangRef} style={{ position: "relative" }}>
                       <span className="block text-[10px] font-bold uppercase tracking-[.1em] text-ink-faint">Voice language</span>
-                      <select id="voice-language" value={voiceLanguage} onChange={(event) => setVoiceLanguage(event.target.value)} className="mt-2 min-h-11 w-full rounded-[8px] border border-line bg-paper px-3 text-xs font-semibold text-ink focus:border-service focus:bg-surface focus:outline-none">
-                        <option value="en-IN">English / India</option>
-                        <option value="hi-IN">हिन्दी</option>
-                        <option value="ta-IN">தமிழ்</option>
-                        <option value="te-IN">తెలుగు</option>
-                        <option value="bn-IN">বাংলা</option>
-                        <option value="mr-IN">मराठी</option>
-                      </select>
-                    </label>
+                      <button
+                        type="button"
+                        aria-haspopup="listbox"
+                        aria-expanded={voiceLangOpen}
+                        aria-label="Choose voice language"
+                        onClick={() => setVoiceLangOpen((v) => !v)}
+                        className="mt-2 flex min-h-11 w-full items-center justify-between rounded-[8px] border border-line bg-paper px-3 text-xs font-semibold text-ink hover:bg-surface"
+                      >
+                        <span>{[{ value: "en-IN", label: "English / India" }, { value: "hi-IN", label: "हिन्दी" }, { value: "ta-IN", label: "தமிழ்" }, { value: "te-IN", label: "తెలుగు" }, { value: "bn-IN", label: "বাংলা" }, { value: "mr-IN", label: "मराठी" }].find((o) => o.value === voiceLanguage)?.label}</span>
+                        <ChevronDown size={13} aria-hidden="true" className="shrink-0 opacity-50" style={{ transform: voiceLangOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.15s ease" }} />
+                      </button>
+                      {voiceLangOpen && (
+                        <ul
+                          role="listbox"
+                          aria-label="Voice language"
+                          className="absolute left-0 z-50 mt-1 w-full overflow-hidden rounded-[8px] border border-line bg-paper shadow-lg"
+                          style={{ top: "100%" }}
+                        >
+                          {[{ value: "en-IN", label: "English / India" }, { value: "hi-IN", label: "हिन्दी" }, { value: "ta-IN", label: "தமிழ்" }, { value: "te-IN", label: "తెలుగు" }, { value: "bn-IN", label: "বাংলা" }, { value: "mr-IN", label: "मराठी" }].map((option) => {
+                            const isActive = option.value === voiceLanguage;
+                            return (
+                              <li
+                                key={option.value}
+                                role="option"
+                                aria-selected={isActive}
+                                onClick={() => { setVoiceLanguage(option.value); setVoiceLangOpen(false); }}
+                                className={`flex cursor-pointer items-center justify-between gap-2 px-3 py-2 text-xs font-semibold ${isActive ? "bg-service/10 text-service" : "text-ink hover:bg-surface"}`}
+                              >
+                                <span>{option.label}</span>
+                                {isActive && <Check size={12} aria-hidden="true" />}
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      )}
+                    </div>
                   </div>
                   <button type="button" onClick={toggleVoiceCapture} className={`mt-5 inline-flex min-h-12 items-center justify-center gap-2 rounded-[8px] px-4 text-sm font-bold ${recording ? "bg-danger text-white" : "bg-command text-white"}`} aria-pressed={recording}>{recording ? <Square size={15} aria-hidden="true" /> : <Mic size={16} aria-hidden="true" />}{recording ? "Stop recording" : "Start recording"}</button>
                   <label htmlFor="voice-transcript" className="mt-5 block text-sm font-bold text-ink">Transcript</label>
