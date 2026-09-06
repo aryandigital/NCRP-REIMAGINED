@@ -270,7 +270,7 @@ function CheckForm() {
           {["Triage", "Tell the story", "Confirm facts", "Act and track"].map((label, index) => <div key={label} className={index === 0 ? "is-active" : "opacity-60"}><span className="block font-mono text-[10px] font-bold">0{index + 1}</span><span className="mt-1 block text-xs font-bold">{label}</span></div>)}
         </div>
 
-        <div className="mx-auto mt-8 max-w-3xl">
+        <div className="mt-8">
           <Link href="/" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-ink-soft hover:text-service"><ArrowLeft size={16} aria-hidden="true" /> Back to response desk</Link>
           <div className="mt-7 grid gap-8 lg:grid-cols-[minmax(0,1fr)_240px] lg:items-start">
             <div>
@@ -285,9 +285,9 @@ function CheckForm() {
                   <p>Fictional text drafts are kept in this tab&apos;s session. Session storage is not a privacy guarantee; do not enter real victim data.</p>
                   <button type="button" onClick={clearDraft} disabled={!draftReady || loading} className="min-h-11 font-bold text-service underline underline-offset-4">Clear draft and image</button>
                 </div>
-                <div className="panel p-2">
-                  <div className="grid grid-cols-2 gap-1 sm:grid-cols-3" role="group" aria-label="Choose intake method">
-                    {tabs.map((tab) => { const Icon = tab.icon; return <button key={tab.id} type="button" aria-pressed={mode === tab.id} disabled={loading || !draftReady} onClick={() => changeMode(tab.id)} className={`flex min-h-11 items-center justify-center gap-2 rounded-[8px] px-2 text-xs font-bold sm:px-3 ${mode === tab.id ? "bg-command text-white" : "text-ink-soft hover:bg-paper hover:text-ink"}`}><Icon size={15} aria-hidden="true" /><span>{tab.label}</span></button>; })}
+                <div className="panel overflow-hidden p-1.5">
+                  <div className="flex gap-1 overflow-x-auto" role="group" aria-label="Choose intake method">
+                    {tabs.map((tab) => { const Icon = tab.icon; return <button key={tab.id} type="button" aria-pressed={mode === tab.id} disabled={loading || !draftReady} onClick={() => changeMode(tab.id)} className={`flex shrink-0 min-h-10 items-center gap-1.5 whitespace-nowrap rounded-[6px] px-3 text-xs font-bold transition-colors ${mode === tab.id ? "bg-command text-white" : "text-ink-soft hover:bg-paper hover:text-ink"}`}><Icon size={14} aria-hidden="true" /><span>{tab.label}</span></button>; })}
                   </div>
                 </div>
 
