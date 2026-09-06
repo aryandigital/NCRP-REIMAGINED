@@ -287,7 +287,7 @@ button:active, a:active { transform: translateY(1px); }
 .hero-aurora {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(160deg, #0d1557 0%, #1a237e 40%, #283593 100%);
+  background: linear-gradient(to bottom, #0e1a7a 0%, #0b1670 50%, #081250 100%);
 }
 
 .hero-content { min-height: min(650px, calc(100svh - 138px)); padding-block: 56px 36px; }
