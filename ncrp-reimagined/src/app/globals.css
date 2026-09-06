@@ -617,6 +617,15 @@ button:active, a:active { transform: translateY(1px); }
   color: #fefcf8;
 }
 
+.aurora-band::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px dashed rgba(254, 252, 248, .2);
+  pointer-events: none;
+  z-index: 1;
+}
+
 .aurora-band .kicker { color: var(--saffron); }
 
 .aurora-cta {
