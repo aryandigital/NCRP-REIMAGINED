@@ -38,12 +38,44 @@ CHECK → ACT → REPORT → RECOVER
 
 | Stage | What Happens |
 |---|---|
-| **Check** | Paste a suspicious message, link, UPI ID, or upload a screenshot. Raksha's Scam DNA engine identifies the fraud type and risk level in seconds. |
-| **Act** | Get an immediate, ordered containment checklist — block the attacker, call your bank, dial the national 1930 helpline. Ranked by what's still reversible. |
-| **Report** | A pre-filled complaint form built entirely from what you've already provided. No asking the same question twice. |
-| **Recover** | Statutory deadlines, an exportable evidence bundle, and a personalised recovery roadmap. |
+| **Check** | Paste a suspicious message, link, UPI ID, or upload a screenshot. Raksha's Scam DNA engine identifies the fraud type and risk level in seconds. Check against crowdsourced identifier reports before you even engage. |
+| **Act** | Get an immediate, ordered containment checklist — block the attacker, call your bank, dial the national 1930 helpline. Bank-specific playbooks with helpline numbers. Ranked by what's still reversible. |
+| **Report** | A pre-filled complaint form built entirely from what you've already provided. Three recipient packets: NCRP/1930, bank nodal desk, and police. No asking the same question twice. |
+| **Recover** | Statutory deadlines, an exportable evidence bundle, a downloadable complaint PDF, and a personalised recovery roadmap. |
 
 Every step is designed for someone operating under stress. No jargon. No dead ends.
+
+---
+
+## Main Highlights
+
+### Raksha Call Shield
+Real-time scam phone-call detection and coaching. While the call is still happening, the platform listens (microphone or guided simulation) and scores the transcript against six scam scripts every four seconds. A radar UI lights up as markers are detected. An inline coach panel tells you exactly what to say — and what not to do — to end the call safely. A six-question dispatch desk then routes you to 112 (emergency), 1930 (financial fraud), or NCRP depending on your situation.
+
+### Crowdsourced Identifier Intelligence
+Every phone number, UPI ID, and URL that passes through the platform is counted. On the intake form, type a suspicious identifier and instantly see whether other users have already reported it — and when it was first seen. The more people use Raksha, the better the early-warning signal.
+
+### Legal Document Generator
+The platform generates a jurisdiction-appropriate PDF complaint draft from your incident record using `@react-pdf/renderer`. Pattern-specific templates select the correct authority addressee and complaint subject line (task scam, UPI fraud, investment fraud, identity theft, phishing, sextortion, romance scam). Download from your recovery page or your incident history at any time.
+
+### Scam DNA Engine — GPT-4o
+Two-layer analysis on every submission:
+1. **Local pattern matcher** — a curated corpus of known Indian scam scripts. Zero latency, works offline, always available.
+2. **GPT-4o multimodal analysis** — structured JSON: fraud type, stage, confidence score, behavioural signals, the single most important next move, and what *not* to do.
+
+The local engine is the fallback — the platform is fully functional without any API key.
+
+### Raksha Samvaad — Sarvam AI
+A conversational safety agent powered by **Sarvam-M**, an Indian large language model. Responds in six languages — English, Hindi, Tamil, Telugu, Bengali, and Marathi. Supports voice input via the Web Speech API. Hardcoded to never ask for personal information and always surface the 1930 helpline for money emergencies.
+
+### PII Redaction Layer
+Before any content reaches an external AI, a local redaction pass strips Aadhaar numbers (checksum-validated), PAN, IFSC, UPI VPAs, phone numbers, bank account numbers, credit card numbers (Luhn-validated), emails, and URLs. Credential values (OTP, PIN, CVV, password in context) are stripped separately. What the model sees is already sanitised.
+
+### Threat Atlas
+A public, browsable library of all six recognised Indian cybercrime patterns — digital arrest, task scam, pig-butchering investment fraud, UPI collect fraud, sextortion, KYC/bank impersonation. Each pattern has a full stage timeline, signal list, next-move prediction, do-not list, and sourced official advisories.
+
+### Operator Console
+An analyst dashboard at `/operator` for case review. Shows extracted facts with source and confidence, risk signals, Call Shield session transcripts, local packets, event log, and a synthetic cluster illustration.
 
 ---
 
@@ -62,41 +94,6 @@ Every step is designed for someone operating under stress. No jargon. No dead en
 ![alt text](<ncrp-reimagined/src/screenshots/Screenshot (9).png>)
 
 ![alt text](<ncrp-reimagined/src/screenshots/Screenshot (12).png>) ![alt text](<ncrp-reimagined/src/screenshots/Screenshot (13).png>) ![alt text](<ncrp-reimagined/src/screenshots/Screenshot (14).png>)
----
-
-## AI at the Core
-
-Raksha uses two AI models, each chosen for a specific job.
-
-### Scam DNA Engine — GPT-4o
-
-The heart of the platform. When you submit suspicious content, it goes through a two-layer analysis:
-
-1. **Local pattern matcher** — a curated corpus of known Indian scam scripts (task scam, digital arrest, pig-butchering, UPI collect fraud, sextortion, OTP theft). Zero latency, works offline, always available.
-2. **GPT-4o multimodal analysis** — when an API key is present, the same content (text + screenshot image via base64) is sent to GPT-4o for deep classification. The model returns structured JSON: fraud type, stage, confidence score, behavioural signals, the single most important next move, and what *not* to do.
-
-The local engine is the fallback — the platform is fully functional without any API key.
-
-### Raksha Samvaad — Sarvam AI
-
-A conversational safety agent on the home page powered by **Sarvam-M**, an Indian large language model built for Indian languages. It responds in six languages — English, Hindi, Tamil, Telugu, Bengali, and Marathi — supports voice input via the Web Speech API, and is hardcoded to never ask for personal information and always surface the 1930 helpline for money emergencies.
-
-### PII Redaction Layer
-
-Before any content reaches an external AI, a local redaction pass strips phone numbers, account numbers, Aadhaar-format identifiers, and other personal data. What the model sees is already sanitised.
-
----
-
-## Key Features
-
-- **Multilingual** — full UI copy in 6 Indian languages
-- **Voice input** — speak your incident, don't type it
-- **Image fingerprinting** — perceptual hash of uploaded evidence using `blockhash-core`
-- **Statutory clock** — tracks time-sensitive legal deadlines that start the moment a fraud occurs
-- **Threat Atlas** — a public, browsable library of all scam patterns with stage breakdowns and sourced advisories
-- **Evidence bundle** — downloadable, redacted JSON export ready to hand to a bank or police station
-- **Operator console** — analyst dashboard at `/operator` for case review
-- **Incident tracking** — citizens can check their case status at any time
 
 ---
 
@@ -107,11 +104,15 @@ Before any content reaches an external AI, a local redaction pass strips phone n
 | Framework | Next.js 16 (App Router), React 19, TypeScript 5 |
 | Styling | Tailwind CSS v4, Class Variance Authority |
 | AI — Analysis | OpenAI GPT-4o (multimodal), local pattern corpus |
+| AI — Call Shield | OpenAI GPT-4o-mini, local keyword scorer (Hindi/English/Hinglish) |
 | AI — Agent | Sarvam AI `sarvam-m` (Indian multilingual LLM) |
+| TTS | Sarvam Bulbul v3 (in-browser audio), AWS Polly Kajal-Neural (phone call via Twilio) |
 | State machine | XState v5 — the citizen journey is a formal finite state machine |
 | Database | Neon serverless PostgreSQL via Drizzle ORM |
+| Storage fallback | Atomic JSON file store (works without any DB credentials) |
 | Auth | JWT (`jose`) + bcrypt password hashing |
-| Image hashing | `blockhash-core` (perceptual fingerprinting) |
+| PDF generation | `@react-pdf/renderer` |
+| Image hashing | `blockhash-core` (perceptual fingerprinting, client-side, no upload) |
 | Validation | Zod |
 | Charts | Recharts |
 | Icons | Lucide React |
@@ -120,9 +121,9 @@ Before any content reaches an external AI, a local redaction pass strips phone n
 
 ## Architecture Overview
 
-The citizen journey is modelled as an XState finite state machine (`src/machines/journey.ts`). Each state — Check, Act, Report, Recover — has defined transitions, guards, and side effects. This means the app cannot skip steps, cannot show "Act" before "Check" is resolved, and handles error states explicitly.
+The citizen journey is modelled as an XState finite state machine (`src/machines/journey.ts`). Each state — Check, Act, Report, Recover — has defined transitions, guards, and side effects. The app cannot skip steps, cannot show "Act" before "Check" is resolved, and handles error states explicitly.
 
-The AI analysis route (`/api/analyze`) is the only server boundary the app crosses on the critical path. It receives sanitised content, runs the local pattern matcher first, optionally escalates to GPT-4o, and returns a typed `ScamAnalysis` object. Every downstream page — the playbook, the report form, the recovery guide — is derived from that single object.
+The AI analysis route (`/api/analyze`) is the only server boundary the app crosses on the critical path. It receives sanitised content, runs the local pattern matcher first, optionally escalates to GPT-4o, records identifiers for crowdsource intelligence, and returns a typed `ScamAnalysis` object. Every downstream page — the playbook, the report form, the recovery guide — is derived from that single object.
 
 ```
 User Input
@@ -131,7 +132,7 @@ User Input
 PII Redaction (local)
     │
     ▼
-Local Pattern Matcher ──── high confidence ──▶ ScamAnalysis
+Local Pattern Matcher ──── high confidence ──▶ ScamAnalysis + recordIdentifiers()
     │
     └── low confidence
           │
@@ -144,8 +145,47 @@ Local Pattern Matcher ──── high confidence ──▶ ScamAnalysis
     ┌─────┴──────┬──────────┬──────────┐
     ▼            ▼          ▼          ▼
  Playbook    Report     Clocks    Evidence
-  (Act)      (Form)    (Recover)  (Bundle)
+  (Act)      (Form)    (Recover)  (Bundle + PDF)
 ```
+
+Call Shield runs a parallel path:
+
+```
+Phone call audio / microphone / text
+    │
+    ▼
+shieldTranscriptWindow() → PII redaction
+    │
+    ▼
+assessLocal() ── fallback ──▶ ShieldAssessment
+    │
+    └── (if API key) assessWithAI() [GPT-4o-mini, 6s timeout]
+          │
+          ▼
+       Radar UI + Inline Coach
+          │
+          ▼
+       buildBrief() → dispatch routing → /act/[id]
+```
+
+---
+
+## Pages
+
+| Route | Description |
+|---|---|
+| `/` | Homepage — multilingual hero, threat bulletin, journey timeline, Raksha Samvaad CTA |
+| `/check` | Intake — paste text, voice, screenshot, identifier lookup, private image hash |
+| `/check/[id]` | Scam DNA result — pattern, confidence, signals, recommended actions |
+| `/shield` | Raksha Call Shield — real-time call detector, radar UI, inline coach, dispatch desk |
+| `/act/[id]` | Immediate Action Board — bank-specific playbooks, credential steps, evidence checklist |
+| `/report/[id]` | Packet preparation — three recipient packets, fact confirmation, mock submission |
+| `/recover/[caseId]` | Recovery — Raksha ID, legal guidance clocks, PDF complaint download, evidence bundle |
+| `/track` | Case tracker — enter any Raksha case ID to reopen a saved case |
+| `/atlas` | Threat Atlas — index of all six scam patterns |
+| `/atlas/[slug]` | Pattern detail — stage timeline, signals, aliases, do-not list, advisories |
+| `/operator` | Operator console — all incidents with extracted facts, Shield transcripts, event logs |
+| `/my-incidents` | Authenticated user's incident list with PDF download links |
 
 ---
 
@@ -165,7 +205,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-The public demo works without credentials via the local pattern matcher and a built-in synthetic incident `DEMO0001`.
+The public demo works without credentials via the local pattern matcher and a built-in synthetic incident `DEMO0001`. All pages are explorable at `/check/DEMO0001`, `/act/DEMO0001`, `/report/DEMO0001`, and `/recover/DEMO0001`.
 
 ---
 
@@ -189,9 +229,25 @@ Do not deploy without `DATABASE_URL`: serverless instances do not provide durabl
 
 ---
 
+## Environment Variables
+
+| Variable | Required | Purpose |
+|---|---|---|
+| `OPENAI_API_KEY` | Optional | GPT-4o scam analysis + GPT-4o-mini Call Shield assessment |
+| `SARVAM_API_KEY` | Optional | Sarvam multilingual agent + Bulbul TTS audio alert |
+| `DATABASE_URL` | Optional | Neon PostgreSQL persistence |
+| `SESSION_SECRET` | Required in deployment | Auth cookie signing |
+| `TWILIO_ACCOUNT_SID` | Optional | Twilio demo phone call alert |
+| `TWILIO_AUTH_TOKEN` | Optional | Twilio demo phone call alert |
+| `TWILIO_FROM_NUMBER` | Optional | Twilio caller ID |
+| `ALERT_ALLOWLIST` | Optional | Comma-separated E.164 numbers permitted to receive demo calls |
+| `DEMO_MODE` | Optional | Set `true` to enable Twilio phone-call path |
+
+---
+
 ## Prototype Boundary
 
-No real complaint, bank request, police queue, or platform report is submitted by this application. Use synthetic information only. Raksha is not affiliated with any government body.
+No real complaint, bank request, police queue, or platform report is submitted by this application. The legal document generator produces a prototype draft with no legal standing. Use synthetic information only. Raksha is not affiliated with any government body.
 
 ---
 
@@ -202,27 +258,20 @@ No real complaint, bank request, police queue, or platform report is submitted b
 
 | Route | Method | Purpose |
 |---|---|---|
-| `/api/analyze` | POST | Scam DNA analysis (local + GPT-4o) |
-| `/api/agent` | POST | Raksha Samvaad multilingual chat |
-| `/api/fingerprint` | POST | Perceptual image hashing |
+| `/api/analyze` | POST | Scam DNA analysis (local + GPT-4o), records crowdsource identifiers |
+| `/api/agent` | POST | Raksha Samvaad multilingual chat (Sarvam `sarvam-m`) |
+| `/api/shield/assess` | POST | Real-time call transcript assessment (GPT-4o-mini or local) |
+| `/api/shield/save` | POST | Save completed Call Shield session as an incident |
+| `/api/shield/alert` | POST | Spoken incident brief via Sarvam TTS (audio) or Twilio (phone) |
+| `/api/identifier/lookup` | GET | Crowdsource lookup — prior reports for a phone/UPI/URL |
 | `/api/incidents` | GET / POST | Incident CRUD |
-| `/api/incidents/[id]` | GET / PATCH | Single incident operations |
+| `/api/incidents/[id]` | GET / PATCH | Single incident operations; `?format=bundle` returns JSON export |
+| `/api/incidents/[id]/document` | GET | Stream PDF complaint draft (`@react-pdf/renderer`) |
 | `/api/auth/signin` | POST | JWT sign-in |
 | `/api/auth/signup` | POST | Registration |
 | `/api/auth/signout` | POST | Session teardown |
 | `/api/auth/me` | GET | Current session |
-
-</details>
-
-<details>
-<summary>Environment variables</summary>
-
-| Variable | Required | Purpose |
-|---|---|---|
-| `OPENAI_API_KEY` | Optional | GPT-4o scam analysis |
-| `SARVAM_API_KEY` | Optional | Sarvam multilingual agent |
-| `DATABASE_URL` | Optional | Neon PostgreSQL persistence |
-| `SESSION_SECRET` | Required in deployment | Auth cookie signing |
+| `/api/demo` | POST | Create a personal copy of DEMO0001 for the authenticated user |
 
 </details>
 
@@ -234,7 +283,6 @@ No real complaint, bank request, police queue, or platform report is submitted b
 - Pig-butchering (fake investment / crypto)
 - UPI collect fraud
 - Sextortion / screen recording blackmail
-- OTP theft / SIM swap
-- Fake delivery / customs package
+- KYC/bank impersonation
 
 </details>
