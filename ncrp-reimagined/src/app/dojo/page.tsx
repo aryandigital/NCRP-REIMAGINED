@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import {
-  ArrowRight, Flame, Gauge, Mic, MicOff, PhoneCall, PhoneOff, RotateCcw, Send, Share2, ShieldAlert, ShieldCheck, Siren, Sparkles, Swords, Trophy, Zap,
+  ArrowRight, Briefcase, CreditCard, Flame, Gauge, IndianRupee, Mic, MicOff, PhoneCall, PhoneOff, RotateCcw, Send, Share2, ShieldAlert, ShieldCheck, Siren, Sparkles, Swords, Trophy, Wifi, WifiOff, Zap,
 } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import { DOJO_SCENARIOS, DOJO_STAGES, STAGE_HINTS, STAGE_INDEX, SLIP_RULES, type DojoDifficulty, type DojoLanguage, type DojoScenario, type DojoStage } from "@/data/dojo";
@@ -27,6 +27,23 @@ const IDLE: ShieldAssessment = {
   verdict: "listening", patternSlug: null, patternName: null, stageId: null, confidence: 0, method: "keyword", markers: [],
   coach: { headline: "", sayThis: "", doNot: [] }, language: "en",
 };
+
+const PHASE_LABELS = ["Setup", "Connecting", "Live call", "Debrief"];
+const SILENCE_TYPING_MS = 1800;  // ms of silence before showing typing dots
+const SILENCE_LATENCY_MS = 4500; // ms of silence before showing latency badge
+
+/** Animated typing bubble shown when the caller is thinking / latency is high */
+function CallerTypingBubble() {
+  return (
+    <div className="flex justify-start">
+      <div className="caller-bubble text-ink">
+        <div className="dojo-typing-dots" aria-label="Caller is thinking">
+          <span /><span /><span />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function inferStage(callerText: string): StageState | null {
   if (!callerText.trim()) return null;
@@ -96,6 +113,12 @@ export default function DojoPage() {
   const [debrief, setDebrief] = useState<DojoDebrief | null>(null);
   const [debriefPending, setDebriefPending] = useState(false);
 
+  // Latency / silence indicator state
+  const [showTypingIndicator, setShowTypingIndicator] = useState(false);
+  const [callerSilentSince, setCallerSilentSince] = useState<number | null>(null);
+  const [, forceUpdate] = useState(0);
+  const silenceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   // Refs for the RTC plumbing
   const pcRef = useRef<RTCPeerConnection | null>(null);
   const dcRef = useRef<RTCDataChannel | null>(null);
@@ -128,6 +151,35 @@ export default function DojoPage() {
     const t = setInterval(() => setElapsed(Math.floor(now())), 500);
     return () => clearInterval(t);
   }, [phase]);
+
+  // Force re-render every second to keep silentMs fresh for the latency badge
+  useEffect(() => {
+    if (phase !== "call") return;
+    const id = setInterval(() => forceUpdate((n) => n + 1), 1000);
+    return () => clearInterval(id);
+  }, [phase]);
+
+  // -- Latency / silence detection -------------------------------------------
+  // When scammer stops speaking, start a timer. If responseActiveRef is true
+  // and they still haven't spoken after SILENCE_TYPING_MS, show typing dots.
+  useEffect(() => {
+    if (phase !== "call") return;
+    if (scammerSpeaking) {
+      setCallerSilentSince(null);
+      setShowTypingIndicator(false);
+      if (silenceTimerRef.current) { clearTimeout(silenceTimerRef.current); silenceTimerRef.current = null; }
+    } else {
+      setCallerSilentSince(Date.now());
+      if (silenceTimerRef.current) clearTimeout(silenceTimerRef.current);
+      silenceTimerRef.current = setTimeout(() => {
+        if (responseActiveRef.current) setShowTypingIndicator(true);
+      }, SILENCE_TYPING_MS);
+    }
+    return () => { if (silenceTimerRef.current) { clearTimeout(silenceTimerRef.current); silenceTimerRef.current = null; } };
+  }, [scammerSpeaking, phase]);
+
+  const silentMs = callerSilentSince ? Date.now() - callerSilentSince : 0;
+  const showLatencyBadge = phase === "call" && !scammerSpeaking && silentMs > SILENCE_LATENCY_MS && responseActiveRef.current;
 
   // -- Live Call Shield on the scammer's words -------------------------------
   // Local keyword scoring is derived synchronously; the server (model) verdict
@@ -179,17 +231,22 @@ export default function DojoPage() {
   const requestResponse = useCallback(() => {
     if (responseActiveRef.current) { responseQueuedRef.current = true; return; }
     responseActiveRef.current = true;
+    // When requesting a response, start the typing indicator timer
+    if (silenceTimerRef.current) clearTimeout(silenceTimerRef.current);
+    silenceTimerRef.current = setTimeout(() => setShowTypingIndicator(true), SILENCE_TYPING_MS);
     send({ type: "response.create" });
   }, [send]);
 
   const teardown = useCallback(() => {
     if (endTimerRef.current) { clearTimeout(endTimerRef.current); endTimerRef.current = null; }
+    if (silenceTimerRef.current) { clearTimeout(silenceTimerRef.current); silenceTimerRef.current = null; }
     try { dcRef.current?.close(); } catch { /* noop */ }
     try { pcRef.current?.getSenders().forEach((s) => s.track?.stop()); pcRef.current?.close(); } catch { /* noop */ }
     micRef.current?.getTracks().forEach((t) => t.stop());
     if (audioRef.current) { audioRef.current.srcObject = null; }
     dcRef.current = null; pcRef.current = null; micRef.current = null;
     setScammerSpeaking(false); setYouSpeaking(false);
+    setShowTypingIndicator(false); setCallerSilentSince(null);
   }, []);
 
   useEffect(() => () => teardown(), [teardown]);
@@ -273,6 +330,7 @@ export default function DojoPage() {
       case "response.created": responseActiveRef.current = true; return;
       case "response.done": {
         responseActiveRef.current = false;
+        setShowTypingIndicator(false);
         if (responseQueuedRef.current) { responseQueuedRef.current = false; requestResponse(); }
         return;
       }
@@ -285,6 +343,7 @@ export default function DojoPage() {
         return;
       }
       case "response.output_audio_transcript.delta": {
+        setShowTypingIndicator(false);
         const id = String(e.item_id ?? "live");
         setTurns((prev) => {
           const i = prev.findIndex((t) => t.id === id);
@@ -304,7 +363,7 @@ export default function DojoPage() {
         if (item?.type === "function_call" && item.name && item.call_id) handleTool(item.name, item.call_id, item.arguments ?? "{}");
         return;
       }
-      case "output_audio_buffer.started": setScammerSpeaking(true); return;
+      case "output_audio_buffer.started": setScammerSpeaking(true); setShowTypingIndicator(false); return;
       case "output_audio_buffer.stopped":
       case "output_audio_buffer.cleared": setScammerSpeaking(false); return;
       case "input_audio_buffer.speech_started": setYouSpeaking(true); return;
@@ -321,6 +380,7 @@ export default function DojoPage() {
 
   const startCall = useCallback(async () => {
     setError(""); setTurns([]); setSlips([]); setToolStage(null); setServerAssessment(IDLE); setElapsed(0); setDebrief(null); setOutcome("aborted");
+    setShowTypingIndicator(false); setCallerSilentSince(null);
     lastAssessedRef.current = "";
     setPhase("connecting");
     try {
@@ -356,8 +416,11 @@ export default function DojoPage() {
       dc.addEventListener("open", () => {
         startedAtRef.current = performance.now();
         setPhase("call");
-        // The scammer speaks first. (No per-response instructions: they would replace the persona.)
+        // The scammer speaks first — show typing indicator while they're connecting
+        responseActiveRef.current = true;
         send({ type: "response.create" });
+        if (silenceTimerRef.current) clearTimeout(silenceTimerRef.current);
+        silenceTimerRef.current = setTimeout(() => setShowTypingIndicator(true), SILENCE_TYPING_MS);
       });
       dc.addEventListener("close", () => { /* handled by finish/hangUp */ });
 
@@ -398,19 +461,43 @@ export default function DojoPage() {
   const isScam = assessment.verdict === "scam";
   const stageIdx = stage ? STAGE_INDEX[stage.stage] : -1;
   const immunity = DOJO_SCENARIOS.filter((s) => (best[s.slug] ?? 0) >= 80).length;
+  const phaseIndex = { setup: 0, connecting: 1, call: 2, ending: 2, debrief: 3 }[phase] ?? 0;
 
   const shareText = debrief
     ? `Maine Raksha Dojo pe "${scenario.title}" scam call ka rehearsal kiya — score ${debrief.score}/100 (${debrief.grade}).\n\nYaad rakho: ${debrief.oneLiner}\n\nFamily tip: ${debrief.familyTip}\n\nAap bhi try karo: ${typeof window !== "undefined" ? window.location.origin : ""}/dojo`
     : "";
 
+  // Phase progress rail — mirrors the check/shield stage pattern
+  const PhaseRail = ({ active }: { active: number }) => (
+    <div className="stage-rail bg-surface mb-6" aria-label="Training stages">
+      {PHASE_LABELS.map((label, index) => (
+        <div key={label} className={index === active ? "is-active" : "opacity-60"}>
+          <span className="block font-mono text-[10px] font-bold">0{index + 1}</span>
+          <span className="mt-1 block text-xs font-bold">{label}</span>
+        </div>
+      ))}
+    </div>
+  );
+
   // ---------------------------------------------------------------------------
   return (
     <div className="min-h-[100dvh] bg-paper">
       <SiteHeader current="dojo" />
-      <main id="main-content" className="public-shell py-8 sm:py-12">
 
-        {/* = = = = = = = = = = = = = = = = = = =  SETUP = = = = = = = = = = = = = = = = = = =  */}
-        {phase === "setup" && (
+      {/* ========================= SETUP ========================= */}
+      {phase === "setup" && (
+        <main id="main-content" className="public-shell py-8 sm:py-12">
+          {/* Emergency help bar — mirrors Check Suspect */}
+          <section aria-label="Emergency help" className="panel mb-6 border-danger/40 bg-danger-soft p-4">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <p className="text-sm font-bold text-ink">Receiving a live scam call right now?</p>
+              <div className="flex flex-wrap gap-3">
+                <a href="tel:1930" className="inline-flex min-h-11 items-center rounded-[8px] bg-danger px-4 text-sm font-bold text-white">Call 1930: cyber fraud</a>
+                <a href="tel:112" className="inline-flex min-h-11 items-center rounded-[8px] border border-danger/40 bg-paper px-4 text-sm font-bold text-danger">Call 112: immediate danger</a>
+              </div>
+            </div>
+          </section>
+          <PhaseRail active={phaseIndex} />
           <div className="mx-auto max-w-6xl">
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_240px] lg:items-start">
               <div>
@@ -468,18 +555,23 @@ export default function DojoPage() {
               <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {DOJO_SCENARIOS.map((s) => {
                   const active = s.slug === scenario.slug;
+                  const ScenarioIcon = { "digital-arrest": Siren, "kyc-bank-impersonation": CreditCard, "upi-collect-request": IndianRupee, "task-scam": Briefcase }[s.slug] ?? Swords;
                   return (
                     <button
                       key={s.slug} type="button" onClick={() => setScenario(s)} aria-pressed={active}
-                      className={`panel flex h-full flex-col p-4 text-left transition-colors ${active ? "border-service ring-2 ring-service/30" : "hover:border-line-strong"}`}
+                      className={`group panel flex h-full flex-col gap-3 p-4 text-left transition-colors ${active ? "border-service ring-2 ring-service/30" : "hover:border-line-strong"}`}
                     >
-                      <div className="flex items-start justify-between gap-2">
-                        <p className="text-base font-bold text-ink">{s.title}</p>
-                        {(best[s.slug] ?? 0) >= 80 ? <ShieldCheck size={18} className="shrink-0 text-success" aria-label="Shielded" /> : best[s.slug] !== undefined ? <span className="mono-ref text-[11px] text-ink-faint">{best[s.slug]}</span> : null}
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-2.5">
+                          <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-[8px] border transition-colors duration-200 ${active ? "border-service bg-service-soft" : "border-line bg-surface group-hover:border-service group-hover:bg-service-soft"}`}>
+                            <ScenarioIcon size={16} className={`transition-colors duration-200 ${active ? "text-service" : "text-ink-faint group-hover:text-service"}`} aria-hidden="true" />
+                          </span>
+                          <p className="text-[15px] font-bold text-ink">{s.title}</p>
+                        </div>
+                        {(best[s.slug] ?? 0) >= 80 ? <ShieldCheck size={16} className="shrink-0 text-success" aria-label="Shielded" /> : best[s.slug] !== undefined ? <span className="mono-ref text-[11px] text-ink-faint">{best[s.slug]}</span> : null}
                       </div>
-                      <p className="mt-1 text-[13px] italic leading-5 text-ink-soft">{s.tagline}</p>
-                      <p className="mt-3 text-xs leading-5 text-ink-faint"><span className="font-bold text-ink-soft">{s.callerName}</span> · {s.callerClaim}</p>
-                      <p className="mt-auto pt-3 text-[11px] text-ink-faint">For: {s.practiceFor.join(" · ")}</p>
+                      <p className="mt-0.5 text-[13px] italic leading-5 text-ink-soft">{s.tagline}</p>
+                      <p className="mt-auto text-[11px] text-ink-faint">For: {s.practiceFor.join(" · ")}</p>
                     </button>
                   );
                 })}
@@ -520,38 +612,68 @@ export default function DojoPage() {
 
             <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
               <button type="button" onClick={startCall}
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[10px] bg-service px-6 text-sm font-bold text-white hover:bg-command">
+                className="btn-night inline-flex min-h-12 items-center justify-center gap-2 rounded-[10px] px-6 text-sm font-bold">
                 <PhoneCall size={18} aria-hidden="true" /> Answer the call
               </button>
               <p className="text-xs leading-5 text-ink-faint">Uses your microphone. No mic? You can type replies. Nothing you say is stored on our servers; credentials are stripped before coaching.</p>
             </div>
           </div>
-        )}
+        </main>
+      )}
 
-        {/* = = = = = = = = = = = = = = = = = = =  CONNECTING = = = = = = = = = = = = = = = = = = =  */}
-        {phase === "connecting" && (
-          <div className="mx-auto flex max-w-md flex-col items-center py-20 text-center">
+      {/* ========================= CONNECTING ========================= */}
+      {phase === "connecting" && (
+        <main id="main-content" className="public-shell py-8 sm:py-12">
+          <PhaseRail active={1} />
+          <div className="mx-auto flex max-w-md flex-col items-center py-16 text-center">
             <div className="dojo-ring" aria-hidden="true"><PhoneCall size={30} /></div>
             <p className="mono-ref mt-6 text-[11px] uppercase tracking-wider text-ink-faint">Incoming · simulation</p>
             <p className="mt-2 text-2xl font-bold tracking-[-.03em] text-ink">{scenario.callerName}</p>
             <p className="mt-1 text-sm text-ink-soft">{scenario.callerClaim}</p>
-            <p className="mt-6 text-sm text-ink-faint">Connecting the caller… allow the microphone when asked.</p>
+            <div className="mt-6 flex items-center gap-2 text-sm text-ink-faint">
+              <span className="dojo-latency-dot" />
+              <span>Connecting the caller — allow the microphone when asked</span>
+            </div>
+            <div className="mt-5 panel p-4 text-left max-w-xs w-full">
+              <p className="text-[11px] font-bold uppercase tracking-wider text-ink-faint mb-2">What to expect</p>
+              <ul className="space-y-1.5 text-ink-soft text-xs leading-5">
+                <li>• The AI caller will speak first</li>
+                <li>• Reply naturally — you are being coached</li>
+                <li>• Call Shield watches for scam tactics in real time</li>
+                <li>• Your microphone stays local; only transcripts are sent</li>
+              </ul>
+            </div>
             <button type="button" onClick={() => { teardown(); setPhase("setup"); }} className="mt-6 text-sm font-bold text-service hover:underline">Cancel</button>
           </div>
-        )}
+        </main>
+      )}
 
-        {/* = = = = = = = = = = = = = = = = = = =  LIVE CALL = = = = = = = = = = = = = = = = = = =  */}
-        {(phase === "call" || phase === "ending") && (
+      {/* ========================= LIVE CALL ========================= */}
+      {(phase === "call" || phase === "ending") && (
+        <main id="main-content" className="public-shell py-6 sm:py-8">
+          <PhaseRail active={2} />
           <div className="mx-auto max-w-6xl">
             {/* Caller bar */}
             <div className={`panel flex flex-wrap items-center gap-4 p-4 ${isScam ? "border-danger/40 bg-danger-soft" : phase === "ending" ? "border-warning/40 bg-warning-soft" : ""}`}>
-              <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] transition-all ${isScam ? "bg-danger/10 text-danger" : "bg-service/10 text-service"} ${scammerSpeaking ? "ring-2 ring-service/30" : ""}`} aria-hidden="true">
+              {/* Avatar with speaking animation (via .is-speaking modifier) */}
+              <div
+                className={`dojo-avatar shrink-0 transition-all ${isScam ? "bg-danger/10 text-danger" : "bg-service/10 text-service"} ${scammerSpeaking ? "is-speaking" : ""}`}
+                aria-hidden="true"
+              >
                 <PhoneCall size={20} />
               </div>
               <div className="min-w-0 flex-1">
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2">
                   <span className={`inline-block h-2 w-2 rounded-full ${phase === "ending" ? "bg-warning" : isScam ? "bg-danger animate-pulse" : "bg-success animate-pulse"}`} aria-hidden="true" />
                   <p className="mono-ref text-[10px] uppercase tracking-wider text-ink-faint">{phase === "ending" ? "Call ending" : "On call · simulation"}</p>
+                  {/* Latency / long-silence badge */}
+                  {showLatencyBadge && (
+                    <span className="dojo-latency-badge" role="status" aria-live="polite">
+                      <span className="dojo-latency-dot" />
+                      <WifiOff size={10} aria-hidden="true" />
+                      High latency — caller connecting
+                    </span>
+                  )}
                 </div>
                 <p className="truncate text-lg font-bold text-ink">{scenario.callerName} <span className="text-sm font-normal text-ink-soft">· {scenario.callerClaim}</span></p>
               </div>
@@ -575,17 +697,44 @@ export default function DojoPage() {
               <section aria-label="Live transcript" className="panel flex min-h-[420px] flex-col p-5">
                 <div className="flex items-center justify-between">
                   <p className="text-[11px] font-bold uppercase tracking-wider text-ink-faint">Live call · you vs the caller</p>
-                  <p className="mono-ref text-[11px] text-ink-faint">{turns.filter((t) => t.role === "you").length} replies</p>
+                  <div className="flex items-center gap-3">
+                    {youSpeaking && micOn && (
+                      <span className="dojo-latency-badge" style={{ background: "rgba(26,122,76,.1)", borderColor: "rgba(26,122,76,.3)", color: "var(--color-success)" }} aria-live="polite">
+                        <Mic size={10} aria-hidden="true" />
+                        Speaking…
+                      </span>
+                    )}
+                    <p className="mono-ref text-[11px] text-ink-faint">{turns.filter((t) => t.role === "you").length} replies</p>
+                  </div>
                 </div>
                 <div className="mt-3 max-h-[52vh] flex-1 space-y-2 overflow-y-auto pr-1">
-                  {turns.length === 0 && <p className="text-sm text-ink-faint">The caller is dialling in…</p>}
+                  {/* Improved empty state with icon */}
+                  {turns.length === 0 && !showTypingIndicator && (
+                    <div className="flex flex-col items-center justify-center py-12 text-center">
+                      <div className="dojo-ring mb-4" style={{ width: "52px", height: "52px" }} aria-hidden="true">
+                        <Wifi size={20} />
+                      </div>
+                      <p className="text-sm font-semibold text-ink">Waiting for the caller to speak…</p>
+                      <p className="mt-1 text-xs text-ink-faint">The scammer will introduce themselves shortly</p>
+                    </div>
+                  )}
                   {turns.filter((t) => t.text.trim()).map((t) => (
                     <div key={t.id} className={`flex ${t.role === "you" ? "justify-end" : "justify-start"}`}>
-                      <p className={`max-w-[85%] text-sm leading-6 ${t.role === "you" ? "dojo-you-bubble" : "caller-bubble text-ink"}`}>
-                        {t.role === "scammer" ? highlight(t.text, assessment.markers) : t.text}
-                      </p>
+                      <div className={`flex max-w-[85%] flex-col gap-0.5 ${t.role === "you" ? "items-end" : "items-start"}`}>
+                        <p className="text-[10px] font-bold uppercase tracking-wide text-ink-faint">
+                          {t.role === "you" ? "You" : scenario.callerName}
+                        </p>
+                        <p className={`text-sm leading-6 ${t.role === "you" ? "dojo-you-bubble" : "caller-bubble text-ink"}`}>
+                          {t.role === "scammer" ? highlight(t.text, assessment.markers) : t.text}
+                        </p>
+                        {!t.final && t.role === "scammer" && (
+                          <p className="text-[10px] italic text-ink-faint">receiving…</p>
+                        )}
+                      </div>
                     </div>
                   ))}
+                  {/* Typing / latency indicator bubble */}
+                  {showTypingIndicator && <CallerTypingBubble />}
                   <div ref={transcriptEndRef} />
                 </div>
                 {/* Text reply (always available; primary when there is no mic) */}
@@ -653,16 +802,20 @@ export default function DojoPage() {
             </div>
             {error && <p role="alert" className="mt-4 text-sm text-danger">{error}</p>}
           </div>
-        )}
+        </main>
+      )}
 
-        {/* = = = = = = = = = = = = = = = = = = =  DEBRIEF = = = = = = = = = = = = = = = = = = =  */}
-        {phase === "debrief" && (
+      {/* ========================= DEBRIEF ========================= */}
+      {phase === "debrief" && (
+        <main id="main-content" className="public-shell py-8 sm:py-12">
+          <PhaseRail active={3} />
           <div className="mx-auto max-w-5xl">
             <p className="kicker flex items-center gap-2"><Sparkles size={14} aria-hidden="true" /> Debrief · {scenario.title} · {difficulty}</p>
             {debriefPending && (
               <div className="panel mt-4 p-8 text-center">
                 <div className="dojo-ring mx-auto" aria-hidden="true"><Sparkles size={26} /></div>
-                <p className="mt-4 text-sm text-ink-soft">Your coach is replaying the call…</p>
+                <p className="mt-4 text-sm font-semibold text-ink">Your coach is replaying the call…</p>
+                <p className="mt-1 text-xs text-ink-faint">Analysing {turns.filter((t) => t.text.trim()).length} turns · {fmtClock(elapsed)}</p>
               </div>
             )}
             {!debriefPending && debrief && (
@@ -708,16 +861,20 @@ export default function DojoPage() {
                   </section>
                 )}
 
+                {/* The "one rule" — full-width dark say-now slab */}
                 <section className="say-now mt-5 p-6">
-                  <p className="kicker text-danger">The one rule from this call</p>
-                  <p className="display mt-3 text-2xl leading-snug text-ink sm:text-[1.9rem]">&ldquo;{debrief.oneLiner}&rdquo;</p>
-                  <p className="mt-4 text-sm leading-6 text-ink-soft"><span className="font-bold text-ink">Family tip:</span> {debrief.familyTip}</p>
+                  <p className="kicker" style={{ color: "var(--saffron, #f4b942)" }}>The one rule from this call</p>
+                  <p className="display mt-3 text-2xl leading-snug sm:text-[1.9rem]">&ldquo;{debrief.oneLiner}&rdquo;</p>
+                  <p className="mt-4 text-sm leading-6" style={{ color: "rgba(254,252,248,.72)" }}>
+                    <span className="font-bold" style={{ color: "#fefcf8" }}>Family tip:</span> {debrief.familyTip}
+                  </p>
                   <div className="mt-5 flex flex-wrap gap-2">
                     <a href={`https://wa.me/?text=${encodeURIComponent(shareText)}`} target="_blank" rel="noopener noreferrer"
                       className="inline-flex min-h-12 items-center gap-2 rounded-[10px] bg-success px-5 text-sm font-bold text-white hover:brightness-110">
                       <Share2 size={16} aria-hidden="true" /> Send to family on WhatsApp
                     </a>
-                    <button type="button" onClick={() => navigator.clipboard?.writeText(shareText)} className="inline-flex min-h-12 items-center rounded-[10px] border border-line bg-surface px-5 text-sm font-bold text-ink hover:border-line-strong">Copy</button>
+                    <button type="button" onClick={() => navigator.clipboard?.writeText(shareText)}
+                      className="inline-flex min-h-12 items-center rounded-[10px] border border-white/20 bg-white/10 px-5 text-sm font-bold text-white hover:bg-white/20">Copy</button>
                   </div>
                 </section>
               </>
@@ -747,8 +904,8 @@ export default function DojoPage() {
               </Link>
             </div>
           </div>
-        )}
-      </main>
+        </main>
+      )}
     </div>
   );
 }

@@ -295,8 +295,8 @@ function CheckForm() {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <p className="text-sm font-bold text-ink">You do not need to finish this form to get help.</p>
             <div className="flex flex-wrap gap-3">
-              <a href="tel:112" className="inline-flex min-h-11 items-center rounded-[8px] bg-danger px-4 text-sm font-bold text-white">Call 112: immediate danger</a>
-              <a href="tel:1930" className="inline-flex min-h-11 items-center rounded-[8px] bg-danger px-4 text-sm font-bold text-white">Call 1930: financial cyber fraud</a>
+              <a href="tel:1930" className="inline-flex min-h-11 items-center rounded-[8px] bg-danger px-4 text-sm font-bold text-white">Call 1930: cyber fraud</a>
+              <a href="tel:112" className="inline-flex min-h-11 items-center rounded-[8px] border border-danger/40 bg-paper px-4 text-sm font-bold text-danger">Call 112: immediate danger</a>
             </div>
           </div>
         </section>
@@ -448,7 +448,7 @@ function CheckForm() {
 
                 {error && <div role="alert" className="panel border-danger/40 bg-danger-soft p-4 text-sm font-semibold text-danger">{error}</div>}
 
-                {mode !== "upload" && <button type="submit" disabled={!draftReady || loading || hashing} className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[10px] bg-service px-5 text-sm font-bold text-white hover:bg-command disabled:cursor-not-allowed disabled:opacity-60">{loading ? "Analysing the incident..." : hashing ? "Creating local fingerprint..." : mode === "private" ? "Create local fingerprint" : "Analyse this incident"}{!loading && !hashing && <ArrowRight size={17} aria-hidden="true" />}</button>}
+                {mode !== "upload" && <button type="submit" disabled={!draftReady || loading || hashing} className="btn-night inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[10px] px-5 text-sm font-bold disabled:cursor-not-allowed disabled:opacity-60">{loading ? "Analysing the incident..." : hashing ? "Creating local fingerprint..." : mode === "private" ? "Create local fingerprint" : "Analyse this incident"}{!loading && !hashing && <ArrowRight size={17} aria-hidden="true" />}</button>}
               </form>
 
               <div className="mt-6 text-center"><p className="text-xs text-ink-faint">Want to see the complete response path?</p><Link href="/check/DEMO0001" className="mt-2 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-service hover:text-ink">Open the example task-scam case <ArrowRight size={15} aria-hidden="true" /></Link></div>

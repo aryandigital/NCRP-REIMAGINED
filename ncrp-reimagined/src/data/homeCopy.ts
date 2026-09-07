@@ -66,7 +66,7 @@ const en: HomeCopy = {
     ctaTrack: "Track a case",
     ruleKicker: "Built around a simple rule",
     rule: "If money is moving, call 1930 first. The response desk stays open around the clock.",
-    statline: "Cyber response for every Indian",
+    statline: "",
   },
   routes: {
     kicker: "Start where you are",

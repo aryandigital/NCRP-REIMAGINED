@@ -30,7 +30,7 @@ export default function DemoCopyButton({ nextPage }: { nextPage: "check" | "act"
 
   return <div className="mt-5 rounded-[10px] border border-line p-4">
     <p className="text-sm leading-6 text-ink-soft">This public example is read-only. Create a separate synthetic copy before reviewing facts, saving actions or preparing local packets. Use synthetic details only.</p>
-    <button type="button" onClick={createCopy} disabled={busy} className="mt-3 inline-flex min-h-11 items-center rounded-[8px] bg-service px-4 text-sm font-bold text-white disabled:opacity-60">{busy ? "Creating example copy..." : "Create my example copy"}</button>
+    <button type="button" onClick={createCopy} disabled={busy} className="btn-night mt-3 inline-flex min-h-11 items-center rounded-[8px] px-4 text-sm font-bold disabled:opacity-60">{busy ? "Creating example copy..." : "Create my example copy"}</button>
     {error && <p role="alert" className="mt-3 text-sm text-danger">{error}</p>}
   </div>;
 }
