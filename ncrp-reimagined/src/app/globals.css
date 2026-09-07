@@ -589,8 +589,8 @@ mark { background: rgba(255, 119, 34, .28); color: inherit; border-radius: 3px; 
 @keyframes radar-rings-breathe { 0%, 100% { opacity: .55; } 50% { opacity: .9; } }
 
 /* Dojo: the "one rule" debrief callout */
-.say-now { border-radius: 10px; background: var(--color-command); color: #fefcf8; border: 1px solid rgba(254,252,248,.08); }
-.say-now .kicker { color: var(--saffron); }
+.say-now { border-radius: 10px; background: var(--color-danger-soft); color: var(--color-ink); border: 1px solid color-mix(in srgb, var(--color-danger) 30%, transparent); }
+.say-now .kicker { color: var(--color-danger); }
 
 /* Dojo: typing / latency indicator — three bouncing dots */
 .dojo-typing-dots { display: inline-flex; align-items: center; gap: 4px; padding: 10px 14px; }
