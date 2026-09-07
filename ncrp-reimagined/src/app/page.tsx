@@ -105,6 +105,8 @@ export default function HomePage() {
           </div>
         </section>
 
+        <hr className="border-line" />
+
         {/* Report categories */}
         <section className="section-glow bg-paper">
           <div className="public-shell py-14 sm:py-20">
