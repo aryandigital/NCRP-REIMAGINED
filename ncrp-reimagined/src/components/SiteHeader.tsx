@@ -29,12 +29,12 @@ export default function SiteHeader({ current }: { current?: "check" | "track" | 
   }, []);
 
   const copy = {
-    en: { check: "Check Suspect", track: "Track Complaint", alerts: "Cyber Alerts", operator: "Operator Console", start: "Report Crime", sub: "Prototype / fictional data only" },
-    hi: { check: "संदिग्ध जांचें", track: "शिकायत ट्रैक करें", alerts: "साइबर चेतावनी", operator: "ऑपरेटर कंसोल", start: "अपराध दर्ज करें", sub: "हैकाथॉन प्रोटोटाइप \u2014 यह सरकारी सेवा नहीं है" },
-    ta: { check: "சந்தேகத்தை சரிபார்", track: "புகார் கண்காணி", alerts: "சைபர் எச்சரிக்கை", operator: "ஆபரேட்டர் கன்சோல்", start: "குற்றம் பதிவு", sub: "ஹேக்கத்தான் முன்மாதிரி \u2014 அரசு சேவை அல்ல" },
-    te: { check: "అనుమానితుడిని తనిఖీ", track: "ఫిర్యాదు ట్రాక్", alerts: "సైబర్ హెచ్చరిక", operator: "ఆపరేటర్ కన్సోల్", start: "నేరం నమోదు", sub: "హ్యాకథాన్ ప్రోటోటైప్ \u2014 ప్రభుత్వ సేవ కాదు" },
-    bn: { check: "সন্দেহভাজন যাচাই", track: "অভিযোগ ট্র্যাক", alerts: "সাইবার সতর্কতা", operator: "অপারেটর কনসোল", start: "অপরাধ নথিভুক্ত", sub: "হ্যাকাথন প্রোটোটাইপ \u2014 সরকারি সেবা নয়" },
-    mr: { check: "संशयित तपासा", track: "तक्रार ट्रॅक", alerts: "सायबर सतर्कता", operator: "ऑपरेटर कन्सोल", start: "गुन्हा नोंदवा", sub: "हॅकाथॉन प्रोटोटाइप \u2014 सरकारी सेवा नाही" },
+    en: { shield: "Call Shield", dojo: "Dojo", check: "Check Suspect", track: "Track Complaint", alerts: "Cyber Alerts", operator: "Operator Console", start: "Report Crime", sub: "Prototype / fictional data only" },
+    hi: { shield: "कॉल शील्ड", dojo: "डोजो", check: "संदिग्ध जांचें", track: "शिकायत ट्रैक करें", alerts: "साइबर चेतावनी", operator: "ऑपरेटर कंसोल", start: "अपराध दर्ज करें", sub: "हैकाथॉन प्रोटोटाइप — यह सरकारी सेवा नहीं है" },
+    ta: { shield: "கால் ஷீல்ட்", dojo: "டோஜோ", check: "சந்தேகத்தை சரிபார்", track: "புகார் கண்காணி", alerts: "சைபர் எப்சரிக்கை", operator: "ஆபரேட்டர் கன்சோல்", start: "குற்றம் பதிவு", sub: "ஹேக்கத்தான் முன்மாதிரி — அரசு சேவை அல்ல" },
+    te: { shield: "కాల్ షీల్డ్", dojo: "డోజో", check: "అనుమానితుడిని తనిఖీ", track: "ఫిర్యాదు ట్రాక్", alerts: "సైబర్ హెచ్చరిక", operator: "ఆపరేటర్ కన్సోల్", start: "నేరం నమోదు", sub: "హ్యాకథాన్ ప్రోటోటైప్ — ప్రభుత్వ సేవ కాదు" },
+    bn: { shield: "কল শিল্ড", dojo: "ডোজো", check: "সন্দেহভাজন যাচাই", track: "অভিযোগ ট্র্যাক", alerts: "সাইবার সতর্কতা", operator: "অপারেটর কনসোল", start: "অপরাধ নথিভুক্ত", sub: "হ্যাকাথন প্রোটোটাইপ — সরকারি সেবা নয়" },
+    mr: { shield: "कॉल शील्ड", dojo: "डोजो", check: "संशयित तपासा", track: "तक्रार ट्रॅक", alerts: "सायबर सतर्कता", operator: "ऑपरेटर कन्सोल", start: "गुन्हा नोंदवा", sub: "हॅकाथॉन प्रोटोटाइप — सरकारी सेवा नाही" },
   }[language];
 
   return (
@@ -56,19 +56,17 @@ export default function SiteHeader({ current }: { current?: "check" | "track" | 
             <nav id="primary-navigation" aria-label="Primary navigation" className={`site-nav flex items-center gap-0.5 sm:gap-1 ${menuOpen ? "is-open" : ""}`}>
               <Link
                 href="/shield"
-                lang="en"
                 aria-current={current === "shield" ? "page" : undefined}
                 className={`flex min-h-9 items-center px-2 text-[13px] font-semibold sm:px-3 sm:text-sm ${current === "shield" ? "text-[var(--saffron)]" : "text-[rgba(254,252,248,.7)] hover:text-[#fefcf8]"}`}
               >
-                Call Shield
+                {copy.shield}
               </Link>
               <Link
                 href="/dojo"
-                lang="en"
                 aria-current={current === "dojo" ? "page" : undefined}
                 className={`flex min-h-9 items-center px-2 text-[13px] font-semibold sm:px-3 sm:text-sm ${current === "dojo" ? "text-[var(--saffron)]" : "text-[rgba(254,252,248,.7)] hover:text-[#fefcf8]"}`}
               >
-                Dojo
+                {copy.dojo}
               </Link>
               <Link
                 href="/check"
