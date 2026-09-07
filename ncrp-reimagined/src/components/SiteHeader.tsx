@@ -7,7 +7,7 @@ import { BrandMark } from "@/components/icons";
 import { useRakshaLanguage } from "@/hooks/useRakshaLanguage";
 import UserMenu from "@/components/UserMenu";
 
-export default function SiteHeader({ current }: { current?: "check" | "track" | "atlas" | "operator" | "shield" }) {
+export default function SiteHeader({ current }: { current?: "check" | "track" | "atlas" | "operator" | "shield" | "dojo" }) {
   const { language } = useRakshaLanguage();
   const headerRef = useRef<HTMLElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -61,6 +61,14 @@ export default function SiteHeader({ current }: { current?: "check" | "track" | 
                 className={`flex min-h-9 items-center px-2 text-[13px] font-semibold sm:px-3 sm:text-sm ${current === "shield" ? "text-[var(--saffron)]" : "text-[rgba(254,252,248,.7)] hover:text-[#fefcf8]"}`}
               >
                 Call Shield
+              </Link>
+              <Link
+                href="/dojo"
+                lang="en"
+                aria-current={current === "dojo" ? "page" : undefined}
+                className={`flex min-h-9 items-center px-2 text-[13px] font-semibold sm:px-3 sm:text-sm ${current === "dojo" ? "text-[var(--saffron)]" : "text-[rgba(254,252,248,.7)] hover:text-[#fefcf8]"}`}
+              >
+                Dojo
               </Link>
               <Link
                 href="/check"

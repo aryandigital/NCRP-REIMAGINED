@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, Mic, ShieldCheck, Phone, Activity, Network, Volume2, Route, Siren, WalletCards, ScanSearch } from "lucide-react";
+import { ArrowRight, Mic, ShieldCheck, Phone, Activity, Network, Volume2, Route, Siren, WalletCards, ScanSearch, Swords } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import HeroParticles from "@/components/HeroParticles";
 import { PATTERNS } from "@/data/patterns";
@@ -59,6 +59,7 @@ export default function HomePage() {
             <div className="hero-ctas-anim mt-9 flex flex-wrap items-center justify-center gap-3">
               <Link href="/check?mode=lost" className="btn-night">{copy.hero.ctaStart} <ArrowRight size={17} aria-hidden="true" /></Link>
               <Link href="/shield" className="btn-daylight">{copy.hero.ctaShield}</Link>
+              <Link href="/dojo" className="hero-track-action" lang="en"><Swords size={15} aria-hidden="true" /> Rehearse a scam call</Link>
               <Link href="/track" className="hero-track-action">{copy.hero.ctaTrack}</Link>
             </div>
             <p className="hero-pill-anim hero-safety mt-8 flex items-center gap-2.5 text-[13px] font-semibold">
@@ -71,6 +72,34 @@ export default function HomePage() {
 
         {/* Tricolor separator */}
         <div className="tricolor-bar" aria-hidden="true" />
+
+        {/* Raksha Dojo: the differentiating anti-fraud rehearsal flow */}
+        <section className="bg-command text-[#fefcf8]" lang="en">
+          <div className="public-shell grid gap-8 py-14 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)] lg:items-center sm:py-20">
+            <div className="reveal">
+              <p className="kicker flex items-center gap-2 text-[var(--saffron)]"><Swords size={14} aria-hidden="true" /> New · Raksha Dojo</p>
+              <h2 className="display mt-4 text-[1.9rem] leading-tight sm:text-[2.6rem]">The scam calls <span className="text-[var(--saffron)]">you</span> before a real one does.</h2>
+              <p className="mt-4 max-w-[52ch] text-[15px] leading-7 text-[rgba(254,252,248,.75)]">A live AI caller applies the pressure of a real fraud call in Hindi, Hinglish or English; you talk back; Call Shield lights each red flag; your coach scores the response and gives your family a shareable safety tip.</p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link href="/dojo" className="btn-night">Answer the call <ArrowRight size={17} aria-hidden="true" /></Link>
+                <Link href="/shield" className="btn-daylight">Protect a real call</Link>
+              </div>
+            </div>
+            <div className="reveal grid gap-3 sm:grid-cols-2">
+              {[
+                { t: "Digital arrest", q: "FIR number, video hearing, stay on the line." },
+                { t: "Bank KYC block", q: "An OTP will arrive for verification." },
+                { t: "UPI refund trap", q: "Accept the request to receive your refund." },
+                { t: "Part-time task", q: "Pay a deposit to unlock your earnings." },
+              ].map((card) => (
+                <Link key={card.t} href="/dojo" className="rounded-[10px] border border-[rgba(254,252,248,.15)] bg-[rgba(254,252,248,.06)] p-4 transition-colors hover:border-[var(--saffron)]">
+                  <p className="text-sm font-bold">{card.t}</p>
+                  <p className="mt-1.5 text-[13px] italic leading-5 text-[rgba(254,252,248,.65)]">“{card.q}”</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Report categories */}
         <section className="section-glow bg-paper">

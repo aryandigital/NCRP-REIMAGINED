@@ -566,6 +566,20 @@ button:active, a:active { transform: translateY(1px); }
 @keyframes timeline-ripple { 0% { transform: translateX(-150%); } 100% { transform: translateX(600%); } }
 .timeline-ripple { animation: timeline-ripple 3.8s ease-in-out infinite; }
 @keyframes radar-sweep { to { transform: rotate(360deg); } }
+
+/* Raksha Dojo: live rehearsal states and post-call scorecard. */
+.dojo-ring { display: flex; align-items: center; justify-content: center; width: 84px; height: 84px; border-radius: 999px; color: #fff; background: var(--saffron); box-shadow: 0 0 0 0 rgba(255, 119, 34, .45); animation: dojo-pulse 1.4s ease-out infinite; }
+@keyframes dojo-pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 119, 34, .45); } 100% { box-shadow: 0 0 0 26px rgba(255, 119, 34, 0); } }
+.dojo-avatar { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; flex-shrink: 0; border-radius: 999px; background: rgba(254, 252, 248, .12); color: currentColor; transition: box-shadow .2s; }
+.dojo-avatar.is-speaking { box-shadow: 0 0 0 4px rgba(255, 119, 34, .35), 0 0 0 9px rgba(255, 119, 34, .15); animation: dojo-talk .9s ease-in-out infinite alternate; }
+@keyframes dojo-talk { from { box-shadow: 0 0 0 3px rgba(255, 119, 34, .35), 0 0 0 7px rgba(255, 119, 34, .12); } to { box-shadow: 0 0 0 6px rgba(255, 119, 34, .35), 0 0 0 12px rgba(255, 119, 34, .12); } }
+.dojo-you-bubble { border-right: 3px solid var(--navy); background: rgba(26, 35, 126, .07); color: var(--color-ink); padding: 10px 12px; border-radius: 8px 0 0 8px; }
+.dojo-slip-flash { animation: dojo-flash .6s ease-out 2; }
+@keyframes dojo-flash { 0% { box-shadow: 0 0 0 0 rgba(192, 57, 43, .5); } 100% { box-shadow: 0 0 0 16px rgba(192, 57, 43, 0); } }
+.dojo-score { --score: 0; display: flex; align-items: center; justify-content: center; width: 150px; height: 150px; border-radius: 999px; background: conic-gradient(var(--saffron) calc(var(--score) * 1%), var(--color-line) 0); position: relative; }
+.dojo-score::before { content: ""; position: absolute; inset: 11px; border-radius: 999px; background: var(--color-paper); }
+.dojo-score > * { position: relative; }
+mark { background: rgba(255, 119, 34, .28); color: inherit; border-radius: 3px; padding: 0 2px; }
 @keyframes radar-blip { 50% { transform: scale(1.35); opacity: .58; } }
 @keyframes live-pulse { 70% { box-shadow: 0 0 0 7px rgba(192, 57, 43, 0); } 100% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0); } }
 @keyframes radar-idle-sweep { to { transform: rotate(360deg); } }

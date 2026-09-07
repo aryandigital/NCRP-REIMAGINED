@@ -26,6 +26,10 @@ Windows PowerShell with script execution disabled:
 
 ## Judge Walkthrough
 
+**Reviewer login:** `judge@raksha.demo` / `Raksha-2026`.
+
+**Start at `/dojo` — Raksha Dojo.** Pick a scam, difficulty and language, then answer the simulated call. An OpenAI Realtime voice agent plays the scammer over WebRTC; the pressure ladder is driven by agent tool calls; Call Shield scores the caller's words live; the slip detector flags details the trainee reveals; and the post-call Structured-Outputs debrief gives a 0–100 score, turning points with better responses, and a WhatsApp-ready family tip. Mic access is optional because typed replies are supported.
+
 1. Open `/shield` and select **Simulate a scam call**. Synthetic audio plays alongside directly supplied fictional transcript text. This demonstrates screening, not speech-recognition accuracy.
 2. Watch the warning and quoted evidence appear. Keyword fallback works without provider keys. Optional OpenAI assessment uses bounded, validated responses and a six-second fallback.
 3. Select **Stop screening & get help**. Answer only what is known; skipped answers stay unknown. Demo identity and contact fields must remain fictional.

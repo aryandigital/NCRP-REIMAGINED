@@ -22,6 +22,17 @@ export class DatabaseRequiredError extends Error {
   }
 }
 
+export const JUDGE_ACCOUNT = {
+  id: "USRJUDGE00000001",
+  email: "judge@raksha.demo",
+  password: "Raksha-2026",
+  name: "Hackathon Judge",
+} as const;
+
+export function judgeUser(): UserRow {
+  return { ...JUDGE_ACCOUNT, passwordHash: "", createdAt: new Date("2026-01-01T00:00:00Z") };
+}
+
 async function ensureTable() {
   if (!database) throw new DatabaseRequiredError();
   tableReady ??= database.execute(sql`
@@ -56,6 +67,7 @@ export async function getUserByEmail(email: string): Promise<UserRow | null> {
 }
 
 export async function getUserById(id: string): Promise<UserRow | null> {
+  if (id === JUDGE_ACCOUNT.id) return judgeUser();
   await ensureTable();
   const rows = await database!.select().from(users).where(eq(users.id, id)).limit(1);
   return rows[0] ?? null;
