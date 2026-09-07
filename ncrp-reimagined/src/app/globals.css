@@ -366,6 +366,8 @@ button:active, a:active { transform: translateY(1px); }
   font-weight: 800;
   letter-spacing: .25em;
   text-transform: uppercase;
+  text-align: center;
+  width: 100%;
 }
 
 /* Buttons */

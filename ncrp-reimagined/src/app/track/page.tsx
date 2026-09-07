@@ -69,7 +69,7 @@ export default function TrackPage() {
             <input id="caseId" name="caseId" value={caseId} onChange={(event) => { setCaseId(event.target.value); setError(""); }} disabled={loading} required maxLength={64} autoCapitalize="characters" autoComplete="off" spellCheck={false} aria-invalid={Boolean(error)} aria-describedby={error ? "caseId-help caseId-error" : "caseId-help"} placeholder="Example: DEMO0001" className="min-h-12 w-full rounded-[8px] border border-line bg-paper pl-10 pr-3 font-mono text-sm text-ink placeholder:text-ink-faint focus:border-service focus:bg-surface focus:outline-none" />
           </div>
           {error && <p id="caseId-error" role="alert" className="mt-3 text-sm leading-6 text-danger">{error}</p>}
-          <button type="submit" disabled={loading} className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[10px] bg-service px-5 text-sm font-bold text-white hover:bg-command disabled:opacity-60">{loading ? "Checking case..." : "Open case"} <ArrowRight size={17} aria-hidden="true" /></button>
+          <button type="submit" disabled={loading} className="btn-night mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[10px] px-5 text-sm font-bold disabled:opacity-60">{loading ? "Checking case..." : "Open case"} <ArrowRight size={17} aria-hidden="true" /></button>
           <p role="status" className="mt-2 text-sm text-ink-soft">{loading ? "Checking your Raksha case ID before opening the record." : ""}</p>
         </form>
         <section className="panel mt-4 border-service/30 bg-service-soft p-5">

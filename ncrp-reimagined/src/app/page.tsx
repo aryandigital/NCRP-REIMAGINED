@@ -59,8 +59,7 @@ export default function HomePage() {
             <div className="hero-ctas-anim mt-9 flex flex-wrap items-center justify-center gap-3">
               <Link href="/check?mode=lost" className="btn-night">{copy.hero.ctaStart} <ArrowRight size={17} aria-hidden="true" /></Link>
               <Link href="/shield" className="btn-daylight">{copy.hero.ctaShield}</Link>
-              <Link href="/dojo" className="hero-track-action" lang="en"><Swords size={15} aria-hidden="true" /> Rehearse a scam call</Link>
-              <Link href="/track" className="hero-track-action">{copy.hero.ctaTrack}</Link>
+              <Link href="/dojo" className="btn-daylight" lang="en"><Swords size={15} aria-hidden="true" /> Rehearse a scam call</Link>
             </div>
             <p className="hero-pill-anim hero-safety mt-8 flex items-center gap-2.5 text-[13px] font-semibold">
               <IconEmergency size={17} aria-hidden="true" />

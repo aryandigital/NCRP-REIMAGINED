@@ -561,16 +561,16 @@ export default function DojoPage() {
                       key={s.slug} type="button" onClick={() => setScenario(s)} aria-pressed={active}
                       className={`group panel flex h-full flex-col gap-3 p-4 text-left transition-colors ${active ? "border-service ring-2 ring-service/30" : "hover:border-line-strong"}`}
                     >
-                      <div className="flex items-start justify-between gap-2">
-                        <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-[8px] border transition-colors duration-200 ${active ? "border-service bg-service-soft" : "border-line bg-surface group-hover:border-service group-hover:bg-service-soft"}`}>
-                          <ScenarioIcon size={16} className={`transition-colors duration-200 ${active ? "text-service" : "text-ink-faint group-hover:text-service"}`} aria-hidden="true" />
-                        </span>
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-2.5">
+                          <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-[8px] border transition-colors duration-200 ${active ? "border-service bg-service-soft" : "border-line bg-surface group-hover:border-service group-hover:bg-service-soft"}`}>
+                            <ScenarioIcon size={16} className={`transition-colors duration-200 ${active ? "text-service" : "text-ink-faint group-hover:text-service"}`} aria-hidden="true" />
+                          </span>
+                          <p className="text-[15px] font-bold text-ink">{s.title}</p>
+                        </div>
                         {(best[s.slug] ?? 0) >= 80 ? <ShieldCheck size={16} className="shrink-0 text-success" aria-label="Shielded" /> : best[s.slug] !== undefined ? <span className="mono-ref text-[11px] text-ink-faint">{best[s.slug]}</span> : null}
                       </div>
-                      <div>
-                        <p className="text-[15px] font-bold text-ink">{s.title}</p>
-                        <p className="mt-1 text-[13px] italic leading-5 text-ink-soft">{s.tagline}</p>
-                      </div>
+                      <p className="mt-0.5 text-[13px] italic leading-5 text-ink-soft">{s.tagline}</p>
                       <p className="mt-auto text-[11px] text-ink-faint">For: {s.practiceFor.join(" · ")}</p>
                     </button>
                   );
@@ -612,7 +612,7 @@ export default function DojoPage() {
 
             <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
               <button type="button" onClick={startCall}
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[10px] bg-service px-6 text-sm font-bold text-white hover:bg-command">
+                className="btn-night inline-flex min-h-12 items-center justify-center gap-2 rounded-[10px] px-6 text-sm font-bold">
                 <PhoneCall size={18} aria-hidden="true" /> Answer the call
               </button>
               <p className="text-xs leading-5 text-ink-faint">Uses your microphone. No mic? You can type replies. Nothing you say is stored on our servers; credentials are stripped before coaching.</p>

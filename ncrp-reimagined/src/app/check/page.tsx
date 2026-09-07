@@ -448,7 +448,7 @@ function CheckForm() {
 
                 {error && <div role="alert" className="panel border-danger/40 bg-danger-soft p-4 text-sm font-semibold text-danger">{error}</div>}
 
-                {mode !== "upload" && <button type="submit" disabled={!draftReady || loading || hashing} className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[10px] bg-service px-5 text-sm font-bold text-white hover:bg-command disabled:cursor-not-allowed disabled:opacity-60">{loading ? "Analysing the incident..." : hashing ? "Creating local fingerprint..." : mode === "private" ? "Create local fingerprint" : "Analyse this incident"}{!loading && !hashing && <ArrowRight size={17} aria-hidden="true" />}</button>}
+                {mode !== "upload" && <button type="submit" disabled={!draftReady || loading || hashing} className="btn-night inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[10px] px-5 text-sm font-bold disabled:cursor-not-allowed disabled:opacity-60">{loading ? "Analysing the incident..." : hashing ? "Creating local fingerprint..." : mode === "private" ? "Create local fingerprint" : "Analyse this incident"}{!loading && !hashing && <ArrowRight size={17} aria-hidden="true" />}</button>}
               </form>
 
               <div className="mt-6 text-center"><p className="text-xs text-ink-faint">Want to see the complete response path?</p><Link href="/check/DEMO0001" className="mt-2 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-service hover:text-ink">Open the example task-scam case <ArrowRight size={15} aria-hidden="true" /></Link></div>
