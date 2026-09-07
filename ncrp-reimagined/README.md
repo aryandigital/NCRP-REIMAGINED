@@ -39,6 +39,65 @@ Windows PowerShell with script execution disabled:
 
 The UI also supports text screening when microphone access fails. Browser speech recognition requires browser support and may send audio to the browser's speech provider. Raksha cannot join or end an existing telephone call; speaker-based rehearsal requires a separate device.
 
+## Raksha Dojo
+
+Interactive scam-call rehearsal trainer at `/dojo`. A voice agent plays the scammer over WebRTC (OpenAI Realtime); Call Shield scores the caller's words live; the slip detector flags OTPs, PINs, Aadhaar, card numbers, bank names, and agreement phrases as the trainee reveals them. Typed-reply fallback works when mic access is denied.
+
+### Scenarios
+
+| Slug | Title | Caller persona |
+|------|-------|----------------|
+| `digital-arrest` | Digital arrest | Inspector Vikram Rathore — Mumbai Cyber Cell / CBI |
+| `kyc-bank-impersonation` | Bank KYC block | Priya — SBI Customer Care |
+| `upi-collect-request` | UPI 'refund' trap | Rahul — OLX buyer |
+| `task-scam` | Part-time job / task | HR Ananya — Amazon WFH recruiter |
+
+All four follow the same five-stage arc: **hook → authority → isolation → threat → payment**.
+
+### Difficulty levels
+
+| Level | Behaviour |
+|-------|-----------|
+| `gentle` | Slow escalation, accepts two refusals, mild threats. Good for a first attempt. |
+| `realistic` *(default)* | Persistent, rehearsed, exploits hesitation. |
+| `ruthless` | Relentless, interrupts, shouts, invents new threats, exploits any detail revealed. |
+
+### Languages
+
+`hinglish` (default) · `hindi` · `english`
+
+Hinglish and Hindi use Indian-English official words in a Hindi sentence structure. The Realtime transcription language tag is `hi` for both; `en` for English.
+
+### Post-call debrief
+
+After the call ends, `/api/dojo/debrief` returns a structured scorecard:
+
+| Field | Description |
+|-------|-------------|
+| `score` | 0–100 safety score |
+| `grade` | `Shielded` (80+) · `Alert` (60–79) · `Wobbly` (40–59) · `Exposed` (<40) |
+| `headline` | One-line result summary |
+| `wins` / `risks` | Up to four items each — what went well and what was exploited |
+| `moments` | Up to four turning points with `scammerSaid`, `youSaid`, `betterSay`, `why` |
+| `oneLiner` | Single rule to remember from this call |
+| `familyTip` | WhatsApp-forwardable tip for family |
+
+When `OPENAI_API_KEY` is absent or the transcript is empty, a local fallback scores automatically (base 55 + 8 per refusal − 18 per slip; +20 for `resisted`/`hung_up`, −30 for `complied`).
+
+Best scores per scenario are stored in `localStorage` under `raksha-dojo-best`.
+
+### Required environment variables
+
+| Variable | Used for | Fallback if absent |
+|----------|----------|--------------------|
+| `OPENAI_API_KEY` | Live voice session + AI debrief | Session returns HTTP 503; debrief uses local scoring |
+| `OPENAI_REALTIME_MODEL` | Voice model | `gpt-realtime` |
+| `OPENAI_MODEL` | Debrief chat completions | `gpt-4o-mini` |
+
+### Rate limits
+
+Both Dojo API routes are in the AI tier: 200 requests per minute (global, process-level). See [documentation/rate-limiting/README.md](documentation/rate-limiting/README.md).
+
 ## Capability Boundaries
 
 - Text analysis, synthetic-call playback, factual review, draft exports, conditional recovery guidance, and local private-image fingerprinting are implemented.

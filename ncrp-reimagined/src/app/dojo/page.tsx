@@ -133,11 +133,16 @@ export default function DojoPage() {
   const transcriptEndRef = useRef<HTMLDivElement | null>(null);
   const responseActiveRef = useRef(false);
   const responseQueuedRef = useRef(false);
+  const waitForSessionRef = useRef(false);
+  const sessionInitTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const phaseRef = useRef<Phase>("setup");
+  const tearingDownRef = useRef(false);
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setBest(loadBest()));
     return () => cancelAnimationFrame(id);
   }, []);
+  useEffect(() => { phaseRef.current = phase; }, [phase]);
   useEffect(() => { turnsRef.current = turns; }, [turns]);
   useEffect(() => { slipsRef.current = slips; }, [slips]);
   const lastTurnText = turns[turns.length - 1]?.text;
@@ -238,8 +243,11 @@ export default function DojoPage() {
   }, [send]);
 
   const teardown = useCallback(() => {
+    tearingDownRef.current = true;
     if (endTimerRef.current) { clearTimeout(endTimerRef.current); endTimerRef.current = null; }
     if (silenceTimerRef.current) { clearTimeout(silenceTimerRef.current); silenceTimerRef.current = null; }
+    if (sessionInitTimerRef.current) { clearTimeout(sessionInitTimerRef.current); sessionInitTimerRef.current = null; }
+    waitForSessionRef.current = false;
     try { dcRef.current?.close(); } catch { /* noop */ }
     try { pcRef.current?.getSenders().forEach((s) => s.track?.stop()); pcRef.current?.close(); } catch { /* noop */ }
     micRef.current?.getTracks().forEach((t) => t.stop());
@@ -273,6 +281,7 @@ export default function DojoPage() {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ scenario: scenario.slug, outcome: finalOutcome, durationSec: Math.round(duration), slips: [...new Set(slipsRef.current.map((s) => s.kind))], transcript }),
       });
+      if (!res.ok) throw new Error(`Debrief failed (${res.status})`);
       const json = (await res.json()) as { debrief: DojoDebrief };
       setDebrief(json.debrief);
       const current = loadBest();
@@ -327,6 +336,17 @@ export default function DojoPage() {
     try { e = JSON.parse(raw.data); } catch { return; }
     const type = String(e.type ?? "");
     switch (type) {
+      case "session.created": {
+        if (waitForSessionRef.current) {
+          waitForSessionRef.current = false;
+          if (sessionInitTimerRef.current) { clearTimeout(sessionInitTimerRef.current); sessionInitTimerRef.current = null; }
+          responseActiveRef.current = true;
+          send({ type: "response.create" });
+          if (silenceTimerRef.current) clearTimeout(silenceTimerRef.current);
+          silenceTimerRef.current = setTimeout(() => setShowTypingIndicator(true), SILENCE_TYPING_MS);
+        }
+        return;
+      }
       case "response.created": responseActiveRef.current = true; return;
       case "response.done": {
         responseActiveRef.current = false;
@@ -382,6 +402,8 @@ export default function DojoPage() {
     setError(""); setTurns([]); setSlips([]); setToolStage(null); setServerAssessment(IDLE); setElapsed(0); setDebrief(null); setOutcome("aborted");
     setShowTypingIndicator(false); setCallerSilentSince(null);
     lastAssessedRef.current = "";
+    waitForSessionRef.current = false;
+    tearingDownRef.current = false;
     setPhase("connecting");
     try {
       const sessionRes = await fetch("/api/dojo/session", {
@@ -416,13 +438,27 @@ export default function DojoPage() {
       dc.addEventListener("open", () => {
         startedAtRef.current = performance.now();
         setPhase("call");
-        // The scammer speaks first — show typing indicator while they're connecting
-        responseActiveRef.current = true;
-        send({ type: "response.create" });
-        if (silenceTimerRef.current) clearTimeout(silenceTimerRef.current);
-        silenceTimerRef.current = setTimeout(() => setShowTypingIndicator(true), SILENCE_TYPING_MS);
+        // Wait for session.created before triggering the scammer's first line —
+        // sending response.create before the session is ready causes a silent failure.
+        waitForSessionRef.current = true;
+        sessionInitTimerRef.current = setTimeout(() => {
+          if (!waitForSessionRef.current) return;
+          waitForSessionRef.current = false;
+          teardown();
+          setPhase("setup");
+          setError("The rehearsal session timed out before it was ready. Try again.");
+        }, 10000);
       });
-      dc.addEventListener("close", () => { /* handled by finish/hangUp */ });
+      dc.addEventListener("close", () => {
+        // Ignore closes triggered by teardown() itself.
+        if (tearingDownRef.current) return;
+        const p = phaseRef.current;
+        if (p === "call" || p === "connecting") {
+          teardown();
+          setPhase("setup");
+          setError("The voice connection dropped. Please try again.");
+        }
+      });
 
       const offer = await pc.createOffer();
       await pc.setLocalDescription(offer);
@@ -431,6 +467,7 @@ export default function DojoPage() {
         headers: { Authorization: `Bearer ${session.clientSecret}`, "Content-Type": "application/sdp" },
         body: offer.sdp,
       });
+      if (sdpRes.status === 429) throw new Error("Too many rehearsal sessions right now. Wait a moment and try again.");
       if (!sdpRes.ok) throw new Error(`Voice connection failed (${sdpRes.status}).`);
       await pc.setRemoteDescription({ type: "answer", sdp: await sdpRes.text() });
     } catch (reason) {
