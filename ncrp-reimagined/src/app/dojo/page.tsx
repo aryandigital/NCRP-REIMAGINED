@@ -139,7 +139,16 @@ export default function DojoPage() {
   const tearingDownRef = useRef(false);
 
   useEffect(() => {
-    const id = requestAnimationFrame(() => setBest(loadBest()));
+    const id = requestAnimationFrame(() => {
+      const scores = loadBest();
+      setBest(scores);
+      // Default to first non-shielded scenario once scores load
+      setScenario((prev) => {
+        if ((scores[prev.slug] ?? 0) < 80) return prev;
+        const unshielded = DOJO_SCENARIOS.find((s) => (scores[s.slug] ?? 0) < 80);
+        return unshielded ?? prev;
+      });
+    });
     return () => cancelAnimationFrame(id);
   }, []);
   useEffect(() => { phaseRef.current = phase; }, [phase]);
@@ -554,18 +563,34 @@ export default function DojoPage() {
               </div>
               <div className="panel p-5">
                 <p className="mono-ref text-[11px] uppercase tracking-wider text-ink-faint">Your immunity</p>
-                <div className="mt-2 flex items-baseline gap-1.5">
+                <div className="mt-2 flex items-center gap-2">
                   <p className="text-4xl font-bold tabular-nums text-ink">{immunity}</p>
                   <p className="text-sm text-ink-soft">/ {DOJO_SCENARIOS.length} shielded</p>
+                  {immunity > 0 && (
+                    <a
+                      href={`https://wa.me/?text=${encodeURIComponent(
+                        `Maine Raksha Dojo pe ${immunity}/${DOJO_SCENARIOS.length} scam rehearsals complete kiye!\n\nShielded: ${DOJO_SCENARIOS.filter((s) => (best[s.slug] ?? 0) >= 80).map((s) => s.title).join(", ")}\n\nFamily ke liye bhi zaroori hai — ${typeof window !== "undefined" ? window.location.origin : ""}/dojo`
+                      )}`}
+                      target="_blank" rel="noopener noreferrer"
+                      className="ml-1 text-ink-faint transition-colors hover:text-success" aria-label="Forward to family on WhatsApp"
+                    >
+                      <Share2 size={14} aria-hidden="true" />
+                    </a>
+                  )}
                 </div>
                 <div className="mt-4 space-y-3">
                   {DOJO_SCENARIOS.map((s) => {
                     const score = best[s.slug] ?? 0;
                     const shielded = score >= 80;
+                    const active = s.slug === scenario.slug;
                     return (
-                      <div key={s.slug}>
+                      <button
+                        key={s.slug} type="button" onClick={() => { setScenario(s); document.getElementById("pick-scenario")?.scrollIntoView({ behavior: "smooth", block: "nearest" }); }}
+                        aria-pressed={active}
+                        className={`w-full rounded-[6px] px-2 py-1.5 text-left transition-colors ${active ? "bg-service/10 ring-1 ring-service/30" : "hover:bg-surface"}`}
+                      >
                         <div className="mb-1 flex items-center justify-between gap-2">
-                          <p className="truncate text-[11px] font-semibold text-ink-soft">{s.title}</p>
+                          <p className={`truncate text-[11px] font-semibold ${active ? "text-service" : "text-ink-soft"}`}>{s.title}</p>
                           {shielded
                             ? <ShieldCheck size={12} className="shrink-0 text-success" aria-label="Shielded" />
                             : score > 0
@@ -578,7 +603,7 @@ export default function DojoPage() {
                             style={{ width: score > 0 ? `${score}%` : "0%" }}
                           />
                         </div>
-                      </div>
+                      </button>
                     );
                   })}
                 </div>
@@ -596,7 +621,7 @@ export default function DojoPage() {
                   return (
                     <button
                       key={s.slug} type="button" onClick={() => setScenario(s)} aria-pressed={active}
-                      className={`group panel flex h-full flex-col gap-3 p-4 text-left transition-colors ${active ? "border-service ring-2 ring-service/30" : "hover:border-line-strong"}`}
+                      className={`group panel flex h-full flex-col gap-3 p-4 text-left transition-colors ${active ? "ring-2 ring-service bg-service/5" : "hover:border-line-strong"}`}
                     >
                       <div className="flex items-center justify-between gap-2">
                         <div className="flex items-center gap-2.5">
