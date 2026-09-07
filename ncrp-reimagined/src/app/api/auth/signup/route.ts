@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { rateLimit } from "@/lib/rate-limit";
 import { z } from "zod";
 import { hashPassword, setSessionCookie } from "@/lib/auth";
 import { DatabaseRequiredError, createUser, getUserByEmail } from "@/lib/db/users";
@@ -10,6 +11,7 @@ const signupSchema = z.object({
 }).strict();
 
 export async function POST(request: NextRequest) {
+  const _rl = rateLimit(request); if (_rl) return _rl;
   const parsed = signupSchema.safeParse(await request.json().catch(() => null));
   if (!parsed.success) return NextResponse.json({ error: parsed.error.issues[0]?.message ?? "Invalid account details" }, { status: 400 });
   const { name, email, password } = parsed.data;

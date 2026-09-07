@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { rateLimit } from "@/lib/rate-limit";
 import { z } from "zod";
 import { setSessionCookie, verifyPassword } from "@/lib/auth";
 import { DatabaseRequiredError, JUDGE_ACCOUNT, getUserByEmail } from "@/lib/db/users";
@@ -6,6 +7,7 @@ import { DatabaseRequiredError, JUDGE_ACCOUNT, getUserByEmail } from "@/lib/db/u
 const signInSchema = z.object({ email: z.string().trim().email().max(254), password: z.string().min(1).max(128) }).strict();
 
 export async function POST(request: NextRequest) {
+  const _rl = rateLimit(request); if (_rl) return _rl;
   const parsed = signInSchema.safeParse(await request.json().catch(() => null));
   if (!parsed.success) return NextResponse.json({ error: "Enter a valid email and password" }, { status: 400 });
   if (parsed.data.email.trim().toLowerCase() === JUDGE_ACCOUNT.email && parsed.data.password === JUDGE_ACCOUNT.password) {

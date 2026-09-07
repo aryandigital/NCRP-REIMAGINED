@@ -1,8 +1,10 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { rateLimit } from "@/lib/rate-limit";
 import { createDemoIncident } from "@/lib/store";
 import { getSession } from "@/lib/auth";
 
-export async function POST() {
+export async function POST(req: NextRequest) {
+  const _rl = rateLimit(req); if (_rl) return _rl;
   const session = await getSession();
   if (!session) return NextResponse.json({ error: "Sign in to save a personal demo copy" }, { status: 401 });
   try {

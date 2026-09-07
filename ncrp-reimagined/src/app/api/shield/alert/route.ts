@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { rateLimit } from "@/lib/rate-limit";
 import { z } from "zod";
 import { getIncident, isIncidentId, isIncidentOwnedBy, updateIncident } from "@/lib/store";
 import { sanitizeCredentials, readBoundedBody } from "@/lib/redact";
@@ -30,6 +31,7 @@ function xmlEscape(text: string): string {
 }
 
 export async function POST(req: NextRequest) {
+  const _rl = rateLimit(req); if (_rl) return _rl;
   if (process.env.DEMO_MODE !== "true") return NextResponse.json({ error: "Demo calls are disabled. Raksha never dials public helplines automatically." }, { status: 403 });
   const session = await getSession();
   if (!session) return NextResponse.json({ error: "Sign in to use your saved demo" }, { status: 401 });

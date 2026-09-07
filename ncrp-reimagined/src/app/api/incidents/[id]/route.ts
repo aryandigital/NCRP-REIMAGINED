@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { rateLimit } from "@/lib/rate-limit";
 import { z } from "zod";
 import { getIncident, isIncidentId, isIncidentOwnedBy, makeAckNumber, updateIncident, type ExtractedFact } from "@/lib/store";
 import { redact, sanitizeCredentials, readBoundedBody, evidenceIdentifiers } from "@/lib/redact";
@@ -55,6 +56,7 @@ function factKey(field: string) {
 }
 
 export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const _rl = rateLimit(req); if (_rl) return _rl;
   const { id } = await params;
   if (!isIncidentId(id)) return NextResponse.json({ error: "Incident not found" }, { status: 404, headers });
   try {
@@ -82,6 +84,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
 }
 
 export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const _rl = rateLimit(req); if (_rl) return _rl;
   const { id } = await params;
   if (id === "DEMO0001") return NextResponse.json({ error: "This example is read-only. POST /api/demo to create your own synthetic copy." }, { status: 409, headers });
   if (!isIncidentId(id)) return NextResponse.json({ error: "Incident not found" }, { status: 404, headers });

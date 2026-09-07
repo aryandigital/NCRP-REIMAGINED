@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { rateLimit } from "@/lib/rate-limit";
 import { analyzeWithAI } from "@/lib/dna";
 import { createIncident } from "@/lib/store";
 import { redact, evidenceIdentifiers, readBoundedBody } from "@/lib/redact";
@@ -6,6 +7,7 @@ import { getSession } from "@/lib/auth";
 import { recordIdentifiers } from "@/lib/db/identifiers";
 
 export async function POST(req: NextRequest) {
+  const _rl = rateLimit(req); if (_rl) return _rl;
   const session = await getSession();
   if (!session) return NextResponse.json({ error: "Sign in to save and track an incident" }, { status: 401 });
   let fd: FormData;

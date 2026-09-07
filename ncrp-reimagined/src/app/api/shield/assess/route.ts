@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { rateLimit } from "@/lib/rate-limit";
 import { z } from "zod";
 import { assessWithAI, assessLocal, readShieldBody, shieldTranscriptSchema, shieldTranscriptWindow } from "@/lib/shield";
 
@@ -8,6 +9,7 @@ const requestSchema = z.object({
 });
 
 export async function POST(req: NextRequest) {
+  const _rl = rateLimit(req); if (_rl) return _rl;
   let input: unknown;
   try {
     input = await readShieldBody(req);
