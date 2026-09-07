@@ -144,7 +144,7 @@ export default function HomePage() {
             </div>
             <div className="grid grid-cols-2 gap-5 sm:grid-cols-4 sm:gap-7">
               {copy.stats.items.map((item, index) => (
-                <div key={item.label} className={`reveal ${STAGGER[index]} border-l border-[rgba(254,252,248,.15)] pl-4`}>
+                <div key={index} className={`reveal ${STAGGER[index]} border-l border-[rgba(254,252,248,.15)] pl-4`}>
                   <p className="text-xl font-bold tracking-tight text-[#fefcf8] sm:text-2xl">{item.value}</p>
                   <p className="mt-1 text-xs font-semibold leading-5 text-[rgba(254,252,248,.5)]">{item.label}</p>
                 </div>
@@ -216,7 +216,7 @@ export default function HomePage() {
               {copy.capabilities.cards.map((card, index) => {
                 const CapIcon = capabilityIcons[index];
                 return (
-                  <div key={card.title} className={`reveal ${STAGGER[index]} group glow-card flex items-start gap-4 p-5`}>
+                  <div key={index} className={`reveal ${STAGGER[index]} group glow-card flex items-start gap-4 p-5`}>
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[8px] border border-line bg-paper transition-colors duration-200 group-hover:border-[var(--saffron)] group-hover:bg-service-soft">
                       <CapIcon size={20} className="text-ink-faint transition-colors duration-200 group-hover:text-[var(--saffron)]" aria-hidden="true" />
                     </div>
@@ -278,7 +278,7 @@ export default function HomePage() {
               {copy.principles.notes.map((note, index) => {
                 const Icon = principleIcons[index];
                 return (
-                  <div key={note.title} className={`reveal ${STAGGER[index]} border-l border-[rgba(254,252,248,.15)] pl-5`}>
+                  <div key={index} className={`reveal ${STAGGER[index]} border-l border-[rgba(254,252,248,.15)] pl-5`}>
                     <Icon size={21} className="text-[var(--saffron)]" aria-hidden="true" />
                     <h3 className="mt-4 text-sm font-bold text-[#fefcf8]">{note.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-[rgba(254,252,248,.55)]">{note.detail}</p>
