@@ -27,6 +27,10 @@ type SpeechRecognitionInstance = {
 type SpeechRecognitionConstructor = new () => SpeechRecognitionInstance;
 type VoiceWindow = Window & { SpeechRecognition?: SpeechRecognitionConstructor; webkitSpeechRecognition?: SpeechRecognitionConstructor; };
 
+function lookupIdentifier(url: string) {
+  return fetch(url);
+}
+
 function CheckForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -83,14 +87,6 @@ function CheckForm() {
   }, [emergency]);
 
   useEffect(() => {
-    const onClickOutside = (e: MouseEvent) => {
-      if (voiceLangRef.current && !voiceLangRef.current.contains(e.target as Node)) setVoiceLangOpen(false);
-    };
-    document.addEventListener("mousedown", onClickOutside);
-    return () => document.removeEventListener("mousedown", onClickOutside);
-  }, []);
-
-  useEffect(() => {
     if (!draftReady || loading) return;
     const timeout = window.setTimeout(() => {
       try {
@@ -102,20 +98,28 @@ function CheckForm() {
   }, [draftReady, identifier, loading, mode, text, voiceLanguage]);
 
   useEffect(() => {
-    if (mode !== "identifier" || identifier.trim().length < 3) {
-      setIdentifierLookup(null);
-      setIdentifierLookupLoading(false);
-      return;
-    }
-    setIdentifierLookupLoading(true);
+    const onClickOutside = (e: MouseEvent) => {
+      if (voiceLangRef.current && !voiceLangRef.current.contains(e.target as Node)) setVoiceLangOpen(false);
+    };
+    document.addEventListener("mousedown", onClickOutside);
+    return () => document.removeEventListener("mousedown", onClickOutside);
+  }, []);
+
+  useEffect(() => {
     const timeout = window.setTimeout(async () => {
+      if (mode !== "identifier" || identifier.trim().length < 3) {
+        setIdentifierLookup(null);
+        setIdentifierLookupLoading(false);
+        return;
+      }
+      setIdentifierLookupLoading(true);
       try {
-        const res = await fetch(`/api/identifier/lookup?q=${encodeURIComponent(identifier.trim())}`);
+        const res = await lookupIdentifier(`/api/identifier/lookup?q=${encodeURIComponent(identifier.trim())}`);
         if (res.ok) setIdentifierLookup(await res.json() as { found: boolean; count: number; type: string | null; firstSeenAt: string | null });
       } catch { /* lookup failure is non-critical */ }
       finally { setIdentifierLookupLoading(false); }
     }, 400);
-    return () => { window.clearTimeout(timeout); setIdentifierLookupLoading(false); };
+    return () => window.clearTimeout(timeout);
   }, [identifier, mode]);
 
   useEffect(() => () => {

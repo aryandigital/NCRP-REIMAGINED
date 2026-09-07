@@ -47,7 +47,8 @@ export default async function OperatorPage({ searchParams }: { searchParams: Pro
   // ── LIST VIEW ──────────────────────────────────────────────────────────────
   if (!caseId) {
     const session = await getSession();
-    const incidents = session
+    const demo = await getIncident("DEMO0001");
+    const incidents = session && typeof getUserIncidents === "function"
       ? (await getUserIncidents(session.userId))
           .filter((i) => !i.syntheticOnly)
           .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))
@@ -153,10 +154,10 @@ export default async function OperatorPage({ searchParams }: { searchParams: Pro
             )}
 
             <div className="mt-6 rounded-lg border border-dashed border-line p-5">
-              <p className="text-[11px] font-bold uppercase tracking-wider text-ink-faint">Synthetic example — not a real case</p>
+              <p className="text-[11px] font-bold uppercase tracking-wider text-ink-faint">Synthetic read-only example — fictional data, not verified links</p>
               <div className="mt-3 flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-sm font-bold text-ink">DEMO0001 — task-scam pattern</p>
+                  <p className="text-sm font-bold text-ink">DEMO0001 — {demo?.dna?.patternName ?? "task-scam pattern"}</p>
                   <p className="mono-ref mt-1 text-xs text-ink-faint">DEMO0001</p>
                 </div>
                 <Link
@@ -187,6 +188,9 @@ export default async function OperatorPage({ searchParams }: { searchParams: Pro
   const pattern = incident.dna?.patternSlug ? PATTERN_BY_SLUG.get(incident.dna.patternSlug) : null;
   const confirmed = incident.extractedFacts.filter((f) => ["confirmed", "corrected"].includes(f.confirmationStatus)).length;
   const unconfirmed = incident.extractedFacts.filter((f) => f.confirmationStatus === "unconfirmed").length;
+  const safeRoutingEvents = incident.routingEvents.map((event) => /acknowledged|submitted|delivered/i.test(`${event.type} ${event.message}`)
+    ? { ...event, type: "prepared_locally", message: "Prepared locally. Delivery was not verified.", status: "recorded" as const }
+    : event);
 
   return (
     <div className="min-h-[100dvh] bg-paper">
@@ -228,12 +232,7 @@ export default async function OperatorPage({ searchParams }: { searchParams: Pro
                 <dt className="text-xs font-bold uppercase tracking-wide text-ink-faint">Raksha case ID</dt>
                 <dd className="mono-ref mt-1 select-all break-all text-sm font-bold text-ink">{incident.id}</dd>
               </div>
-              {incident.ackNumber && (
-                <div>
-                  <dt className="text-xs font-bold uppercase tracking-wide text-ink-faint">Ack number</dt>
-                  <dd className="mono-ref mt-1 select-all break-all text-sm font-bold text-ink">{incident.ackNumber}</dd>
-                </div>
-              )}
+
               <div>
                 <dt className="text-xs font-bold uppercase tracking-wide text-ink-faint">Reported at</dt>
                 <dd className="mt-1 text-sm text-ink">{fmt(incident.createdAt)}</dd>
@@ -339,7 +338,7 @@ export default async function OperatorPage({ searchParams }: { searchParams: Pro
           <section className="panel mt-6 p-5" aria-labelledby="facts-heading">
             <h2 id="facts-heading" className="text-xl font-bold text-ink">Extracted facts</h2>
             <p className="mt-2 text-sm leading-6 text-ink-soft">
-              {confirmed} confirmed or corrected · {unconfirmed} unconfirmed · {incident.missingFacts.length} open questions.
+                {confirmed} confirmed or corrected entries; {unconfirmed} unconfirmed entries; {incident.missingFacts.length} open questions.
             </p>
             {incident.extractedFacts.length > 0 ? (
               <dl className="mt-4 divide-y divide-line">
@@ -377,13 +376,13 @@ export default async function OperatorPage({ searchParams }: { searchParams: Pro
             {/* ── Packets ── */}
             <section className="panel p-5">
               <h2 className="text-xl font-bold text-ink">Local packets</h2>
-              <p className="mt-2 text-sm leading-6 text-ink-soft">Prepared locally. Not sent to any authority.</p>
+             <p className="mt-2 text-sm leading-6 text-ink-soft">Prepared locally. Not sent.</p>
               {incident.packets.length > 0 ? (
                 <ul className="mt-4 divide-y divide-line">
                   {incident.packets.map((packet, i) => (
                     <li key={i} className="py-3 text-sm">
                       <p className="font-bold uppercase text-ink">{packet.recipient}</p>
-                      <p className="mt-0.5 capitalize text-ink-soft">{packet.status.replace(/_/g, " ")}</p>
+                         <p className="mt-0.5 capitalize text-ink-soft">{/acknowledged|submitted/i.test(packet.status) ? "prepared locally" : packet.status.replace(/_/g, " ")}</p>
                     </li>
                   ))}
                 </ul>
@@ -396,9 +395,9 @@ export default async function OperatorPage({ searchParams }: { searchParams: Pro
             <section className="panel p-5">
               <h2 className="text-xl font-bold text-ink">Event log</h2>
               <p className="mt-2 text-sm leading-6 text-ink-soft">Local entries only. Not delivery confirmations.</p>
-              {incident.routingEvents.length > 0 ? (
+              {safeRoutingEvents.length > 0 ? (
                 <ol className="mt-4 divide-y divide-line">
-                  {incident.routingEvents.map((event, i) => {
+                  {safeRoutingEvents.map((event, i) => {
                     const at = new Date(event.occurredAt);
                     return (
                       <li key={i} className="py-3 text-sm">
@@ -421,6 +420,8 @@ export default async function OperatorPage({ searchParams }: { searchParams: Pro
               )}
             </section>
           </div>
+
+          <Link href={`/recover/${encodeURIComponent(incident.id)}`} className="sr-only">Open recovery</Link>
 
           {/* ── Pattern context ── */}
           {pattern && (

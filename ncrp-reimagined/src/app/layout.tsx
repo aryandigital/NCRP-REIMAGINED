@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import Link from "next/link";
 import { Geist, Geist_Mono, Fraunces, Tiro_Devanagari_Hindi, Yatra_One } from "next/font/google";
 import "./globals.css";
 import EmergencyBar from "@/components/EmergencyBar";
@@ -16,7 +15,7 @@ const tiroDevanagari = Tiro_Devanagari_Hindi({ variable: "--font-raksha-display-
 
 export const metadata: Metadata = {
   title: "Raksha | Independent Cyber Safety Prototype",
-  description: "Independent cyber-safety prototype for fictional data only. Production authentication and security are not verified; do not enter real victim data. Not a government service; no reports are filed. For immediate danger call 112; financial cyber fraud: 1930.",
+  description: "Independent cyber-safety prototype. Fictional data only. Production authentication and security are not verified. Do not enter real victim data. Not a government service; no reports are filed. For immediate danger call 112; financial cyber fraud: 1930.",
   keywords: ["cyber crime", "scam", "fraud", "India", "NCRP", "1930"],
 };
 

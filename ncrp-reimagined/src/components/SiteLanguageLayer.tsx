@@ -495,7 +495,7 @@ export default function SiteLanguageLayer() {
 
   useEffect(() => {
     // Allowlist, rather than a denylist, so new incident routes stay untouched.
-    const TRANSLATED_ROUTES = ["/atlas", "/check"];
+    const TRANSLATED_ROUTES = ["/atlas"];
     if (!TRANSLATED_ROUTES.some((r) => pathname === r || pathname.startsWith(r + "/"))) return;
     const dictionary = language === "en" ? null : DICTIONARIES[language as Exclude<RakshaLanguage, "en">];
     const root = document.querySelector("main");
