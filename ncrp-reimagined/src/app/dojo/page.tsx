@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import {
-  ArrowRight, Flame, Gauge, Mic, MicOff, PhoneCall, PhoneOff, RotateCcw, Send, Share2, ShieldAlert, ShieldCheck, Siren, Sparkles, Swords, Trophy, Wifi, WifiOff, Zap,
+  ArrowRight, Briefcase, CreditCard, Flame, Gauge, IndianRupee, Mic, MicOff, PhoneCall, PhoneOff, RotateCcw, Send, Share2, ShieldAlert, ShieldCheck, Siren, Sparkles, Swords, Trophy, Wifi, WifiOff, Zap,
 } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import { DOJO_SCENARIOS, DOJO_STAGES, STAGE_HINTS, STAGE_INDEX, SLIP_RULES, type DojoDifficulty, type DojoLanguage, type DojoScenario, type DojoStage } from "@/data/dojo";
@@ -555,18 +555,23 @@ export default function DojoPage() {
               <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {DOJO_SCENARIOS.map((s) => {
                   const active = s.slug === scenario.slug;
+                  const ScenarioIcon = { "digital-arrest": Siren, "kyc-bank-impersonation": CreditCard, "upi-collect-request": IndianRupee, "task-scam": Briefcase }[s.slug] ?? Swords;
                   return (
                     <button
                       key={s.slug} type="button" onClick={() => setScenario(s)} aria-pressed={active}
-                      className={`panel flex h-full flex-col p-4 text-left transition-colors ${active ? "border-service ring-2 ring-service/30" : "hover:border-line-strong"}`}
+                      className={`group panel flex h-full flex-col gap-3 p-4 text-left transition-colors ${active ? "border-service ring-2 ring-service/30" : "hover:border-line-strong"}`}
                     >
                       <div className="flex items-start justify-between gap-2">
-                        <p className="text-base font-bold text-ink">{s.title}</p>
-                        {(best[s.slug] ?? 0) >= 80 ? <ShieldCheck size={18} className="shrink-0 text-success" aria-label="Shielded" /> : best[s.slug] !== undefined ? <span className="mono-ref text-[11px] text-ink-faint">{best[s.slug]}</span> : null}
+                        <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-[8px] border transition-colors duration-200 ${active ? "border-service bg-service-soft" : "border-line bg-surface group-hover:border-service group-hover:bg-service-soft"}`}>
+                          <ScenarioIcon size={16} className={`transition-colors duration-200 ${active ? "text-service" : "text-ink-faint group-hover:text-service"}`} aria-hidden="true" />
+                        </span>
+                        {(best[s.slug] ?? 0) >= 80 ? <ShieldCheck size={16} className="shrink-0 text-success" aria-label="Shielded" /> : best[s.slug] !== undefined ? <span className="mono-ref text-[11px] text-ink-faint">{best[s.slug]}</span> : null}
                       </div>
-                      <p className="mt-1 text-[13px] italic leading-5 text-ink-soft">{s.tagline}</p>
-                      <p className="mt-3 text-xs leading-5 text-ink-faint"><span className="font-bold text-ink-soft">{s.callerName}</span> · {s.callerClaim}</p>
-                      <p className="mt-auto pt-3 text-[11px] text-ink-faint">For: {s.practiceFor.join(" · ")}</p>
+                      <div>
+                        <p className="text-[15px] font-bold text-ink">{s.title}</p>
+                        <p className="mt-1 text-[13px] italic leading-5 text-ink-soft">{s.tagline}</p>
+                      </div>
+                      <p className="mt-auto text-[11px] text-ink-faint">For: {s.practiceFor.join(" · ")}</p>
                     </button>
                   );
                 })}

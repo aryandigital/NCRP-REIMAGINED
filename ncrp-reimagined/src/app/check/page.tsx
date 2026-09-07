@@ -295,8 +295,8 @@ function CheckForm() {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <p className="text-sm font-bold text-ink">You do not need to finish this form to get help.</p>
             <div className="flex flex-wrap gap-3">
-              <a href="tel:112" className="inline-flex min-h-11 items-center rounded-[8px] bg-danger px-4 text-sm font-bold text-white">Call 112: immediate danger</a>
-              <a href="tel:1930" className="inline-flex min-h-11 items-center rounded-[8px] bg-danger px-4 text-sm font-bold text-white">Call 1930: financial cyber fraud</a>
+              <a href="tel:1930" className="inline-flex min-h-11 items-center rounded-[8px] bg-danger px-4 text-sm font-bold text-white">Call 1930: cyber fraud</a>
+              <a href="tel:112" className="inline-flex min-h-11 items-center rounded-[8px] border border-danger/40 bg-paper px-4 text-sm font-bold text-danger">Call 112: immediate danger</a>
             </div>
           </div>
         </section>
