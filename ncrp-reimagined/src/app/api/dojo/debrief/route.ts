@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { rateLimit } from "@/lib/rate-limit";
 import { z } from "zod";
 import { dojoScenario } from "@/data/dojo";
 import { stripCredentials } from "@/lib/redact";
@@ -106,6 +107,7 @@ function localDebrief(input: z.infer<typeof requestSchema>): DojoDebrief {
 }
 
 export async function POST(request: NextRequest) {
+  const _rl = rateLimit(request); if (_rl) return _rl;
   const parsed = requestSchema.safeParse(await request.json().catch(() => null));
   if (!parsed.success) return NextResponse.json({ error: "Invalid debrief request" }, { status: 400 });
   const input = parsed.data;

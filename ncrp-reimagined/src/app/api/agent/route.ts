@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { redact, readBoundedBody } from "@/lib/redact";
+import { rateLimit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -25,6 +26,7 @@ function fallback(language: Language, prompt: string) {
 }
 
 export async function POST(request: NextRequest) {
+  const _rl = rateLimit(request); if (_rl) return _rl;
   let input: unknown;
   try { input = await new Response(await readBoundedBody(request, 320000)).json(); }
   catch (error) { return NextResponse.json({ error: error instanceof RangeError ? "Input too large" : "Invalid JSON" }, { status: error instanceof RangeError ? 413 : 400 }); }

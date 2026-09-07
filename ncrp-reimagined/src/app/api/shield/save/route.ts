@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { rateLimit } from "@/lib/rate-limit";
 import { z } from "zod";
 import { createIncident, updateIncident, type DnaResult } from "@/lib/store";
 import { redact, evidenceIdentifiers, stripCredentials } from "@/lib/redact";
@@ -32,6 +33,7 @@ const requestSchema = z.object({
 }).refine((body) => Date.parse(body.endedAt) >= Date.parse(body.startedAt));
 
 export async function POST(req: NextRequest) {
+  const _rl = rateLimit(req); if (_rl) return _rl;
   const session = await getSession();
   if (!session) return NextResponse.json({ error: "Sign in to save and track a Call Shield screening" }, { status: 401 });
   let input: unknown;

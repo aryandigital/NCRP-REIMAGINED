@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { rateLimit } from "@/lib/rate-limit";
 import { z } from "zod";
 import { DIFFICULTY_NOTES, DOJO_TOOLS, LANGUAGE_NOTES, dojoScenario } from "@/data/dojo";
 
@@ -16,21 +17,10 @@ const requestSchema = z.object({
   }).optional(),
 }).strict();
 
-// Process-local throttle so a public endpoint can't be hammered for secrets.
-const recent = new Map<string, number[]>();
-function throttled(ip: string) {
-  const now = Date.now();
-  const hits = (recent.get(ip) ?? []).filter((t) => now - t < 60_000);
-  hits.push(now);
-  recent.set(ip, hits);
-  return hits.length > 12;
-}
-
 export async function POST(request: NextRequest) {
+  const _rl = rateLimit(request); if (_rl) return _rl;
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) return NextResponse.json({ error: "Live voice rehearsal is not configured on this deployment." }, { status: 503 });
-  const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "local";
-  if (throttled(ip)) return NextResponse.json({ error: "Too many sessions. Please wait a minute." }, { status: 429 });
 
   const parsed = requestSchema.safeParse(await request.json().catch(() => null));
   if (!parsed.success) return NextResponse.json({ error: "Invalid session request" }, { status: 400 });

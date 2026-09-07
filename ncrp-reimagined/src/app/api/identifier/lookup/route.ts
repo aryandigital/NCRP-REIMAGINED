@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
+import { rateLimit } from "@/lib/rate-limit";
 import { redact, evidenceIdentifiers } from "@/lib/redact";
 import { lookupIdentifier } from "@/lib/db/identifiers";
 
 export async function GET(req: NextRequest) {
+  const _rl = rateLimit(req); if (_rl) return _rl;
   const q = req.nextUrl.searchParams.get("q")?.trim() ?? "";
   if (!q || q.length < 3 || q.length > 500) {
     return NextResponse.json({ found: false, count: 0, type: null, firstSeenAt: null });

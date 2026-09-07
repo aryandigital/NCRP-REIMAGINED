@@ -78,7 +78,7 @@ test("privacy and prototype safety boundaries (no live providers)", { timeout: 3
       assert.equal(await store.updateIncident("DEMO0001", { rawText: "overwrite" }), null);
       assert.equal((await store.getIncident("DEMO0001"))!.answers.poisoned, undefined);
       assert.equal((await incidents.PATCH(request("/api/incidents/DEMO0001", { submitMock: true }, "PATCH"), context("DEMO0001"))).status, 409);
-      const response = await demo.POST();
+      const response = await demo.POST(request("/api/demo", null));
       assert.equal(response.status, 201);
       const copy = await response.json();
       assert.match(copy.id, /^INC[A-F0-9]{32}$/);
