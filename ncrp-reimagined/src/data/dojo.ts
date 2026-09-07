@@ -143,6 +143,27 @@ export const LANGUAGE_NOTES: Record<DojoLanguage, string> = {
   english: "Speak in Indian English with a formal call-centre cadence.",
 };
 
+export const STAGE_INDEX: Record<DojoStage["id"], number> = { hook: 0, authority: 1, isolation: 2, threat: 3, payment: 4 };
+
+export const STAGE_HINTS: Array<{ stage: DojoStage["id"]; tactic: string; test: RegExp }> = [
+  { stage: "payment",   tactic: "asking for OTP / PIN / transfer",      test: /\botp\b|\bpin\b|transfer|\bupi\b|account number|\bbalance\b|verification (?:account|deposit)|prepaid|qr|request accept|ट्रांसफर|ओटीपी|खाता|बैलेंस/i },
+  { stage: "threat",    tactic: "arrest / freeze / deadline threat",     test: /arrest|warrant|freeze|block ho|jail|police complaint|\d+\s*(?:ghante|minute|hours?)|गिरफ्तार|वारंट|फ्रीज|ब्लॉक|जेल/i },
+  { stage: "isolation", tactic: "\"tell no one, stay on the line\"",     test: /kisi ko (?:mat|na) bata|mat batana|line pe rah|disconnect (?:mat|na)|don'?t (?:tell|disconnect|hang)|do not (?:tell|disconnect|inform)|video on|quiet room|किसी को (?:मत|ना) बता|लाइन पर रह|डिसकनेक्ट/i },
+  { stage: "authority", tactic: "fake case ID / official language",      test: /\bfir\b|case (?:number|id)|record ho rahi|being recorded|rbi|supreme court|ndps|pmla|employee id|circular|एफआईआर|रिकॉर्ड|सुप्रीम कोर्ट|आरबीआई/i },
+  { stage: "hook",      tactic: "a believable reason to call",           test: /./ },
+];
+
+export const SLIP_RULES: Array<{ kind: string; test: RegExp }> = [
+  { kind: "Aadhaar number",      test: /\b\d{4}[\s-]?\d{4}[\s-]?\d{4}\b/ },
+  { kind: "card number",         test: /\b(?:\d[\s-]?){15,16}\b/ },
+  // Helplines (1930, 112, 100, 1091) and years are not credentials.
+  { kind: "OTP / PIN",           test: /\b(?!1930\b|1091\b|19\d\d\b|20\d\d\b)\d{4,6}\b/ },
+  { kind: "phone number",        test: /\b[6-9]\d{9}\b/ },
+  { kind: "bank name",           test: /\b(sbi|state bank|hdfc|icici|axis|kotak|pnb|punjab national|bank of baroda|bob|canara|union bank|yes bank|indusind|idfc|paytm|phonepe|gpay|google pay)\b/i },
+  { kind: "your name",           test: /\b(mera naam|my name is|main\s+\w+\s+bol\s+rah[ai]\s+h[uo]+n|naam\s+\w+\s+hai)\b/i },
+  { kind: "agreed to pay / share", test: /\b(transfer kar (?:deta|deti|raha|rahi|doon|dun)|bhej (?:deta|deti|raha|rahi|doon|dun)|otp bata|pin bata|share kar (?:deta|deti|doon|dun)|i(?:'ll| will) (?:transfer|send|share|pay)|sending (?:it|now)|ok(?:ay)? (?:i(?:'ll| will) )?(?:send|transfer))\b/i },
+];
+
 // Tools exposed to the Realtime agent. The client handles them and updates the UI.
 export const DOJO_TOOLS = [
   {

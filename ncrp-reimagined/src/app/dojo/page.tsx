@@ -6,16 +6,16 @@ import {
   ArrowRight, Flame, Gauge, Mic, MicOff, PhoneCall, PhoneOff, RotateCcw, Send, Share2, ShieldAlert, ShieldCheck, Siren, Sparkles, Swords, Trophy, Zap,
 } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
-import { DOJO_SCENARIOS, DOJO_STAGES, type DojoDifficulty, type DojoLanguage, type DojoScenario, type DojoStage } from "@/data/dojo";
+import { DOJO_SCENARIOS, DOJO_STAGES, STAGE_HINTS, STAGE_INDEX, SLIP_RULES, type DojoDifficulty, type DojoLanguage, type DojoScenario, type DojoStage } from "@/data/dojo";
 import { assessLocal, type ShieldAssessment } from "@/lib/shield";
 import type { DojoDebrief } from "@/app/api/dojo/debrief/route";
 
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-// Raksha Dojo â€” the scam calls YOU, before a real one does.
+// -----------------------------------------------------------------------------
+// Raksha Dojo — the scam calls YOU, before a real one does.
 // A live OpenAI Realtime voice agent plays the scammer over WebRTC. Call Shield
 // scores the caller's words as they land. A slip detector flags anything the
 // trainee gives away. After hang-up, a structured debrief coaches the citizen.
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// -----------------------------------------------------------------------------
 
 type Phase = "setup" | "connecting" | "call" | "ending" | "debrief";
 type Outcome = "resisted" | "complied" | "hung_up" | "timeout" | "aborted";
@@ -28,34 +28,12 @@ const IDLE: ShieldAssessment = {
   coach: { headline: "", sayThis: "", doNot: [] }, language: "en",
 };
 
-const STAGE_INDEX: Record<DojoStage["id"], number> = { hook: 0, authority: 1, isolation: 2, threat: 3, payment: 4 };
-
-/** Local floor for the pressure ladder, so the UI moves even before the agent reports a stage. */
-const STAGE_HINTS: Array<{ stage: DojoStage["id"]; tactic: string; test: RegExp }> = [
-  { stage: "payment", tactic: "asking for OTP / PIN / transfer", test: /\botp\b|\bpin\b|transfer|\bupi\b|account number|\bbalance\b|verification (?:account|deposit)|prepaid|qr|request accept|à¤Ÿà¥à¤°à¤¾à¤‚à¤¸à¤«à¤°|à¤“à¤Ÿà¥€à¤ªà¥€|à¤–à¤¾à¤¤à¤¾|à¤¬à¥ˆà¤²à¥‡à¤‚à¤¸/i },
-  { stage: "threat", tactic: "arrest / freeze / deadline threat", test: /arrest|warrant|freeze|block ho|jail|police complaint|\d+\s*(?:ghante|minute|hours?)|à¤—à¤¿à¤°à¤«à¥à¤¤à¤¾à¤°|à¤µà¤¾à¤°à¤‚à¤Ÿ|à¤«à¥à¤°à¥€à¤œ|à¤¬à¥à¤²à¥‰à¤•|à¤œà¥‡à¤²/i },
-  { stage: "isolation", tactic: "\"tell no one, stay on the line\"", test: /kisi ko (?:mat|na) bata|mat batana|line pe rah|disconnect (?:mat|na)|don'?t (?:tell|disconnect|hang)|do not (?:tell|disconnect|inform)|video on|quiet room|à¤•à¤¿à¤¸à¥€ à¤•à¥‹ (?:à¤®à¤¤|à¤¨à¤¾) à¤¬à¤¤à¤¾|à¤²à¤¾à¤‡à¤¨ à¤ªà¤° à¤°à¤¹|à¤¡à¤¿à¤¸à¥à¤•à¤¨à¥‡à¤•à¥à¤Ÿ/i },
-  { stage: "authority", tactic: "fake case ID / official language", test: /\bfir\b|case (?:number|id)|record ho rahi|being recorded|rbi|supreme court|ndps|pmla|employee id|circular|à¤à¤«à¤†à¤ˆà¤†à¤°|à¤°à¤¿à¤•à¥‰à¤°à¥à¤¡|à¤¸à¥à¤ªà¥à¤°à¥€à¤® à¤•à¥‹à¤°à¥à¤Ÿ|à¤†à¤°à¤¬à¥€à¤†à¤ˆ/i },
-  { stage: "hook", tactic: "a believable reason to call", test: /./ },
-];
-
 function inferStage(callerText: string): StageState | null {
   if (!callerText.trim()) return null;
   const hit = STAGE_HINTS.find((h) => h.test.test(callerText));
   if (!hit) return null;
   return { stage: hit.stage, pressure: STAGE_INDEX[hit.stage] + 1, tactic: hit.tactic };
 }
-
-const SLIP_RULES: Array<{ kind: string; test: RegExp }> = [
-  { kind: "Aadhaar number", test: /\b\d{4}[\s-]?\d{4}[\s-]?\d{4}\b/ },
-  { kind: "card number", test: /\b(?:\d[\s-]?){15,16}\b/ },
-  // Helplines (1930, 112, 100, 1091) and years are not credentials.
-  { kind: "OTP / PIN", test: /\b(?!1930\b|1091\b|19\d\d\b|20\d\d\b)\d{4,6}\b/ },
-  { kind: "phone number", test: /\b[6-9]\d{9}\b/ },
-  { kind: "bank name", test: /\b(sbi|state bank|hdfc|icici|axis|kotak|pnb|punjab national|bank of baroda|bob|canara|union bank|yes bank|indusind|idfc|paytm|phonepe|gpay|google pay)\b/i },
-  { kind: "your name", test: /\b(mera naam|my name is|main\s+\w+\s+bol\s+rah[ai]\s+h[uo]+n|naam\s+\w+\s+hai)\b/i },
-  { kind: "agreed to pay / share", test: /\b(transfer kar (?:deta|deti|raha|rahi|doon|dun)|bhej (?:deta|deti|raha|rahi|doon|dun)|otp bata|pin bata|share kar (?:deta|deti|doon|dun)|i(?:'ll| will) (?:transfer|send|share|pay)|sending (?:it|now)|ok(?:ay)? (?:i(?:'ll| will) )?(?:send|transfer))\b/i },
-];
 
 function fmtClock(totalSec: number) {
   const m = Math.floor(totalSec / 60).toString().padStart(2, "0");
@@ -92,7 +70,7 @@ function loadBest(): BestScores {
   try { return JSON.parse(localStorage.getItem(BEST_KEY) ?? "{}") as BestScores; } catch { return {}; }
 }
 
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// -----------------------------------------------------------------------------
 
 export default function DojoPage() {
   const [phase, setPhase] = useState<Phase>("setup");
@@ -151,7 +129,7 @@ export default function DojoPage() {
     return () => clearInterval(t);
   }, [phase]);
 
-  // â”€â”€ Live Call Shield on the scammer's words â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // -- Live Call Shield on the scammer's words -------------------------------
   // Local keyword scoring is derived synchronously; the server (model) verdict
   // is merged in when it ranks at least as high. Same for the pressure ladder:
   // local inference is the floor, the agent's set_stage tool call is authoritative.
@@ -178,7 +156,7 @@ export default function DojoPage() {
     return () => clearInterval(id);
   }, [phase, callerText]);
 
-  // â”€â”€ Slip detector on the trainee's words â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // -- Slip detector on the trainee's words ---------------------------------
   const detectSlips = useCallback((text: string, at: number) => {
     const found: Slip[] = [];
     for (const rule of SLIP_RULES) {
@@ -191,7 +169,7 @@ export default function DojoPage() {
     if (found.length) setSlips((prev) => [...prev, ...found]);
   }, []);
 
-  // â”€â”€ Realtime plumbing â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // -- Realtime plumbing ----------------------------------------------------
   const send = useCallback((event: Record<string, unknown>) => {
     const dc = dcRef.current;
     if (dc && dc.readyState === "open") dc.send(JSON.stringify(event));
@@ -422,26 +400,26 @@ export default function DojoPage() {
   const immunity = DOJO_SCENARIOS.filter((s) => (best[s.slug] ?? 0) >= 80).length;
 
   const shareText = debrief
-    ? `Maine Raksha Dojo pe "${scenario.title}" scam call ka rehearsal kiya â€” score ${debrief.score}/100 (${debrief.grade}).\n\nYaad rakho: ${debrief.oneLiner}\n\nFamily tip: ${debrief.familyTip}\n\nAap bhi try karo: ${typeof window !== "undefined" ? window.location.origin : ""}/dojo`
+    ? `Maine Raksha Dojo pe "${scenario.title}" scam call ka rehearsal kiya — score ${debrief.score}/100 (${debrief.grade}).\n\nYaad rakho: ${debrief.oneLiner}\n\nFamily tip: ${debrief.familyTip}\n\nAap bhi try karo: ${typeof window !== "undefined" ? window.location.origin : ""}/dojo`
     : "";
 
-  // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ---------------------------------------------------------------------------
   return (
     <div className="min-h-[100dvh] bg-paper">
       <SiteHeader current="dojo" />
       <main id="main-content" className="public-shell py-8 sm:py-12">
 
-        {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• SETUP â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+        {/* = = = = = = = = = = = = = = = = = = =  SETUP = = = = = = = = = = = = = = = = = = =  */}
         {phase === "setup" && (
           <div className="mx-auto max-w-6xl">
-            <div className="grid gap-8 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end">
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_240px] lg:items-start">
               <div>
-                <p className="kicker flex items-center gap-2"><Swords size={14} aria-hidden="true" /> Raksha Dojo Â· Scam rehearsal</p>
-                <h1 className="display mt-3 text-[2.4rem] leading-[1.05] text-ink sm:text-[3.4rem]">
+                <p className="kicker flex items-center gap-2"><Swords size={14} aria-hidden="true" /> Raksha Dojo · Scam rehearsal</p>
+                <h1 className="mt-3 text-3xl font-bold tracking-[-.04em] text-ink sm:text-4xl">
                   Let a scammer call you <span className="text-service">before</span> a real one does.
                 </h1>
-                <p className="mt-4 max-w-2xl text-base leading-7 text-ink-soft sm:text-lg">
-                  An AI plays the caller â€” live, in Hindi, Hinglish or English â€” and applies the exact pressure a real fraud call centre uses.
+                <p className="mt-4 max-w-xl text-base leading-7 text-ink-soft">
+                  An AI plays the caller — live, in Hindi, Hinglish or English — and applies the exact pressure a real fraud call centre uses.
                   You talk back. Call Shield watches. When you hang up, you get a coach&apos;s scorecard and the one line you should have said.
                 </p>
                 <ul className="mt-5 grid gap-2 text-sm text-ink-soft sm:grid-cols-3">
@@ -450,23 +428,43 @@ export default function DojoPage() {
                   <li className="flex items-start gap-2"><Trophy size={16} className="mt-0.5 shrink-0 text-service" aria-hidden="true" /> A scorecard you can forward to family.</li>
                 </ul>
               </div>
-              <div className="panel bg-command p-5 text-[#fefcf8]">
-                <p className="mono-ref text-[11px] uppercase tracking-wider text-[rgba(254,252,248,.6)]">Your immunity</p>
-                <div className="mt-2 flex items-end justify-between gap-3">
-                  <p className="display text-4xl">{immunity}<span className="text-lg text-[rgba(254,252,248,.6)]">/{DOJO_SCENARIOS.length}</span></p>
-                  <p className="text-right text-xs leading-5 text-[rgba(254,252,248,.7)]">Score 80+ on a scenario to earn its shield. Stored only on this device.</p>
+              <div className="panel p-5">
+                <p className="mono-ref text-[11px] uppercase tracking-wider text-ink-faint">Your immunity</p>
+                <div className="mt-2 flex items-baseline gap-1.5">
+                  <p className="text-4xl font-bold tabular-nums text-ink">{immunity}</p>
+                  <p className="text-sm text-ink-soft">/ {DOJO_SCENARIOS.length} shielded</p>
                 </div>
-                <div className="mt-3 grid grid-cols-4 gap-1.5">
-                  {DOJO_SCENARIOS.map((s) => (
-                    <div key={s.slug} className={`h-2 rounded-full ${(best[s.slug] ?? 0) >= 80 ? "bg-[var(--saffron)]" : (best[s.slug] ?? 0) > 0 ? "bg-[rgba(255,119,34,.4)]" : "bg-[rgba(254,252,248,.15)]"}`} title={`${s.title}: ${best[s.slug] ?? "â€”"}`} />
-                  ))}
+                <div className="mt-4 space-y-3">
+                  {DOJO_SCENARIOS.map((s) => {
+                    const score = best[s.slug] ?? 0;
+                    const shielded = score >= 80;
+                    return (
+                      <div key={s.slug}>
+                        <div className="mb-1 flex items-center justify-between gap-2">
+                          <p className="truncate text-[11px] font-semibold text-ink-soft">{s.title}</p>
+                          {shielded
+                            ? <ShieldCheck size={12} className="shrink-0 text-success" aria-label="Shielded" />
+                            : score > 0
+                              ? <span className="mono-ref shrink-0 text-[10px] text-ink-faint">{score}</span>
+                              : null}
+                        </div>
+                        <div className="h-1.5 overflow-hidden rounded-full bg-line">
+                          <div
+                            className={`h-full rounded-full transition-all ${shielded ? "bg-success" : score > 0 ? "bg-service" : ""}`}
+                            style={{ width: score > 0 ? `${score}%` : "0%" }}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
+                <p className="mt-4 text-[10px] leading-4 text-ink-faint">Score 80+ to earn a shield. Stored only on this device.</p>
               </div>
             </div>
 
             {/* Scenario picker */}
             <section aria-labelledby="pick-scenario" className="mt-10">
-              <h2 id="pick-scenario" className="text-[11px] font-bold uppercase tracking-wider text-ink-faint">1 Â· Who is calling?</h2>
+              <h2 id="pick-scenario" className="text-[11px] font-bold uppercase tracking-wider text-ink-faint">1 · Who is calling?</h2>
               <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {DOJO_SCENARIOS.map((s) => {
                   const active = s.slug === scenario.slug;
@@ -480,8 +478,8 @@ export default function DojoPage() {
                         {(best[s.slug] ?? 0) >= 80 ? <ShieldCheck size={18} className="shrink-0 text-success" aria-label="Shielded" /> : best[s.slug] !== undefined ? <span className="mono-ref text-[11px] text-ink-faint">{best[s.slug]}</span> : null}
                       </div>
                       <p className="mt-1 text-[13px] italic leading-5 text-ink-soft">{s.tagline}</p>
-                      <p className="mt-3 text-xs leading-5 text-ink-faint"><span className="font-bold text-ink-soft">{s.callerName}</span> Â· {s.callerClaim}</p>
-                      <p className="mt-auto pt-3 text-[11px] text-ink-faint">For: {s.practiceFor.join(" Â· ")}</p>
+                      <p className="mt-3 text-xs leading-5 text-ink-faint"><span className="font-bold text-ink-soft">{s.callerName}</span> · {s.callerClaim}</p>
+                      <p className="mt-auto pt-3 text-[11px] text-ink-faint">For: {s.practiceFor.join(" · ")}</p>
                     </button>
                   );
                 })}
@@ -490,29 +488,29 @@ export default function DojoPage() {
 
             <div className="mt-8 grid gap-6 lg:grid-cols-3">
               <section>
-                <h2 className="text-[11px] font-bold uppercase tracking-wider text-ink-faint">2 Â· How hard?</h2>
+                <h2 className="text-[11px] font-bold uppercase tracking-wider text-ink-faint">2 · How hard?</h2>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {(["gentle", "realistic", "ruthless"] as DojoDifficulty[]).map((d) => (
                     <button key={d} type="button" aria-pressed={difficulty === d} onClick={() => setDifficulty(d)}
-                      className={`inline-flex min-h-11 items-center gap-1.5 rounded-full border px-4 text-sm font-bold capitalize transition-colors ${difficulty === d ? "border-service bg-service text-white" : "border-line bg-surface text-ink hover:border-line-strong"}`}>
+                      className={`inline-flex min-h-11 items-center gap-1.5 rounded-[8px] border px-4 text-sm font-bold capitalize transition-colors ${difficulty === d ? "border-command bg-command text-white" : "border-line bg-surface text-ink hover:border-line-strong"}`}>
                       {d === "ruthless" && <Flame size={14} aria-hidden="true" />}{d}
                     </button>
                   ))}
                 </div>
               </section>
               <section>
-                <h2 className="text-[11px] font-bold uppercase tracking-wider text-ink-faint">3 Â· Language</h2>
+                <h2 className="text-[11px] font-bold uppercase tracking-wider text-ink-faint">3 · Language</h2>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {(["hinglish", "hindi", "english"] as DojoLanguage[]).map((l) => (
                     <button key={l} type="button" aria-pressed={language === l} onClick={() => setLanguage(l)}
-                      className={`inline-flex min-h-11 items-center rounded-full border px-4 text-sm font-bold capitalize transition-colors ${language === l ? "border-service bg-service text-white" : "border-line bg-surface text-ink hover:border-line-strong"}`}>
-                      {l === "hindi" ? "à¤¹à¤¿à¤¨à¥à¤¦à¥€" : l}
+                      className={`inline-flex min-h-11 items-center rounded-[8px] border px-4 text-sm font-bold capitalize transition-colors ${language === l ? "border-command bg-command text-white" : "border-line bg-surface text-ink hover:border-line-strong"}`}>
+                      {l === "hindi" ? "हिन्दी" : l}
                     </button>
                   ))}
                 </div>
               </section>
               <section>
-                <h2 className="text-[11px] font-bold uppercase tracking-wider text-ink-faint">4 Â· Optional: your first name</h2>
+                <h2 className="text-[11px] font-bold uppercase tracking-wider text-ink-faint">4 · Optional: your first name</h2>
                 <input value={traineeName} onChange={(e) => setTraineeName(e.target.value.slice(0, 40))} placeholder="Real scammers already know it from leaks"
                   className="mt-3 min-h-11 w-full rounded-[10px] border border-line bg-paper px-3 text-sm text-ink placeholder:text-ink-faint focus:border-service" />
               </section>
@@ -522,7 +520,7 @@ export default function DojoPage() {
 
             <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
               <button type="button" onClick={startCall}
-                className="btn-night inline-flex min-h-14 items-center justify-center gap-2 rounded-full px-8 text-base font-bold text-white">
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[10px] bg-service px-6 text-sm font-bold text-white hover:bg-command">
                 <PhoneCall size={18} aria-hidden="true" /> Answer the call
               </button>
               <p className="text-xs leading-5 text-ink-faint">Uses your microphone. No mic? You can type replies. Nothing you say is stored on our servers; credentials are stripped before coaching.</p>
@@ -530,38 +528,43 @@ export default function DojoPage() {
           </div>
         )}
 
-        {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• CONNECTING â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+        {/* = = = = = = = = = = = = = = = = = = =  CONNECTING = = = = = = = = = = = = = = = = = = =  */}
         {phase === "connecting" && (
           <div className="mx-auto flex max-w-md flex-col items-center py-20 text-center">
             <div className="dojo-ring" aria-hidden="true"><PhoneCall size={30} /></div>
-            <p className="mono-ref mt-6 text-[11px] uppercase tracking-wider text-ink-faint">Incoming Â· simulation</p>
-            <p className="display mt-2 text-3xl text-ink">{scenario.callerName}</p>
+            <p className="mono-ref mt-6 text-[11px] uppercase tracking-wider text-ink-faint">Incoming · simulation</p>
+            <p className="mt-2 text-2xl font-bold tracking-[-.03em] text-ink">{scenario.callerName}</p>
             <p className="mt-1 text-sm text-ink-soft">{scenario.callerClaim}</p>
-            <p className="mt-6 text-sm text-ink-faint">Connecting the callerâ€¦ allow the microphone when asked.</p>
+            <p className="mt-6 text-sm text-ink-faint">Connecting the caller… allow the microphone when asked.</p>
             <button type="button" onClick={() => { teardown(); setPhase("setup"); }} className="mt-6 text-sm font-bold text-service hover:underline">Cancel</button>
           </div>
         )}
 
-        {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• LIVE CALL â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+        {/* = = = = = = = = = = = = = = = = = = =  LIVE CALL = = = = = = = = = = = = = = = = = = =  */}
         {(phase === "call" || phase === "ending") && (
           <div className="mx-auto max-w-6xl">
             {/* Caller bar */}
-            <div className={`panel flex flex-wrap items-center gap-4 p-4 ${isScam ? "border-danger/40 bg-danger-soft" : "bg-command text-[#fefcf8]"}`}>
-              <div className={`dojo-avatar ${scammerSpeaking ? "is-speaking" : ""}`} aria-hidden="true"><PhoneCall size={20} /></div>
-              <div className="min-w-0 flex-1">
-                <p className={`mono-ref text-[10px] uppercase tracking-wider ${isScam ? "text-danger" : "text-[rgba(254,252,248,.6)]"}`}>{phase === "ending" ? "Call ending" : "On call Â· SIMULATION"}</p>
-                <p className={`truncate text-lg font-bold ${isScam ? "text-ink" : ""}`}>{scenario.callerName} <span className={`text-sm font-normal ${isScam ? "text-ink-soft" : "text-[rgba(254,252,248,.6)]"}`}>Â· {scenario.callerClaim}</span></p>
+            <div className={`panel flex flex-wrap items-center gap-4 p-4 ${isScam ? "border-danger/40 bg-danger-soft" : phase === "ending" ? "border-warning/40 bg-warning-soft" : ""}`}>
+              <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] transition-all ${isScam ? "bg-danger/10 text-danger" : "bg-service/10 text-service"} ${scammerSpeaking ? "ring-2 ring-service/30" : ""}`} aria-hidden="true">
+                <PhoneCall size={20} />
               </div>
-              <p className={`mono-ref text-2xl tabular-nums ${isScam ? "text-ink" : ""}`}>{fmtClock(elapsed)}</p>
+              <div className="min-w-0 flex-1">
+                <div className="flex items-center gap-2">
+                  <span className={`inline-block h-2 w-2 rounded-full ${phase === "ending" ? "bg-warning" : isScam ? "bg-danger animate-pulse" : "bg-success animate-pulse"}`} aria-hidden="true" />
+                  <p className="mono-ref text-[10px] uppercase tracking-wider text-ink-faint">{phase === "ending" ? "Call ending" : "On call · simulation"}</p>
+                </div>
+                <p className="truncate text-lg font-bold text-ink">{scenario.callerName} <span className="text-sm font-normal text-ink-soft">· {scenario.callerClaim}</span></p>
+              </div>
+              <p className="mono-ref text-2xl tabular-nums text-ink">{fmtClock(elapsed)}</p>
               <div className="flex items-center gap-2">
                 {hasMic && (
                   <button type="button" onClick={toggleMic} aria-pressed={!micOn} aria-label={micOn ? "Mute microphone" : "Unmute microphone"}
-                    className={`inline-flex h-12 w-12 items-center justify-center rounded-full border ${isScam ? "border-line bg-surface text-ink" : "border-[rgba(254,252,248,.25)] text-[#fefcf8]"} ${youSpeaking && micOn ? "ring-2 ring-[var(--saffron)]" : ""}`}>
+                    className={`inline-flex h-12 w-12 items-center justify-center rounded-[10px] border border-line bg-surface text-ink transition-colors hover:border-line-strong ${youSpeaking && micOn ? "ring-2 ring-service/40" : ""} ${!micOn ? "bg-ink text-white" : ""}`}>
                     {micOn ? <Mic size={18} aria-hidden="true" /> : <MicOff size={18} aria-hidden="true" />}
                   </button>
                 )}
                 <button type="button" onClick={() => void hangUp("hung_up")} disabled={phase === "ending"}
-                  className="inline-flex min-h-12 items-center gap-2 rounded-full bg-danger px-5 text-sm font-bold text-white hover:brightness-110 disabled:opacity-60">
+                  className="inline-flex min-h-12 items-center gap-2 rounded-[10px] bg-danger px-5 text-sm font-bold text-white hover:brightness-110 disabled:opacity-60">
                   <PhoneOff size={16} aria-hidden="true" /> Cut the call
                 </button>
               </div>
@@ -571,11 +574,11 @@ export default function DojoPage() {
               {/* Transcript */}
               <section aria-label="Live transcript" className="panel flex min-h-[420px] flex-col p-5">
                 <div className="flex items-center justify-between">
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-ink-faint">Live call Â· you vs the caller</p>
+                  <p className="text-[11px] font-bold uppercase tracking-wider text-ink-faint">Live call · you vs the caller</p>
                   <p className="mono-ref text-[11px] text-ink-faint">{turns.filter((t) => t.role === "you").length} replies</p>
                 </div>
                 <div className="mt-3 max-h-[52vh] flex-1 space-y-2 overflow-y-auto pr-1">
-                  {turns.length === 0 && <p className="text-sm text-ink-faint">The caller is dialling inâ€¦</p>}
+                  {turns.length === 0 && <p className="text-sm text-ink-faint">The caller is dialling in…</p>}
                   {turns.filter((t) => t.text.trim()).map((t) => (
                     <div key={t.id} className={`flex ${t.role === "you" ? "justify-end" : "justify-start"}`}>
                       <p className={`max-w-[85%] text-sm leading-6 ${t.role === "you" ? "dojo-you-bubble" : "caller-bubble text-ink"}`}>
@@ -587,7 +590,7 @@ export default function DojoPage() {
                 </div>
                 {/* Text reply (always available; primary when there is no mic) */}
                 <form onSubmit={(e) => { e.preventDefault(); sendTyped(); }} className="mt-3 flex gap-2 border-t border-line pt-3">
-                  <input value={typed} onChange={(e) => setTyped(e.target.value)} placeholder={hasMic ? "Or type a replyâ€¦" : "No microphone â€” type what you would say"}
+                  <input value={typed} onChange={(e) => setTyped(e.target.value)} placeholder={hasMic ? "Or type a reply…" : "No microphone — type what you would say"}
                     className="min-h-11 flex-1 rounded-[10px] border border-line bg-paper px-3 text-sm text-ink placeholder:text-ink-faint focus:border-service" />
                   <button type="submit" aria-label="Send reply" className="inline-flex h-11 w-11 items-center justify-center rounded-[10px] bg-service text-white"><Send size={16} aria-hidden="true" /></button>
                 </form>
@@ -598,7 +601,7 @@ export default function DojoPage() {
                 <section aria-label="Manipulation stage" className="panel p-5">
                   <div className="flex items-center justify-between">
                     <p className="text-[11px] font-bold uppercase tracking-wider text-ink-faint">Pressure ladder</p>
-                    <p className="mono-ref flex items-center gap-1 text-[11px] text-ink-faint"><Gauge size={12} aria-hidden="true" /> {stage ? `${stage.pressure}/5` : "â€”"}</p>
+                    <p className="mono-ref flex items-center gap-1 text-[11px] text-ink-faint"><Gauge size={12} aria-hidden="true" /> {stage ? `${stage.pressure}/5` : "—"}</p>
                   </div>
                   <ol className="mt-3 grid grid-cols-5 gap-1.5">
                     {DOJO_STAGES.map((s, i) => (
@@ -609,17 +612,17 @@ export default function DojoPage() {
                     ))}
                   </ol>
                   <p className="mt-3 text-sm leading-6 text-ink-soft">
-                    {stage ? <><span className="font-bold text-ink">Tactic:</span> {stage.tactic || DOJO_STAGES[stageIdx]?.hint}</> : "Waiting for the caller to reveal a tacticâ€¦"}
+                    {stage ? <><span className="font-bold text-ink">Tactic:</span> {stage.tactic || DOJO_STAGES[stageIdx]?.hint}</> : "Waiting for the caller to reveal a tactic…"}
                   </p>
                 </section>
 
                 <section aria-label="Call Shield" className={`panel p-5 ${isScam ? "border-danger/40 bg-danger-soft" : assessment.verdict === "suspicious" ? "border-warning/50 bg-warning-soft" : ""}`}>
                   <div className="flex items-center gap-2">
                     {isScam ? <Siren size={16} className="text-danger" aria-hidden="true" /> : <ShieldAlert size={16} className="text-ink-faint" aria-hidden="true" />}
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-ink-faint">Call Shield Â· watching the caller</p>
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-ink-faint">Call Shield · watching the caller</p>
                   </div>
                   <p className={`mt-2 text-lg font-bold ${isScam ? "text-danger" : "text-ink"}`}>
-                    {isScam ? `Scam script: ${assessment.patternName}` : assessment.verdict === "suspicious" ? `Suspicious Â· ${assessment.patternName ?? "pattern forming"}` : "No known script yet"}
+                    {isScam ? `Scam script: ${assessment.patternName}` : assessment.verdict === "suspicious" ? `Suspicious · ${assessment.patternName ?? "pattern forming"}` : "No known script yet"}
                   </p>
                   {assessment.coach.sayThis && (
                     <p className="mt-2 text-sm leading-6 text-ink"><span className="font-bold">Say this:</span> &ldquo;{assessment.coach.sayThis}&rdquo;</p>
@@ -627,7 +630,7 @@ export default function DojoPage() {
                   {assessment.markers.length > 0 && (
                     <ul className="mt-3 space-y-1.5">
                       {assessment.markers.slice(0, 4).map((m, i) => (
-                        <li key={`${m.quote}-${i}`} className="text-[13px] leading-5 text-ink-soft"><span className="font-semibold text-ink">&ldquo;{m.quote}&rdquo;</span> â€” {m.why}</li>
+                        <li key={`${m.quote}-${i}`} className="text-[13px] leading-5 text-ink-soft"><span className="font-semibold text-ink">&ldquo;{m.quote}&rdquo;</span> — {m.why}</li>
                       ))}
                     </ul>
                   )}
@@ -636,13 +639,13 @@ export default function DojoPage() {
                 <section aria-label="What you gave away" aria-live="polite" className={`panel p-5 ${slips.length ? "border-danger bg-danger-soft dojo-slip-flash" : ""}`}>
                   <div className="flex items-center gap-2">
                     <Zap size={16} className={slips.length ? "text-danger" : "text-ink-faint"} aria-hidden="true" />
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-ink-faint">Slip detector Â· your words</p>
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-ink-faint">Slip detector · your words</p>
                   </div>
                   {slips.length === 0
                     ? <p className="mt-2 text-sm text-ink-soft">Nothing sensitive shared. Keep it that way.</p>
                     : <ul className="mt-2 flex flex-wrap gap-2">
                         {slips.map((s, i) => (
-                          <li key={`${s.kind}-${i}`} className="rounded-full border border-danger/40 bg-paper px-3 py-1 text-xs font-bold text-danger">{s.kind} Â· {fmtClock(s.at)}</li>
+                          <li key={`${s.kind}-${i}`} className="rounded-[6px] border border-danger/40 bg-danger-soft px-3 py-1 text-xs font-bold text-danger">{s.kind} · {fmtClock(s.at)}</li>
                         ))}
                       </ul>}
                 </section>
@@ -652,14 +655,14 @@ export default function DojoPage() {
           </div>
         )}
 
-        {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• DEBRIEF â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+        {/* = = = = = = = = = = = = = = = = = = =  DEBRIEF = = = = = = = = = = = = = = = = = = =  */}
         {phase === "debrief" && (
           <div className="mx-auto max-w-5xl">
-            <p className="kicker flex items-center gap-2"><Sparkles size={14} aria-hidden="true" /> Debrief Â· {scenario.title} Â· {difficulty}</p>
+            <p className="kicker flex items-center gap-2"><Sparkles size={14} aria-hidden="true" /> Debrief · {scenario.title} · {difficulty}</p>
             {debriefPending && (
               <div className="panel mt-4 p-8 text-center">
                 <div className="dojo-ring mx-auto" aria-hidden="true"><Sparkles size={26} /></div>
-                <p className="mt-4 text-sm text-ink-soft">Your coach is replaying the callâ€¦</p>
+                <p className="mt-4 text-sm text-ink-soft">Your coach is replaying the call…</p>
               </div>
             )}
             {!debriefPending && debrief && (
@@ -670,20 +673,20 @@ export default function DojoPage() {
                       <span className="display text-5xl text-ink">{debrief.score}</span>
                     </div>
                     <p className={`mt-3 text-xl font-bold ${debrief.grade === "Shielded" ? "text-success" : debrief.grade === "Exposed" ? "text-danger" : "text-ink"}`}>{debrief.grade}</p>
-                    <p className="mt-1 text-xs text-ink-faint">Outcome: {outcome.replace("_", " ")} Â· {fmtClock(elapsed)}</p>
+                    <p className="mt-1 text-xs text-ink-faint">Outcome: {outcome.replace("_", " ")} · {fmtClock(elapsed)}</p>
                     {(best[scenario.slug] ?? 0) === debrief.score && <p className="mono-ref mt-2 text-[11px] uppercase tracking-wider text-service">Personal best</p>}
                   </section>
                   <section className="panel p-6">
-                    <h1 className="display text-[1.8rem] leading-tight text-ink sm:text-[2.2rem]">{debrief.headline}</h1>
+                    <h1 className="mt-1 text-2xl font-bold tracking-[-.03em] text-ink sm:text-3xl">{debrief.headline}</h1>
                     <p className="mt-3 text-sm leading-7 text-ink-soft">{debrief.summary}</p>
                     <div className="mt-5 grid gap-4 sm:grid-cols-2">
                       <div>
                         <p className="text-[11px] font-bold uppercase tracking-wider text-success">What you did right</p>
-                        <ul className="mt-2 space-y-1.5">{debrief.wins.length ? debrief.wins.map((w) => <li key={w} className="flex gap-2 text-[13px] leading-5 text-ink"><span className="text-success" aria-hidden="true">âœ“</span>{w}</li>) : <li className="text-[13px] text-ink-faint">Nothing yet â€” try again.</li>}</ul>
+                        <ul className="mt-2 space-y-1.5">{debrief.wins.length ? debrief.wins.map((w) => <li key={w} className="flex gap-2 text-[13px] leading-5 text-ink"><span className="text-success" aria-hidden="true">✓</span>{w}</li>) : <li className="text-[13px] text-ink-faint">Nothing yet — try again.</li>}</ul>
                       </div>
                       <div>
                         <p className="text-[11px] font-bold uppercase tracking-wider text-danger">Where it could have gone wrong</p>
-                        <ul className="mt-2 space-y-1.5">{debrief.risks.map((r) => <li key={r} className="flex gap-2 text-[13px] leading-5 text-ink"><span className="text-danger" aria-hidden="true">â€¢</span>{r}</li>)}</ul>
+                        <ul className="mt-2 space-y-1.5">{debrief.risks.map((r) => <li key={r} className="flex gap-2 text-[13px] leading-5 text-ink"><span className="text-danger" aria-hidden="true">•</span>{r}</li>)}</ul>
                       </div>
                     </div>
                   </section>
@@ -691,7 +694,7 @@ export default function DojoPage() {
 
                 {debrief.moments.length > 0 && (
                   <section className="mt-5">
-                    <h2 className="text-[11px] font-bold uppercase tracking-wider text-ink-faint">Turning points Â· what to say instead</h2>
+                    <h2 className="text-[11px] font-bold uppercase tracking-wider text-ink-faint">Turning points · what to say instead</h2>
                     <div className="mt-3 grid gap-3 md:grid-cols-2">
                       {debrief.moments.map((m, i) => (
                         <article key={i} className="panel p-5">
@@ -711,10 +714,10 @@ export default function DojoPage() {
                   <p className="mt-4 text-sm leading-6 text-ink-soft"><span className="font-bold text-ink">Family tip:</span> {debrief.familyTip}</p>
                   <div className="mt-5 flex flex-wrap gap-2">
                     <a href={`https://wa.me/?text=${encodeURIComponent(shareText)}`} target="_blank" rel="noopener noreferrer"
-                      className="inline-flex min-h-12 items-center gap-2 rounded-full bg-success px-5 text-sm font-bold text-white hover:brightness-110">
+                      className="inline-flex min-h-12 items-center gap-2 rounded-[10px] bg-success px-5 text-sm font-bold text-white hover:brightness-110">
                       <Share2 size={16} aria-hidden="true" /> Send to family on WhatsApp
                     </a>
-                    <button type="button" onClick={() => navigator.clipboard?.writeText(shareText)} className="inline-flex min-h-12 items-center rounded-full border border-line bg-surface px-5 text-sm font-bold text-ink hover:border-line-strong">Copy</button>
+                    <button type="button" onClick={() => navigator.clipboard?.writeText(shareText)} className="inline-flex min-h-12 items-center rounded-[10px] border border-line bg-surface px-5 text-sm font-bold text-ink hover:border-line-strong">Copy</button>
                   </div>
                 </section>
               </>
@@ -723,7 +726,7 @@ export default function DojoPage() {
 
             {/* Transcript replay */}
             <details className="panel mt-5 p-5">
-              <summary className="cursor-pointer text-sm font-bold text-ink">Replay the transcript ({turns.length} lines{slips.length ? ` Â· ${slips.length} slip${slips.length === 1 ? "" : "s"}` : ""})</summary>
+              <summary className="cursor-pointer text-sm font-bold text-ink">Replay the transcript ({turns.length} lines{slips.length ? ` · ${slips.length} slip${slips.length === 1 ? "" : "s"}` : ""})</summary>
               <div className="mt-3 space-y-2">
                 {turns.filter((t) => t.text.trim()).map((t) => (
                   <div key={t.id} className={`flex ${t.role === "you" ? "justify-end" : "justify-start"}`}>
@@ -735,11 +738,11 @@ export default function DojoPage() {
 
             <div className="mt-6 flex flex-wrap gap-3">
               <button type="button" onClick={() => { if (difficulty !== "ruthless") setDifficulty(difficulty === "gentle" ? "realistic" : "ruthless"); void startCall(); }}
-                className="btn-night inline-flex min-h-12 items-center gap-2 rounded-full px-6 text-sm font-bold text-white">
-                <RotateCcw size={16} aria-hidden="true" /> Rehearse again{difficulty !== "ruthless" ? " â€” harder" : ""}
+                className="inline-flex min-h-12 items-center gap-2 rounded-[10px] bg-service px-6 text-sm font-bold text-white hover:bg-command">
+                <RotateCcw size={16} aria-hidden="true" /> Rehearse again{difficulty !== "ruthless" ? " — harder" : ""}
               </button>
-              <button type="button" onClick={() => setPhase("setup")} className="inline-flex min-h-12 items-center gap-2 rounded-full border border-line bg-surface px-6 text-sm font-bold text-ink hover:border-line-strong">Try another scam</button>
-              <Link href="/shield" className="inline-flex min-h-12 items-center gap-2 rounded-full border border-line bg-surface px-6 text-sm font-bold text-ink hover:border-line-strong">
+              <button type="button" onClick={() => setPhase("setup")} className="inline-flex min-h-12 items-center gap-2 rounded-[10px] border border-line bg-surface px-6 text-sm font-bold text-ink hover:border-line-strong">Try another scam</button>
+              <Link href="/shield" className="inline-flex min-h-12 items-center gap-2 rounded-[10px] border border-line bg-surface px-6 text-sm font-bold text-ink hover:border-line-strong">
                 Turn on Call Shield for a real call <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
